@@ -209,26 +209,42 @@ button, [role="button"] { -webkit-tap-highlight-color: transparent; }
 .tree-panel { position: relative; min-height: calc(100vh - 100px); padding: clamp(22px, 3vw, 42px); background: var(--paper); border: 1px solid #d1d2c6; border-radius: 8px 28px 8px 28px; }
 .tree-heading { display: flex; align-items: end; justify-content: space-between; gap: 20px; }
 .tree-heading h1 { margin: 0; font-family: "Gowun Batang", serif; font-size: clamp(2rem, 4vw, 3.4rem); }
-.tree-canvas { min-height: 560px; display: grid; align-items: center; padding: 30px 10px; overflow: auto; }
+.tree-canvas {
+  position: relative;
+  min-height: 560px;
+  overflow: hidden;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+}
+.tree-canvas.is-panning { cursor: grabbing; }
 
 .phylo-tree, .phylo-tree ul { position: relative; list-style: none; margin: 0; padding: 0; }
 .phylo-tree { min-width: 720px; text-align: center; }
-.tree-stage { display: grid; width: 100%; min-width: 720px; align-items: start; }
-.tree-stage > * { grid-area: 1 / 1; }
-.preview-slot { z-index: 2; pointer-events: none; }
-.base-tree { transition: opacity 140ms ease; }
-.base-tree.is-previewing { opacity: .12; }
-.preview-tree { pointer-events: none; }
+.tree-camera {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: max-content;
+  transform: translate(calc(-50% + var(--pan-x, 0px)), calc(-50% + var(--pan-y, 0px)));
+  will-change: transform;
+}
 .phylo-tree ul { display: flex; justify-content: center; padding-top: 48px; }
 .phylo-tree ul::before { content: ""; position: absolute; top: 0; left: 50%; height: 48px; border-left: 2px solid var(--forest-2); }
 .phylo-tree li { position: relative; flex: 1; padding: 48px 10px 0; text-align: center; }
 .phylo-tree li::before, .phylo-tree li::after { content: ""; position: absolute; top: 0; width: 50%; height: 48px; border-top: 2px solid var(--forest-2); }
 .phylo-tree li::before { right: 50%; }
 .phylo-tree li::after { left: 50%; border-left: 2px solid var(--forest-2); }
-.phylo-tree li:only-child::before, .phylo-tree li:only-child::after { display: none; }
 .phylo-tree li:first-child::before, .phylo-tree li:last-child::after { border: 0; }
 .phylo-tree li:last-child::before { border-right: 2px solid var(--forest-2); border-radius: 0 8px 0 0; }
 .phylo-tree li:first-child::after { border-radius: 8px 0 0; }
+.phylo-tree li:only-child::before { display: none; }
+.phylo-tree li:only-child::after {
+  left: 50%;
+  width: 0;
+  border-top: 0;
+  border-left: 2px solid var(--forest-2);
+}
 .tree-root { display: inline-block; padding: 7px 12px; color: #fff; background: var(--forest); border: 0; border-radius: 999px; font-size: .75rem; font-weight: 700; cursor: pointer; }
 .tree-root:hover, .tree-root.is-drop-target { color: var(--ink); background: var(--yellow); }
 .clade-node {
@@ -268,10 +284,67 @@ button, [role="button"] { -webkit-tap-highlight-color: transparent; }
 .species-node.is-preview { position: relative; color: #705b13; background: rgba(255, 247, 215, .76); border: 2px dashed #b99822; box-shadow: 0 0 0 7px rgba(244, 215, 101, .16); }
 .preview-tag { position: absolute; top: -23px; left: 50%; transform: translateX(-50%); padding: 3px 7px; color: var(--paper); background: var(--coral); border-radius: 999px; font-size: .58rem; white-space: nowrap; }
 .preview-branches li::before, .preview-branches li::after { border-color: #c6a528; border-style: dashed; }
-.answer-preview .clade-node.is-preview { background: #8bd2a8; border-color: #1f7c4a; animation: none; }
-.answer-preview .species-node.is-preview { color: #155d38; background: #e2f5e9; border-color: #1f7c4a; box-shadow: 0 0 0 7px rgba(65, 163, 105, .15); }
-.answer-preview .preview-tag { background: #1f7c4a; }
-.answer-preview .preview-branches li::before, .answer-preview .preview-branches li::after { border-color: #1f7c4a; }
+.answer-tree .clade-node.is-preview { background: #8bd2a8; border-color: #1f7c4a; animation: none; }
+.answer-tree .species-node.is-preview { color: #155d38; background: #e2f5e9; border-color: #1f7c4a; box-shadow: 0 0 0 7px rgba(65, 163, 105, .15); }
+.answer-tree .preview-tag { background: #1f7c4a; }
+.answer-tree .preview-branches li::before, .answer-tree .preview-branches li::after { border-color: #1f7c4a; }
+.placement-preview {
+  position: absolute;
+  z-index: 5;
+  width: 150px;
+  height: 98px;
+  pointer-events: none;
+  transform: translate(14px, -49px);
+}
+.placement-preview::before {
+  content: "";
+  position: absolute;
+  left: -14px;
+  top: 49px;
+  width: 56px;
+  height: 34px;
+  border-top: 2px dashed #b99822;
+  border-right: 2px dashed #b99822;
+  border-radius: 0 9px 0 0;
+}
+.ghost-junction {
+  position: absolute;
+  left: 32px;
+  top: 40px;
+  width: 18px;
+  height: 18px;
+  background: var(--yellow);
+  border: 3px solid #b99822;
+  border-radius: 50%;
+}
+.ghost-card {
+  position: absolute;
+  left: 57px;
+  top: 25px;
+  display: grid;
+  min-width: 88px;
+  min-height: 48px;
+  place-items: center;
+  padding: 8px 12px;
+  color: #705b13;
+  background: rgba(255, 247, 215, .96);
+  border: 2px dashed #b99822;
+  border-radius: 6px;
+  font-weight: 800;
+  box-shadow: 0 0 0 6px rgba(244, 215, 101, .16);
+}
+.ghost-tag {
+  position: absolute;
+  left: 99px;
+  top: 2px;
+  transform: translateX(-50%);
+  padding: 3px 7px;
+  color: var(--paper);
+  background: var(--coral);
+  border-radius: 999px;
+  font-size: .58rem;
+  white-space: nowrap;
+}
 @keyframes reveal-node { from { opacity: 0; transform: translateY(-12px) scale(.9); } }
 @keyframes preview-pulse { from { opacity: .72; } to { opacity: 1; } }
 

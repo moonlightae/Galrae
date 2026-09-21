@@ -42,6 +42,13 @@ const state = {
   newest: null,
   previewTarget: null,
   failed: false,
+  panX: 0,
+  panY: 0,
+  panning: false,
+  panStartX: 0,
+  panStartY: 0,
+  panOriginX: 0,
+  panOriginY: 0,
 };
 
 function getCollection() {
@@ -92,37 +99,44 @@ function renderNode(node) {
   return `<button class="clade-node" type="button" data-target="${node.id}" aria-label="이름 없는 분기점에 배치" onclick="chooseTarget('${node.id}')"></button><ul>${children}</ul>`;
 }
 
-function renderTree() {
-  const rootTarget = state.tree.id;
-  treeCanvas.innerHTML = `<div class="tree-stage"><div class="phylo-tree base-tree"><button class="tree-root" type="button" data-target="${rootTarget}" aria-label="현재 계통수 전체보다 바깥에 배치" onclick="chooseTarget('${rootTarget}')">동물계 공통 조상</button><ul><li>${renderNode(state.tree)}</li></ul></div><div class="preview-slot" aria-hidden="true"></div></div>`;
+function renderTree(displayTree = state.tree, answer = false) {
+  const rootTarget = displayTree.id;
+  treeCanvas.innerHTML = `<div class="tree-camera"><div class="phylo-tree base-tree${answer ? " answer-tree" : ""}"><button class="tree-root" type="button" data-target="${rootTarget}" aria-label="현재 계통수 전체보다 바깥에 배치" onclick="chooseTarget('${rootTarget}')">동물계 공통 조상</button><ul><li>${renderNode(displayTree)}</li></ul></div></div><div class="placement-preview" aria-hidden="true" hidden></div>`;
+  updateCamera();
 }
 
 function chooseTarget(targetId) {
   if (!state.failed && state.selected) placeCard(targetId);
 }
 
-function renderPreview(targetId, answer = false) {
+function renderPreview(targetId, targetElement) {
   const round = ROUNDS[state.round];
   if (!round) return;
-  const displayTree = insertAt(state.tree, targetId, round.id, round.clade, true);
-  const previewSlot = treeCanvas.querySelector(".preview-slot");
-  const baseTree = treeCanvas.querySelector(".base-tree");
-  if (!previewSlot || !baseTree) return;
-  previewSlot.innerHTML = `<div class="phylo-tree preview-tree${answer ? " answer-preview" : ""}"><span class="tree-root">동물계 공통 조상</span><ul><li>${renderNode(displayTree)}</li></ul></div>`;
-  baseTree.classList.add("is-previewing");
-  baseTree.querySelectorAll(`[data-target="${targetId}"]`).forEach((node) => node.classList.add("is-drop-target"));
+  const preview = treeCanvas.querySelector(".placement-preview");
+  if (!preview || !targetElement) return;
+  treeCanvas.querySelectorAll(".is-drop-target").forEach((node) => node.classList.remove("is-drop-target"));
+  targetElement.classList.add("is-drop-target");
+
+  const canvasRect = treeCanvas.getBoundingClientRect();
+  const targetRect = targetElement.getBoundingClientRect();
+  preview.innerHTML = `<span class="ghost-tag">미리보기</span><span class="ghost-junction"></span><span class="ghost-card">${SPECIES[round.id].name}</span>`;
+  preview.style.left = `${targetRect.left - canvasRect.left + targetRect.width / 2}px`;
+  preview.style.top = `${targetRect.top - canvasRect.top + targetRect.height / 2}px`;
+  preview.hidden = false;
 }
 
 function clearPreview() {
-  if (!state.previewTarget) return;
   state.previewTarget = null;
-  const previewSlot = treeCanvas.querySelector(".preview-slot");
-  const baseTree = treeCanvas.querySelector(".base-tree");
-  if (previewSlot) previewSlot.innerHTML = "";
-  if (baseTree) {
-    baseTree.classList.remove("is-previewing");
-    baseTree.querySelectorAll(".is-drop-target").forEach((node) => node.classList.remove("is-drop-target"));
-  }
+  const preview = treeCanvas.querySelector(".placement-preview");
+  if (preview) preview.hidden = true;
+  treeCanvas.querySelectorAll(".is-drop-target").forEach((node) => node.classList.remove("is-drop-target"));
+}
+
+function updateCamera() {
+  const camera = treeCanvas.querySelector(".tree-camera");
+  if (!camera) return;
+  camera.style.setProperty("--pan-x", `${state.panX}px`);
+  camera.style.setProperty("--pan-y", `${state.panY}px`);
 }
 
 function setCard(speciesId) {
@@ -162,11 +176,12 @@ function placeCard(targetId) {
 function failRound(round) {
   state.failed = true;
   state.selected = false;
-  state.previewTarget = round.target;
+  state.previewTarget = null;
   card.classList.remove("is-selected", "is-dragging");
   card.classList.add("is-locked");
   card.setAttribute("draggable", "false");
-  renderPreview(round.target, true);
+  const answerTree = insertAt(state.tree, round.target, round.id, round.clade, true);
+  renderTree(answerTree, true);
   $("#failure-panel").hidden = false;
   $("#retry-game").focus();
 }
@@ -197,6 +212,9 @@ function startGame() {
   state.newest = null;
   state.previewTarget = null;
   state.failed = false;
+  state.panX = 0;
+  state.panY = 0;
+  state.panning = false;
   card.classList.remove("is-selected", "is-dragging", "is-locked");
   card.setAttribute("draggable", "true");
   lobby.hidden = true;
@@ -255,7 +273,7 @@ treeCanvas.addEventListener("dragover", (event) => {
   const targetId = target.dataset.target;
   if (state.previewTarget !== targetId) {
     state.previewTarget = targetId;
-    renderPreview(targetId);
+    renderPreview(targetId, target);
   }
 });
 
@@ -273,5 +291,33 @@ treeCanvas.addEventListener("drop", (event) => {
   const targetId = state.previewTarget;
   placeCard(targetId);
 });
+
+treeCanvas.addEventListener("pointerdown", (event) => {
+  if (event.button !== 0 || event.target.closest("[data-target]")) return;
+  state.panning = true;
+  state.panStartX = event.clientX;
+  state.panStartY = event.clientY;
+  state.panOriginX = state.panX;
+  state.panOriginY = state.panY;
+  treeCanvas.classList.add("is-panning");
+  treeCanvas.setPointerCapture(event.pointerId);
+});
+
+treeCanvas.addEventListener("pointermove", (event) => {
+  if (!state.panning) return;
+  state.panX = state.panOriginX + event.clientX - state.panStartX;
+  state.panY = state.panOriginY + event.clientY - state.panStartY;
+  updateCamera();
+});
+
+function stopPanning(event) {
+  if (!state.panning) return;
+  state.panning = false;
+  treeCanvas.classList.remove("is-panning");
+  if (treeCanvas.hasPointerCapture(event.pointerId)) treeCanvas.releasePointerCapture(event.pointerId);
+}
+
+treeCanvas.addEventListener("pointerup", stopPanning);
+treeCanvas.addEventListener("pointercancel", stopPanning);
 
 renderCollection();
