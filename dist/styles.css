@@ -206,7 +206,7 @@ button, [role="button"] { -webkit-tap-highlight-color: transparent; }
 .game-progress { display: flex; gap: 18px; color: var(--muted); font-size: .86rem; }
 .game-progress span + span { padding-left: 18px; border-left: 1px solid var(--line); color: var(--forest); font-weight: 700; }
 .game-layout { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 24px; max-width: 1500px; margin: auto; }
-.tree-panel { min-height: calc(100vh - 100px); padding: clamp(22px, 3vw, 42px); background: var(--paper); border: 1px solid #d1d2c6; border-radius: 8px 28px 8px 28px; }
+.tree-panel { position: relative; min-height: calc(100vh - 100px); padding: clamp(22px, 3vw, 42px); background: var(--paper); border: 1px solid #d1d2c6; border-radius: 8px 28px 8px 28px; }
 .tree-heading { display: flex; align-items: end; justify-content: space-between; gap: 20px; }
 .tree-heading h1 { margin: 0; font-family: "Gowun Batang", serif; font-size: clamp(2rem, 4vw, 3.4rem); }
 .tree-canvas { min-height: 560px; display: grid; align-items: center; padding: 30px 10px; overflow: auto; }
@@ -220,7 +220,7 @@ button, [role="button"] { -webkit-tap-highlight-color: transparent; }
 .base-tree.is-previewing { opacity: .12; }
 .preview-tree { pointer-events: none; }
 .phylo-tree ul { display: flex; justify-content: center; padding-top: 48px; }
-.phylo-tree > ul::before { content: ""; position: absolute; top: 0; left: 50%; height: 48px; border-left: 2px solid var(--forest-2); }
+.phylo-tree ul::before { content: ""; position: absolute; top: 0; left: 50%; height: 48px; border-left: 2px solid var(--forest-2); }
 .phylo-tree li { position: relative; flex: 1; padding: 48px 10px 0; text-align: center; }
 .phylo-tree li::before, .phylo-tree li::after { content: ""; position: absolute; top: 0; width: 50%; height: 48px; border-top: 2px solid var(--forest-2); }
 .phylo-tree li::before { right: 50%; }
@@ -268,6 +268,10 @@ button, [role="button"] { -webkit-tap-highlight-color: transparent; }
 .species-node.is-preview { position: relative; color: #705b13; background: rgba(255, 247, 215, .76); border: 2px dashed #b99822; box-shadow: 0 0 0 7px rgba(244, 215, 101, .16); }
 .preview-tag { position: absolute; top: -23px; left: 50%; transform: translateX(-50%); padding: 3px 7px; color: var(--paper); background: var(--coral); border-radius: 999px; font-size: .58rem; white-space: nowrap; }
 .preview-branches li::before, .preview-branches li::after { border-color: #c6a528; border-style: dashed; }
+.answer-preview .clade-node.is-preview { background: #8bd2a8; border-color: #1f7c4a; animation: none; }
+.answer-preview .species-node.is-preview { color: #155d38; background: #e2f5e9; border-color: #1f7c4a; box-shadow: 0 0 0 7px rgba(65, 163, 105, .15); }
+.answer-preview .preview-tag { background: #1f7c4a; }
+.answer-preview .preview-branches li::before, .answer-preview .preview-branches li::after { border-color: #1f7c4a; }
 @keyframes reveal-node { from { opacity: 0; transform: translateY(-12px) scale(.9); } }
 @keyframes preview-pulse { from { opacity: .72; } to { opacity: 1; } }
 
@@ -278,6 +282,7 @@ button, [role="button"] { -webkit-tap-highlight-color: transparent; }
 .animal-card.is-draggable { cursor: grab; }
 .animal-card.is-selected { outline: 4px solid var(--yellow); outline-offset: 5px; }
 .animal-card.is-dragging { opacity: .55; transform: rotate(2deg); }
+.animal-card.is-locked { opacity: .5; cursor: not-allowed; filter: grayscale(.3); }
 .card-topline, .card-footer { display: flex; justify-content: space-between; font-size: .62rem; font-weight: 800; letter-spacing: .06em; }
 .card-topline { padding: 2px 3px 8px; }
 .card-blank { height: 50%; display: grid; place-items: center; color: #d5d6ce; background: #fafaf6; border: 1px solid var(--ink); }
@@ -288,6 +293,29 @@ button, [role="button"] { -webkit-tap-highlight-color: transparent; }
 .card-body > p:last-child { margin: 0; color: var(--muted); font-size: .72rem; line-height: 1.45; }
 .card-footer { padding: 7px 4px 2px; border-top: 1px solid var(--line); }
 .drag-help { max-width: 260px; margin: 24px 0 0; color: #b9cec4; font-size: .78rem; line-height: 1.55; text-align: center; }
+
+.failure-panel {
+  position: sticky;
+  left: 18px;
+  right: 18px;
+  bottom: 18px;
+  z-index: 8;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin: 0 auto;
+  padding: 18px 20px;
+  color: #fff;
+  background: #5b2420;
+  border: 1px solid #351310;
+  border-radius: 8px;
+  box-shadow: 8px 9px 0 rgba(22, 34, 29, .18);
+}
+.failure-panel .eyebrow { margin-bottom: 5px; color: #ffac94; }
+.failure-panel strong { font-family: "Gowun Batang", serif; font-size: 1.35rem; }
+.failure-panel p:last-child { margin: 5px 0 0; color: #f1d7d2; font-size: .82rem; }
+.failure-panel .primary-button { width: auto; min-width: 185px; flex: 0 0 auto; }
 
 .modal-backdrop { position: fixed; inset: 0; z-index: 20; display: grid; place-items: center; padding: 20px; background: rgba(9, 27, 21, .72); backdrop-filter: blur(7px); }
 .result-modal { width: min(440px, 100%); padding: 42px; background: var(--paper); border: 1px solid var(--ink); border-radius: 8px 30px 8px 30px; box-shadow: 12px 14px 0 rgba(0,0,0,.28); text-align: center; }
@@ -321,6 +349,8 @@ button, [role="button"] { -webkit-tap-highlight-color: transparent; }
   .tree-panel { padding-inline: 16px; }
   .tree-canvas { min-height: 480px; }
   .result-modal { padding: 34px 24px; }
+  .failure-panel { align-items: stretch; flex-direction: column; }
+  .failure-panel .primary-button { width: 100%; }
 }
 
 @media (prefers-reduced-motion: reduce) {

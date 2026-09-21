@@ -41,6 +41,7 @@ const state = {
   classified: ["human"],
   newest: null,
   previewTarget: null,
+  failed: false,
 };
 
 function getCollection() {
@@ -80,7 +81,7 @@ function renderNode(node) {
   if (node.type === "leaf") {
     const fresh = state.newest === node.id ? " is-new" : "";
     const preview = node.preview ? " is-preview" : "";
-    const badge = node.preview ? '<span class="preview-tag">미리보기</span>' : "";
+    const badge = node.preview ? `<span class="preview-tag">${state.failed ? "정답 위치" : "미리보기"}</span>` : "";
     const action = node.preview ? "" : ` onclick="chooseTarget('${node.id}')"`;
     return `<button class="species-node${fresh}${preview}" type="button" data-target="${node.id}" aria-label="${SPECIES[node.id].name}에 배치"${action}>${SPECIES[node.id].name}${badge}</button>`;
   }
@@ -97,17 +98,17 @@ function renderTree() {
 }
 
 function chooseTarget(targetId) {
-  if (state.selected) placeCard(targetId);
+  if (!state.failed && state.selected) placeCard(targetId);
 }
 
-function renderPreview(targetId) {
+function renderPreview(targetId, answer = false) {
   const round = ROUNDS[state.round];
   if (!round) return;
   const displayTree = insertAt(state.tree, targetId, round.id, round.clade, true);
   const previewSlot = treeCanvas.querySelector(".preview-slot");
   const baseTree = treeCanvas.querySelector(".base-tree");
   if (!previewSlot || !baseTree) return;
-  previewSlot.innerHTML = `<div class="phylo-tree preview-tree"><span class="tree-root">동물계 공통 조상</span><ul><li>${renderNode(displayTree)}</li></ul></div>`;
+  previewSlot.innerHTML = `<div class="phylo-tree preview-tree${answer ? " answer-preview" : ""}"><span class="tree-root">동물계 공통 조상</span><ul><li>${renderNode(displayTree)}</li></ul></div>`;
   baseTree.classList.add("is-previewing");
   baseTree.querySelectorAll(`[data-target="${targetId}"]`).forEach((node) => node.classList.add("is-drop-target"));
 }
@@ -141,10 +142,10 @@ function showToast(message) {
 
 function placeCard(targetId) {
   const round = ROUNDS[state.round];
-  if (!round) return;
+  if (!round || state.failed) return;
   clearPreview();
   if (targetId !== round.target) {
-    showToast("틀렸습니다. 다른 위치를 선택하세요.");
+    failRound(round);
     return;
   }
   state.tree = insertAt(state.tree, round.target, round.id, round.clade, false);
@@ -156,6 +157,18 @@ function placeCard(targetId) {
   card.classList.remove("is-selected");
   renderTree();
   updateRound();
+}
+
+function failRound(round) {
+  state.failed = true;
+  state.selected = false;
+  state.previewTarget = round.target;
+  card.classList.remove("is-selected", "is-dragging");
+  card.classList.add("is-locked");
+  card.setAttribute("draggable", "false");
+  renderPreview(round.target, true);
+  $("#failure-panel").hidden = false;
+  $("#retry-game").focus();
 }
 
 function updateRound() {
@@ -183,9 +196,13 @@ function startGame() {
   state.classified = ["human"];
   state.newest = null;
   state.previewTarget = null;
+  state.failed = false;
+  card.classList.remove("is-selected", "is-dragging", "is-locked");
+  card.setAttribute("draggable", "true");
   lobby.hidden = true;
   game.hidden = false;
   $("#result-modal").hidden = true;
+  $("#failure-panel").hidden = true;
   renderTree();
   updateRound();
   window.scrollTo(0, 0);
@@ -200,14 +217,19 @@ function returnToLobby() {
 }
 
 card.addEventListener("dragstart", (event) => {
+  if (state.failed) {
+    event.preventDefault();
+    return;
+  }
   event.dataTransfer.setData("text/plain", "species-card");
   card.classList.add("is-dragging");
 });
 card.addEventListener("dragend", () => {
   card.classList.remove("is-dragging");
-  clearPreview();
+  if (!state.failed) clearPreview();
 });
 card.addEventListener("click", () => {
+  if (state.failed) return;
   state.selected = !state.selected;
   card.classList.toggle("is-selected", state.selected);
 });
@@ -220,10 +242,15 @@ card.addEventListener("keydown", (event) => {
 $("#start-game").addEventListener("click", startGame);
 $("#quit-game").addEventListener("click", returnToLobby);
 $("#return-lobby").addEventListener("click", returnToLobby);
+$("#retry-game").addEventListener("click", startGame);
 
 treeCanvas.addEventListener("dragover", (event) => {
+  if (state.failed) return;
   const target = event.target.closest("[data-target]");
-  if (!target || !treeCanvas.contains(target)) return;
+  if (!target || !treeCanvas.contains(target)) {
+    clearPreview();
+    return;
+  }
   event.preventDefault();
   const targetId = target.dataset.target;
   if (state.previewTarget !== targetId) {
@@ -232,8 +259,16 @@ treeCanvas.addEventListener("dragover", (event) => {
   }
 });
 
+treeCanvas.addEventListener("dragleave", (event) => {
+  if (state.failed || !state.previewTarget) return;
+  const target = event.target.closest("[data-target]");
+  if (!target || target.dataset.target !== state.previewTarget) return;
+  const next = event.relatedTarget;
+  if (!next || !target.contains(next)) clearPreview();
+});
+
 treeCanvas.addEventListener("drop", (event) => {
-  if (!state.previewTarget) return;
+  if (state.failed || !state.previewTarget) return;
   event.preventDefault();
   const targetId = state.previewTarget;
   placeCard(targetId);
