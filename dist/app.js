@@ -9,18 +9,24 @@ const SPECIES = {
   octopus: { name: "문어", scientific: "Octopoda", description: "여덟 개의 팔과 뛰어난 문제 해결 능력을 가진 연체동물입니다.", groups: ["후생동물", "좌우대칭동물", "원구동물"] },
   chimp: { name: "침팬지", scientific: "Pan troglodytes", description: "도구를 사용하고 복잡한 사회생활을 하는 영장류입니다.", groups: ["후생동물", "좌우대칭동물", "후구동물", "척추동물", "포유류", "사람족"] },
   shark: { name: "상어", scientific: "Selachimorpha", description: "단단한 뼈 대신 연골로 된 골격을 가진 물고기입니다.", groups: ["후생동물", "좌우대칭동물", "후구동물", "척추동물"] },
+  lion: { name: "Lion", scientific: "Panthera leo", description: "A large social cat native mainly to African grasslands and savannas.", groups: ["Animalia", "Chordata", "Mammalia", "Carnivora", "Felidae", "Panthera"] },
+  tiger: { name: "Tiger", scientific: "Panthera tigris", description: "The largest living cat, recognized by its dark vertical stripes.", groups: ["Animalia", "Chordata", "Mammalia", "Carnivora", "Felidae", "Panthera"] },
+  jaguar: { name: "Jaguar", scientific: "Panthera onca", description: "A powerful spotted cat native to the Americas.", groups: ["Animalia", "Chordata", "Mammalia", "Carnivora", "Felidae", "Panthera"] },
 };
 
 const ROUNDS = [
   { id: "ant", target: "human", clade: { id: "bilateria", name: "좌우대칭동물" }, automatic: true },
-  { id: "sponge", target: "bilateria", clade: { id: "metazoa", name: "후생동물" } },
+  { id: "sponge", target: "bilateria", placement: "wrap", clade: { id: "metazoa", name: "후생동물" } },
   { id: "starfish", target: "human", clade: { id: "deuterostome", name: "후구동물" } },
   { id: "cat", target: "human", clade: { id: "mammal", name: "포유류" } },
   { id: "bee", target: "ant", clade: { id: "hymenoptera", name: "벌목" } },
-  { id: "salmon", target: "mammal", clade: { id: "bony-vertebrate", name: "경골어류·사지동물" } },
-  { id: "octopus", target: "hymenoptera", clade: { id: "protostome", name: "원구동물" } },
+  { id: "salmon", target: "mammal", placement: "wrap", clade: { id: "bony-vertebrate", name: "경골어류·사지동물" } },
+  { id: "octopus", target: "hymenoptera", placement: "wrap", clade: { id: "protostome", name: "원구동물" } },
   { id: "chimp", target: "human", clade: { id: "hominini", name: "사람족" } },
-  { id: "shark", target: "bony-vertebrate", clade: { id: "vertebrate", name: "척추동물" } },
+  { id: "shark", target: "bony-vertebrate", placement: "wrap", clade: { id: "vertebrate", name: "척추동물" } },
+  { id: "lion", target: "cat", clade: { id: "felidae", name: "Felidae" } },
+  { id: "tiger", target: "lion", clade: { id: "panthera", name: "Panthera" } },
+  { id: "jaguar", target: "panthera", placement: "join", clade: { id: "panthera", name: "Panthera" } },
 ];
 
 const $ = (selector) => document.querySelector(selector);
@@ -41,6 +47,7 @@ const state = {
   classified: ["human"],
   newest: null,
   previewTarget: null,
+  previewPlacement: null,
   failed: false,
   panX: 0,
   panY: 0,
@@ -76,10 +83,15 @@ function renderCollection() {
   }).join("");
 }
 
-function insertAt(node, targetId, newSpeciesId, clade, preview = false) {
-  if (node.id === targetId) return branch(clade.id, clade.name, [node, leaf(newSpeciesId, preview)], preview);
+function insertAt(node, targetId, newSpeciesId, clade, preview = false, placement = "wrap") {
+  if (node.id === targetId) {
+    if (placement === "join" && node.type === "branch") {
+      return { ...node, children: [...node.children, leaf(newSpeciesId, preview)] };
+    }
+    return branch(clade.id, clade.name, [node, leaf(newSpeciesId, preview)], preview);
+  }
   if (node.type === "branch") {
-    return { ...node, children: node.children.map((child) => insertAt(child, targetId, newSpeciesId, clade, preview)) };
+    return { ...node, children: node.children.map((child) => insertAt(child, targetId, newSpeciesId, clade, preview, placement)) };
   }
   return node;
 }
@@ -96,20 +108,20 @@ function renderNode(node) {
   if (node.preview) {
     return `<span class="clade-node is-preview" aria-hidden="true"></span><ul class="preview-branches">${children}</ul>`;
   }
-  return `<button class="clade-node" type="button" data-target="${node.id}" aria-label="이름 없는 분기점에 배치" onclick="chooseTarget('${node.id}')"></button><ul>${children}</ul>`;
+  return `<span class="branch-anchor"><button class="edge-target" type="button" data-target="${node.id}" data-placement="wrap" aria-label="이 분기점 위에 새로운 공통 조상 만들기" onclick="chooseTarget('${node.id}', 'wrap')"></button><button class="clade-node" type="button" data-target="${node.id}" data-placement="join" aria-label="이 공통 조상에 가지 추가하기" onclick="chooseTarget('${node.id}', 'join')"></button></span><ul>${children}</ul>`;
 }
 
 function renderTree(displayTree = state.tree, answer = false) {
   const rootTarget = displayTree.id;
-  treeCanvas.innerHTML = `<div class="tree-camera"><div class="phylo-tree base-tree${answer ? " answer-tree" : ""}"><button class="tree-root" type="button" data-target="${rootTarget}" aria-label="현재 계통수 전체보다 바깥에 배치" onclick="chooseTarget('${rootTarget}')">동물계 공통 조상</button><ul><li>${renderNode(displayTree)}</li></ul></div></div><div class="placement-preview" aria-hidden="true" hidden></div>`;
+  treeCanvas.innerHTML = `<div class="tree-camera"><div class="phylo-tree base-tree${answer ? " answer-tree" : ""}"><button class="tree-root" type="button" data-target="${rootTarget}" data-placement="wrap" aria-label="현재 계통수 전체보다 바깥에 배치" onclick="chooseTarget('${rootTarget}', 'wrap')">동물계 공통 조상</button><ul><li>${renderNode(displayTree)}</li></ul></div></div><div class="placement-preview" aria-hidden="true" hidden></div>`;
   updateCamera();
 }
 
-function chooseTarget(targetId) {
-  if (!state.failed && state.selected) placeCard(targetId);
+function chooseTarget(targetId, placement = "wrap") {
+  if (!state.failed && state.selected) placeCard(targetId, placement);
 }
 
-function renderPreview(targetId, targetElement) {
+function renderPreview(targetId, placement, targetElement) {
   const round = ROUNDS[state.round];
   if (!round) return;
   const preview = treeCanvas.querySelector(".placement-preview");
@@ -119,7 +131,9 @@ function renderPreview(targetId, targetElement) {
 
   const canvasRect = treeCanvas.getBoundingClientRect();
   const targetRect = targetElement.getBoundingClientRect();
-  preview.innerHTML = `<span class="ghost-tag">미리보기</span><span class="ghost-junction"></span><span class="ghost-card">${SPECIES[round.id].name}</span>`;
+  const joiningBranch = placement === "join";
+  preview.classList.toggle("is-join", joiningBranch);
+  preview.innerHTML = `<span class="ghost-tag">${joiningBranch ? "같은 조상에 추가" : "미리보기"}</span>${joiningBranch ? "" : '<span class="ghost-junction"></span>'}<span class="ghost-card">${SPECIES[round.id].name}</span>`;
   preview.style.left = `${targetRect.left - canvasRect.left + targetRect.width / 2}px`;
   preview.style.top = `${targetRect.top - canvasRect.top + targetRect.height / 2}px`;
   preview.hidden = false;
@@ -127,8 +141,12 @@ function renderPreview(targetId, targetElement) {
 
 function clearPreview() {
   state.previewTarget = null;
+  state.previewPlacement = null;
   const preview = treeCanvas.querySelector(".placement-preview");
-  if (preview) preview.hidden = true;
+  if (preview) {
+    preview.hidden = true;
+    preview.classList.remove("is-join");
+  }
   treeCanvas.querySelectorAll(".is-drop-target").forEach((node) => node.classList.remove("is-drop-target"));
 }
 
@@ -154,15 +172,16 @@ function showToast(message) {
   showToast.timer = setTimeout(() => { toast.hidden = true; }, 1800);
 }
 
-function placeCard(targetId) {
+function placeCard(targetId, placement = "wrap") {
   const round = ROUNDS[state.round];
   if (!round || state.failed) return;
   clearPreview();
-  if (targetId !== round.target) {
+  const expectedPlacement = round.placement || "wrap";
+  if (targetId !== round.target || placement !== expectedPlacement) {
     failRound(round);
     return;
   }
-  state.tree = insertAt(state.tree, round.target, round.id, round.clade, false);
+  state.tree = insertAt(state.tree, round.target, round.id, round.clade, false, expectedPlacement);
   state.classified.push(round.id);
   state.newest = round.id;
   state.score += 1;
@@ -180,7 +199,7 @@ function failRound(round) {
   card.classList.remove("is-selected", "is-dragging");
   card.classList.add("is-locked");
   card.setAttribute("draggable", "false");
-  const answerTree = insertAt(state.tree, round.target, round.id, round.clade, true);
+  const answerTree = insertAt(state.tree, round.target, round.id, round.clade, true, round.placement || "wrap");
   renderTree(answerTree, true);
   $("#failure-panel").hidden = false;
   $("#retry-game").focus();
@@ -211,6 +230,7 @@ function startGame() {
   state.classified = ["human"];
   state.newest = null;
   state.previewTarget = null;
+  state.previewPlacement = null;
   state.failed = false;
   state.panX = 0;
   state.panY = 0;
@@ -271,16 +291,18 @@ treeCanvas.addEventListener("dragover", (event) => {
   }
   event.preventDefault();
   const targetId = target.dataset.target;
-  if (state.previewTarget !== targetId) {
+  const placement = target.dataset.placement || "wrap";
+  if (state.previewTarget !== targetId || state.previewPlacement !== placement) {
     state.previewTarget = targetId;
-    renderPreview(targetId, target);
+    state.previewPlacement = placement;
+    renderPreview(targetId, placement, target);
   }
 });
 
 treeCanvas.addEventListener("dragleave", (event) => {
   if (state.failed || !state.previewTarget) return;
   const target = event.target.closest("[data-target]");
-  if (!target || target.dataset.target !== state.previewTarget) return;
+  if (!target || target.dataset.target !== state.previewTarget || (target.dataset.placement || "wrap") !== state.previewPlacement) return;
   const next = event.relatedTarget;
   if (!next || !target.contains(next)) clearPreview();
 });
@@ -289,7 +311,8 @@ treeCanvas.addEventListener("drop", (event) => {
   if (state.failed || !state.previewTarget) return;
   event.preventDefault();
   const targetId = state.previewTarget;
-  placeCard(targetId);
+  const placement = state.previewPlacement || "wrap";
+  placeCard(targetId, placement);
 });
 
 treeCanvas.addEventListener("pointerdown", (event) => {
