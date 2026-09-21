@@ -193,11 +193,13 @@ button, [role="button"] { -webkit-tap-highlight-color: transparent; }
   text-align: center;
 }
 
-.mini-card { aspect-ratio: 3 / 4; padding: 10px; background: var(--paper); border: 1px solid var(--ink); box-shadow: 3px 3px 0 var(--forest); }
-.mini-card-art { height: 58%; border: 1px solid var(--line); background: #f8f8f3; }
+.mini-card { min-height: 360px; padding: 10px; background: var(--paper); border: 1px solid var(--ink); box-shadow: 3px 3px 0 var(--forest); }
+.mini-card-art { height: 48%; border: 1px solid var(--line); background: #f8f8f3; }
 .mini-card small { display: block; margin-top: 12px; color: var(--coral); font-size: 0.62rem; font-weight: 800; letter-spacing: .1em; }
 .mini-card h3 { margin: 4px 0; font-family: "Gowun Batang", serif; font-size: clamp(1rem, 2vw, 1.35rem); }
 .mini-card p { margin: 0; color: var(--muted); font-size: .72rem; line-height: 1.45; }
+.mini-card-groups { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 10px; }
+.mini-card-groups span { padding: 3px 6px; color: var(--forest); background: #e8efe9; border: 1px solid #c5d3c9; border-radius: 999px; font-size: .58rem; font-weight: 700; }
 
 .game-screen { padding: 24px clamp(18px, 4vw, 56px) 40px; background: #e9ebdf; }
 .game-header { max-width: 1500px; margin: 0 auto 22px; }
@@ -207,7 +209,6 @@ button, [role="button"] { -webkit-tap-highlight-color: transparent; }
 .tree-panel { min-height: calc(100vh - 100px); padding: clamp(22px, 3vw, 42px); background: var(--paper); border: 1px solid #d1d2c6; border-radius: 8px 28px 8px 28px; }
 .tree-heading { display: flex; align-items: end; justify-content: space-between; gap: 20px; }
 .tree-heading h1 { margin: 0; font-family: "Gowun Batang", serif; font-size: clamp(2rem, 4vw, 3.4rem); }
-.tree-heading > p { max-width: 330px; margin: 0; color: var(--muted); line-height: 1.5; text-align: right; }
 .tree-canvas { min-height: 560px; display: grid; align-items: center; padding: 30px 10px; overflow: auto; }
 
 .phylo-tree, .phylo-tree ul { position: relative; list-style: none; margin: 0; padding: 0; }
@@ -232,21 +233,21 @@ button, [role="button"] { -webkit-tap-highlight-color: transparent; }
 .tree-root:hover, .tree-root.is-drop-target { color: var(--ink); background: var(--yellow); }
 .clade-node {
   display: inline-flex;
-  min-height: 34px;
+  width: 18px;
+  min-width: 18px;
+  height: 18px;
+  min-height: 18px;
   align-items: center;
   justify-content: center;
-  padding: 6px 11px;
-  color: #7d6515;
-  background: #fff7d7;
-  border: 1px dashed #b99822;
-  border-radius: 999px;
-  font-size: .72rem;
-  font-weight: 800;
+  padding: 0;
+  background: var(--paper);
+  border: 3px solid var(--forest-2);
+  border-radius: 50%;
   cursor: pointer;
   transition: background 140ms, color 140ms, transform 140ms;
 }
-.clade-node:hover, .clade-node.is-drop-target { color: var(--ink); background: var(--yellow); transform: translateY(-3px); }
-.clade-node.is-preview { color: #8b6e08; background: rgba(244, 215, 101, .32); border-style: solid; animation: preview-pulse 900ms ease-in-out infinite alternate; }
+.clade-node:hover, .clade-node.is-drop-target { background: var(--yellow); border-color: #9a7d12; transform: scale(1.35); }
+.clade-node.is-preview { background: var(--yellow); border-color: #b99822; animation: preview-pulse 900ms ease-in-out infinite alternate; }
 .species-node {
   display: inline-flex;
   min-width: 96px;
@@ -314,7 +315,6 @@ button, [role="button"] { -webkit-tap-highlight-color: transparent; }
   .lobby-intro > h1 { font-size: clamp(3.1rem, 16vw, 4.7rem); }
   .collection-grid { grid-template-columns: repeat(2, 1fr); }
   .tree-heading { align-items: start; flex-direction: column; }
-  .tree-heading > p { text-align: left; }
   .game-progress { display: block; text-align: right; }
   .game-progress span { display: block; }
   .game-progress span + span { margin-top: 4px; padding-left: 0; border: 0; }

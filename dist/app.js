@@ -1,26 +1,26 @@
 const SPECIES = {
-  human: { name: "인간", scientific: "Homo sapiens", description: "두 발로 걷고 언어를 사용하는 영장류입니다." },
-  ant: { name: "개미", scientific: "Formicidae", description: "작지만 복잡한 사회를 이루는 절지동물입니다." },
-  sponge: { name: "해면동물", scientific: "Porifera", description: "뚜렷한 기관 없이 물을 걸러 먹는 초기 분기 동물입니다." },
-  starfish: { name: "불가사리", scientific: "Asteroidea", description: "오방사 대칭의 몸을 가진 해양 무척추동물입니다." },
-  cat: { name: "고양이", scientific: "Felis catus", description: "인간과 같은 포유류에 속하는 척추동물입니다." },
-  bee: { name: "꿀벌", scientific: "Apis mellifera", description: "개미와 함께 벌목에 속하는 꽃가루 매개 곤충입니다." },
-  salmon: { name: "연어", scientific: "Salmo salar", description: "민물과 바다를 오가며 살아가는 조기어류입니다." },
-  octopus: { name: "문어", scientific: "Octopoda", description: "여덟 개의 팔과 높은 지능을 가진 연체동물입니다." },
-  chimp: { name: "침팬지", scientific: "Pan troglodytes", description: "인간과 매우 가까운 공통 조상을 공유하는 영장류입니다." },
-  shark: { name: "상어", scientific: "Selachimorpha", description: "단단한 뼈 대신 연골로 된 골격을 가진 척추동물입니다." },
+  human: { name: "인간", scientific: "Homo sapiens", description: "두 발로 걷고 언어와 도구를 사용하는 영장류입니다.", groups: ["후생동물", "좌우대칭동물", "후구동물", "척추동물", "포유류", "사람족"] },
+  ant: { name: "개미", scientific: "Formicidae", description: "작은 몸으로 거대한 군체를 이루어 생활하는 곤충입니다.", groups: ["후생동물", "좌우대칭동물", "원구동물", "벌목"] },
+  sponge: { name: "해면동물", scientific: "Porifera", description: "몸에 난 작은 구멍으로 물을 걸러 먹는 해양 동물입니다.", groups: ["후생동물"] },
+  starfish: { name: "불가사리", scientific: "Asteroidea", description: "오방사 대칭의 몸과 관족을 가진 해양 무척추동물입니다.", groups: ["후생동물", "좌우대칭동물", "후구동물"] },
+  cat: { name: "고양이", scientific: "Felis catus", description: "예민한 감각과 유연한 몸을 지닌 육식성 포유류입니다.", groups: ["후생동물", "좌우대칭동물", "후구동물", "척추동물", "포유류"] },
+  bee: { name: "꿀벌", scientific: "Apis mellifera", description: "꽃가루를 옮기며 군체를 이루어 생활하는 곤충입니다.", groups: ["후생동물", "좌우대칭동물", "원구동물", "벌목"] },
+  salmon: { name: "연어", scientific: "Salmo salar", description: "민물과 바다를 오가며 긴 거리를 이동하는 물고기입니다.", groups: ["후생동물", "좌우대칭동물", "후구동물", "척추동물"] },
+  octopus: { name: "문어", scientific: "Octopoda", description: "여덟 개의 팔과 뛰어난 문제 해결 능력을 가진 연체동물입니다.", groups: ["후생동물", "좌우대칭동물", "원구동물"] },
+  chimp: { name: "침팬지", scientific: "Pan troglodytes", description: "도구를 사용하고 복잡한 사회생활을 하는 영장류입니다.", groups: ["후생동물", "좌우대칭동물", "후구동물", "척추동물", "포유류", "사람족"] },
+  shark: { name: "상어", scientific: "Selachimorpha", description: "단단한 뼈 대신 연골로 된 골격을 가진 물고기입니다.", groups: ["후생동물", "좌우대칭동물", "후구동물", "척추동물"] },
 };
 
 const ROUNDS = [
   { id: "ant", target: "human", clade: { id: "bilateria", name: "좌우대칭동물" }, automatic: true },
-  { id: "sponge", target: "bilateria", clade: { id: "metazoa", name: "후생동물" }, fact: "해면동물은 지금까지 나온 모든 좌우대칭동물보다 먼저 갈라졌어요." },
-  { id: "starfish", target: "human", clade: { id: "deuterostome", name: "후구동물" }, fact: "불가사리와 인간은 모두 후구동물이에요." },
-  { id: "cat", target: "human", clade: { id: "mammal", name: "포유류" }, fact: "고양이와 인간은 젖을 먹여 새끼를 기르는 포유류예요." },
-  { id: "bee", target: "ant", clade: { id: "hymenoptera", name: "벌목" }, fact: "개미와 꿀벌은 모두 벌목에 속해요." },
-  { id: "salmon", target: "mammal", clade: { id: "bony-vertebrate", name: "경골어류·사지동물" }, fact: "연어는 불가사리보다 포유류와 더 가까운 척추동물이에요." },
-  { id: "octopus", target: "hymenoptera", clade: { id: "protostome", name: "원구동물" }, fact: "문어와 곤충은 발생 과정에서 입이 먼저 생기는 원구동물이에요." },
-  { id: "chimp", target: "human", clade: { id: "hominini", name: "사람족" }, fact: "침팬지는 이 계통수에서 인간과 가장 가까운 친척이에요." },
-  { id: "shark", target: "bony-vertebrate", clade: { id: "vertebrate", name: "척추동물" }, fact: "상어와 연어, 포유류는 모두 척추를 가진 동물이에요." },
+  { id: "sponge", target: "bilateria", clade: { id: "metazoa", name: "후생동물" } },
+  { id: "starfish", target: "human", clade: { id: "deuterostome", name: "후구동물" } },
+  { id: "cat", target: "human", clade: { id: "mammal", name: "포유류" } },
+  { id: "bee", target: "ant", clade: { id: "hymenoptera", name: "벌목" } },
+  { id: "salmon", target: "mammal", clade: { id: "bony-vertebrate", name: "경골어류·사지동물" } },
+  { id: "octopus", target: "hymenoptera", clade: { id: "protostome", name: "원구동물" } },
+  { id: "chimp", target: "human", clade: { id: "hominini", name: "사람족" } },
+  { id: "shark", target: "bony-vertebrate", clade: { id: "vertebrate", name: "척추동물" } },
 ];
 
 const $ = (selector) => document.querySelector(selector);
@@ -63,7 +63,8 @@ function renderCollection() {
   }
   grid.innerHTML = collected.map((id) => {
     const species = SPECIES[id];
-    return `<article class="mini-card"><div class="mini-card-art"></div><small>ANIMALIA</small><h3>${species.name}</h3><p>${species.description}</p></article>`;
+    const groups = species.groups.map((group) => `<span>${group}</span>`).join("");
+    return `<article class="mini-card"><div class="mini-card-art"></div><small>ANIMALIA</small><h3>${species.name}</h3><p>${species.description}</p><div class="mini-card-groups" aria-label="분류군">${groups}</div></article>`;
   }).join("");
 }
 
@@ -85,9 +86,9 @@ function renderNode(node) {
   }
   const children = node.children.map((child) => `<li>${renderNode(child)}</li>`).join("");
   if (node.preview) {
-    return `<span class="clade-node is-preview" aria-label="새로 생길 ${node.name} 갈래">${node.name}</span><ul class="preview-branches">${children}</ul>`;
+    return `<span class="clade-node is-preview" aria-hidden="true"></span><ul class="preview-branches">${children}</ul>`;
   }
-  return `<button class="clade-node" type="button" data-target="${node.id}" aria-label="${node.name} 갈래에 배치" onclick="chooseTarget('${node.id}')">${node.name}</button><ul>${children}</ul>`;
+  return `<button class="clade-node" type="button" data-target="${node.id}" aria-label="이름 없는 분기점에 배치" onclick="chooseTarget('${node.id}')"></button><ul>${children}</ul>`;
 }
 
 function renderTree() {
@@ -143,7 +144,7 @@ function placeCard(targetId) {
   if (!round) return;
   clearPreview();
   if (targetId !== round.target) {
-    showToast("그 갈래보다 더 가까운 친척이 있어요. 다시 생각해보세요!");
+    showToast("틀렸습니다. 다른 위치를 선택하세요.");
     return;
   }
   state.tree = insertAt(state.tree, round.target, round.id, round.clade, false);
@@ -170,10 +171,7 @@ function updateRound() {
   setCard(round.id);
   $("#round-label").textContent = `동물계 · ${state.round + 1}번째 분류`;
   if (round.automatic) {
-    $("#tree-hint").textContent = "첫 동물은 비교할 대상이 하나뿐이라 자동으로 놓입니다.";
     setTimeout(() => placeCard(round.target), 900);
-  } else {
-    $("#tree-hint").textContent = round.fact;
   }
 }
 
