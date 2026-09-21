@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="새로운 생물을 올바른 가지에 놓으며 계통수를 완성하는 분류 퍼즐 게임" />
+  <meta name="theme-color" content="#123c30" />
+  <title>갈래 — 계통수 분류 게임</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23123c30'/%3E%3Cpath d='M8 25V9m0 9h8m0 0v-7m0 7v7m0-14h8m0 0V6m0 5v5' fill='none' stroke='%23f4d765' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Pretendard:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="paper-noise" aria-hidden="true"></div>
+
+  <main id="lobby" class="screen lobby-screen">
+    <header class="site-header">
+      <a class="wordmark" href="#" aria-label="갈래 홈">
+        <span class="wordmark-mark" aria-hidden="true">Y</span>
+        <span>갈래</span>
+      </a>
+      <p class="header-meta">동물계 · 첫 번째 모드</p>
+    </header>
+
+    <section class="lobby-intro" aria-labelledby="lobby-title">
+      <p class="eyebrow">PHYLOGENY CARD GAME</p>
+      <h1 id="lobby-title">생명의 갈래를<br />찾아주세요.</h1>
+      <p class="intro-copy">새로운 생물이 기존 생물과 어디에서 갈라졌는지 맞혀 계통수를 완성하세요.</p>
+
+      <div class="mode-panel">
+        <div>
+          <p class="panel-label">플레이할 계</p>
+          <h2>동물계</h2>
+          <p>인간에서 시작해 서로 다른 동물의 공통 조상을 찾아갑니다.</p>
+          <div class="mode-options" aria-label="계 모드 목록">
+            <span class="is-active">동물계</span>
+            <span aria-disabled="true">식물계 · 준비 중</span>
+            <span aria-disabled="true">균계 · 준비 중</span>
+          </div>
+        </div>
+        <div class="mode-badge" aria-label="선택됨">ANIMALIA</div>
+        <button id="start-game" class="primary-button" type="button">
+          분류 시작 <span aria-hidden="true">→</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="collection" aria-labelledby="collection-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">MY COLLECTION</p>
+          <h2 id="collection-title">분류한 생물</h2>
+        </div>
+        <p id="collection-count">0종 발견</p>
+      </div>
+      <div id="collection-grid" class="collection-grid"></div>
+    </section>
+  </main>
+
+  <main id="game" class="screen game-screen" hidden>
+    <header class="game-header">
+      <button id="quit-game" class="text-button" type="button">← 로비</button>
+      <div class="game-progress" aria-live="polite">
+        <span id="round-label">동물계 · 1번째 분류</span>
+        <span id="score-label">정답 0</span>
+      </div>
+    </header>
+
+    <div class="game-layout">
+      <section class="tree-panel" aria-labelledby="tree-title">
+        <div class="tree-heading">
+          <div>
+            <p class="eyebrow">CURRENT TREE</p>
+            <h1 id="tree-title">현재 계통수</h1>
+          </div>
+          <p id="tree-hint">카드를 가장 가까운 생물이나 갈래 위에 놓아보세요.</p>
+        </div>
+        <div id="tree-canvas" class="tree-canvas" aria-live="polite"></div>
+      </section>
+
+      <aside class="card-dock" aria-labelledby="card-dock-title">
+        <div class="dock-copy">
+          <p class="eyebrow">NEW SPECIES</p>
+          <h2 id="card-dock-title">새 동물 카드</h2>
+        </div>
+        <div id="active-card" class="animal-card is-draggable" draggable="true" tabindex="0" role="button" aria-describedby="drag-help">
+          <div class="card-topline"><span>동물계</span><span>ANIMALIA</span></div>
+          <div class="card-blank" aria-hidden="true"><span>?</span></div>
+          <div class="card-body">
+            <p class="card-kicker">NEW SPECIES</p>
+            <h3 id="active-name">개미</h3>
+            <p id="active-description">작지만 복잡한 사회를 이루는 절지동물입니다.</p>
+          </div>
+          <div class="card-footer"><span id="active-scientific">Formicidae</span><span>01</span></div>
+        </div>
+        <p id="drag-help" class="drag-help">카드를 드래그하거나, 카드를 선택한 뒤 계통수의 생물을 눌러 배치하세요.</p>
+      </aside>
+    </div>
+  </main>
+
+  <div id="result-modal" class="modal-backdrop" hidden>
+    <section class="result-modal" role="dialog" aria-modal="true" aria-labelledby="result-title">
+      <p class="eyebrow">CLASSIFICATION COMPLETE</p>
+      <h2 id="result-title">분류를 마쳤어요.</h2>
+      <div class="result-number"><strong id="result-count">0</strong><span>마리</span></div>
+      <p id="result-copy">새로운 동물을 올바른 갈래에 놓았습니다.</p>
+      <button id="return-lobby" class="primary-button" type="button">수집함 보기 →</button>
+    </section>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+  <script src="app.js"></script>
+</body>
+</html>
