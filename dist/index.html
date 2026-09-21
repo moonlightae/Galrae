@@ -41,8 +41,8 @@
           </div>
         </div>
         <div class="mode-badge" aria-label="선택됨">ANIMALIA</div>
-        <button id="start-game" class="primary-button" type="button">
-          분류 시작 <span aria-hidden="true">→</span>
+        <button id="start-game" class="primary-button" type="button" disabled>
+          데이터 불러오는 중… <span aria-hidden="true">→</span>
         </button>
       </div>
     </section>
@@ -56,6 +56,14 @@
         <p id="collection-count">0종 발견</p>
       </div>
       <div id="collection-grid" class="collection-grid"></div>
+      <p class="data-attribution">
+        Species text and taxonomy data from
+        <a href="https://en.wikipedia.org/" target="_blank" rel="noreferrer">English Wikipedia</a>
+        (<a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noreferrer">CC BY-SA 4.0</a>)
+        and <a href="https://www.wikidata.org/" target="_blank" rel="noreferrer">Wikidata</a>.
+        Images are provided by <a href="https://commons.wikimedia.org/" target="_blank" rel="noreferrer">Wikimedia Commons</a>
+        under the license shown on each card.
+      </p>
     </section>
   </main>
 
@@ -94,14 +102,18 @@
         </div>
         <div id="active-card" class="animal-card is-draggable" draggable="true" tabindex="0" role="button" aria-describedby="drag-help">
           <div class="card-topline"><span>동물계</span><span>ANIMALIA</span></div>
-          <div class="card-blank" aria-hidden="true"><span>?</span></div>
+          <div class="card-art">
+            <img id="active-image" alt="" />
+            <span id="active-image-fallback" aria-hidden="true">?</span>
+          </div>
           <div class="card-body">
             <p class="card-kicker">NEW SPECIES</p>
-            <h3 id="active-name">개미</h3>
-            <p id="active-description">작지만 복잡한 사회를 이루는 절지동물입니다.</p>
+            <h3 id="active-name">Loading…</h3>
+            <p id="active-description">Loading the animal dataset.</p>
           </div>
-          <div class="card-footer"><span id="active-scientific">Formicidae</span><span>01</span></div>
+          <div class="card-footer"><span id="active-scientific">—</span><span id="active-number">01</span></div>
         </div>
+        <a id="active-credit" class="image-credit" href="#" target="_blank" rel="noreferrer">Image credit</a>
         <p id="drag-help" class="drag-help">원형 분기점에 놓으면 같은 조상 아래 가지가 추가되고, 분기점 위 선에 놓으면 새로운 공통 조상이 생깁니다. 빈 공간을 드래그하면 계통수를 옮길 수 있어요.</p>
       </aside>
     </div>
@@ -111,13 +123,14 @@
     <section class="result-modal" role="dialog" aria-modal="true" aria-labelledby="result-title">
       <p class="eyebrow">CLASSIFICATION COMPLETE</p>
       <h2 id="result-title">분류를 마쳤어요.</h2>
-      <div class="result-number"><strong id="result-count">0</strong><span>마리</span></div>
+      <div class="result-number"><strong id="result-count">0</strong><span>species</span></div>
       <p id="result-copy">새로운 동물을 올바른 갈래에 놓았습니다.</p>
       <button id="return-lobby" class="primary-button" type="button">수집함 보기 →</button>
     </section>
   </div>
 
   <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+  <script src="game-logic.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
