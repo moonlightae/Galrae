@@ -1,6 +1,7 @@
 const SPECIES = {
   human: { name: "인간", scientific: "Homo sapiens", description: "두 발로 걷고 언어를 사용하는 영장류입니다." },
   ant: { name: "개미", scientific: "Formicidae", description: "작지만 복잡한 사회를 이루는 절지동물입니다." },
+  sponge: { name: "해면동물", scientific: "Porifera", description: "뚜렷한 기관 없이 물을 걸러 먹는 초기 분기 동물입니다." },
   starfish: { name: "불가사리", scientific: "Asteroidea", description: "오방사 대칭의 몸을 가진 해양 무척추동물입니다." },
   cat: { name: "고양이", scientific: "Felis catus", description: "인간과 같은 포유류에 속하는 척추동물입니다." },
   bee: { name: "꿀벌", scientific: "Apis mellifera", description: "개미와 함께 벌목에 속하는 꽃가루 매개 곤충입니다." },
@@ -12,6 +13,7 @@ const SPECIES = {
 
 const ROUNDS = [
   { id: "ant", target: "human", clade: { id: "bilateria", name: "좌우대칭동물" }, automatic: true },
+  { id: "sponge", target: "bilateria", clade: { id: "metazoa", name: "후생동물" }, fact: "해면동물은 지금까지 나온 모든 좌우대칭동물보다 먼저 갈라졌어요." },
   { id: "starfish", target: "human", clade: { id: "deuterostome", name: "후구동물" }, fact: "불가사리와 인간은 모두 후구동물이에요." },
   { id: "cat", target: "human", clade: { id: "mammal", name: "포유류" }, fact: "고양이와 인간은 젖을 먹여 새끼를 기르는 포유류예요." },
   { id: "bee", target: "ant", clade: { id: "hymenoptera", name: "벌목" }, fact: "개미와 꿀벌은 모두 벌목에 속해요." },
@@ -26,9 +28,10 @@ const lobby = $("#lobby");
 const game = $("#game");
 const card = $("#active-card");
 const toast = $("#toast");
+const treeCanvas = $("#tree-canvas");
 
-function leaf(id) { return { type: "leaf", id }; }
-function branch(id, name, children) { return { type: "branch", id, name, children }; }
+function leaf(id, preview = false) { return { type: "leaf", id, preview }; }
+function branch(id, name, children, preview = false) { return { type: "branch", id, name, children, preview }; }
 
 const state = {
   round: 0,
@@ -37,6 +40,7 @@ const state = {
   tree: leaf("human"),
   classified: ["human"],
   newest: null,
+  previewTarget: null,
 };
 
 function getCollection() {
@@ -63,10 +67,10 @@ function renderCollection() {
   }).join("");
 }
 
-function insertAt(node, targetId, newSpeciesId, clade) {
-  if (node.id === targetId) return branch(clade.id, clade.name, [node, leaf(newSpeciesId)]);
+function insertAt(node, targetId, newSpeciesId, clade, preview = false) {
+  if (node.id === targetId) return branch(clade.id, clade.name, [node, leaf(newSpeciesId, preview)], preview);
   if (node.type === "branch") {
-    return { ...node, children: node.children.map((child) => insertAt(child, targetId, newSpeciesId, clade)) };
+    return { ...node, children: node.children.map((child) => insertAt(child, targetId, newSpeciesId, clade, preview)) };
   }
   return node;
 }
@@ -74,24 +78,49 @@ function insertAt(node, targetId, newSpeciesId, clade) {
 function renderNode(node) {
   if (node.type === "leaf") {
     const fresh = state.newest === node.id ? " is-new" : "";
-    return `<button class="species-node${fresh}" type="button" data-target="${node.id}" aria-label="${SPECIES[node.id].name}에 배치">${SPECIES[node.id].name}</button>`;
+    const preview = node.preview ? " is-preview" : "";
+    const badge = node.preview ? '<span class="preview-tag">미리보기</span>' : "";
+    const action = node.preview ? "" : ` onclick="chooseTarget('${node.id}')"`;
+    return `<button class="species-node${fresh}${preview}" type="button" data-target="${node.id}" aria-label="${SPECIES[node.id].name}에 배치"${action}>${SPECIES[node.id].name}${badge}</button>`;
   }
   const children = node.children.map((child) => `<li>${renderNode(child)}</li>`).join("");
-  return `<button class="clade-node" type="button" data-target="${node.id}" aria-label="${node.name} 갈래에 배치">${node.name}</button><ul>${children}</ul>`;
+  if (node.preview) {
+    return `<span class="clade-node is-preview" aria-label="새로 생길 ${node.name} 갈래">${node.name}</span><ul class="preview-branches">${children}</ul>`;
+  }
+  return `<button class="clade-node" type="button" data-target="${node.id}" aria-label="${node.name} 갈래에 배치" onclick="chooseTarget('${node.id}')">${node.name}</button><ul>${children}</ul>`;
 }
 
 function renderTree() {
-  $("#tree-canvas").innerHTML = `<div class="phylo-tree"><span class="tree-root">동물계 공통 조상</span><ul><li>${renderNode(state.tree)}</li></ul></div>`;
-  document.querySelectorAll("[data-target]").forEach((node) => {
-    node.addEventListener("dragover", (event) => { event.preventDefault(); node.classList.add("is-drop-target"); });
-    node.addEventListener("dragleave", () => node.classList.remove("is-drop-target"));
-    node.addEventListener("drop", (event) => {
-      event.preventDefault();
-      node.classList.remove("is-drop-target");
-      placeCard(node.dataset.target);
-    });
-    node.addEventListener("click", () => { if (state.selected) placeCard(node.dataset.target); });
-  });
+  const rootTarget = state.tree.id;
+  treeCanvas.innerHTML = `<div class="tree-stage"><div class="phylo-tree base-tree"><button class="tree-root" type="button" data-target="${rootTarget}" aria-label="현재 계통수 전체보다 바깥에 배치" onclick="chooseTarget('${rootTarget}')">동물계 공통 조상</button><ul><li>${renderNode(state.tree)}</li></ul></div><div class="preview-slot" aria-hidden="true"></div></div>`;
+}
+
+function chooseTarget(targetId) {
+  if (state.selected) placeCard(targetId);
+}
+
+function renderPreview(targetId) {
+  const round = ROUNDS[state.round];
+  if (!round) return;
+  const displayTree = insertAt(state.tree, targetId, round.id, round.clade, true);
+  const previewSlot = treeCanvas.querySelector(".preview-slot");
+  const baseTree = treeCanvas.querySelector(".base-tree");
+  if (!previewSlot || !baseTree) return;
+  previewSlot.innerHTML = `<div class="phylo-tree preview-tree"><span class="tree-root">동물계 공통 조상</span><ul><li>${renderNode(displayTree)}</li></ul></div>`;
+  baseTree.classList.add("is-previewing");
+  baseTree.querySelectorAll(`[data-target="${targetId}"]`).forEach((node) => node.classList.add("is-drop-target"));
+}
+
+function clearPreview() {
+  if (!state.previewTarget) return;
+  state.previewTarget = null;
+  const previewSlot = treeCanvas.querySelector(".preview-slot");
+  const baseTree = treeCanvas.querySelector(".base-tree");
+  if (previewSlot) previewSlot.innerHTML = "";
+  if (baseTree) {
+    baseTree.classList.remove("is-previewing");
+    baseTree.querySelectorAll(".is-drop-target").forEach((node) => node.classList.remove("is-drop-target"));
+  }
 }
 
 function setCard(speciesId) {
@@ -112,11 +141,12 @@ function showToast(message) {
 function placeCard(targetId) {
   const round = ROUNDS[state.round];
   if (!round) return;
+  clearPreview();
   if (targetId !== round.target) {
     showToast("그 갈래보다 더 가까운 친척이 있어요. 다시 생각해보세요!");
     return;
   }
-  state.tree = insertAt(state.tree, round.target, round.id, round.clade);
+  state.tree = insertAt(state.tree, round.target, round.id, round.clade, false);
   state.classified.push(round.id);
   state.newest = round.id;
   state.score += 1;
@@ -154,6 +184,7 @@ function startGame() {
   state.tree = leaf("human");
   state.classified = ["human"];
   state.newest = null;
+  state.previewTarget = null;
   lobby.hidden = true;
   game.hidden = false;
   $("#result-modal").hidden = true;
@@ -174,7 +205,10 @@ card.addEventListener("dragstart", (event) => {
   event.dataTransfer.setData("text/plain", "species-card");
   card.classList.add("is-dragging");
 });
-card.addEventListener("dragend", () => card.classList.remove("is-dragging"));
+card.addEventListener("dragend", () => {
+  card.classList.remove("is-dragging");
+  clearPreview();
+});
 card.addEventListener("click", () => {
   state.selected = !state.selected;
   card.classList.toggle("is-selected", state.selected);
@@ -188,5 +222,23 @@ card.addEventListener("keydown", (event) => {
 $("#start-game").addEventListener("click", startGame);
 $("#quit-game").addEventListener("click", returnToLobby);
 $("#return-lobby").addEventListener("click", returnToLobby);
+
+treeCanvas.addEventListener("dragover", (event) => {
+  const target = event.target.closest("[data-target]");
+  if (!target || !treeCanvas.contains(target)) return;
+  event.preventDefault();
+  const targetId = target.dataset.target;
+  if (state.previewTarget !== targetId) {
+    state.previewTarget = targetId;
+    renderPreview(targetId);
+  }
+});
+
+treeCanvas.addEventListener("drop", (event) => {
+  if (!state.previewTarget) return;
+  event.preventDefault();
+  const targetId = state.previewTarget;
+  placeCard(targetId);
+});
 
 renderCollection();
