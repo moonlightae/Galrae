@@ -1,4 +1,4 @@
-const { ANIMALIA_ID, buildTree, getExpectedPlacement, shuffle } = GalraeLogic;
+const { ANIMALIA_ID, buildTree, getExpectedPlacement, isEquivalentPlacement, shuffle } = GalraeLogic;
 const HUMAN_ID = "homo-sapiens";
 const COLLECTION_PREFIX = "galrae.collection.v3";
 
@@ -494,7 +494,7 @@ function closeSpeciesCard() {
 function placeCard(targetId, placement = "wrap") {
   if (!state.currentId || state.failed) return;
   clearPreview();
-  if (targetId !== state.expected.targetId || placement !== state.expected.placement) {
+  if (!isEquivalentPlacement(state.tree, state.expected, targetId, placement)) {
     failRound();
     return;
   }
