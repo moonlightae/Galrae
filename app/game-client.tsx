@@ -11,7 +11,7 @@ const markup = `
   <main id="lobby" class="screen lobby-screen">
     <header class="site-header">
       <a class="wordmark" href="#" aria-label="갈래 홈"><span class="wordmark-mark" aria-hidden="true">Y</span><span>갈래</span></a>
-      <div class="header-actions"><p class="header-meta">동물계 · 첫 번째 모드</p><div id="auth-panel" class="auth-panel" aria-live="polite"><span class="auth-loading">계정 확인 중…</span></div></div>
+      <div class="header-actions"><p class="header-meta">동물계 · 첫 번째 모드</p><div id="auth-panel" class="auth-panel" aria-live="polite"><span class="auth-loading">게임 계정 확인 중…</span></div></div>
     </header>
     <section class="lobby-intro" aria-labelledby="lobby-title">
       <p class="eyebrow">PHYLOGENY CARD GAME</p><h1 id="lobby-title">생명의 갈래를<br />찾아주세요.</h1>
@@ -27,7 +27,7 @@ const markup = `
     <section class="leaderboard" aria-labelledby="leaderboard-title">
       <div class="section-heading leaderboard-heading"><div><p class="eyebrow">GLOBAL RANKING</p><h2 id="leaderboard-title">리더보드</h2></div><p id="leaderboard-status">기록을 불러오는 중…</p></div>
       <ol id="leaderboard-list" class="leaderboard-list" aria-live="polite"></ol>
-      <p id="leaderboard-note" class="leaderboard-note">로그인하면 게임 기록이 자동으로 등록됩니다.</p>
+      <p id="leaderboard-note" class="leaderboard-note">게임 아이디로 로그인하면 최고 기록이 자동으로 등록됩니다.</p>
     </section>
     <section class="collection" aria-labelledby="collection-title">
       <div class="section-heading"><div><p class="eyebrow">MY COLLECTION</p><h2 id="collection-title">분류한 생물</h2></div><p id="collection-count">0종 발견</p></div>
@@ -55,6 +55,17 @@ const markup = `
     </div>
   </main>
   <div id="result-modal" class="modal-backdrop" hidden><section class="result-modal" role="dialog" aria-modal="true" aria-labelledby="result-title"><p class="eyebrow">CLASSIFICATION COMPLETE</p><h2 id="result-title">분류를 마쳤어요.</h2><div class="result-number"><strong id="result-count">0</strong><span>species</span></div><p id="result-copy">새로운 동물을 올바른 갈래에 놓았습니다.</p><p id="score-submit-status" class="score-submit-status"></p><button id="return-lobby" class="primary-button" type="button">수집함 보기 →</button></section></div>
+  <div id="account-modal" class="modal-backdrop account-modal-backdrop" hidden>
+    <section class="account-dialog" role="dialog" aria-modal="true" aria-labelledby="account-title">
+      <button id="close-account" class="dialog-close account-close" type="button" aria-label="계정 창 닫기">×</button>
+      <div id="account-auth-view">
+        <p class="eyebrow">GAME ACCOUNT</p><h2 id="account-title">게임 계정</h2>
+        <div class="auth-tabs" role="tablist"><button id="show-login" class="is-active" type="button" role="tab" aria-selected="true">로그인</button><button id="show-register" type="button" role="tab" aria-selected="false">새 계정</button></div>
+        <form id="account-form" class="account-form"><label>아이디<input id="account-username" name="username" autocomplete="username" minlength="3" maxlength="20" required /></label><label>비밀번호<input id="account-password" name="password" type="password" autocomplete="current-password" minlength="8" maxlength="72" required /></label><p id="account-form-help">이 기기에서 사용할 게임 아이디로 로그인하세요.</p><p id="account-error" class="account-error" role="alert"></p><button id="account-submit" class="primary-button" type="submit">로그인 →</button></form>
+      </div>
+      <div id="account-profile-view" hidden><p class="eyebrow">GAME ACCOUNT</p><h2 id="account-profile-name">—</h2><p class="account-profile-copy">이 아이디의 수집함과 리더보드 기록을 사용하고 있어요.</p><div id="chatgpt-link-panel" class="chatgpt-link-panel"></div></div>
+    </section>
+  </div>
   <div id="species-modal" class="modal-backdrop species-modal-backdrop" hidden><section class="species-dialog" role="dialog" aria-modal="true" aria-labelledby="species-view-name"><button id="close-species-card" class="dialog-close" type="button" aria-label="카드 닫기">×</button><div class="animal-card species-view-card"><div class="card-topline"><span>동물계</span><span>ANIMALIA</span></div><div class="card-art"><img id="species-view-image" alt="" /><span id="species-view-fallback" aria-hidden="true">?</span></div><div class="card-body"><p class="card-kicker">CLASSIFIED SPECIES</p><h3 id="species-view-name">—</h3><p id="species-view-description">—</p></div><div class="card-footer"><span id="species-view-scientific">—</span><span>✓</span></div></div><a id="species-view-credit" class="dialog-image-credit" href="#" target="_blank" rel="noreferrer">Image credit</a></section></div>
   <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
 `;

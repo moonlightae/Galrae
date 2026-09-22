@@ -1,5 +1,31 @@
 import { sql } from "drizzle-orm";
-import { index, integer, sqliteTable, text } from "drizzle-orm/sqlite-core";
+import { index, integer, sqliteTable, text, uniqueIndex } from "drizzle-orm/sqlite-core";
+
+export const users = sqliteTable("users", {
+  id: text("id").primaryKey(),
+  username: text("username").notNull(),
+  usernameNormalized: text("username_normalized").notNull(),
+  passwordHash: text("password_hash").notNull(),
+  passwordSalt: text("password_salt").notNull(),
+  passwordIterations: integer("password_iterations").notNull(),
+  chatgptUserId: text("chatgpt_user_id"),
+  chatgptDisplayName: text("chatgpt_display_name"),
+  createdAt: text("created_at").notNull().default(sql`CURRENT_TIMESTAMP`),
+  updatedAt: text("updated_at").notNull().default(sql`CURRENT_TIMESTAMP`),
+}, (table) => [
+  uniqueIndex("idx_users_username_normalized").on(table.usernameNormalized),
+  uniqueIndex("idx_users_chatgpt_user_id").on(table.chatgptUserId),
+]);
+
+export const sessions = sqliteTable("sessions", {
+  tokenHash: text("token_hash").primaryKey(),
+  userId: text("user_id").notNull().references(() => users.id, { onDelete: "cascade" }),
+  expiresAt: integer("expires_at").notNull(),
+  createdAt: text("created_at").notNull().default(sql`CURRENT_TIMESTAMP`),
+}, (table) => [
+  index("idx_sessions_user_id").on(table.userId),
+  index("idx_sessions_expires_at").on(table.expiresAt),
+]);
 
 export const leaderboard = sqliteTable("leaderboard", {
   userId: text("user_id").primaryKey(),

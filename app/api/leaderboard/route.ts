@@ -1,5 +1,5 @@
 import { asc, desc, sql } from "drizzle-orm";
-import { getChatGPTUser } from "../../chatgpt-auth";
+import { getGameUser } from "../../game-auth";
 import { getDb } from "../../../db";
 import { leaderboard } from "../../../db/schema";
 
@@ -12,7 +12,7 @@ function storageError(error: unknown) {
 
 export async function GET() {
   try {
-    const user = await getChatGPTUser();
+    const user = await getGameUser();
     const rows = await getDb()
       .select({
         userId: leaderboard.userId,
@@ -27,7 +27,7 @@ export async function GET() {
     return Response.json({
       entries: rows.map(({ userId, ...row }) => ({
         ...row,
-        isCurrentUser: userId === user?.userId,
+        isCurrentUser: userId === user?.id,
       })),
     });
   } catch (error) {
@@ -36,7 +36,7 @@ export async function GET() {
 }
 
 export async function POST(request: Request) {
-  const user = await getChatGPTUser();
+  const user = await getGameUser();
   if (!user) return Response.json({ error: "로그인이 필요합니다." }, { status: 401 });
 
   let payload: { score?: unknown };
@@ -48,11 +48,11 @@ export async function POST(request: Request) {
     return Response.json({ error: "점수는 0부터 66 사이여야 합니다." }, { status: 400 });
   }
 
-  const displayName = (user.fullName || user.email.split("@")[0] || "Player").slice(0, 60);
+  const displayName = user.username.slice(0, 60);
   try {
     const db = getDb();
     await db.insert(leaderboard).values({
-      userId: user.userId,
+      userId: user.id,
       displayName,
       bestScore: score,
       gamesPlayed: 1,
@@ -72,7 +72,7 @@ export async function POST(request: Request) {
       bestScore: leaderboard.bestScore,
       gamesPlayed: leaderboard.gamesPlayed,
       achievedAt: leaderboard.achievedAt,
-    }).from(leaderboard).where(sql`${leaderboard.userId} = ${user.userId}`).limit(1);
+    }).from(leaderboard).where(sql`${leaderboard.userId} = ${user.id}`).limit(1);
     return Response.json({ entry });
   } catch (error) {
     return storageError(error);

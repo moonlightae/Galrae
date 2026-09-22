@@ -1,6 +1,6 @@
 const { ANIMALIA_ID, buildTree, getExpectedPlacement, shuffle } = GalraeLogic;
 const HUMAN_ID = "homo-sapiens";
-const COLLECTION_KEY = "galrae.collection.v2";
+const COLLECTION_PREFIX = "galrae.collection.v3";
 
 const $ = (selector) => document.querySelector(selector);
 const lobby = $("#lobby");
@@ -13,7 +13,10 @@ let dataset = null;
 let animals = [];
 let speciesById = new Map();
 let currentUser = null;
+let currentChatGPT = null;
 let scoreSubmitted = false;
+let authMode = "login";
+let accountReturnFocus = null;
 
 const state = {
   queue: [], round: 0, score: 0, selected: false, tree: null,
@@ -45,25 +48,35 @@ function taxonomyLabels(animal) {
   return labels.length ? labels : animal.taxonomy.lineage.slice(-4, -1).map((taxon) => taxon.scientificName);
 }
 
+function collectionKey() {
+  return `${COLLECTION_PREFIX}.${currentUser?.id || "guest"}`;
+}
+
 function getCollection() {
   try {
-    const stored = JSON.parse(localStorage.getItem(COLLECTION_KEY));
+    const stored = JSON.parse(localStorage.getItem(collectionKey()));
     return Array.isArray(stored) ? stored.filter((id) => speciesById.has(id)) : [];
   } catch { return []; }
 }
 
 function setCollection(ids) {
   const valid = [...new Set(ids)].filter((id) => speciesById.has(id));
-  localStorage.setItem(COLLECTION_KEY, JSON.stringify(valid));
+  localStorage.setItem(collectionKey(), JSON.stringify(valid));
 }
 
 function migrateCollection() {
   let old = [];
-  try { old = JSON.parse(localStorage.getItem("galrae.collection")) || []; } catch { old = []; }
+  try {
+    old = [
+      ...(JSON.parse(localStorage.getItem("galrae.collection")) || []),
+      ...(JSON.parse(localStorage.getItem("galrae.collection.v2")) || []),
+    ];
+  } catch { old = []; }
   const current = getCollection();
-  const hadHuman = old.includes("human") || old.includes(HUMAN_ID) || current.includes(HUMAN_ID);
-  const migrated = [...current, ...(hadHuman ? [HUMAN_ID] : [])];
+  const canClaimLegacy = currentUser && !localStorage.getItem("galrae.collection.claimed");
+  const migrated = [...current, ...(canClaimLegacy || !currentUser ? old : []), HUMAN_ID];
   setCollection(migrated.length ? migrated : [HUMAN_ID]);
+  if (canClaimLegacy) localStorage.setItem("galrae.collection.claimed", currentUser.id);
   localStorage.removeItem("galrae.collection");
 }
 
@@ -185,16 +198,114 @@ async function loadAccount() {
     if (!response.ok) throw new Error(`Account request failed: ${response.status}`);
     const data = await response.json();
     currentUser = data.user;
+    currentChatGPT = data.chatgpt;
     if (currentUser) {
-      panel.innerHTML = `<span class="auth-name" title="${escapeHtml(currentUser.email)}">${escapeHtml(currentUser.displayName)}</span><a class="auth-link" href="${escapeHtml(data.signOutPath)}" target="_top">로그아웃</a>`;
+      panel.innerHTML = `<button class="auth-name" id="open-account" type="button">${escapeHtml(currentUser.username)}</button><button class="auth-link" id="logout-account" type="button">로그아웃</button>`;
       note.textContent = "게임이 끝나면 최고 기록이 자동으로 반영됩니다.";
     } else {
-      panel.innerHTML = `<a class="auth-login" href="${escapeHtml(data.signInPath)}" target="_top">ChatGPT로 로그인</a>`;
-      note.textContent = "로그인하면 게임 기록이 자동으로 등록됩니다.";
+      panel.innerHTML = '<button class="auth-login" id="open-account" type="button">로그인 / 가입</button>';
+      note.textContent = "게임 아이디로 로그인하면 최고 기록이 자동으로 등록됩니다.";
     }
+    if (dataset) { migrateCollection(); renderCollection(); }
+    return data;
   } catch (error) {
     console.error(error);
     panel.innerHTML = '<span class="auth-loading">계정 정보를 확인하지 못했어요</span>';
+  }
+}
+
+function setAuthMode(mode) {
+  authMode = mode;
+  const registering = mode === "register";
+  $("#show-login").classList.toggle("is-active", !registering);
+  $("#show-login").setAttribute("aria-selected", String(!registering));
+  $("#show-register").classList.toggle("is-active", registering);
+  $("#show-register").setAttribute("aria-selected", String(registering));
+  $("#account-password").autocomplete = registering ? "new-password" : "current-password";
+  $("#account-form-help").textContent = registering
+    ? "아이디는 문자·숫자·밑줄 3~20자, 비밀번호는 8자 이상으로 만들어주세요."
+    : "이 기기에서 사용할 게임 아이디로 로그인하세요.";
+  $("#account-submit").textContent = registering ? "새 계정 만들기 →" : "로그인 →";
+  $("#account-error").textContent = "";
+}
+
+function renderAccountProfile() {
+  $("#account-profile-name").textContent = currentUser.username;
+  const panel = $("#chatgpt-link-panel");
+  if (currentUser.chatgptLinked) {
+    panel.innerHTML = `<span class="link-status is-linked">연결됨</span><strong>ChatGPT · ${escapeHtml(currentUser.chatgptDisplayName || "연결된 계정")}</strong><p>이 게임 아이디는 현재 ChatGPT 계정과 연결되어 있습니다.</p>`;
+  } else if (currentChatGPT?.available) {
+    panel.innerHTML = `<span class="link-status">선택 사항</span><strong>ChatGPT · ${escapeHtml(currentChatGPT.displayName)}</strong><p>현재 ChatGPT 계정을 이 게임 아이디에 연결할 수 있어요.</p><button id="link-chatgpt" class="secondary-button" type="button">ChatGPT 계정 연결</button>`;
+  } else {
+    panel.innerHTML = '<strong>ChatGPT 계정 확인 불가</strong><p>ChatGPT로 사이트에 접속하면 나중에 연결할 수 있어요.</p>';
+  }
+}
+
+function openAccountModal(returnFocus) {
+  accountReturnFocus = returnFocus || null;
+  $("#account-auth-view").hidden = Boolean(currentUser);
+  $("#account-profile-view").hidden = !currentUser;
+  if (currentUser) renderAccountProfile();
+  else setAuthMode("login");
+  $("#account-modal").hidden = false;
+  (currentUser ? $("#close-account") : $("#account-username")).focus();
+}
+
+function closeAccountModal() {
+  if ($("#account-modal").hidden) return;
+  $("#account-modal").hidden = true;
+  const returnFocus = accountReturnFocus;
+  accountReturnFocus = null;
+  if (returnFocus?.isConnected) returnFocus.focus();
+}
+
+async function submitAccount(event) {
+  event.preventDefault();
+  const submit = $("#account-submit");
+  const error = $("#account-error");
+  submit.disabled = true;
+  error.textContent = "";
+  try {
+    const response = await fetch(`/api/auth/${authMode}`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username: $("#account-username").value, password: $("#account-password").value }),
+    });
+    const data = await response.json();
+    if (!response.ok) throw new Error(data.error || "계정 요청에 실패했습니다.");
+    $("#account-form").reset();
+    await loadAccount();
+    await loadLeaderboard();
+    closeAccountModal();
+    showToast(authMode === "register" ? "새 게임 계정을 만들었습니다." : "로그인했습니다.");
+  } catch (caught) {
+    error.textContent = caught.message;
+  } finally {
+    submit.disabled = false;
+  }
+}
+
+async function logoutAccount() {
+  await fetch("/api/auth/logout", { method: "POST" });
+  currentUser = null;
+  await loadAccount();
+  await loadLeaderboard();
+  showToast("게임 계정에서 로그아웃했습니다.");
+}
+
+async function linkChatGPT() {
+  const button = $("#link-chatgpt");
+  button.disabled = true;
+  try {
+    const response = await fetch("/api/auth/link-chatgpt", { method: "POST" });
+    const data = await response.json();
+    if (!response.ok) throw new Error(data.error || "연결하지 못했습니다.");
+    await loadAccount();
+    renderAccountProfile();
+    showToast("ChatGPT 계정을 연결했습니다.");
+  } catch (caught) {
+    showToast(caught.message);
+    button.disabled = false;
   }
 }
 
@@ -361,8 +472,7 @@ function returnToLobby() {
 
 async function initialize() {
   const startButton = $("#start-game");
-  loadAccount();
-  loadLeaderboard();
+  const accountPromise = loadAccount();
   try {
     const response = await fetch("data/animals.json");
     if (!response.ok) throw new Error(`Dataset request failed: ${response.status}`);
@@ -370,8 +480,10 @@ async function initialize() {
     animals = dataset.animals;
     speciesById = new Map(animals.map((animal) => [animal.id, animal]));
     if (!speciesById.has(HUMAN_ID)) throw new Error("Human is missing from the dataset");
+    await accountPromise;
     migrateCollection();
     renderCollection();
+    loadLeaderboard();
     startButton.disabled = false;
     startButton.innerHTML = '분류 시작 <span aria-hidden="true">→</span>';
   } catch (error) {
@@ -403,11 +515,22 @@ $("#start-game").addEventListener("click", startGame);
 $("#quit-game").addEventListener("click", returnToLobby);
 $("#return-lobby").addEventListener("click", returnToLobby);
 $("#retry-game").addEventListener("click", startGame);
+$("#auth-panel").addEventListener("click", (event) => {
+  if (event.target.closest("#open-account")) openAccountModal(event.target.closest("#open-account"));
+  if (event.target.closest("#logout-account")) logoutAccount();
+});
+$("#close-account").addEventListener("click", closeAccountModal);
+$("#account-modal").addEventListener("click", (event) => { if (event.target === event.currentTarget) closeAccountModal(); });
+$("#show-login").addEventListener("click", () => setAuthMode("login"));
+$("#show-register").addEventListener("click", () => setAuthMode("register"));
+$("#account-form").addEventListener("submit", submitAccount);
+$("#chatgpt-link-panel").addEventListener("click", (event) => { if (event.target.closest("#link-chatgpt")) linkChatGPT(); });
 $("#close-species-card").addEventListener("click", closeSpeciesCard);
 $("#species-modal").addEventListener("click", (event) => {
   if (event.target === event.currentTarget) closeSpeciesCard();
 });
 document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && !$("#account-modal").hidden) { closeAccountModal(); return; }
   if (event.key === "Escape" && !$("#species-modal").hidden) closeSpeciesCard();
 });
 

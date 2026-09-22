@@ -71,9 +71,9 @@ button, [role="button"] { -webkit-tap-highlight-color: transparent; }
 .header-meta { margin: 0; color: var(--muted); font-size: .85rem; }
 .header-actions { display: flex; align-items: center; gap: 16px; }
 .auth-panel { display: flex; align-items: center; gap: 9px; min-height: 34px; }
-.auth-name { max-width: 190px; overflow: hidden; color: var(--forest); font-size: .78rem; font-weight: 800; text-overflow: ellipsis; white-space: nowrap; }
+.auth-name { max-width: 190px; padding: 7px 2px; overflow: hidden; color: var(--forest); background: transparent; border: 0; font-size: .78rem; font-weight: 800; text-decoration: underline; text-underline-offset: 4px; text-overflow: ellipsis; white-space: nowrap; cursor: pointer; }
 .auth-loading { color: var(--muted); font-size: .76rem; }
-.auth-link, .auth-login { padding: 8px 11px; color: var(--forest); border: 1px solid var(--forest); border-radius: 999px; font-size: .72rem; font-weight: 800; text-decoration: none; }
+.auth-link, .auth-login { padding: 8px 11px; color: var(--forest); background: transparent; border: 1px solid var(--forest); border-radius: 999px; font-size: .72rem; font-weight: 800; text-decoration: none; cursor: pointer; }
 .auth-login { color: #fff; background: var(--forest); }
 .auth-link:hover, .auth-login:hover { color: var(--ink); background: var(--yellow); border-color: var(--ink); }
 .text-button {
@@ -467,6 +467,27 @@ button, [role="button"] { -webkit-tap-highlight-color: transparent; }
 .result-modal > p:not(.eyebrow) { color: var(--muted); line-height: 1.6; }
 .result-modal .primary-button { margin-top: 20px; }
 .score-submit-status { min-height: 1.5em; margin-bottom: 0; color: var(--forest) !important; font-size: .8rem; font-weight: 800; }
+.account-modal-backdrop { z-index: 28; }
+.account-dialog { position: relative; width: min(430px, 100%); padding: 38px; color: var(--ink); background: var(--paper); border: 1px solid var(--ink); border-radius: 8px 30px 8px 30px; box-shadow: 12px 14px 0 rgba(0,0,0,.28); }
+.account-dialog h2 { margin: 0 0 24px; font-family: "Gowun Batang", serif; font-size: 2.15rem; }
+.account-close { color: #fff; background: var(--forest); }
+.auth-tabs { display: grid; grid-template-columns: 1fr 1fr; margin-bottom: 22px; border-bottom: 1px solid var(--line); }
+.auth-tabs button { padding: 11px; color: var(--muted); background: transparent; border: 0; border-bottom: 3px solid transparent; font-weight: 800; cursor: pointer; }
+.auth-tabs button.is-active { color: var(--forest); border-color: var(--forest); }
+.account-form { display: grid; gap: 15px; }
+.account-form label { display: grid; gap: 7px; color: var(--forest); font-size: .78rem; font-weight: 800; }
+.account-form input { width: 100%; min-height: 46px; padding: 0 13px; color: var(--ink); background: #fff; border: 1px solid #a6ada8; border-radius: 5px; font: inherit; }
+.account-form input:focus { outline: 3px solid rgba(244, 215, 101, .75); border-color: var(--forest); }
+.account-form > p { margin: 0; color: var(--muted); font-size: .73rem; line-height: 1.5; }
+.account-form .account-error { min-height: 1.5em; color: #a43c31; font-weight: 700; }
+.account-profile-copy { margin: -12px 0 24px; color: var(--muted); line-height: 1.6; }
+.chatgpt-link-panel { padding: 20px; background: #e8efe9; border: 1px solid #c5d3c9; border-radius: 9px; }
+.chatgpt-link-panel strong { display: block; margin: 7px 0; color: var(--forest); }
+.chatgpt-link-panel p { margin: 0 0 15px; color: var(--muted); font-size: .8rem; line-height: 1.55; }
+.link-status { display: inline-block; padding: 3px 7px; color: #705b13; background: var(--yellow); border-radius: 999px; font-size: .62rem; font-weight: 800; }
+.link-status.is-linked { color: #fff; background: var(--forest); }
+.secondary-button { min-height: 42px; padding: 0 14px; color: #fff; background: var(--forest); border: 1px solid var(--forest); border-radius: 5px; font-weight: 800; cursor: pointer; }
+.secondary-button:hover { color: var(--ink); background: var(--yellow); }
 .species-modal-backdrop { z-index: 24; }
 .species-dialog { position: relative; width: min(340px, 100%); padding: 28px; background: var(--forest); border: 1px solid #09281f; border-radius: 24px 7px 24px 7px; box-shadow: 12px 14px 0 rgba(0,0,0,.28); }
 .species-view-card { width: 100%; aspect-ratio: 5 / 7; box-shadow: 7px 8px 0 rgba(0,0,0,.25); }

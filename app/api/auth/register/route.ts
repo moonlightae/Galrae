@@ -1,0 +1,27 @@
+import { eq } from "drizzle-orm";
+import { getDb } from "../../../../db";
+import { users } from "../../../../db/schema";
+import { createSession, makePasswordRecord, normalizeUsername, validateCredentials } from "../../../game-auth";
+
+export async function POST(request: Request) {
+  let body: { username?: unknown; password?: unknown };
+  try { body = await request.json() as typeof body; }
+  catch { return Response.json({ error: "잘못된 요청입니다." }, { status: 400 }); }
+  const error = validateCredentials(body.username, body.password);
+  if (error) return Response.json({ error }, { status: 400 });
+  const username = (body.username as string).normalize("NFKC");
+  const usernameNormalized = normalizeUsername(username);
+  const db = getDb();
+  const [existing] = await db.select({ id: users.id }).from(users).where(eq(users.usernameNormalized, usernameNormalized)).limit(1);
+  if (existing) return Response.json({ error: "이미 사용 중인 아이디입니다." }, { status: 409 });
+  const passwordRecord = await makePasswordRecord(body.password as string);
+  const id = crypto.randomUUID();
+  try {
+    await db.insert(users).values({ id, username, usernameNormalized, ...passwordRecord });
+    await createSession(id, new URL(request.url).protocol === "https:");
+    return Response.json({ user: { id, username, chatgptLinked: false, chatgptDisplayName: null } }, { status: 201 });
+  } catch (caught) {
+    console.error("Registration error", caught);
+    return Response.json({ error: "계정을 만들지 못했습니다. 아이디를 확인해주세요." }, { status: 409 });
+  }
+}
