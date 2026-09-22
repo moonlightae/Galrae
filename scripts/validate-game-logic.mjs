@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 
 await import(new URL("../public/game-logic.js", import.meta.url));
-const { buildTree, collectLeafIds, findNodeById, getExpectedPlacement } = globalThis.GalraeLogic;
+const { ANIMALIA_ID, buildTree, collectLeafIds, findNodeById, getExpectedPlacement, isEquivalentPlacement } = globalThis.GalraeLogic;
 const dataset = JSON.parse(fs.readFileSync(new URL("../data/animals.json", import.meta.url), "utf8"));
 const speciesById = new Map(dataset.animals.map((animal) => [animal.id, animal]));
 const humanId = "homo-sapiens";
@@ -38,4 +38,18 @@ assert.ok(remainingBranch, "Porifera and Planulozoa branch is missing");
 assert.equal(remainingBranch.children.length, 2, "Porifera must split before Cnidaria and Bilateria");
 const planulozoa = remainingBranch.children.find((node) => collectLeafIds(node).includes(cnidarianId));
 assert.deepEqual(new Set(collectLeafIds(planulozoa)), new Set([cnidarianId, humanId]));
+
+const planulozoaTree = buildTree([cnidarianId, humanId], speciesById);
+const spongePlacement = getExpectedPlacement([cnidarianId, humanId], spongeId, speciesById);
+assert.equal(spongePlacement.placement, "wrap");
+assert.notEqual(spongePlacement.targetId, ANIMALIA_ID);
+assert.ok(
+  isEquivalentPlacement(planulozoaTree, spongePlacement, ANIMALIA_ID, "wrap"),
+  "Wrapping the Animalia root and its only child must be treated as the same placement",
+);
+assert.equal(
+  isEquivalentPlacement(planulozoaTree, spongePlacement, ANIMALIA_ID, "join"),
+  false,
+  "Join placements must not inherit wrap equivalence",
+);
 console.log(`Validated ${classified.length} species: ${wrapCount} wrap placements, ${joinCount} join placements.`);

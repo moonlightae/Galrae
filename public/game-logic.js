@@ -185,6 +185,14 @@
     return { targetId: wrapped.id, placement: "wrap", ancestorId: parent.id };
   }
 
+  function isEquivalentPlacement(tree, expected, targetId, placement) {
+    if (targetId === expected.targetId && placement === expected.placement) return true;
+    if (placement !== "wrap" || expected.placement !== "wrap") return false;
+    const target = findNodeById(tree, targetId);
+    const expectedTarget = findNodeById(tree, expected.targetId);
+    return Boolean(target && expectedTarget && leafSetKey(target) === leafSetKey(expectedTarget));
+  }
+
   function shuffle(items, random = Math.random) {
     const result = [...items];
     for (let index = result.length - 1; index > 0; index -= 1) {
@@ -200,6 +208,7 @@
     collectLeafIds,
     findNodeById,
     getExpectedPlacement,
+    isEquivalentPlacement,
     shuffle,
   };
 }(globalThis));
