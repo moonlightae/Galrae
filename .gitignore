@@ -1,0 +1,8 @@
+node_modules/
+.next/
+out/
+.vercel/
+.idea/
+*.log
+.env*
+!.env.example
