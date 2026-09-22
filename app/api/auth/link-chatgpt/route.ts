@@ -1,6 +1,6 @@
 import { and, eq, ne } from "drizzle-orm";
 import { getDb } from "../../../../db";
-import { users } from "../../../../db/schema";
+import { leaderboard, users } from "../../../../db/schema";
 import { getChatGPTUser } from "../../../chatgpt-auth";
 import { getGameUser } from "../../../game-auth";
 
@@ -15,5 +15,32 @@ export async function POST() {
   const displayName = chatgptUser.fullName || chatgptUser.email.split("@")[0];
   await db.update(users).set({ chatgptUserId: chatgptUser.userId, chatgptDisplayName: displayName, updatedAt: new Date().toISOString() })
     .where(eq(users.id, gameUser.id));
+  const [legacyScore] = await db.select().from(leaderboard).where(eq(leaderboard.userId, chatgptUser.userId)).limit(1);
+  if (legacyScore && chatgptUser.userId !== gameUser.id) {
+    const [gameScore] = await db.select().from(leaderboard).where(eq(leaderboard.userId, gameUser.id)).limit(1);
+    const bestScore = Math.max(legacyScore.bestScore, gameScore?.bestScore ?? 0);
+    const achievedAt = !gameScore || legacyScore.bestScore > gameScore.bestScore
+      ? legacyScore.achievedAt
+      : legacyScore.bestScore < gameScore.bestScore
+        ? gameScore.achievedAt
+        : [legacyScore.achievedAt, gameScore.achievedAt].sort()[0];
+    await db.insert(leaderboard).values({
+      userId: gameUser.id,
+      displayName: gameUser.username,
+      bestScore,
+      gamesPlayed: legacyScore.gamesPlayed + (gameScore?.gamesPlayed ?? 0),
+      achievedAt,
+    }).onConflictDoUpdate({
+      target: leaderboard.userId,
+      set: {
+        displayName: gameUser.username,
+        bestScore,
+        gamesPlayed: legacyScore.gamesPlayed + (gameScore?.gamesPlayed ?? 0),
+        achievedAt,
+        updatedAt: new Date().toISOString(),
+      },
+    });
+    await db.delete(leaderboard).where(eq(leaderboard.userId, chatgptUser.userId));
+  }
   return Response.json({ linked: true, displayName });
 }
