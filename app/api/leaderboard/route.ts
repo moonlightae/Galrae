@@ -1,0 +1,80 @@
+import { asc, desc, sql } from "drizzle-orm";
+import { getChatGPTUser } from "../../chatgpt-auth";
+import { getDb } from "../../../db";
+import { leaderboard } from "../../../db/schema";
+
+export const dynamic = "force-dynamic";
+
+function storageError(error: unknown) {
+  console.error("Leaderboard storage error", error);
+  return Response.json({ error: "리더보드를 잠시 사용할 수 없습니다." }, { status: 503 });
+}
+
+export async function GET() {
+  try {
+    const user = await getChatGPTUser();
+    const rows = await getDb()
+      .select({
+        userId: leaderboard.userId,
+        displayName: leaderboard.displayName,
+        bestScore: leaderboard.bestScore,
+        gamesPlayed: leaderboard.gamesPlayed,
+        achievedAt: leaderboard.achievedAt,
+      })
+      .from(leaderboard)
+      .orderBy(desc(leaderboard.bestScore), asc(leaderboard.achievedAt))
+      .limit(20);
+    return Response.json({
+      entries: rows.map(({ userId, ...row }) => ({
+        ...row,
+        isCurrentUser: userId === user?.userId,
+      })),
+    });
+  } catch (error) {
+    return storageError(error);
+  }
+}
+
+export async function POST(request: Request) {
+  const user = await getChatGPTUser();
+  if (!user) return Response.json({ error: "로그인이 필요합니다." }, { status: 401 });
+
+  let payload: { score?: unknown };
+  try { payload = await request.json() as { score?: unknown }; }
+  catch { return Response.json({ error: "잘못된 요청입니다." }, { status: 400 }); }
+
+  const score = Number(payload.score);
+  if (!Number.isInteger(score) || score < 0 || score > 66) {
+    return Response.json({ error: "점수는 0부터 66 사이여야 합니다." }, { status: 400 });
+  }
+
+  const displayName = (user.fullName || user.email.split("@")[0] || "Player").slice(0, 60);
+  try {
+    const db = getDb();
+    await db.insert(leaderboard).values({
+      userId: user.userId,
+      displayName,
+      bestScore: score,
+      gamesPlayed: 1,
+    }).onConflictDoUpdate({
+      target: leaderboard.userId,
+      set: {
+        displayName,
+        bestScore: sql`MAX(${leaderboard.bestScore}, ${score})`,
+        gamesPlayed: sql`${leaderboard.gamesPlayed} + 1`,
+        achievedAt: sql`CASE WHEN ${score} > ${leaderboard.bestScore} THEN CURRENT_TIMESTAMP ELSE ${leaderboard.achievedAt} END`,
+        updatedAt: sql`CURRENT_TIMESTAMP`,
+      },
+    });
+
+    const [entry] = await db.select({
+      displayName: leaderboard.displayName,
+      bestScore: leaderboard.bestScore,
+      gamesPlayed: leaderboard.gamesPlayed,
+      achievedAt: leaderboard.achievedAt,
+    }).from(leaderboard).where(sql`${leaderboard.userId} = ${user.userId}`).limit(1);
+    return Response.json({ entry });
+  } catch (error) {
+    return storageError(error);
+  }
+}

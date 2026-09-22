@@ -12,13 +12,15 @@ const treeCanvas = $("#tree-canvas");
 let dataset = null;
 let animals = [];
 let speciesById = new Map();
+let currentUser = null;
+let scoreSubmitted = false;
 
 const state = {
   queue: [], round: 0, score: 0, selected: false, tree: null,
   classified: [HUMAN_ID], newest: null, currentId: null, expected: null,
   previewTarget: null, previewPlacement: null, failed: false,
   panX: 0, panY: 0, panning: false, panStartX: 0, panStartY: 0,
-  panOriginX: 0, panOriginY: 0,
+  panOriginX: 0, panOriginY: 0, detailReturnFocus: null,
 };
 
 function escapeHtml(value) {
@@ -101,7 +103,7 @@ function renderNode(node) {
     const fresh = state.newest === node.id ? " is-new" : "";
     const preview = node.preview ? " is-preview" : "";
     const badge = node.preview ? `<span class="preview-tag">${state.failed ? "정답 위치" : "미리보기"}</span>` : "";
-    return `<button class="species-node${fresh}${preview}" type="button" data-target="${escapeHtml(node.id)}" data-placement="wrap" aria-label="${escapeHtml(animal.commonName)}에 새 공통 조상 만들기">${escapeHtml(animal.commonName)}${badge}</button>`;
+    return `<button class="species-node${fresh}${preview}" type="button" data-target="${escapeHtml(node.id)}" data-placement="wrap" aria-label="${escapeHtml(animal.commonName)} 카드 보기. 새 카드를 선택한 상태에서는 이 위치에 배치">${escapeHtml(animal.commonName)}${badge}</button>`;
   }
   const children = node.children.map((child) => `<li>${renderNode(child)}</li>`).join("");
   return `<span class="branch-anchor"><button class="edge-target" type="button" data-target="${escapeHtml(node.id)}" data-placement="wrap" aria-label="이 분기점 위에 새로운 공통 조상 만들기"></button><button class="clade-node" type="button" data-target="${escapeHtml(node.id)}" data-placement="join" aria-label="이 공통 조상에 가지 추가하기"></button></span><ul>${children}</ul>`;
@@ -175,6 +177,107 @@ function showToast(message) {
   showToast.timer = setTimeout(() => { toast.hidden = true; }, 1800);
 }
 
+async function loadAccount() {
+  const panel = $("#auth-panel");
+  const note = $("#leaderboard-note");
+  try {
+    const response = await fetch("/api/me", { cache: "no-store" });
+    if (!response.ok) throw new Error(`Account request failed: ${response.status}`);
+    const data = await response.json();
+    currentUser = data.user;
+    if (currentUser) {
+      panel.innerHTML = `<span class="auth-name" title="${escapeHtml(currentUser.email)}">${escapeHtml(currentUser.displayName)}</span><a class="auth-link" href="${escapeHtml(data.signOutPath)}" target="_top">로그아웃</a>`;
+      note.textContent = "게임이 끝나면 최고 기록이 자동으로 반영됩니다.";
+    } else {
+      panel.innerHTML = `<a class="auth-login" href="${escapeHtml(data.signInPath)}" target="_top">ChatGPT로 로그인</a>`;
+      note.textContent = "로그인하면 게임 기록이 자동으로 등록됩니다.";
+    }
+  } catch (error) {
+    console.error(error);
+    panel.innerHTML = '<span class="auth-loading">계정 정보를 확인하지 못했어요</span>';
+  }
+}
+
+async function loadLeaderboard() {
+  const list = $("#leaderboard-list");
+  const status = $("#leaderboard-status");
+  status.textContent = "기록을 불러오는 중…";
+  try {
+    const response = await fetch("/api/leaderboard", { cache: "no-store" });
+    if (!response.ok) throw new Error(`Leaderboard request failed: ${response.status}`);
+    const data = await response.json();
+    const entries = Array.isArray(data.entries) ? data.entries : [];
+    if (!entries.length) {
+      list.innerHTML = '<li class="leaderboard-empty">아직 등록된 기록이 없어요. 첫 번째 기록을 남겨보세요.</li>';
+      status.textContent = "0명 참가";
+      return;
+    }
+    list.innerHTML = entries.map((entry, index) => `<li class="leaderboard-row${entry.isCurrentUser ? " is-me" : ""}">
+      <span class="leaderboard-rank">${index + 1}</span>
+      <span class="leaderboard-player">${escapeHtml(entry.displayName)}${entry.isCurrentUser ? '<small>나</small>' : ""}</span>
+      <span class="leaderboard-games">${entry.gamesPlayed}회 플레이</span>
+      <strong>${entry.bestScore}<small>종</small></strong>
+    </li>`).join("");
+    status.textContent = `${entries.length}명 순위`;
+  } catch (error) {
+    console.error(error);
+    list.innerHTML = '<li class="leaderboard-empty">리더보드를 불러오지 못했어요.</li>';
+    status.textContent = "연결 오류";
+  }
+}
+
+async function submitScore() {
+  if (scoreSubmitted || !currentUser) return;
+  scoreSubmitted = true;
+  const status = state.failed ? $("#failure-score-status") : $("#score-submit-status");
+  status.textContent = "기록 저장 중…";
+  try {
+    const response = await fetch("/api/leaderboard", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ score: state.score }),
+    });
+    if (!response.ok) throw new Error(`Score request failed: ${response.status}`);
+    status.textContent = "리더보드에 기록했습니다.";
+    await loadLeaderboard();
+  } catch (error) {
+    console.error(error);
+    scoreSubmitted = false;
+    status.textContent = "기록을 저장하지 못했어요.";
+  }
+}
+
+function openSpeciesCard(speciesId, returnFocus) {
+  if (!state.classified.includes(speciesId)) return;
+  const animal = speciesById.get(speciesId);
+  if (!animal) return;
+  const image = $("#species-view-image");
+  const fallback = $("#species-view-fallback");
+  $("#species-view-name").textContent = animal.commonName;
+  $("#species-view-description").textContent = shortDescription(animal.description, 230);
+  $("#species-view-scientific").textContent = animal.scientificName;
+  image.src = animal.image.thumbnailUrl;
+  image.alt = animal.commonName;
+  image.hidden = false;
+  fallback.hidden = true;
+  image.onerror = () => { image.hidden = true; fallback.hidden = false; };
+  const credit = $("#species-view-credit");
+  credit.href = animal.image.commonsPageUrl;
+  credit.textContent = `Image: ${imageCreditText(animal)}`;
+  state.detailReturnFocus = returnFocus || null;
+  $("#species-modal").hidden = false;
+  $("#close-species-card").focus();
+}
+
+function closeSpeciesCard() {
+  const modal = $("#species-modal");
+  if (modal.hidden) return;
+  modal.hidden = true;
+  const returnFocus = state.detailReturnFocus;
+  state.detailReturnFocus = null;
+  if (returnFocus?.isConnected) returnFocus.focus();
+}
+
 function placeCard(targetId, placement = "wrap") {
   if (!state.currentId || state.failed) return;
   clearPreview();
@@ -202,6 +305,7 @@ function failRound() {
   const answerTree = buildTree([...state.classified, state.currentId], speciesById, state.currentId);
   renderTree(answerTree, true);
   $("#failure-panel").hidden = false;
+  submitScore();
   $("#retry-game").focus();
 }
 
@@ -212,6 +316,7 @@ function updateRound() {
     $("#result-count").textContent = state.classified.length;
     $("#result-copy").textContent = `${state.classified.length} species, including Human, were placed in the Animalia tree.`;
     $("#result-modal").hidden = false;
+    submitScore();
     return;
   }
   state.currentId = state.queue[state.round];
@@ -229,26 +334,35 @@ function startGame() {
   state.newest = null; state.currentId = null; state.expected = null;
   state.previewTarget = null; state.previewPlacement = null; state.failed = false;
   state.panX = 0; state.panY = 0; state.panning = false;
+  state.detailReturnFocus = null;
+  scoreSubmitted = false;
+  $("#score-submit-status").textContent = "";
+  $("#failure-score-status").textContent = "";
   card.classList.remove("is-selected", "is-dragging", "is-locked");
   card.setAttribute("draggable", "true");
   lobby.hidden = true; game.hidden = false;
   $("#result-modal").hidden = true;
   $("#failure-panel").hidden = true;
+  $("#species-modal").hidden = true;
   renderTree();
   updateRound();
   window.scrollTo(0, 0);
 }
 
 function returnToLobby() {
+  closeSpeciesCard();
   game.hidden = true;
   $("#result-modal").hidden = true;
   lobby.hidden = false;
   renderCollection();
+  loadLeaderboard();
   window.scrollTo(0, 0);
 }
 
 async function initialize() {
   const startButton = $("#start-game");
+  loadAccount();
+  loadLeaderboard();
   try {
     const response = await fetch("data/animals.json");
     if (!response.ok) throw new Error(`Dataset request failed: ${response.status}`);
@@ -289,11 +403,22 @@ $("#start-game").addEventListener("click", startGame);
 $("#quit-game").addEventListener("click", returnToLobby);
 $("#return-lobby").addEventListener("click", returnToLobby);
 $("#retry-game").addEventListener("click", startGame);
+$("#close-species-card").addEventListener("click", closeSpeciesCard);
+$("#species-modal").addEventListener("click", (event) => {
+  if (event.target === event.currentTarget) closeSpeciesCard();
+});
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && !$("#species-modal").hidden) closeSpeciesCard();
+});
 
 treeCanvas.addEventListener("click", (event) => {
   const target = event.target.closest("[data-target]");
-  if (!target || state.failed || !state.selected) return;
-  placeCard(target.dataset.target, target.dataset.placement || "wrap");
+  if (!target) return;
+  if (state.selected && !state.failed) {
+    placeCard(target.dataset.target, target.dataset.placement || "wrap");
+    return;
+  }
+  if (target.classList.contains("species-node")) openSpeciesCard(target.dataset.target, target);
 });
 treeCanvas.addEventListener("dragover", (event) => {
   if (state.failed) return;
