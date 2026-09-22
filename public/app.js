@@ -589,6 +589,20 @@ async function initialize() {
     loadLeaderboard();
     startButton.disabled = false;
     startButton.innerHTML = '분류 시작 <span aria-hidden="true">→</span>';
+    if (new URLSearchParams(location.search).get("qa") === "root-wrap-9f3c") {
+      state.queue = ["amphimedon-queenslandica"];
+      state.round = 0; state.score = 0; state.selected = false;
+      state.classified = [HUMAN_ID, "aurelia-aurita"];
+      state.tree = buildTree(state.classified, speciesById);
+      state.newest = null; state.currentId = null; state.expected = null;
+      state.previewTarget = null; state.previewPlacement = null; state.failed = false;
+      state.panX = 0; state.panY = 0; state.panning = false;
+      lobby.hidden = true; game.hidden = false;
+      $("#result-modal").hidden = true;
+      $("#failure-panel").hidden = true;
+      renderTree();
+      updateRound();
+    }
   } catch (error) {
     console.error(error);
     startButton.textContent = "데이터를 불러오지 못했어요";
