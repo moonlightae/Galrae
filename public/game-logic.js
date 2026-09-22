@@ -1,5 +1,11 @@
 (function attachGalraeLogic(global) {
   const ANIMALIA_ID = "Q729";
+  const PORIFERA_ID = "Q18960";
+  const CTENOPHORA_ID = "Q102778";
+  const CNIDARIA_ID = "Q25441";
+  const BILATERIA_ID = "Q5173";
+  const PORIFERA_PLANULOZOA_ID = "canonical:porifera-planulozoa";
+  const PLANULOZOA_ID = "canonical:planulozoa";
   const GNATHOSTOMATA_ID = "Q26214";
   const EUTELEOSTOMI_ID = "canonical:euteleostomi";
   const SARCOPTERYGII_ID = "Q160830";
@@ -47,7 +53,6 @@
       if (node.animalId) descendants.push(leaf(node.animalId, node.animalId === previewId));
       if (!isRoot && descendants.length === 1) return descendants[0];
       if (!descendants.length && node.animalId) return leaf(node.animalId, node.animalId === previewId);
-      if (isRoot && descendants.length === 1) return descendants[0];
       return branch(node.id, node.name, descendants, false);
     }
 
@@ -55,14 +60,47 @@
   }
 
   function normalizeLineage(lineage) {
-    const gnathostomeIndex = lineage.findIndex((taxon) => taxon.wikidataId === GNATHOSTOMATA_ID);
-    if (gnathostomeIndex < 0) return lineage;
-    const descendantIndex = lineage.findIndex((taxon, index) => index > gnathostomeIndex && [
+    let normalized = [...lineage];
+    const animaliaIndex = normalized.findIndex((taxon) => taxon.wikidataId === ANIMALIA_ID);
+    const earlyAnimalIndex = normalized.findIndex((taxon, index) => index > animaliaIndex && [
+      PORIFERA_ID,
+      CTENOPHORA_ID,
+      CNIDARIA_ID,
+      BILATERIA_ID,
+    ].includes(taxon.wikidataId));
+
+    if (animaliaIndex >= 0 && earlyAnimalIndex >= 0) {
+      const earlyAnimalId = normalized[earlyAnimalIndex].wikidataId;
+      const prefix = normalized.slice(0, animaliaIndex + 1);
+      const suffix = normalized.slice(earlyAnimalIndex);
+      const remainingAnimals = {
+        wikidataId: PORIFERA_PLANULOZOA_ID,
+        scientificName: "Porifera + Planulozoa",
+        englishName: "sponge and planulozoan clade",
+        rank: "clade",
+      };
+      const planulozoa = {
+        wikidataId: PLANULOZOA_ID,
+        scientificName: "Planulozoa",
+        englishName: "cnidarian and bilaterian clade",
+        rank: "clade",
+      };
+
+      if (earlyAnimalId === CTENOPHORA_ID) normalized = [...prefix, ...suffix];
+      if (earlyAnimalId === PORIFERA_ID) normalized = [...prefix, remainingAnimals, ...suffix];
+      if ([CNIDARIA_ID, BILATERIA_ID].includes(earlyAnimalId)) {
+        normalized = [...prefix, remainingAnimals, planulozoa, ...suffix];
+      }
+    }
+
+    const gnathostomeIndex = normalized.findIndex((taxon) => taxon.wikidataId === GNATHOSTOMATA_ID);
+    if (gnathostomeIndex < 0) return normalized;
+    const descendantIndex = normalized.findIndex((taxon, index) => index > gnathostomeIndex && [
       SARCOPTERYGII_ID,
       ACTINOPTERYGII_ID,
       DIPNEUSTI_ID,
     ].includes(taxon.wikidataId));
-    if (descendantIndex < 0) return lineage;
+    if (descendantIndex < 0) return normalized;
 
     const canonicalBonyClade = {
       wikidataId: EUTELEOSTOMI_ID,
@@ -70,9 +108,9 @@
       englishName: "bony vertebrate",
       rank: "clade",
     };
-    const prefix = lineage.slice(0, gnathostomeIndex + 1);
-    const suffix = lineage.slice(descendantIndex);
-    if (lineage[descendantIndex].wikidataId === DIPNEUSTI_ID) {
+    const prefix = normalized.slice(0, gnathostomeIndex + 1);
+    const suffix = normalized.slice(descendantIndex);
+    if (normalized[descendantIndex].wikidataId === DIPNEUSTI_ID) {
       suffix.unshift({
         wikidataId: SARCOPTERYGII_ID,
         scientificName: "Sarcopterygii",
@@ -115,14 +153,13 @@
   }
 
   function findNodeByLeafSet(node, wantedKey) {
-    if (leafSetKey(node) === wantedKey) return node;
     if (node.type === "branch") {
       for (const child of node.children) {
         const match = findNodeByLeafSet(child, wantedKey);
         if (match) return match;
       }
     }
-    return null;
+    return leafSetKey(node) === wantedKey ? node : null;
   }
 
   function leafSetKey(node) {

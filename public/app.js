@@ -129,7 +129,10 @@ function renderTree(displayTree = state.tree, answer = false) {
   const treeContent = isAnimaliaRoot
     ? `<ul>${displayTree.children.map((child) => `<li>${renderNode(child)}</li>`).join("")}</ul>`
     : `<ul><li>${renderNode(displayTree)}</li></ul>`;
-  treeCanvas.innerHTML = `<div class="tree-camera"><div class="phylo-tree base-tree${answer ? " answer-tree" : ""}"><button class="tree-root" type="button" data-target="${escapeHtml(rootTarget)}" data-placement="${rootPlacement}" aria-label="Animalia 공통 조상에 배치">Animalia common ancestor</button>${treeContent}</div></div><div class="placement-preview" aria-hidden="true" hidden></div>`;
+  const rootControl = isAnimaliaRoot
+    ? `<span class="tree-root-anchor"><button class="tree-root" type="button" data-target="${escapeHtml(rootTarget)}" data-placement="join" aria-label="Animalia 공통 조상에 가지 추가">Animalia common ancestor</button><button class="root-wrap-target" type="button" data-target="${escapeHtml(rootTarget)}" data-placement="wrap" aria-label="현재 계통 전체 위에 새로운 분기 만들기"></button></span>`
+    : `<button class="tree-root" type="button" data-target="${escapeHtml(rootTarget)}" data-placement="${rootPlacement}" aria-label="Animalia 공통 조상에 배치">Animalia common ancestor</button>`;
+  treeCanvas.innerHTML = `<div class="tree-camera"><div class="phylo-tree base-tree${answer ? " answer-tree" : ""}">${rootControl}${treeContent}</div></div><div class="placement-preview" aria-hidden="true" hidden></div>`;
   updateCamera();
 }
 
@@ -190,17 +193,24 @@ function showToast(message) {
   showToast.timer = setTimeout(() => { toast.hidden = true; }, 1800);
 }
 
+async function responseJson(response) {
+  const text = await response.text();
+  if (!text) throw new Error(response.ok ? "서버 응답이 비어 있습니다." : `서버 오류가 발생했습니다. (${response.status})`);
+  try { return JSON.parse(text); }
+  catch { throw new Error(`서버 응답을 읽지 못했습니다. (${response.status})`); }
+}
+
 async function loadAccount() {
   const panel = $("#auth-panel");
   const note = $("#leaderboard-note");
   try {
     const response = await fetch("/api/me", { cache: "no-store" });
     if (!response.ok) throw new Error(`Account request failed: ${response.status}`);
-    const data = await response.json();
+    const data = await responseJson(response);
     currentUser = data.user;
     currentChatGPT = data.chatgpt;
     if (currentUser) {
-      panel.innerHTML = `<button class="auth-name" id="open-account" type="button">${escapeHtml(currentUser.username)}</button><button class="auth-link" id="logout-account" type="button">로그아웃</button>`;
+      panel.innerHTML = `<button class="auth-name" id="open-account" type="button" title="@${escapeHtml(currentUser.username)}">${escapeHtml(currentUser.displayName)}</button><button class="auth-link" id="logout-account" type="button">로그아웃</button>`;
       note.textContent = "게임이 끝나면 최고 기록이 자동으로 반영됩니다.";
     } else {
       panel.innerHTML = '<button class="auth-login" id="open-account" type="button">로그인 / 가입</button>';
@@ -222,6 +232,10 @@ function setAuthMode(mode) {
   $("#show-register").classList.toggle("is-active", registering);
   $("#show-register").setAttribute("aria-selected", String(registering));
   $("#account-password").autocomplete = registering ? "new-password" : "current-password";
+  $("#display-name-field").hidden = !registering;
+  $("#confirm-password-field").hidden = !registering;
+  $("#account-display-name").required = registering;
+  $("#account-confirm-password").required = registering;
   $("#account-form-help").textContent = registering
     ? "아이디는 문자·숫자·밑줄 3~20자, 비밀번호는 8자 이상으로 만들어주세요."
     : "이 기기에서 사용할 게임 아이디로 로그인하세요.";
@@ -230,7 +244,9 @@ function setAuthMode(mode) {
 }
 
 function renderAccountProfile() {
-  $("#account-profile-name").textContent = currentUser.username;
+  $("#account-profile-name").textContent = currentUser.displayName;
+  $("#account-profile-id").textContent = `@${currentUser.username}`;
+  $("#open-admin").hidden = !currentUser.isAdmin;
   const panel = $("#chatgpt-link-panel");
   if (currentUser.chatgptLinked) {
     panel.innerHTML = `<span class="link-status is-linked">연결됨</span><strong>ChatGPT · ${escapeHtml(currentUser.chatgptDisplayName || "연결된 계정")}</strong><p>이 게임 아이디는 현재 ChatGPT 계정과 연결되어 있습니다.</p>`;
@@ -243,6 +259,7 @@ function renderAccountProfile() {
 
 function openAccountModal(returnFocus) {
   accountReturnFocus = returnFocus || null;
+  $("#admin-view").hidden = true;
   $("#account-auth-view").hidden = Boolean(currentUser);
   $("#account-profile-view").hidden = !currentUser;
   if (currentUser) renderAccountProfile();
@@ -266,12 +283,20 @@ async function submitAccount(event) {
   submit.disabled = true;
   error.textContent = "";
   try {
+    const password = $("#account-password").value;
+    const confirmPassword = $("#account-confirm-password").value;
+    if (authMode === "register" && password !== confirmPassword) throw new Error("비밀번호 확인이 일치하지 않습니다.");
     const response = await fetch(`/api/auth/${authMode}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ username: $("#account-username").value, password: $("#account-password").value }),
+      body: JSON.stringify({
+        username: $("#account-username").value,
+        displayName: $("#account-display-name").value,
+        password,
+        confirmPassword,
+      }),
     });
-    const data = await response.json();
+    const data = await responseJson(response);
     if (!response.ok) throw new Error(data.error || "계정 요청에 실패했습니다.");
     $("#account-form").reset();
     await loadAccount();
@@ -298,13 +323,90 @@ async function linkChatGPT() {
   button.disabled = true;
   try {
     const response = await fetch("/api/auth/link-chatgpt", { method: "POST" });
-    const data = await response.json();
+    const data = await responseJson(response);
     if (!response.ok) throw new Error(data.error || "연결하지 못했습니다.");
     await loadAccount();
     renderAccountProfile();
     showToast("ChatGPT 계정을 연결했습니다.");
   } catch (caught) {
     showToast(caught.message);
+    button.disabled = false;
+  }
+}
+
+async function adminRequest(action, userId) {
+  const response = await fetch("/api/admin", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ action, userId }),
+  });
+  const data = await responseJson(response);
+  if (!response.ok) throw new Error(data.error || "관리자 작업에 실패했습니다.");
+  return data;
+}
+
+async function loadAdminUsers() {
+  const list = $("#admin-user-list");
+  const status = $("#admin-status");
+  list.innerHTML = '<p class="admin-loading">계정 목록을 불러오는 중…</p>';
+  status.textContent = "";
+  try {
+    const response = await fetch("/api/admin", { cache: "no-store" });
+    const data = await responseJson(response);
+    if (!response.ok) throw new Error(data.error || "계정 목록을 불러오지 못했습니다.");
+    list.innerHTML = data.users.map((user) => `<article class="admin-user-row">
+      <div><strong>${escapeHtml(user.displayName || user.username)}${user.isAdmin ? '<span class="admin-badge">ADMIN</span>' : ""}</strong><small>@${escapeHtml(user.username)} · 최고 ${user.bestScore}종 · ${user.gamesPlayed}회${user.chatgptLinked ? " · ChatGPT 연결" : ""}</small></div>
+      <div class="admin-user-actions"><button type="button" data-admin-action="reset-password" data-user-id="${escapeHtml(user.id)}">비밀번호 초기화</button>${user.isAdmin ? "" : `<button class="is-danger" type="button" data-admin-action="delete-user" data-user-id="${escapeHtml(user.id)}">계정 삭제</button>`}</div>
+    </article>`).join("");
+  } catch (caught) {
+    list.innerHTML = `<p class="admin-loading is-error">${escapeHtml(caught.message)}</p>`;
+  }
+}
+
+function openAdminView() {
+  $("#account-profile-view").hidden = true;
+  $("#admin-view").hidden = false;
+  loadAdminUsers();
+}
+
+function closeAdminView() {
+  $("#admin-view").hidden = true;
+  $("#account-profile-view").hidden = false;
+  renderAccountProfile();
+}
+
+async function handleAdminAction(event) {
+  const button = event.target.closest("[data-admin-action]");
+  if (!button) return;
+  const action = button.dataset.adminAction;
+  const message = action === "delete-user"
+    ? "이 계정과 해당 리더보드 기록을 삭제할까요?"
+    : "이 계정의 비밀번호를 기본 비밀번호로 초기화하고 모든 로그인 세션을 종료할까요?";
+  if (!window.confirm(message)) return;
+  button.disabled = true;
+  try {
+    await adminRequest(action, button.dataset.userId);
+    $("#admin-status").textContent = action === "delete-user" ? "계정을 삭제했습니다." : "비밀번호를 초기화했습니다.";
+    await loadAdminUsers();
+    await loadLeaderboard();
+  } catch (caught) {
+    $("#admin-status").textContent = caught.message;
+    button.disabled = false;
+  }
+}
+
+async function resetLeaderboard() {
+  if (!window.confirm("모든 사용자의 리더보드 기록을 삭제할까요? 이 작업은 되돌릴 수 없습니다.")) return;
+  const button = $("#reset-leaderboard");
+  button.disabled = true;
+  try {
+    await adminRequest("reset-leaderboard");
+    $("#admin-status").textContent = "리더보드를 초기화했습니다.";
+    await loadAdminUsers();
+    await loadLeaderboard();
+  } catch (caught) {
+    $("#admin-status").textContent = caught.message;
+  } finally {
     button.disabled = false;
   }
 }
@@ -316,7 +418,7 @@ async function loadLeaderboard() {
   try {
     const response = await fetch("/api/leaderboard", { cache: "no-store" });
     if (!response.ok) throw new Error(`Leaderboard request failed: ${response.status}`);
-    const data = await response.json();
+    const data = await responseJson(response);
     const entries = Array.isArray(data.entries) ? data.entries : [];
     if (!entries.length) {
       list.innerHTML = '<li class="leaderboard-empty">아직 등록된 기록이 없어요. 첫 번째 기록을 남겨보세요.</li>';
@@ -397,6 +499,7 @@ function placeCard(targetId, placement = "wrap") {
     return;
   }
   state.classified.push(state.currentId);
+  saveCollection([state.currentId]);
   state.newest = state.currentId;
   state.tree = buildTree(state.classified, speciesById);
   state.score += 1;
@@ -525,6 +628,10 @@ $("#show-login").addEventListener("click", () => setAuthMode("login"));
 $("#show-register").addEventListener("click", () => setAuthMode("register"));
 $("#account-form").addEventListener("submit", submitAccount);
 $("#chatgpt-link-panel").addEventListener("click", (event) => { if (event.target.closest("#link-chatgpt")) linkChatGPT(); });
+$("#open-admin").addEventListener("click", openAdminView);
+$("#close-admin").addEventListener("click", closeAdminView);
+$("#admin-user-list").addEventListener("click", handleAdminAction);
+$("#reset-leaderboard").addEventListener("click", resetLeaderboard);
 $("#close-species-card").addEventListener("click", closeSpeciesCard);
 $("#species-modal").addEventListener("click", (event) => {
   if (event.target === event.currentTarget) closeSpeciesCard();

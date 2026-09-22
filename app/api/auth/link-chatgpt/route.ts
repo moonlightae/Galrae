@@ -26,14 +26,14 @@ export async function POST() {
         : [legacyScore.achievedAt, gameScore.achievedAt].sort()[0];
     await db.insert(leaderboard).values({
       userId: gameUser.id,
-      displayName: gameUser.username,
+      displayName: gameUser.displayName,
       bestScore,
       gamesPlayed: legacyScore.gamesPlayed + (gameScore?.gamesPlayed ?? 0),
       achievedAt,
     }).onConflictDoUpdate({
       target: leaderboard.userId,
       set: {
-        displayName: gameUser.username,
+        displayName: gameUser.displayName,
         bestScore,
         gamesPlayed: legacyScore.gamesPlayed + (gameScore?.gamesPlayed ?? 0),
         achievedAt,

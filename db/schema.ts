@@ -5,11 +5,13 @@ export const users = sqliteTable("users", {
   id: text("id").primaryKey(),
   username: text("username").notNull(),
   usernameNormalized: text("username_normalized").notNull(),
+  displayName: text("display_name").notNull().default(""),
   passwordHash: text("password_hash").notNull(),
   passwordSalt: text("password_salt").notNull(),
   passwordIterations: integer("password_iterations").notNull(),
   chatgptUserId: text("chatgpt_user_id"),
   chatgptDisplayName: text("chatgpt_display_name"),
+  isAdmin: integer("is_admin", { mode: "boolean" }).notNull().default(false),
   createdAt: text("created_at").notNull().default(sql`CURRENT_TIMESTAMP`),
   updatedAt: text("updated_at").notNull().default(sql`CURRENT_TIMESTAMP`),
 }, (table) => [

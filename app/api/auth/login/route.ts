@@ -15,5 +15,5 @@ export async function POST(request: Request) {
     return Response.json({ error: "아이디 또는 비밀번호가 올바르지 않습니다." }, { status: 401 });
   }
   await createSession(user.id, new URL(request.url).protocol === "https:");
-  return Response.json({ user: { id: user.id, username: user.username, chatgptLinked: Boolean(user.chatgptUserId), chatgptDisplayName: user.chatgptDisplayName } });
+  return Response.json({ user: { id: user.id, username: user.username, displayName: user.displayName || user.username, chatgptLinked: Boolean(user.chatgptUserId), chatgptDisplayName: user.chatgptDisplayName, isAdmin: user.isAdmin } });
 }

@@ -5,14 +5,16 @@ import { sessions, users } from "../db/schema";
 
 const SESSION_COOKIE = "galrae_session";
 const SESSION_MAX_AGE = 60 * 60 * 24 * 30;
-const PASSWORD_ITERATIONS = 600_000;
+export const PASSWORD_ITERATIONS = 100_000;
 const encoder = new TextEncoder();
 
 export type GameUser = {
   id: string;
   username: string;
+  displayName: string;
   chatgptLinked: boolean;
   chatgptDisplayName: string | null;
+  isAdmin: boolean;
 };
 
 function bytesToBase64(bytes: Uint8Array) {
@@ -99,8 +101,10 @@ export async function getGameUser(): Promise<GameUser | null> {
     .select({
       id: users.id,
       username: users.username,
+      displayName: users.displayName,
       chatgptUserId: users.chatgptUserId,
       chatgptDisplayName: users.chatgptDisplayName,
+      isAdmin: users.isAdmin,
     })
     .from(sessions)
     .innerJoin(users, eq(sessions.userId, users.id))
@@ -110,7 +114,9 @@ export async function getGameUser(): Promise<GameUser | null> {
   return {
     id: row.id,
     username: row.username,
+    displayName: row.displayName || row.username,
     chatgptLinked: Boolean(row.chatgptUserId),
     chatgptDisplayName: row.chatgptDisplayName,
+    isAdmin: row.isAdmin,
   };
 }

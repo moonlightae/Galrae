@@ -48,7 +48,7 @@ export async function POST(request: Request) {
     return Response.json({ error: "점수는 0부터 66 사이여야 합니다." }, { status: 400 });
   }
 
-  const displayName = user.username.slice(0, 60);
+  const displayName = user.displayName.slice(0, 60);
   try {
     const db = getDb();
     await db.insert(leaderboard).values({

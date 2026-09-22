@@ -15,6 +15,13 @@
       "when": 1790046185808,
       "tag": "0001_dear_red_ghost",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1790047251013,
+      "tag": "0002_public_dorian_gray",
+      "breakpoints": true
     }
   ]
 }
