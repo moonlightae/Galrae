@@ -658,6 +658,11 @@ card.addEventListener("keydown", (event) => {
 });
 
 $("#start-game").addEventListener("click", startGame);
+$("#taxonomy-notes-toggle").addEventListener("click", (event) => {
+  const notes = $("#taxonomy-notes");
+  notes.hidden = !notes.hidden;
+  event.currentTarget.setAttribute("aria-expanded", String(!notes.hidden));
+});
 $("#quit-game").addEventListener("click", returnToLobby);
 $("#return-lobby").addEventListener("click", returnToLobby);
 $("#retry-game").addEventListener("click", startGame);
