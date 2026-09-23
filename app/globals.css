@@ -583,6 +583,21 @@ button, [role="button"] { -webkit-tap-highlight-color: transparent; }
 .dialog-image-credit { display: block; margin-top: 16px; overflow: hidden; color: #d4e0da; font-size: .68rem; line-height: 1.45; text-align: center; text-overflow: ellipsis; white-space: nowrap; }
 .toast { position: fixed; left: 50%; bottom: 30px; z-index: 30; transform: translateX(-50%); padding: 13px 18px; color: white; background: var(--ink); border-radius: 999px; box-shadow: var(--shadow); font-weight: 700; }
 
+.loading-screen { position: fixed; inset: 0; z-index: 80; display: grid; place-items: center; padding: 24px; background: linear-gradient(to left, #fcc5e4 0%, #fda34b 15%, #ff7882 35%, #c8699e 52%, #7046aa 71%, #0c1db8 87%, #020f75 100%); }
+.loading-content { display: grid; justify-items: center; gap: 14px; width: min(320px, 100%); padding: 38px 30px; color: #241f36; background: #fff8f3; border-radius: 24px 6px 24px 6px; box-shadow: 0 20px 48px rgba(22, 16, 57, .2); text-align: center; }
+.loading-content strong { font-family: "Gowun Batang", serif; font-size: 2.5rem; }
+.loading-content p { margin: 0; font-size: .85rem; }
+.loading-spinner { width: 30px; height: 30px; border: 3px solid #ddcedd; border-top-color: #7046aa; border-radius: 50%; animation: loading-spin .8s linear infinite; }
+@keyframes loading-spin { to { transform: rotate(360deg); } }
+.tutorial-banner { margin: 20px 0 0; padding: 14px 18px; color: #241f36; background: #f3e8f1; border-left: 4px solid #7046aa; border-radius: 4px; line-height: 1.55; font-weight: 700; }
+.tutorial-intro-backdrop { z-index: 25; }
+.tutorial-intro-dialog { width: min(480px, 100%); padding: clamp(28px, 4vw, 42px); color: #241f36; background: #fff8f3; border-radius: 24px 6px 24px 6px; box-shadow: 0 24px 70px rgba(2, 15, 75, .32); }
+.tutorial-intro-dialog h2 { margin: 0 0 16px; font-family: "Gowun Batang", serif; font-size: 2rem; }
+.tutorial-intro-dialog > p:not(.eyebrow) { margin: 0; line-height: 1.7; }
+.tutorial-intro-actions { display: flex; align-items: center; gap: 18px; margin-top: 28px; }
+.tutorial-intro-actions .primary-button { flex: 1; }
+.tutorial-result-lobby { display: block; margin: 16px auto 0; text-decoration: underline; text-underline-offset: 3px; }
+
 /* Lobby layout follows the two-screen guide: introduction and play controls
    on the left, leaderboard on the right, then a wide card collection. */
 .lobby-screen { padding: 28px clamp(24px, 4.4vw, 90px) 80px; }

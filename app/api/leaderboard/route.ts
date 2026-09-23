@@ -15,7 +15,7 @@ export async function GET() {
   try {
     const user = await getGameUser();
     const db = getDb();
-    const rows = await db
+    const topRows = await db
       .select({
         userId: leaderboard.userId,
         displayName: leaderboard.displayName,
@@ -26,6 +26,16 @@ export async function GET() {
       .from(leaderboard)
       .orderBy(desc(leaderboard.bestScore), asc(leaderboard.achievedAt))
       .limit(20);
+    const [ownRow] = user && !topRows.some((row) => row.userId === user.id)
+      ? await db.select({
+        userId: leaderboard.userId,
+        displayName: leaderboard.displayName,
+        bestScore: leaderboard.bestScore,
+        gamesPlayed: leaderboard.gamesPlayed,
+        achievedAt: leaderboard.achievedAt,
+      }).from(leaderboard).where(sql`${leaderboard.userId} = ${user.id}`).limit(1)
+      : [];
+    const rows = ownRow ? [...topRows, ownRow] : topRows;
     const collectionRows = rows.length ? await db.select({
       userId: classifiedSpecies.userId,
       uniqueSpeciesCount: sql<number>`COUNT(*)`,
@@ -34,8 +44,9 @@ export async function GET() {
       .groupBy(classifiedSpecies.userId) : [];
     const collectionCounts = new Map(collectionRows.map((row) => [row.userId, row.uniqueSpeciesCount]));
     return Response.json({
-      entries: rows.map(({ userId, ...row }) => ({
+      entries: rows.map(({ userId, ...row }, index) => ({
         ...row,
+        rank: index < topRows.length ? index + 1 : null,
         uniqueSpeciesCount: collectionCounts.get(userId) ?? 0,
         isCurrentUser: userId === user?.id,
       })),

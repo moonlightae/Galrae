@@ -1,6 +1,6 @@
 import { eq } from "drizzle-orm";
 import { getDb } from "../../../../db";
-import { users } from "../../../../db/schema";
+import { leaderboard, users } from "../../../../db/schema";
 import { createSession, makePasswordRecord, normalizeUsername, validateCredentials } from "../../../game-auth";
 
 export async function POST(request: Request) {
@@ -24,7 +24,10 @@ export async function POST(request: Request) {
   const passwordRecord = await makePasswordRecord(body.password as string);
   const id = crypto.randomUUID();
   try {
-    await db.insert(users).values({ id, username, usernameNormalized, displayName, ...passwordRecord });
+    await db.batch([
+      db.insert(users).values({ id, username, usernameNormalized, displayName, ...passwordRecord }),
+      db.insert(leaderboard).values({ userId: id, displayName, bestScore: 0, gamesPlayed: 0 }),
+    ]);
     await createSession(id, new URL(request.url).protocol === "https:");
     return Response.json({ user: { id, username, displayName, chatgptLinked: false, chatgptDisplayName: null, isAdmin: false } }, { status: 201 });
   } catch (caught) {

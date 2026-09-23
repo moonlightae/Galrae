@@ -35,7 +35,9 @@ async function digest(value: string) {
 
 async function derivePassword(password: string, salt: Uint8Array, iterations: number) {
   const key = await crypto.subtle.importKey("raw", encoder.encode(password), "PBKDF2", false, ["deriveBits"]);
-  const bits = await crypto.subtle.deriveBits({ name: "PBKDF2", hash: "SHA-256", salt, iterations }, key, 256);
+  const saltBytes = new Uint8Array(salt.byteLength);
+  saltBytes.set(salt);
+  const bits = await crypto.subtle.deriveBits({ name: "PBKDF2", hash: "SHA-256", salt: saltBytes, iterations }, key, 256);
   return new Uint8Array(bits);
 }
 

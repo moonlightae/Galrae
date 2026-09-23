@@ -43,6 +43,8 @@ export const leaderboard = sqliteTable("leaderboard", {
 export const classifiedSpecies = sqliteTable("classified_species", {
   userId: text("user_id").notNull().references(() => users.id, { onDelete: "cascade" }),
   speciesId: text("species_id").notNull(),
+  successCount: integer("success_count").notNull().default(1),
+  minimum: integer("minimum", { mode: "boolean" }).notNull().default(true),
 }, (table) => [
   primaryKey({ columns: [table.userId, table.speciesId] }),
 ]);

@@ -17,7 +17,10 @@ let animals = [];
 let speciesById = new Map();
 let currentUser = null;
 let currentChatGPT = null;
+let currentGamesPlayed = 0;
 let scoreSubmitted = false;
+let gameStarting = false;
+const pendingCollectionWrites = new Set();
 let authMode = "login";
 let accountReturnFocus = null;
 
@@ -25,7 +28,7 @@ const state = {
   queue: [], round: 0, score: 0, selected: false, tree: null,
   classified: [HUMAN_ID], newest: null, currentId: null, expected: null,
   previewTarget: null, previewPlacement: null, failed: false,
-  layout: "top", zoom: 1,
+  layout: "top", zoom: 1, tutorial: false,
   panX: 0, panY: 0, panning: false, panStartX: 0, panStartY: 0,
   panOriginX: 0, panOriginY: 0, detailReturnFocus: null,
 };
@@ -67,6 +70,21 @@ function getSuccessCounts() {
   } catch { return {}; }
 }
 
+function normalizeSuccessRecord(record) {
+  const count = Number.isSafeInteger(record?.count) && record.count > 0 ? record.count : 0;
+  return count ? { count, minimum: record.minimum === true } : null;
+}
+
+function mergeSuccessRecord(left, right) {
+  const a = normalizeSuccessRecord(left);
+  const b = normalizeSuccessRecord(right);
+  if (!a) return b;
+  if (!b) return a;
+  if (a.count > b.count) return a;
+  if (b.count > a.count) return b;
+  return { count: a.count, minimum: a.minimum && b.minimum };
+}
+
 function migrateSuccessCounts() {
   if (localStorage.getItem(successCountsKey()) !== null) return;
   localStorage.setItem(successCountsKey(), JSON.stringify(seedSuccessCounts(getCollection(), HUMAN_ID)));
@@ -97,8 +115,11 @@ function migrateCollection() {
     ];
   } catch { old = []; }
   const current = getCollection();
+  const counted = Object.entries(getSuccessCounts())
+    .filter(([id, record]) => id !== HUMAN_ID && speciesById.has(id) && normalizeSuccessRecord(record))
+    .map(([id]) => id);
   const canClaimLegacy = currentUser && !localStorage.getItem("galrae.collection.claimed");
-  const migrated = [...current, ...(canClaimLegacy || !currentUser ? old : []), HUMAN_ID];
+  const migrated = [...current, ...counted, ...(canClaimLegacy || !currentUser ? old : []), HUMAN_ID];
   setCollection(migrated.length ? migrated : [HUMAN_ID]);
   if (canClaimLegacy) localStorage.setItem("galrae.collection.claimed", currentUser.id);
   localStorage.removeItem("galrae.collection");
@@ -298,6 +319,24 @@ function zoomTreeAtCenter(factor) {
   zoomTree(state.zoom * factor, rect.left + rect.width / 2, rect.top + rect.height / 2);
 }
 
+function preloadImage(url, timeout = 5000) {
+  return new Promise((resolve) => {
+    if (!url) { resolve(); return; }
+    const image = new Image();
+    let settled = false;
+    const finish = () => {
+      if (settled) return;
+      settled = true;
+      clearTimeout(timer);
+      resolve();
+    };
+    const timer = setTimeout(finish, timeout);
+    image.onload = finish;
+    image.onerror = finish;
+    image.src = url;
+  });
+}
+
 function setCard(speciesId) {
   const animal = speciesById.get(speciesId);
   const image = $("#active-image");
@@ -306,11 +345,13 @@ function setCard(speciesId) {
   $("#active-description").textContent = shortDescription(animal.description);
   $("#active-scientific").textContent = animal.scientificName;
   $("#active-success-count").textContent = successCountText(getSuccessCounts()[speciesId]);
-  image.src = animal.image.thumbnailUrl;
   image.alt = animal.commonName;
-  image.hidden = false;
-  fallback.hidden = true;
-  image.onerror = () => { image.hidden = true; fallback.hidden = false; };
+  image.hidden = true;
+  fallback.textContent = "…";
+  fallback.hidden = false;
+  image.onload = () => { image.hidden = false; fallback.hidden = true; };
+  image.onerror = () => { image.hidden = true; fallback.textContent = "?"; fallback.hidden = false; };
+  image.src = animal.image.thumbnailUrl;
   const credit = $("#active-credit");
   credit.href = animal.image.commonsPageUrl;
   credit.textContent = `Image: ${imageCreditText(animal)}`;
@@ -340,6 +381,7 @@ async function loadAccount() {
     const data = await responseJson(response);
     currentUser = data.user;
     currentChatGPT = data.chatgpt;
+    currentGamesPlayed = Number.isSafeInteger(data.gamesPlayed) ? data.gamesPlayed : 0;
     if (currentUser) {
       panel.innerHTML = `<button class="auth-name" id="open-account" type="button" title="@${escapeHtml(currentUser.username)}">${escapeHtml(currentUser.displayName)}</button><button class="auth-link" id="logout-account" type="button">로그아웃</button>`;
       note.textContent = "게임이 끝나면 최고 기록이 자동으로 반영됩니다.";
@@ -347,11 +389,11 @@ async function loadAccount() {
       panel.innerHTML = '<button class="auth-login" id="open-account" type="button">로그인 / 가입</button>';
       note.textContent = "게임 아이디로 로그인하면 최고 기록이 자동으로 등록됩니다.";
     }
-    if (dataset) { migrateCollection(); renderCollection(); }
     return data;
   } catch (error) {
     console.error(error);
     panel.innerHTML = '<span class="auth-loading">계정 정보를 확인하지 못했어요</span>';
+    throw error;
   }
 }
 
@@ -431,6 +473,10 @@ async function submitAccount(event) {
     if (!response.ok) throw new Error(data.error || "계정 요청에 실패했습니다.");
     $("#account-form").reset();
     await loadAccount();
+    migrateCollection();
+    try { await syncCollection(); }
+    catch (syncError) { console.error(syncError); showToast("수집 기록을 불러오지 못했습니다."); }
+    renderCollection();
     await loadLeaderboard();
     closeAccountModal();
     showToast(authMode === "register" ? "새 게임 계정을 만들었습니다." : "로그인했습니다.");
@@ -445,6 +491,8 @@ async function logoutAccount() {
   await fetch("/api/auth/logout", { method: "POST" });
   currentUser = null;
   await loadAccount();
+  migrateCollection();
+  renderCollection();
   await loadLeaderboard();
   showToast("게임 계정에서 로그아웃했습니다.");
 }
@@ -533,6 +581,7 @@ async function resetLeaderboard() {
   try {
     await adminRequest("reset-leaderboard");
     $("#admin-status").textContent = "리더보드를 초기화했습니다.";
+    await loadAccount();
     await loadAdminUsers();
     await loadLeaderboard();
   } catch (caught) {
@@ -544,15 +593,62 @@ async function resetLeaderboard() {
 
 async function syncCollection() {
   if (!currentUser || !dataset) return;
-  const speciesIds = getCollection().filter((id) => id !== HUMAN_ID);
-  for (let offset = 0; offset < speciesIds.length; offset += 400) {
+  const userId = currentUser.id;
+  await Promise.all([...pendingCollectionWrites]);
+  const remoteResponse = await fetch("/api/collection", { cache: "no-store" });
+  if (!remoteResponse.ok) throw new Error(`Collection request failed: ${remoteResponse.status}`);
+  const remoteData = await responseJson(remoteResponse);
+  if (currentUser?.id !== userId) return;
+
+  const counts = { ...getSuccessCounts() };
+  const ids = new Set([...getCollection(), ...Object.keys(counts).filter((id) => speciesById.has(id)), HUMAN_ID]);
+  const remoteById = new Map();
+  for (const record of Array.isArray(remoteData.records) ? remoteData.records : []) {
+    if (!speciesById.has(record.speciesId) || record.speciesId === HUMAN_ID) continue;
+    remoteById.set(record.speciesId, record);
+    ids.add(record.speciesId);
+    counts[record.speciesId] = mergeSuccessRecord(counts[record.speciesId], record);
+  }
+  const records = [...ids].filter((id) => id !== HUMAN_ID && speciesById.has(id)).map((speciesId) => {
+    const record = normalizeSuccessRecord(counts[speciesId]) || { count: 1, minimum: true };
+    counts[speciesId] = record;
+    return { speciesId, ...record };
+  });
+  setCollection([...ids]);
+  localStorage.setItem(successCountsKey(), JSON.stringify(counts));
+  renderCollection();
+  const unsynced = records.filter((record) => {
+    const remote = normalizeSuccessRecord(remoteById.get(record.speciesId));
+    return !remote || record.count > remote.count || (record.count === remote.count && !record.minimum && remote.minimum);
+  });
+  for (let offset = 0; offset < unsynced.length; offset += 400) {
     const response = await fetch("/api/collection", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ speciesIds: speciesIds.slice(offset, offset + 400) }),
+      body: JSON.stringify({ records: unsynced.slice(offset, offset + 400) }),
     });
     if (!response.ok) throw new Error(`Collection request failed: ${response.status}`);
   }
+}
+
+function recordServerSuccess(speciesId) {
+  const userId = currentUser?.id;
+  if (!userId) return;
+  const write = (async () => {
+    const response = await fetch("/api/collection", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ action: "record", speciesId }),
+    });
+    if (!response.ok) throw new Error(`Collection record failed: ${response.status}`);
+    const data = await responseJson(response);
+    if (currentUser?.id !== userId || !data.record) return;
+    const counts = getSuccessCounts();
+    counts[speciesId] = mergeSuccessRecord(counts[speciesId], data.record);
+    localStorage.setItem(successCountsKey(), JSON.stringify(counts));
+  })().catch((error) => console.error(error));
+  pendingCollectionWrites.add(write);
+  write.then(() => pendingCollectionWrites.delete(write));
 }
 
 async function loadLeaderboard() {
@@ -560,20 +656,17 @@ async function loadLeaderboard() {
   const status = $("#leaderboard-status");
   status.textContent = "기록을 불러오는 중…";
   try {
-    let collectionSyncFailed = false;
-    try { await syncCollection(); }
-    catch (error) { console.error(error); collectionSyncFailed = true; }
     const response = await fetch("/api/leaderboard", { cache: "no-store" });
     if (!response.ok) throw new Error(`Leaderboard request failed: ${response.status}`);
     const data = await responseJson(response);
     const entries = Array.isArray(data.entries) ? data.entries : [];
     if (!entries.length) {
       list.innerHTML = '<li class="leaderboard-empty">아직 등록된 기록이 없어요. 첫 번째 기록을 남겨보세요.</li>';
-      status.textContent = collectionSyncFailed ? "수집 기록 동기화 실패" : "0명 참가";
+      status.textContent = "0명 참가";
       return;
     }
-    list.innerHTML = entries.map((entry, index) => `<li class="leaderboard-row${entry.isCurrentUser ? " is-me" : ""}">
-      <span class="leaderboard-rank">${index + 1}</span>
+    list.innerHTML = entries.map((entry) => `<li class="leaderboard-row${entry.isCurrentUser ? " is-me" : ""}">
+      <span class="leaderboard-rank">${entry.rank ?? "—"}</span>
       <span class="leaderboard-player">${escapeHtml(entry.displayName)}${entry.isCurrentUser ? '<small>나</small>' : ""}</span>
       <span class="leaderboard-stats">
         <span class="leaderboard-stat"><small>총 도전횟수</small><strong>${entry.gamesPlayed}회</strong></span>
@@ -581,7 +674,7 @@ async function loadLeaderboard() {
         <span class="leaderboard-stat"><small>최대 분류 마릿수</small><strong>${entry.bestScore}종</strong></span>
       </span>
     </li>`).join("");
-    status.textContent = collectionSyncFailed ? "수집 기록 동기화 실패" : `${entries.length}명 순위`;
+    status.textContent = `${entries.length}명 표시`;
   } catch (error) {
     console.error(error);
     list.innerHTML = '<li class="leaderboard-empty">리더보드를 불러오지 못했어요.</li>';
@@ -590,8 +683,13 @@ async function loadLeaderboard() {
 }
 
 async function submitScore() {
-  if (scoreSubmitted || !currentUser) return;
+  if (scoreSubmitted || state.tutorial) return;
   scoreSubmitted = true;
+  if (!currentUser) {
+    const attempts = Number(localStorage.getItem("galrae.guest-attempts.v1")) || 0;
+    localStorage.setItem("galrae.guest-attempts.v1", String(attempts + 1));
+    return;
+  }
   const status = state.failed ? $("#failure-score-status") : $("#score-submit-status");
   status.textContent = "기록 저장 중…";
   try {
@@ -601,7 +699,10 @@ async function submitScore() {
       body: JSON.stringify({ score: state.score }),
     });
     if (!response.ok) throw new Error(`Score request failed: ${response.status}`);
+    const data = await responseJson(response);
+    currentGamesPlayed = Number.isSafeInteger(data.entry?.gamesPlayed) ? data.entry.gamesPlayed : currentGamesPlayed + 1;
     status.textContent = "리더보드에 기록했습니다.";
+    await Promise.all([...pendingCollectionWrites]);
     await loadLeaderboard();
   } catch (error) {
     console.error(error);
@@ -653,8 +754,11 @@ function placeCard(targetId, placement = "wrap") {
     return;
   }
   state.classified.push(state.currentId);
-  recordSuccess(state.currentId);
-  saveCollection([state.currentId]);
+  if (!state.tutorial) {
+    recordSuccess(state.currentId);
+    saveCollection([state.currentId]);
+    recordServerSuccess(state.currentId);
+  }
   state.newest = state.currentId;
   state.tree = buildTree(state.classified, speciesById);
   state.score += 1;
@@ -673,82 +777,130 @@ function failRound() {
   card.setAttribute("draggable", "false");
   const answerTree = buildTree([...state.classified, state.currentId], speciesById, state.currentId);
   renderTree(answerTree, true);
+  $("#failure-title").textContent = state.tutorial ? "연습 위치가 달라요." : "분류에 실패했어요.";
+  $("#failure-copy").textContent = state.tutorial
+    ? "초록색 정답 위치를 살펴보세요. 튜토리얼은 도전 기록에 포함되지 않습니다."
+    : "초록색으로 표시된 곳이 올바른 위치입니다.";
+  $("#retry-game").textContent = state.tutorial ? "튜토리얼 다시하기 →" : "처음부터 다시 →";
   $("#failure-panel").hidden = false;
-  submitScore();
+  if (!state.tutorial) submitScore();
   $("#retry-game").focus();
 }
 
 function updateRound() {
-  $("#score-label").textContent = `정답 ${state.score}`;
+  $("#score-label").textContent = `${state.tutorial ? "연습" : "정답"} ${state.score}`;
   if (state.round >= state.queue.length) {
-    saveCollection(state.classified);
-    $("#result-count").textContent = state.classified.length;
-    $("#result-copy").textContent = `${state.classified.length} species, including Human, were placed in the Animalia tree.`;
+    if (!state.tutorial) saveCollection(state.classified);
+    $("#result-title").textContent = state.tutorial ? "튜토리얼을 마쳤어요." : "분류를 마쳤어요.";
+    $("#result-count").textContent = state.tutorial ? state.score : state.classified.length;
+    $("#result-unit").textContent = state.tutorial ? "cards" : "species";
+    $("#result-copy").textContent = state.tutorial
+      ? "이제 무작위로 나오는 생물 카드를 실제 계통수에 분류해 보세요."
+      : `${state.classified.length} species, including Human, were placed in the Animalia tree.`;
+    $("#return-lobby").textContent = state.tutorial ? "실전 시작 →" : "수집함 보기 →";
+    $("#tutorial-result-lobby").hidden = !state.tutorial;
     $("#result-modal").hidden = false;
-    submitScore();
+    if (!state.tutorial) submitScore();
     return;
   }
   state.currentId = state.queue[state.round];
   state.expected = getExpectedPlacement(state.classified, state.currentId, speciesById);
   setCard(state.currentId);
-  $("#round-label").textContent = `동물계 · ${state.round + 1}/${state.queue.length}`;
+  $("#round-label").textContent = `${state.tutorial ? "튜토리얼" : "동물계"} · ${state.round + 1}/${state.queue.length}`;
+  const banner = $("#tutorial-banner");
+  banner.hidden = !state.tutorial;
+  if (state.tutorial) banner.textContent = state.round === 0
+    ? "연습 1/2 · 인간 카드가 먼저 놓여 있습니다. 새 카드를 인간 노드로 옮기거나 선택한 뒤 인간을 눌러 보세요."
+    : "연습 2/2 · 불가사리는 인간과 더 가까운 공통 조상을 공유합니다. 인간 쪽 가지에 새 카드를 놓아 보세요.";
 }
 
-function startGame() {
-  if (!dataset) return;
-  state.queue = shuffle(animals.filter((animal) => animal.id !== HUMAN_ID).map((animal) => animal.id));
-  state.round = 0; state.score = 0; state.selected = false;
-  state.classified = [HUMAN_ID];
-  state.tree = buildTree(state.classified, speciesById);
-  state.newest = null; state.currentId = null; state.expected = null;
-  state.previewTarget = null; state.previewPlacement = null; state.failed = false;
-  state.panX = 0; state.panY = 0; state.panning = false;
-  state.detailReturnFocus = null;
-  scoreSubmitted = false;
-  $("#score-submit-status").textContent = "";
-  $("#failure-score-status").textContent = "";
-  card.classList.remove("is-selected", "is-dragging", "is-locked");
-  card.setAttribute("draggable", "true");
-  lobby.hidden = true; game.hidden = false;
-  $("#result-modal").hidden = true;
-  $("#failure-panel").hidden = true;
-  $("#species-modal").hidden = true;
-  renderTree();
-  resetTreeView();
-  updateRound();
-  window.scrollTo(0, 0);
+async function startGame(options = {}) {
+  if (!dataset || gameStarting) return;
+  gameStarting = true;
+  $("#game-loading").hidden = false;
+  try {
+    const guestAttempts = Number(localStorage.getItem("galrae.guest-attempts.v1")) || 0;
+    const tutorial = options.skipTutorial !== true && (currentUser ? currentGamesPlayed === 0 : guestAttempts === 0);
+    const queue = tutorial
+      ? ["formica-rufa", "asterias-rubens"]
+      : shuffle(animals.filter((animal) => animal.id !== HUMAN_ID).map((animal) => animal.id));
+    await preloadImage(speciesById.get(queue[0])?.image.thumbnailUrl);
+    state.queue = queue;
+    state.tutorial = tutorial;
+    state.round = 0; state.score = 0; state.selected = false;
+    state.classified = [HUMAN_ID];
+    state.tree = buildTree(state.classified, speciesById);
+    state.newest = null; state.currentId = null; state.expected = null;
+    state.previewTarget = null; state.previewPlacement = null; state.failed = false;
+    state.panX = 0; state.panY = 0; state.panning = false;
+    state.detailReturnFocus = null;
+    scoreSubmitted = false;
+    $("#score-submit-status").textContent = "";
+    $("#failure-score-status").textContent = "";
+    card.classList.remove("is-selected", "is-dragging", "is-locked");
+    card.setAttribute("draggable", "true");
+    lobby.hidden = true; game.hidden = false;
+    $("#result-modal").hidden = true;
+    $("#failure-panel").hidden = true;
+    $("#species-modal").hidden = true;
+    $("#tutorial-intro-modal").hidden = !tutorial;
+    renderTree();
+    resetTreeView();
+    updateRound();
+    window.scrollTo(0, 0);
+    if (tutorial) $("#tutorial-begin").focus();
+  } catch (error) {
+    console.error(error);
+    showToast("게임을 시작하지 못했습니다.");
+  } finally {
+    $("#game-loading").hidden = true;
+    gameStarting = false;
+  }
 }
 
-function returnToLobby() {
+async function returnToLobby() {
   closeSpeciesCard();
+  $("#tutorial-intro-modal").hidden = true;
   game.hidden = true;
   $("#result-modal").hidden = true;
   lobby.hidden = false;
   renderCollection();
-  loadLeaderboard();
+  try { await syncCollection(); }
+  catch (error) {
+    console.error(error);
+    $("#collection-count").textContent = "수집 기록 확인 실패 · 새로고침해 주세요";
+    showToast("수집 기록을 동기화하지 못했습니다.");
+  }
+  await loadLeaderboard();
   window.scrollTo(0, 0);
 }
 
 async function initialize() {
   const startButton = $("#start-game");
-  const accountPromise = loadAccount();
   try {
-    const response = await fetch("data/animals.json");
+    const [response] = await Promise.all([fetch("data/animals.json"), loadAccount()]);
     if (!response.ok) throw new Error(`Dataset request failed: ${response.status}`);
     dataset = await response.json();
     animals = dataset.animals;
     speciesById = new Map(animals.map((animal) => [animal.id, animal]));
     if (!speciesById.has(HUMAN_ID)) throw new Error("Human is missing from the dataset");
-    await accountPromise;
     migrateCollection();
+    let collectionSyncFailed = false;
+    try { await syncCollection(); }
+    catch (error) { console.error(error); collectionSyncFailed = true; showToast("수집 기록을 불러오지 못했습니다."); }
     renderCollection();
-    loadLeaderboard();
+    if (collectionSyncFailed) $("#collection-count").textContent = "수집 기록 확인 실패 · 새로고침해 주세요";
+    $("#boot-loading-status").textContent = "리더보드와 카드를 준비하는 중…";
+    await loadLeaderboard();
+    await Promise.all(getCollection().slice(0, 5).map((id) => preloadImage(speciesById.get(id)?.image.thumbnailUrl, 3000)));
     startButton.disabled = false;
     startButton.innerHTML = '분류 시작 <span aria-hidden="true">→</span>';
   } catch (error) {
     console.error(error);
-    startButton.textContent = "데이터를 불러오지 못했어요";
-    showToast("동물 데이터셋을 불러오지 못했습니다.");
+    startButton.textContent = "불러오지 못했어요 · 새로고침해 주세요";
+    showToast("게임 정보를 불러오지 못했습니다.");
+  } finally {
+    $("#boot-loading").hidden = true;
   }
 }
 
@@ -792,8 +944,14 @@ $("#taxonomy-notes-modal").addEventListener("click", (event) => {
   if (event.target === event.currentTarget) closeTaxonomyNotes();
 });
 $("#quit-game").addEventListener("click", returnToLobby);
-$("#return-lobby").addEventListener("click", returnToLobby);
+$("#return-lobby").addEventListener("click", () => {
+  if (state.tutorial) startGame({ skipTutorial: true });
+  else returnToLobby();
+});
 $("#retry-game").addEventListener("click", startGame);
+$("#tutorial-begin").addEventListener("click", () => { $("#tutorial-intro-modal").hidden = true; card.focus(); });
+$("#tutorial-quit").addEventListener("click", returnToLobby);
+$("#tutorial-result-lobby").addEventListener("click", returnToLobby);
 $("#auth-panel").addEventListener("click", (event) => {
   if (event.target.closest("#open-account")) openAccountModal(event.target.closest("#open-account"));
   if (event.target.closest("#logout-account")) logoutAccount();
@@ -813,6 +971,7 @@ $("#species-modal").addEventListener("click", (event) => {
   if (event.target === event.currentTarget) closeSpeciesCard();
 });
 document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && !$("#tutorial-intro-modal").hidden) { returnToLobby(); return; }
   if (event.key === "Escape" && !$("#taxonomy-notes-modal").hidden) { closeTaxonomyNotes(); return; }
   if (event.key === "Escape" && !$("#account-modal").hidden) { closeAccountModal(); return; }
   if (event.key === "Escape" && !$("#species-modal").hidden) closeSpeciesCard();

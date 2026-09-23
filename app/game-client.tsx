@@ -7,6 +7,8 @@ declare global {
 }
 
 const markup = `
+  <div id="boot-loading" class="loading-screen" role="status" aria-live="polite"><div class="loading-content"><span class="loading-spinner" aria-hidden="true"></span><strong>갈래</strong><p id="boot-loading-status">계정과 기록을 불러오는 중…</p></div></div>
+  <div id="game-loading" class="loading-screen" role="status" aria-live="polite" hidden><div class="loading-content"><span class="loading-spinner" aria-hidden="true"></span><strong>갈래</strong><p>첫 생물 카드를 준비하는 중…</p></div></div>
   <div class="paper-noise" aria-hidden="true"></div>
   <main id="lobby" class="screen lobby-screen">
     <header class="site-header">
@@ -61,9 +63,10 @@ const markup = `
             <button type="button" data-tree-layout="top" aria-pressed="true" title="공통조상이 위">위</button><button type="button" data-tree-layout="bottom" aria-pressed="false" title="공통조상이 아래">아래</button><button type="button" data-tree-layout="radial" aria-pressed="false" title="공통조상이 가운데">원형</button>
           </div><div class="tree-zoom-controls"><button id="tree-zoom-out" type="button" aria-label="계통수 축소">−</button><span id="tree-zoom-status" class="tree-zoom-status" aria-live="polite">100%</span><button id="tree-zoom-in" type="button" aria-label="계통수 확대">+</button></div><button id="tree-reset-view" class="tree-reset-view" type="button">보기 초기화</button></div>
         </div>
+        <p id="tutorial-banner" class="tutorial-banner" role="status" hidden></p>
         <div id="tree-canvas" class="tree-canvas" aria-live="polite"></div>
         <p class="tree-canvas-help">계통수 위에서 휠로 확대·축소하고, 빈 곳을 드래그해 화면을 이동할 수 있습니다.</p>
-        <div id="failure-panel" class="failure-panel" role="alert" hidden><div><p class="eyebrow">CLASSIFICATION FAILED</p><strong>분류에 실패했어요.</strong><p>초록색으로 표시된 곳이 올바른 위치입니다.</p><p id="failure-score-status" class="failure-score-status"></p></div><button id="retry-game" class="primary-button" type="button">처음부터 다시 →</button></div>
+        <div id="failure-panel" class="failure-panel" role="alert" hidden><div><p class="eyebrow">CLASSIFICATION FAILED</p><strong id="failure-title">분류에 실패했어요.</strong><p id="failure-copy">초록색으로 표시된 곳이 올바른 위치입니다.</p><p id="failure-score-status" class="failure-score-status"></p></div><button id="retry-game" class="primary-button" type="button">처음부터 다시 →</button></div>
       </section>
       <aside class="card-dock" aria-labelledby="card-dock-title">
         <div class="dock-copy"><p class="eyebrow">NEW SPECIES</p><h2 id="card-dock-title">새 동물 카드</h2></div>
@@ -76,7 +79,8 @@ const markup = `
       </aside>
     </div>
   </main>
-  <div id="result-modal" class="modal-backdrop" hidden><section class="result-modal" role="dialog" aria-modal="true" aria-labelledby="result-title"><p class="eyebrow">CLASSIFICATION COMPLETE</p><h2 id="result-title">분류를 마쳤어요.</h2><div class="result-number"><strong id="result-count">0</strong><span>species</span></div><p id="result-copy">새로운 동물을 올바른 갈래에 놓았습니다.</p><p id="score-submit-status" class="score-submit-status"></p><button id="return-lobby" class="primary-button" type="button">수집함 보기 →</button></section></div>
+  <div id="tutorial-intro-modal" class="modal-backdrop tutorial-intro-backdrop" hidden><section class="tutorial-intro-dialog" role="dialog" aria-modal="true" aria-labelledby="tutorial-intro-title"><p class="eyebrow">FIRST CLASSIFICATION</p><h2 id="tutorial-intro-title">처음 오셨군요.</h2><p>실전에 앞서 두 장의 카드로 계통수에 생물을 놓는 방법을 연습합니다. 연습은 도전 횟수와 수집 기록에 포함되지 않습니다.</p><div class="tutorial-intro-actions"><button id="tutorial-quit" class="text-button" type="button">로비로</button><button id="tutorial-begin" class="primary-button" type="button">튜토리얼 시작 →</button></div></section></div>
+  <div id="result-modal" class="modal-backdrop" hidden><section class="result-modal" role="dialog" aria-modal="true" aria-labelledby="result-title"><p class="eyebrow">CLASSIFICATION COMPLETE</p><h2 id="result-title">분류를 마쳤어요.</h2><div class="result-number"><strong id="result-count">0</strong><span id="result-unit">species</span></div><p id="result-copy">새로운 동물을 올바른 갈래에 놓았습니다.</p><p id="score-submit-status" class="score-submit-status"></p><button id="return-lobby" class="primary-button" type="button">수집함 보기 →</button><button id="tutorial-result-lobby" class="text-button tutorial-result-lobby" type="button" hidden>로비로 돌아가기</button></section></div>
   <div id="account-modal" class="modal-backdrop account-modal-backdrop" hidden>
     <section class="account-dialog" role="dialog" aria-modal="true" aria-labelledby="account-title">
       <button id="close-account" class="dialog-close account-close" type="button" aria-label="계정 창 닫기">×</button>
