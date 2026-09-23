@@ -13,15 +13,13 @@
 
 * { box-sizing: border-box; }
 
-html { min-width: 320px; background: var(--cream); }
+html { min-width: 320px; background: #020f75; }
 
 body {
   margin: 0;
   min-height: 100vh;
   color: var(--ink);
-  background:
-    radial-gradient(circle at 84% 12%, rgba(244, 215, 101, 0.28), transparent 26rem),
-    var(--cream);
+  background-image: linear-gradient(to left, #fcc5e4 0%, #fda34b 15%, #ff7882 35%, #c8699e 52%, #7046aa 71%, #0c1db8 87%, #020f75 100%);
   font-family: Pretendard, "Noto Sans KR", sans-serif;
 }
 
@@ -56,6 +54,8 @@ button, [role="button"] { -webkit-tap-highlight-color: transparent; }
   font-weight: 700;
   text-decoration: none;
 }
+
+.lobby-screen .wordmark { color: #fff; }
 
 .wordmark-mark {
   display: grid;
@@ -100,10 +100,11 @@ button, [role="button"] { -webkit-tap-highlight-color: transparent; }
   letter-spacing: 0.15em;
 }
 
-.lobby-intro > .eyebrow { grid-column: 1; }
+.lobby-intro > .eyebrow { grid-column: 1; color: #fff; }
 .lobby-intro > h1 {
   grid-column: 1;
   margin: 0;
+  color: #fff;
   font-family: "Gowun Batang", serif;
   font-size: clamp(3.6rem, 8vw, 7.5rem);
   font-weight: 700;
@@ -115,7 +116,7 @@ button, [role="button"] { -webkit-tap-highlight-color: transparent; }
   grid-column: 1;
   max-width: 550px;
   margin: 28px 0 0;
-  color: var(--muted);
+  color: #fff;
   font-size: 1.08rem;
   line-height: 1.75;
 }
@@ -212,6 +213,7 @@ button, [role="button"] { -webkit-tap-highlight-color: transparent; }
 .leaderboard-empty { padding: 32px 18px; color: #b9cec4; background: #12392e; text-align: center; }
 .leaderboard-note { margin: 16px 0 0; color: #b9cec4; font-size: .75rem; text-align: right; }
 .collection { max-width: 1280px; margin: 0 auto; padding-top: 36px; border-top: 1px solid var(--line); }
+.collection > .eyebrow, .collection .section-heading h2 { color: #fff; }
 .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 20px; margin-bottom: 24px; }
 .section-heading h2 { margin: 0; font-family: "Gowun Batang", serif; font-size: 2rem; }
 .section-heading > p { margin: 0; color: var(--muted); }
@@ -238,8 +240,8 @@ button, [role="button"] { -webkit-tap-highlight-color: transparent; }
 .mini-card-groups { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 10px; }
 .mini-card-groups span { padding: 3px 6px; color: var(--forest); background: #e8efe9; border: 1px solid #c5d3c9; border-radius: 999px; font-size: .58rem; font-weight: 700; }
 .mini-card-credit { margin-top: auto; padding-top: 10px; overflow: hidden; color: var(--muted); font-size: .58rem; line-height: 1.35; text-overflow: ellipsis; white-space: nowrap; }
-.data-attribution { max-width: 900px; margin: 34px 0 0; color: var(--muted); font-size: .74rem; line-height: 1.65; }
-.data-attribution a { color: var(--forest); }
+.data-attribution { max-width: 900px; margin: 34px 0 0; color: #fff; font-size: .74rem; line-height: 1.65; }
+.data-attribution a { color: #fff; }
 
 .game-screen { padding: 24px clamp(18px, 4vw, 56px) 40px; background: #e9ebdf; }
 .game-header { max-width: 1500px; margin: 0 auto 22px; }
