@@ -583,10 +583,55 @@ button, [role="button"] { -webkit-tap-highlight-color: transparent; }
 .dialog-image-credit { display: block; margin-top: 16px; overflow: hidden; color: #d4e0da; font-size: .68rem; line-height: 1.45; text-align: center; text-overflow: ellipsis; white-space: nowrap; }
 .toast { position: fixed; left: 50%; bottom: 30px; z-index: 30; transform: translateX(-50%); padding: 13px 18px; color: white; background: var(--ink); border-radius: 999px; box-shadow: var(--shadow); font-weight: 700; }
 
+/* Lobby layout follows the two-screen guide: introduction and play controls
+   on the left, leaderboard on the right, then a wide card collection. */
+.lobby-screen { padding: 28px clamp(24px, 4.4vw, 90px) 80px; }
+.lobby-screen .site-header { justify-content: flex-end; min-height: 32px; margin: 0 auto 16px; }
+.lobby-main {
+  display: grid;
+  grid-template-columns: minmax(320px, 30%) minmax(0, 1fr);
+  gap: clamp(48px, 10.7vw, 220px);
+  min-height: calc(100vh - 152px);
+}
+.lobby-left { display: grid; grid-template-rows: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 8vh, 94px); min-width: 0; }
+.lobby-intro { display: block; max-width: none; min-width: 0; margin: 0; padding: clamp(30px, 4vw, 70px) clamp(16px, 2.6vw, 52px); }
+.lobby-intro > h1 { margin: 0; font-size: clamp(4.5rem, 7vw, 8rem); letter-spacing: -.08em; }
+.intro-copy { max-width: 450px; margin-top: 30px; font-size: clamp(1rem, 1.25vw, 1.22rem); line-height: 1.7; }
+.mode-panel, .leaderboard, .collection { color: #172039; background: #e5e7ea; border: 0; border-radius: 0; box-shadow: none; }
+.mode-panel { display: flex; grid-column: auto; grid-row: auto; flex-direction: column; justify-content: center; min-width: 0; margin: 0; padding: clamp(28px, 3.3vw, 62px); overflow: visible; }
+.mode-panel::after, .mode-badge { display: none; }
+.panel-label { color: #354263; font-weight: 800; }
+.mode-panel h2 { margin: 9px 0 8px; color: #101b48; }
+.mode-panel p:not(.panel-label) { color: #354263; }
+.mode-options span { color: #526078; border-color: #a9afbb; }
+.mode-options .is-active { color: #fff; background: #122582; border-color: #122582; }
+.taxonomy-notes-toggle { color: #172039; border-bottom-color: #a9afbb; }
+.taxonomy-notes { color: #172039; background: rgba(255,255,255,.58); }
+.mode-panel .taxonomy-notes p { color: #354263; }
+.taxonomy-notes strong, .taxonomy-notes a { color: #122582; }
+.leaderboard { display: flex; flex-direction: column; min-width: 0; min-height: 0; margin: 0; padding: clamp(28px, 3vw, 52px); overflow: auto; }
+.leaderboard .section-heading { align-items: flex-start; }
+.leaderboard .section-heading h2 { color: #172039; }
+.leaderboard .section-heading > p, .leaderboard-note { color: #526078; }
+.leaderboard-list { background: transparent; border: 0; border-radius: 0; }
+.leaderboard-row { color: #172039; background: transparent; border-bottom: 1px solid #bdc2ca; }
+.leaderboard-row.is-me { background: #d6def9; }
+.leaderboard-rank, .leaderboard-row.is-me .leaderboard-rank { color: #122582; }
+.leaderboard-stat small, .leaderboard-row.is-me .leaderboard-stat small { color: #526078; }
+.leaderboard-empty { color: #526078; background: transparent; }
+.leaderboard-note { margin-top: auto; padding-top: 24px; }
+.collection { max-width: 1776px; min-height: calc(100vh - 152px); margin: 76px auto 0; padding: clamp(28px, 3vw, 52px); }
+.collection .section-heading h2 { color: #172039; }
+.collection .section-heading > p { color: #526078; }
+.collection-empty { color: #526078; border-color: #a9afbb; }
+.data-attribution, .data-attribution a { color: #354263; }
+
 @media (max-width: 900px) {
-  .lobby-intro { grid-template-columns: 1fr; margin-top: 58px; }
-  .lobby-intro > .eyebrow, .lobby-intro > h1, .intro-copy, .mode-panel { grid-column: 1; }
-  .mode-panel { grid-row: auto; margin-top: 36px; }
+  .lobby-main { grid-template-columns: 1fr; gap: 28px; min-height: 0; }
+  .lobby-left { grid-template-rows: auto auto; gap: 28px; }
+  .lobby-intro { min-height: 300px; }
+  .leaderboard { min-height: 400px; }
+  .collection { min-height: 70vh; margin-top: 28px; }
   .collection-grid { grid-template-columns: repeat(3, 1fr); }
   .game-layout { grid-template-columns: 1fr; }
   .tree-panel { min-height: 600px; }
@@ -595,12 +640,15 @@ button, [role="button"] { -webkit-tap-highlight-color: transparent; }
 }
 
 @media (max-width: 560px) {
-  .lobby-screen { padding-inline: 18px; }
+  .lobby-screen { padding: 18px 18px 48px; }
   .site-header { align-items: flex-start; }
   .header-actions { align-items: flex-end; flex-direction: column; gap: 6px; }
   .header-meta { display: none; }
   .auth-name { max-width: 130px; }
-  .lobby-intro > h1 { font-size: clamp(3.1rem, 16vw, 4.7rem); }
+  .lobby-intro { min-height: 250px; padding: 28px 12px; }
+  .lobby-intro > h1 { font-size: clamp(4.2rem, 19vw, 6rem); }
+  .intro-copy { margin-top: 20px; }
+  .mode-panel, .leaderboard, .collection { padding: 26px 20px; }
   .collection-grid { grid-template-columns: repeat(2, 1fr); }
   .leaderboard { padding: 24px 14px; }
   .leaderboard-row { grid-template-columns: 34px minmax(0, 1fr); padding-inline: 10px; }

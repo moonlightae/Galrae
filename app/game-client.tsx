@@ -10,13 +10,15 @@ const markup = `
   <div class="paper-noise" aria-hidden="true"></div>
   <main id="lobby" class="screen lobby-screen">
     <header class="site-header">
-      <a class="wordmark" href="#" aria-label="갈래 홈"><span class="wordmark-mark" aria-hidden="true">Y</span><span>갈래</span></a>
-      <div class="header-actions"><p class="header-meta">동물계 · 첫 번째 모드</p><div id="auth-panel" class="auth-panel" aria-live="polite"><span class="auth-loading">게임 계정 확인 중…</span></div></div>
+      <div id="auth-panel" class="auth-panel" aria-live="polite"><span class="auth-loading">게임 계정 확인 중…</span></div>
     </header>
-    <section class="lobby-intro" aria-labelledby="lobby-title">
-      <p class="eyebrow">PHYLOGENY CARD GAME</p><h1 id="lobby-title">생명의 갈래를<br />찾아주세요.</h1>
-      <p class="intro-copy">새로운 생물이 기존 생물과 어디에서 갈라졌는지 맞혀 계통수를 완성하세요.</p>
-      <div class="mode-panel">
+    <div class="lobby-main">
+      <div class="lobby-left">
+        <section class="lobby-intro" aria-labelledby="lobby-title">
+          <h1 id="lobby-title">갈래</h1>
+          <p class="intro-copy">하나의 생명에서 뻗어 나온 수많은 갈래. 새로운 생물의 자리를 찾아 계통수를 완성해 보세요.</p>
+        </section>
+        <section class="mode-panel" aria-label="게임 시작">
         <div><p class="panel-label">플레이할 계</p><h2>동물계</h2><p>인간에서 시작해 서로 다른 동물의 공통 조상을 찾아갑니다.</p>
           <div class="mode-options" aria-label="계 모드 목록"><span class="is-active">동물계</span><span aria-disabled="true">식물계 · 준비 중</span><span aria-disabled="true">균계 · 준비 중</span></div>
         </div>
@@ -30,15 +32,16 @@ const markup = `
             <li><strong>Symsagittifera roscoffensis</strong> — 과거 편형동물로 분류되기도 했지만, 게임에서는 편형동물문이 아닌 Xenacoelomorpha문에 둡니다. Xenacoelomorpha의 상위 위치에는 여러 가설이 있으며, 게임은 Nephrozoa의 자매군 가설을 택합니다. <a href="https://www.nature.com/articles/nature16520" target="_blank" rel="noreferrer">채택한 가설</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11521371/" target="_blank" rel="noreferrer">다른 가설</a></li>
           </ul>
         </div>
+        </section>
       </div>
-    </section>
-    <section class="leaderboard" aria-labelledby="leaderboard-title">
-      <div class="section-heading leaderboard-heading"><div><p class="eyebrow">GLOBAL RANKING</p><h2 id="leaderboard-title">리더보드</h2></div><p id="leaderboard-status">기록을 불러오는 중…</p></div>
-      <ol id="leaderboard-list" class="leaderboard-list" aria-live="polite"></ol>
-      <p id="leaderboard-note" class="leaderboard-note">게임 아이디로 로그인하면 최고 기록이 자동으로 등록됩니다.</p>
-    </section>
+      <section class="leaderboard" aria-labelledby="leaderboard-title">
+        <div class="section-heading leaderboard-heading"><div><h2 id="leaderboard-title">리더보드</h2></div><p id="leaderboard-status">기록을 불러오는 중…</p></div>
+        <ol id="leaderboard-list" class="leaderboard-list" aria-live="polite"></ol>
+        <p id="leaderboard-note" class="leaderboard-note">게임 아이디로 로그인하면 최고 기록이 자동으로 등록됩니다.</p>
+      </section>
+    </div>
     <section class="collection" aria-labelledby="collection-title">
-      <div class="section-heading"><div><p class="eyebrow">MY COLLECTION</p><h2 id="collection-title">분류한 생물</h2></div><p id="collection-count">0종 발견</p></div>
+      <div class="section-heading"><div><h2 id="collection-title">분류한 카드</h2></div><p id="collection-count">0종 발견</p></div>
       <div id="collection-grid" class="collection-grid"></div>
       <p class="data-attribution">Species text and taxonomy data from <a href="https://en.wikipedia.org/" target="_blank" rel="noreferrer">English Wikipedia</a> (<a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noreferrer">CC BY-SA 4.0</a>) and <a href="https://www.wikidata.org/" target="_blank" rel="noreferrer">Wikidata</a>. Images are provided by <a href="https://commons.wikimedia.org/" target="_blank" rel="noreferrer">Wikimedia Commons</a> under the license shown on each card.</p>
     </section>
