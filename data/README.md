@@ -4,6 +4,8 @@
 `scripts/collect-wikimedia-animals.mjs`. Seed articles are listed in
 `animal-seeds.json` and should identify individual species rather than broad
 groups such as “sharks” or “ants”.
+The 100 species added in September 2026 are listed in
+`animal-additions-2026-09.json`; the full dataset contains 207 species.
 
 Some Wikipedia article concepts use a different Wikidata item from the formal
 taxon item. Those explicit links are kept in `taxon-overrides.json`.

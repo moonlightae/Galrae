@@ -3,10 +3,16 @@ import path from "node:path";
 import process from "node:process";
 
 const ROOT = path.resolve(import.meta.dirname, "..");
-const SEEDS_PATH = path.join(ROOT, "data", "animal-seeds.json");
+const SEEDS_PATH = process.env.GALRAE_SEEDS_PATH
+  ? path.resolve(ROOT, process.env.GALRAE_SEEDS_PATH)
+  : path.join(ROOT, "data", "animal-seeds.json");
 const OVERRIDES_PATH = path.join(ROOT, "data", "taxon-overrides.json");
-const OUTPUT_PATH = path.join(ROOT, "data", "animals.json");
-const REPORT_PATH = path.join(ROOT, "data", "animals.report.json");
+const OUTPUT_PATH = process.env.GALRAE_OUTPUT_PATH
+  ? path.resolve(ROOT, process.env.GALRAE_OUTPUT_PATH)
+  : path.join(ROOT, "data", "animals.json");
+const REPORT_PATH = process.env.GALRAE_REPORT_PATH
+  ? path.resolve(ROOT, process.env.GALRAE_REPORT_PATH)
+  : path.join(ROOT, "data", "animals.report.json");
 const ANIMALIA_ID = "Q729";
 const USER_AGENT = "GalraePhylogenyGame/0.1 (educational Wikimedia dataset collector)";
 const TEXT_LICENSE = {

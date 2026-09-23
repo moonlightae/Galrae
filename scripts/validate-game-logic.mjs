@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 
 await import(new URL("../public/game-logic.js", import.meta.url));
-const { ANIMALIA_ID, addSuccessCount, buildTree, collectLeafIds, findNodeById, getExpectedPlacement, isEquivalentPlacement, seedSuccessCounts, successCountText } = globalThis.GalraeLogic;
+const { ANIMALIA_ID, addSuccessCount, buildTree, collectLeafIds, findNodeById, getExpectedPlacement, isEquivalentPlacement, seedSuccessCounts, shuffle, successCountText } = globalThis.GalraeLogic;
 const dataset = JSON.parse(fs.readFileSync(new URL("../data/animals.json", import.meta.url), "utf8"));
 const appSource = fs.readFileSync(new URL("../public/app.js", import.meta.url), "utf8");
 const speciesById = new Map(dataset.animals.map((animal) => [animal.id, animal]));
@@ -25,6 +25,25 @@ for (const animal of dataset.animals.filter((entry) => entry.id !== humanId)) {
 assert.equal(classified.length, dataset.speciesCount);
 assert.ok(joinCount > 0, "Dataset sequence never exercised join placement");
 assert.ok(wrapCount > 0, "Dataset sequence never exercised wrap placement");
+
+for (let seed = 1; seed <= 5; seed += 1) {
+  let value = seed;
+  const random = () => {
+    value = (Math.imul(value, 1664525) + 1013904223) >>> 0;
+    return value / 0x100000000;
+  };
+  const randomOrder = shuffle(dataset.animals.filter((animal) => animal.id !== humanId), random);
+  const placed = [humanId];
+  for (const animal of randomOrder) {
+    const tree = buildTree(placed, speciesById);
+    const expected = getExpectedPlacement(placed, animal.id, speciesById);
+    assert.ok(findNodeById(tree, expected.targetId), `Missing ${animal.id} target in random order ${seed}`);
+    assert.ok(isEquivalentPlacement(tree, expected, expected.targetId, expected.placement),
+      `Expected placement rejected for ${animal.id} in random order ${seed}`);
+    placed.push(animal.id);
+  }
+  assert.equal(placed.length, dataset.speciesCount);
+}
 
 const ctenophoreId = "bolinopsis-infundibulum";
 const spongeId = "amphimedon-queenslandica";
