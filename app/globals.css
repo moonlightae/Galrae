@@ -296,7 +296,7 @@ button, [role="button"] { -webkit-tap-highlight-color: transparent; }
   left: 50%;
   top: 4px;
   bottom: 4px;
-  border-left: 5px solid transparent;
+  border-left: 5px solid var(--forest-2);
   transform: translateX(-50%);
   transition: border-color 140ms;
 }
@@ -343,7 +343,6 @@ button, [role="button"] { -webkit-tap-highlight-color: transparent; }
   transition: background 140ms, color 140ms, transform 140ms;
 }
 .clade-node:hover, .clade-node.is-drop-target { background: var(--yellow); border-color: #9a7d12; transform: scale(1.35); }
-.branch-anchor > span.clade-node { cursor: default; }
 .clade-node.is-preview { background: var(--yellow); border-color: #b99822; animation: preview-pulse 900ms ease-in-out infinite alternate; }
 .species-node {
   display: inline-flex;

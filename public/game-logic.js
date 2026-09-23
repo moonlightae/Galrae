@@ -200,6 +200,13 @@
         && leafSetKey(expectedTarget) === completeTreeKey;
     }
 
+    // A single classified species represents the whole sampled tree, so its
+    // card and the permanent Animalia trunk are equivalent first placements.
+    if (placement === "wrap" && tree.type === "branch" && tree.children.length === 1
+      && tree.children[0].type === "leaf" && targetId === tree.children[0].id) {
+      return leafSetKey(expectedTarget) === completeTreeKey;
+    }
+
     return placement === "wrap"
       && expected.placement === "wrap"
       && leafSetKey(target) === leafSetKey(expectedTarget);
