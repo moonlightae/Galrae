@@ -279,7 +279,6 @@ button, [role="button"] { -webkit-tap-highlight-color: transparent; }
   width: max-content;
   transform: translate(calc(-50% + var(--pan-x, 0px)), calc(-50% + var(--pan-y, 0px))) scale(var(--tree-zoom, 1));
   transform-origin: center;
-  will-change: transform;
 }
 .phylo-tree.layout-bottom { transform: scaleY(-1); }
 .layout-bottom .tree-root, .layout-bottom .species-node { transform: scaleY(-1); }
