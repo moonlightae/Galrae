@@ -4,6 +4,7 @@ import fs from "node:fs";
 await import(new URL("../public/game-logic.js", import.meta.url));
 const { ANIMALIA_ID, buildTree, collectLeafIds, findNodeById, getExpectedPlacement, isEquivalentPlacement } = globalThis.GalraeLogic;
 const dataset = JSON.parse(fs.readFileSync(new URL("../data/animals.json", import.meta.url), "utf8"));
+const appSource = fs.readFileSync(new URL("../public/app.js", import.meta.url), "utf8");
 const speciesById = new Map(dataset.animals.map((animal) => [animal.id, animal]));
 const humanId = "homo-sapiens";
 const classified = [humanId];
@@ -44,12 +45,41 @@ const spongePlacement = getExpectedPlacement([cnidarianId, humanId], spongeId, s
 assert.equal(spongePlacement.placement, "wrap");
 assert.notEqual(spongePlacement.targetId, ANIMALIA_ID);
 assert.ok(
-  isEquivalentPlacement(planulozoaTree, spongePlacement, ANIMALIA_ID, "wrap"),
-  "Wrapping the Animalia root and its only child must be treated as the same placement",
+  isEquivalentPlacement(planulozoaTree, spongePlacement, ANIMALIA_ID, "top"),
+  "The Animalia trunk must accept a placement that wraps the complete sampled tree",
+);
+
+const placozoanId = "hoilungia-hongkongensis";
+const humanOnlyTree = buildTree([humanId], speciesById);
+const placozoanPlacement = getExpectedPlacement([humanId], placozoanId, speciesById);
+assert.deepEqual(
+  placozoanPlacement,
+  { targetId: ANIMALIA_ID, placement: "join", ancestorId: ANIMALIA_ID },
+  "Placozoa must join the sampled Animalia root",
+);
+assert.ok(
+  isEquivalentPlacement(humanOnlyTree, placozoanPlacement, ANIMALIA_ID, "top"),
+  "The Animalia trunk must accept Placozoa",
+);
+
+const ctenophorePlacement = getExpectedPlacement([humanId], ctenophoreId, speciesById);
+assert.ok(
+  isEquivalentPlacement(humanOnlyTree, ctenophorePlacement, ANIMALIA_ID, "top"),
+  "The Animalia trunk must accept Ctenophora",
 );
 assert.equal(
-  isEquivalentPlacement(planulozoaTree, spongePlacement, ANIMALIA_ID, "join"),
+  isEquivalentPlacement(humanOnlyTree, placozoanPlacement, humanId, "wrap"),
   false,
-  "Join placements must not inherit wrap equivalence",
+  "The species card must not duplicate the canonical top-level trunk action",
 );
+
+const planulozoaNode = findNodeById(earlyAnimalTree, "canonical:planulozoa");
+const cnidarianPlacement = { targetId: planulozoaNode.id, placement: "join", ancestorId: planulozoaNode.id };
+assert.equal(
+  isEquivalentPlacement(earlyAnimalTree, cnidarianPlacement, planulozoaNode.id, "wrap"),
+  false,
+  "Join and wrap must remain distinct inside a multi-level tree",
+);
+assert.match(appSource, /class="root-wrap-target"[^>]+data-placement="top"/, "The top-level target must be the Animalia trunk");
+assert.doesNotMatch(appSource, /<button class="tree-root"/, "The Animalia label must not be a duplicate drop target");
 console.log(`Validated ${classified.length} species: ${wrapCount} wrap placements, ${joinCount} join placements.`);

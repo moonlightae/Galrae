@@ -187,10 +187,22 @@
 
   function isEquivalentPlacement(tree, expected, targetId, placement) {
     if (targetId === expected.targetId && placement === expected.placement) return true;
-    if (placement !== "wrap" || expected.placement !== "wrap") return false;
     const target = findNodeById(tree, targetId);
     const expectedTarget = findNodeById(tree, expected.targetId);
-    return Boolean(target && expectedTarget && leafSetKey(target) === leafSetKey(expectedTarget));
+    if (!target || !expectedTarget) return false;
+
+    // The trunk immediately below Animalia is the one canonical top-level target.
+    // It represents either joining Animalia or wrapping the complete sampled tree.
+    const completeTreeKey = leafSetKey(tree);
+    if (placement === "top") {
+      return targetId === ANIMALIA_ID
+        && leafSetKey(target) === completeTreeKey
+        && leafSetKey(expectedTarget) === completeTreeKey;
+    }
+
+    return placement === "wrap"
+      && expected.placement === "wrap"
+      && leafSetKey(target) === leafSetKey(expectedTarget);
   }
 
   function shuffle(items, random = Math.random) {
