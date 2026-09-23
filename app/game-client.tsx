@@ -47,8 +47,13 @@ const markup = `
     <header class="game-header"><button id="quit-game" class="text-button" type="button">← 로비</button><div class="game-progress" aria-live="polite"><span id="round-label">동물계 · 1번째 분류</span><span id="score-label">정답 0</span></div></header>
     <div class="game-layout">
       <section class="tree-panel" aria-labelledby="tree-title">
-        <div class="tree-heading"><div><p class="eyebrow">CURRENT TREE</p><h1 id="tree-title">현재 계통수</h1></div></div>
+        <div class="tree-heading"><div><p class="eyebrow">CURRENT TREE</p><h1 id="tree-title">현재 계통수</h1></div>
+          <div class="tree-toolbar"><div class="tree-layout-controls" role="group" aria-label="계통수 배치">
+            <button type="button" data-tree-layout="top" aria-pressed="true" title="공통조상이 위">위</button><button type="button" data-tree-layout="bottom" aria-pressed="false" title="공통조상이 아래">아래</button><button type="button" data-tree-layout="radial" aria-pressed="false" title="공통조상이 가운데">원형</button>
+          </div><div class="tree-zoom-controls"><button id="tree-zoom-out" type="button" aria-label="계통수 축소">−</button><span id="tree-zoom-status" class="tree-zoom-status" aria-live="polite">100%</span><button id="tree-zoom-in" type="button" aria-label="계통수 확대">+</button></div><button id="tree-reset-view" class="tree-reset-view" type="button">보기 초기화</button></div>
+        </div>
         <div id="tree-canvas" class="tree-canvas" aria-live="polite"></div>
+        <p class="tree-canvas-help">계통수 위에서 휠로 확대·축소하고, 빈 곳을 드래그해 화면을 이동할 수 있습니다.</p>
         <div id="failure-panel" class="failure-panel" role="alert" hidden><div><p class="eyebrow">CLASSIFICATION FAILED</p><strong>분류에 실패했어요.</strong><p>초록색으로 표시된 곳이 올바른 위치입니다.</p><p id="failure-score-status" class="failure-score-status"></p></div><button id="retry-game" class="primary-button" type="button">처음부터 다시 →</button></div>
       </section>
       <aside class="card-dock" aria-labelledby="card-dock-title">
@@ -58,7 +63,7 @@ const markup = `
           <div class="card-body"><p class="card-kicker">NEW SPECIES</p><h3 id="active-name">Loading…</h3><p id="active-description">Loading the animal dataset.</p></div><div class="card-footer"><span id="active-scientific">—</span><span id="active-success-count">분류 성공 0회</span></div>
         </div>
         <a id="active-credit" class="image-credit" href="#" target="_blank" rel="noreferrer">Image credit</a>
-        <p id="drag-help" class="drag-help">원형 분기점에 놓으면 같은 조상 아래 가지가 추가되고, 분기점 위 선에 놓으면 새로운 공통 조상이 생깁니다. 이미 분류한 생물은 선택하지 않은 상태에서 눌러 카드를 다시 볼 수 있어요.</p>
+        <p id="drag-help" class="drag-help">원형 분기점에 놓으면 같은 조상 아래 가지가 추가되고, 분기점으로 이어지는 선에 놓으면 새로운 공통 조상이 생깁니다. 이미 분류한 생물은 선택하지 않은 상태에서 눌러 카드를 다시 볼 수 있어요.</p>
       </aside>
     </div>
   </main>

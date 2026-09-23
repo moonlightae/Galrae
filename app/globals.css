@@ -247,8 +247,19 @@ button, [role="button"] { -webkit-tap-highlight-color: transparent; }
 .game-progress span + span { padding-left: 18px; border-left: 1px solid var(--line); color: var(--forest); font-weight: 700; }
 .game-layout { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 24px; max-width: 1500px; margin: auto; }
 .tree-panel { position: relative; min-height: calc(100vh - 100px); padding: clamp(22px, 3vw, 42px); background: var(--paper); border: 1px solid #d1d2c6; border-radius: 8px 28px 8px 28px; }
-.tree-heading { display: flex; align-items: end; justify-content: space-between; gap: 20px; }
+.tree-heading { display: flex; align-items: end; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
 .tree-heading h1 { margin: 0; font-family: "Gowun Batang", serif; font-size: clamp(2rem, 4vw, 3.4rem); }
+.tree-toolbar { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
+.tree-layout-controls { display: inline-flex; padding: 3px; background: #e1e6da; border: 1px solid #c8d0c3; border-radius: 9px; }
+.tree-layout-controls button, .tree-reset-view { min-height: 34px; padding: 5px 11px; color: var(--forest); background: transparent; border: 0; border-radius: 6px; font-size: .75rem; font-weight: 800; cursor: pointer; }
+.tree-layout-controls button[aria-pressed="true"] { color: #fff; background: var(--forest); }
+.tree-zoom-controls { display: inline-flex; align-items: center; gap: 3px; padding: 3px; border: 1px solid #c8d0c3; border-radius: 9px; }
+.tree-zoom-controls button { width: 29px; height: 29px; padding: 0; color: var(--forest); background: transparent; border: 0; border-radius: 6px; font-size: 1rem; font-weight: 800; cursor: pointer; }
+.tree-zoom-controls button:hover { background: #e1e6da; }
+.tree-reset-view { border: 1px solid #c8d0c3; }
+.tree-reset-view:hover { background: #e1e6da; }
+.tree-zoom-status { min-width: 42px; color: var(--muted); font-size: .72rem; font-weight: 800; text-align: center; }
+.tree-canvas-help { margin: -8px 0 0; color: var(--muted); font-size: .7rem; line-height: 1.5; }
 .tree-canvas {
   position: relative;
   min-height: 560px;
@@ -266,9 +277,28 @@ button, [role="button"] { -webkit-tap-highlight-color: transparent; }
   left: 50%;
   top: 50%;
   width: max-content;
-  transform: translate(calc(-50% + var(--pan-x, 0px)), calc(-50% + var(--pan-y, 0px)));
+  transform: translate(calc(-50% + var(--pan-x, 0px)), calc(-50% + var(--pan-y, 0px))) scale(var(--tree-zoom, 1));
+  transform-origin: center;
   will-change: transform;
 }
+.phylo-tree.layout-bottom { transform: scaleY(-1); }
+.layout-bottom .tree-root, .layout-bottom .species-node { transform: scaleY(-1); }
+.layout-bottom .species-node:hover, .layout-bottom .species-node.is-drop-target { transform: scaleY(-1) translateY(-3px); }
+.layout-bottom .species-node.is-new { animation: none; }
+.layout-bottom .species-node.is-new, .radial-tree .species-node.is-new { box-shadow: 0 0 0 5px rgba(244, 215, 101, .48); }
+.radial-tree { position: relative; }
+.radial-links { position: absolute; inset: 0; overflow: visible; pointer-events: none; }
+.radial-edge { stroke: var(--forest-2); stroke-width: 2; }
+.radial-tree.answer-tree .radial-edge.is-answer-path { stroke: #1f7c4a; stroke-width: 3; }
+.radial-root-target, .radial-tree .species-node, .radial-tree .clade-node, .radial-edge-target { position: absolute; z-index: 2; transform: translate(-50%, -50%); }
+.radial-root-target { min-width: 118px; min-height: 42px; cursor: pointer; }
+.radial-root-target:hover, .radial-root-target.is-drop-target { background: #36624d; box-shadow: 0 0 0 7px rgba(244, 215, 101, .28); }
+.radial-tree .species-node { min-width: 88px; max-width: 156px; min-height: 42px; padding: 7px 9px; overflow: visible; font-size: .67rem; line-height: 1.2; }
+.radial-tree .species-node:hover, .radial-tree .species-node.is-drop-target { transform: translate(-50%, calc(-50% - 3px)); }
+.radial-tree .species-node.is-new { animation: none; }
+.radial-tree .clade-node:hover, .radial-tree .clade-node.is-drop-target { transform: translate(-50%, -50%) scale(1.35); }
+.radial-edge-target { z-index: 3; width: 24px; height: 24px; padding: 0; background: transparent; border: 0; border-radius: 50%; cursor: pointer; }
+.radial-edge-target:hover, .radial-edge-target.is-drop-target { background: rgba(244, 215, 101, .45); box-shadow: inset 0 0 0 2px #b99822; }
 .phylo-tree ul { display: flex; justify-content: center; padding-top: 48px; }
 .phylo-tree ul::before { content: ""; position: absolute; top: 0; left: 50%; height: 48px; border-left: 2px solid var(--forest-2); }
 .phylo-tree li { position: relative; flex: 1; padding: 48px 10px 0; text-align: center; }
@@ -374,6 +404,7 @@ button, [role="button"] { -webkit-tap-highlight-color: transparent; }
 .species-node:hover, .species-node.is-drop-target { color: #fff; background: var(--forest); transform: translateY(-3px); }
 .species-node.is-new { animation: reveal-node 520ms ease both; }
 .species-node.is-preview { position: relative; color: #705b13; background: rgba(255, 247, 215, .76); border: 2px dashed #b99822; box-shadow: 0 0 0 7px rgba(244, 215, 101, .16); }
+.radial-tree .species-node.is-preview { position: absolute; }
 .preview-tag { position: absolute; top: -23px; left: 50%; transform: translateX(-50%); padding: 3px 7px; color: var(--paper); background: var(--coral); border-radius: 999px; font-size: .58rem; white-space: nowrap; }
 .preview-branches li::before, .preview-branches li::after { border-color: #c6a528; border-style: dashed; }
 .answer-tree .clade-node.is-preview { background: #8bd2a8; border-color: #1f7c4a; animation: none; }
