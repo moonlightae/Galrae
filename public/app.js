@@ -432,12 +432,15 @@ async function resetLeaderboard() {
 
 async function syncCollection() {
   if (!currentUser || !dataset) return;
-  const response = await fetch("/api/collection", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ speciesIds: getCollection().filter((id) => id !== HUMAN_ID) }),
-  });
-  if (!response.ok) throw new Error(`Collection request failed: ${response.status}`);
+  const speciesIds = getCollection().filter((id) => id !== HUMAN_ID);
+  for (let offset = 0; offset < speciesIds.length; offset += 400) {
+    const response = await fetch("/api/collection", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ speciesIds: speciesIds.slice(offset, offset + 400) }),
+    });
+    if (!response.ok) throw new Error(`Collection request failed: ${response.status}`);
+  }
 }
 
 async function loadLeaderboard() {
@@ -445,15 +448,16 @@ async function loadLeaderboard() {
   const status = $("#leaderboard-status");
   status.textContent = "기록을 불러오는 중…";
   try {
+    let collectionSyncFailed = false;
     try { await syncCollection(); }
-    catch (error) { console.error(error); }
+    catch (error) { console.error(error); collectionSyncFailed = true; }
     const response = await fetch("/api/leaderboard", { cache: "no-store" });
     if (!response.ok) throw new Error(`Leaderboard request failed: ${response.status}`);
     const data = await responseJson(response);
     const entries = Array.isArray(data.entries) ? data.entries : [];
     if (!entries.length) {
       list.innerHTML = '<li class="leaderboard-empty">아직 등록된 기록이 없어요. 첫 번째 기록을 남겨보세요.</li>';
-      status.textContent = "0명 참가";
+      status.textContent = collectionSyncFailed ? "수집 기록 동기화 실패" : "0명 참가";
       return;
     }
     list.innerHTML = entries.map((entry, index) => `<li class="leaderboard-row${entry.isCurrentUser ? " is-me" : ""}">
@@ -465,7 +469,7 @@ async function loadLeaderboard() {
         <span class="leaderboard-stat"><small>최대 분류 마릿수</small><strong>${entry.bestScore}종</strong></span>
       </span>
     </li>`).join("");
-    status.textContent = `${entries.length}명 순위`;
+    status.textContent = collectionSyncFailed ? "수집 기록 동기화 실패" : `${entries.length}명 순위`;
   } catch (error) {
     console.error(error);
     list.innerHTML = '<li class="leaderboard-empty">리더보드를 불러오지 못했어요.</li>';

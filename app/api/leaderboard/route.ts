@@ -2,6 +2,7 @@ import { asc, desc, inArray, sql } from "drizzle-orm";
 import { getGameUser } from "../../game-auth";
 import { getDb } from "../../../db";
 import { classifiedSpecies, leaderboard } from "../../../db/schema";
+import { speciesCount } from "../../../public/data/animals.json";
 
 export const dynamic = "force-dynamic";
 
@@ -53,8 +54,8 @@ export async function POST(request: Request) {
   catch { return Response.json({ error: "잘못된 요청입니다." }, { status: 400 }); }
 
   const score = Number(payload.score);
-  if (!Number.isInteger(score) || score < 0 || score > 106) {
-    return Response.json({ error: "점수는 0부터 106 사이여야 합니다." }, { status: 400 });
+  if (!Number.isInteger(score) || score < 0 || score >= speciesCount) {
+    return Response.json({ error: `점수는 0부터 ${speciesCount - 1} 사이여야 합니다.` }, { status: 400 });
   }
 
   const displayName = user.displayName.slice(0, 60);
