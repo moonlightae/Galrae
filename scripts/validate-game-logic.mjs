@@ -67,11 +67,40 @@ assert.ok(
   isEquivalentPlacement(humanOnlyTree, ctenophorePlacement, ANIMALIA_ID, "top"),
   "The Animalia trunk must accept Ctenophora",
 );
-assert.equal(
+assert.ok(
   isEquivalentPlacement(humanOnlyTree, placozoanPlacement, humanId, "wrap"),
-  false,
-  "The species card must not duplicate the canonical top-level trunk action",
+  "The Human card must accept Placozoa when Human is the only classified species",
 );
+assert.ok(
+  isEquivalentPlacement(humanOnlyTree, ctenophorePlacement, humanId, "wrap"),
+  "The Human card must accept Ctenophora when Human is the only classified species",
+);
+
+for (const [first, next] of [[placozoanId, ctenophoreId], [ctenophoreId, placozoanId]]) {
+  const classifiedPair = [humanId, first];
+  const pairTree = buildTree(classifiedPair, speciesById);
+  const nextPlacement = getExpectedPlacement(classifiedPair, next, speciesById);
+  assert.ok(
+    isEquivalentPlacement(pairTree, nextPlacement, ANIMALIA_ID, "top"),
+    `The Animalia trunk must remain usable after ${first}`,
+  );
+  assert.equal(
+    isEquivalentPlacement(pairTree, nextPlacement, humanId, "wrap"),
+    false,
+    "A species card must stop representing the whole tree after the first branch",
+  );
+}
+
+const bothBasalIds = [humanId, placozoanId, ctenophoreId];
+const bothBasalTree = buildTree(bothBasalIds, speciesById);
+const laterPlacement = getExpectedPlacement(bothBasalIds, cnidarianId, speciesById);
+assert.equal(
+  isEquivalentPlacement(bothBasalTree, laterPlacement, ANIMALIA_ID, "top"),
+  false,
+  "The always-available top trunk must not become an automatic correct answer",
+);
+
+assert.match(appSource, /data-species-id="\$\{escapeHtml\(node\.id\)\}" data-target=/, "Every species card must remain a drop target");
 
 const planulozoaNode = findNodeById(earlyAnimalTree, "canonical:planulozoa");
 const cnidarianPlacement = { targetId: planulozoaNode.id, placement: "join", ancestorId: planulozoaNode.id };
