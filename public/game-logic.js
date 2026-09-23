@@ -221,13 +221,33 @@
     return result;
   }
 
+  function seedSuccessCounts(collectedIds, initialSpeciesId) {
+    return Object.fromEntries(collectedIds
+      .filter((id) => id !== initialSpeciesId)
+      .map((id) => [id, { count: 1, minimum: true }]));
+  }
+
+  function addSuccessCount(counts, speciesId) {
+    const previous = counts[speciesId];
+    const count = Number.isSafeInteger(previous?.count) && previous.count >= 0 ? previous.count : 0;
+    return { ...counts, [speciesId]: { count: count + 1, minimum: previous?.minimum === true } };
+  }
+
+  function successCountText(record) {
+    const count = Number.isSafeInteger(record?.count) && record.count >= 0 ? record.count : 0;
+    return `분류 성공 ${count}회${record?.minimum === true ? " 이상" : ""}`;
+  }
+
   global.GalraeLogic = {
     ANIMALIA_ID,
+    addSuccessCount,
     buildTree,
     collectLeafIds,
     findNodeById,
     getExpectedPlacement,
     isEquivalentPlacement,
+    seedSuccessCounts,
     shuffle,
+    successCountText,
   };
 }(globalThis));

@@ -224,6 +224,7 @@ button, [role="button"] { -webkit-tap-highlight-color: transparent; }
 .mini-card h3 { margin: 4px 0; font-family: "Gowun Batang", serif; font-size: clamp(1rem, 2vw, 1.35rem); }
 .mini-card p { margin: 0; color: var(--muted); font-size: .72rem; line-height: 1.45; }
 .mini-card .mini-scientific { margin-bottom: 8px; color: var(--forest); }
+.mini-card .mini-success { margin-bottom: 8px; color: var(--forest); font-weight: 800; }
 .mini-card-groups { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 10px; }
 .mini-card-groups span { padding: 3px 6px; color: var(--forest); background: #e8efe9; border: 1px solid #c5d3c9; border-radius: 999px; font-size: .58rem; font-weight: 700; }
 .mini-card-credit { margin-top: auto; padding-top: 10px; overflow: hidden; color: var(--muted); font-size: .58rem; line-height: 1.35; text-overflow: ellipsis; white-space: nowrap; }
@@ -290,6 +291,7 @@ button, [role="button"] { -webkit-tap-highlight-color: transparent; }
   border-radius: 999px;
   cursor: pointer;
 }
+.root-wrap-target.is-long { height: 96px; }
 .root-wrap-target::after {
   content: "";
   position: absolute;

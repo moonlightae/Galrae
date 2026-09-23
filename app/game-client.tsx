@@ -47,7 +47,7 @@ const markup = `
         <div class="dock-copy"><p class="eyebrow">NEW SPECIES</p><h2 id="card-dock-title">새 동물 카드</h2></div>
         <div id="active-card" class="animal-card is-draggable" draggable="true" tabindex="0" role="button" aria-describedby="drag-help">
           <div class="card-topline"><span>동물계</span><span>ANIMALIA</span></div><div class="card-art"><img id="active-image" alt="" /><span id="active-image-fallback" aria-hidden="true">?</span></div>
-          <div class="card-body"><p class="card-kicker">NEW SPECIES</p><h3 id="active-name">Loading…</h3><p id="active-description">Loading the animal dataset.</p></div><div class="card-footer"><span id="active-scientific">—</span><span id="active-number">01</span></div>
+          <div class="card-body"><p class="card-kicker">NEW SPECIES</p><h3 id="active-name">Loading…</h3><p id="active-description">Loading the animal dataset.</p></div><div class="card-footer"><span id="active-scientific">—</span><span id="active-success-count">분류 성공 0회</span></div>
         </div>
         <a id="active-credit" class="image-credit" href="#" target="_blank" rel="noreferrer">Image credit</a>
         <p id="drag-help" class="drag-help">원형 분기점에 놓으면 같은 조상 아래 가지가 추가되고, 분기점 위 선에 놓으면 새로운 공통 조상이 생깁니다. 이미 분류한 생물은 선택하지 않은 상태에서 눌러 카드를 다시 볼 수 있어요.</p>
@@ -67,7 +67,7 @@ const markup = `
       <div id="admin-view" hidden><div class="admin-heading"><div><p class="eyebrow">ADMIN CONSOLE</p><h2>관리자 도구</h2></div><button id="close-admin" class="text-button" type="button">← 계정</button></div><p class="admin-copy">계정을 삭제하거나 비밀번호를 기본값으로 초기화할 수 있습니다.</p><div id="admin-user-list" class="admin-user-list"></div><button id="reset-leaderboard" class="danger-button wide" type="button">리더보드 전체 초기화</button><p id="admin-status" class="admin-status" role="status"></p></div>
     </section>
   </div>
-  <div id="species-modal" class="modal-backdrop species-modal-backdrop" hidden><section class="species-dialog" role="dialog" aria-modal="true" aria-labelledby="species-view-name"><button id="close-species-card" class="dialog-close" type="button" aria-label="카드 닫기">×</button><div class="animal-card species-view-card"><div class="card-topline"><span>동물계</span><span>ANIMALIA</span></div><div class="card-art"><img id="species-view-image" alt="" /><span id="species-view-fallback" aria-hidden="true">?</span></div><div class="card-body"><p class="card-kicker">CLASSIFIED SPECIES</p><h3 id="species-view-name">—</h3><p id="species-view-description">—</p></div><div class="card-footer"><span id="species-view-scientific">—</span><span>✓</span></div></div><a id="species-view-credit" class="dialog-image-credit" href="#" target="_blank" rel="noreferrer">Image credit</a></section></div>
+  <div id="species-modal" class="modal-backdrop species-modal-backdrop" hidden><section class="species-dialog" role="dialog" aria-modal="true" aria-labelledby="species-view-name"><button id="close-species-card" class="dialog-close" type="button" aria-label="카드 닫기">×</button><div class="animal-card species-view-card"><div class="card-topline"><span>동물계</span><span>ANIMALIA</span></div><div class="card-art"><img id="species-view-image" alt="" /><span id="species-view-fallback" aria-hidden="true">?</span></div><div class="card-body"><p class="card-kicker">CLASSIFIED SPECIES</p><h3 id="species-view-name">—</h3><p id="species-view-description">—</p></div><div class="card-footer"><span id="species-view-scientific">—</span><span id="species-view-success-count">분류 성공 0회</span></div></div><a id="species-view-credit" class="dialog-image-credit" href="#" target="_blank" rel="noreferrer">Image credit</a></section></div>
   <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
 `;
 
@@ -85,10 +85,7 @@ export default function GameClient() {
   useEffect(() => {
     if (window.__galraeBooted) return;
     window.__galraeBooted = true;
-    loadScript("/local-api.js")
-      .then(() => loadScript("/game-logic.js"))
-      .then(() => loadScript("/app.js"))
-      .catch(console.error);
+    loadScript("/game-logic.js").then(() => loadScript("/app.js")).catch(console.error);
   }, []);
   return <div dangerouslySetInnerHTML={{ __html: markup }} />;
 }
