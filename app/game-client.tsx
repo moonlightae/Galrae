@@ -24,14 +24,7 @@ const markup = `
         </div>
         <div class="mode-badge" aria-label="선택됨">ANIMALIA</div>
         <button id="start-game" class="primary-button" type="button" disabled>데이터 불러오는 중… <span aria-hidden="true">→</span></button>
-        <button id="taxonomy-notes-toggle" class="taxonomy-notes-toggle" type="button" aria-expanded="false" aria-controls="taxonomy-notes">주의점 <span aria-hidden="true">▾</span></button>
-        <div id="taxonomy-notes" class="taxonomy-notes" hidden>
-          <p>계통 관계가 논쟁 중인 곳은 게임을 위해 하나의 가설을 선택했습니다. 아래 내용은 게임 중에는 표시되지 않습니다.</p>
-          <ul>
-            <li><strong>동물계 초기 분기</strong> — 유즐동물문(Ctenophora)과 판형동물문(Placozoa)을 동물계 공통조상 바로 아래의 별도 가지로 둡니다. 둘이 자매군이라는 뜻은 아니며, 어느 쪽이 먼저 분기했는지는 게임에서 판정하지 않습니다. 이들의 정확한 위치는 연구마다 다릅니다. <a href="https://www.nature.com/articles/s41586-023-05936-6" target="_blank" rel="noreferrer">유즐동물 연구</a> · <a href="https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.2005359" target="_blank" rel="noreferrer">판형동물 연구</a></li>
-            <li><strong>Symsagittifera roscoffensis</strong> — 과거 편형동물로 분류되기도 했지만, 게임에서는 편형동물문이 아닌 Xenacoelomorpha문에 둡니다. Xenacoelomorpha의 상위 위치에는 여러 가설이 있으며, 게임은 Nephrozoa의 자매군 가설을 택합니다. <a href="https://www.nature.com/articles/nature16520" target="_blank" rel="noreferrer">채택한 가설</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11521371/" target="_blank" rel="noreferrer">다른 가설</a></li>
-          </ul>
-        </div>
+        <button id="taxonomy-notes-toggle" class="taxonomy-notes-toggle" type="button" aria-expanded="false" aria-haspopup="dialog" aria-controls="taxonomy-notes-modal">주의점 <span aria-hidden="true">↗</span></button>
         </section>
       </div>
       <section class="leaderboard" aria-labelledby="leaderboard-title">
@@ -46,6 +39,19 @@ const markup = `
       <p class="data-attribution">Species text and taxonomy data from <a href="https://en.wikipedia.org/" target="_blank" rel="noreferrer">English Wikipedia</a> (<a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noreferrer">CC BY-SA 4.0</a>) and <a href="https://www.wikidata.org/" target="_blank" rel="noreferrer">Wikidata</a>. Images are provided by <a href="https://commons.wikimedia.org/" target="_blank" rel="noreferrer">Wikimedia Commons</a> under the license shown on each card.</p>
     </section>
   </main>
+  <div id="taxonomy-notes-modal" class="modal-backdrop taxonomy-notes-backdrop" hidden>
+    <section class="taxonomy-notes-dialog" role="dialog" aria-modal="true" aria-labelledby="taxonomy-notes-title">
+      <button id="close-taxonomy-notes" class="dialog-close" type="button" aria-label="주의점 창 닫기">×</button>
+      <h2 id="taxonomy-notes-title">주의점</h2>
+      <div class="taxonomy-notes">
+        <p>계통 관계가 논쟁 중인 곳은 게임을 위해 하나의 가설을 선택했습니다. 아래 내용은 게임 중에는 표시되지 않습니다.</p>
+        <ul>
+          <li><strong>동물계 초기 분기</strong> — 유즐동물문(Ctenophora)과 판형동물문(Placozoa)을 동물계 공통조상 바로 아래의 별도 가지로 둡니다. 둘이 자매군이라는 뜻은 아니며, 어느 쪽이 먼저 분기했는지는 게임에서 판정하지 않습니다. 이들의 정확한 위치는 연구마다 다릅니다. <a href="https://www.nature.com/articles/s41586-023-05936-6" target="_blank" rel="noreferrer">유즐동물 연구</a> · <a href="https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.2005359" target="_blank" rel="noreferrer">판형동물 연구</a></li>
+          <li><strong>Symsagittifera roscoffensis</strong> — 과거 편형동물로 분류되기도 했지만, 게임에서는 편형동물문이 아닌 Xenacoelomorpha문에 둡니다. Xenacoelomorpha의 상위 위치에는 여러 가설이 있으며, 게임은 Nephrozoa의 자매군 가설을 택합니다. <a href="https://www.nature.com/articles/nature16520" target="_blank" rel="noreferrer">채택한 가설</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11521371/" target="_blank" rel="noreferrer">다른 가설</a></li>
+        </ul>
+      </div>
+    </section>
+  </div>
   <main id="game" class="screen game-screen" hidden>
     <header class="game-header"><button id="quit-game" class="text-button" type="button">← 로비</button><div class="game-progress" aria-live="polite"><span id="round-label">동물계 · 1번째 분류</span><span id="score-label">정답 0</span></div></header>
     <div class="game-layout">

@@ -777,10 +777,19 @@ document.querySelectorAll("[data-tree-layout]").forEach((button) => {
 $("#tree-reset-view").addEventListener("click", resetTreeView);
 $("#tree-zoom-in").addEventListener("click", () => zoomTreeAtCenter(1.25));
 $("#tree-zoom-out").addEventListener("click", () => zoomTreeAtCenter(.8));
-$("#taxonomy-notes-toggle").addEventListener("click", (event) => {
-  const notes = $("#taxonomy-notes");
-  notes.hidden = !notes.hidden;
-  event.currentTarget.setAttribute("aria-expanded", String(!notes.hidden));
+function closeTaxonomyNotes() {
+  $("#taxonomy-notes-modal").hidden = true;
+  $("#taxonomy-notes-toggle").setAttribute("aria-expanded", "false");
+  $("#taxonomy-notes-toggle").focus();
+}
+$("#taxonomy-notes-toggle").addEventListener("click", () => {
+  $("#taxonomy-notes-modal").hidden = false;
+  $("#taxonomy-notes-toggle").setAttribute("aria-expanded", "true");
+  $("#close-taxonomy-notes").focus();
+});
+$("#close-taxonomy-notes").addEventListener("click", closeTaxonomyNotes);
+$("#taxonomy-notes-modal").addEventListener("click", (event) => {
+  if (event.target === event.currentTarget) closeTaxonomyNotes();
 });
 $("#quit-game").addEventListener("click", returnToLobby);
 $("#return-lobby").addEventListener("click", returnToLobby);
@@ -804,6 +813,7 @@ $("#species-modal").addEventListener("click", (event) => {
   if (event.target === event.currentTarget) closeSpeciesCard();
 });
 document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && !$("#taxonomy-notes-modal").hidden) { closeTaxonomyNotes(); return; }
   if (event.key === "Escape" && !$("#account-modal").hidden) { closeAccountModal(); return; }
   if (event.key === "Escape" && !$("#species-modal").hidden) closeSpeciesCard();
 });

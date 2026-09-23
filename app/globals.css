@@ -625,6 +625,23 @@ button, [role="button"] { -webkit-tap-highlight-color: transparent; }
 .collection .section-heading > p { color: #526078; }
 .collection-empty { color: #526078; border-color: #a9afbb; }
 .data-attribution, .data-attribution a { color: #354263; }
+.taxonomy-notes-backdrop { z-index: 26; }
+.taxonomy-notes-dialog {
+  position: relative;
+  width: min(600px, 100%);
+  max-height: min(78vh, 700px);
+  overflow: auto;
+  padding: clamp(28px, 4vw, 44px);
+  color: #172039;
+  background: #e5e7ea;
+  box-shadow: 0 24px 70px rgba(2, 15, 75, .32);
+}
+.taxonomy-notes-dialog h2 { margin: 0 0 20px; font-family: "Gowun Batang", serif; font-size: 2rem; }
+.taxonomy-notes-dialog .dialog-close { top: 12px; right: 12px; transform: none; }
+.taxonomy-notes-dialog .taxonomy-notes { margin: 0; padding: 0; background: transparent; font-size: .9rem; }
+.taxonomy-notes-dialog .taxonomy-notes p { margin: 0 0 20px; color: #354263; }
+.taxonomy-notes-dialog .taxonomy-notes ul { gap: 18px; }
+.taxonomy-notes-dialog .taxonomy-notes a { text-decoration-thickness: 1px; }
 
 @media (max-width: 900px) {
   .lobby-main { grid-template-columns: 1fr; gap: 28px; min-height: 0; }
