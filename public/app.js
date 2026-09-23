@@ -1,6 +1,7 @@
-const { ANIMALIA_ID, buildTree, getExpectedPlacement, isEquivalentPlacement, shuffle } = GalraeLogic;
+const { ANIMALIA_ID, addSuccessCount, buildTree, getExpectedPlacement, isEquivalentPlacement, seedSuccessCounts, shuffle, successCountText } = GalraeLogic;
 const HUMAN_ID = "homo-sapiens";
 const COLLECTION_PREFIX = "galrae.collection.v3";
+const SUCCESS_COUNTS_PREFIX = "galrae.success-counts.v1";
 
 const $ = (selector) => document.querySelector(selector);
 const lobby = $("#lobby");
@@ -52,6 +53,26 @@ function collectionKey() {
   return `${COLLECTION_PREFIX}.${currentUser?.id || "guest"}`;
 }
 
+function successCountsKey() {
+  return `${SUCCESS_COUNTS_PREFIX}.${currentUser?.id || "guest"}`;
+}
+
+function getSuccessCounts() {
+  try {
+    const stored = JSON.parse(localStorage.getItem(successCountsKey()));
+    return stored && typeof stored === "object" && !Array.isArray(stored) ? stored : {};
+  } catch { return {}; }
+}
+
+function migrateSuccessCounts() {
+  if (localStorage.getItem(successCountsKey()) !== null) return;
+  localStorage.setItem(successCountsKey(), JSON.stringify(seedSuccessCounts(getCollection(), HUMAN_ID)));
+}
+
+function recordSuccess(speciesId) {
+  localStorage.setItem(successCountsKey(), JSON.stringify(addSuccessCount(getSuccessCounts(), speciesId)));
+}
+
 function getCollection() {
   try {
     const stored = JSON.parse(localStorage.getItem(collectionKey()));
@@ -78,6 +99,7 @@ function migrateCollection() {
   setCollection(migrated.length ? migrated : [HUMAN_ID]);
   if (canClaimLegacy) localStorage.setItem("galrae.collection.claimed", currentUser.id);
   localStorage.removeItem("galrae.collection");
+  migrateSuccessCounts();
 }
 
 function saveCollection(ids) { setCollection([...getCollection(), ...ids]); }
@@ -90,6 +112,7 @@ function imageCreditText(animal) {
 
 function renderCollection() {
   const collected = getCollection();
+  const successCounts = getSuccessCounts();
   $("#collection-count").textContent = `${collected.length}종 발견`;
   const grid = $("#collection-grid");
   if (!collected.length) {
@@ -103,6 +126,7 @@ function renderCollection() {
       <div class="mini-card-art"><img loading="lazy" src="${escapeHtml(animal.image.thumbnailUrl)}" alt="${escapeHtml(animal.commonName)}" /></div>
       <small>ANIMALIA</small><h3>${escapeHtml(animal.commonName)}</h3>
       <p class="mini-scientific"><i>${escapeHtml(animal.scientificName)}</i></p>
+      <p class="mini-success">${escapeHtml(successCountText(successCounts[id]))}</p>
       <p>${escapeHtml(shortDescription(animal.description, 145))}</p>
       <div class="mini-card-groups" aria-label="Taxonomy">${groups}</div>
       <a class="mini-card-credit" href="${escapeHtml(animal.image.commonsPageUrl)}" target="_blank" rel="noreferrer">${escapeHtml(imageCreditText(animal))}</a>
@@ -110,7 +134,7 @@ function renderCollection() {
   }).join("");
 }
 
-function renderNode(node) {
+function renderNode(node, omitIncomingEdge = false) {
   if (node.type === "leaf") {
     const animal = speciesById.get(node.id);
     const fresh = state.newest === node.id ? " is-new" : "";
@@ -119,12 +143,14 @@ function renderNode(node) {
     return `<button class="species-node${fresh}${preview}" type="button" data-species-id="${escapeHtml(node.id)}" data-target="${escapeHtml(node.id)}" data-placement="wrap" aria-label="${escapeHtml(animal.commonName)} 카드 보기. 새 카드를 선택한 상태에서는 이 가지에 배치">${escapeHtml(animal.commonName)}${badge}</button>`;
   }
   const children = node.children.map((child) => `<li>${renderNode(child)}</li>`).join("");
-  return `<span class="branch-anchor"><button class="edge-target" type="button" data-target="${escapeHtml(node.id)}" data-placement="wrap" aria-label="이 가지에서 새로운 공통 조상 만들기"></button><button class="clade-node" type="button" data-target="${escapeHtml(node.id)}" data-placement="join" aria-label="이 공통 조상에 가지 추가하기"></button></span><ul>${children}</ul>`;
+  const incomingEdge = omitIncomingEdge ? "" : `<button class="edge-target" type="button" data-target="${escapeHtml(node.id)}" data-placement="wrap" aria-label="이 가지에서 새로운 공통 조상 만들기"></button>`;
+  return `<span class="branch-anchor">${incomingEdge}<button class="clade-node" type="button" data-target="${escapeHtml(node.id)}" data-placement="join" aria-label="이 공통 조상에 가지 추가하기"></button></span><ul>${children}</ul>`;
 }
 
 function renderTree(displayTree = state.tree, answer = false) {
-  const treeContent = `<ul>${displayTree.children.map((child) => `<li>${renderNode(child)}</li>`).join("")}</ul>`;
-  const rootControl = `<span class="tree-root-anchor"><span class="tree-root">Animalia common ancestor</span><button class="root-wrap-target" type="button" data-target="${ANIMALIA_ID}" data-placement="top" aria-label="동물계 최상단 가지에 배치"></button></span>`;
+  const singleRootChild = displayTree.children.length === 1;
+  const treeContent = `<ul>${displayTree.children.map((child) => `<li>${renderNode(child, singleRootChild)}</li>`).join("")}</ul>`;
+  const rootControl = `<span class="tree-root-anchor"><span class="tree-root">Animalia common ancestor</span><button class="root-wrap-target${singleRootChild ? " is-long" : ""}" type="button" data-target="${ANIMALIA_ID}" data-placement="top" aria-label="동물계 최상단 가지에 배치"></button></span>`;
   treeCanvas.innerHTML = `<div class="tree-camera"><div class="phylo-tree base-tree${answer ? " answer-tree" : ""}">${rootControl}${treeContent}</div></div><div class="placement-preview" aria-hidden="true" hidden></div>`;
   updateCamera();
 }
@@ -167,7 +193,7 @@ function setCard(speciesId) {
   $("#active-name").textContent = animal.commonName;
   $("#active-description").textContent = shortDescription(animal.description);
   $("#active-scientific").textContent = animal.scientificName;
-  $("#active-number").textContent = String(state.round + 1).padStart(2, "0");
+  $("#active-success-count").textContent = successCountText(getSuccessCounts()[speciesId]);
   image.src = animal.image.thumbnailUrl;
   image.alt = animal.commonName;
   image.hidden = false;
@@ -462,6 +488,7 @@ function openSpeciesCard(speciesId, returnFocus) {
   $("#species-view-name").textContent = animal.commonName;
   $("#species-view-description").textContent = shortDescription(animal.description, 230);
   $("#species-view-scientific").textContent = animal.scientificName;
+  $("#species-view-success-count").textContent = successCountText(getSuccessCounts()[speciesId]);
   image.src = animal.image.thumbnailUrl;
   image.alt = animal.commonName;
   image.hidden = false;
@@ -492,6 +519,7 @@ function placeCard(targetId, placement = "wrap") {
     return;
   }
   state.classified.push(state.currentId);
+  recordSuccess(state.currentId);
   saveCollection([state.currentId]);
   state.newest = state.currentId;
   state.tree = buildTree(state.classified, speciesById);

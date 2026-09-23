@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 
 await import(new URL("../public/game-logic.js", import.meta.url));
-const { ANIMALIA_ID, buildTree, collectLeafIds, findNodeById, getExpectedPlacement, isEquivalentPlacement } = globalThis.GalraeLogic;
+const { ANIMALIA_ID, addSuccessCount, buildTree, collectLeafIds, findNodeById, getExpectedPlacement, isEquivalentPlacement, seedSuccessCounts, successCountText } = globalThis.GalraeLogic;
 const dataset = JSON.parse(fs.readFileSync(new URL("../data/animals.json", import.meta.url), "utf8"));
 const appSource = fs.readFileSync(new URL("../public/app.js", import.meta.url), "utf8");
 const speciesById = new Map(dataset.animals.map((animal) => [animal.id, animal]));
@@ -109,6 +109,16 @@ assert.equal(
   false,
   "Join and wrap must remain distinct inside a multi-level tree",
 );
-assert.match(appSource, /class="root-wrap-target"[^>]+data-placement="top"/, "The top-level target must be the Animalia trunk");
+assert.match(appSource, /data-target="\$\{ANIMALIA_ID\}" data-placement="top"/, "The top-level target must be the Animalia trunk");
 assert.doesNotMatch(appSource, /<button class="tree-root"/, "The Animalia label must not be a duplicate drop target");
+
+const legacyCounts = seedSuccessCounts([humanId, ctenophoreId], humanId);
+assert.equal(successCountText(legacyCounts[humanId]), "분류 성공 0회", "Human is a starting card, not a successful placement");
+assert.equal(successCountText(legacyCounts[ctenophoreId]), "분류 성공 1회 이상", "Previously collected species have a known lower bound");
+assert.equal(successCountText(addSuccessCount(legacyCounts, ctenophoreId)[ctenophoreId]), "분류 성공 2회 이상");
+const firstSuccess = addSuccessCount({}, placozoanId);
+const secondSuccess = addSuccessCount(firstSuccess, placozoanId);
+assert.equal(successCountText(firstSuccess[placozoanId]), "분류 성공 1회");
+assert.equal(successCountText(secondSuccess[placozoanId]), "분류 성공 2회");
+assert.equal(successCountText(secondSuccess[humanId]), "분류 성공 0회", "Other species counts must not change");
 console.log(`Validated ${classified.length} species: ${wrapCount} wrap placements, ${joinCount} join placements.`);
