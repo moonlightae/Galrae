@@ -274,8 +274,7 @@ button, [role="button"] { -webkit-tap-highlight-color: transparent; }
   border-top: 0;
   border-left: 2px solid var(--forest-2);
 }
-.tree-root { display: inline-block; padding: 7px 12px; color: #fff; background: var(--forest); border: 0; border-radius: 999px; font-size: .75rem; font-weight: 700; cursor: pointer; }
-.tree-root:hover, .tree-root.is-drop-target { color: var(--ink); background: var(--yellow); }
+.tree-root { display: inline-block; padding: 7px 12px; color: #fff; background: var(--forest); border: 0; border-radius: 999px; font-size: .75rem; font-weight: 700; }
 .tree-root-anchor { position: relative; display: inline-flex; vertical-align: top; }
 .root-wrap-target {
   position: absolute;
@@ -344,6 +343,7 @@ button, [role="button"] { -webkit-tap-highlight-color: transparent; }
   transition: background 140ms, color 140ms, transform 140ms;
 }
 .clade-node:hover, .clade-node.is-drop-target { background: var(--yellow); border-color: #9a7d12; transform: scale(1.35); }
+.branch-anchor > span.clade-node { cursor: default; }
 .clade-node.is-preview { background: var(--yellow); border-color: #b99822; animation: preview-pulse 900ms ease-in-out infinite alternate; }
 .species-node {
   display: inline-flex;

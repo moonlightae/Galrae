@@ -110,28 +110,31 @@ function renderCollection() {
   }).join("");
 }
 
-function renderNode(node) {
+function renderNode(node, suppressOwnDrop = false) {
   if (node.type === "leaf") {
     const animal = speciesById.get(node.id);
     const fresh = state.newest === node.id ? " is-new" : "";
     const preview = node.preview ? " is-preview" : "";
     const badge = node.preview ? `<span class="preview-tag">${state.failed ? "정답 위치" : "미리보기"}</span>` : "";
-    return `<button class="species-node${fresh}${preview}" type="button" data-target="${escapeHtml(node.id)}" data-placement="wrap" aria-label="${escapeHtml(animal.commonName)} 카드 보기. 새 카드를 선택한 상태에서는 이 위치에 배치">${escapeHtml(animal.commonName)}${badge}</button>`;
+    const dropAttributes = suppressOwnDrop ? "" : ` data-target="${escapeHtml(node.id)}" data-placement="wrap"`;
+    return `<button class="species-node${fresh}${preview}" type="button" data-species-id="${escapeHtml(node.id)}"${dropAttributes} aria-label="${escapeHtml(animal.commonName)} 카드 보기${suppressOwnDrop ? "" : ". 새 카드를 선택한 상태에서는 이 가지에 배치"}">${escapeHtml(animal.commonName)}${badge}</button>`;
   }
   const children = node.children.map((child) => `<li>${renderNode(child)}</li>`).join("");
-  return `<span class="branch-anchor"><button class="edge-target" type="button" data-target="${escapeHtml(node.id)}" data-placement="wrap" aria-label="이 분기점 위에 새로운 공통 조상 만들기"></button><button class="clade-node" type="button" data-target="${escapeHtml(node.id)}" data-placement="join" aria-label="이 공통 조상에 가지 추가하기"></button></span><ul>${children}</ul>`;
+  const anchor = suppressOwnDrop
+    ? '<span class="branch-anchor"><span class="clade-node" aria-hidden="true"></span></span>'
+    : `<span class="branch-anchor"><button class="edge-target" type="button" data-target="${escapeHtml(node.id)}" data-placement="wrap" aria-label="이 가지에서 새로운 공통 조상 만들기"></button><button class="clade-node" type="button" data-target="${escapeHtml(node.id)}" data-placement="join" aria-label="이 공통 조상에 가지 추가하기"></button></span>`;
+  return `${anchor}<ul>${children}</ul>`;
 }
 
 function renderTree(displayTree = state.tree, answer = false) {
   const isAnimaliaRoot = displayTree.type === "branch" && displayTree.id === ANIMALIA_ID;
   const rootTarget = isAnimaliaRoot ? ANIMALIA_ID : displayTree.id;
-  const rootPlacement = isAnimaliaRoot ? "join" : "wrap";
   const treeContent = isAnimaliaRoot
-    ? `<ul>${displayTree.children.map((child) => `<li>${renderNode(child)}</li>`).join("")}</ul>`
+    ? `<ul>${displayTree.children.map((child) => `<li>${renderNode(child, displayTree.children.length === 1)}</li>`).join("")}</ul>`
     : `<ul><li>${renderNode(displayTree)}</li></ul>`;
   const rootControl = isAnimaliaRoot
-    ? `<span class="tree-root-anchor"><button class="tree-root" type="button" data-target="${escapeHtml(rootTarget)}" data-placement="join" aria-label="Animalia 공통 조상에 가지 추가">Animalia common ancestor</button><button class="root-wrap-target" type="button" data-target="${escapeHtml(rootTarget)}" data-placement="wrap" aria-label="현재 계통 전체 위에 새로운 분기 만들기"></button></span>`
-    : `<button class="tree-root" type="button" data-target="${escapeHtml(rootTarget)}" data-placement="${rootPlacement}" aria-label="Animalia 공통 조상에 배치">Animalia common ancestor</button>`;
+    ? `<span class="tree-root-anchor"><span class="tree-root">Animalia common ancestor</span><button class="root-wrap-target" type="button" data-target="${escapeHtml(rootTarget)}" data-placement="top" aria-label="동물계 최상단 가지에 배치"></button></span>`
+    : `<span class="tree-root-anchor"><span class="tree-root">Animalia common ancestor</span><button class="root-wrap-target" type="button" data-target="${escapeHtml(rootTarget)}" data-placement="top" aria-label="동물계 최상단 가지에 배치"></button></span>`;
   treeCanvas.innerHTML = `<div class="tree-camera"><div class="phylo-tree base-tree${answer ? " answer-tree" : ""}">${rootControl}${treeContent}</div></div><div class="placement-preview" aria-hidden="true" hidden></div>`;
   updateCamera();
 }
@@ -144,7 +147,7 @@ function renderPreview(placement, targetElement) {
   targetElement.classList.add("is-drop-target");
   const canvasRect = treeCanvas.getBoundingClientRect();
   const targetRect = targetElement.getBoundingClientRect();
-  const joiningBranch = placement === "join";
+  const joiningBranch = placement === "join" || placement === "top";
   preview.classList.toggle("is-join", joiningBranch);
   preview.innerHTML = `<span class="ghost-tag">${joiningBranch ? "같은 조상에 추가" : "미리보기"}</span>${joiningBranch ? "" : '<span class="ghost-junction"></span>'}<span class="ghost-card">${escapeHtml(animal.commonName)}</span>`;
   preview.style.left = `${targetRect.left - canvasRect.left + targetRect.width / 2}px`;
@@ -643,12 +646,12 @@ document.addEventListener("keydown", (event) => {
 
 treeCanvas.addEventListener("click", (event) => {
   const target = event.target.closest("[data-target]");
-  if (!target) return;
-  if (state.selected && !state.failed) {
+  const speciesButton = event.target.closest("[data-species-id]");
+  if (target && state.selected && !state.failed) {
     placeCard(target.dataset.target, target.dataset.placement || "wrap");
     return;
   }
-  if (target.classList.contains("species-node")) openSpeciesCard(target.dataset.target, target);
+  if (speciesButton) openSpeciesCard(speciesButton.dataset.speciesId, speciesButton);
 });
 treeCanvas.addEventListener("dragover", (event) => {
   if (state.failed) return;
@@ -678,7 +681,7 @@ treeCanvas.addEventListener("drop", (event) => {
   placeCard(targetId, placement);
 });
 treeCanvas.addEventListener("pointerdown", (event) => {
-  if (event.button !== 0 || event.target.closest("[data-target]")) return;
+  if (event.button !== 0 || event.target.closest("[data-target], [data-species-id]")) return;
   state.panning = true;
   state.panStartX = event.clientX; state.panStartY = event.clientY;
   state.panOriginX = state.panX; state.panOriginY = state.panY;
