@@ -8073,7 +8073,7 @@
           },
           {
             "wikidataId": "Q2747865",
-            "scientificName": "Branchiostomidae",
+            "scientificName": "Branchiostomatidae",
             "englishName": "Branchiostomatidae",
             "rank": "family"
           },
@@ -8190,7 +8190,7 @@
           },
           {
             "wikidataId": "Q2747865",
-            "scientificName": "Branchiostomidae",
+            "scientificName": "Branchiostomatidae",
             "englishName": "Branchiostomatidae",
             "rank": "family"
           },
@@ -9272,9 +9272,9 @@
             "rank": "superfamily"
           },
           {
-            "wikidataId": "Q2257783",
-            "scientificName": "Portunidae",
-            "englishName": "Portunidae",
+            "wikidataId": "Q2190587",
+            "scientificName": "Carcinidae",
+            "englishName": "Carcinidae",
             "rank": "family"
           },
           {
@@ -11781,7 +11781,7 @@
           },
           {
             "wikidataId": "Q286026",
-            "scientificName": "Sapia",
+            "scientificName": "Sepia",
             "englishName": "Sepia",
             "rank": "genus"
           },
@@ -12479,12 +12479,6 @@
             "rank": null
           },
           {
-            "wikidataId": "Q2013709",
-            "scientificName": "Eusaurischia",
-            "englishName": "Eusaurischia",
-            "rank": null
-          },
-          {
             "wikidataId": "Q188438",
             "scientificName": "Theropoda",
             "englishName": "Тheropoda",
@@ -12941,12 +12935,6 @@
             "wikidataId": "Q186334",
             "scientificName": "Saurischia",
             "englishName": "Saurischia",
-            "rank": null
-          },
-          {
-            "wikidataId": "Q2013709",
-            "scientificName": "Eusaurischia",
-            "englishName": "Eusaurischia",
             "rank": null
           },
           {
@@ -14969,9 +14957,9 @@
             "rank": "order"
           },
           {
-            "wikidataId": "Q11236767",
-            "scientificName": "Planariidae",
-            "englishName": "Planariidae",
+            "wikidataId": "Q3030805",
+            "scientificName": "Dugesiidae",
+            "englishName": "Dugesiidae",
             "rank": "family"
           },
           {
@@ -16250,12 +16238,6 @@
             "wikidataId": "Q186334",
             "scientificName": "Saurischia",
             "englishName": "Saurischia",
-            "rank": null
-          },
-          {
-            "wikidataId": "Q2013709",
-            "scientificName": "Eusaurischia",
-            "englishName": "Eusaurischia",
             "rank": null
           },
           {
@@ -18488,9 +18470,9 @@
             "rank": "superorder"
           },
           {
-            "wikidataId": "Q6496983",
-            "scientificName": "Rajiformes",
-            "englishName": "Rajiformes",
+            "wikidataId": "Q796580",
+            "scientificName": "Myliobatiformes",
+            "englishName": "Myliobatiformes",
             "rank": "order"
           },
           {
@@ -26477,12 +26459,6 @@
             "rank": null
           },
           {
-            "wikidataId": "Q2013709",
-            "scientificName": "Eusaurischia",
-            "englishName": "Eusaurischia",
-            "rank": null
-          },
-          {
             "wikidataId": "Q188438",
             "scientificName": "Theropoda",
             "englishName": "Тheropoda",
@@ -32108,12 +32084,6 @@
             "rank": null
           },
           {
-            "wikidataId": "Q2013709",
-            "scientificName": "Eusaurischia",
-            "englishName": "Eusaurischia",
-            "rank": null
-          },
-          {
             "wikidataId": "Q188438",
             "scientificName": "Theropoda",
             "englishName": "Тheropoda",
@@ -35069,9 +35039,9 @@
             "rank": "infraorder"
           },
           {
-            "wikidataId": "Q528635",
-            "scientificName": "Echinidae",
-            "englishName": "Echinidae",
+            "wikidataId": "Q7136623",
+            "scientificName": "Parechinidae",
+            "englishName": "Parechinidae",
             "rank": "family"
           },
           {
@@ -38969,12 +38939,6 @@
             "rank": null
           },
           {
-            "wikidataId": "Q2013709",
-            "scientificName": "Eusaurischia",
-            "englishName": "Eusaurischia",
-            "rank": null
-          },
-          {
             "wikidataId": "Q188438",
             "scientificName": "Theropoda",
             "englishName": "Тheropoda",
@@ -42410,12 +42374,6 @@
             "rank": null
           },
           {
-            "wikidataId": "Q2013709",
-            "scientificName": "Eusaurischia",
-            "englishName": "Eusaurischia",
-            "rank": null
-          },
-          {
             "wikidataId": "Q188438",
             "scientificName": "Theropoda",
             "englishName": "Тheropoda",
@@ -44736,24 +44694,6 @@
             "scientificName": "Bilateria",
             "englishName": null,
             "rank": "subkingdom"
-          },
-          {
-            "wikidataId": "Q3059449",
-            "scientificName": "Nephrozoa",
-            "englishName": null,
-            "rank": null
-          },
-          {
-            "wikidataId": "Q150866",
-            "scientificName": "Deuterostomia",
-            "englishName": "deuterostome",
-            "rank": "superphylum"
-          },
-          {
-            "wikidataId": "Q2412197",
-            "scientificName": "Xenambulacraria",
-            "englishName": "Xenambulacraria",
-            "rank": "superphylum"
           },
           {
             "wikidataId": "Q3570860",
@@ -48863,6 +48803,24 @@
             "rank": "subclass"
           },
           {
+            "wikidataId": "Q150760",
+            "scientificName": "Neoselachii",
+            "englishName": "Neoselachii",
+            "rank": "infraclass"
+          },
+          {
+            "wikidataId": "Q7372",
+            "scientificName": "Selachimorpha",
+            "englishName": "shark",
+            "rank": "superorder"
+          },
+          {
+            "wikidataId": "Q47969",
+            "scientificName": "Galeomorphi",
+            "englishName": "Galeomorphi",
+            "rank": "superorder"
+          },
+          {
             "wikidataId": "Q260031",
             "scientificName": "Orectolobiformes",
             "englishName": null,
@@ -49395,24 +49353,6 @@
             "scientificName": "Bilateria",
             "englishName": null,
             "rank": "subkingdom"
-          },
-          {
-            "wikidataId": "Q3059449",
-            "scientificName": "Nephrozoa",
-            "englishName": null,
-            "rank": null
-          },
-          {
-            "wikidataId": "Q150866",
-            "scientificName": "Deuterostomia",
-            "englishName": "deuterostome",
-            "rank": "superphylum"
-          },
-          {
-            "wikidataId": "Q2412197",
-            "scientificName": "Xenambulacraria",
-            "englishName": "Xenambulacraria",
-            "rank": "superphylum"
           },
           {
             "wikidataId": "Q3570860",

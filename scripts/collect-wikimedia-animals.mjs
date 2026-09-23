@@ -1,6 +1,7 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import process from "node:process";
+import { curateTaxonomy } from "./taxonomy-curation.mjs";
 
 const ROOT = path.resolve(import.meta.dirname, "..");
 const SEEDS_PATH = process.env.GALRAE_SEEDS_PATH
@@ -299,13 +300,14 @@ async function main() {
     });
   }
 
-  animals.sort((a, b) => a.commonName.localeCompare(b.commonName, "en"));
+  const curatedAnimals = curateTaxonomy(animals);
+  curatedAnimals.sort((a, b) => a.commonName.localeCompare(b.commonName, "en"));
   const generatedAt = new Date().toISOString();
   const dataset = {
     schemaVersion: 1,
     language: "en",
     generatedAt,
-    speciesCount: animals.length,
+    speciesCount: curatedAnimals.length,
     sources: {
       taxonomy: {
         name: "Wikidata",
@@ -324,7 +326,7 @@ async function main() {
         license: "Varies by file; see each record's image license, creator, and Commons file page.",
       },
     },
-    animals,
+    animals: curatedAnimals,
   };
 
   await mkdir(path.dirname(OUTPUT_PATH), { recursive: true });
@@ -332,11 +334,11 @@ async function main() {
   await writeFile(REPORT_PATH, `${JSON.stringify({
     generatedAt,
     requestedCount: seedTitles.length,
-    collectedCount: animals.length,
+    collectedCount: curatedAnimals.length,
     issueCount: failures.length,
     issues: failures,
   }, null, 2)}\n`, "utf8");
-  console.log(`Collected ${animals.length}/${seedTitles.length} animals.`);
+  console.log(`Collected ${curatedAnimals.length}/${seedTitles.length} animals.`);
   console.log(`Report: ${path.relative(ROOT, REPORT_PATH)}`);
   if (failures.length) console.log(`${failures.length} collection issue(s) require review.`);
 }

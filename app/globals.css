@@ -184,6 +184,15 @@ button, [role="button"] { -webkit-tap-highlight-color: transparent; }
 .primary-button:hover { transform: translateY(-2px); box-shadow: 5px 5px 0 var(--ink); }
 .primary-button:disabled { opacity: .58; cursor: wait; transform: none; box-shadow: none; }
 .primary-button:focus-visible, button:focus-visible, [role="button"]:focus-visible { outline: 3px solid var(--coral); outline-offset: 3px; }
+.taxonomy-notes-toggle { position: relative; z-index: 1; display: flex; align-items: center; justify-content: space-between; width: 100%; margin-top: 12px; padding: 10px 2px; color: #e7eee9; background: transparent; border: 0; border-bottom: 1px solid rgba(255,255,255,.28); font-size: .78rem; font-weight: 800; text-align: left; cursor: pointer; }
+.taxonomy-notes-toggle span { display: inline-block; transition: transform 160ms ease; }
+.taxonomy-notes-toggle[aria-expanded="true"] span { transform: rotate(180deg); }
+.taxonomy-notes { position: relative; z-index: 1; margin-top: 12px; padding: 16px; color: #e7eee9; background: rgba(0,0,0,.16); border-radius: 8px; font-size: .75rem; line-height: 1.7; }
+.mode-panel .taxonomy-notes p { margin: 0 0 10px; color: #e7eee9; }
+.taxonomy-notes ul { display: grid; gap: 12px; margin: 0; padding-left: 18px; }
+.taxonomy-notes li { padding-left: 2px; }
+.taxonomy-notes strong { color: var(--yellow); }
+.taxonomy-notes a { color: var(--yellow); text-underline-offset: 3px; }
 
 .leaderboard { max-width: 1280px; margin: 0 auto 64px; padding: 34px; color: #f7f6ef; background: var(--forest); border-radius: 8px 28px 8px 28px; box-shadow: var(--shadow); }
 .leaderboard .eyebrow { color: var(--yellow); }

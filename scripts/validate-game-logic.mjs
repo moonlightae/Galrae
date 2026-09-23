@@ -1,11 +1,14 @@
 import assert from "node:assert/strict";
 import fs from "node:fs";
+import { curateTaxonomy } from "./taxonomy-curation.mjs";
 
 await import(new URL("../public/game-logic.js", import.meta.url));
 const { ANIMALIA_ID, addSuccessCount, buildTree, collectLeafIds, findNodeById, getExpectedPlacement, isEquivalentPlacement, seedSuccessCounts, shuffle, successCountText } = globalThis.GalraeLogic;
 const dataset = JSON.parse(fs.readFileSync(new URL("../data/animals.json", import.meta.url), "utf8"));
 const appSource = fs.readFileSync(new URL("../public/app.js", import.meta.url), "utf8");
 const speciesById = new Map(dataset.animals.map((animal) => [animal.id, animal]));
+assert.deepEqual(curateTaxonomy(dataset.animals), dataset.animals, "Curated taxonomy must be stable on a second pass");
+const lineageIds = (id) => speciesById.get(id).taxonomy.lineage.map((taxon) => taxon.wikidataId);
 const humanId = "homo-sapiens";
 const classified = [humanId];
 let joinCount = 0;
@@ -25,6 +28,37 @@ for (const animal of dataset.animals.filter((entry) => entry.id !== humanId)) {
 assert.equal(classified.length, dataset.speciesCount);
 assert.ok(joinCount > 0, "Dataset sequence never exercised join placement");
 assert.ok(wrapCount > 0, "Dataset sequence never exercised wrap placement");
+
+const acoelId = "symsagittifera-roscoffensis";
+const xenoturbellaId = "xenoturbella-bocki";
+const tapewormId = "echinococcus-granulosus";
+assert.ok(lineageIds(acoelId).includes("Q3570860"), "Symsagittifera must be Xenacoelomorpha");
+assert.ok(lineageIds(xenoturbellaId).includes("Q3570860"), "Xenoturbella must be Xenacoelomorpha");
+assert.ok(lineageIds(tapewormId).includes("Q124900"), "Echinococcus must be Platyhelminthes");
+for (const id of [acoelId, xenoturbellaId]) {
+  assert.ok(!lineageIds(id).includes("Q3059449"), `${id} must not be nested inside Nephrozoa`);
+  assert.ok(!lineageIds(id).includes("Q150866"), `${id} must not be nested inside Deuterostomia`);
+}
+const flatwormTree = buildTree([acoelId, xenoturbellaId, tapewormId], speciesById);
+const xenacoelBranch = findNodeById(flatwormTree, "Q135873465");
+assert.ok(xenacoelBranch, "Both xenacoelomorphs must share a branch");
+assert.deepEqual(new Set(collectLeafIds(xenacoelBranch)), new Set([acoelId, xenoturbellaId]));
+assert.ok(!collectLeafIds(xenacoelBranch).includes(tapewormId));
+
+const theropodIds = dataset.animals.filter((animal) => lineageIds(animal.id).includes("Q188438")).map((animal) => animal.id);
+assert.ok(theropodIds.length > 1, "Theropoda grouping needs multiple sampled species");
+assert.ok(theropodIds.every((id) => !lineageIds(id).includes("Q2013709")), "Eusaurischia must not split sampled theropods");
+assert.deepEqual(new Set(collectLeafIds(buildTree(theropodIds, speciesById))), new Set(theropodIds));
+assert.deepEqual(lineageIds("rhincodon-typus").filter((id) => ["Q150760", "Q7372", "Q47969"].includes(id)),
+  ["Q150760", "Q7372", "Q47969"], "Whale shark must share the shark backbone");
+for (const [speciesId, taxonId] of [
+  ["carcinus-maenas", "Q2190587"],
+  ["mobula-birostris", "Q796580"],
+  ["paracentrotus-lividus", "Q7136623"],
+  ["dugesia-japonica", "Q3030805"],
+]) {
+  assert.ok(lineageIds(speciesId).includes(taxonId), `${speciesId} must have its curated taxon`);
+}
 
 for (let seed = 1; seed <= 5; seed += 1) {
   let value = seed;
