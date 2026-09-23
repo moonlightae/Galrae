@@ -1,5 +1,5 @@
 import { sql } from "drizzle-orm";
-import { index, integer, sqliteTable, text, uniqueIndex } from "drizzle-orm/sqlite-core";
+import { index, integer, primaryKey, sqliteTable, text, uniqueIndex } from "drizzle-orm/sqlite-core";
 
 export const users = sqliteTable("users", {
   id: text("id").primaryKey(),
@@ -38,4 +38,11 @@ export const leaderboard = sqliteTable("leaderboard", {
   updatedAt: text("updated_at").notNull().default(sql`CURRENT_TIMESTAMP`),
 }, (table) => [
   index("idx_leaderboard_rank").on(table.bestScore, table.achievedAt),
+]);
+
+export const classifiedSpecies = sqliteTable("classified_species", {
+  userId: text("user_id").notNull().references(() => users.id, { onDelete: "cascade" }),
+  speciesId: text("species_id").notNull(),
+}, (table) => [
+  primaryKey({ columns: [table.userId, table.speciesId] }),
 ]);

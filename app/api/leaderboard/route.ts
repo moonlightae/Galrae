@@ -1,7 +1,7 @@
-import { asc, desc, sql } from "drizzle-orm";
+import { asc, desc, inArray, sql } from "drizzle-orm";
 import { getGameUser } from "../../game-auth";
 import { getDb } from "../../../db";
-import { leaderboard } from "../../../db/schema";
+import { classifiedSpecies, leaderboard } from "../../../db/schema";
 
 export const dynamic = "force-dynamic";
 
@@ -13,7 +13,8 @@ function storageError(error: unknown) {
 export async function GET() {
   try {
     const user = await getGameUser();
-    const rows = await getDb()
+    const db = getDb();
+    const rows = await db
       .select({
         userId: leaderboard.userId,
         displayName: leaderboard.displayName,
@@ -24,9 +25,17 @@ export async function GET() {
       .from(leaderboard)
       .orderBy(desc(leaderboard.bestScore), asc(leaderboard.achievedAt))
       .limit(20);
+    const collectionRows = rows.length ? await db.select({
+      userId: classifiedSpecies.userId,
+      uniqueSpeciesCount: sql<number>`COUNT(*)`,
+    }).from(classifiedSpecies)
+      .where(inArray(classifiedSpecies.userId, rows.map((row) => row.userId)))
+      .groupBy(classifiedSpecies.userId) : [];
+    const collectionCounts = new Map(collectionRows.map((row) => [row.userId, row.uniqueSpeciesCount]));
     return Response.json({
       entries: rows.map(({ userId, ...row }) => ({
         ...row,
+        uniqueSpeciesCount: collectionCounts.get(userId) ?? 0,
         isCurrentUser: userId === user?.id,
       })),
     });
@@ -44,8 +53,8 @@ export async function POST(request: Request) {
   catch { return Response.json({ error: "잘못된 요청입니다." }, { status: 400 }); }
 
   const score = Number(payload.score);
-  if (!Number.isInteger(score) || score < 0 || score > 66) {
-    return Response.json({ error: "점수는 0부터 66 사이여야 합니다." }, { status: 400 });
+  if (!Number.isInteger(score) || score < 0 || score > 106) {
+    return Response.json({ error: "점수는 0부터 106 사이여야 합니다." }, { status: 400 });
   }
 
   const displayName = user.displayName.slice(0, 60);

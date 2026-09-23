@@ -1,6 +1,6 @@
 import { asc, eq, inArray } from "drizzle-orm";
 import { getDb } from "../../../db";
-import { leaderboard, sessions, users } from "../../../db/schema";
+import { classifiedSpecies, leaderboard, sessions, users } from "../../../db/schema";
 import { getGameUser, makePasswordRecord } from "../../game-auth";
 
 async function requireAdmin() {
@@ -67,6 +67,7 @@ export async function POST(request: Request) {
 
   if (body.action === "delete-user") {
     if (target.isAdmin) return Response.json({ error: "관리자 계정은 삭제할 수 없습니다." }, { status: 400 });
+    await db.delete(classifiedSpecies).where(eq(classifiedSpecies.userId, target.id));
     await db.delete(leaderboard).where(eq(leaderboard.userId, target.id));
     await db.delete(sessions).where(eq(sessions.userId, target.id));
     await db.delete(users).where(eq(users.id, target.id));

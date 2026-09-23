@@ -189,16 +189,17 @@ button, [role="button"] { -webkit-tap-highlight-color: transparent; }
 .leaderboard .eyebrow { color: var(--yellow); }
 .leaderboard .section-heading > p { color: #b9cec4; }
 .leaderboard-list { display: grid; gap: 1px; margin: 0; padding: 0; overflow: hidden; list-style: none; background: rgba(255,255,255,.13); border: 1px solid rgba(255,255,255,.13); border-radius: 8px; }
-.leaderboard-row { display: grid; grid-template-columns: 48px minmax(0, 1fr) 110px 82px; align-items: center; gap: 12px; min-height: 58px; padding: 8px 16px; background: #12392e; }
+.leaderboard-row { display: grid; grid-template-columns: 48px minmax(0, 1fr) minmax(330px, 380px); align-items: center; gap: 12px; min-height: 70px; padding: 8px 16px; background: #12392e; }
 .leaderboard-row.is-me { color: var(--ink); background: var(--yellow); }
 .leaderboard-rank { color: var(--yellow); font-family: "Gowun Batang", serif; font-size: 1.2rem; font-weight: 800; text-align: center; }
 .leaderboard-row.is-me .leaderboard-rank { color: var(--forest); }
 .leaderboard-player { display: flex; min-width: 0; align-items: center; gap: 8px; overflow: hidden; font-weight: 800; text-overflow: ellipsis; white-space: nowrap; }
 .leaderboard-player small { padding: 2px 6px; color: var(--forest); background: #fff; border-radius: 999px; font-size: .62rem; }
-.leaderboard-games { color: #abc3b8; font-size: .75rem; text-align: right; }
-.leaderboard-row.is-me .leaderboard-games { color: #4f5b54; }
-.leaderboard-row > strong { font-family: "Gowun Batang", serif; font-size: 1.35rem; text-align: right; }
-.leaderboard-row > strong small { margin-left: 3px; font-family: Pretendard, "Noto Sans KR", sans-serif; font-size: .68rem; }
+.leaderboard-stats { display: grid; grid-template-columns: 1fr 1fr 1.2fr; align-items: center; gap: 8px; }
+.leaderboard-stat { display: flex; min-width: 0; flex-direction: column; align-items: flex-end; gap: 2px; }
+.leaderboard-stat small { color: #abc3b8; font-size: .65rem; white-space: nowrap; }
+.leaderboard-stat strong { font-family: "Gowun Batang", serif; font-size: 1.2rem; white-space: nowrap; }
+.leaderboard-row.is-me .leaderboard-stat small { color: #4f5b54; }
 .leaderboard-empty { padding: 32px 18px; color: #b9cec4; background: #12392e; text-align: center; }
 .leaderboard-note { margin: 16px 0 0; color: #b9cec4; font-size: .75rem; text-align: right; }
 .collection { max-width: 1280px; margin: 0 auto; padding-top: 36px; border-top: 1px solid var(--line); }
@@ -561,8 +562,11 @@ button, [role="button"] { -webkit-tap-highlight-color: transparent; }
   .lobby-intro > h1 { font-size: clamp(3.1rem, 16vw, 4.7rem); }
   .collection-grid { grid-template-columns: repeat(2, 1fr); }
   .leaderboard { padding: 24px 14px; }
-  .leaderboard-row { grid-template-columns: 34px minmax(0, 1fr) 62px; padding-inline: 10px; }
-  .leaderboard-games { display: none; }
+  .leaderboard-row { grid-template-columns: 34px minmax(0, 1fr); padding-inline: 10px; }
+  .leaderboard-stats { grid-column: 2; width: 100%; }
+  .leaderboard-stat { align-items: flex-start; }
+  .leaderboard-stat small { font-size: .56rem; }
+  .leaderboard-stat strong { font-size: 1rem; }
   .tree-heading { align-items: start; flex-direction: column; }
   .game-progress { display: block; text-align: right; }
   .game-progress span { display: block; }

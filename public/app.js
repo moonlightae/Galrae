@@ -126,7 +126,7 @@ function renderCollection() {
       <div class="mini-card-art"><img loading="lazy" src="${escapeHtml(animal.image.thumbnailUrl)}" alt="${escapeHtml(animal.commonName)}" /></div>
       <small>ANIMALIA</small><h3>${escapeHtml(animal.commonName)}</h3>
       <p class="mini-scientific"><i>${escapeHtml(animal.scientificName)}</i></p>
-      <p class="mini-success">${escapeHtml(successCountText(successCounts[id]))}</p>
+      ${id === HUMAN_ID ? "" : `<p class="mini-success">${escapeHtml(successCountText(successCounts[id]))}</p>`}
       <p>${escapeHtml(shortDescription(animal.description, 145))}</p>
       <div class="mini-card-groups" aria-label="Taxonomy">${groups}</div>
       <a class="mini-card-credit" href="${escapeHtml(animal.image.commonsPageUrl)}" target="_blank" rel="noreferrer">${escapeHtml(imageCreditText(animal))}</a>
@@ -430,11 +430,23 @@ async function resetLeaderboard() {
   }
 }
 
+async function syncCollection() {
+  if (!currentUser || !dataset) return;
+  const response = await fetch("/api/collection", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ speciesIds: getCollection().filter((id) => id !== HUMAN_ID) }),
+  });
+  if (!response.ok) throw new Error(`Collection request failed: ${response.status}`);
+}
+
 async function loadLeaderboard() {
   const list = $("#leaderboard-list");
   const status = $("#leaderboard-status");
   status.textContent = "기록을 불러오는 중…";
   try {
+    try { await syncCollection(); }
+    catch (error) { console.error(error); }
     const response = await fetch("/api/leaderboard", { cache: "no-store" });
     if (!response.ok) throw new Error(`Leaderboard request failed: ${response.status}`);
     const data = await responseJson(response);
@@ -447,8 +459,11 @@ async function loadLeaderboard() {
     list.innerHTML = entries.map((entry, index) => `<li class="leaderboard-row${entry.isCurrentUser ? " is-me" : ""}">
       <span class="leaderboard-rank">${index + 1}</span>
       <span class="leaderboard-player">${escapeHtml(entry.displayName)}${entry.isCurrentUser ? '<small>나</small>' : ""}</span>
-      <span class="leaderboard-games">${entry.gamesPlayed}회 플레이</span>
-      <strong>${entry.bestScore}<small>종</small></strong>
+      <span class="leaderboard-stats">
+        <span class="leaderboard-stat"><small>총 도전횟수</small><strong>${entry.gamesPlayed}회</strong></span>
+        <span class="leaderboard-stat"><small>한 번 이상 분류</small><strong>${entry.uniqueSpeciesCount}종</strong></span>
+        <span class="leaderboard-stat"><small>최대 분류 마릿수</small><strong>${entry.bestScore}종</strong></span>
+      </span>
     </li>`).join("");
     status.textContent = `${entries.length}명 순위`;
   } catch (error) {
@@ -488,7 +503,10 @@ function openSpeciesCard(speciesId, returnFocus) {
   $("#species-view-name").textContent = animal.commonName;
   $("#species-view-description").textContent = shortDescription(animal.description, 230);
   $("#species-view-scientific").textContent = animal.scientificName;
-  $("#species-view-success-count").textContent = successCountText(getSuccessCounts()[speciesId]);
+  $("#species-view-success-count").hidden = speciesId === HUMAN_ID;
+  if (speciesId !== HUMAN_ID) {
+    $("#species-view-success-count").textContent = successCountText(getSuccessCounts()[speciesId]);
+  }
   image.src = animal.image.thumbnailUrl;
   image.alt = animal.commonName;
   image.hidden = false;
