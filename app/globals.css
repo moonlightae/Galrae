@@ -13,13 +13,13 @@
 
 * { box-sizing: border-box; }
 
-html { min-width: 320px; background: #020f75; }
+html { min-width: 320px; background: #330867; }
 
 body {
   margin: 0;
   min-height: 100vh;
   color: var(--ink);
-  background-image: linear-gradient(to left, #fcc5e4 0%, #fda34b 15%, #ff7882 35%, #c8699e 52%, #7046aa 71%, #0c1db8 87%, #020f75 100%);
+  background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
   font-family: Pretendard, "Noto Sans KR", sans-serif;
 }
 
@@ -243,7 +243,7 @@ button, [role="button"] { -webkit-tap-highlight-color: transparent; }
 .data-attribution { max-width: 900px; margin: 34px 0 0; color: #fff; font-size: .74rem; line-height: 1.65; }
 .data-attribution a { color: #fff; }
 
-.game-screen { position: fixed; inset: 0; width: 100%; height: 100vh; height: 100dvh; min-height: 0; overflow: hidden; background: var(--paper); }
+.game-screen { position: fixed; inset: 0; width: 100%; height: 100vh; height: 100dvh; min-height: 0; overflow: hidden; background-color: #330867; background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%); }
 .game-header { position: absolute; top: 16px; left: 20px; right: 20px; z-index: 5; margin: 0; }
 .game-header .text-button, .game-progress { padding: 9px 13px; background: rgba(255, 254, 248, .92); border: 1px solid rgba(22, 34, 29, .12); border-radius: 8px; box-shadow: 0 5px 18px rgba(22, 34, 29, .08); }
 .game-progress { display: flex; gap: 18px; color: var(--muted); font-size: .86rem; }
@@ -296,6 +296,7 @@ button, [role="button"] { -webkit-tap-highlight-color: transparent; }
 .radial-tree { position: relative; }
 .radial-links { position: absolute; inset: 0; overflow: visible; pointer-events: none; }
 .radial-edge { stroke: var(--forest-2); stroke-width: 2; }
+.game-screen .radial-edge { stroke: #f2fbff; filter: drop-shadow(0 1px 1px rgba(10, 15, 65, .8)); }
 .radial-tree.answer-tree .radial-edge.is-answer-path { stroke: #1f7c4a; stroke-width: 3; }
 .radial-root-target, .radial-tree .species-node, .radial-tree .clade-node, .radial-edge-target { position: absolute; z-index: 2; transform: translate(-50%, -50%); }
 .radial-root-target { min-width: 118px; min-height: 42px; cursor: pointer; }
@@ -322,6 +323,7 @@ button, [role="button"] { -webkit-tap-highlight-color: transparent; }
   border-top: 0;
   border-left: 2px solid var(--forest-2);
 }
+.game-screen .phylo-tree ul::before, .game-screen .phylo-tree li::before, .game-screen .phylo-tree li::after { border-color: #f2fbff; filter: drop-shadow(0 1px 1px rgba(10, 15, 65, .8)); }
 .tree-root { display: inline-block; padding: 7px 12px; color: #fff; background: var(--forest); border: 0; border-radius: 999px; font-size: .75rem; font-weight: 700; }
 .tree-root-anchor { position: relative; display: inline-flex; vertical-align: top; }
 .root-wrap-target {
