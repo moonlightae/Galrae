@@ -1040,5 +1040,8 @@ function stopPanning(event) {
 }
 treeCanvas.addEventListener("pointerup", stopPanning);
 treeCanvas.addEventListener("pointercancel", stopPanning);
+new ResizeObserver(() => {
+  if (state.layout === "radial" && !$("#game").hidden && treeCanvas.clientWidth && treeCanvas.clientHeight) resetTreeView();
+}).observe(treeCanvas);
 
 initialize();
