@@ -298,7 +298,7 @@ button, [role="button"] { -webkit-tap-highlight-color: transparent; }
   left: 50%;
   top: 4px;
   bottom: 4px;
-  border-left: 5px solid var(--forest-2);
+  border-left: 5px solid transparent;
   transform: translateX(-50%);
   transition: border-color 140ms;
 }
