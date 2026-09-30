@@ -501,7 +501,7 @@ button, [role="button"] { -webkit-tap-highlight-color: transparent; }
 .card-topline, .card-footer { display: flex; justify-content: space-between; font-size: .62rem; font-weight: 800; letter-spacing: .06em; }
 .card-topline { padding: 2px 3px 8px; }
 .card-art { position: relative; display: grid; height: 50%; overflow: hidden; place-items: center; color: #d5d6ce; background: #fafaf6; border: 1px solid var(--ink); }
-.card-art img { width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
+.card-art img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
 .card-art span { font-family: "Gowun Batang", serif; font-size: 3rem; }
 .card-body { min-height: 35%; padding: 12px 5px 8px; }
 .card-kicker { margin: 0 0 4px; color: var(--coral); font-size: .58rem; font-weight: 800; letter-spacing: .1em; }
@@ -864,7 +864,10 @@ button:focus-visible, [role="button"]:focus-visible, .primary-button:focus-visib
 .failure-panel p:last-child, .failure-panel .failure-score-status,
 .dialog-image-credit { color: var(--ink); }
 .animal-card, .species-view-card { background: var(--surface); box-shadow: 0 4px 14px rgba(32, 38, 43, .09); }
-.animal-card { display: grid; grid-template-rows: auto minmax(0, 1.2fr) minmax(0, 1fr) auto; aspect-ratio: 5 / 7; }
+.card-dock, .species-dialog { container-type: inline-size; }
+/* A definite height keeps loaded images and long descriptions from stretching cards. */
+.animal-card { display: grid; grid-template-rows: auto minmax(0, 1.2fr) minmax(0, 1fr) auto; height: calc(min(100cqw, 260px) * 1.4); min-height: 0; aspect-ratio: 5 / 7; }
+.species-view-card { height: calc(100cqw * 1.4); }
 .card-dock .animal-card { flex-shrink: 0; }
 .card-art { height: 100%; min-height: 0; color: var(--muted); background: var(--surface-muted); box-shadow: none; }
 .card-body { min-height: 0; overflow-y: auto; overscroll-behavior: contain; }
@@ -874,6 +877,9 @@ button:focus-visible, [role="button"]:focus-visible, .primary-button:focus-visib
 .mini-card { height: 390px; min-height: 0; overflow: hidden; }
 .mini-card-art { flex: 0 0 168px; }
 .mini-card-info { flex: 1 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain; }
+.card-body, .mini-card-info, .card-dock, .species-dialog { scrollbar-width: none; }
+.card-body::-webkit-scrollbar, .mini-card-info::-webkit-scrollbar,
+.card-dock::-webkit-scrollbar, .species-dialog::-webkit-scrollbar { display: none; }
 .mini-card-taxonomy { margin: 9px 0; }
 .mini-card-taxonomy summary { width: fit-content; padding: 5px 9px; color: var(--ink); background: var(--surface-muted); border-radius: 6px; font-size: .75rem; font-weight: 800; cursor: pointer; }
 .mini-card-taxonomy summary:focus-visible { outline: 3px solid var(--edge); outline-offset: 2px; }
