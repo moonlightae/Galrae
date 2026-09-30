@@ -722,35 +722,37 @@ button, [role="button"] { -webkit-tap-highlight-color: transparent; }
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
 }
 
-/* One warm-white surface throughout; borders carry the hierarchy and state. */
+/* Neutral light surfaces: only raised areas get a surrounding border. */
 :root {
   --ink: #292d32;
   --forest: #363b40;
   --forest-2: #70777e;
-  --cream: #faf9f6;
-  --paper: #faf9f6;
-  --yellow: #faf9f6;
+  --cream: #f6f7f6;
+  --paper: #fcfcfb;
+  --yellow: #fcfcfb;
   --coral: #50565c;
-  --line: #aab0b5;
+  --line: #d5d9dc;
   --muted: #50565c;
-  --shadow: none;
-  --surface: #faf9f6;
-  --edge: #717981;
+  --shadow: 0 8px 24px rgba(32, 38, 43, .08);
+  --canvas: #f6f7f6;
+  --surface: #fcfcfb;
+  --surface-muted: #f0f2f1;
+  --edge: #92999f;
 }
 
-html, body, .game-screen, .loading-screen { background: var(--surface); background-image: none; color: var(--ink); }
+html, body, .game-screen, .loading-screen { background: var(--canvas); background-image: none; color: var(--ink); }
 .paper-noise { display: none; }
 .lobby-screen .wordmark, .lobby-intro > .eyebrow, .lobby-intro > h1, .intro-copy { color: var(--ink); }
 .wordmark-mark { color: var(--ink); background: var(--surface); border: 1px solid var(--edge); }
 
-.lobby-intro, .mode-panel, .leaderboard, .collection,
+.mode-panel, .leaderboard, .collection,
 .card-dock, .failure-panel, .result-modal, .account-dialog, .species-dialog,
 .tutorial-intro-dialog, .taxonomy-notes-dialog, .loading-content {
   color: var(--ink);
   background: var(--surface);
-  border: 1px solid var(--edge);
+  border: 1px solid var(--line);
   border-radius: 10px;
-  box-shadow: none;
+  box-shadow: var(--shadow);
 }
 .mode-panel h2, .mode-panel p:not(.panel-label), .panel-label,
 .leaderboard .section-heading h2, .leaderboard .section-heading > p, .leaderboard-note,
@@ -758,24 +760,29 @@ html, body, .game-screen, .loading-screen { background: var(--surface); backgrou
 .collection-empty, .data-attribution, .data-attribution a,
 .leaderboard .eyebrow, .collection > .eyebrow { color: var(--ink); }
 .mode-options span, .mode-options .is-active, .mode-badge,
-.leaderboard-list, .leaderboard-row, .leaderboard-row.is-me, .leaderboard-player small,
+.leaderboard-row, .leaderboard-row.is-me, .leaderboard-player small,
 .leaderboard-empty, .mini-card, .mini-card-art, .mini-card-groups span,
 .taxonomy-notes, .chatgpt-link-panel, .admin-user-row, .admin-badge,
 .link-status, .link-status.is-linked {
   color: var(--ink);
-  background: var(--surface);
   box-shadow: none;
 }
-.mode-options span, .mini-card, .mini-card-art, .mini-card-groups span,
-.leaderboard-list, .chatgpt-link-panel, .admin-user-row, .admin-badge,
-.link-status, .link-status.is-linked { border: 1px solid var(--line); }
-.mode-options .is-active { border: 2px solid var(--ink); padding: 6px 8px; }
+.mode-options span { background: transparent; border: 0; }
+.mode-options .is-active { background: var(--surface-muted); border: 1px solid var(--edge); padding: 6px 8px; }
+.leaderboard-row, .leaderboard-empty { background: transparent; }
+.leaderboard-row.is-me, .leaderboard-player small,
+.mini-card-art, .mini-card-groups span, .taxonomy-notes,
+.chatgpt-link-panel, .admin-user-row, .admin-badge,
+.link-status, .link-status.is-linked { background: var(--surface-muted); }
+.mini-card { background: var(--surface); border-color: var(--line); box-shadow: 0 3px 12px rgba(32, 38, 43, .07); }
+.mini-card-art, .chatgpt-link-panel, .admin-user-row { border: 1px solid var(--line); }
+.mini-card-groups span, .leaderboard-player small,
+.admin-badge, .link-status, .link-status.is-linked { border: 0; }
 .leaderboard-row { border-bottom: 1px solid var(--line); }
 .leaderboard-row.is-me { border-left: 3px solid var(--ink); }
 .leaderboard-rank, .leaderboard-row.is-me .leaderboard-rank,
 .leaderboard-stat small, .leaderboard-row.is-me .leaderboard-stat small,
 .leaderboard-note, .leaderboard-empty { color: var(--muted); }
-.leaderboard-player small { border: 1px solid var(--line); }
 .taxonomy-notes-toggle, .taxonomy-notes strong, .taxonomy-notes a,
 .mode-panel .taxonomy-notes p, .taxonomy-notes-dialog .taxonomy-notes p { color: var(--ink); }
 .taxonomy-notes { border: 1px solid var(--line); }
@@ -788,17 +795,15 @@ html, body, .game-screen, .loading-screen { background: var(--surface); backgrou
 .secondary-button, .secondary-button:hover, .admin-open-button,
 .danger-button, .dialog-close, .dialog-close:hover, .account-close,
 .admin-user-actions button, .admin-user-actions button.is-danger,
-.tree-layout-controls button, .tree-layout-controls button[aria-pressed="true"],
-.tree-zoom-controls button, .tree-zoom-controls button:hover,
-.tree-reset-view, .tree-reset-view:hover, .toast {
+.toast {
   color: var(--ink);
-  background: var(--surface);
+  background: var(--surface-muted);
   border: 1px solid var(--edge);
-  box-shadow: none;
+  box-shadow: 0 2px 8px rgba(32, 38, 43, .06);
 }
 .primary-button:hover, .secondary-button:hover, .auth-link:hover, .auth-login:hover,
 .dialog-close:hover, .tree-reset-view:hover { border-color: var(--ink); }
-.primary-button:hover { box-shadow: none; }
+.primary-button:hover { box-shadow: 0 5px 12px rgba(32, 38, 43, .1); }
 button:focus-visible, [role="button"]:focus-visible, .primary-button:focus-visible,
 .account-form input:focus { outline: 3px solid var(--edge); outline-offset: 3px; }
 .auth-name, .account-form label, .account-form input, .account-form input:focus,
@@ -808,15 +813,19 @@ button:focus-visible, [role="button"]:focus-visible, .primary-button:focus-visib
 .account-form .account-error, .admin-status, .admin-loading.is-error { color: var(--ink); }
 
 .game-header .text-button, .game-progress, .tree-heading > div:first-child,
-.tree-toolbar, .tree-layout-controls, .tree-zoom-controls, .tree-canvas-help,
+.tree-layout-controls, .tree-canvas-help,
 .tutorial-banner {
   color: var(--ink);
   background: var(--surface);
-  border: 1px solid var(--edge);
-  box-shadow: none;
+  border: 1px solid var(--line);
+  box-shadow: 0 3px 12px rgba(32, 38, 43, .06);
 }
-.tree-toolbar { border-radius: 8px; }
-.tree-layout-controls button[aria-pressed="true"] { border: 2px solid var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+.tree-layout-controls { background: var(--surface-muted); }
+.tree-layout-controls button, .tree-zoom-controls button,
+.tree-reset-view { color: var(--ink); background: transparent; border: 0; box-shadow: none; }
+.tree-layout-controls button[aria-pressed="true"] { color: var(--ink); background: var(--surface); border: 0; box-shadow: 0 1px 4px rgba(32, 38, 43, .12); text-decoration: underline; text-underline-offset: 3px; }
+.tree-zoom-controls { background: transparent; border: 0; }
+.tree-zoom-controls button:hover, .tree-reset-view:hover { color: var(--ink); background: var(--surface-muted); border: 0; }
 .tree-zoom-status, .game-progress span + span, .tree-canvas-help { color: var(--muted); }
 .game-screen .phylo-tree ul::before, .game-screen .phylo-tree li::before,
 .game-screen .phylo-tree li::after { border-color: var(--forest-2); filter: none; }
@@ -834,7 +843,7 @@ button:focus-visible, [role="button"]:focus-visible, .primary-button:focus-visib
   color: var(--ink);
   background: var(--surface);
   border-color: var(--edge);
-  box-shadow: none;
+  box-shadow: 0 2px 7px rgba(32, 38, 43, .07);
 }
 .tree-root, .radial-root-target { border: 1px solid var(--edge); }
 .species-node:hover, .species-node.is-drop-target,
@@ -854,11 +863,25 @@ button:focus-visible, [role="button"]:focus-visible, .primary-button:focus-visib
 .dock-copy, .image-credit, .drag-help, .failure-panel .eyebrow,
 .failure-panel p:last-child, .failure-panel .failure-score-status,
 .dialog-image-credit { color: var(--ink); }
-.animal-card, .species-view-card, .card-art { background: var(--surface); box-shadow: none; }
+.animal-card, .species-view-card { background: var(--surface); box-shadow: 0 4px 14px rgba(32, 38, 43, .09); }
+.animal-card { display: grid; grid-template-rows: auto minmax(0, 1.2fr) minmax(0, 1fr) auto; aspect-ratio: 5 / 7; }
+.card-dock .animal-card { flex-shrink: 0; }
+.card-art { height: 100%; min-height: 0; color: var(--muted); background: var(--surface-muted); box-shadow: none; }
+.card-body { min-height: 0; overflow-y: auto; overscroll-behavior: contain; }
+.card-footer { flex-wrap: wrap; gap: 4px 10px; overflow-wrap: anywhere; }
+.card-footer span { min-width: 0; }
+.species-dialog { max-height: calc(100dvh - 40px); overflow-y: auto; }
+.mini-card { height: 390px; min-height: 0; overflow: hidden; }
+.mini-card-art { flex: 0 0 168px; }
+.mini-card-info { flex: 1 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain; }
+.mini-card-taxonomy { margin: 9px 0; }
+.mini-card-taxonomy summary { width: fit-content; padding: 5px 9px; color: var(--ink); background: var(--surface-muted); border-radius: 6px; font-size: .75rem; font-weight: 800; cursor: pointer; }
+.mini-card-taxonomy summary:focus-visible { outline: 3px solid var(--edge); outline-offset: 2px; }
+.mini-card-taxonomy .mini-card-groups { margin: 8px 0 0; }
+.mini-card-credit { flex: 0 0 auto; margin-top: 0; }
 .animal-card.is-selected { outline: 3px solid var(--ink); }
-.card-art { color: var(--muted); }
 .failure-panel { border-width: 2px; }
-.modal-backdrop { background: var(--surface); backdrop-filter: none; }
+.modal-backdrop { background: rgba(246, 247, 246, .88); backdrop-filter: blur(5px); }
 .dialog-close { border-radius: 50%; }
 .loading-spinner { border-color: var(--line); border-top-color: var(--ink); }
 .tutorial-banner { border-left: 4px solid var(--ink); }
@@ -866,3 +889,7 @@ button:focus-visible, [role="button"]:focus-visible, .primary-button:focus-visib
 .mini-card small, .mini-card p, .mini-card-credit, .card-kicker,
 .card-topline, .card-footer, .image-credit, .auth-link, .auth-login,
 .admin-badge, .radial-tree .species-node { font-size: .75rem; }
+
+@media (max-width: 560px) {
+  .tree-toolbar { background: var(--surface); border: 1px solid var(--line); box-shadow: 0 3px 12px rgba(32, 38, 43, .06); }
+}

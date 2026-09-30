@@ -148,11 +148,13 @@ function renderCollection() {
     const groups = taxonomyLabels(animal).map((group) => `<span>${escapeHtml(group)}</span>`).join("");
     return `<article class="mini-card">
       <div class="mini-card-art"><img loading="lazy" src="${escapeHtml(animal.image.thumbnailUrl)}" alt="${escapeHtml(animal.commonName)}" /></div>
-      <small>ANIMALIA</small><h3>${escapeHtml(animal.commonName)}</h3>
-      <p class="mini-scientific"><i>${escapeHtml(animal.scientificName)}</i></p>
-      ${id === HUMAN_ID ? "" : `<p class="mini-success">${escapeHtml(successCountText(successCounts[id]))}</p>`}
-      <p>${escapeHtml(shortDescription(animal.description, 145))}</p>
-      <div class="mini-card-groups" aria-label="Taxonomy">${groups}</div>
+      <div class="mini-card-info">
+        <small>ANIMALIA</small><h3>${escapeHtml(animal.commonName)}</h3>
+        <p class="mini-scientific"><i>${escapeHtml(animal.scientificName)}</i></p>
+        ${id === HUMAN_ID ? "" : `<p class="mini-success">${escapeHtml(successCountText(successCounts[id]))}</p>`}
+        <details class="mini-card-taxonomy"><summary>상위 분류군</summary><div class="mini-card-groups" aria-label="상위 분류군">${groups}</div></details>
+        <p>${escapeHtml(shortDescription(animal.description, 145))}</p>
+      </div>
       <a class="mini-card-credit" href="${escapeHtml(animal.image.commonsPageUrl)}" target="_blank" rel="noreferrer">${escapeHtml(imageCreditText(animal))}</a>
     </article>`;
   }).join("");
