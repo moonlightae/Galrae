@@ -5,7 +5,7 @@ import { curateTaxonomy } from "./taxonomy-curation.mjs";
 await import(new URL("../public/game-logic.js", import.meta.url));
 const { ANIMALIA_ID, addSuccessCount, buildTree, collectLeafIds, findNodeById, getExpectedPlacement, isEquivalentPlacement, seedSuccessCounts, shuffle, successCountText } = globalThis.GalraeLogic;
 const dataset = JSON.parse(fs.readFileSync(new URL("../data/animals.json", import.meta.url), "utf8"));
-const appSource = fs.readFileSync(new URL("../public/app.js", import.meta.url), "utf8");
+const appSource = fs.readFileSync(new URL("../public/tree-view.js", import.meta.url), "utf8");
 const speciesById = new Map(dataset.animals.map((animal) => [animal.id, animal]));
 assert.deepEqual(curateTaxonomy(dataset.animals), dataset.animals, "Curated taxonomy must be stable on a second pass");
 const lineageIds = (id) => speciesById.get(id).taxonomy.lineage.map((taxon) => taxon.wikidataId);

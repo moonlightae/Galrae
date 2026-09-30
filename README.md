@@ -1,6 +1,26 @@
-# vinext-starter
+# 갈래 — 계통수 분류 게임
 
-A clean full-stack starter running on [vinext](https://github.com/cloudflare/vinext), with optional Cloudflare D1 and Drizzle support.
+동물 카드를 계통수의 알맞은 가지에 놓는 분류 게임입니다.
+
+## 코드 구조
+
+- `app/game-markup.ts`: 로비, 게임 화면, 대화상자의 정적 마크업
+- `app/game-client.tsx`: 화면 마운트와 브라우저 스크립트 로딩
+- `public/app.js`: 게임 진행, 계정, 수집함, 입력 이벤트
+- `public/tree-view.js`: 계통수 표시, 배치 미리보기, 확대·이동
+- `public/game-logic.js`: 계통수 생성과 정답 판정
+- `app/api/`, `db/`: 계정, 수집 기록, 리더보드 저장
+- `data/animals.json`: 원본 동물 데이터. `public/data/animals.json`과 함께 유지
+
+개발 서버는 `npm run dev`로 실행합니다. 데이터와 게임 로직은
+`node scripts/validate-animal-dataset.mjs`,
+`node scripts/validate-game-logic.mjs`,
+`node scripts/validate-tree-render.mjs`,
+`node scripts/validate-collection-sync.mjs`로 확인할 수 있습니다.
+
+## 배포 기반 안내
+
+아래는 이 사이트의 Vinext·Cloudflare D1 기반 실행 및 배포 안내입니다.
 
 ## Prerequisites
 

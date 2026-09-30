@@ -6,7 +6,7 @@ await import(new URL("../public/game-logic.js", import.meta.url));
 const { ANIMALIA_ID, buildTree } = globalThis.GalraeLogic;
 const dataset = JSON.parse(readFileSync(new URL("../data/animals.json", import.meta.url), "utf8"));
 const speciesById = new Map(dataset.animals.map((animal) => [animal.id, animal]));
-const appSource = readFileSync(new URL("../public/app.js", import.meta.url), "utf8");
+const appSource = readFileSync(new URL("../public/tree-view.js", import.meta.url), "utf8");
 const start = appSource.indexOf("function renderNode(");
 const end = appSource.indexOf("function renderPreview(");
 assert.ok(start >= 0 && end > start, "Tree rendering functions are missing");
@@ -82,7 +82,7 @@ inspectRadial(radial.root);
 assert.equal(radialLeaves, dataset.speciesCount, "Circular layout must position every sampled species");
 
 const cameraStart = appSource.indexOf("function updateCamera(");
-const cameraEnd = appSource.indexOf("function setCard(", cameraStart);
+const cameraEnd = appSource.indexOf("  return { clearPreview", cameraStart);
 assert.ok(cameraStart >= 0 && cameraEnd > cameraStart, "Tree camera functions are missing");
 const zoomStatus = { textContent: "" };
 const cameraStyles = new Map();
