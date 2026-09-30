@@ -721,3 +721,148 @@ button, [role="button"] { -webkit-tap-highlight-color: transparent; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
 }
+
+/* One warm-white surface throughout; borders carry the hierarchy and state. */
+:root {
+  --ink: #292d32;
+  --forest: #363b40;
+  --forest-2: #70777e;
+  --cream: #faf9f6;
+  --paper: #faf9f6;
+  --yellow: #faf9f6;
+  --coral: #50565c;
+  --line: #aab0b5;
+  --muted: #50565c;
+  --shadow: none;
+  --surface: #faf9f6;
+  --edge: #717981;
+}
+
+html, body, .game-screen, .loading-screen { background: var(--surface); background-image: none; color: var(--ink); }
+.paper-noise { display: none; }
+.lobby-screen .wordmark, .lobby-intro > .eyebrow, .lobby-intro > h1, .intro-copy { color: var(--ink); }
+.wordmark-mark { color: var(--ink); background: var(--surface); border: 1px solid var(--edge); }
+
+.lobby-intro, .mode-panel, .leaderboard, .collection,
+.card-dock, .failure-panel, .result-modal, .account-dialog, .species-dialog,
+.tutorial-intro-dialog, .taxonomy-notes-dialog, .loading-content {
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--edge);
+  border-radius: 10px;
+  box-shadow: none;
+}
+.mode-panel h2, .mode-panel p:not(.panel-label), .panel-label,
+.leaderboard .section-heading h2, .leaderboard .section-heading > p, .leaderboard-note,
+.collection .section-heading h2, .collection .section-heading > p,
+.collection-empty, .data-attribution, .data-attribution a,
+.leaderboard .eyebrow, .collection > .eyebrow { color: var(--ink); }
+.mode-options span, .mode-options .is-active, .mode-badge,
+.leaderboard-list, .leaderboard-row, .leaderboard-row.is-me, .leaderboard-player small,
+.leaderboard-empty, .mini-card, .mini-card-art, .mini-card-groups span,
+.taxonomy-notes, .chatgpt-link-panel, .admin-user-row, .admin-badge,
+.link-status, .link-status.is-linked {
+  color: var(--ink);
+  background: var(--surface);
+  box-shadow: none;
+}
+.mode-options span, .mini-card, .mini-card-art, .mini-card-groups span,
+.leaderboard-list, .chatgpt-link-panel, .admin-user-row, .admin-badge,
+.link-status, .link-status.is-linked { border: 1px solid var(--line); }
+.mode-options .is-active { border: 2px solid var(--ink); padding: 6px 8px; }
+.leaderboard-row { border-bottom: 1px solid var(--line); }
+.leaderboard-row.is-me { border-left: 3px solid var(--ink); }
+.leaderboard-rank, .leaderboard-row.is-me .leaderboard-rank,
+.leaderboard-stat small, .leaderboard-row.is-me .leaderboard-stat small,
+.leaderboard-note, .leaderboard-empty { color: var(--muted); }
+.leaderboard-player small { border: 1px solid var(--line); }
+.taxonomy-notes-toggle, .taxonomy-notes strong, .taxonomy-notes a,
+.mode-panel .taxonomy-notes p, .taxonomy-notes-dialog .taxonomy-notes p { color: var(--ink); }
+.taxonomy-notes { border: 1px solid var(--line); }
+.taxonomy-notes-dialog .taxonomy-notes { border: 0; }
+.mini-card .mini-scientific, .mini-card .mini-success,
+.mini-card-credit, .data-attribution { color: var(--muted); }
+
+.auth-link, .auth-login, .auth-link:hover, .auth-login:hover,
+.primary-button, .primary-button:hover, .mode-panel .primary-button,
+.secondary-button, .secondary-button:hover, .admin-open-button,
+.danger-button, .dialog-close, .dialog-close:hover, .account-close,
+.admin-user-actions button, .admin-user-actions button.is-danger,
+.tree-layout-controls button, .tree-layout-controls button[aria-pressed="true"],
+.tree-zoom-controls button, .tree-zoom-controls button:hover,
+.tree-reset-view, .tree-reset-view:hover, .toast {
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--edge);
+  box-shadow: none;
+}
+.primary-button:hover, .secondary-button:hover, .auth-link:hover, .auth-login:hover,
+.dialog-close:hover, .tree-reset-view:hover { border-color: var(--ink); }
+.primary-button:hover { box-shadow: none; }
+button:focus-visible, [role="button"]:focus-visible, .primary-button:focus-visible,
+.account-form input:focus { outline: 3px solid var(--edge); outline-offset: 3px; }
+.auth-name, .account-form label, .account-form input, .account-form input:focus,
+.auth-tabs button.is-active { color: var(--ink); }
+.account-form input { background: var(--surface); border-color: var(--edge); }
+.auth-tabs button.is-active { border-bottom-color: var(--ink); }
+.account-form .account-error, .admin-status, .admin-loading.is-error { color: var(--ink); }
+
+.game-header .text-button, .game-progress, .tree-heading > div:first-child,
+.tree-toolbar, .tree-layout-controls, .tree-zoom-controls, .tree-canvas-help,
+.tutorial-banner {
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--edge);
+  box-shadow: none;
+}
+.tree-toolbar { border-radius: 8px; }
+.tree-layout-controls button[aria-pressed="true"] { border: 2px solid var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+.tree-zoom-status, .game-progress span + span, .tree-canvas-help { color: var(--muted); }
+.game-screen .phylo-tree ul::before, .game-screen .phylo-tree li::before,
+.game-screen .phylo-tree li::after { border-color: var(--forest-2); filter: none; }
+.game-screen .radial-edge, .radial-tree.answer-tree .radial-edge.is-answer-path {
+  stroke: var(--forest-2);
+  filter: none;
+}
+.tree-root, .radial-root-target, .radial-root-target:hover, .radial-root-target.is-drop-target,
+.species-node, .species-node:hover, .species-node.is-drop-target,
+.clade-node, .clade-node:hover, .clade-node.is-drop-target,
+.clade-node.is-preview, .answer-tree .clade-node.is-preview,
+.species-node.is-preview, .answer-tree .species-node.is-preview,
+.radial-edge-target:hover, .radial-edge-target.is-drop-target,
+.ghost-junction, .ghost-card, .ghost-tag, .preview-tag, .answer-tree .preview-tag {
+  color: var(--ink);
+  background: var(--surface);
+  border-color: var(--edge);
+  box-shadow: none;
+}
+.tree-root, .radial-root-target { border: 1px solid var(--edge); }
+.species-node:hover, .species-node.is-drop-target,
+.radial-root-target:hover, .radial-root-target.is-drop-target { outline: 2px solid var(--ink); outline-offset: 2px; }
+.clade-node:hover, .clade-node.is-drop-target,
+.radial-edge-target:hover, .radial-edge-target.is-drop-target { border-color: var(--ink); }
+.species-node.is-preview, .answer-tree .species-node.is-preview { border: 2px dashed var(--ink); }
+.answer-tree .species-node.is-preview { border-style: double; border-width: 4px; }
+.preview-tag, .ghost-tag { border: 1px solid var(--edge); font-size: .7rem; }
+.preview-branches li::before, .preview-branches li::after,
+.answer-tree .preview-branches li::before, .answer-tree .preview-branches li::after,
+.placement-preview::before { border-color: var(--edge); }
+.root-wrap-target:hover::after, .root-wrap-target.is-drop-target::after,
+.edge-target:hover::after, .edge-target.is-drop-target::after { border-left-color: var(--edge); }
+.layout-bottom .species-node.is-new, .radial-tree .species-node.is-new { box-shadow: 0 0 0 5px var(--line); }
+
+.dock-copy, .image-credit, .drag-help, .failure-panel .eyebrow,
+.failure-panel p:last-child, .failure-panel .failure-score-status,
+.dialog-image-credit { color: var(--ink); }
+.animal-card, .species-view-card, .card-art { background: var(--surface); box-shadow: none; }
+.animal-card.is-selected { outline: 3px solid var(--ink); }
+.card-art { color: var(--muted); }
+.failure-panel { border-width: 2px; }
+.modal-backdrop { background: var(--surface); backdrop-filter: none; }
+.dialog-close { border-radius: 50%; }
+.loading-spinner { border-color: var(--line); border-top-color: var(--ink); }
+.tutorial-banner { border-left: 4px solid var(--ink); }
+.mode-options span, .leaderboard-player small, .leaderboard-stat small,
+.mini-card small, .mini-card p, .mini-card-credit, .card-kicker,
+.card-topline, .card-footer, .image-credit, .auth-link, .auth-login,
+.admin-badge, .radial-tree .species-node { font-size: .75rem; }
