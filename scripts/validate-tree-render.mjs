@@ -118,3 +118,39 @@ assert.equal(cameraState.zoom, .268, "Circular reset must fit the drawing inside
 assert.equal(cameraState.panX, 0);
 assert.equal(cameraState.panY, 0);
 console.log("Validated top, bottom, and circular tree rendering for all 207 species.");
+
+const clientSource = readFileSync(new URL("../public/app.js", import.meta.url), "utf8");
+const detailSource = clientSource.slice(clientSource.indexOf("function openSpeciesCard("), clientSource.indexOf("function placeCard("));
+const detailElements = new Map();
+const detailElement = (selector) => {
+  if (!detailElements.has(selector)) detailElements.set(selector, { hidden: true, focus() {} });
+  return detailElements.get(selector);
+};
+const detailState = { classified: [humanId], currentId: ctenophoreId, failed: false };
+const detailContext = {
+  state: detailState, speciesById, HUMAN_ID: humanId, $: detailElement,
+  shortDescription: (text) => text, escapeHtml: (text) => String(text),
+  taxonomyLabels: (animal) => animal.taxonomy.lineage.map((taxon) => taxon.scientificName),
+  getSuccessCounts: () => ({}), successCountText: () => "분류 성공 0회", imageCreditText: () => "credit",
+};
+vm.runInNewContext(detailSource, detailContext);
+detailContext.openSpeciesCard(ctenophoreId);
+assert.equal(detailElement("#species-modal").hidden, true, "An unrevealed card must not open during play");
+detailContext.openSpeciesCard(humanId);
+assert.equal(detailElement("#species-view-taxonomy").hidden, true, "Taxonomy must stay hidden during play");
+detailContext.closeSpeciesCard();
+detailState.failed = true;
+detailContext.openSpeciesCard(ctenophoreId);
+assert.equal(detailElement("#species-modal").hidden, false, "The revealed answer card must open after failure");
+assert.equal(detailElement("#species-view-name").textContent, speciesById.get(ctenophoreId).commonName);
+assert.equal(detailElement("#species-view-taxonomy").hidden, false);
+assert.match(detailElement("#species-view-groups").innerHTML, /Ctenophora/);
+assert.deepEqual(detailState.classified, [humanId], "Opening an answer must not classify or collect it");
+detailContext.closeSpeciesCard();
+detailContext.openSpeciesCard(placozoanId);
+assert.equal(detailElement("#species-modal").hidden, true, "Failure must not unlock unrelated cards");
+detailState.failed = false;
+detailContext.openSpeciesCard(humanId);
+assert.equal(detailElement("#species-view-taxonomy").hidden, true);
+assert.equal(detailElement("#species-view-groups").innerHTML, "", "A new game must not retain revealed taxonomy");
+console.log("Validated answer-card details and taxonomy visibility after failure.");

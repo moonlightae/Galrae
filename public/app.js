@@ -557,7 +557,7 @@ async function submitScore() {
 }
 
 function openSpeciesCard(speciesId, returnFocus) {
-  if (!state.classified.includes(speciesId)) return;
+  if (!state.classified.includes(speciesId) && !(state.failed && speciesId === state.currentId)) return;
   const animal = speciesById.get(speciesId);
   if (!animal) return;
   const image = $("#species-view-image");
@@ -565,6 +565,12 @@ function openSpeciesCard(speciesId, returnFocus) {
   $("#species-view-name").textContent = animal.commonName;
   $("#species-view-description").textContent = shortDescription(animal.description, 230);
   $("#species-view-scientific").textContent = animal.scientificName;
+  const taxonomy = $("#species-view-taxonomy");
+  taxonomy.hidden = !state.failed;
+  taxonomy.open = false;
+  $("#species-view-groups").innerHTML = state.failed
+    ? taxonomyLabels(animal).map((group) => `<span>${escapeHtml(group)}</span>`).join("")
+    : "";
   $("#species-view-success-count").hidden = speciesId === HUMAN_ID;
   if (speciesId !== HUMAN_ID) {
     $("#species-view-success-count").textContent = successCountText(getSuccessCounts()[speciesId]);
