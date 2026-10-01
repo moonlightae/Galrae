@@ -654,9 +654,12 @@ function updateRound() {
   $("#round-label").textContent = `${state.tutorial ? "튜토리얼" : "동물계"} · ${state.round + 1}/${state.queue.length}`;
   const banner = $("#tutorial-banner");
   banner.hidden = !state.tutorial;
-  if (state.tutorial) banner.textContent = state.round === 0
-    ? "연습 1/2 · 인간 카드가 먼저 놓여 있습니다. 새 카드를 인간 노드로 옮기거나 선택한 뒤 인간을 눌러 보세요."
-    : "연습 2/2 · 불가사리는 인간과 더 가까운 공통 조상을 공유합니다. 인간 쪽 가지에 새 카드를 놓아 보세요.";
+  if (state.tutorial) banner.textContent = [
+    "연습 1/4 · 전체 가지에 추가하기. 유즐동물은 인간과 동물계 공통 조상을 공유합니다. 카드를 선택한 뒤 Animalia 바로 아래의 줄기를 누르거나, 그 줄기로 카드를 옮겨 보세요.",
+    "연습 2/4 · 한 생물 옆에 추가하기. 불가사리는 유즐동물보다 인간과 더 가까운 조상을 공유합니다. 카드를 선택한 뒤 인간 노드를 눌러 보세요.",
+    "연습 3/4 · 같은 공통 조상에 추가하기. Balanoglossus는 인간·불가사리와 같은 후구동물 조상을 공유합니다. 카드를 선택한 뒤 두 가지가 만나는 원을 눌러 보세요.",
+    "연습 4/4 · 기존 가지에서 먼저 분기하기. 개미는 인간·불가사리·Balanoglossus 묶음보다 먼저 갈라집니다. 카드를 선택한 뒤 그 원과 Animalia 쪽 분기점 사이의 가지를 눌러 보세요.",
+  ][state.round];
 }
 
 async function startGame(options = {}) {
@@ -665,9 +668,9 @@ async function startGame(options = {}) {
   $("#game-loading").hidden = false;
   try {
     const guestAttempts = Number(localStorage.getItem("galrae.guest-attempts.v1")) || 0;
-    const tutorial = options.skipTutorial !== true && (currentUser ? currentGamesPlayed === 0 : guestAttempts === 0);
+    const tutorial = options.tutorial === true || (options.skipTutorial !== true && (currentUser ? currentGamesPlayed === 0 : guestAttempts === 0));
     const queue = tutorial
-      ? ["formica-rufa", "asterias-rubens"]
+      ? ["bolinopsis-infundibulum", "asterias-rubens", "balanoglossus-gigas", "formica-rufa"]
       : shuffle(animals.filter((animal) => animal.id !== HUMAN_ID).map((animal) => animal.id));
     await preloadImage(speciesById.get(queue[0])?.image.thumbnailUrl);
     state.queue = queue;
@@ -794,7 +797,8 @@ $("#return-lobby").addEventListener("click", () => {
   if (state.tutorial) startGame({ skipTutorial: true });
   else returnToLobby();
 });
-$("#retry-game").addEventListener("click", startGame);
+$("#retry-game").addEventListener("click", () => startGame({ tutorial: state.tutorial }));
+$("#start-tutorial").addEventListener("click", () => startGame({ tutorial: true }));
 $("#tutorial-begin").addEventListener("click", () => { $("#tutorial-intro-modal").hidden = true; card.focus(); });
 $("#tutorial-quit").addEventListener("click", returnToLobby);
 $("#tutorial-result-lobby").addEventListener("click", returnToLobby);

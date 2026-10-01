@@ -174,4 +174,24 @@ const secondSuccess = addSuccessCount(firstSuccess, placozoanId);
 assert.equal(successCountText(firstSuccess[placozoanId]), "분류 성공 1회");
 assert.equal(successCountText(secondSuccess[placozoanId]), "분류 성공 2회");
 assert.equal(successCountText(secondSuccess[humanId]), "분류 성공 0회", "Other species counts must not change");
+const clientSource = fs.readFileSync(new URL("../public/app.js", import.meta.url), "utf8");
+const tutorialQueue = JSON.parse(clientSource.match(/const queue = tutorial\s*\? (\[[^\]]+\])/)[1]);
+assert.equal(tutorialQueue.length, 4, "Tutorial must offer all four placement cases");
+const tutorialClassified = [humanId];
+for (const [index, speciesId] of tutorialQueue.entries()) {
+  const tree = buildTree(tutorialClassified, speciesById);
+  const expected = getExpectedPlacement(tutorialClassified, speciesId, speciesById);
+  if (index === 0) {
+    assert.ok(isEquivalentPlacement(tree, expected, ANIMALIA_ID, "top"), "First tutorial card belongs on the whole-tree trunk");
+  } else {
+    assert.equal(expected.placement, index === 2 ? "join" : "wrap");
+    assert.equal(findNodeById(tree, expected.targetId).type, index === 1 ? "leaf" : "branch");
+    if (index === 3) {
+      assert.notEqual(expected.targetId, ANIMALIA_ID, "Final tutorial card must use an internal branch");
+      assert.ok(tree.children.length > 1, "Final branch must have its own visible incoming edge");
+      assert.ok(!isEquivalentPlacement(tree, expected, expected.targetId, "join"), "Final tutorial must distinguish the branch from its ancestor circle");
+    }
+  }
+  tutorialClassified.push(speciesId);
+}
 console.log(`Validated ${classified.length} species: ${wrapCount} wrap placements, ${joinCount} join placements.`);
