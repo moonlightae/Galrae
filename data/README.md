@@ -58,6 +58,12 @@ The ambiguous English label “purple sea urchin” is tied to the dataset's spe
 
 ## Licensing
 
+The collector preserves two curated card photographs instead of automatic lead images:
+`Xenoturbella (bocki) Sweden 2008.jpg` (Joacim Näslund, CC BY 4.0) and
+`MOL 1130046 Architeuthis specimen.jpg` (NOAA, public domain/CC0).
+Both use `objectFit: contain` to show the animal's full outline. The Xenoturbella
+source identifies it as *possibly X. bocki*, so the card credit retains that uncertainty.
+
 - Wikidata structured data is provided under CC0 1.0.
 - English Wikipedia article text is provided under CC BY-SA 4.0. Every record
   retains its article and fixed revision URL for attribution.

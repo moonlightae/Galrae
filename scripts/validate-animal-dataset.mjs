@@ -3,6 +3,9 @@ import path from "node:path";
 
 const root = path.resolve(import.meta.dirname, "..");
 const dataset = JSON.parse(await readFile(path.join(root, "data", "animals.json"), "utf8"));
+if (JSON.stringify(dataset) !== JSON.stringify(JSON.parse(await readFile(path.join(root, "public", "data", "animals.json"), "utf8")))) {
+  throw new Error("Source and public animal datasets must match");
+}
 const koreanSource = await readFile(path.join(root, "data", "animals.ko.json"), "utf8");
 const korean = JSON.parse(koreanSource);
 if (koreanSource !== await readFile(path.join(root, "public", "data", "animals.ko.json"), "utf8")) {

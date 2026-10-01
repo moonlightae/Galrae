@@ -15,6 +15,10 @@ const REPORT_PATH = process.env.GALRAE_REPORT_PATH
   ? path.resolve(ROOT, process.env.GALRAE_REPORT_PATH)
   : path.join(ROOT, "data", "animals.report.json");
 const ANIMALIA_ID = "Q729";
+const CARD_IMAGES = {
+  "Xenoturbella bocki": { fileName: "Xenoturbella (bocki) Sweden 2008.jpg", objectFit: "contain", identificationNote: "Xenoturbella sp. (possibly X. bocki)" },
+  "Architeuthis dux": { fileName: "MOL 1130046 Architeuthis specimen.jpg", objectFit: "contain" },
+};
 const USER_AGENT = "GalraePhylogenyGame/0.1 (educational Wikimedia dataset collector)";
 const TEXT_LICENSE = {
   id: "CC BY-SA 4.0",
@@ -242,10 +246,12 @@ async function main() {
   const taxonIdForPage = (page) => taxonOverrides[page.pageprops.wikibase_item] || page.pageprops.wikibase_item;
   const qids = [...pages.values()].map(taxonIdForPage);
   const { taxa, speciesMeta } = await collectTaxonomy(qids);
+  const cardImageFor = (qid) => CARD_IMAGES[taxa.get(qid)?.scientificName];
+  const imageNameFor = (page) => cardImageFor(taxonIdForPage(page))?.fileName || speciesMeta.get(taxonIdForPage(page))?.imageFileName || page.pageimage || null;
 
   const imageNames = [];
   for (const page of pages.values()) {
-    imageNames.push(speciesMeta.get(taxonIdForPage(page))?.imageFileName || page.pageimage || null);
+    imageNames.push(imageNameFor(page));
   }
   const commonsImages = await collectCommonsImages(imageNames);
 
@@ -258,7 +264,7 @@ async function main() {
     const taxon = taxa.get(wikidataId);
     const scientificName = taxon?.scientificName;
     const lineage = makeLineage(wikidataId, taxa);
-    const imageName = speciesMeta.get(wikidataId)?.imageFileName || page.pageimage || null;
+    const imageName = imageNameFor(page);
     if (!scientificName) {
       failures.push({ title: page.title, wikidataId, reason: "Wikidata item has no taxon name (P225)" });
       continue;
@@ -285,7 +291,7 @@ async function main() {
         parentTaxonId: taxon?.parentId || null,
         lineage,
       },
-      image: commonsImages.get(imageName) || null,
+      image: commonsImages.has(imageName) ? { ...commonsImages.get(imageName), ...cardImageFor(wikidataId) } : null,
       wikipedia: {
         title: page.title,
         wikidataItemId: wikipediaItemId,

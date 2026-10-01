@@ -124,7 +124,7 @@ const clientSource = readFileSync(new URL("../public/app.js", import.meta.url), 
 const detailSource = clientSource.slice(clientSource.indexOf("function openSpeciesCard("), clientSource.indexOf("function placeCard("));
 const detailElements = new Map();
 const detailElement = (selector) => {
-  if (!detailElements.has(selector)) detailElements.set(selector, { hidden: true, focus() {} });
+  if (!detailElements.has(selector)) detailElements.set(selector, { hidden: true, style: {}, focus() {} });
   return detailElements.get(selector);
 };
 const detailState = { classified: [humanId], currentId: ctenophoreId, failed: false };
@@ -155,6 +155,12 @@ detailState.failed = false;
 detailContext.openSpeciesCard(humanId);
 assert.equal(detailElement("#species-view-taxonomy").hidden, true);
 assert.equal(detailElement("#species-view-groups").innerHTML, "", "A new game must not retain revealed taxonomy");
+
+detailState.classified.push("architeuthis-dux");
+detailContext.openSpeciesCard("architeuthis-dux");
+assert.equal(detailElement("#species-view-image").style.objectFit, "contain", "Whole-animal photos must remain uncropped");
+detailContext.openSpeciesCard(humanId);
+assert.equal(detailElement("#species-view-image").style.objectFit, "cover", "Opening another species must reset image fitting");
 console.log("Validated answer-card details and taxonomy visibility after failure.");
 
 const completionState = { tutorial: true, score: 4, round: 4, queue: [1, 2, 3, 4], currentId: "formica-rufa" };

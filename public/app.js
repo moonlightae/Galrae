@@ -153,7 +153,7 @@ function saveCollection(ids) { setCollection([...getCollection(), ...ids]); }
 function imageCreditText(animal) {
   const artist = String(animal.image.artist || "Unknown creator").replace(/\s+/g, " ").trim();
   const shortArtist = artist.length > 70 ? `${artist.slice(0, 67)}…` : artist;
-  return `${shortArtist} · ${animal.image.license}`;
+  return `${shortArtist} · ${animal.image.license}${animal.image.identificationNote ? ` · ${animal.image.identificationNote}` : ""}`;
 }
 
 function renderCollection() {
@@ -169,7 +169,7 @@ function renderCollection() {
     const animal = cardText(speciesById.get(id));
     const groups = taxonomyLabels(animal).map((group) => `<span>${escapeHtml(group)}</span>`).join("");
     return `<article class="mini-card">
-      <div class="mini-card-art"><img loading="lazy" src="${escapeHtml(animal.image.thumbnailUrl)}" alt="${escapeHtml(animal.commonName)}" /></div>
+      <div class="mini-card-art"><img loading="lazy" style="object-fit:${animal.image.objectFit === "contain" ? "contain" : "cover"}" src="${escapeHtml(animal.image.thumbnailUrl)}" alt="${escapeHtml(animal.commonName)}" /></div>
       <div class="mini-card-info">
         <small>ANIMALIA</small><h3>${escapeHtml(animal.commonName)}</h3>
         <p class="mini-scientific"><i>${escapeHtml(animal.scientificName)}</i></p>
@@ -219,6 +219,7 @@ function setCard(speciesId) {
   image.onload = () => { image.hidden = false; fallback.hidden = true; };
   image.onerror = () => { image.hidden = true; fallback.textContent = "?"; fallback.hidden = false; };
   image.src = animal.image.thumbnailUrl;
+  image.style.objectFit = animal.image.objectFit === "contain" ? "contain" : "cover";
   const credit = $("#active-credit");
   credit.href = animal.image.commonsPageUrl;
   credit.textContent = `Image: ${imageCreditText(animal)}`;
@@ -598,6 +599,7 @@ function openSpeciesCard(speciesId, returnFocus) {
     $("#species-view-success-count").textContent = successCountText(getSuccessCounts()[speciesId]);
   }
   image.src = animal.image.thumbnailUrl;
+  image.style.objectFit = animal.image.objectFit === "contain" ? "contain" : "cover";
   image.alt = animal.commonName;
   image.hidden = false;
   fallback.hidden = true;
