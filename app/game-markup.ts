@@ -18,8 +18,8 @@ export const gameMarkup = `
         </div>
         <div class="mode-badge" aria-label="선택됨">ANIMALIA</div>
         <button id="start-game" class="primary-button" type="button" disabled>데이터 불러오는 중… <span aria-hidden="true">→</span></button>
-        <button id="start-tutorial" class="text-button" type="button">튜토리얼</button>
-        <button id="taxonomy-notes-toggle" class="taxonomy-notes-toggle" type="button" aria-expanded="false" aria-haspopup="dialog" aria-controls="taxonomy-notes-modal">주의점 <span aria-hidden="true">↗</span></button>
+        <div class="mode-links"><button id="start-tutorial" class="text-button" type="button">튜토리얼</button>
+        <button id="taxonomy-notes-toggle" class="taxonomy-notes-toggle" type="button" aria-expanded="false" aria-haspopup="dialog" aria-controls="taxonomy-notes-modal">주의점 <span aria-hidden="true">↗</span></button></div>
         </section>
       </div>
       <section class="leaderboard" aria-labelledby="leaderboard-title">
@@ -60,6 +60,7 @@ export const gameMarkup = `
         <div id="tree-canvas" class="tree-canvas" aria-live="polite"></div>
         <p class="tree-canvas-help">계통수 위에서 휠로 확대·축소하고, 빈 곳을 드래그해 화면을 이동할 수 있습니다.</p>
         <div id="failure-panel" class="failure-panel" role="alert" hidden><div><p class="eyebrow">CLASSIFICATION FAILED</p><strong id="failure-title">분류에 실패했어요.</strong><p id="failure-copy">초록색으로 표시된 곳이 올바른 위치입니다.</p><p id="failure-score-status" class="failure-score-status"></p></div><button id="retry-game" class="primary-button" type="button">처음부터 다시 →</button></div>
+        <div id="tutorial-complete-panel" class="failure-panel" role="status" hidden><div><p class="eyebrow">TUTORIAL COMPLETE</p><strong>튜토리얼을 마쳤어요.</strong><p>개미가 추가된 위치를 살펴보세요. 네 가지 배치 방법을 모두 연습했습니다.</p></div><div class="tutorial-complete-actions"><button id="tutorial-complete-lobby" class="text-button" type="button">로비로</button><button id="tutorial-play" class="primary-button" type="button">실전 시작 →</button></div></div>
       </section>
       <aside class="card-dock" aria-labelledby="card-dock-title">
         <div class="dock-copy"><p class="eyebrow">NEW SPECIES</p><h2 id="card-dock-title">새 동물 카드</h2></div>
@@ -73,7 +74,7 @@ export const gameMarkup = `
     </div>
   </main>
   <div id="tutorial-intro-modal" class="modal-backdrop tutorial-intro-backdrop" hidden><section class="tutorial-intro-dialog" role="dialog" aria-modal="true" aria-labelledby="tutorial-intro-title"><p class="eyebrow">FIRST CLASSIFICATION</p><h2 id="tutorial-intro-title">네 가지 배치 방법</h2><p>네 장의 카드로 전체 가지, 생물 노드, 같은 공통 조상의 원, 더 먼저 분기되는 가지에 놓는 방법을 연습합니다. 연습은 도전 횟수와 수집 기록에 포함되지 않습니다.</p><div class="tutorial-intro-actions"><button id="tutorial-quit" class="text-button" type="button">로비로</button><button id="tutorial-begin" class="primary-button" type="button">튜토리얼 시작 →</button></div></section></div>
-  <div id="result-modal" class="modal-backdrop" hidden><section class="result-modal" role="dialog" aria-modal="true" aria-labelledby="result-title"><p class="eyebrow">CLASSIFICATION COMPLETE</p><h2 id="result-title">분류를 마쳤어요.</h2><div class="result-number"><strong id="result-count">0</strong><span id="result-unit">species</span></div><p id="result-copy">새로운 동물을 올바른 갈래에 놓았습니다.</p><p id="score-submit-status" class="score-submit-status"></p><button id="return-lobby" class="primary-button" type="button">수집함 보기 →</button><button id="tutorial-result-lobby" class="text-button tutorial-result-lobby" type="button" hidden>로비로 돌아가기</button></section></div>
+  <div id="result-modal" class="modal-backdrop" hidden><section class="result-modal" role="dialog" aria-modal="true" aria-labelledby="result-title"><p class="eyebrow">CLASSIFICATION COMPLETE</p><h2 id="result-title">분류를 마쳤어요.</h2><div class="result-number"><strong id="result-count">0</strong><span id="result-unit">species</span></div><p id="result-copy">새로운 동물을 올바른 갈래에 놓았습니다.</p><p id="score-submit-status" class="score-submit-status"></p><button id="return-lobby" class="primary-button" type="button">수집함 보기 →</button></section></div>
   <div id="account-modal" class="modal-backdrop account-modal-backdrop" hidden>
     <section class="account-dialog" role="dialog" aria-modal="true" aria-labelledby="account-title">
       <button id="close-account" class="dialog-close account-close" type="button" aria-label="계정 창 닫기">×</button>

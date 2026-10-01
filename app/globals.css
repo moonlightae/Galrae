@@ -188,6 +188,8 @@ button, [role="button"] { -webkit-tap-highlight-color: transparent; }
 .taxonomy-notes-toggle { position: relative; z-index: 1; display: flex; align-items: center; justify-content: space-between; width: 100%; margin-top: 12px; padding: 10px 2px; color: #e7eee9; background: transparent; border: 0; border-bottom: 1px solid rgba(255,255,255,.28); font-size: .78rem; font-weight: 800; text-align: left; cursor: pointer; }
 .taxonomy-notes-toggle span { display: inline-block; transition: transform 160ms ease; }
 .taxonomy-notes-toggle[aria-expanded="true"] span { transform: rotate(180deg); }
+.mode-links { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 12px; }
+.mode-links button { width: auto; margin: 0; padding: 10px 0; border: 0; font-size: .78rem; font-weight: 800; }
 .taxonomy-notes { position: relative; z-index: 1; margin-top: 12px; padding: 16px; color: #e7eee9; background: rgba(0,0,0,.16); border-radius: 8px; font-size: .75rem; line-height: 1.7; }
 .mode-panel .taxonomy-notes p { margin: 0 0 10px; color: #e7eee9; }
 .taxonomy-notes ul { display: grid; gap: 12px; margin: 0; padding-left: 18px; }
@@ -537,6 +539,8 @@ button, [role="button"] { -webkit-tap-highlight-color: transparent; }
 .failure-panel p:last-child { margin: 5px 0 0; color: #f1d7d2; font-size: .82rem; }
 .failure-panel .primary-button { width: auto; min-width: 185px; flex: 0 0 auto; }
 .failure-panel .failure-score-status { margin-top: 9px; color: #ffd789; font-weight: 700; }
+.tutorial-complete-actions { display: flex; align-items: center; gap: 12px; }
+.tutorial-complete-actions .primary-button { flex: 1; }
 
 .modal-backdrop { position: fixed; inset: 0; z-index: 20; display: grid; place-items: center; padding: 20px; background: rgba(9, 27, 21, .72); backdrop-filter: blur(7px); }
 .result-modal { width: min(440px, 100%); padding: 42px; background: var(--paper); border: 1px solid var(--ink); border-radius: 8px 30px 8px 30px; box-shadow: 12px 14px 0 rgba(0,0,0,.28); text-align: center; }
@@ -607,7 +611,6 @@ button, [role="button"] { -webkit-tap-highlight-color: transparent; }
 .tutorial-intro-dialog > p:not(.eyebrow) { margin: 0; line-height: 1.7; }
 .tutorial-intro-actions { display: flex; align-items: center; gap: 18px; margin-top: 28px; }
 .tutorial-intro-actions .primary-button { flex: 1; }
-.tutorial-result-lobby { display: block; margin: 16px auto 0; text-decoration: underline; text-underline-offset: 3px; }
 
 /* Lobby layout follows the two-screen guide: introduction and play controls
    on the left, leaderboard on the right, then a wide card collection. */

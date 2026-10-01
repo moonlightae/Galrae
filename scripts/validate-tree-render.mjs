@@ -154,3 +154,17 @@ detailContext.openSpeciesCard(humanId);
 assert.equal(detailElement("#species-view-taxonomy").hidden, true);
 assert.equal(detailElement("#species-view-groups").innerHTML, "", "A new game must not retain revealed taxonomy");
 console.log("Validated answer-card details and taxonomy visibility after failure.");
+
+const completionState = { tutorial: true, score: 4, round: 4, queue: [1, 2, 3, 4], currentId: "formica-rufa" };
+const completionContext = {
+  state: completionState, $: detailElement,
+  card: { classList: { add() {} }, setAttribute() {} },
+};
+detailElement("#result-modal").hidden = true;
+vm.runInNewContext(clientSource.slice(clientSource.indexOf("function updateRound("), clientSource.indexOf("async function startGame(")), completionContext);
+completionContext.updateRound();
+assert.equal(detailElement("#tutorial-complete-panel").hidden, false, "Tutorial completion must use the bottom panel");
+assert.equal(detailElement("#result-modal").hidden, true, "Tutorial completion must not obscure the final tree with a modal");
+assert.equal(detailElement("#tutorial-banner").hidden, true);
+assert.equal(completionState.currentId, null, "Completing the tutorial must prevent placing the last card twice");
+console.log("Validated tutorial completion without a blocking modal.");

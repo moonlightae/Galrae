@@ -641,17 +641,24 @@ function failRound() {
 function updateRound() {
   $("#score-label").textContent = `${state.tutorial ? "연습" : "정답"} ${state.score}`;
   if (state.round >= state.queue.length) {
-    if (!state.tutorial) saveCollection(state.classified);
-    $("#result-title").textContent = state.tutorial ? "튜토리얼을 마쳤어요." : "분류를 마쳤어요.";
-    $("#result-count").textContent = state.tutorial ? state.score : state.classified.length;
-    $("#result-unit").textContent = state.tutorial ? "cards" : "species";
-    $("#result-copy").textContent = state.tutorial
-      ? "이제 무작위로 나오는 생물 카드를 실제 계통수에 분류해 보세요."
-      : `${state.classified.length} species, including Human, were placed in the Animalia tree.`;
-    $("#return-lobby").textContent = state.tutorial ? "실전 시작 →" : "수집함 보기 →";
-    $("#tutorial-result-lobby").hidden = !state.tutorial;
+    if (state.tutorial) {
+      state.currentId = null;
+      state.expected = null;
+      card.classList.add("is-locked");
+      card.setAttribute("draggable", "false");
+      $("#tutorial-banner").hidden = true;
+      $("#tutorial-complete-panel").hidden = false;
+      $("#tutorial-play").focus();
+      return;
+    }
+    saveCollection(state.classified);
+    $("#result-title").textContent = "분류를 마쳤어요.";
+    $("#result-count").textContent = state.classified.length;
+    $("#result-unit").textContent = "species";
+    $("#result-copy").textContent = `${state.classified.length} species, including Human, were placed in the Animalia tree.`;
+    $("#return-lobby").textContent = "수집함 보기 →";
     $("#result-modal").hidden = false;
-    if (!state.tutorial) submitScore();
+    submitScore();
     return;
   }
   state.currentId = state.queue[state.round];
@@ -696,6 +703,7 @@ async function startGame(options = {}) {
     lobby.hidden = true; game.hidden = false;
     $("#result-modal").hidden = true;
     $("#failure-panel").hidden = true;
+    $("#tutorial-complete-panel").hidden = true;
     $("#species-modal").hidden = true;
     $("#tutorial-intro-modal").hidden = !tutorial;
     renderTree();
@@ -760,7 +768,7 @@ async function initialize() {
 }
 
 card.addEventListener("dragstart", (event) => {
-  if (state.failed) { event.preventDefault(); return; }
+  if (state.failed || !state.currentId) { event.preventDefault(); return; }
   event.dataTransfer.setData("text/plain", "species-card");
   card.classList.add("is-dragging");
 });
@@ -769,7 +777,7 @@ card.addEventListener("dragend", () => {
   if (!state.failed) clearPreview();
 });
 card.addEventListener("click", () => {
-  if (state.failed) return;
+  if (state.failed || !state.currentId) return;
   state.selected = !state.selected;
   card.classList.toggle("is-selected", state.selected);
 });
@@ -799,15 +807,13 @@ $("#taxonomy-notes-modal").addEventListener("click", (event) => {
   if (event.target === event.currentTarget) closeTaxonomyNotes();
 });
 $("#quit-game").addEventListener("click", returnToLobby);
-$("#return-lobby").addEventListener("click", () => {
-  if (state.tutorial) startGame({ skipTutorial: true });
-  else returnToLobby();
-});
+$("#return-lobby").addEventListener("click", returnToLobby);
 $("#retry-game").addEventListener("click", () => startGame({ tutorial: state.tutorial }));
 $("#start-tutorial").addEventListener("click", () => startGame({ tutorial: true }));
 $("#tutorial-begin").addEventListener("click", () => { $("#tutorial-intro-modal").hidden = true; card.focus(); });
 $("#tutorial-quit").addEventListener("click", returnToLobby);
-$("#tutorial-result-lobby").addEventListener("click", returnToLobby);
+$("#tutorial-complete-lobby").addEventListener("click", returnToLobby);
+$("#tutorial-play").addEventListener("click", () => startGame({ skipTutorial: true }));
 $("#auth-panel").addEventListener("click", (event) => {
   if (event.target.closest("#open-account")) openAccountModal(event.target.closest("#open-account"));
   if (event.target.closest("#logout-account")) logoutAccount();
