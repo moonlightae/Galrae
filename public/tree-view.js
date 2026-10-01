@@ -1,10 +1,10 @@
-export function createTreeView({ ANIMALIA_ID, buildTree, escapeHtml, speciesById, state, treeCanvas, $ }) {
+export function createTreeView({ ANIMALIA_ID, buildTree, escapeHtml, speciesById, state, treeCanvas, $, cardText }) {
   const MIN_TREE_ZOOM = 0.03;
   const MAX_TREE_ZOOM = 3.5;
 
   function renderNode(node, omitIncomingEdge = false) {
     if (node.type === "leaf") {
-      const animal = speciesById.get(node.id);
+      const animal = cardText(speciesById.get(node.id));
       const fresh = state.newest === node.id ? " is-new" : "";
       const preview = node.preview ? " is-preview" : "";
       const badge = node.preview ? `<span class="preview-tag">${state.failed ? "정답 위치" : "미리보기"}</span>` : "";
@@ -54,7 +54,7 @@ export function createTreeView({ ANIMALIA_ID, buildTree, escapeHtml, speciesById
         }
       }
       if (node.type === "leaf") {
-        const animal = speciesById.get(node.id);
+        const animal = cardText(speciesById.get(node.id));
         const fresh = state.newest === node.id ? " is-new" : "";
         const preview = node.preview ? " is-preview" : "";
         const badge = node.preview ? `<span class="preview-tag">${state.failed ? "정답 위치" : "미리보기"}</span>` : "";
@@ -89,7 +89,7 @@ export function createTreeView({ ANIMALIA_ID, buildTree, escapeHtml, speciesById
   }
 
   function renderPreview(placement, targetElement) {
-    const animal = speciesById.get(state.currentId);
+    const animal = state.currentId ? cardText(speciesById.get(state.currentId)) : null;
     const preview = treeCanvas.querySelector(".placement-preview");
     if (!animal || !preview || !targetElement) return;
     treeCanvas.querySelectorAll(".is-drop-target").forEach((node) => node.classList.remove("is-drop-target"));

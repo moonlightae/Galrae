@@ -15,6 +15,7 @@ const context = {
   ANIMALIA_ID,
   escapeHtml: (value) => String(value),
   speciesById,
+  cardText: (animal) => animal,
   state: { newest: null, failed: false, layout: "top" },
   treeCanvas: { innerHTML: "" },
   updateCamera: () => {},
@@ -129,6 +130,7 @@ const detailElement = (selector) => {
 const detailState = { classified: [humanId], currentId: ctenophoreId, failed: false };
 const detailContext = {
   state: detailState, speciesById, HUMAN_ID: humanId, $: detailElement,
+  cardText: (animal) => animal,
   shortDescription: (text) => text, escapeHtml: (text) => String(text),
   taxonomyLabels: (animal) => animal.taxonomy.lineage.map((taxon) => taxon.scientificName),
   getSuccessCounts: () => ({}), successCountText: () => "분류 성공 0회", imageCreditText: () => "credit",
@@ -168,3 +170,44 @@ assert.equal(detailElement("#result-modal").hidden, true, "Tutorial completion m
 assert.equal(detailElement("#tutorial-banner").hidden, true);
 assert.equal(completionState.currentId, null, "Completing the tutorial must prevent placing the last card twice");
 console.log("Validated tutorial completion without a blocking modal.");
+
+const korean = JSON.parse(readFileSync(new URL("../data/animals.ko.json", import.meta.url), "utf8"));
+for (const animal of dataset.animals) animal.ko = korean[animal.id];
+const translationSource = clientSource.slice(clientSource.indexOf("function cardText("), clientSource.indexOf("function taxonomyLabels("));
+const languageState = { cardLanguage: "en", tree: sampleTree, classified: [humanId, ctenophoreId, placozoanId], currentId: "asterias-rubens", failed: false };
+const languageCalls = [];
+const languageContext = {
+  state: languageState, dataset, speciesById, buildTree,
+  localStorage: { setItem: (key, value) => languageCalls.push([key, value]) },
+  document: { querySelectorAll: () => [] },
+  renderCollection() {}, clearPreview() {}, setCard: (id) => languageCalls.push(id),
+  renderTree: (tree, answer) => languageCalls.push({ tree, answer }),
+};
+vm.runInNewContext(translationSource, languageContext);
+languageContext.setCardLanguage("ko");
+assert.equal(languageContext.cardText(speciesById.get(humanId)).commonName, "사람");
+assert.equal(languageState.tree, sampleTree, "Language changes must preserve the tree and placement state");
+assert.equal(languageState.currentId, "asterias-rubens");
+assert.equal(languageCalls.at(-1), "asterias-rubens");
+assert.equal(languageContext.cardText(speciesById.get(humanId)).scientificName, "Homo sapiens");
+context.cardText = languageContext.cardText;
+for (const layout of ["top", "bottom", "radial"]) {
+  context.state.layout = layout;
+  context.renderTree(sampleTree);
+  assert.match(context.treeCanvas.innerHTML, /사람/, "Every tree layout must use the selected card language");
+  assert.match(context.treeCanvas.innerHTML, /data-species-id="homo-sapiens"/, "Translated names must preserve species IDs");
+}
+detailContext.cardText = languageContext.cardText;
+detailState.failed = true;
+detailContext.openSpeciesCard(ctenophoreId);
+assert.equal(detailElement("#species-view-name").textContent, korean[ctenophoreId].commonName);
+assert.equal(detailElement("#species-view-description").textContent, korean[ctenophoreId].description);
+languageContext.setCardLanguage("en");
+assert.equal(languageContext.cardText(speciesById.get(humanId)).commonName, "Human");
+languageContext.setCardLanguage("invalid");
+assert.equal(languageState.cardLanguage, "en");
+languageState.failed = true;
+languageContext.setCardLanguage("ko");
+assert.equal(languageCalls.at(-2).answer, true, "Language switching after failure must preserve the answer highlight");
+assert.equal(languageState.classified.length, 3, "Switching language must not collect the revealed answer");
+console.log("Validated Korean/English switching without changing scientific names or game state.");

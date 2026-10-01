@@ -70,6 +70,7 @@ export const gameMarkup = `
         </div>
         <a id="active-credit" class="image-credit" href="#" target="_blank" rel="noreferrer">Image credit</a>
         <p id="drag-help" class="drag-help">원형 분기점에 놓으면 같은 조상 아래 가지가 추가되고, 분기점으로 이어지는 선에 놓으면 새로운 공통 조상이 생깁니다. 이미 분류한 생물은 선택하지 않은 상태에서 눌러 카드를 다시 볼 수 있어요.</p>
+        <div class="card-language"><p>동물카드 언어 전환하기</p><div class="tree-layout-controls" role="group" aria-label="동물카드 언어"><button type="button" data-card-language="en" aria-pressed="true">영어</button><button type="button" data-card-language="ko" aria-pressed="false">한글</button></div><p class="card-language-note">계통분류학은 영어로 배울 때 가장 오류가 적습니다.</p></div>
       </aside>
     </div>
   </main>

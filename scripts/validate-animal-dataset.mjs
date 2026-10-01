@@ -3,6 +3,11 @@ import path from "node:path";
 
 const root = path.resolve(import.meta.dirname, "..");
 const dataset = JSON.parse(await readFile(path.join(root, "data", "animals.json"), "utf8"));
+const koreanSource = await readFile(path.join(root, "data", "animals.ko.json"), "utf8");
+const korean = JSON.parse(koreanSource);
+if (koreanSource !== await readFile(path.join(root, "public", "data", "animals.ko.json"), "utf8")) {
+  throw new Error("Source and public Korean translations must match");
+}
 const problems = [];
 const ids = new Set();
 
@@ -10,6 +15,10 @@ for (const animal of dataset.animals) {
   const label = `${animal.commonName} (${animal.scientificName})`;
   if (ids.has(animal.id)) problems.push(`${label}: duplicate id ${animal.id}`);
   ids.add(animal.id);
+  const translation = korean[animal.id];
+  if (!/[가-힣]/.test(translation?.commonName || "") || !/[가-힣]/.test(translation?.description || "")) {
+    problems.push(`${label}: missing Korean card name or description`);
+  }
 
   const lineage = animal.taxonomy?.lineage || [];
   if (lineage[0]?.wikidataId !== "Q729") problems.push(`${label}: lineage does not begin at Animalia`);
@@ -23,6 +32,7 @@ for (const animal of dataset.animals) {
 if (dataset.speciesCount !== dataset.animals.length) {
   problems.push(`speciesCount is ${dataset.speciesCount}, but animals contains ${dataset.animals.length} records`);
 }
+if (Object.keys(korean).length !== dataset.animals.length) problems.push("Korean translations must cover exactly the dataset species");
 
 if (problems.length) {
   console.error(problems.join("\n"));

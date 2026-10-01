@@ -29,6 +29,7 @@ const state = {
   classified: [HUMAN_ID], newest: null, currentId: null, expected: null,
   previewTarget: null, previewPlacement: null, failed: false,
   layout: "top", zoom: 1, tutorial: false,
+  cardLanguage: localStorage.getItem("galrae.card-language.v1") === "ko" ? "ko" : "en",
   panX: 0, panY: 0, panning: false, panStartX: 0, panStartY: 0,
   panOriginX: 0, panOriginY: 0, detailReturnFocus: null,
 };
@@ -44,6 +45,27 @@ function shortDescription(text, maxLength = 190) {
   const firstSentence = clean.match(/^.*?[.!?](?:\s|$)/)?.[0]?.trim() || clean;
   if (firstSentence.length <= maxLength) return firstSentence;
   return `${firstSentence.slice(0, maxLength - 1).trimEnd()}…`;
+}
+
+function cardText(animal) {
+  return state.cardLanguage === "ko" && animal.ko ? { ...animal, ...animal.ko } : animal;
+}
+
+function setCardLanguage(language) {
+  if (!["en", "ko"].includes(language)) return;
+  state.cardLanguage = language;
+  localStorage.setItem("galrae.card-language.v1", language);
+  document.querySelectorAll("[data-card-language]").forEach((button) => {
+    button.setAttribute("aria-pressed", String(button.dataset.cardLanguage === language));
+  });
+  if (!dataset) return;
+  renderCollection();
+  if (state.tree) {
+    clearPreview();
+    const tree = state.failed ? buildTree([...state.classified, state.currentId], speciesById, state.currentId) : state.tree;
+    renderTree(tree, state.failed);
+    if (state.currentId || state.newest) setCard(state.currentId || state.newest);
+  }
 }
 
 function taxonomyLabels(animal) {
@@ -144,7 +166,7 @@ function renderCollection() {
     return;
   }
   grid.innerHTML = collected.map((id) => {
-    const animal = speciesById.get(id);
+    const animal = cardText(speciesById.get(id));
     const groups = taxonomyLabels(animal).map((group) => `<span>${escapeHtml(group)}</span>`).join("");
     return `<article class="mini-card">
       <div class="mini-card-art"><img loading="lazy" src="${escapeHtml(animal.image.thumbnailUrl)}" alt="${escapeHtml(animal.commonName)}" /></div>
@@ -161,7 +183,7 @@ function renderCollection() {
 }
 
 const { clearPreview, renderPreview, renderTree, resetTreeView, setTreeLayout, updateCamera, zoomTree, zoomTreeAtCenter } = createTreeView({
-  ANIMALIA_ID, buildTree, escapeHtml, speciesById, state, treeCanvas, $,
+  ANIMALIA_ID, buildTree, escapeHtml, speciesById, state, treeCanvas, $, cardText,
 });
 
 function preloadImage(url, timeout = 5000) {
@@ -183,7 +205,7 @@ function preloadImage(url, timeout = 5000) {
 }
 
 function setCard(speciesId) {
-  const animal = speciesById.get(speciesId);
+  const animal = cardText(speciesById.get(speciesId));
   const image = $("#active-image");
   const fallback = $("#active-image-fallback");
   $("#active-name").textContent = animal.commonName;
@@ -200,7 +222,7 @@ function setCard(speciesId) {
   const credit = $("#active-credit");
   credit.href = animal.image.commonsPageUrl;
   credit.textContent = `Image: ${imageCreditText(animal)}`;
-  card.setAttribute("aria-label", `${animal.commonName} card. Select it, then choose a position in the tree.`);
+  card.setAttribute("aria-label", `${animal.commonName} 카드. 선택한 뒤 계통수에서 배치할 위치를 골라 주세요.`);
 }
 
 function showToast(message) {
@@ -558,8 +580,8 @@ async function submitScore() {
 
 function openSpeciesCard(speciesId, returnFocus) {
   if (!state.classified.includes(speciesId) && !(state.failed && speciesId === state.currentId)) return;
-  const animal = speciesById.get(speciesId);
-  if (!animal) return;
+  if (!speciesById.has(speciesId)) return;
+  const animal = cardText(speciesById.get(speciesId));
   const image = $("#species-view-image");
   const fallback = $("#species-view-fallback");
   $("#species-view-name").textContent = animal.commonName;
@@ -740,18 +762,23 @@ async function returnToLobby() {
 async function initialize() {
   const startButton = $("#start-game");
   try {
-    const [response] = await Promise.all([fetch("data/animals.json"), loadAccount()]);
+    const [response, translationsResponse] = await Promise.all([fetch("data/animals.json"), fetch("data/animals.ko.json"), loadAccount()]);
     if (!response.ok) throw new Error(`Dataset request failed: ${response.status}`);
+    if (!translationsResponse.ok) throw new Error(`Translation request failed: ${translationsResponse.status}`);
     dataset = await response.json();
+    const translations = await translationsResponse.json();
     animals = dataset.animals;
     speciesById.clear();
-    for (const animal of animals) speciesById.set(animal.id, animal);
+    for (const animal of animals) {
+      animal.ko = translations[animal.id];
+      speciesById.set(animal.id, animal);
+    }
     if (!speciesById.has(HUMAN_ID)) throw new Error("Human is missing from the dataset");
     migrateCollection();
     let collectionSyncFailed = false;
     try { await syncCollection(); }
     catch (error) { console.error(error); collectionSyncFailed = true; showToast("수집 기록을 불러오지 못했습니다."); }
-    renderCollection();
+    setCardLanguage(state.cardLanguage);
     if (collectionSyncFailed) $("#collection-count").textContent = "수집 기록 확인 실패 · 새로고침해 주세요";
     $("#boot-loading-status").textContent = "리더보드와 카드를 준비하는 중…";
     await loadLeaderboard();
@@ -786,6 +813,9 @@ card.addEventListener("keydown", (event) => {
 });
 
 $("#start-game").addEventListener("click", startGame);
+document.querySelectorAll("[data-card-language]").forEach((button) => {
+  button.addEventListener("click", () => setCardLanguage(button.dataset.cardLanguage));
+});
 document.querySelectorAll("[data-tree-layout]").forEach((button) => {
   button.addEventListener("click", () => setTreeLayout(button.dataset.treeLayout));
 });

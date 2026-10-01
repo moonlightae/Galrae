@@ -39,6 +39,18 @@ individually rather than copied blindly.
 
 ## Record contents
 
+`animals.ko.json` contains Korean names and card-length introductions for all
+207 species, adapted from the English descriptions at the fixed revisions below.
+Keep it identical to `public/data/animals.ko.json`. Names without an established
+Korean equivalent use scientific-name transliteration; scientific names and
+lineage labels remain unchanged in either language. These are card introductions,
+not translations of the full Wikipedia articles.
+The squid name 흰꼴뚜기 follows [NIFS](https://www.nifs.go.kr/portal/bt/frctA/actionSpeciesSearchView.do?taxonId=11783).
+The names 진주담치 and 플라나리아 follow NIBR's [mollusc fauna](https://www.nibr.go.kr/aiibook/catImage/236/Invertebrate%20fauna%20of%20korea%2019_2.pdf)
+and [national species list](https://www.nibr.go.kr/aiibook/catImage/21/National%20Species%202.pdf).
+The ambiguous English label “purple sea urchin” is tied to the dataset's species
+`Strongylocentrotus purpuratus`, as confirmed by [WoRMS](https://www.marinespecies.org/aphia.php?id=240747&p=taxdetails).
+
 - English common name and scientific taxon name
 - Wikidata parent-taxon lineage from `Animalia` to the species
 - English Wikipedia introductory description and fixed revision URL
