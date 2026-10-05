@@ -11,6 +11,62 @@ const game = $("#game");
 const card = $("#active-card");
 const toast = $("#toast");
 const treeCanvas = $("#tree-canvas");
+const navigationShell = $("#navigation-shell");
+const toolbar = $("#side-toolbar");
+const toolbarHandle = $("#toolbar-handle");
+const lobbyPages = { lobby, leaderboard: $("#leaderboard-page"), collection: $("#collection-page"), tasks: $("#tasks-page"), account: $("#account-modal") };
+
+function setToolbarOpen(open, restoreFocus = false) {
+  navigationShell.classList.toggle("is-open", open);
+  toolbar.inert = !open;
+  toolbarHandle.setAttribute("aria-expanded", String(open));
+  toolbarHandle.setAttribute("aria-label", open ? "메뉴 닫기" : "메뉴 열기");
+  if (restoreFocus) toolbarHandle.focus();
+}
+
+function showLobbyPage(page, updateHistory = true) {
+  if (!Object.hasOwn(lobbyPages, page)) page = "lobby";
+  setToolbarOpen(false);
+  game.hidden = true;
+  ["#result-modal", "#tutorial-intro-modal", "#species-modal", "#taxonomy-notes-modal"].forEach((selector) => { $(selector).hidden = true; });
+  navigationShell.hidden = false;
+  for (const [name, screen] of Object.entries(lobbyPages)) screen.hidden = name !== page;
+  toolbar.querySelectorAll("[data-page]").forEach((button) => {
+    if (button.dataset.page === page) button.setAttribute("aria-current", "page");
+    else button.removeAttribute("aria-current");
+  });
+  if (updateHistory && location.hash !== `#${page}`) history.pushState(null, "", `#${page}`);
+  window.scrollTo(0, 0);
+  const heading = lobbyPages[page].querySelector("h1, h2");
+  if (heading) { heading.tabIndex = -1; heading.focus({ preventScroll: true }); }
+}
+
+function restoreLobbyPage() {
+  const page = location.hash.slice(1);
+  if (page === "account") openAccountModal(toolbarHandle);
+  else showLobbyPage(page, false);
+}
+
+$("#toolbar-edge").addEventListener("pointerenter", (event) => {
+  if (event.pointerType === "mouse") setToolbarOpen(true);
+});
+$("#toolbar-edge").addEventListener("pointerleave", (event) => {
+  if (event.pointerType === "mouse") setToolbarOpen(false, toolbar.contains(document.activeElement));
+});
+toolbarHandle.addEventListener("click", (event) => {
+  // Mouse hover has already opened the panel; tapping still toggles it.
+  setToolbarOpen(event.detail === 0 || event.pointerType !== "mouse" ? !navigationShell.classList.contains("is-open") : true);
+});
+$("#toolbar-shade").addEventListener("click", () => setToolbarOpen(false, true));
+$("#close-toolbar").addEventListener("click", () => setToolbarOpen(false, true));
+$("#toolbar-edge").addEventListener("focusout", (event) => {
+  if (!event.currentTarget.contains(event.relatedTarget)) setToolbarOpen(false);
+});
+document.querySelectorAll("[data-page]").forEach((button) => {
+  button.addEventListener("click", () => showLobbyPage(button.dataset.page));
+});
+window.addEventListener("popstate", restoreLobbyPage);
+window.addEventListener("hashchange", restoreLobbyPage);
 
 let dataset = null;
 let animals = [];
@@ -299,6 +355,7 @@ function renderAccountProfile() {
 }
 
 function openAccountModal(returnFocus) {
+  showLobbyPage("account");
   accountReturnFocus = returnFocus || null;
   $("#admin-view").hidden = true;
   $("#account-auth-view").hidden = Boolean(currentUser);
@@ -312,6 +369,7 @@ function openAccountModal(returnFocus) {
 function closeAccountModal() {
   if ($("#account-modal").hidden) return;
   $("#account-modal").hidden = true;
+  showLobbyPage("lobby");
   const returnFocus = accountReturnFocus;
   accountReturnFocus = null;
   if (returnFocus?.isConnected) returnFocus.focus();
@@ -724,7 +782,10 @@ async function startGame(options = {}) {
     $("#failure-score-status").textContent = "";
     card.classList.remove("is-selected", "is-dragging", "is-locked");
     card.setAttribute("draggable", "true");
-    lobby.hidden = true; game.hidden = false;
+    Object.values(lobbyPages).forEach((screen) => { screen.hidden = true; });
+    setToolbarOpen(false);
+    navigationShell.hidden = true;
+    game.hidden = false;
     $("#result-modal").hidden = true;
     $("#failure-panel").hidden = true;
     $("#tutorial-complete-panel").hidden = true;
@@ -749,7 +810,7 @@ async function returnToLobby() {
   $("#tutorial-intro-modal").hidden = true;
   game.hidden = true;
   $("#result-modal").hidden = true;
-  lobby.hidden = false;
+  showLobbyPage("lobby");
   renderCollection();
   try { await syncCollection(); }
   catch (error) {
@@ -793,6 +854,7 @@ async function initialize() {
     showToast("게임 정보를 불러오지 못했습니다.");
   } finally {
     $("#boot-loading").hidden = true;
+    restoreLobbyPage();
   }
 }
 
@@ -827,9 +889,10 @@ $("#tree-zoom-out").addEventListener("click", () => zoomTreeAtCenter(.8));
 function closeTaxonomyNotes() {
   $("#taxonomy-notes-modal").hidden = true;
   $("#taxonomy-notes-toggle").setAttribute("aria-expanded", "false");
-  $("#taxonomy-notes-toggle").focus();
+  toolbarHandle.focus();
 }
 $("#taxonomy-notes-toggle").addEventListener("click", () => {
+  setToolbarOpen(false);
   $("#taxonomy-notes-modal").hidden = false;
   $("#taxonomy-notes-toggle").setAttribute("aria-expanded", "true");
   $("#close-taxonomy-notes").focus();
@@ -839,7 +902,7 @@ $("#taxonomy-notes-modal").addEventListener("click", (event) => {
   if (event.target === event.currentTarget) closeTaxonomyNotes();
 });
 $("#quit-game").addEventListener("click", returnToLobby);
-$("#return-lobby").addEventListener("click", returnToLobby);
+$("#return-lobby").addEventListener("click", async () => { await returnToLobby(); showLobbyPage("collection"); });
 $("#retry-game").addEventListener("click", () => startGame({ tutorial: state.tutorial }));
 $("#start-tutorial").addEventListener("click", () => startGame({ tutorial: true }));
 $("#tutorial-begin").addEventListener("click", () => { $("#tutorial-intro-modal").hidden = true; card.focus(); });
@@ -851,7 +914,6 @@ $("#auth-panel").addEventListener("click", (event) => {
   if (event.target.closest("#logout-account")) logoutAccount();
 });
 $("#close-account").addEventListener("click", closeAccountModal);
-$("#account-modal").addEventListener("click", (event) => { if (event.target === event.currentTarget) closeAccountModal(); });
 $("#show-login").addEventListener("click", () => setAuthMode("login"));
 $("#show-register").addEventListener("click", () => setAuthMode("register"));
 $("#account-form").addEventListener("submit", submitAccount);
@@ -865,6 +927,7 @@ $("#species-modal").addEventListener("click", (event) => {
   if (event.target === event.currentTarget) closeSpeciesCard();
 });
 document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && navigationShell.classList.contains("is-open")) { setToolbarOpen(false, true); return; }
   if (event.key === "Escape" && !$("#tutorial-intro-modal").hidden) { returnToLobby(); return; }
   if (event.key === "Escape" && !$("#taxonomy-notes-modal").hidden) { closeTaxonomyNotes(); return; }
   if (event.key === "Escape" && !$("#account-modal").hidden) { closeAccountModal(); return; }

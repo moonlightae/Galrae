@@ -3,9 +3,6 @@ export const gameMarkup = `
   <div id="game-loading" class="loading-screen" role="status" aria-live="polite" hidden><div class="loading-content"><span class="loading-spinner" aria-hidden="true"></span><strong>갈래</strong><p>첫 생물 카드를 준비하는 중…</p></div></div>
   <div class="paper-noise" aria-hidden="true"></div>
   <main id="lobby" class="screen lobby-screen">
-    <header class="site-header">
-      <div id="auth-panel" class="auth-panel" aria-live="polite"><span class="auth-loading">게임 계정 확인 중…</span></div>
-    </header>
     <div class="lobby-main">
       <div class="lobby-left">
         <section class="lobby-intro" aria-labelledby="lobby-title">
@@ -19,21 +16,48 @@ export const gameMarkup = `
         <div class="mode-badge" aria-label="선택됨">ANIMALIA</div>
         <button id="start-game" class="primary-button" type="button" disabled>데이터 불러오는 중… <span aria-hidden="true">→</span></button>
         <div class="mode-links"><button id="start-tutorial" class="text-button" type="button">튜토리얼</button>
-        <button id="taxonomy-notes-toggle" class="taxonomy-notes-toggle" type="button" aria-expanded="false" aria-haspopup="dialog" aria-controls="taxonomy-notes-modal">주의점 <span aria-hidden="true">↗</span></button></div>
+        </div>
         </section>
       </div>
+    </div>
+  </main>
+  <main id="leaderboard-page" class="screen library-screen" data-lobby-page hidden>
+    <button class="text-button page-back" type="button" data-page="lobby">← 로비</button>
       <section class="leaderboard" aria-labelledby="leaderboard-title">
         <div class="section-heading leaderboard-heading"><div><h2 id="leaderboard-title">리더보드</h2></div><p id="leaderboard-status">기록을 불러오는 중…</p></div>
         <ol id="leaderboard-list" class="leaderboard-list" aria-live="polite"></ol>
         <p id="leaderboard-note" class="leaderboard-note">게임 아이디로 로그인하면 최고 기록이 자동으로 등록됩니다.</p>
       </section>
-    </div>
+  </main>
+  <main id="collection-page" class="screen library-screen" data-lobby-page hidden>
+    <button class="text-button page-back" type="button" data-page="lobby">← 로비</button>
     <section class="collection" aria-labelledby="collection-title">
       <div class="section-heading"><div><h2 id="collection-title">분류한 카드</h2></div><p id="collection-count">0종 발견</p></div>
       <div id="collection-grid" class="collection-grid"></div>
       <p class="data-attribution">Species text and taxonomy data from <a href="https://en.wikipedia.org/" target="_blank" rel="noreferrer">English Wikipedia</a> (<a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noreferrer">CC BY-SA 4.0</a>) and <a href="https://www.wikidata.org/" target="_blank" rel="noreferrer">Wikidata</a>. Images are provided by <a href="https://commons.wikimedia.org/" target="_blank" rel="noreferrer">Wikimedia Commons</a> under the license shown on each card.</p>
     </section>
   </main>
+  <main id="tasks-page" class="screen library-screen" data-lobby-page hidden>
+    <button class="text-button page-back" type="button" data-page="lobby">← 로비</button>
+    <section class="tasks-panel"><h1 tabindex="-1">발전과제</h1><p>발전과제는 준비 중입니다.</p></section>
+  </main>
+  <div id="navigation-shell" class="navigation-shell">
+    <button id="toolbar-shade" class="toolbar-shade" type="button" tabindex="-1" aria-label="메뉴 닫기"></button>
+    <div id="toolbar-edge" class="toolbar-edge">
+      <button id="toolbar-handle" class="toolbar-handle" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="side-toolbar"><span aria-hidden="true"></span></button>
+      <nav id="side-toolbar" class="side-toolbar" aria-label="화면 메뉴" inert>
+        <div class="toolbar-heading"><span>갈래</span><button id="close-toolbar" class="text-button" type="button" aria-label="메뉴 닫기">×</button></div>
+        <div class="toolbar-pages">
+          <button type="button" data-page="lobby" aria-current="page">로비</button>
+          <button type="button" data-page="leaderboard">리더보드</button>
+          <button type="button" data-page="collection">카드 리스트</button>
+          <button type="button" data-page="tasks">발전과제</button>
+          <button id="taxonomy-notes-toggle" type="button" aria-expanded="false" aria-haspopup="dialog" aria-controls="taxonomy-notes-modal">분류 기준 안내</button>
+        </div>
+        <div id="auth-panel" class="auth-panel toolbar-account" aria-live="polite"><span class="auth-loading">게임 계정 확인 중…</span></div>
+      </nav>
+    </div>
+  </div>
   <div id="taxonomy-notes-modal" class="modal-backdrop taxonomy-notes-backdrop" hidden>
     <section class="taxonomy-notes-dialog" role="dialog" aria-modal="true" aria-labelledby="taxonomy-notes-title">
       <button id="close-taxonomy-notes" class="dialog-close" type="button" aria-label="주의점 창 닫기">×</button>
@@ -76,8 +100,8 @@ export const gameMarkup = `
   </main>
   <div id="tutorial-intro-modal" class="modal-backdrop tutorial-intro-backdrop" hidden><section class="tutorial-intro-dialog" role="dialog" aria-modal="true" aria-labelledby="tutorial-intro-title"><h2 id="tutorial-intro-title">튜토리얼</h2><p>네 장의 카드로 게임 플레이 방법을 이해합니다.</p><div class="tutorial-intro-actions"><button id="tutorial-quit" class="text-button" type="button">로비로</button><button id="tutorial-begin" class="primary-button" type="button">튜토리얼 시작 →</button></div></section></div>
   <div id="result-modal" class="modal-backdrop" hidden><section class="result-modal" role="dialog" aria-modal="true" aria-labelledby="result-title"><p class="eyebrow">CLASSIFICATION COMPLETE</p><h2 id="result-title">분류를 마쳤어요.</h2><div class="result-number"><strong id="result-count">0</strong><span id="result-unit">species</span></div><p id="result-copy">새로운 동물을 올바른 갈래에 놓았습니다.</p><p id="score-submit-status" class="score-submit-status"></p><button id="return-lobby" class="primary-button" type="button">수집함 보기 →</button></section></div>
-  <div id="account-modal" class="modal-backdrop account-modal-backdrop" hidden>
-    <section class="account-dialog" role="dialog" aria-modal="true" aria-labelledby="account-title">
+  <div id="account-modal" class="screen library-screen account-page" data-lobby-page hidden>
+    <section class="account-dialog" aria-labelledby="account-title">
       <button id="close-account" class="dialog-close account-close" type="button" aria-label="계정 창 닫기">×</button>
       <div id="account-auth-view">
         <p class="eyebrow">GAME ACCOUNT</p><h2 id="account-title">게임 계정</h2>
