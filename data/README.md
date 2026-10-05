@@ -42,9 +42,15 @@ individually rather than copied blindly.
 `animals.ko.json` contains Korean names and card-length introductions for all
 207 species, adapted from the English descriptions at the fixed revisions below.
 Keep it identical to `public/data/animals.ko.json`. Names without an established
-Korean equivalent use scientific-name transliteration; scientific names and
-lineage labels remain unchanged in either language. These are card introductions,
+Korean equivalent use scientific-name transliteration; species scientific names
+remain unchanged in either language. These are card introductions,
 not translations of the full Wikipedia articles.
+`taxa.ko.json` contains Korean display names for the 553 upper taxa shown on cards.
+Keep it identical to `public/data/taxa.ko.json`. Korean labels were retrieved from
+[Wikidata](https://www.wikidata.org/) on 2026-10-05 and normalized to their taxonomic
+ranks. Missing Korean labels use curated Korean names or scientific-name
+transliterations with 문·강·목·과·속. The original lineage IDs and scientific names
+remain unchanged; these translations are used only for Korean card display.
 The squid name 흰꼴뚜기 follows [NIFS](https://www.nifs.go.kr/portal/bt/frctA/actionSpeciesSearchView.do?taxonId=11783).
 The names 진주담치 and 플라나리아 follow NIBR's [mollusc fauna](https://www.nibr.go.kr/aiibook/catImage/236/Invertebrate%20fauna%20of%20korea%2019_2.pdf)
 and [national species list](https://www.nibr.go.kr/aiibook/catImage/21/National%20Species%202.pdf).

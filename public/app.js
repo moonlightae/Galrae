@@ -70,6 +70,7 @@ window.addEventListener("hashchange", restoreLobbyPage);
 
 let dataset = null;
 let animals = [];
+let taxonNamesKo = {};
 const speciesById = new Map();
 let currentUser = null;
 let currentChatGPT = null;
@@ -126,11 +127,12 @@ function setCardLanguage(language) {
 
 function taxonomyLabels(animal) {
   const preferredRanks = new Set(["phylum", "class", "order", "family", "genus"]);
+  const label = (taxon) => state.cardLanguage === "ko" ? taxonNamesKo[taxon.wikidataId] || taxon.scientificName : taxon.scientificName;
   const labels = animal.taxonomy.lineage
     .filter((taxon) => preferredRanks.has(taxon.rank) && taxon.rank !== "species")
     .slice(-5)
-    .map((taxon) => taxon.scientificName);
-  return labels.length ? labels : animal.taxonomy.lineage.slice(-4, -1).map((taxon) => taxon.scientificName);
+    .map(label);
+  return labels.length ? labels : animal.taxonomy.lineage.slice(-4, -1).map(label);
 }
 
 function collectionKey() {
@@ -825,11 +827,13 @@ async function returnToLobby() {
 async function initialize() {
   const startButton = $("#start-game");
   try {
-    const [response, translationsResponse] = await Promise.all([fetch("data/animals.json"), fetch("data/animals.ko.json"), loadAccount()]);
+    const [response, translationsResponse, taxaResponse] = await Promise.all([fetch("data/animals.json"), fetch("data/animals.ko.json"), fetch("data/taxa.ko.json"), loadAccount()]);
     if (!response.ok) throw new Error(`Dataset request failed: ${response.status}`);
     if (!translationsResponse.ok) throw new Error(`Translation request failed: ${translationsResponse.status}`);
+    if (!taxaResponse.ok) throw new Error(`Taxon translation request failed: ${taxaResponse.status}`);
     dataset = await response.json();
     const translations = await translationsResponse.json();
+    taxonNamesKo = await taxaResponse.json();
     animals = dataset.animals;
     speciesById.clear();
     for (const animal of animals) {
