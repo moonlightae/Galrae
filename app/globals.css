@@ -933,7 +933,7 @@ button:focus-visible, [role="button"]:focus-visible, .primary-button:focus-visib
 .navigation-shell { position: fixed; inset: 0; z-index: 40; pointer-events: none; }
 .toolbar-shade { position: absolute; inset: 0; width: 100%; height: 100%; padding: 0; border: 0; background: rgba(12, 16, 20, .42); opacity: 0; transition: opacity 240ms ease-out; pointer-events: none; }
 .toolbar-edge { position: absolute; top: 0; right: 0; bottom: 0; width: 56px; pointer-events: auto; }
-.toolbar-handle { position: absolute; top: 50%; right: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; width: 56px; min-height: 96px; padding: 16px 8px; color: var(--muted); background: var(--surface); border: 1px solid var(--line); border-right: 0; border-radius: 12px 0 0 12px; box-shadow: -3px 2px 12px rgba(32, 38, 43, .06); transform: translateY(-50%); transition: background-color 180ms, color 180ms, opacity 180ms; cursor: pointer; }
+.toolbar-handle { position: absolute; top: 0; right: 0; bottom: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; width: 56px; padding: 16px 8px; color: var(--muted); background: var(--surface); border: 0; border-left: 1px solid var(--line); border-radius: 0; box-shadow: -3px 0 12px rgba(32, 38, 43, .06); transition: background-color 180ms, color 180ms, opacity 180ms; cursor: pointer; }
 .toolbar-handle span { font-size: .875rem; font-weight: 600; white-space: nowrap; }
 .toolbar-handle:hover, .toolbar-handle:focus-visible { color: var(--ink); background: var(--surface-muted); }
 .toolbar-handle:focus-visible { outline: 2px solid var(--ink); outline-offset: -3px; }
