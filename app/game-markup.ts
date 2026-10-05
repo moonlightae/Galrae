@@ -44,7 +44,7 @@ export const gameMarkup = `
   <div id="navigation-shell" class="navigation-shell">
     <button id="toolbar-shade" class="toolbar-shade" type="button" tabindex="-1" aria-label="메뉴 닫기"></button>
     <div id="toolbar-edge" class="toolbar-edge">
-      <button id="toolbar-handle" class="toolbar-handle" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="side-toolbar"><span aria-hidden="true"></span></button>
+      <button id="toolbar-handle" class="toolbar-handle" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="side-toolbar"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" /></svg><span>메뉴</span></button>
       <nav id="side-toolbar" class="side-toolbar" aria-label="화면 메뉴" inert>
         <div class="toolbar-heading"><span>갈래</span><button id="close-toolbar" class="text-button" type="button" aria-label="메뉴 닫기">×</button></div>
         <div class="toolbar-pages">
