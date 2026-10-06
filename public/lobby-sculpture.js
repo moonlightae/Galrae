@@ -59,7 +59,7 @@ export function createLobbySculpture(surface, lobby) {
     geometry.setAttribute(name, new THREE.BufferAttribute(merged, name === "uv" ? 2 : 3));
   }
   geometry.computeBoundingSphere();
-  const black = new THREE.Color(0x08090a), white = new THREE.Color(0xffffff);
+  const black = new THREE.Color(0x292d32), white = new THREE.Color(0xffffff);
   const uniforms = { front: { value: -3.2 }, from: { value: black.clone() }, to: { value: white.clone() } };
   const material = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: .92, metalness: 0 });
   material.onBeforeCompile = (shader) => {
