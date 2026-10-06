@@ -1,6 +1,6 @@
 import { createTreeView } from "./tree-view.js";
 
-const { ANIMALIA_ID, addSuccessCount, buildTree, getExpectedPlacement, isEquivalentPlacement, seedSuccessCounts, shuffle, successCountText } = globalThis.GalraeLogic;
+const { ANIMALIA_ID, addSuccessCount, buildTree, collectLeafIds, findNodeById, getExpectedPlacement, isEquivalentPlacement, seedSuccessCounts, shuffle, successCountText } = globalThis.GalraeLogic;
 const HUMAN_ID = "homo-sapiens";
 const COLLECTION_PREFIX = "galrae.collection.v3";
 const SUCCESS_COUNTS_PREFIX = "galrae.success-counts.v1";
@@ -85,7 +85,7 @@ const state = {
   queue: [], round: 0, score: 0, selected: false, tree: null,
   classified: [HUMAN_ID], newest: null, currentId: null, expected: null,
   previewTarget: null, previewPlacement: null, failed: false,
-  layout: "top", zoom: 1, tutorial: false,
+  layout: "top", zoom: 1, tutorial: false, practice: false, mistakes: new Set(),
   cardLanguage: localStorage.getItem("galrae.card-language.v1") === "ko" ? "ko" : "en",
   panX: 0, panY: 0, panning: false, panStartX: 0, panStartY: 0,
   panOriginX: 0, panOriginY: 0, detailReturnFocus: null,
@@ -597,9 +597,10 @@ async function loadLeaderboard() {
       <span class="leaderboard-rank">${entry.rank ?? "—"}</span>
       <span class="leaderboard-player">${escapeHtml(entry.displayName)}${entry.isCurrentUser ? '<small>나</small>' : ""}</span>
       <span class="leaderboard-stats">
-        <span class="leaderboard-stat"><small>총 도전횟수</small><strong>${entry.gamesPlayed}회</strong></span>
+        <span class="leaderboard-stat"><small>일반 도전횟수</small><strong>${entry.gamesPlayed}회</strong></span>
         <span class="leaderboard-stat"><small>한 번 이상 분류</small><strong>${entry.uniqueSpeciesCount}종</strong></span>
-        <span class="leaderboard-stat"><small>최대 분류 마릿수</small><strong>${entry.bestScore}종</strong></span>
+        <span class="leaderboard-stat"><small>일반 최고 기록</small><strong>${entry.bestScore}종</strong></span>
+        <span class="leaderboard-stat"><small>연습 최고 기록</small><strong>${entry.bestPracticeScore ?? 0}종</strong></span>
       </span>
     </li>`).join("");
     status.textContent = `${entries.length}명 표시`;
@@ -614,6 +615,7 @@ async function submitScore() {
   if (scoreSubmitted || state.tutorial) return;
   scoreSubmitted = true;
   if (!currentUser) {
+    if (state.practice) return;
     const attempts = Number(localStorage.getItem("galrae.guest-attempts.v1")) || 0;
     localStorage.setItem("galrae.guest-attempts.v1", String(attempts + 1));
     return;
@@ -624,12 +626,12 @@ async function submitScore() {
     const response = await fetch("/api/leaderboard", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ score: state.score }),
+      body: JSON.stringify({ score: state.score, mode: state.practice ? "practice" : "normal" }),
     });
     if (!response.ok) throw new Error(`Score request failed: ${response.status}`);
     const data = await responseJson(response);
-    currentGamesPlayed = Number.isSafeInteger(data.entry?.gamesPlayed) ? data.entry.gamesPlayed : currentGamesPlayed + 1;
-    status.textContent = "리더보드에 기록했습니다.";
+    if (!state.practice) currentGamesPlayed = Number.isSafeInteger(data.entry?.gamesPlayed) ? data.entry.gamesPlayed : currentGamesPlayed + 1;
+    status.textContent = state.practice ? "연습 기록을 저장했습니다." : "리더보드에 기록했습니다.";
     await Promise.all([...pendingCollectionWrites]);
     await loadLeaderboard();
   } catch (error) {
@@ -649,9 +651,10 @@ function openSpeciesCard(speciesId, returnFocus) {
   $("#species-view-description").textContent = shortDescription(animal.description, 230);
   $("#species-view-scientific").textContent = animal.scientificName;
   const taxonomy = $("#species-view-taxonomy");
-  taxonomy.hidden = !state.failed;
+  const revealTaxonomy = state.failed || state.mistakes?.has(speciesId);
+  taxonomy.hidden = !revealTaxonomy;
   taxonomy.open = false;
-  $("#species-view-groups").innerHTML = state.failed
+  $("#species-view-groups").innerHTML = revealTaxonomy
     ? taxonomyLabels(animal).map((group) => `<span>${escapeHtml(group)}</span>`).join("")
     : "";
   $("#species-view-success-count").hidden = speciesId === HUMAN_ID;
@@ -685,7 +688,7 @@ function placeCard(targetId, placement = "wrap") {
   if (!state.currentId || state.failed) return;
   clearPreview();
   if (!isEquivalentPlacement(state.tree, state.expected, targetId, placement)) {
-    failRound();
+    failRound(targetId, placement);
     return;
   }
   state.classified.push(state.currentId);
@@ -704,12 +707,41 @@ function placeCard(targetId, placement = "wrap") {
   updateRound();
 }
 
-function failRound() {
+function explainPlacement(targetId, placement) {
+  const expectedTarget = findNodeById(state.tree, state.expected.targetId);
+  const wrongTarget = findNodeById(state.tree, targetId);
+  const ancestor = findNodeById(buildTree([...state.classified, state.currentId], speciesById), state.expected.ancestorId);
+  const name = (node) => node.type === "leaf" ? cardText(speciesById.get(node.id)).commonName : taxonNamesKo[node.id] || node.name;
+  const members = collectLeafIds(expectedTarget).slice(0, 2).map((id) => cardText(speciesById.get(id)).commonName).join("·");
+  const action = state.expected.placement === "join" ? `${name(ancestor)} 분기점에 가지를 추가해야 합니다` : `${members} 가지에 새 분기점을 만들어야 합니다`;
+  if (targetId === state.expected.targetId) {
+    return `${cardText(speciesById.get(state.currentId)).commonName}는 ${members}와 ${name(ancestor)} 공통 조상을 공유하므로, ${placement === "join" ? "기존 분기점에 바로 추가하는" : "새 조상을 만드는"} 대신 ${action}.`;
+  }
+  return `${cardText(speciesById.get(state.currentId)).commonName}는 ${members}와 ${name(ancestor)} 공통 조상을 공유하므로, 선택한 ${wrongTarget ? name(wrongTarget) : "위치"}에 바로 놓는 대신 ${action}.`;
+}
+
+function failRound(targetId, placement) {
   state.failed = true;
   state.selected = false;
   card.classList.remove("is-selected", "is-dragging");
   card.classList.add("is-locked");
   card.setAttribute("draggable", "false");
+  if (state.practice) {
+    const explanation = explainPlacement(targetId, placement);
+    state.mistakes.add(state.currentId);
+    state.classified.push(state.currentId);
+    state.newest = null;
+    state.tree = buildTree(state.classified, speciesById);
+    state.round += 1;
+    renderTree();
+    $("#round-label").textContent = `연습 모드 · ${state.round}/${state.queue.length}`;
+    $("#failure-title").textContent = "올바른 위치에 자동으로 배치했어요.";
+    $("#failure-copy").textContent = explanation;
+    $("#retry-game").textContent = "계속하기 →";
+    $("#failure-panel").hidden = false;
+    $("#retry-game").focus();
+    return;
+  }
   const answerTree = buildTree([...state.classified, state.currentId], speciesById, state.currentId);
   renderTree(answerTree, true);
   $("#failure-title").textContent = state.tutorial ? "연습 위치가 달라요." : "분류에 실패했어요.";
@@ -723,7 +755,7 @@ function failRound() {
 }
 
 function updateRound() {
-  $("#score-label").textContent = `${state.tutorial ? "연습" : "정답"} ${state.score}`;
+  $("#score-label").textContent = `${state.practice ? "연습 정답" : state.tutorial ? "연습" : "정답"} ${state.score}`;
   if (state.round >= state.queue.length) {
     if (state.tutorial) {
       state.currentId = null;
@@ -735,11 +767,15 @@ function updateRound() {
       $("#tutorial-play").focus();
       return;
     }
-    saveCollection(state.classified);
-    $("#result-title").textContent = "분류를 마쳤어요.";
-    $("#result-count").textContent = state.classified.length;
+    state.currentId = null;
+    state.expected = null;
+    card.classList.add("is-locked");
+    card.setAttribute("draggable", "false");
+    saveCollection(state.classified.filter((id) => !state.mistakes.has(id)));
+    $("#result-title").textContent = state.practice ? "연습을 마쳤어요." : "분류를 마쳤어요.";
+    $("#result-count").textContent = state.practice ? state.score : state.classified.length;
     $("#result-unit").textContent = "species";
-    $("#result-copy").textContent = `${state.classified.length} species, including Human, were placed in the Animalia tree.`;
+    $("#result-copy").textContent = state.practice ? `직접 맞힌 카드 ${state.score}종 · 자동 배치 ${state.mistakes.size}종. 연습 기록은 일반 기록과 별도로 저장됩니다.` : `${state.classified.length} species, including Human, were placed in the Animalia tree.`;
     $("#return-lobby").textContent = "수집함 보기 →";
     $("#result-modal").hidden = false;
     submitScore();
@@ -748,7 +784,7 @@ function updateRound() {
   state.currentId = state.queue[state.round];
   state.expected = getExpectedPlacement(state.classified, state.currentId, speciesById);
   setCard(state.currentId);
-  $("#round-label").textContent = `${state.tutorial ? "튜토리얼" : "동물계"} · ${state.round + 1}/${state.queue.length}`;
+  $("#round-label").textContent = `${state.practice ? "연습 모드" : state.tutorial ? "튜토리얼" : "동물계"} · ${state.round + 1}/${state.queue.length}`;
   const banner = $("#tutorial-banner");
   banner.hidden = !state.tutorial;
   if (state.tutorial) banner.textContent = [
@@ -765,13 +801,16 @@ async function startGame(options = {}) {
   $("#game-loading").hidden = false;
   try {
     const guestAttempts = Number(localStorage.getItem("galrae.guest-attempts.v1")) || 0;
-    const tutorial = options.tutorial === true || (options.skipTutorial !== true && (currentUser ? currentGamesPlayed === 0 : guestAttempts === 0));
+    const practice = options.practice === true;
+    const tutorial = !practice && (options.tutorial === true || (options.skipTutorial !== true && (currentUser ? currentGamesPlayed === 0 : guestAttempts === 0)));
     const queue = tutorial
       ? ["bolinopsis-infundibulum", "asterias-rubens", "balanoglossus-gigas", "formica-rufa"]
       : shuffle(animals.filter((animal) => animal.id !== HUMAN_ID).map((animal) => animal.id));
     await preloadImage(speciesById.get(queue[0])?.image.thumbnailUrl);
     state.queue = queue;
     state.tutorial = tutorial;
+    state.practice = practice;
+    state.mistakes = new Set();
     state.round = 0; state.score = 0; state.selected = false;
     state.classified = [HUMAN_ID];
     state.tree = buildTree(state.classified, speciesById);
@@ -808,6 +847,7 @@ async function startGame(options = {}) {
 }
 
 async function returnToLobby() {
+  if (state.practice && !game.hidden) await submitScore();
   closeSpeciesCard();
   $("#tutorial-intro-modal").hidden = true;
   game.hidden = true;
@@ -851,6 +891,7 @@ async function initialize() {
     await loadLeaderboard();
     await Promise.all(getCollection().slice(0, 5).map((id) => preloadImage(speciesById.get(id)?.image.thumbnailUrl, 3000)));
     startButton.disabled = false;
+    $("#start-practice").disabled = false;
     startButton.innerHTML = '분류 시작 <span aria-hidden="true">→</span>';
   } catch (error) {
     console.error(error);
@@ -881,6 +922,7 @@ card.addEventListener("keydown", (event) => {
 });
 
 $("#start-game").addEventListener("click", startGame);
+$("#start-practice").addEventListener("click", () => startGame({ practice: true }));
 document.querySelectorAll("[data-card-language]").forEach((button) => {
   button.addEventListener("click", () => setCardLanguage(button.dataset.cardLanguage));
 });
@@ -892,7 +934,15 @@ $("#tree-zoom-in").addEventListener("click", () => zoomTreeAtCenter(1.25));
 $("#tree-zoom-out").addEventListener("click", () => zoomTreeAtCenter(.8));
 $("#quit-game").addEventListener("click", returnToLobby);
 $("#return-lobby").addEventListener("click", async () => { await returnToLobby(); showLobbyPage("collection"); });
-$("#retry-game").addEventListener("click", () => startGame({ tutorial: state.tutorial }));
+$("#retry-game").addEventListener("click", () => {
+  if (!state.practice) { startGame({ tutorial: state.tutorial }); return; }
+  state.failed = false;
+  $("#failure-panel").hidden = true;
+  card.classList.remove("is-locked");
+  card.setAttribute("draggable", "true");
+  renderTree();
+  updateRound();
+});
 $("#start-tutorial").addEventListener("click", () => startGame({ tutorial: true }));
 $("#tutorial-begin").addEventListener("click", () => { $("#tutorial-intro-modal").hidden = true; card.focus(); });
 $("#tutorial-quit").addEventListener("click", returnToLobby);

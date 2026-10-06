@@ -36,6 +36,13 @@
       "when": 1790177084273,
       "tag": "0004_glossy_polaris",
       "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "6",
+      "when": 1791258503212,
+      "tag": "0005_ancient_serpent_society",
+      "breakpoints": true
     }
   ]
 }

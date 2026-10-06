@@ -19,6 +19,8 @@ export async function POST() {
   if (legacyScore && chatgptUser.userId !== gameUser.id) {
     const [gameScore] = await db.select().from(leaderboard).where(eq(leaderboard.userId, gameUser.id)).limit(1);
     const bestScore = Math.max(legacyScore.bestScore, gameScore?.bestScore ?? 0);
+    const bestPracticeScore = Math.max(legacyScore.bestPracticeScore, gameScore?.bestPracticeScore ?? 0);
+    const practiceGamesPlayed = legacyScore.practiceGamesPlayed + (gameScore?.practiceGamesPlayed ?? 0);
     const achievedAt = !gameScore || legacyScore.bestScore > gameScore.bestScore
       ? legacyScore.achievedAt
       : legacyScore.bestScore < gameScore.bestScore
@@ -28,6 +30,8 @@ export async function POST() {
       userId: gameUser.id,
       displayName: gameUser.displayName,
       bestScore,
+      bestPracticeScore,
+      practiceGamesPlayed,
       gamesPlayed: legacyScore.gamesPlayed + (gameScore?.gamesPlayed ?? 0),
       achievedAt,
     }).onConflictDoUpdate({
@@ -35,6 +39,8 @@ export async function POST() {
       set: {
         displayName: gameUser.displayName,
         bestScore,
+        bestPracticeScore,
+        practiceGamesPlayed,
         gamesPlayed: legacyScore.gamesPlayed + (gameScore?.gamesPlayed ?? 0),
         achievedAt,
         updatedAt: new Date().toISOString(),

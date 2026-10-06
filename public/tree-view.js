@@ -7,8 +7,9 @@ export function createTreeView({ ANIMALIA_ID, buildTree, escapeHtml, speciesById
       const animal = cardText(speciesById.get(node.id));
       const fresh = state.newest === node.id ? " is-new" : "";
       const preview = node.preview ? " is-preview" : "";
-      const badge = node.preview ? `<span class="preview-tag">${state.failed ? "정답 위치" : "미리보기"}</span>` : "";
-      return `<button class="species-node${fresh}${preview}" type="button" data-species-id="${escapeHtml(node.id)}" data-target="${escapeHtml(node.id)}" data-placement="wrap" aria-label="${escapeHtml(animal.commonName)} 카드 보기. 새 카드를 선택한 상태에서는 이 가지에 배치">${escapeHtml(animal.commonName)}${badge}</button>`;
+      const mistake = state.mistakes?.has(node.id) ? " is-mistake" : "";
+      const badge = mistake ? '<span class="preview-tag">자동 배치</span>' : node.preview ? `<span class="preview-tag">${state.failed ? "정답 위치" : "미리보기"}</span>` : "";
+      return `<button class="species-node${fresh}${preview}${mistake}" type="button" data-species-id="${escapeHtml(node.id)}" data-target="${escapeHtml(node.id)}" data-placement="wrap" aria-label="${escapeHtml(animal.commonName)} 카드 보기. 새 카드를 선택한 상태에서는 이 가지에 배치">${escapeHtml(animal.commonName)}${badge}</button>`;
     }
     const children = node.children.map((child) => `<li>${renderNode(child)}</li>`).join("");
     const incomingEdge = omitIncomingEdge ? "" : `<button class="edge-target" type="button" data-target="${escapeHtml(node.id)}" data-placement="wrap" aria-label="이 가지에서 새로운 공통 조상 만들기"></button>`;
@@ -46,7 +47,7 @@ export function createTreeView({ ANIMALIA_ID, buildTree, escapeHtml, speciesById
     function visit(entry, parent = null) {
       const { node, x, y } = entry;
       if (parent) {
-        lines.push(`<line class="radial-edge${node.preview ? " is-answer-path" : ""}" x1="${parent.x}" y1="${parent.y}" x2="${x}" y2="${y}" />`);
+        lines.push(`<line class="radial-edge${node.preview ? " is-answer-path" : ""}${state.mistakes?.has(node.id) ? " is-mistake-path" : ""}" x1="${parent.x}" y1="${parent.y}" x2="${x}" y2="${y}" />`);
         if (node.type === "branch" && !(parent === root && root.children.length === 1)) {
           const edgeX = Math.round((parent.x + (x - parent.x) * .76) * 10) / 10;
           const edgeY = Math.round((parent.y + (y - parent.y) * .76) * 10) / 10;
@@ -57,8 +58,9 @@ export function createTreeView({ ANIMALIA_ID, buildTree, escapeHtml, speciesById
         const animal = cardText(speciesById.get(node.id));
         const fresh = state.newest === node.id ? " is-new" : "";
         const preview = node.preview ? " is-preview" : "";
-        const badge = node.preview ? `<span class="preview-tag">${state.failed ? "정답 위치" : "미리보기"}</span>` : "";
-        controls.push(`<button class="species-node${fresh}${preview}" type="button" style="left:${x}px;top:${y}px" data-species-id="${escapeHtml(node.id)}" data-target="${escapeHtml(node.id)}" data-placement="wrap" aria-label="${escapeHtml(animal.commonName)} 카드 보기. 새 카드를 선택한 상태에서는 이 가지에 배치">${escapeHtml(animal.commonName)}${badge}</button>`);
+        const mistake = state.mistakes?.has(node.id) ? " is-mistake" : "";
+        const badge = mistake ? '<span class="preview-tag">자동 배치</span>' : node.preview ? `<span class="preview-tag">${state.failed ? "정답 위치" : "미리보기"}</span>` : "";
+        controls.push(`<button class="species-node${fresh}${preview}${mistake}" type="button" style="left:${x}px;top:${y}px" data-species-id="${escapeHtml(node.id)}" data-target="${escapeHtml(node.id)}" data-placement="wrap" aria-label="${escapeHtml(animal.commonName)} 카드 보기. 새 카드를 선택한 상태에서는 이 가지에 배치">${escapeHtml(animal.commonName)}${badge}</button>`);
       } else if (parent) {
         controls.push(`<button class="clade-node" type="button" style="left:${x}px;top:${y}px" data-target="${escapeHtml(node.id)}" data-placement="join" aria-label="이 공통 조상에 가지 추가하기"></button>`);
       }

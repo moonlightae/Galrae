@@ -795,6 +795,9 @@ html, body, .game-screen, .loading-screen { background: var(--canvas); backgroun
   box-shadow: none;
 }
 .mode-options span { background: transparent; border: 0; }
+.game-start-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.game-start-actions .primary-button { min-width: 0; padding: 12px 8px; gap: 4px; font-size: .85rem; }
+.game-start-actions .primary-button span { margin-left: 4px; }
 .mode-options .is-active { background: var(--surface-muted); border: 1px solid var(--edge); padding: 6px 8px; }
 .leaderboard-row, .leaderboard-empty { background: transparent; }
 .leaderboard-row.is-me, .leaderboard-player small,
@@ -806,6 +809,7 @@ html, body, .game-screen, .loading-screen { background: var(--canvas); backgroun
 .mini-card-groups span, .leaderboard-player small,
 .admin-badge, .link-status, .link-status.is-linked { border: 0; }
 .leaderboard-row { border-bottom: 1px solid var(--line); }
+.leaderboard-stats { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 .leaderboard-row.is-me { border-left: 3px solid var(--ink); }
 .leaderboard-rank, .leaderboard-row.is-me .leaderboard-rank,
 .leaderboard-stat small, .leaderboard-row.is-me .leaderboard-stat small,
@@ -892,6 +896,13 @@ button:focus-visible, [role="button"]:focus-visible, .primary-button:focus-visib
   border: 2px solid #88b94a;
   box-shadow: 0 0 0 5px rgba(136, 185, 74, .2);
 }
+.species-node.is-mistake { color: #38551d; background: #eef8df; border: 2px solid #88b94a; box-shadow: 0 0 0 5px rgba(136, 185, 74, .2); }
+.species-node.is-mistake .preview-tag { color: #263d13; background: #d5edb2; border-color: #88b94a; }
+.game-screen .radial-edge.is-mistake-path { stroke: #88b94a; }
+.game-screen .phylo-tree li:has(> .species-node.is-mistake)::before,
+.game-screen .phylo-tree li:has(> .species-node.is-mistake)::after { border-color: #88b94a; }
+:root[data-theme="dark"] .species-node.is-mistake { color: #dcedd5; background: #29391f; }
+:root[data-theme="dark"] .species-node.is-mistake .preview-tag { color: #dcedd5; background: #334728; }
 .answer-tree .preview-tag { color: #263d13; background: #d5edb2; border-color: #88b94a; }
 .game-screen .radial-tree.answer-tree .radial-edge.is-answer-path { stroke: #88b94a; }
 .game-screen .answer-tree li:has(> .species-node.is-preview)::before,

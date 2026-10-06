@@ -20,6 +20,7 @@ export async function GET() {
         userId: leaderboard.userId,
         displayName: leaderboard.displayName,
         bestScore: leaderboard.bestScore,
+        bestPracticeScore: leaderboard.bestPracticeScore,
         gamesPlayed: leaderboard.gamesPlayed,
         achievedAt: leaderboard.achievedAt,
       })
@@ -31,6 +32,7 @@ export async function GET() {
         userId: leaderboard.userId,
         displayName: leaderboard.displayName,
         bestScore: leaderboard.bestScore,
+        bestPracticeScore: leaderboard.bestPracticeScore,
         gamesPlayed: leaderboard.gamesPlayed,
         achievedAt: leaderboard.achievedAt,
       }).from(leaderboard).where(sql`${leaderboard.userId} = ${user.id}`).limit(1)
@@ -60,11 +62,15 @@ export async function POST(request: Request) {
   const user = await getGameUser();
   if (!user) return Response.json({ error: "로그인이 필요합니다." }, { status: 401 });
 
-  let payload: { score?: unknown };
-  try { payload = await request.json() as { score?: unknown }; }
+  let payload: { score?: unknown; mode?: unknown };
+  try { payload = await request.json() as typeof payload; }
   catch { return Response.json({ error: "잘못된 요청입니다." }, { status: 400 }); }
 
   const score = Number(payload.score);
+  if (payload.mode !== undefined && payload.mode !== "normal" && payload.mode !== "practice") {
+    return Response.json({ error: "잘못된 게임 모드입니다." }, { status: 400 });
+  }
+  const practice = payload.mode === "practice";
   if (!Number.isInteger(score) || score < 0 || score >= speciesCount) {
     return Response.json({ error: `점수는 0부터 ${speciesCount - 1} 사이여야 합니다.` }, { status: 400 });
   }
@@ -75,15 +81,22 @@ export async function POST(request: Request) {
     await db.insert(leaderboard).values({
       userId: user.id,
       displayName,
-      bestScore: score,
-      gamesPlayed: 1,
+      bestScore: practice ? 0 : score,
+      gamesPlayed: practice ? 0 : 1,
+      bestPracticeScore: practice ? score : 0,
+      practiceGamesPlayed: practice ? 1 : 0,
     }).onConflictDoUpdate({
       target: leaderboard.userId,
       set: {
         displayName,
-        bestScore: sql`MAX(${leaderboard.bestScore}, ${score})`,
-        gamesPlayed: sql`${leaderboard.gamesPlayed} + 1`,
-        achievedAt: sql`CASE WHEN ${score} > ${leaderboard.bestScore} THEN CURRENT_TIMESTAMP ELSE ${leaderboard.achievedAt} END`,
+        ...(practice ? {
+          bestPracticeScore: sql`MAX(${leaderboard.bestPracticeScore}, ${score})`,
+          practiceGamesPlayed: sql`${leaderboard.practiceGamesPlayed} + 1`,
+        } : {
+          bestScore: sql`MAX(${leaderboard.bestScore}, ${score})`,
+          gamesPlayed: sql`${leaderboard.gamesPlayed} + 1`,
+          achievedAt: sql`CASE WHEN ${score} > ${leaderboard.bestScore} THEN CURRENT_TIMESTAMP ELSE ${leaderboard.achievedAt} END`,
+        }),
         updatedAt: sql`CURRENT_TIMESTAMP`,
       },
     });
@@ -91,6 +104,7 @@ export async function POST(request: Request) {
     const [entry] = await db.select({
       displayName: leaderboard.displayName,
       bestScore: leaderboard.bestScore,
+      bestPracticeScore: leaderboard.bestPracticeScore,
       gamesPlayed: leaderboard.gamesPlayed,
       achievedAt: leaderboard.achievedAt,
     }).from(leaderboard).where(sql`${leaderboard.userId} = ${user.id}`).limit(1);

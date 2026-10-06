@@ -33,6 +33,8 @@ export const leaderboard = sqliteTable("leaderboard", {
   userId: text("user_id").primaryKey(),
   displayName: text("display_name").notNull(),
   bestScore: integer("best_score").notNull().default(0),
+  bestPracticeScore: integer("best_practice_score").notNull().default(0),
+  practiceGamesPlayed: integer("practice_games_played").notNull().default(0),
   gamesPlayed: integer("games_played").notNull().default(0),
   achievedAt: text("achieved_at").notNull().default(sql`CURRENT_TIMESTAMP`),
   updatedAt: text("updated_at").notNull().default(sql`CURRENT_TIMESTAMP`),

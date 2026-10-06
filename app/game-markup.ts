@@ -14,7 +14,7 @@ export const gameMarkup = `
           <div class="mode-options" aria-label="계 모드 목록"><span class="is-active">동물계</span><span aria-disabled="true">식물계 · 준비 중</span><span aria-disabled="true">균계 · 준비 중</span></div>
         </div>
         <div class="mode-badge" aria-label="선택됨">ANIMALIA</div>
-        <button id="start-game" class="primary-button" type="button" disabled>데이터 불러오는 중… <span aria-hidden="true">→</span></button>
+        <div class="game-start-actions"><button id="start-game" class="primary-button" type="button" disabled>분류 시작 <span aria-hidden="true">→</span></button><button id="start-practice" class="primary-button" type="button" disabled>연습 모드 시작 <span aria-hidden="true">→</span></button></div>
         <div class="mode-links"><button id="start-tutorial" class="text-button" type="button">튜토리얼</button>
         </div>
         </section>
