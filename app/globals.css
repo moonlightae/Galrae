@@ -920,7 +920,12 @@ button:focus-visible, [role="button"]:focus-visible, .primary-button:focus-visib
 }
 
 /* Lobby navigation: a labeled edge tab, with secondary screens off the lobby. */
-.lobby-main { grid-template-columns: minmax(320px, 30%); }
+.lobby-main { grid-template-columns: minmax(320px, 30%) minmax(0, 1fr); gap: clamp(24px, 4vw, 72px); }
+.lobby-sculpture-stage { display: flex; align-items: center; min-width: 0; padding-right: 20px; }
+.lobby-sculpture { position: relative; width: 100%; height: clamp(420px, 70vh, 820px); padding: 0; border: 0; background: transparent; touch-action: none; cursor: grab; }
+.lobby-sculpture.is-dragging { cursor: grabbing; }
+.lobby-sculpture canvas { display: block; width: 100%; height: 100%; }
+.lobby-sculpture:focus-visible { outline: 2px solid var(--line); outline-offset: 4px; border-radius: 8px; }
 .library-screen { padding: 40px clamp(24px, 4.4vw, 90px) 64px; }
 .page-back { display: block; margin-bottom: 28px; font-size: 1rem; }
 .library-screen .leaderboard, .library-screen .collection { width: 100%; max-width: 1400px; min-height: 0; margin: 0 auto; }
@@ -951,7 +956,14 @@ button:focus-visible, [role="button"]:focus-visible, .primary-button:focus-visib
 .navigation-shell.is-open .side-toolbar { transform: translateX(0); visibility: visible; transition: transform 240ms ease-in, visibility 0s; }
 .navigation-shell.is-open .toolbar-handle { opacity: 0; pointer-events: none; }
 @media (max-width: 900px) {
-  .lobby-main { grid-template-columns: minmax(0, 480px); }
+  .lobby-main { grid-template-columns: minmax(240px, 38%) minmax(0, 1fr); gap: 20px; }
+  .lobby-sculpture-stage { padding-right: 36px; }
+  .lobby-sculpture { height: 520px; }
+}
+@media (max-width: 640px) {
+  .lobby-main { grid-template-columns: minmax(0, 1fr); }
+  .lobby-sculpture-stage { padding-right: 38px; }
+  .lobby-sculpture { height: 380px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .side-toolbar, .toolbar-shade, .toolbar-handle { transition: none; }

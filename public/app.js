@@ -1006,3 +1006,7 @@ new ResizeObserver(() => {
 }).observe(treeCanvas);
 
 initialize();
+// Keep the lobby artwork independent of account/data loading and gameplay.
+import("./lobby-sculpture.js")
+  .then(({ createLobbySculpture }) => createLobbySculpture($("#lobby-sculpture"), lobby))
+  .catch((error) => { $("#lobby-sculpture").hidden = true; console.warn("Lobby artwork unavailable", error); });

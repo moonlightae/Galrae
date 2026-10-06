@@ -19,6 +19,9 @@ export const gameMarkup = `
         </div>
         </section>
       </div>
+      <div class="lobby-sculpture-stage">
+        <button id="lobby-sculpture" class="lobby-sculpture" type="button" aria-label="입체 계통도. 드래그 또는 방향키로 회전, 클릭 또는 Enter로 색상 전환."></button>
+      </div>
     </div>
   </main>
   <main id="leaderboard-page" class="screen library-screen" data-lobby-page hidden>
