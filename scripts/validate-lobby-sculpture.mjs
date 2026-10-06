@@ -4,6 +4,15 @@ import { runInNewContext } from "node:vm";
 import * as Three from "../public/vendor/three/three.module.min.js";
 
 const source = readFileSync(new URL("../public/lobby-sculpture.js", import.meta.url), "utf8");
+const css = readFileSync(new URL("../app/globals.css", import.meta.url), "utf8");
+const palette = Object.fromEntries([...css.matchAll(/(--highlight-(?:purple|pink)):\s*(#[a-f0-9]{6})/g)].map((match) => [match[1], match[2]]));
+assert.equal(palette["--highlight-purple"], "#a18cd1");
+assert.equal(palette["--highlight-pink"], "#fbc2eb");
+for (const path of ["../public/app.js", "../app/game-markup.ts"]) {
+  const text = readFileSync(new URL(path, import.meta.url), "utf8");
+  assert.ok(!text.includes("초록색"));
+  assert.ok(text.includes("핑크색으로 표시된 곳이 올바른 위치입니다."));
+}
 const callbacks = new Map(), listeners = {}, documentListeners = {};
 let now = 100, nextFrame = 0, renderedScene, resizeCallback, visibilityCallback, intersectionCallback;
 const surface = {
@@ -21,6 +30,7 @@ class Renderer {
 }
 const create = runInNewContext(source.replace(/^import .*?;\s*/, "").replace("export function", "function") + "\ncreateLobbySculpture", {
   THREE: { ...Three, WebGLRenderer: Renderer }, document, window: { devicePixelRatio: 1, addEventListener() {} },
+  getComputedStyle: () => ({ getPropertyValue: (name) => palette[name] || "" }),
   matchMedia: () => reduced, performance: { now: () => now }, console,
   requestAnimationFrame: (callback) => { callbacks.set(++nextFrame, callback); return nextFrame; },
   cancelAnimationFrame: (id) => callbacks.delete(id),
@@ -47,6 +57,7 @@ assert.ok(sculpture.geometry.boundingBox.min.y > -3.2 && sculpture.geometry.boun
 for (const value of sculpture.geometry.getAttribute("position").array) assert.ok(Number.isFinite(value));
 const shader = { uniforms: {}, vertexShader: "#include <begin_vertex>", fragmentShader: "#include <color_fragment>" };
 sculpture.material.onBeforeCompile(shader);
+assert.equal(shader.uniforms.scFrom.value.getHex(), 0xa18cd1, "Sculpture starts in the shared purple highlight");
 const initialAngle = sculpture.rotation.y;
 advance(1000);
 assert.ok(Math.abs(sculpture.rotation.y - initialAngle) > .05, "Initial spin needs no input");
@@ -58,7 +69,7 @@ listeners.pointerup(pointerEvent(2500, 0)); listeners.click();
 assert.equal(shader.uniforms.scFront.value, -3.2, "Dragging must not change color");
 let angle = sculpture.rotation.y; tick();
 const speed = (sculpture.rotation.y - angle) / .016667;
-assert.ok(speed > .3 && speed <= .450001, "Rotation speed is capped");
+assert.ok(speed > 1 && speed <= 1.600001, "Rotation speed is capped at the increased limit");
 advance(2000); angle = sculpture.rotation.y; tick();
 const laterSpeed = (sculpture.rotation.y - angle) / .016667;
 assert.ok(laterSpeed < speed && laterSpeed > speed * .85, "Low friction preserves release inertia");
@@ -67,10 +78,10 @@ assert.ok(laterSpeed < speed && laterSpeed > speed * .85, "Low friction preserve
 listeners.click(); tick();
 assert.ok(shader.uniforms.scFront.value > -3.2 && shader.uniforms.scFront.value < 3.5);
 listeners.click(); advance(3500);
-assert.equal(shader.uniforms.scTo.value.getHex(), 0xfdfdfb);
+assert.equal(shader.uniforms.scTo.value.getHex(), 0xa18cd1);
 assert.equal(shader.uniforms.scFront.value, 3.5);
 listeners.click(); advance(1800);
-assert.equal(shader.uniforms.scTo.value.getHex(), 0x111316);
+assert.equal(shader.uniforms.scTo.value.getHex(), 0xfbc2eb);
 
 // Hidden screens, offscreen art and background tabs do not keep rendering.
 lobby.hidden = true; visibilityCallback(); assert.equal(callbacks.size, 0);
@@ -80,6 +91,6 @@ intersectionCallback([{ isIntersecting: true }]); tick();
 document.hidden = true; documentListeners.visibilitychange(); assert.equal(callbacks.size, 0);
 document.hidden = false; documentListeners.visibilitychange(); tick();
 reduced.matches = true; visibilityCallback(); tick(); assert.equal(callbacks.size, 0);
-listeners.click(); tick(); assert.equal(shader.uniforms.scTo.value.getHex(), 0xfdfdfb);
+listeners.click(); tick(); assert.equal(shader.uniforms.scTo.value.getHex(), 0xa18cd1);
 resizeCallback(); tick();
 console.log("Lobby sculpture: geometry, matte material, bounded inertia, rapid toggles, hidden-screen pause and reduced motion passed.");

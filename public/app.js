@@ -714,8 +714,8 @@ function failRound() {
   renderTree(answerTree, true);
   $("#failure-title").textContent = state.tutorial ? "연습 위치가 달라요." : "분류에 실패했어요.";
   $("#failure-copy").textContent = state.tutorial
-    ? "초록색 정답 위치를 살펴보세요. 튜토리얼은 도전 기록에 포함되지 않습니다."
-    : "초록색으로 표시된 곳이 올바른 위치입니다.";
+    ? "핑크색 정답 위치를 살펴보세요. 튜토리얼은 도전 기록에 포함되지 않습니다."
+    : "핑크색으로 표시된 곳이 올바른 위치입니다.";
   $("#retry-game").textContent = state.tutorial ? "튜토리얼 다시하기 →" : "처음부터 다시 →";
   $("#failure-panel").hidden = false;
   if (!state.tutorial) submitScore();

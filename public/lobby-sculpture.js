@@ -15,10 +15,10 @@ export function createLobbySculpture(surface, lobby) {
   const camera = new THREE.PerspectiveCamera(34, 1, .1, 60);
   camera.position.set(0, .1, 12);
   camera.lookAt(0, 0, 0);
-  scene.add(new THREE.HemisphereLight(0xffffff, 0x809099, 2.1));
-  const key = new THREE.DirectionalLight(0xffffff, 4.5); key.position.set(-4, 6, 7); scene.add(key);
-  const rim = new THREE.DirectionalLight(0xffffff, 3.8); rim.position.set(4, 3, -4); scene.add(rim);
-  const fill = new THREE.DirectionalLight(0xdfe7f3, 1.6); fill.position.set(3, -1, 5); scene.add(fill);
+  scene.add(new THREE.HemisphereLight(0xffffff, 0x809099, 1.25));
+  const key = new THREE.DirectionalLight(0xffffff, 2); key.position.set(-4, 6, 7); scene.add(key);
+  const rim = new THREE.DirectionalLight(0xffffff, 1.3); rim.position.set(4, 3, -4); scene.add(rim);
+  const fill = new THREE.DirectionalLight(0xdfe7f3, .5); fill.position.set(3, -1, 5); scene.add(fill);
 
   // Bake the branch parts together so color rises in the tree's own coordinates.
   const pieces = [];
@@ -59,8 +59,10 @@ export function createLobbySculpture(surface, lobby) {
     geometry.setAttribute(name, new THREE.BufferAttribute(merged, name === "uv" ? 2 : 3));
   }
   geometry.computeBoundingSphere();
-  const white = new THREE.Color(0xfdfdfb), black = new THREE.Color(0x111316);
-  const uniforms = { front: { value: -3.2 }, from: { value: white.clone() }, to: { value: black.clone() } };
+  const palette = getComputedStyle(document.documentElement);
+  const purple = new THREE.Color(palette.getPropertyValue("--highlight-purple").trim());
+  const pink = new THREE.Color(palette.getPropertyValue("--highlight-pink").trim());
+  const uniforms = { front: { value: -3.2 }, from: { value: purple.clone() }, to: { value: pink.clone() } };
   const material = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: .92, metalness: 0 });
   material.onBeforeCompile = (shader) => {
     shader.uniforms.scFront = uniforms.front; shader.uniforms.scFrom = uniforms.from; shader.uniforms.scTo = uniforms.to;
@@ -73,10 +75,10 @@ export function createLobbySculpture(surface, lobby) {
   scene.add(sculpture); sculpture.rotation.set(-.08, -.24, -.03);
 
   const reduced = matchMedia("(prefers-reduced-motion: reduce)");
-  const maxSpeed = .45, friction = .045;
+  const maxSpeed = 1.6, friction = .045;
   const randomSigned = (min, max) => (min + Math.random() * (max - min)) * (Math.random() < .5 ? -1 : 1);
   const velocity = { x: reduced.matches ? 0 : randomSigned(.008, .018), y: reduced.matches ? 0 : randomSigned(.07, .12) };
-  let desiredBlack = false, settledBlack = false, transition = null;
+  let desiredPink = false, settledPink = false, transition = null;
   let frame = 0, lastFrame = 0, pointer = null, touched = false, suppressClick = false, inView = true;
   function cappedVelocity(x, y) {
     const speed = Math.hypot(x, y), factor = speed > maxSpeed ? maxSpeed / speed : 1;
@@ -94,10 +96,10 @@ export function createLobbySculpture(surface, lobby) {
     if (nextX !== sculpture.rotation.x) velocity.x = 0;
   }
   function beginFill() {
-    if (desiredBlack === settledBlack) return;
-    uniforms.from.value.copy(settledBlack ? black : white);
-    uniforms.to.value.copy(desiredBlack ? black : white);
-    transition = { start: performance.now(), black: desiredBlack };
+    if (desiredPink === settledPink) return;
+    uniforms.from.value.copy(settledPink ? pink : purple);
+    uniforms.to.value.copy(desiredPink ? pink : purple);
+    transition = { start: performance.now(), pink: desiredPink };
     uniforms.front.value = -3.2; requestDraw();
   }
   function requestDraw() {
@@ -110,7 +112,7 @@ export function createLobbySculpture(surface, lobby) {
     if (transition) {
       const progress = reduced.matches ? 1 : Math.min((now - transition.start) / 1600, 1);
       uniforms.front.value = -3.2 + progress * progress * (3 - 2 * progress) * 6.7;
-      if (progress === 1) { settledBlack = transition.black; transition = null; beginFill(); }
+      if (progress === 1) { settledPink = transition.pink; transition = null; beginFill(); }
     }
     renderer.render(scene, camera);
     if (transition || pointer || Math.hypot(velocity.x, velocity.y) > .0001) requestDraw();
@@ -151,7 +153,7 @@ export function createLobbySculpture(surface, lobby) {
   surface.addEventListener("pointercancel", (event) => { endPointer(event); suppressClick = true; });
   surface.addEventListener("click", () => {
     if (suppressClick) { suppressClick = false; return; }
-    desiredBlack = !desiredBlack; if (!transition) beginFill();
+    desiredPink = !desiredPink; if (!transition) beginFill();
   });
   surface.addEventListener("keydown", (event) => {
     const keys = { ArrowLeft: [0, -.12], ArrowRight: [0, .12], ArrowUp: [-.1, 0], ArrowDown: [.1, 0] };
