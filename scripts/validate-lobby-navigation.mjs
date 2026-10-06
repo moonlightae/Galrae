@@ -25,11 +25,12 @@ const toolbarHandle = element();
 const navigationShell = element();
 const game = element();
 const overlays = {};
+const guestDialog = { open: true, close() { this.open = false; } };
 const location = { hash: "#collection" };
 let writes = 0;
 const context = {
   lobbyPages, toolbar, toolbarHandle, navigationShell, game, location,
-  $: (selector) => overlays[selector] ||= element(),
+  $: (selector) => selector === "#guest-start-dialog" ? guestDialog : overlays[selector] ||= element(),
   history: { pushState(_, __, hash) { location.hash = hash; writes++; } },
   window: { scrollTo() {} },
   openAccountModal() { lobbyPages.account.focus(); },
@@ -52,6 +53,7 @@ for (const invalid of ["", "unknown", "__proto__", "toString"]) {
   assert.equal(lobbyPages.lobby.hidden, false, "Unknown routes must fall back safely");
 }
 assert.ok(Object.values(overlays).every((overlay) => overlay.hidden), "History navigation must dismiss game overlays");
+assert.equal(guestDialog.open, false, "History navigation must dismiss the guest warning");
 setToolbarOpen(true);
 assert.equal(toolbar.inert, false);
 assert.equal(toolbarHandle.attributes["aria-expanded"], "true");

@@ -26,6 +26,7 @@ function setToolbarOpen(open, restoreFocus = false) {
 
 function showLobbyPage(page, updateHistory = true) {
   if (!Object.hasOwn(lobbyPages, page)) page = "lobby";
+  if ($("#guest-start-dialog")?.open) $("#guest-start-dialog").close();
   setToolbarOpen(false);
   game.hidden = true;
   ["#result-modal", "#tutorial-intro-modal", "#species-modal"].forEach((selector) => { $(selector).hidden = true; });
@@ -77,6 +78,7 @@ let currentChatGPT = null;
 let currentGamesPlayed = 0;
 let scoreSubmitted = false;
 let gameStarting = false;
+let guestStartOptions = null;
 const pendingCollectionWrites = new Set();
 let authMode = "login";
 let accountReturnFocus = null;
@@ -797,6 +799,14 @@ function updateRound() {
 
 async function startGame(options = {}) {
   if (!dataset || gameStarting) return;
+  if (!currentUser && options.guestConfirmed !== true) {
+    const dialog = $("#guest-start-dialog");
+    if (dialog.open) return;
+    guestStartOptions = options;
+    dialog.returnValue = "";
+    dialog.showModal();
+    return;
+  }
   gameStarting = true;
   $("#game-loading").hidden = false;
   try {
@@ -921,7 +931,14 @@ card.addEventListener("keydown", (event) => {
   if (event.key === "Enter" || event.key === " ") { event.preventDefault(); card.click(); }
 });
 
-$("#start-game").addEventListener("click", startGame);
+$("#start-game").addEventListener("click", () => startGame());
+$("#guest-start-dialog").addEventListener("close", (event) => {
+  const options = guestStartOptions;
+  guestStartOptions = null;
+  if (!options) return;
+  if (event.target.returnValue === "play") startGame({ ...options, guestConfirmed: true });
+  if (event.target.returnValue === "login") openAccountModal(document.activeElement);
+});
 $("#start-practice").addEventListener("click", () => startGame({ practice: true }));
 document.querySelectorAll("[data-card-language]").forEach((button) => {
   button.addEventListener("click", () => setCardLanguage(button.dataset.cardLanguage));
