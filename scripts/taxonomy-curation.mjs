@@ -3,6 +3,15 @@ const DISPUTED_XENACOELOMORPHA_ANCESTORS = new Set(["Q3059449", "Q150866", "Q241
 const EUSAURISCHIA_ID = "Q2013709";
 const ELASMOBRANCHII_ID = "Q194257";
 const ORECTOLOBIFORMES_ID = "Q260031";
+const ACTINOPTERYGII_ID = "Q127282";
+// Restore missing shared ancestors; retain the dataset's IDs for the same clades.
+// Reviewed against NCBI lineages, with Holostei sister to Teleostei in Neopterygii.
+const TELEOST_BACKBONES = {
+  Gadiformes: { reference: "Thunnus thynnus", ancestor: "Acanthomorphata" },
+  Salmoniformes: { reference: "Thunnus thynnus", ancestor: "Euteleostei" },
+  Gymnotiformes: { reference: "Carassius auratus", ancestor: "Ostariophysi" },
+  Anguilliformes: { reference: "Carassius auratus", ancestor: "Teleostei" },
+};
 const SHARK_BACKBONE = [
   { wikidataId: "Q150760", scientificName: "Neoselachii", englishName: "Neoselachii", rank: "infraclass" },
   { wikidataId: "Q7372", scientificName: "Selachimorpha", englishName: "shark", rank: "superorder" },
@@ -26,6 +35,21 @@ const SPECIES_TAXON_REPLACEMENTS = {
 export function curateTaxonomy(animals) {
   return animals.map((animal) => {
     let lineage = animal.taxonomy.lineage.filter((taxon) => taxon.wikidataId !== EUSAURISCHIA_ID);
+
+    const fishOrderIndex = lineage.findIndex((taxon) => Object.hasOwn(TELEOST_BACKBONES, taxon.scientificName));
+    if (fishOrderIndex >= 0) {
+      const { reference, ancestor } = TELEOST_BACKBONES[lineage[fishOrderIndex].scientificName];
+      const referenceLineage = animals.find((entry) => entry.scientificName === reference)?.taxonomy.lineage;
+      const classIndex = lineage.findIndex((taxon) => taxon.wikidataId === ACTINOPTERYGII_ID);
+      const referenceClassIndex = referenceLineage?.findIndex((taxon) => taxon.wikidataId === ACTINOPTERYGII_ID) ?? -1;
+      const ancestorIndex = referenceLineage?.findIndex((taxon) => taxon.scientificName === ancestor) ?? -1;
+      if (classIndex < 0 || referenceClassIndex < 0 || ancestorIndex <= referenceClassIndex) throw new Error(`Incomplete fish backbone for ${animal.scientificName}`);
+      lineage = [
+        ...lineage.slice(0, classIndex + 1),
+        ...referenceLineage.slice(referenceClassIndex + 1, ancestorIndex + 1),
+        ...lineage.slice(fishOrderIndex),
+      ];
+    }
 
     // Use the Nephrozoa-sister hypothesis for this disputed deep bilaterian branch.
     if (lineage.some((taxon) => taxon.wikidataId === XENACOELOMORPHA_ID)) {

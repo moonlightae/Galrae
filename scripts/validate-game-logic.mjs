@@ -51,6 +51,29 @@ assert.ok(theropodIds.every((id) => !lineageIds(id).includes("Q2013709")), "Eusa
 assert.deepEqual(new Set(collectLeafIds(buildTree(theropodIds, speciesById))), new Set(theropodIds));
 assert.deepEqual(lineageIds("rhincodon-typus").filter((id) => ["Q150760", "Q7372", "Q47969"].includes(id)),
   ["Q150760", "Q7372", "Q47969"], "Whale shark must share the shark backbone");
+
+const garId = "lepisosteus-osseus";
+const teleostIds = dataset.animals.filter((animal) => lineageIds(animal.id).includes("Q204861")).map((animal) => animal.id);
+assert.equal(teleostIds.length, 15, "All sampled teleosts must have their infraclass, including the five repaired lineages");
+assert.ok(lineageIds(garId).includes("Q846164") && !lineageIds(garId).includes("Q204861"));
+const fishTree = buildTree([humanId, garId, ...teleostIds], speciesById);
+const neopterygii = findNodeById(fishTree, "Q740005");
+const teleostei = findNodeById(fishTree, "Q204861");
+assert.equal(neopterygii.children.length, 2, "Neopterygii must separate Holostei and Teleostei");
+assert.deepEqual(new Set(collectLeafIds(teleostei)), new Set(teleostIds));
+assert.equal(neopterygii.children.find((node) => node.id === garId)?.type, "leaf", "The sole holostean remains a separate branch after unary compression");
+for (const first of teleostIds) {
+  for (const next of teleostIds.filter((id) => id !== first)) {
+    for (const pair of [[garId, first], [first, garId]]) {
+      const placed = [humanId, ...pair];
+      const before = buildTree(placed, speciesById);
+      const expected = getExpectedPlacement(placed, next, speciesById);
+      assert.ok(isEquivalentPlacement(before, expected, first, "wrap"), `${next} must group with ${first} inside Teleostei`);
+      assert.ok(!isEquivalentPlacement(before, expected, garId, "wrap"), `${next} must not group with the holostean gar`);
+      assert.ok(!isEquivalentPlacement(before, expected, neopterygii.id, "join"), `${next} must not become a third neopterygian branch`);
+    }
+  }
+}
 for (const [speciesId, taxonId] of [
   ["carcinus-maenas", "Q2190587"],
   ["mobula-birostris", "Q796580"],

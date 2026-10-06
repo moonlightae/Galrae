@@ -18,6 +18,15 @@ individually rather than copied blindly.
 
 ## Taxonomic decisions
 
+- Holostei and Teleostei form separate sister branches within Neopterygii
+  ([phylogeny](https://pmc.ncbi.nlm.nih.gov/articles/PMC5882744/)). Restore
+  missing shared ancestors for Gadiformes, Salmoniformes, Gymnotiformes and
+  Anguilliformes so their species stay within Teleostei. Preserve the existing
+  Wikidata IDs and intermediate clades used elsewhere in this dataset.
+  Reviewed lineages: [cod](https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=8049),
+  [salmon](https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=8030),
+  [electric eel](https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=8005),
+  [European eel](https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=7936).
 - `Symsagittifera roscoffensis` and `Xenoturbella bocki` follow
   Xenacoelomorpha, not Platyhelminthes. The game uses the hypothesis that
   Xenacoelomorpha is sister to Nephrozoa, rather than nesting it within

@@ -3923,6 +3923,78 @@
             "rank": "superclass"
           },
           {
+            "wikidataId": "Q343460",
+            "scientificName": "Actinopteri",
+            "englishName": "Actinopteri",
+            "rank": "class"
+          },
+          {
+            "wikidataId": "Q740005",
+            "scientificName": "Neopterygii",
+            "englishName": null,
+            "rank": "subclass"
+          },
+          {
+            "wikidataId": "Q23072499",
+            "scientificName": "Teleosteomorpha",
+            "englishName": null,
+            "rank": null
+          },
+          {
+            "wikidataId": "Q204861",
+            "scientificName": "Teleostei",
+            "englishName": null,
+            "rank": "class"
+          },
+          {
+            "wikidataId": "Q22107334",
+            "scientificName": "Osteoglossocephalai",
+            "englishName": null,
+            "rank": "megacohort"
+          },
+          {
+            "wikidataId": "Q1103396",
+            "scientificName": "Clupeocephala",
+            "englishName": null,
+            "rank": "supercohort"
+          },
+          {
+            "wikidataId": "Q135676589",
+            "scientificName": "Pan-Euteleostei",
+            "englishName": null,
+            "rank": null
+          },
+          {
+            "wikidataId": "Q1378777",
+            "scientificName": "Euteleostei",
+            "englishName": null,
+            "rank": "cohort"
+          },
+          {
+            "wikidataId": "Q1977650",
+            "scientificName": "Neoteleostei",
+            "englishName": null,
+            "rank": "subcohort"
+          },
+          {
+            "wikidataId": "Q60882531",
+            "scientificName": "Eurypterygia",
+            "englishName": null,
+            "rank": "infracohort"
+          },
+          {
+            "wikidataId": "Q1142746",
+            "scientificName": "Ctenosquamata",
+            "englishName": null,
+            "rank": "section"
+          },
+          {
+            "wikidataId": "Q30093077",
+            "scientificName": "Acanthomorphata",
+            "englishName": null,
+            "rank": "subsection"
+          },
+          {
             "wikidataId": "Q216241",
             "scientificName": "Gadiformes",
             "englishName": "Gadiformes",
@@ -4452,6 +4524,48 @@
             "scientificName": "Actinopteri",
             "englishName": "Actinopteri",
             "rank": "class"
+          },
+          {
+            "wikidataId": "Q740005",
+            "scientificName": "Neopterygii",
+            "englishName": null,
+            "rank": "subclass"
+          },
+          {
+            "wikidataId": "Q23072499",
+            "scientificName": "Teleosteomorpha",
+            "englishName": null,
+            "rank": null
+          },
+          {
+            "wikidataId": "Q204861",
+            "scientificName": "Teleostei",
+            "englishName": null,
+            "rank": "class"
+          },
+          {
+            "wikidataId": "Q22107334",
+            "scientificName": "Osteoglossocephalai",
+            "englishName": null,
+            "rank": "megacohort"
+          },
+          {
+            "wikidataId": "Q1103396",
+            "scientificName": "Clupeocephala",
+            "englishName": null,
+            "rank": "supercohort"
+          },
+          {
+            "wikidataId": "Q135676589",
+            "scientificName": "Pan-Euteleostei",
+            "englishName": null,
+            "rank": null
+          },
+          {
+            "wikidataId": "Q1378777",
+            "scientificName": "Euteleostei",
+            "englishName": null,
+            "rank": "cohort"
           },
           {
             "wikidataId": "Q9394365",
@@ -15926,6 +16040,48 @@
             "rank": "class"
           },
           {
+            "wikidataId": "Q740005",
+            "scientificName": "Neopterygii",
+            "englishName": null,
+            "rank": "subclass"
+          },
+          {
+            "wikidataId": "Q23072499",
+            "scientificName": "Teleosteomorpha",
+            "englishName": null,
+            "rank": null
+          },
+          {
+            "wikidataId": "Q204861",
+            "scientificName": "Teleostei",
+            "englishName": null,
+            "rank": "class"
+          },
+          {
+            "wikidataId": "Q22107334",
+            "scientificName": "Osteoglossocephalai",
+            "englishName": null,
+            "rank": "megacohort"
+          },
+          {
+            "wikidataId": "Q1103396",
+            "scientificName": "Clupeocephala",
+            "englishName": null,
+            "rank": "supercohort"
+          },
+          {
+            "wikidataId": "Q22107399",
+            "scientificName": "Otomorpha",
+            "englishName": null,
+            "rank": "cohort"
+          },
+          {
+            "wikidataId": "Q149081",
+            "scientificName": "Ostariophysi",
+            "englishName": null,
+            "rank": "subcohort"
+          },
+          {
             "wikidataId": "Q752264",
             "scientificName": "Gymnotiformes",
             "englishName": "Gymnotiformes",
@@ -17135,6 +17291,24 @@
             "wikidataId": "Q343460",
             "scientificName": "Actinopteri",
             "englishName": "Actinopteri",
+            "rank": "class"
+          },
+          {
+            "wikidataId": "Q740005",
+            "scientificName": "Neopterygii",
+            "englishName": null,
+            "rank": "subclass"
+          },
+          {
+            "wikidataId": "Q23072499",
+            "scientificName": "Teleosteomorpha",
+            "englishName": null,
+            "rank": null
+          },
+          {
+            "wikidataId": "Q204861",
+            "scientificName": "Teleostei",
+            "englishName": null,
             "rank": "class"
           },
           {
@@ -37957,6 +38131,48 @@
             "scientificName": "Actinopteri",
             "englishName": "Actinopteri",
             "rank": "class"
+          },
+          {
+            "wikidataId": "Q740005",
+            "scientificName": "Neopterygii",
+            "englishName": null,
+            "rank": "subclass"
+          },
+          {
+            "wikidataId": "Q23072499",
+            "scientificName": "Teleosteomorpha",
+            "englishName": null,
+            "rank": null
+          },
+          {
+            "wikidataId": "Q204861",
+            "scientificName": "Teleostei",
+            "englishName": null,
+            "rank": "class"
+          },
+          {
+            "wikidataId": "Q22107334",
+            "scientificName": "Osteoglossocephalai",
+            "englishName": null,
+            "rank": "megacohort"
+          },
+          {
+            "wikidataId": "Q1103396",
+            "scientificName": "Clupeocephala",
+            "englishName": null,
+            "rank": "supercohort"
+          },
+          {
+            "wikidataId": "Q135676589",
+            "scientificName": "Pan-Euteleostei",
+            "englishName": null,
+            "rank": null
+          },
+          {
+            "wikidataId": "Q1378777",
+            "scientificName": "Euteleostei",
+            "englishName": null,
+            "rank": "cohort"
           },
           {
             "wikidataId": "Q9394365",
