@@ -71,6 +71,7 @@ export function createLobbySculpture(surface, lobby) {
   };
   const sculpture = new THREE.Mesh(geometry, material);
   scene.add(sculpture); sculpture.rotation.set(-.08, -.24, -.03);
+  const xAxis = new THREE.Vector3(1, 0, 0), yAxis = new THREE.Vector3(0, 1, 0);
 
   const reduced = matchMedia("(prefers-reduced-motion: reduce)");
   const maxSpeed = 1.6, friction = .045;
@@ -90,10 +91,8 @@ export function createLobbySculpture(surface, lobby) {
       if (reduced.matches) { velocity.x = 0; velocity.y = 0; }
       else if (touched) { const drag = Math.exp(-friction * dt); velocity.x *= drag; velocity.y *= drag; }
     }
-    sculpture.rotation.y += velocity.y * dt;
-    const nextX = sculpture.rotation.x + velocity.x * dt;
-    sculpture.rotation.x = Math.max(-.65, Math.min(.65, nextX));
-    if (nextX !== sculpture.rotation.x) velocity.x = 0;
+    sculpture.rotateOnWorldAxis(yAxis, velocity.y * dt);
+    sculpture.rotateOnWorldAxis(xAxis, velocity.x * dt);
   }
   function beginFill() {
     if (desiredDark === settledDark) return;
@@ -161,7 +160,7 @@ export function createLobbySculpture(surface, lobby) {
   surface.addEventListener("keydown", (event) => {
     const keys = { ArrowLeft: [0, -.12], ArrowRight: [0, .12], ArrowUp: [-.1, 0], ArrowDown: [.1, 0] };
     if (!keys[event.key]) return;
-    event.preventDefault(); sculpture.rotation.x = Math.max(-.65, Math.min(.65, sculpture.rotation.x + keys[event.key][0])); sculpture.rotation.y += keys[event.key][1]; requestDraw();
+    event.preventDefault(); sculpture.rotateOnWorldAxis(xAxis, keys[event.key][0]); sculpture.rotateOnWorldAxis(yAxis, keys[event.key][1]); requestDraw();
   });
   const observer = new ResizeObserver(resize); observer.observe(surface);
   const visibilityObserver = new MutationObserver(refreshVisibility); visibilityObserver.observe(lobby, { attributes: true, attributeFilter: ["hidden"] });

@@ -60,9 +60,9 @@ sculpture.material.onBeforeCompile(shader);
 assert.equal(shader.uniforms.scFrom.value.getHex(), 0x292d32, "Sculpture matches the light wordmark's charcoal color");
 assert.equal(document.documentElement.dataset.theme, "light");
 assert.equal(surface.attributes["aria-pressed"], "false");
-const initialAngle = sculpture.rotation.y;
+const initialAngle = sculpture.quaternion.clone();
 advance(1000);
-assert.ok(Math.abs(sculpture.rotation.y - initialAngle) > .05, "Initial spin needs no input");
+assert.ok(sculpture.quaternion.angleTo(initialAngle) > .05, "Initial spin needs no input");
 
 // Fast dragging stays capped; release continues with a slowly decaying velocity.
 listeners.pointerdown(pointerEvent(0, 0));
@@ -70,12 +70,24 @@ for (let i = 1; i <= 25; i++) { tick(); listeners.pointermove(pointerEvent(i * 1
 listeners.pointerup(pointerEvent(2500, 0)); listeners.click();
 assert.equal(shader.uniforms.scFront.value, -3.2, "Dragging must not change color");
 assert.equal(document.documentElement.dataset.theme, "light", "Dragging must not toggle the page theme");
-let angle = sculpture.rotation.y; tick();
-const speed = (sculpture.rotation.y - angle) / .016667;
+let angle = sculpture.quaternion.clone(); tick();
+const speed = sculpture.quaternion.angleTo(angle) / .016667;
 assert.ok(speed > 1 && speed <= 1.600001, "Rotation speed is capped at the increased limit");
-advance(2000); angle = sculpture.rotation.y; tick();
-const laterSpeed = (sculpture.rotation.y - angle) / .016667;
+advance(2000); angle = sculpture.quaternion.clone(); tick();
+const laterSpeed = sculpture.quaternion.angleTo(angle) / .016667;
 assert.ok(laterSpeed < speed && laterSpeed > speed * .85, "Low friction preserves release inertia");
+
+// Vertical dragging and keyboard rotation pass upside-down and full-turn positions.
+listeners.pointerdown(pointerEvent(0, 0));
+for (let i = 1; i <= 25; i++) { tick(); listeners.pointermove(pointerEvent(0, i * 100)); }
+listeners.pointerup(pointerEvent(0, 2500)); listeners.click();
+let travelled = 0;
+for (let i = 0; i < 300; i++) { const before = sculpture.quaternion.clone(); tick(); travelled += sculpture.quaternion.angleTo(before); }
+assert.ok(travelled > Math.PI * 2, "Vertical inertia must continue through a complete revolution");
+const beforeKeys = sculpture.quaternion.clone();
+for (let i = 0; i < 70; i++) listeners.keydown({ key: "ArrowDown", preventDefault() {} });
+const afterKeys = new Three.Quaternion().setFromAxisAngle(new Three.Vector3(1, 0, 0), 7).multiply(beforeKeys);
+assert.ok(sculpture.quaternion.angleTo(afterKeys) < .000001, "Keyboard rotation must have no angle clamp");
 
 // Rapid color toggles queue cleanly, then finish in the requested color.
 listeners.click(); tick();
