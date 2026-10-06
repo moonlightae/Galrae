@@ -26,6 +26,41 @@ for (const animal of dataset.animals.filter((entry) => entry.id !== humanId)) {
 }
 
 assert.equal(classified.length, dataset.speciesCount);
+// Independently reviewed triples: the first two must share a branch that
+// excludes the third. Exercise every arrival order, including the old false join.
+const reviewedTriples = [
+  ["neoceratodus-forsteri", "homo-sapiens", "latimeria-chalumnae"],
+  ["macropus-giganteus", "homo-sapiens", "ornithorhynchus-anatinus"],
+  ["loxodonta-africana", "trichechus-manatus", "dasypus-novemcinctus"],
+  ["scolopendra-gigantea", "aedes-aegypti", "limulus-polyphemus"],
+  ["euperipatoides-kanangrensis", "aedes-aegypti", "priapulus-caudatus"],
+  ["macrobiotus-shonaicus", "aedes-aegypti", "caenorhabditis-elegans"],
+  ["lumbricus-terrestris", "cornu-aspersum", "brachionus-plicatilis"],
+  ["dugesia-japonica", "cornu-aspersum", "brachionus-plicatilis"],
+  ["harmonia-axyridis", "drosophila-melanogaster", "apis-mellifera"],
+  ["drosophila-melanogaster", "bombyx-mori", "harmonia-axyridis"],
+  ["asterias-rubens", "holothuria-edulis", "antedon-mediterranea"],
+  ["bufo-bufo", "dendrobates-tinctorius", "rana-temporaria"],
+  ["ascaris-lumbricoides", "caenorhabditis-elegans", "trichinella-spiralis"],
+  ["pterois-volitans", "mola-mola", "thunnus-thynnus"],
+  ["riftia-pachyptila", "lumbricus-terrestris", "platynereis-dumerilii"],
+];
+for (const [left, right, outside] of reviewedTriples) {
+  for (const order of [[left, right, outside], [left, outside, right], [right, left, outside], [right, outside, left], [outside, left, right], [outside, right, left]]) {
+    const tree = buildTree(order, speciesById);
+    const hasPair = (node) => {
+      const leaves = collectLeafIds(node);
+      return (leaves.length === 2 && leaves.includes(left) && leaves.includes(right)) || (node.children?.some(hasPair) ?? false);
+    };
+    assert.ok(hasPair(tree), `Wrong split for ${order}`);
+    const before = buildTree(order.slice(0, 2), speciesById);
+    const expected = getExpectedPlacement(order.slice(0, 2), order[2], speciesById);
+    assert.equal(expected.placement, "wrap", `False common-ancestor join for ${order}`);
+    assert.ok(isEquivalentPlacement(before, expected, expected.targetId, "wrap"));
+    assert.equal(isEquivalentPlacement(before, expected, before.id, "join"), false, `False root join accepted for ${order}`);
+  }
+}
+assert.equal(lineageIds("drosophila-melanogaster").includes("Q27605"), false);
 assert.ok(joinCount > 0, "Dataset sequence never exercised join placement");
 assert.ok(wrapCount > 0, "Dataset sequence never exercised wrap placement");
 

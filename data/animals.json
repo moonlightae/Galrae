@@ -179,6 +179,12 @@
             "rank": "superphylum"
           },
           {
+            "wikidataId": "Q134870",
+            "scientificName": "Panarthropoda",
+            "englishName": "Panarthropoda",
+            "rank": "clade"
+          },
+          {
             "wikidataId": "Q1360",
             "scientificName": "Arthropoda",
             "englishName": "arthropod",
@@ -255,6 +261,18 @@
             "scientificName": "Holometabola",
             "englishName": null,
             "rank": "superorder"
+          },
+          {
+            "wikidataId": "Q48970749",
+            "scientificName": "Aparaglossata",
+            "englishName": "Aparaglossata",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "Q16987281",
+            "scientificName": "Panorpida",
+            "englishName": "Panorpida",
+            "rank": "clade"
           },
           {
             "wikidataId": "Q25312",
@@ -1868,6 +1886,12 @@
             "rank": "superphylum"
           },
           {
+            "wikidataId": "Q134870",
+            "scientificName": "Panarthropoda",
+            "englishName": "Panarthropoda",
+            "rank": "clade"
+          },
+          {
             "wikidataId": "Q1360",
             "scientificName": "Arthropoda",
             "englishName": "arthropod",
@@ -2067,6 +2091,12 @@
             "scientificName": "Ecdysozoa",
             "englishName": null,
             "rank": "superphylum"
+          },
+          {
+            "wikidataId": "Q134870",
+            "scientificName": "Panarthropoda",
+            "englishName": "Panarthropoda",
+            "rank": "clade"
           },
           {
             "wikidataId": "Q1360",
@@ -2337,6 +2367,12 @@
             "scientificName": "Ecdysozoa",
             "englishName": null,
             "rank": "superphylum"
+          },
+          {
+            "wikidataId": "Q134870",
+            "scientificName": "Panarthropoda",
+            "englishName": "Panarthropoda",
+            "rank": "clade"
           },
           {
             "wikidataId": "Q1360",
@@ -2627,6 +2663,12 @@
             "rank": "superphylum"
           },
           {
+            "wikidataId": "Q134870",
+            "scientificName": "Panarthropoda",
+            "englishName": "Panarthropoda",
+            "rank": "clade"
+          },
+          {
             "wikidataId": "Q1360",
             "scientificName": "Arthropoda",
             "englishName": "arthropod",
@@ -2844,6 +2886,12 @@
             "scientificName": "Ecdysozoa",
             "englishName": null,
             "rank": "superphylum"
+          },
+          {
+            "wikidataId": "Q134870",
+            "scientificName": "Panarthropoda",
+            "englishName": "Panarthropoda",
+            "rank": "clade"
           },
           {
             "wikidataId": "Q1360",
@@ -3065,6 +3113,12 @@
             "rank": "superphylum"
           },
           {
+            "wikidataId": "Q134870",
+            "scientificName": "Panarthropoda",
+            "englishName": "Panarthropoda",
+            "rank": "clade"
+          },
+          {
             "wikidataId": "Q1360",
             "scientificName": "Arthropoda",
             "englishName": "arthropod",
@@ -3254,9 +3308,9 @@
             "rank": "phylum"
           },
           {
-            "wikidataId": "Q17157",
-            "scientificName": "Secernentea",
-            "englishName": "Secernentea",
+            "wikidataId": "Q1934949",
+            "scientificName": "Chromadorea",
+            "englishName": "Chromadorea",
             "rank": "class"
           },
           {
@@ -4100,6 +4154,12 @@
             "rank": "superphylum"
           },
           {
+            "wikidataId": "Q134870",
+            "scientificName": "Panarthropoda",
+            "englishName": "Panarthropoda",
+            "rank": "clade"
+          },
+          {
             "wikidataId": "Q1360",
             "scientificName": "Arthropoda",
             "englishName": "arthropod",
@@ -4941,6 +5001,30 @@
             "scientificName": "Gnathostomata",
             "englishName": "Gnathostomata",
             "rank": "infraphylum"
+          },
+          {
+            "wikidataId": "Q134681",
+            "scientificName": "Teleostomi",
+            "englishName": null,
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "Q1378800",
+            "scientificName": "Euteleostomi",
+            "englishName": null,
+            "rank": null
+          },
+          {
+            "wikidataId": "Q160830",
+            "scientificName": "Sarcopterygii",
+            "englishName": "Sarcopterygii",
+            "rank": "superclass"
+          },
+          {
+            "wikidataId": "Q23809240",
+            "scientificName": "Dipnotetrapodomorpha",
+            "englishName": null,
+            "rank": null
           },
           {
             "wikidataId": "Q61881941",
@@ -6590,6 +6674,12 @@
             "rank": "superphylum"
           },
           {
+            "wikidataId": "Q134870",
+            "scientificName": "Panarthropoda",
+            "englishName": "Panarthropoda",
+            "rank": "clade"
+          },
+          {
             "wikidataId": "Q1360",
             "scientificName": "Arthropoda",
             "englishName": "arthropod",
@@ -6809,6 +6899,12 @@
             "rank": "superphylum"
           },
           {
+            "wikidataId": "Q134870",
+            "scientificName": "Panarthropoda",
+            "englishName": "Panarthropoda",
+            "rank": "clade"
+          },
+          {
             "wikidataId": "Q1360",
             "scientificName": "Arthropoda",
             "englishName": "arthropod",
@@ -6885,6 +6981,18 @@
             "scientificName": "Holometabola",
             "englishName": null,
             "rank": "superorder"
+          },
+          {
+            "wikidataId": "Q48970749",
+            "scientificName": "Aparaglossata",
+            "englishName": "Aparaglossata",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "Q16987281",
+            "scientificName": "Panorpida",
+            "englishName": "Panorpida",
+            "rank": "clade"
           },
           {
             "wikidataId": "Q28319",
@@ -9300,6 +9408,12 @@
             "scientificName": "Ecdysozoa",
             "englishName": null,
             "rank": "superphylum"
+          },
+          {
+            "wikidataId": "Q134870",
+            "scientificName": "Panarthropoda",
+            "englishName": "Panarthropoda",
+            "rank": "clade"
           },
           {
             "wikidataId": "Q1360",
@@ -13373,6 +13487,12 @@
             "rank": "phylum"
           },
           {
+            "wikidataId": "Q1328367",
+            "scientificName": "Eleutherozoa",
+            "englishName": "Eleutherozoa",
+            "rank": "clade"
+          },
+          {
             "wikidataId": "Q1407833",
             "scientificName": "Asterozoa",
             "englishName": null,
@@ -14279,6 +14399,12 @@
             "rank": "phylum"
           },
           {
+            "wikidataId": "Q1328367",
+            "scientificName": "Eleutherozoa",
+            "englishName": "Eleutherozoa",
+            "rank": "clade"
+          },
+          {
             "wikidataId": "Q1407833",
             "scientificName": "Asterozoa",
             "englishName": null,
@@ -14400,6 +14526,12 @@
             "scientificName": "Ecdysozoa",
             "englishName": null,
             "rank": "superphylum"
+          },
+          {
+            "wikidataId": "Q134870",
+            "scientificName": "Panarthropoda",
+            "englishName": "Panarthropoda",
+            "rank": "clade"
           },
           {
             "wikidataId": "Q1360",
@@ -14567,6 +14699,12 @@
             "rank": "superphylum"
           },
           {
+            "wikidataId": "Q134870",
+            "scientificName": "Panarthropoda",
+            "englishName": "Panarthropoda",
+            "rank": "clade"
+          },
+          {
             "wikidataId": "Q1360",
             "scientificName": "Arthropoda",
             "englishName": "arthropod",
@@ -14645,16 +14783,22 @@
             "rank": "superorder"
           },
           {
+            "wikidataId": "Q48970749",
+            "scientificName": "Aparaglossata",
+            "englishName": "Aparaglossata",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "Q16987281",
+            "scientificName": "Panorpida",
+            "englishName": "Panorpida",
+            "rank": "clade"
+          },
+          {
             "wikidataId": "Q25312",
             "scientificName": "Diptera",
             "englishName": null,
             "rank": "order"
-          },
-          {
-            "wikidataId": "Q27605",
-            "scientificName": "Nematocera",
-            "englishName": null,
-            "rank": "suborder"
           },
           {
             "wikidataId": "Q19382737",
@@ -14810,6 +14954,12 @@
             "rank": "superphylum"
           },
           {
+            "wikidataId": "Q134870",
+            "scientificName": "Panarthropoda",
+            "englishName": "Panarthropoda",
+            "rank": "clade"
+          },
+          {
             "wikidataId": "Q1360",
             "scientificName": "Arthropoda",
             "englishName": "arthropod",
@@ -14888,16 +15038,22 @@
             "rank": "superorder"
           },
           {
+            "wikidataId": "Q48970749",
+            "scientificName": "Aparaglossata",
+            "englishName": "Aparaglossata",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "Q16987281",
+            "scientificName": "Panorpida",
+            "englishName": "Panorpida",
+            "rank": "clade"
+          },
+          {
             "wikidataId": "Q25312",
             "scientificName": "Diptera",
             "englishName": null,
             "rank": "order"
-          },
-          {
-            "wikidataId": "Q27605",
-            "scientificName": "Nematocera",
-            "englishName": null,
-            "rank": "suborder"
           },
           {
             "wikidataId": "Q19382737",
@@ -15049,6 +15205,12 @@
           {
             "wikidataId": "Q1211307",
             "scientificName": "Spiralia",
+            "englishName": null,
+            "rank": "superphylum"
+          },
+          {
+            "wikidataId": "Q321481",
+            "scientificName": "Lophotrochozoa",
             "englishName": null,
             "rank": "superphylum"
           },
@@ -15282,6 +15444,12 @@
             "scientificName": "Neobatrachia",
             "englishName": "Neobatrachia",
             "rank": "suborder"
+          },
+          {
+            "wikidataId": "Q4896640",
+            "scientificName": "Hyloidea",
+            "englishName": "Hyloidea",
+            "rank": "superfamily"
           },
           {
             "wikidataId": "Q3248450",
@@ -15587,6 +15755,54 @@
             "rank": "class"
           },
           {
+            "wikidataId": "Q26708524",
+            "scientificName": "Theriimorpha",
+            "englishName": null,
+            "rank": null
+          },
+          {
+            "wikidataId": "Q2513125",
+            "scientificName": "Theriiformes",
+            "englishName": null,
+            "rank": "subclass"
+          },
+          {
+            "wikidataId": "Q2141770",
+            "scientificName": "Trechnotheria",
+            "englishName": null,
+            "rank": "superlegion"
+          },
+          {
+            "wikidataId": "Q766050",
+            "scientificName": "Cladotheria",
+            "englishName": null,
+            "rank": "legion"
+          },
+          {
+            "wikidataId": "Q35134963",
+            "scientificName": "Prototribosphenida",
+            "englishName": null,
+            "rank": null
+          },
+          {
+            "wikidataId": "Q2497754",
+            "scientificName": "Zatheria",
+            "englishName": null,
+            "rank": "sublegion"
+          },
+          {
+            "wikidataId": "Q2910821",
+            "scientificName": "Boreosphenida",
+            "englishName": null,
+            "rank": "infralegion"
+          },
+          {
+            "wikidataId": "Q130942",
+            "scientificName": "Theria",
+            "englishName": null,
+            "rank": "supercohort"
+          },
+          {
             "wikidataId": "Q26332",
             "scientificName": "Diprotodontia",
             "englishName": "Diprotodontia",
@@ -15706,6 +15922,12 @@
           {
             "wikidataId": "Q1211307",
             "scientificName": "Spiralia",
+            "englishName": null,
+            "rank": "superphylum"
+          },
+          {
+            "wikidataId": "Q321481",
+            "scientificName": "Lophotrochozoa",
             "englishName": null,
             "rank": "superphylum"
           },
@@ -15841,6 +16063,12 @@
           {
             "wikidataId": "Q1211307",
             "scientificName": "Spiralia",
+            "englishName": null,
+            "rank": "superphylum"
+          },
+          {
+            "wikidataId": "Q321481",
+            "scientificName": "Lophotrochozoa",
             "englishName": null,
             "rank": "superphylum"
           },
@@ -17147,6 +17375,12 @@
             "rank": "superphylum"
           },
           {
+            "wikidataId": "Q134870",
+            "scientificName": "Panarthropoda",
+            "englishName": "Panarthropoda",
+            "rank": "clade"
+          },
+          {
             "wikidataId": "Q5191",
             "scientificName": "Onychophora",
             "englishName": "Onychophora",
@@ -17421,6 +17655,12 @@
             "scientificName": "Ecdysozoa",
             "englishName": null,
             "rank": "superphylum"
+          },
+          {
+            "wikidataId": "Q134870",
+            "scientificName": "Panarthropoda",
+            "englishName": "Panarthropoda",
+            "rank": "clade"
           },
           {
             "wikidataId": "Q1360",
@@ -17847,6 +18087,12 @@
             "scientificName": "Ecdysozoa",
             "englishName": null,
             "rank": "superphylum"
+          },
+          {
+            "wikidataId": "Q134870",
+            "scientificName": "Panarthropoda",
+            "englishName": "Panarthropoda",
+            "rank": "clade"
           },
           {
             "wikidataId": "Q1360",
@@ -19210,6 +19456,12 @@
             "scientificName": "Neobatrachia",
             "englishName": "Neobatrachia",
             "rank": "suborder"
+          },
+          {
+            "wikidataId": "Q4896640",
+            "scientificName": "Hyloidea",
+            "englishName": "Hyloidea",
+            "rank": "superfamily"
           },
           {
             "wikidataId": "Q3248450",
@@ -21195,6 +21447,12 @@
             "rank": "superphylum"
           },
           {
+            "wikidataId": "Q134870",
+            "scientificName": "Panarthropoda",
+            "englishName": "Panarthropoda",
+            "rank": "clade"
+          },
+          {
             "wikidataId": "Q1360",
             "scientificName": "Arthropoda",
             "englishName": "arthropod",
@@ -21271,6 +21529,12 @@
             "scientificName": "Holometabola",
             "englishName": null,
             "rank": "superorder"
+          },
+          {
+            "wikidataId": "Q48970749",
+            "scientificName": "Aparaglossata",
+            "englishName": "Aparaglossata",
+            "rank": "clade"
           },
           {
             "wikidataId": "Q22671",
@@ -22596,6 +22860,12 @@
             "rank": "superphylum"
           },
           {
+            "wikidataId": "Q321481",
+            "scientificName": "Lophotrochozoa",
+            "englishName": null,
+            "rank": "superphylum"
+          },
+          {
             "wikidataId": "Q25522",
             "scientificName": "Annelida",
             "englishName": "Annelida",
@@ -22810,6 +23080,12 @@
             "scientificName": "Echinodermata",
             "englishName": null,
             "rank": "phylum"
+          },
+          {
+            "wikidataId": "Q1328367",
+            "scientificName": "Eleutherozoa",
+            "englishName": "Eleutherozoa",
+            "rank": "clade"
           },
           {
             "wikidataId": "Q2698547",
@@ -25593,6 +25869,12 @@
             "rank": "superphylum"
           },
           {
+            "wikidataId": "Q134870",
+            "scientificName": "Panarthropoda",
+            "englishName": "Panarthropoda",
+            "rank": "clade"
+          },
+          {
             "wikidataId": "Q1360",
             "scientificName": "Arthropoda",
             "englishName": "arthropod",
@@ -27408,6 +27690,54 @@
             "rank": "class"
           },
           {
+            "wikidataId": "Q26708524",
+            "scientificName": "Theriimorpha",
+            "englishName": null,
+            "rank": null
+          },
+          {
+            "wikidataId": "Q2513125",
+            "scientificName": "Theriiformes",
+            "englishName": null,
+            "rank": "subclass"
+          },
+          {
+            "wikidataId": "Q2141770",
+            "scientificName": "Trechnotheria",
+            "englishName": null,
+            "rank": "superlegion"
+          },
+          {
+            "wikidataId": "Q766050",
+            "scientificName": "Cladotheria",
+            "englishName": null,
+            "rank": "legion"
+          },
+          {
+            "wikidataId": "Q35134963",
+            "scientificName": "Prototribosphenida",
+            "englishName": null,
+            "rank": null
+          },
+          {
+            "wikidataId": "Q2497754",
+            "scientificName": "Zatheria",
+            "englishName": null,
+            "rank": "sublegion"
+          },
+          {
+            "wikidataId": "Q2910821",
+            "scientificName": "Boreosphenida",
+            "englishName": null,
+            "rank": "infralegion"
+          },
+          {
+            "wikidataId": "Q130942",
+            "scientificName": "Theria",
+            "englishName": null,
+            "rank": "supercohort"
+          },
+          {
             "wikidataId": "Q26332",
             "scientificName": "Diprotodontia",
             "englishName": "Diprotodontia",
@@ -27949,6 +28279,12 @@
             "scientificName": "Ecdysozoa",
             "englishName": null,
             "rank": "superphylum"
+          },
+          {
+            "wikidataId": "Q134870",
+            "scientificName": "Panarthropoda",
+            "englishName": "Panarthropoda",
+            "rank": "clade"
           },
           {
             "wikidataId": "Q1360",
@@ -29454,6 +29790,12 @@
             "rank": "superphylum"
           },
           {
+            "wikidataId": "Q321481",
+            "scientificName": "Lophotrochozoa",
+            "englishName": null,
+            "rank": "superphylum"
+          },
+          {
             "wikidataId": "Q25522",
             "scientificName": "Annelida",
             "englishName": "Annelida",
@@ -29758,6 +30100,12 @@
             "scientificName": "Ecdysozoa",
             "englishName": null,
             "rank": "superphylum"
+          },
+          {
+            "wikidataId": "Q134870",
+            "scientificName": "Panarthropoda",
+            "englishName": "Panarthropoda",
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5194",
@@ -30384,6 +30732,12 @@
             "rank": "superphylum"
           },
           {
+            "wikidataId": "Q134870",
+            "scientificName": "Panarthropoda",
+            "englishName": "Panarthropoda",
+            "rank": "clade"
+          },
+          {
             "wikidataId": "Q1360",
             "scientificName": "Arthropoda",
             "englishName": "arthropod",
@@ -30460,6 +30814,12 @@
             "scientificName": "Holometabola",
             "englishName": null,
             "rank": "superorder"
+          },
+          {
+            "wikidataId": "Q48970749",
+            "scientificName": "Aparaglossata",
+            "englishName": "Aparaglossata",
+            "rank": "clade"
           },
           {
             "wikidataId": "Q22671",
@@ -30855,6 +31215,12 @@
             "rank": "superphylum"
           },
           {
+            "wikidataId": "Q134870",
+            "scientificName": "Panarthropoda",
+            "englishName": "Panarthropoda",
+            "rank": "clade"
+          },
+          {
             "wikidataId": "Q1360",
             "scientificName": "Arthropoda",
             "englishName": "arthropod",
@@ -31068,6 +31434,12 @@
             "rank": "superphylum"
           },
           {
+            "wikidataId": "Q134870",
+            "scientificName": "Panarthropoda",
+            "englishName": "Panarthropoda",
+            "rank": "clade"
+          },
+          {
             "wikidataId": "Q1360",
             "scientificName": "Arthropoda",
             "englishName": "arthropod",
@@ -31144,6 +31516,18 @@
             "scientificName": "Holometabola",
             "englishName": null,
             "rank": "superorder"
+          },
+          {
+            "wikidataId": "Q48970749",
+            "scientificName": "Aparaglossata",
+            "englishName": "Aparaglossata",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "Q16987281",
+            "scientificName": "Panorpida",
+            "englishName": "Panorpida",
+            "rank": "clade"
           },
           {
             "wikidataId": "Q28319",
@@ -34011,6 +34395,12 @@
             "rank": "phylum"
           },
           {
+            "wikidataId": "Q1328367",
+            "scientificName": "Eleutherozoa",
+            "englishName": "Eleutherozoa",
+            "rank": "clade"
+          },
+          {
             "wikidataId": "Q1407833",
             "scientificName": "Asterozoa",
             "englishName": null,
@@ -34917,6 +35307,12 @@
             "rank": "superphylum"
           },
           {
+            "wikidataId": "Q134870",
+            "scientificName": "Panarthropoda",
+            "englishName": "Panarthropoda",
+            "rank": "clade"
+          },
+          {
             "wikidataId": "Q1360",
             "scientificName": "Arthropoda",
             "englishName": "arthropod",
@@ -34993,6 +35389,18 @@
             "scientificName": "Holometabola",
             "englishName": null,
             "rank": "superorder"
+          },
+          {
+            "wikidataId": "Q48970749",
+            "scientificName": "Aparaglossata",
+            "englishName": "Aparaglossata",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "Q16987281",
+            "scientificName": "Panorpida",
+            "englishName": "Panorpida",
+            "rank": "clade"
           },
           {
             "wikidataId": "Q28319",
@@ -35172,6 +35580,12 @@
             "rank": "phylum"
           },
           {
+            "wikidataId": "Q1328367",
+            "scientificName": "Eleutherozoa",
+            "englishName": "Eleutherozoa",
+            "rank": "clade"
+          },
+          {
             "wikidataId": "Q2698547",
             "scientificName": "Echinozoa",
             "englishName": "Echinozoa",
@@ -35311,6 +35725,12 @@
             "scientificName": "Ecdysozoa",
             "englishName": null,
             "rank": "superphylum"
+          },
+          {
+            "wikidataId": "Q134870",
+            "scientificName": "Panarthropoda",
+            "englishName": "Panarthropoda",
+            "rank": "clade"
           },
           {
             "wikidataId": "Q1360",
@@ -35530,6 +35950,12 @@
             "scientificName": "Ecdysozoa",
             "englishName": null,
             "rank": "superphylum"
+          },
+          {
+            "wikidataId": "Q134870",
+            "scientificName": "Panarthropoda",
+            "englishName": "Panarthropoda",
+            "rank": "clade"
           },
           {
             "wikidataId": "Q1360",
@@ -36192,6 +36618,12 @@
             "rank": "phylum"
           },
           {
+            "wikidataId": "Q1328367",
+            "scientificName": "Eleutherozoa",
+            "englishName": "Eleutherozoa",
+            "rank": "clade"
+          },
+          {
             "wikidataId": "Q1407833",
             "scientificName": "Asterozoa",
             "englishName": null,
@@ -36750,16 +37182,22 @@
             "rank": "superphylum"
           },
           {
+            "wikidataId": "Q321481",
+            "scientificName": "Lophotrochozoa",
+            "englishName": null,
+            "rank": "superphylum"
+          },
+          {
             "wikidataId": "Q25522",
             "scientificName": "Annelida",
             "englishName": "Annelida",
             "rank": "phylum"
           },
           {
-            "wikidataId": "Q18952",
-            "scientificName": "Polychaeta",
-            "englishName": "Polychaeta",
-            "rank": "class"
+            "wikidataId": "Q115868988",
+            "scientificName": "Pleistoannelida",
+            "englishName": "Pleistoannelida",
+            "rank": null
           },
           {
             "wikidataId": "Q6759542",
@@ -37956,6 +38394,12 @@
             "rank": "phylum"
           },
           {
+            "wikidataId": "Q1328367",
+            "scientificName": "Eleutherozoa",
+            "englishName": "Eleutherozoa",
+            "rank": "clade"
+          },
+          {
             "wikidataId": "Q2698547",
             "scientificName": "Echinozoa",
             "englishName": "Echinozoa",
@@ -38731,6 +39175,12 @@
             "scientificName": "Ecdysozoa",
             "englishName": null,
             "rank": "superphylum"
+          },
+          {
+            "wikidataId": "Q134870",
+            "scientificName": "Panarthropoda",
+            "englishName": "Panarthropoda",
+            "rank": "clade"
           },
           {
             "wikidataId": "Q1360",
@@ -39555,6 +40005,18 @@
             "rank": "division"
           },
           {
+            "wikidataId": "Q22109111",
+            "scientificName": "Percomorphaceae",
+            "englishName": null,
+            "rank": "subdivision"
+          },
+          {
+            "wikidataId": "Q30026706",
+            "scientificName": "Eupercaria",
+            "englishName": null,
+            "rank": "series"
+          },
+          {
             "wikidataId": "Q208777",
             "scientificName": "Scorpaeniformes",
             "englishName": "Scorpaeniformes",
@@ -40091,6 +40553,12 @@
           {
             "wikidataId": "Q1211307",
             "scientificName": "Spiralia",
+            "englishName": null,
+            "rank": "superphylum"
+          },
+          {
+            "wikidataId": "Q321481",
+            "scientificName": "Lophotrochozoa",
             "englishName": null,
             "rank": "superphylum"
           },
@@ -41988,6 +42456,12 @@
             "rank": "superphylum"
           },
           {
+            "wikidataId": "Q321481",
+            "scientificName": "Lophotrochozoa",
+            "englishName": null,
+            "rank": "superphylum"
+          },
+          {
             "wikidataId": "Q124900",
             "scientificName": "Platyhelminthes",
             "englishName": "Platyhelminthes",
@@ -42105,20 +42579,20 @@
             "rank": "superphylum"
           },
           {
+            "wikidataId": "Q134870",
+            "scientificName": "Panarthropoda",
+            "englishName": "Panarthropoda",
+            "rank": "clade"
+          },
+          {
             "wikidataId": "Q1360",
             "scientificName": "Arthropoda",
             "englishName": "arthropod",
             "rank": "phylum"
           },
           {
-            "wikidataId": "Q1372085",
-            "scientificName": "Euarthropoda",
-            "englishName": null,
-            "rank": null
-          },
-          {
-            "wikidataId": "Q112271405",
-            "scientificName": "Heptopodomera",
+            "wikidataId": "Q1633496",
+            "scientificName": "Mandibulata",
             "englishName": null,
             "rank": null
           },
@@ -44721,6 +45195,12 @@
             "rank": "phylum"
           },
           {
+            "wikidataId": "Q1328367",
+            "scientificName": "Eleutherozoa",
+            "englishName": "Eleutherozoa",
+            "rank": "clade"
+          },
+          {
             "wikidataId": "Q2698547",
             "scientificName": "Echinozoa",
             "englishName": "Echinozoa",
@@ -45030,6 +45510,12 @@
             "rank": "superphylum"
           },
           {
+            "wikidataId": "Q134870",
+            "scientificName": "Panarthropoda",
+            "englishName": "Panarthropoda",
+            "rank": "clade"
+          },
+          {
             "wikidataId": "Q1360",
             "scientificName": "Arthropoda",
             "englishName": "arthropod",
@@ -45167,6 +45653,12 @@
           {
             "wikidataId": "Q1211307",
             "scientificName": "Spiralia",
+            "englishName": null,
+            "rank": "superphylum"
+          },
+          {
+            "wikidataId": "Q321481",
+            "scientificName": "Lophotrochozoa",
             "englishName": null,
             "rank": "superphylum"
           },
@@ -46317,6 +46809,12 @@
             "rank": "superphylum"
           },
           {
+            "wikidataId": "Q134870",
+            "scientificName": "Panarthropoda",
+            "englishName": "Panarthropoda",
+            "rank": "clade"
+          },
+          {
             "wikidataId": "Q1360",
             "scientificName": "Arthropoda",
             "englishName": "arthropod",
@@ -46941,6 +47439,30 @@
             "rank": "infraphylum"
           },
           {
+            "wikidataId": "Q134681",
+            "scientificName": "Teleostomi",
+            "englishName": null,
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "Q1378800",
+            "scientificName": "Euteleostomi",
+            "englishName": null,
+            "rank": null
+          },
+          {
+            "wikidataId": "Q160830",
+            "scientificName": "Sarcopterygii",
+            "englishName": "Sarcopterygii",
+            "rank": "superclass"
+          },
+          {
+            "wikidataId": "Q23809240",
+            "scientificName": "Dipnotetrapodomorpha",
+            "englishName": null,
+            "rank": null
+          },
+          {
             "wikidataId": "Q61881941",
             "scientificName": "Dipneusti",
             "englishName": "Dipneusti",
@@ -47308,6 +47830,36 @@
             "scientificName": "Placentalia",
             "englishName": "Placentalia",
             "rank": "infraclass"
+          },
+          {
+            "wikidataId": "Q2718670",
+            "scientificName": "Atlantogenata",
+            "englishName": "Atlantogenata",
+            "rank": "magnorder"
+          },
+          {
+            "wikidataId": "Q27399",
+            "scientificName": "Afrotheria",
+            "englishName": "Afrotheria",
+            "rank": "superorder"
+          },
+          {
+            "wikidataId": "Q123509500",
+            "scientificName": "Paenungulatomorpha",
+            "englishName": "Paenungulatomorpha",
+            "rank": null
+          },
+          {
+            "wikidataId": "Q131950",
+            "scientificName": "Paenungulata",
+            "englishName": "Paenungulata",
+            "rank": null
+          },
+          {
+            "wikidataId": "Q20862",
+            "scientificName": "Tethytheria",
+            "englishName": "Tethytheria",
+            "rank": null
           },
           {
             "wikidataId": "Q25431",
@@ -48769,6 +49321,12 @@
             "scientificName": "Ecdysozoa",
             "englishName": null,
             "rank": "superphylum"
+          },
+          {
+            "wikidataId": "Q134870",
+            "scientificName": "Panarthropoda",
+            "englishName": "Panarthropoda",
+            "rank": "clade"
           },
           {
             "wikidataId": "Q1360",
