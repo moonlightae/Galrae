@@ -13,7 +13,12 @@ function element() {
     classList: { toggle() {} },
   };
 }
-const lobbyPages = Object.fromEntries(["lobby", "leaderboard", "collection", "tasks", "account"].map((name) => [name, element()]));
+const lobbyPages = Object.fromEntries(["lobby", "leaderboard", "collection", "tasks", "taxonomy-notes", "account"].map((name) => [name, element()]));
+const markup = readFileSync(new URL("../app/game-markup.ts", import.meta.url), "utf8");
+assert.match(markup, /id="taxonomy-notes-page" class="screen library-screen" data-lobby-page hidden/);
+assert.match(markup, /data-page="taxonomy-notes">분류 기준 안내/);
+assert.match(source, /"taxonomy-notes": \$\("#taxonomy-notes-page"\)/);
+assert.doesNotMatch(source + markup, /taxonomy-notes-modal|closeTaxonomyNotes|close-taxonomy-notes/);
 const buttons = Object.keys(lobbyPages).map((page) => Object.assign(element(), { dataset: { page } }));
 const toolbar = Object.assign(element(), { querySelectorAll: () => buttons });
 const toolbarHandle = element();

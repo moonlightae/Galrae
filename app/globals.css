@@ -659,23 +659,10 @@ button, [role="button"] { -webkit-tap-highlight-color: transparent; }
 .collection .section-heading > p { color: #544a64; }
 .collection-empty { color: #544a64; border-color: #b8afbf; }
 .data-attribution, .data-attribution a { color: #544a64; }
-.taxonomy-notes-backdrop { z-index: 26; }
-.taxonomy-notes-dialog {
-  position: relative;
-  width: min(600px, 100%);
-  max-height: min(78vh, 700px);
-  overflow: auto;
-  padding: clamp(28px, 4vw, 44px);
-  color: #241f36;
-  background: #fff8f3;
-  box-shadow: 0 24px 70px rgba(2, 15, 75, .32);
-}
-.taxonomy-notes-dialog h2 { margin: 0 0 20px; font-family: "Gowun Batang", serif; font-size: 2rem; }
-.taxonomy-notes-dialog .dialog-close { top: 12px; right: 12px; transform: none; }
-.taxonomy-notes-dialog .taxonomy-notes { margin: 0; padding: 0; background: transparent; font-size: .9rem; }
-.taxonomy-notes-dialog .taxonomy-notes p { margin: 0 0 20px; color: #354263; }
-.taxonomy-notes-dialog .taxonomy-notes ul { gap: 18px; }
-.taxonomy-notes-dialog .taxonomy-notes a { text-decoration-thickness: 1px; }
+.taxonomy-notes-panel .taxonomy-notes { margin: 0; padding: 0; background: transparent; font-size: .9rem; }
+.taxonomy-notes-panel .taxonomy-notes p { margin: 0 0 20px; color: #354263; }
+.taxonomy-notes-panel .taxonomy-notes ul { gap: 18px; }
+.taxonomy-notes-panel .taxonomy-notes a { text-decoration-thickness: 1px; }
 
 @media (max-width: 900px) {
   .lobby-main { grid-template-columns: 1fr; gap: 28px; min-height: 0; }
@@ -771,7 +758,7 @@ button, [role="button"] { -webkit-tap-highlight-color: transparent; }
 /* Shared surfaces follow the sculpture's theme without affecting hover or drag motion. */
 html, body, .screen, .mode-panel, .leaderboard, .collection,
 .card-dock, .failure-panel, .result-modal, .account-dialog, .species-dialog,
-.tutorial-intro-dialog, .taxonomy-notes-dialog, .loading-content,
+.tutorial-intro-dialog, .taxonomy-notes-panel, .loading-content,
 .animal-card, .mini-card, .side-toolbar, .toolbar-handle {
   transition: background-color 600ms ease, color 600ms ease, border-color 600ms ease;
 }
@@ -787,7 +774,7 @@ html, body, .game-screen, .loading-screen { background: var(--canvas); backgroun
 
 .mode-panel, .leaderboard, .collection,
 .card-dock, .failure-panel, .result-modal, .account-dialog, .species-dialog,
-.tutorial-intro-dialog, .taxonomy-notes-dialog, .loading-content {
+.tutorial-intro-dialog, .taxonomy-notes-panel, .loading-content {
   color: var(--ink);
   background: var(--surface);
   border: 1px solid var(--line);
@@ -824,9 +811,9 @@ html, body, .game-screen, .loading-screen { background: var(--canvas); backgroun
 .leaderboard-stat small, .leaderboard-row.is-me .leaderboard-stat small,
 .leaderboard-note, .leaderboard-empty { color: var(--muted); }
 .taxonomy-notes-toggle, .taxonomy-notes strong, .taxonomy-notes a,
-.mode-panel .taxonomy-notes p, .taxonomy-notes-dialog .taxonomy-notes p { color: var(--ink); }
+.mode-panel .taxonomy-notes p, .taxonomy-notes-panel .taxonomy-notes p { color: var(--ink); }
 .taxonomy-notes { border: 1px solid var(--line); }
-.taxonomy-notes-dialog .taxonomy-notes { border: 0; }
+.taxonomy-notes-panel .taxonomy-notes { border: 0; }
 .mini-card .mini-scientific, .mini-card .mini-success,
 .mini-card-credit, .data-attribution { color: var(--muted); }
 

@@ -14,7 +14,7 @@ const treeCanvas = $("#tree-canvas");
 const navigationShell = $("#navigation-shell");
 const toolbar = $("#side-toolbar");
 const toolbarHandle = $("#toolbar-handle");
-const lobbyPages = { lobby, leaderboard: $("#leaderboard-page"), collection: $("#collection-page"), tasks: $("#tasks-page"), account: $("#account-modal") };
+const lobbyPages = { lobby, leaderboard: $("#leaderboard-page"), collection: $("#collection-page"), tasks: $("#tasks-page"), "taxonomy-notes": $("#taxonomy-notes-page"), account: $("#account-modal") };
 
 function setToolbarOpen(open, restoreFocus = false) {
   navigationShell.classList.toggle("is-open", open);
@@ -28,7 +28,7 @@ function showLobbyPage(page, updateHistory = true) {
   if (!Object.hasOwn(lobbyPages, page)) page = "lobby";
   setToolbarOpen(false);
   game.hidden = true;
-  ["#result-modal", "#tutorial-intro-modal", "#species-modal", "#taxonomy-notes-modal"].forEach((selector) => { $(selector).hidden = true; });
+  ["#result-modal", "#tutorial-intro-modal", "#species-modal"].forEach((selector) => { $(selector).hidden = true; });
   navigationShell.hidden = false;
   for (const [name, screen] of Object.entries(lobbyPages)) screen.hidden = name !== page;
   toolbar.querySelectorAll("[data-page]").forEach((button) => {
@@ -890,21 +890,6 @@ document.querySelectorAll("[data-tree-layout]").forEach((button) => {
 $("#tree-reset-view").addEventListener("click", resetTreeView);
 $("#tree-zoom-in").addEventListener("click", () => zoomTreeAtCenter(1.25));
 $("#tree-zoom-out").addEventListener("click", () => zoomTreeAtCenter(.8));
-function closeTaxonomyNotes() {
-  $("#taxonomy-notes-modal").hidden = true;
-  $("#taxonomy-notes-toggle").setAttribute("aria-expanded", "false");
-  toolbarHandle.focus();
-}
-$("#taxonomy-notes-toggle").addEventListener("click", () => {
-  setToolbarOpen(false);
-  $("#taxonomy-notes-modal").hidden = false;
-  $("#taxonomy-notes-toggle").setAttribute("aria-expanded", "true");
-  $("#close-taxonomy-notes").focus();
-});
-$("#close-taxonomy-notes").addEventListener("click", closeTaxonomyNotes);
-$("#taxonomy-notes-modal").addEventListener("click", (event) => {
-  if (event.target === event.currentTarget) closeTaxonomyNotes();
-});
 $("#quit-game").addEventListener("click", returnToLobby);
 $("#return-lobby").addEventListener("click", async () => { await returnToLobby(); showLobbyPage("collection"); });
 $("#retry-game").addEventListener("click", () => startGame({ tutorial: state.tutorial }));
@@ -933,7 +918,6 @@ $("#species-modal").addEventListener("click", (event) => {
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape" && navigationShell.classList.contains("is-open")) { setToolbarOpen(false, true); return; }
   if (event.key === "Escape" && !$("#tutorial-intro-modal").hidden) { returnToLobby(); return; }
-  if (event.key === "Escape" && !$("#taxonomy-notes-modal").hidden) { closeTaxonomyNotes(); return; }
   if (event.key === "Escape" && !$("#account-modal").hidden) { closeAccountModal(); return; }
   if (event.key === "Escape" && !$("#species-modal").hidden) closeSpeciesCard();
 });

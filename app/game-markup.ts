@@ -55,16 +55,16 @@ export const gameMarkup = `
           <button type="button" data-page="leaderboard">리더보드</button>
           <button type="button" data-page="collection">카드 리스트</button>
           <button type="button" data-page="tasks">발전과제</button>
-          <button id="taxonomy-notes-toggle" type="button" aria-expanded="false" aria-haspopup="dialog" aria-controls="taxonomy-notes-modal">분류 기준 안내</button>
+          <button type="button" data-page="taxonomy-notes">분류 기준 안내</button>
         </div>
         <div id="auth-panel" class="auth-panel toolbar-account" aria-live="polite"><span class="auth-loading">게임 계정 확인 중…</span></div>
       </nav>
     </div>
   </div>
-  <div id="taxonomy-notes-modal" class="modal-backdrop taxonomy-notes-backdrop" hidden>
-    <section class="taxonomy-notes-dialog" role="dialog" aria-modal="true" aria-labelledby="taxonomy-notes-title">
-      <button id="close-taxonomy-notes" class="dialog-close" type="button" aria-label="주의점 창 닫기">×</button>
-      <h2 id="taxonomy-notes-title">주의점</h2>
+  <main id="taxonomy-notes-page" class="screen library-screen" data-lobby-page hidden>
+    <button class="text-button page-back" type="button" data-page="lobby">← 로비</button>
+    <section class="collection taxonomy-notes-panel" aria-labelledby="taxonomy-notes-title">
+      <div class="section-heading"><h2 id="taxonomy-notes-title">분류 기준 안내</h2></div>
       <div class="taxonomy-notes">
         <p>계통 관계가 논쟁 중인 곳은 게임을 위해 하나의 가설을 선택했습니다. 아래 내용은 게임 중에는 표시되지 않습니다.</p>
         <ul>
@@ -73,7 +73,7 @@ export const gameMarkup = `
         </ul>
       </div>
     </section>
-  </div>
+  </main>
   <main id="game" class="screen game-screen" hidden>
     <header class="game-header"><button id="quit-game" class="text-button" type="button">← 로비</button><div class="game-progress" aria-live="polite"><span id="round-label">동물계 · 1번째 분류</span><span id="score-label">정답 0</span></div></header>
     <div class="game-layout">
