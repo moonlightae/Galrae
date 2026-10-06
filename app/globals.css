@@ -1,6 +1,4 @@
 :root {
-  --highlight-purple: #a18cd1;
-  --highlight-pink: #fbc2eb;
   --ink: #16221d;
   --forest: #123c30;
   --forest-2: #245f4a;
@@ -740,8 +738,8 @@ button, [role="button"] { -webkit-tap-highlight-color: transparent; }
   --forest-2: #70777e;
   --cream: #f6f7f6;
   --paper: #fcfcfb;
-  --yellow: var(--highlight-purple);
-  --coral: var(--highlight-pink);
+  --yellow: #fcfcfb;
+  --coral: #50565c;
   --line: #d5d9dc;
   --muted: #50565c;
   --shadow: 0 8px 24px rgba(32, 38, 43, .08);
@@ -749,7 +747,38 @@ button, [role="button"] { -webkit-tap-highlight-color: transparent; }
   --surface: #fcfcfb;
   --surface-muted: #f0f2f1;
   --edge: #92999f;
+  color-scheme: light;
 }
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --ink: #eceeed;
+  --forest: #d8dcda;
+  --forest-2: #a0a7ac;
+  --cream: #151719;
+  --paper: #202326;
+  --yellow: #202326;
+  --coral: #b8bec3;
+  --line: #3b4146;
+  --muted: #b8bec3;
+  --shadow: 0 8px 24px rgba(0, 0, 0, .25);
+  --canvas: #151719;
+  --surface: #202326;
+  --surface-muted: #2c3034;
+  --edge: #7b858e;
+}
+
+/* Shared surfaces follow the sculpture's theme without affecting hover or drag motion. */
+html, body, .screen, .mode-panel, .leaderboard, .collection,
+.card-dock, .failure-panel, .result-modal, .account-dialog, .species-dialog,
+.tutorial-intro-dialog, .taxonomy-notes-dialog, .loading-content,
+.animal-card, .mini-card, .side-toolbar, .toolbar-handle {
+  transition: background-color 600ms ease, color 600ms ease, border-color 600ms ease;
+}
+:root[data-theme="dark"] .modal-backdrop { background: rgba(15, 17, 19, .88); }
+:root[data-theme="dark"] .toolbar-shade { background: rgba(0, 0, 0, .58); }
+:root[data-theme="dark"] .answer-tree .species-node.is-preview { color: #dcedd5; background: #29391f; }
+:root[data-theme="dark"] .answer-tree .preview-tag { color: #dcedd5; background: #334728; }
 
 html, body, .game-screen, .loading-screen { background: var(--canvas); background-image: none; color: var(--ink); }
 .paper-noise { display: none; }
@@ -779,9 +808,9 @@ html, body, .game-screen, .loading-screen { background: var(--canvas); backgroun
   box-shadow: none;
 }
 .mode-options span { background: transparent; border: 0; }
-.mode-options .is-active { background: var(--highlight-pink); border: 1px solid var(--highlight-purple); padding: 6px 8px; }
+.mode-options .is-active { background: var(--surface-muted); border: 1px solid var(--edge); padding: 6px 8px; }
 .leaderboard-row, .leaderboard-empty { background: transparent; }
-.leaderboard-row.is-me, .leaderboard-player small { background: var(--highlight-pink); }
+.leaderboard-row.is-me, .leaderboard-player small,
 .mini-card-art, .mini-card-groups span, .taxonomy-notes,
 .chatgpt-link-panel, .admin-user-row, .admin-badge,
 .link-status, .link-status.is-linked { background: var(--surface-muted); }
@@ -790,7 +819,7 @@ html, body, .game-screen, .loading-screen { background: var(--canvas); backgroun
 .mini-card-groups span, .leaderboard-player small,
 .admin-badge, .link-status, .link-status.is-linked { border: 0; }
 .leaderboard-row { border-bottom: 1px solid var(--line); }
-.leaderboard-row.is-me { border-left: 3px solid var(--highlight-purple); }
+.leaderboard-row.is-me { border-left: 3px solid var(--ink); }
 .leaderboard-rank, .leaderboard-row.is-me .leaderboard-rank,
 .leaderboard-stat small, .leaderboard-row.is-me .leaderboard-stat small,
 .leaderboard-note, .leaderboard-empty { color: var(--muted); }
@@ -815,16 +844,12 @@ html, body, .game-screen, .loading-screen { background: var(--canvas); backgroun
 .primary-button:hover, .secondary-button:hover, .auth-link:hover, .auth-login:hover,
 .dialog-close:hover, .tree-reset-view:hover { border-color: var(--ink); }
 .primary-button:hover { box-shadow: 0 5px 12px rgba(32, 38, 43, .1); }
-.primary-button, .mode-panel .primary-button, .auth-login, .secondary-button { background: var(--highlight-purple); border-color: var(--highlight-purple); }
-.primary-button:hover, .mode-panel .primary-button:hover, .auth-login:hover, .secondary-button:hover { background: var(--highlight-pink); border-color: var(--highlight-purple); }
 button:focus-visible, [role="button"]:focus-visible, .primary-button:focus-visible,
-.account-form input:focus { outline: 3px solid var(--highlight-purple); outline-offset: 3px; }
+.account-form input:focus { outline: 3px solid var(--edge); outline-offset: 3px; }
 .auth-name, .account-form label, .account-form input, .account-form input:focus,
 .auth-tabs button.is-active { color: var(--ink); }
 .account-form input { background: var(--surface); border-color: var(--edge); }
-.auth-tabs button.is-active { border-bottom-color: var(--highlight-purple); background: var(--highlight-pink); }
-.link-status { background: var(--highlight-purple); }
-.link-status.is-linked, .admin-badge { background: var(--highlight-pink); }
+.auth-tabs button.is-active { border-bottom-color: var(--ink); }
 .account-form .account-error, .admin-status, .admin-loading.is-error { color: var(--ink); }
 
 .game-header .text-button, .game-progress, .tree-heading > div:first-child,
@@ -838,7 +863,7 @@ button:focus-visible, [role="button"]:focus-visible, .primary-button:focus-visib
 .tree-layout-controls { background: var(--surface-muted); }
 .tree-layout-controls button, .tree-zoom-controls button,
 .tree-reset-view { color: var(--ink); background: transparent; border: 0; box-shadow: none; }
-.tree-layout-controls button[aria-pressed="true"] { color: var(--ink); background: var(--highlight-purple); border: 0; box-shadow: 0 1px 4px rgba(32, 38, 43, .12); text-decoration: underline; text-underline-offset: 3px; }
+.tree-layout-controls button[aria-pressed="true"] { color: var(--ink); background: var(--surface); border: 0; box-shadow: 0 1px 4px rgba(32, 38, 43, .12); text-decoration: underline; text-underline-offset: 3px; }
 .tree-zoom-controls { background: transparent; border: 0; }
 .tree-zoom-controls button:hover, .tree-reset-view:hover { color: var(--ink); background: var(--surface-muted); border: 0; }
 .tree-zoom-status, .game-progress span + span, .tree-canvas-help { color: var(--muted); }
@@ -862,34 +887,28 @@ button:focus-visible, [role="button"]:focus-visible, .primary-button:focus-visib
 }
 .tree-root, .radial-root-target { border: 1px solid var(--edge); }
 .species-node:hover, .species-node.is-drop-target,
-.radial-root-target:hover, .radial-root-target.is-drop-target,
+.radial-root-target:hover, .radial-root-target.is-drop-target { outline: 2px solid var(--ink); outline-offset: 2px; }
 .clade-node:hover, .clade-node.is-drop-target,
-.radial-edge-target:hover, .radial-edge-target.is-drop-target,
-.clade-node.is-preview, .species-node.is-preview,
-.ghost-junction, .ghost-card, .ghost-tag, .preview-tag { background: var(--highlight-purple); border-color: var(--highlight-purple); }
-.species-node:hover, .species-node.is-drop-target,
-.radial-root-target:hover, .radial-root-target.is-drop-target { outline: 2px solid var(--highlight-purple); outline-offset: 2px; }
-.clade-node:hover, .clade-node.is-drop-target,
-.radial-edge-target:hover, .radial-edge-target.is-drop-target { border-color: var(--highlight-purple); }
-.species-node.is-preview, .answer-tree .species-node.is-preview { border: 2px dashed var(--highlight-purple); }
+.radial-edge-target:hover, .radial-edge-target.is-drop-target { border-color: var(--ink); }
+.species-node.is-preview, .answer-tree .species-node.is-preview { border: 2px dashed var(--ink); }
 .answer-tree .species-node.is-preview { border-style: double; border-width: 4px; }
 .preview-tag, .ghost-tag { border: 1px solid var(--edge); font-size: .7rem; }
 .preview-branches li::before, .preview-branches li::after,
-.placement-preview::before { border-color: var(--highlight-purple); }
-.root-wrap-target:hover::after, .root-wrap-target.is-drop-target::after,
-.edge-target:hover::after, .edge-target.is-drop-target::after { border-left-color: var(--highlight-purple); }
-.layout-bottom .species-node.is-new, .radial-tree .species-node.is-new { box-shadow: 0 0 0 5px var(--highlight-pink); }
-.answer-tree .species-node.is-preview {
-  color: var(--ink);
-  background: var(--highlight-pink);
-  border: 2px solid var(--highlight-purple);
-  box-shadow: 0 0 0 5px color-mix(in srgb, var(--highlight-pink) 45%, transparent);
-}
-.answer-tree .clade-node.is-preview, .answer-tree .preview-tag { color: var(--ink); background: var(--highlight-pink); border-color: var(--highlight-purple); }
-.game-screen .radial-tree.answer-tree .radial-edge.is-answer-path { stroke: var(--highlight-pink); }
 .answer-tree .preview-branches li::before, .answer-tree .preview-branches li::after,
+.placement-preview::before { border-color: var(--edge); }
+.root-wrap-target:hover::after, .root-wrap-target.is-drop-target::after,
+.edge-target:hover::after, .edge-target.is-drop-target::after { border-left-color: var(--edge); }
+.layout-bottom .species-node.is-new, .radial-tree .species-node.is-new { box-shadow: 0 0 0 5px var(--line); }
+.answer-tree .species-node.is-preview {
+  color: #38551d;
+  background: #eef8df;
+  border: 2px solid #88b94a;
+  box-shadow: 0 0 0 5px rgba(136, 185, 74, .2);
+}
+.answer-tree .preview-tag { color: #263d13; background: #d5edb2; border-color: #88b94a; }
+.game-screen .radial-tree.answer-tree .radial-edge.is-answer-path { stroke: #88b94a; }
 .game-screen .answer-tree li:has(> .species-node.is-preview)::before,
-.game-screen .answer-tree li:has(> .species-node.is-preview)::after { border-color: var(--highlight-pink); }
+.game-screen .answer-tree li:has(> .species-node.is-preview)::after { border-color: #88b94a; }
 
 .dock-copy, .image-credit, .drag-help, .failure-panel .eyebrow,
 .failure-panel p:last-child, .failure-panel .failure-score-status,
@@ -913,15 +932,15 @@ button:focus-visible, [role="button"]:focus-visible, .primary-button:focus-visib
 .card-dock::-webkit-scrollbar, .species-dialog::-webkit-scrollbar { display: none; }
 .mini-card-taxonomy { margin: 9px 0; }
 .mini-card-taxonomy summary { width: fit-content; padding: 5px 9px; color: var(--ink); background: var(--surface-muted); border-radius: 6px; font-size: .75rem; font-weight: 800; cursor: pointer; }
-.mini-card-taxonomy summary:focus-visible { outline: 3px solid var(--highlight-purple); outline-offset: 2px; }
+.mini-card-taxonomy summary:focus-visible { outline: 3px solid var(--edge); outline-offset: 2px; }
 .mini-card-taxonomy .mini-card-groups { margin: 8px 0 0; }
 .mini-card-credit { flex: 0 0 auto; margin-top: 0; }
-.animal-card.is-selected { outline: 3px solid var(--highlight-purple); }
+.animal-card.is-selected { outline: 3px solid var(--ink); }
 .failure-panel { border-width: 2px; }
 .modal-backdrop { background: rgba(246, 247, 246, .88); backdrop-filter: blur(5px); }
 .dialog-close { border-radius: 50%; }
-.loading-spinner { border-color: var(--highlight-pink); border-top-color: var(--highlight-purple); }
-.tutorial-banner { background: var(--highlight-pink); border-left: 4px solid var(--highlight-purple); }
+.loading-spinner { border-color: var(--line); border-top-color: var(--ink); }
+.tutorial-banner { border-left: 4px solid var(--ink); }
 .mode-options span, .leaderboard-player small, .leaderboard-stat small,
 .mini-card small, .mini-card p, .mini-card-credit, .card-kicker,
 .card-topline, .card-footer, .image-credit, .auth-link, .auth-login,
@@ -937,7 +956,7 @@ button:focus-visible, [role="button"]:focus-visible, .primary-button:focus-visib
 .lobby-sculpture { position: relative; width: 100%; height: clamp(420px, 70vh, 820px); padding: 0; border: 0; background: transparent; touch-action: none; cursor: grab; }
 .lobby-sculpture.is-dragging { cursor: grabbing; }
 .lobby-sculpture canvas { display: block; width: 100%; height: 100%; }
-.lobby-sculpture:focus-visible { outline: 2px solid var(--highlight-purple); outline-offset: 4px; border-radius: 8px; }
+.lobby-sculpture:focus-visible { outline: 2px solid var(--line); outline-offset: 4px; border-radius: 8px; }
 .library-screen { padding: 40px clamp(24px, 4.4vw, 90px) 64px; }
 .page-back { display: block; margin-bottom: 28px; font-size: 1rem; }
 .library-screen .leaderboard, .library-screen .collection { width: 100%; max-width: 1400px; min-height: 0; margin: 0 auto; }
@@ -952,14 +971,14 @@ button:focus-visible, [role="button"]:focus-visible, .primary-button:focus-visib
 .toolbar-edge { position: absolute; top: 0; right: 0; bottom: 0; width: 56px; pointer-events: auto; }
 .toolbar-handle { position: absolute; top: 0; right: 0; bottom: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; width: 56px; padding: 16px 8px; color: var(--muted); background: var(--surface); border: 0; border-left: 1px solid var(--line); border-radius: 0; box-shadow: -3px 0 12px rgba(32, 38, 43, .06); transition: background-color 180ms, color 180ms, opacity 180ms; cursor: pointer; }
 .toolbar-handle span { font-size: .875rem; font-weight: 600; white-space: nowrap; }
-.toolbar-handle:hover, .toolbar-handle:focus-visible { color: var(--ink); background: var(--highlight-pink); }
-.toolbar-handle:focus-visible { outline: 2px solid var(--highlight-purple); outline-offset: -3px; }
+.toolbar-handle:hover, .toolbar-handle:focus-visible { color: var(--ink); background: var(--surface-muted); }
+.toolbar-handle:focus-visible { outline: 2px solid var(--ink); outline-offset: -3px; }
 .side-toolbar { position: absolute; top: 0; right: 0; bottom: 0; display: flex; flex-direction: column; width: min(280px, 85vw); padding: 28px 20px max(24px, env(safe-area-inset-bottom)); color: var(--ink); background: var(--surface); border-left: 1px solid var(--line); transform: translateX(100%); visibility: hidden; transition: transform 240ms ease-out, visibility 0s 240ms; overflow-y: auto; }
 .toolbar-heading { display: flex; align-items: center; justify-content: space-between; margin-bottom: 36px; font-size: 1.25rem; }
 .toolbar-heading .text-button { width: 44px; height: 44px; font-size: 1.75rem; }
 .toolbar-pages { display: grid; gap: 6px; }
 .toolbar-pages button, .toolbar-account button { min-height: 48px; padding: 12px 14px; color: var(--ink); background: transparent; border: 0; border-radius: 6px; text-align: left; font-size: 1rem; cursor: pointer; }
-.toolbar-pages button:hover, .toolbar-pages button[aria-current], .toolbar-account button:hover { background: var(--highlight-pink); }
+.toolbar-pages button:hover, .toolbar-pages button[aria-current], .toolbar-account button:hover { background: var(--surface-muted); }
 .toolbar-pages button[aria-current] { font-weight: 700; }
 .toolbar-account { align-items: stretch; flex-direction: column; gap: 4px; margin-top: auto; padding-top: 24px; border-top: 1px solid var(--line); }
 .toolbar-account .auth-loading { padding: 12px 14px; font-size: .875rem; }

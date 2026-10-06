@@ -59,10 +59,8 @@ export function createLobbySculpture(surface, lobby) {
     geometry.setAttribute(name, new THREE.BufferAttribute(merged, name === "uv" ? 2 : 3));
   }
   geometry.computeBoundingSphere();
-  const palette = getComputedStyle(document.documentElement);
-  const purple = new THREE.Color(palette.getPropertyValue("--highlight-purple").trim());
-  const pink = new THREE.Color(palette.getPropertyValue("--highlight-pink").trim());
-  const uniforms = { front: { value: -3.2 }, from: { value: purple.clone() }, to: { value: pink.clone() } };
+  const black = new THREE.Color(0x08090a), white = new THREE.Color(0xffffff);
+  const uniforms = { front: { value: -3.2 }, from: { value: black.clone() }, to: { value: white.clone() } };
   const material = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: .92, metalness: 0 });
   material.onBeforeCompile = (shader) => {
     shader.uniforms.scFront = uniforms.front; shader.uniforms.scFrom = uniforms.from; shader.uniforms.scTo = uniforms.to;
@@ -78,7 +76,9 @@ export function createLobbySculpture(surface, lobby) {
   const maxSpeed = 1.6, friction = .045;
   const randomSigned = (min, max) => (min + Math.random() * (max - min)) * (Math.random() < .5 ? -1 : 1);
   const velocity = { x: reduced.matches ? 0 : randomSigned(.008, .018), y: reduced.matches ? 0 : randomSigned(.07, .12) };
-  let desiredPink = false, settledPink = false, transition = null;
+  let desiredDark = false, settledDark = false, transition = null;
+  document.documentElement.dataset.theme = "light";
+  surface.setAttribute("aria-pressed", "false");
   let frame = 0, lastFrame = 0, pointer = null, touched = false, suppressClick = false, inView = true;
   function cappedVelocity(x, y) {
     const speed = Math.hypot(x, y), factor = speed > maxSpeed ? maxSpeed / speed : 1;
@@ -96,10 +96,10 @@ export function createLobbySculpture(surface, lobby) {
     if (nextX !== sculpture.rotation.x) velocity.x = 0;
   }
   function beginFill() {
-    if (desiredPink === settledPink) return;
-    uniforms.from.value.copy(settledPink ? pink : purple);
-    uniforms.to.value.copy(desiredPink ? pink : purple);
-    transition = { start: performance.now(), pink: desiredPink };
+    if (desiredDark === settledDark) return;
+    uniforms.from.value.copy(settledDark ? white : black);
+    uniforms.to.value.copy(desiredDark ? white : black);
+    transition = { start: performance.now(), dark: desiredDark };
     uniforms.front.value = -3.2; requestDraw();
   }
   function requestDraw() {
@@ -112,7 +112,7 @@ export function createLobbySculpture(surface, lobby) {
     if (transition) {
       const progress = reduced.matches ? 1 : Math.min((now - transition.start) / 1600, 1);
       uniforms.front.value = -3.2 + progress * progress * (3 - 2 * progress) * 6.7;
-      if (progress === 1) { settledPink = transition.pink; transition = null; beginFill(); }
+      if (progress === 1) { settledDark = transition.dark; transition = null; beginFill(); }
     }
     renderer.render(scene, camera);
     if (transition || pointer || Math.hypot(velocity.x, velocity.y) > .0001) requestDraw();
@@ -153,7 +153,10 @@ export function createLobbySculpture(surface, lobby) {
   surface.addEventListener("pointercancel", (event) => { endPointer(event); suppressClick = true; });
   surface.addEventListener("click", () => {
     if (suppressClick) { suppressClick = false; return; }
-    desiredPink = !desiredPink; if (!transition) beginFill();
+    desiredDark = !desiredDark;
+    document.documentElement.dataset.theme = desiredDark ? "dark" : "light";
+    surface.setAttribute("aria-pressed", String(desiredDark));
+    if (!transition) beginFill();
   });
   surface.addEventListener("keydown", (event) => {
     const keys = { ArrowLeft: [0, -.12], ArrowRight: [0, .12], ArrowUp: [-.1, 0], ArrowDown: [.1, 0] };

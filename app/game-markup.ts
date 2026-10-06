@@ -20,7 +20,7 @@ export const gameMarkup = `
         </section>
       </div>
       <div class="lobby-sculpture-stage">
-        <button id="lobby-sculpture" class="lobby-sculpture" type="button" aria-label="입체 계통도. 드래그 또는 방향키로 회전, 클릭 또는 Enter로 색상 전환."></button>
+        <button id="lobby-sculpture" class="lobby-sculpture" type="button" aria-label="입체 계통도. 드래그 또는 방향키로 회전, 클릭 또는 Enter로 다크모드 전환." aria-pressed="false"></button>
       </div>
     </div>
   </main>
@@ -86,7 +86,7 @@ export const gameMarkup = `
         <p id="tutorial-banner" class="tutorial-banner" role="status" hidden></p>
         <div id="tree-canvas" class="tree-canvas" aria-live="polite"></div>
         <p class="tree-canvas-help">계통수 위에서 휠로 확대·축소하고, 빈 곳을 드래그해 화면을 이동할 수 있습니다.</p>
-        <div id="failure-panel" class="failure-panel" role="alert" hidden><div><p class="eyebrow">CLASSIFICATION FAILED</p><strong id="failure-title">분류에 실패했어요.</strong><p id="failure-copy">핑크색으로 표시된 곳이 올바른 위치입니다.</p><p id="failure-score-status" class="failure-score-status"></p></div><button id="retry-game" class="primary-button" type="button">처음부터 다시 →</button></div>
+        <div id="failure-panel" class="failure-panel" role="alert" hidden><div><p class="eyebrow">CLASSIFICATION FAILED</p><strong id="failure-title">분류에 실패했어요.</strong><p id="failure-copy">초록색으로 표시된 곳이 올바른 위치입니다.</p><p id="failure-score-status" class="failure-score-status"></p></div><button id="retry-game" class="primary-button" type="button">처음부터 다시 →</button></div>
         <div id="tutorial-complete-panel" class="failure-panel" role="status" hidden><div><p class="eyebrow">TUTORIAL COMPLETE</p><strong>튜토리얼을 마쳤어요.</strong><p>개미가 추가된 위치를 살펴보세요. 네 가지 배치 방법을 모두 연습했습니다.</p></div><div class="tutorial-complete-actions"><button id="tutorial-complete-lobby" class="text-button" type="button">로비로</button><button id="tutorial-play" class="primary-button" type="button">실전 시작 →</button></div></div>
       </section>
       <aside class="card-dock" aria-labelledby="card-dock-title">
