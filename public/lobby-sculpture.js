@@ -2,7 +2,7 @@ import * as THREE from "./vendor/three/three.module.min.js";
 
 export function createLobbySculpture(surface, lobby) {
   let renderer;
-  try { renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true }); }
+  try { renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, premultipliedAlpha: false }); }
   catch (error) { surface.hidden = true; console.warn("WebGL unavailable", error); return; }
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
   renderer.outputColorSpace = THREE.SRGBColorSpace;
@@ -73,6 +73,47 @@ export function createLobbySculpture(surface, lobby) {
   scene.add(sculpture); sculpture.rotation.set(-.08, -.24, -.03);
   const xAxis = new THREE.Vector3(1, 0, 0), yAxis = new THREE.Vector3(0, 1, 0);
 
+  const depthTarget = new THREE.WebGLRenderTarget(1, 1, { type: THREE.HalfFloatType, samples: 4 });
+  depthTarget.depthTexture = new THREE.DepthTexture(1, 1);
+  const blurMaterial = new THREE.ShaderMaterial({
+    depthTest: false, depthWrite: false,
+    uniforms: {
+      image: { value: depthTarget.texture }, depth: { value: depthTarget.depthTexture },
+      pixelStep: { value: new THREE.Vector2() },
+      cameraNear: { value: camera.near }, cameraFar: { value: camera.far },
+      focusNear: { value: 0 }, focusFar: { value: 0 },
+    },
+    vertexShader: `varying vec2 screenUv;
+      void main() { screenUv = uv; gl_Position = vec4(position.xy, 0.0, 1.0); }`,
+    fragmentShader: `uniform sampler2D image, depth;
+      uniform vec2 pixelStep;
+      uniform float cameraNear, cameraFar, focusNear, focusFar;
+      varying vec2 screenUv;
+      float blurAt(vec2 p) {
+        float distance = cameraNear * cameraFar / (cameraFar - texture2D(depth, p).x * (cameraFar - cameraNear));
+        return smoothstep(focusNear, focusFar, distance);
+      }
+      void main() {
+        float blur = blurAt(screenUv), total = 0.0;
+        vec4 color = vec4(0.0);
+        for (int y = -1; y <= 1; y++) {
+          for (int x = -1; x <= 1; x++) {
+            vec2 p = screenUv + vec2(float(x), float(y)) * pixelStep * blur;
+            float weight = (x == 0 ? 2.0 : 1.0) * (y == 0 ? 2.0 : 1.0);
+            weight *= step(blur - 0.25, blurAt(p));
+            color += texture2D(image, p) * weight;
+            total += weight;
+          }
+        }
+        gl_FragColor = vec4(color.rgb / max(color.a, 0.0001), color.a / total);
+        #include <tonemapping_fragment>
+        #include <colorspace_fragment>
+      }`,
+  });
+  const blurScene = new THREE.Scene(), blurCamera = new THREE.Camera();
+  const blurQuad = new THREE.Mesh(new THREE.PlaneGeometry(2, 2), blurMaterial);
+  blurQuad.frustumCulled = false; blurScene.add(blurQuad);
+
   const reduced = matchMedia("(prefers-reduced-motion: reduce)");
   const maxSpeed = 1.6, friction = .045;
   const randomSigned = (min, max) => (min + Math.random() * (max - min)) * (Math.random() < .5 ? -1 : 1);
@@ -113,13 +154,19 @@ export function createLobbySculpture(surface, lobby) {
       uniforms.front.value = -3.2 + progress * progress * (3 - 2 * progress) * 6.7;
       if (progress === 1) { settledDark = transition.dark; transition = null; beginFill(); }
     }
-    renderer.render(scene, camera);
+    renderer.setRenderTarget(depthTarget); renderer.render(scene, camera);
+    renderer.setRenderTarget(null); renderer.render(blurScene, blurCamera);
     if (transition || pointer || Math.hypot(velocity.x, velocity.y) > .0001) requestDraw();
   }
   function resize() {
     const rect = surface.getBoundingClientRect(); if (!rect.width || !rect.height) return;
     renderer.setSize(rect.width, rect.height, false); camera.aspect = rect.width / rect.height;
-    camera.position.z = Math.max(11.5, 7 / camera.aspect); camera.updateProjectionMatrix(); requestDraw();
+    camera.position.z = Math.max(11.5, 7 / camera.aspect); camera.updateProjectionMatrix();
+    const size = renderer.getDrawingBufferSize(new THREE.Vector2()); depthTarget.setSize(size.x, size.y);
+    blurMaterial.uniforms.pixelStep.value.set(2.4 / rect.width, 2.4 / rect.height);
+    blurMaterial.uniforms.focusNear.value = camera.position.z - .6;
+    blurMaterial.uniforms.focusFar.value = camera.position.z + 1.6;
+    requestDraw();
   }
   function refreshVisibility() {
     cancelAnimationFrame(frame); frame = 0; lastFrame = 0;
@@ -172,6 +219,7 @@ export function createLobbySculpture(surface, lobby) {
     if (event.persisted) return;
     cancelAnimationFrame(frame); observer.disconnect(); visibilityObserver.disconnect(); intersection.disconnect();
     document.removeEventListener("visibilitychange", refreshVisibility); reduced.removeEventListener("change", refreshVisibility);
-    geometry.dispose(); material.dispose(); renderer.dispose();
+    geometry.dispose(); material.dispose(); depthTarget.dispose();
+    blurQuad.geometry.dispose(); blurMaterial.dispose(); renderer.dispose();
   }, { once: true });
 }

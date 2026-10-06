@@ -14,11 +14,13 @@ for (const path of ["../public/app.js", "../app/game-markup.ts"]) {
   assert.ok(text.includes("초록색으로 표시된 곳이 올바른 위치입니다."));
 }
 const callbacks = new Map(), listeners = {}, documentListeners = {};
-let now = 100, nextFrame = 0, renderedScene, resizeCallback, visibilityCallback, intersectionCallback;
+let now = 100, nextFrame = 0, renderedScene, renderedBlur, depthTarget, resizeCallback, visibilityCallback, intersectionCallback;
+let surfaceWidth = 600;
+const windowListeners = {};
 const surface = {
   attributes: {}, setAttribute(name, value) { this.attributes[name] = value; },
   hidden: false, classList: { add() {}, remove() {} },
-  appendChild() {}, getBoundingClientRect: () => ({ width: 600, height: 600 }),
+  appendChild() {}, getBoundingClientRect: () => ({ width: surfaceWidth, height: 600 }),
   addEventListener: (name, callback) => { listeners[name] = callback; },
   setPointerCapture() {}, hasPointerCapture: () => false,
 };
@@ -27,10 +29,12 @@ const document = { documentElement: { dataset: {} }, hidden: false, addEventList
 class Renderer {
   domElement = { setAttribute() {} };
   setPixelRatio() {} setSize() {} dispose() {}
-  render(scene) { renderedScene = scene; }
+  getDrawingBufferSize(size) { return size.set(surfaceWidth, 600); }
+  setRenderTarget(target) { if (target) depthTarget = target; }
+  render(scene, camera) { if (camera.isPerspectiveCamera) renderedScene = scene; else renderedBlur = scene; }
 }
 const create = runInNewContext(source.replace(/^import .*?;\s*/, "").replace("export function", "function") + "\ncreateLobbySculpture", {
-  THREE: { ...Three, WebGLRenderer: Renderer }, document, window: { devicePixelRatio: 1, addEventListener() {} },
+  THREE: { ...Three, WebGLRenderer: Renderer }, document, window: { devicePixelRatio: 1, addEventListener(name, callback) { windowListeners[name] = callback; } },
   matchMedia: () => reduced, performance: { now: () => now }, console,
   requestAnimationFrame: (callback) => { callbacks.set(++nextFrame, callback); return nextFrame; },
   cancelAnimationFrame: (id) => callbacks.delete(id),
@@ -48,6 +52,18 @@ function pointerEvent(x, y) { return { button: 0, pointerId: 1, clientX: x, clie
 create(surface, lobby); tick();
 assert.equal(surface.hidden, false);
 const sculpture = renderedScene.children.find((child) => child.isMesh);
+const blurQuad = renderedBlur.children[0], blurUniforms = blurQuad.material.uniforms;
+assert.ok(depthTarget.depthTexture.isDepthTexture, "Blur must use the sculpture's actual depth");
+assert.equal(blurUniforms.image.value, depthTarget.texture);
+assert.equal(blurUniforms.depth.value, depthTarget.depthTexture);
+assert.equal(depthTarget.width, 600); assert.equal(depthTarget.height, 600);
+assert.ok(blurUniforms.focusFar.value > blurUniforms.focusNear.value);
+const initialFocus = blurUniforms.focusNear.value;
+surfaceWidth = 240; resizeCallback(); tick();
+assert.equal(depthTarget.width, 240);
+assert.ok(blurUniforms.focusNear.value > initialFocus, "Focus must follow the camera on narrow screens");
+assert.equal(blurUniforms.pixelStep.value.x * surfaceWidth, 2.4, "Blur size must stay consistent across screen sizes");
+surfaceWidth = 600; resizeCallback(); tick();
 assert.equal(renderedScene.children.filter((child) => child.isMesh).length, 1, "No shadow mesh");
 assert.equal(sculpture.material.roughness, .92);
 assert.equal(sculpture.material.metalness, 0);
@@ -113,4 +129,8 @@ reduced.matches = true; visibilityCallback(); tick(); assert.equal(callbacks.siz
 listeners.click(); tick(); assert.equal(shader.uniforms.scTo.value.getHex(), 0x292d32);
 assert.equal(document.documentElement.dataset.theme, "light");
 resizeCallback(); tick();
-console.log("Lobby sculpture: matte geometry, bounded inertia, page theme switching, rapid toggles, hidden-screen pause and reduced motion passed.");
+let disposed = 0;
+for (const resource of [depthTarget, blurQuad.geometry, blurQuad.material]) resource.addEventListener("dispose", () => disposed++);
+windowListeners.pagehide({ persisted: true }); assert.equal(disposed, 0);
+windowListeners.pagehide({ persisted: false }); assert.equal(disposed, 3, "Blur resources must be released on page exit");
+console.log("Lobby sculpture: depth blur, responsive focus, resource cleanup, motion, theme switching and visibility passed.");
