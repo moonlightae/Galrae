@@ -41,6 +41,9 @@ export const leaderboard = sqliteTable("leaderboard", {
   practiceStarted: integer("practice_started", { mode: "boolean" }).notNull().default(false),
   practiceCompleted: integer("practice_completed", { mode: "boolean" }).notNull().default(false),
   fishSiblingMistake: integer("fish_sibling_mistake", { mode: "boolean" }).notNull().default(false),
+  easyCompleted: integer("easy_completed", { mode: "boolean" }).notNull().default(false),
+  mediumCompleted: integer("medium_completed", { mode: "boolean" }).notNull().default(false),
+  hardCompleted: integer("hard_completed", { mode: "boolean" }).notNull().default(false),
   achievedAt: text("achieved_at").notNull().default(sql`CURRENT_TIMESTAMP`),
   updatedAt: text("updated_at").notNull().default(sql`CURRENT_TIMESTAMP`),
 }, (table) => [

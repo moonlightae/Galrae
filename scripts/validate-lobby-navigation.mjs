@@ -26,11 +26,12 @@ const navigationShell = element();
 const game = element();
 const overlays = {};
 const guestDialog = { open: true, close() { this.open = false; } };
+const difficultyDialog = { open: true, close() { this.open = false; } };
 const location = { hash: "#collection" };
 let writes = 0;
 const context = {
   lobbyPages, toolbar, toolbarHandle, navigationShell, game, location,
-  $: (selector) => selector === "#guest-start-dialog" ? guestDialog : overlays[selector] ||= element(),
+  $: (selector) => selector === "#guest-start-dialog" ? guestDialog : selector === "#difficulty-dialog" ? difficultyDialog : overlays[selector] ||= element(),
   history: { pushState(_, __, hash) { location.hash = hash; writes++; } },
   window: { scrollTo() {} },
   openAccountModal() { lobbyPages.account.focus(); },
@@ -55,6 +56,7 @@ for (const invalid of ["", "unknown", "__proto__", "toString"]) {
 }
 assert.ok(Object.values(overlays).every((overlay) => overlay.hidden), "History navigation must dismiss game overlays");
 assert.equal(guestDialog.open, false, "History navigation must dismiss the guest warning");
+assert.equal(difficultyDialog.open, false, "History navigation must dismiss difficulty selection");
 setToolbarOpen(true);
 assert.equal(toolbar.inert, false);
 assert.equal(toolbarHandle.attributes["aria-expanded"], "true");

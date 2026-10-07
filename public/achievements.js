@@ -38,11 +38,14 @@ export function getAchievements(stats = {}, total = 206) {
     ["successes-1000", "천 번의 정답", "silver", "일반·연습모드에서 누적 정답 1,000회 달성", "totalSuccesses", 1000, "tree", "회"],
     ["successes-10000", "서당개 삼 년이면 풍월을 읊는다더니", "diamond", "일반·연습모드에서 누적 정답 10,000회 달성", "totalSuccesses", 10000, "tree", "회"],
     ["practice-perfect", "연습의 끝판왕", "diamond", `연습모드에서 ${total}종 모두 직접 맞히기`, "bestPracticeScore", total, "practice", "종"],
+    ["complete-easy", "갈래 입문자", "silver", "쉬움 난이도 완주", "easyCompleted", 1, "tree"],
+    ["complete-medium", "갈래 초심자", "gold", "보통 난이도 완주", "mediumCompleted", 1, "tree"],
+    ["complete-hard", "갈래 전문가", "diamond", "어려움 난이도 완주", "hardCompleted", 1, "tree"],
     ["fish-sibling", "이게 왜 어류야", "bronze", "어류, 포유류, 파충류, 양서류, 조류 아니었어?", "fishSiblingMistake", 1, "fish"],
   ];
   return tasks.map(([id, title, grade, description, metric, goal, icon, unit]) => {
     const value = Math.max(0, Number(stats[metric]) || 0);
-    const category = icon === "fish" ? "특별" : icon === "practice" ? "연습모드" : metric === "bestScore" || metric === "normalAttempts" ? "일반모드" : "기본";
+    const category = icon === "fish" ? "특별" : icon === "practice" ? "연습모드" : metric === "bestScore" || metric === "normalAttempts" || id.startsWith("complete-") ? "일반모드" : "기본";
     return { id, title, grade, description, goal, icon, unit, value, category, earned: value >= goal };
   });
 }

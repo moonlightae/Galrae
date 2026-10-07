@@ -1,4 +1,13 @@
 export const gameMarkup = `
+  <dialog id="difficulty-dialog" class="tutorial-intro-dialog difficulty-dialog" aria-labelledby="difficulty-title">
+    <div class="difficulty-heading"><h2 id="difficulty-title">난이도 선택</h2><button id="close-difficulty" class="text-button" type="button" aria-label="난이도 선택 닫기">×</button></div>
+    <div class="difficulty-options">
+      <button type="button" data-difficulty="easy"><strong>쉬움</strong><span>같은 강에서는 한 종만 출제합니다.</span></button>
+      <button type="button" data-difficulty="medium"><strong>보통</strong><span>같은 목에서는 한 종만 출제합니다.</span></button>
+      <button type="button" data-difficulty="hard"><strong>어려움</strong><span>모든 동물을 분류합니다.</span></button>
+      <button id="death-difficulty" type="button" disabled><strong>죽음</strong><span id="death-difficulty-status">어려움 완주 후 해금</span></button>
+    </div>
+  </dialog>
   <div id="boot-loading" class="loading-screen" role="status" aria-live="polite"><div class="loading-content"><span class="loading-spinner" aria-hidden="true"></span><strong>갈래</strong><p id="boot-loading-status">계정과 기록을 불러오는 중…</p></div></div>
   <div id="game-loading" class="loading-screen" role="status" aria-live="polite" hidden><div class="loading-content"><span class="loading-spinner" aria-hidden="true"></span><strong>갈래</strong><p>첫 생물 카드를 준비하는 중…</p></div></div>
   <main id="lobby" class="screen lobby-screen">
@@ -40,7 +49,7 @@ export const gameMarkup = `
   </main>
   <main id="tasks-page" class="screen library-screen" data-lobby-page hidden>
     <button class="text-button page-back" type="button" data-page="lobby">← 로비</button>
-    <section class="tasks-panel"><div class="section-heading"><h1 tabindex="-1">발전과제</h1><p id="achievements-count">0 / 23</p></div><p id="achievements-status" role="status">메달을 가리키거나 눌러 설명을 확인해 보세요.</p><div id="achievements-grid"></div></section>
+    <section class="tasks-panel"><div class="section-heading"><h1 tabindex="-1">발전과제</h1><p id="achievements-count">0 / 26</p></div><p id="achievements-status" role="status">메달을 가리키거나 눌러 설명을 확인해 보세요.</p><div id="achievements-grid"></div></section>
   </main>
   <div id="navigation-shell" class="navigation-shell">
     <button id="toolbar-shade" class="toolbar-shade" type="button" tabindex="-1" aria-label="메뉴 닫기"></button>

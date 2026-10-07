@@ -10,7 +10,7 @@ import { achievementGrades, getAchievements, isFishSiblingMistake } from "../pub
 const dataset = JSON.parse(fs.readFileSync(new URL("../public/data/animals.json", import.meta.url)));
 const total = dataset.animals.length - 1;
 const tasks = getAchievements({}, total);
-assert.equal(tasks.length, 23);
+assert.equal(tasks.length, 26);
 assert.equal(new Set(tasks.map((task) => task.id)).size, tasks.length);
 assert.equal(tasks.filter((task) => task.earned).length, 0);
 assert.deepEqual([...new Set(tasks.map((task) => task.grade))].sort(), Object.keys(achievementGrades).sort());
@@ -24,6 +24,10 @@ for (const [metric, values] of [["bestScore", [10, 25, 50, 100, 200]], ["normalA
 assert.equal(getAchievements({ practiceCompleted: true, bestPracticeScore: 0 }, total).find((task) => task.id === "practice-complete").earned, true);
 assert.equal(getAchievements({ practiceCompleted: true, bestPracticeScore: 0 }, total).find((task) => task.id === "practice-perfect").earned, false);
 assert.equal(getAchievements({ bestPracticeScore: total }, total).find((task) => task.id === "practice-perfect").earned, true);
+for (const [difficulty, grade, title] of [["easy", "silver", "갈래 입문자"], ["medium", "gold", "갈래 초심자"], ["hard", "diamond", "갈래 전문가"]]) {
+  const task = getAchievements({ [`${difficulty}Completed`]: true }).find((task) => task.id === `complete-${difficulty}`);
+  assert.equal(task.earned, true); assert.equal(task.grade, grade); assert.equal(task.title, title);
+}
 
 const require = createRequire(import.meta.url);
 function loadTS(path, overrides = {}) {
@@ -31,7 +35,7 @@ function loadTS(path, overrides = {}) {
     compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022 },
   }).outputText;
   const module = { exports: {} };
-  vm.runInNewContext(code, { module, exports: module.exports, require: (name) => overrides[name] || require(name), Response, console });
+  vm.runInNewContext(code, { module, exports: module.exports, require: (name) => overrides[name] || require(name), Response, console, GalraeLogic: globalThis.GalraeLogic });
   return module.exports;
 }
 const sqlite = new DatabaseSync(":memory:");
@@ -77,6 +81,8 @@ assert.equal((await post({ event: "unknown" })).status, 400);
 assert.equal((await post(null)).status, 400);
 user = { id: "perfect", displayName: "Perfect" };
 assert.equal((await stats()).practiceCompleted, true, "Existing perfect practice records must qualify");
+assert.equal((await stats()).hardCompleted, true, "Existing perfect normal records must unlock hard completion");
+assert.equal((await stats()).easyCompleted, false, "Hard completion must not automatically award easier medals");
 user = { id: "new", displayName: "New" };
 assert.equal((await stats()).normalAttempts, 0);
 await post({ event: "practice-start" });
@@ -131,7 +137,20 @@ user = { id: "new", displayName: "New" };
 await Promise.all([post({ event: "normal-start" }), post({ event: "normal-start" })]);
 assert.equal((await stats()).normalAttempts, 2, "Atomic increments must retain concurrent starts");
 assert.equal(sqlite.prepare("SELECT games_played FROM leaderboard WHERE user_id='new'").get().games_played, 0, "Starting must not submit a score");
+const scoreRoute = loadTS("../app/api/leaderboard/route.ts", {
+  "../../game-auth": auth, "../../../db": { getDb: () => db }, "../../../db/schema": schema,
+  "../../../public/data/animals.json": dataset, "../../../public/game-logic.js": {},
+});
+user = { id: "easy-perfect", displayName: "Easy" };
+await post({ event: "normal-start" });
+const completedIds = ["homo-sapiens", ...globalThis.GalraeLogic.createDifficultyQueue(dataset.animals, "easy", () => .4)];
+assert.equal((await scoreRoute.POST(new Request("https://local/api/leaderboard", { method: "POST", body: JSON.stringify({ mode: "normal", difficulty: "easy", score: completedIds.length - 1, completedIds }) }))).status, 200);
+assert.equal((await stats()).easyCompleted, true);
+assert.equal((await stats()).hardCompleted, false);
+assert.equal((await stats()).hasFailed, false, "Completing fewer cards on easy must not imply failure");
+await post({ event: "normal-start" });
+assert.equal((await stats()).hasFailed, false, "Starting another run must not infer failure from an easy score");
 user = null;
 assert.equal((await route.GET()).status, 401); assert.equal((await post({ event: "failure" })).status, 401);
 sqlite.close();
-console.log("Achievements: 23 medals, threshold boundaries, fish sibling mistakes across four tetrapod groups, invalid placements, migration, persistence, account isolation and auth passed.");
+console.log("Achievements: 26 medals, difficulty completion grades, threshold boundaries, migration, persistence, account isolation and auth passed.");

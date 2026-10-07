@@ -2,7 +2,7 @@ import { createTreeView } from "./tree-view.js";
 import { getAchievements, isFishSiblingMistake } from "./achievements.js";
 import { createAchievementNotifications } from "./achievement-notifications.js";
 
-const { ANIMALIA_ID, addSuccessCount, buildTree, getExpectedPlacement, isEquivalentPlacement, seedSuccessCounts, shuffle, successCountText } = globalThis.GalraeLogic;
+const { ANIMALIA_ID, addSuccessCount, buildTree, createDifficultyQueue, difficultyNames, getExpectedPlacement, isEquivalentPlacement, seedSuccessCounts, successCountText } = globalThis.GalraeLogic;
 const HUMAN_ID = "homo-sapiens";
 const COLLECTION_PREFIX = "galrae.collection.v3";
 const SUCCESS_COUNTS_PREFIX = "galrae.success-counts.v1";
@@ -29,6 +29,7 @@ function setToolbarOpen(open, restoreFocus = false) {
 function showLobbyPage(page, updateHistory = true) {
   if (!Object.hasOwn(lobbyPages, page)) page = "lobby";
   if ($("#guest-start-dialog")?.open) $("#guest-start-dialog").close();
+  if ($("#difficulty-dialog")?.open) $("#difficulty-dialog").close();
   setToolbarOpen(false);
   game.hidden = true;
   ["#result-modal", "#tutorial-intro-modal", "#species-modal"].forEach((selector) => { $(selector).hidden = true; });
@@ -82,6 +83,7 @@ let currentGamesPlayed = 0;
 let scoreSubmitted = false;
 let gameStarting = false;
 let guestStartOptions = null;
+let difficultyStartOptions = null;
 const pendingCollectionWrites = new Set();
 const pendingAchievementWrites = new Set();
 let achievementStats = null;
@@ -94,7 +96,7 @@ const state = {
   queue: [], round: 0, score: 0, selected: false, tree: null,
   classified: [HUMAN_ID], newest: null, currentId: null, expected: null,
   previewTarget: null, previewPlacement: null, failed: false,
-  layout: "top", zoom: 1, tutorial: false, practice: false, mistakes: new Set(), latestMistake: null,
+  layout: "top", zoom: 1, tutorial: false, practice: false, difficulty: "hard", mistakes: new Set(), latestMistake: null,
   cardLanguage: localStorage.getItem("galrae.card-language.v1") === "ko" ? "ko" : "en",
   panX: 0, panY: 0, panning: false, panStartX: 0, panStartY: 0,
   panOriginX: 0, panOriginY: 0, detailReturnFocus: null,
@@ -136,8 +138,16 @@ function setCardLanguage(language) {
 
 function taxonomyLabels(animal) {
   const preferredRanks = new Set(["phylum", "class", "order", "family", "genus"]);
+  const lineage = [...animal.taxonomy.lineage];
+  for (const rank of ["class", "order"]) {
+    const extra = animal.taxonomy.rankReview?.supplemental[rank];
+    if (!extra || lineage.some((taxon) => taxon.rank === rank)) continue;
+    const lowerRanks = rank === "class" ? ["subclass", "order", "family", "genus", "species"] : ["suborder", "family", "genus", "species"];
+    const index = lineage.findIndex((taxon) => lowerRanks.includes(taxon.rank));
+    lineage.splice(index < 0 ? lineage.length : index, 0, { ...extra, rank, wikidataId: extra.taxonId });
+  }
   const label = (taxon) => state.cardLanguage === "ko" ? taxonNamesKo[taxon.wikidataId] || taxon.scientificName : taxon.scientificName;
-  const labels = animal.taxonomy.lineage
+  const labels = lineage
     .filter((taxon) => preferredRanks.has(taxon.rank) && taxon.rank !== "species")
     .slice(-5)
     .map(label);
@@ -718,6 +728,9 @@ async function submitScore() {
   scoreSubmitted = true;
   if (!currentUser) {
     if (state.practice) return;
+    if (!state.failed && state.round === state.queue.length && state.difficulty === "hard") {
+      localStorage.setItem("galrae.guest-hard-completed.v1", "true");
+    }
     const attempts = Number(localStorage.getItem("galrae.guest-attempts.v1")) || 0;
     localStorage.setItem("galrae.guest-attempts.v1", String(attempts + 1));
     return;
@@ -728,7 +741,8 @@ async function submitScore() {
     const write = fetch("/api/leaderboard", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ score: state.score, mode: state.practice ? "practice" : "normal" }),
+      body: JSON.stringify({ score: state.score, mode: state.practice ? "practice" : "normal", difficulty: state.difficulty,
+        ...(!state.practice && !state.failed && state.round === state.queue.length ? { completedIds: state.classified } : {}) }),
     });
     pendingAchievementWrites.add(write);
     let response;
@@ -739,6 +753,8 @@ async function submitScore() {
     if (!state.practice) currentGamesPlayed = Number.isSafeInteger(data.entry?.gamesPlayed) ? data.entry.gamesPlayed : currentGamesPlayed + 1;
     status.textContent = state.practice ? "연습 기록을 저장했습니다." : "리더보드에 기록했습니다.";
     await Promise.all([...pendingCollectionWrites]);
+    try { await refreshAchievementStats(); }
+    catch (error) { console.error(error); showToast("기록은 저장했지만 발전과제를 불러오지 못했어요."); }
     await loadLeaderboard();
   } catch (error) {
     console.error(error);
@@ -875,7 +891,7 @@ function updateRound() {
     $("#result-title").textContent = state.practice ? "연습을 마쳤어요." : "분류를 마쳤어요.";
     $("#result-count").textContent = state.practice ? state.score : state.classified.length;
     $("#result-unit").textContent = "species";
-    $("#result-copy").textContent = state.practice ? `직접 맞힌 카드 ${state.score}종 · 자동 배치 ${state.mistakes.size}종. 연습 기록은 일반 기록과 별도로 저장됩니다.` : `${state.classified.length} species, including Human, were placed in the Animalia tree.`;
+    $("#result-copy").textContent = state.practice ? `직접 맞힌 카드 ${state.score}종 · 자동 배치 ${state.mistakes.size}종. 연습 기록은 일반 기록과 별도로 저장됩니다.` : `${difficultyNames[state.difficulty]} 난이도 완주 · 인간을 포함한 ${state.classified.length}종을 분류했습니다.${state.difficulty === "hard" ? " 죽음 난이도가 해금되었습니다. 플레이는 준비 중입니다." : ""}`;
     $("#return-lobby").textContent = "수집함 보기 →";
     $("#result-modal").hidden = false;
     submitScore();
@@ -884,7 +900,7 @@ function updateRound() {
   state.currentId = state.queue[state.round];
   state.expected = getExpectedPlacement(state.classified, state.currentId, speciesById);
   setCard(state.currentId);
-  $("#round-label").textContent = `${state.practice ? "연습 모드" : state.tutorial ? "튜토리얼" : "동물계"} · ${state.round + 1}/${state.queue.length}`;
+  $("#round-label").textContent = `${state.practice ? "연습 모드" : state.tutorial ? "튜토리얼" : difficultyNames[state.difficulty]} · ${state.round + 1}/${state.queue.length}`;
   const banner = $("#tutorial-banner");
   banner.hidden = !state.tutorial;
   if (state.tutorial) banner.textContent = [
@@ -897,6 +913,16 @@ function updateRound() {
 
 async function startGame(options = {}) {
   if (!dataset || gameStarting) return;
+  if ($("#difficulty-dialog").open) return;
+  if (!options.practice && !options.tutorial && !options.difficulty) {
+    if ($("#guest-start-dialog").open || $("#difficulty-dialog").open) return;
+    difficultyStartOptions = options;
+    const unlocked = currentUser ? achievementStats?.hardCompleted : localStorage.getItem("galrae.guest-hard-completed.v1") === "true";
+    $("#death-difficulty-status").textContent = unlocked ? "해금됨 · 준비 중" : "어려움 완주 후 해금";
+    $("#difficulty-dialog").showModal();
+    return;
+  }
+  if (options.difficulty && !Object.hasOwn(difficultyNames, options.difficulty)) return;
   if (!currentUser && options.guestConfirmed !== true) {
     const dialog = $("#guest-start-dialog");
     if (dialog.open) return;
@@ -911,13 +937,15 @@ async function startGame(options = {}) {
     const guestAttempts = Number(localStorage.getItem("galrae.guest-attempts.v1")) || 0;
     const practice = options.practice === true;
     const tutorial = !practice && (options.tutorial === true || (options.skipTutorial !== true && (currentUser ? currentGamesPlayed === 0 : guestAttempts === 0)));
+    const difficulty = practice ? "hard" : options.difficulty || (tutorial ? null : "hard");
     const queue = tutorial
       ? ["bolinopsis-infundibulum", "asterias-rubens", "balanoglossus-gigas", "formica-rufa"]
-      : shuffle(animals.filter((animal) => animal.id !== HUMAN_ID).map((animal) => animal.id));
+      : createDifficultyQueue(animals, difficulty);
     await preloadImage(speciesById.get(queue[0])?.image.thumbnailUrl);
     state.queue = queue;
     state.tutorial = tutorial;
     state.practice = practice;
+    state.difficulty = difficulty;
     state.mistakes = new Set();
     state.latestMistake = null;
     state.round = 0; state.score = 0; state.selected = false;
@@ -1062,6 +1090,16 @@ $("#guest-start-dialog").addEventListener("close", (event) => {
   if (event.target.returnValue === "login") openAccountModal(document.activeElement);
 });
 $("#start-practice").addEventListener("click", () => startGame({ practice: true }));
+document.querySelectorAll("[data-difficulty]").forEach((button) => {
+  button.addEventListener("click", () => {
+    const options = difficultyStartOptions;
+    if (!options) return;
+    $("#difficulty-dialog").close();
+    startGame({ ...options, difficulty: button.dataset.difficulty });
+  });
+});
+$("#close-difficulty").addEventListener("click", () => $("#difficulty-dialog").close());
+$("#difficulty-dialog").addEventListener("close", () => { difficultyStartOptions = null; });
 document.querySelectorAll("[data-card-language]").forEach((button) => {
   button.addEventListener("click", () => setCardLanguage(button.dataset.cardLanguage));
 });
@@ -1074,7 +1112,7 @@ $("#tree-zoom-out").addEventListener("click", () => zoomTreeAtCenter(.8));
 $("#quit-game").addEventListener("click", returnToLobby);
 $("#return-lobby").addEventListener("click", async () => { await returnToLobby(); showLobbyPage("collection"); });
 $("#retry-game").addEventListener("click", () => {
-  if (!state.practice) { startGame({ tutorial: state.tutorial }); return; }
+  if (!state.practice) { startGame({ tutorial: state.tutorial, difficulty: state.difficulty, skipTutorial: true }); return; }
   state.failed = false;
   $("#failure-panel").hidden = true;
   card.classList.remove("is-locked");
@@ -1086,7 +1124,7 @@ $("#start-tutorial").addEventListener("click", () => startGame({ tutorial: true 
 $("#tutorial-begin").addEventListener("click", () => { $("#tutorial-intro-modal").hidden = true; card.focus(); });
 $("#tutorial-quit").addEventListener("click", returnToLobby);
 $("#tutorial-complete-lobby").addEventListener("click", returnToLobby);
-$("#tutorial-play").addEventListener("click", () => startGame({ skipTutorial: true }));
+$("#tutorial-play").addEventListener("click", () => startGame({ skipTutorial: true, difficulty: state.difficulty }));
 $("#auth-panel").addEventListener("click", (event) => {
   if (event.target.closest("#open-account")) openAccountModal(event.target.closest("#open-account"));
   if (event.target.closest("#logout-account")) logoutAccount();

@@ -1,3 +1,5 @@
+import { readFileSync } from "node:fs";
+const rankReview = JSON.parse(readFileSync(new URL("../data/taxonomy-rank-review.json", import.meta.url), "utf8"));
 const XENACOELOMORPHA_ID = "Q3570860";
 const DISPUTED_XENACOELOMORPHA_ANCESTORS = new Set(["Q3059449", "Q150866", "Q2412197"]);
 const EUSAURISCHIA_ID = "Q2013709";
@@ -104,6 +106,6 @@ export function curateTaxonomy(animals) {
       if (taxon.wikidataId === "Q2747865") return { ...taxon, scientificName: "Branchiostomatidae" };
       return SPECIES_TAXON_REPLACEMENTS[animal.scientificName]?.[taxon.wikidataId] ?? taxon;
     });
-    return { ...animal, taxonomy: { ...animal.taxonomy, lineage } };
+    return { ...animal, taxonomy: { ...animal.taxonomy, lineage, rankReview: rankReview[animal.id] } };
   });
 }

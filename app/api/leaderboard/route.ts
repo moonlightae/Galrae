@@ -2,9 +2,14 @@ import { asc, desc, inArray, sql } from "drizzle-orm";
 import { getGameUser } from "../../game-auth";
 import { getDb } from "../../../db";
 import { classifiedSpecies, leaderboard } from "../../../db/schema";
-import { speciesCount } from "../../../public/data/animals.json";
+import { animals, speciesCount } from "../../../public/data/animals.json";
+import "../../../public/game-logic.js";
 
 export const dynamic = "force-dynamic";
+const speciesById = new Map(animals.map((animal) => [animal.id, animal]));
+const { isDifficultyCompletion } = (globalThis as typeof globalThis & {
+  GalraeLogic: { isDifficultyCompletion(ids: unknown, difficulty: string, speciesById: Map<string, unknown>): boolean };
+}).GalraeLogic;
 
 function storageError(error: unknown) {
   console.error("Leaderboard storage error", error);
@@ -62,18 +67,32 @@ export async function POST(request: Request) {
   const user = await getGameUser();
   if (!user) return Response.json({ error: "로그인이 필요합니다." }, { status: 401 });
 
-  let payload: { score?: unknown; mode?: unknown };
+  let payload: { score?: unknown; mode?: unknown; difficulty?: unknown; completedIds?: unknown };
   try { payload = await request.json() as typeof payload; }
   catch { return Response.json({ error: "잘못된 요청입니다." }, { status: 400 }); }
+  if (!payload || typeof payload !== "object" || Array.isArray(payload)) {
+    return Response.json({ error: "잘못된 요청입니다." }, { status: 400 });
+  }
 
   const score = Number(payload.score);
   if (payload.mode !== undefined && payload.mode !== "normal" && payload.mode !== "practice") {
     return Response.json({ error: "잘못된 게임 모드입니다." }, { status: 400 });
   }
   const practice = payload.mode === "practice";
+  const difficulty = payload.difficulty ?? "hard";
+  if (difficulty !== "easy" && difficulty !== "medium" && difficulty !== "hard") {
+    return Response.json({ error: "잘못된 난이도입니다." }, { status: 400 });
+  }
   if (!Number.isInteger(score) || score < 0 || score >= speciesCount) {
     return Response.json({ error: `점수는 0부터 ${speciesCount - 1} 사이여야 합니다.` }, { status: 400 });
   }
+
+  const completed = payload.completedIds !== undefined;
+  if (completed && (practice || !isDifficultyCompletion(payload.completedIds, difficulty, speciesById)
+    || score !== (payload.completedIds as string[]).length - 1)) {
+    return Response.json({ error: "난이도 완주 조건에 맞지 않습니다." }, { status: 400 });
+  }
+  const completion = completed ? { [difficulty === "easy" ? "easyCompleted" : difficulty === "medium" ? "mediumCompleted" : "hardCompleted"]: true } : {};
 
   const displayName = user.displayName.slice(0, 60);
   try {
@@ -85,10 +104,12 @@ export async function POST(request: Request) {
       gamesPlayed: practice ? 0 : 1,
       bestPracticeScore: practice ? score : 0,
       practiceGamesPlayed: practice ? 1 : 0,
+      ...completion,
     }).onConflictDoUpdate({
       target: leaderboard.userId,
       set: {
         displayName,
+        ...completion,
         ...(practice ? {
           bestPracticeScore: sql`MAX(${leaderboard.bestPracticeScore}, ${score})`,
           practiceGamesPlayed: sql`${leaderboard.practiceGamesPlayed} + 1`,

@@ -10,7 +10,7 @@ async function worker() {
     const animal = dataset.animals[index];
     const url = `https://api.gbif.org/v1/species/match?name=${encodeURIComponent(animal.scientificName)}&strict=true`;
     try {
-      const response = await fetch(url, { headers: { "User-Agent": "GalraePhylogenyGame/0.1 taxonomy audit" } });
+      const response = await fetch(url, { headers: { "User-Agent": "GalraePhylogenyGame/0.1 taxonomy audit" }, signal: AbortSignal.timeout(30000) });
       if (!response.ok) throw new Error(`GBIF ${response.status}`);
       const match = await response.json();
       const ranked = Object.fromEntries(animal.taxonomy.lineage
@@ -25,7 +25,9 @@ async function worker() {
         }
       }
       records[index] = { species: animal.scientificName, matchType: match.matchType,
-        confidence: match.confidence, gbifName: match.canonicalName, differences };
+        confidence: match.confidence, gbifName: match.canonicalName, usageKey: match.usageKey,
+        status: match.status, rank: match.rank,
+        classification: Object.fromEntries(["phylum", "class", "order", "family", "genus"].map((rank) => [rank, { name: match[rank] ?? null, key: match[`${rank}Key`] ?? null }])), differences };
     } catch (error) {
       records[index] = { species: animal.scientificName, error: String(error) };
     }

@@ -58,11 +58,11 @@ runInNewContext(clientSource.slice(clientSource.indexOf("function achievementMed
 context.renderAchievements({ bestScore: 10 });
 const html = $("#achievements-grid").innerHTML;
 for (const category of ["기본", "연습모드", "일반모드", "특별"]) assert.ok(html.includes(`<h2>${category}</h2>`));
-assert.equal((html.match(/<details /g) || []).length, 23);
-assert.equal((html.match(/<progress /g) || []).length, 22);
+assert.equal((html.match(/<details /g) || []).length, 26);
+assert.equal((html.match(/<progress /g) || []).length, 25);
 assert.ok(!html.includes("미달성") && !html.includes("achievement-meta"));
 const groups = getAchievements().reduce((counts, task) => ({ ...counts, [task.category]: (counts[task.category] || 0) + 1 }), {});
-assert.deepEqual(groups, { "기본": 9, "연습모드": 3, "일반모드": 10, "특별": 1 });
+assert.deepEqual(groups, { "기본": 9, "연습모드": 3, "일반모드": 13, "특별": 1 });
 const specialHtml = html.slice(html.indexOf("<h2>특별</h2>"));
 assert.equal((specialHtml.match(/<details /g) || []).length, 1);
 assert.ok(specialHtml.includes("이게 왜 어류야") && specialHtml.includes("어류, 포유류, 파충류, 양서류, 조류 아니었어?"));

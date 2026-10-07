@@ -78,6 +78,7 @@ const scoreRequests = [];
 const scoreContext = {
   state, $, currentUser: { id: "test" }, scoreSubmitted: false, currentGamesPlayed: 7,
   pendingCollectionWrites: new Set(), pendingAchievementWrites: new Set(), console, loadLeaderboard: async () => {},
+  refreshAchievementStats: async () => {},
   responseJson: async (response) => response.json(),
   fetch: async (_, options) => { scoreRequests.push(JSON.parse(options.body)); return Response.json({ entry: { gamesPlayed: 7 } }); },
 };
@@ -132,7 +133,7 @@ function loadTS(path, overrides = {}) {
     compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022 },
   }).outputText;
   const module = { exports: {} };
-  vm.runInNewContext(code, { module, exports: module.exports, require: (name) => overrides[name] || require(name), Response, console });
+  vm.runInNewContext(code, { module, exports: module.exports, require: (name) => overrides[name] || require(name), Response, console, GalraeLogic: logic });
   return module.exports;
 }
 const sqlite = new DatabaseSync(":memory:");
@@ -155,6 +156,7 @@ let user = { id: "test", displayName: "Tester" };
 const route = loadTS("../app/api/leaderboard/route.ts", {
   "../../game-auth": { getGameUser: async () => user }, "../../../db": { getDb: () => db },
   "../../../db/schema": schema, "../../../public/data/animals.json": dataset,
+  "../../../public/game-logic.js": {},
 });
 const post = async (body) => route.POST(new Request("https://local/api/leaderboard", { method: "POST", body: JSON.stringify(body) }));
 assert.equal((await post({ mode: "practice", score: 31 })).status, 200);
@@ -171,6 +173,21 @@ assert.equal(row.best_score, 20); assert.equal(row.games_played, 8);
 assert.equal(row.best_practice_score, 31); assert.equal(row.practice_games_played, 2);
 assert.equal((await post({ mode: "invalid", score: 100 })).status, 400);
 assert.equal((await post({ mode: "practice", score: 207 })).status, 400);
+for (const difficulty of ["easy", "medium", "hard"]) {
+  const completedIds = ["homo-sapiens", ...logic.createDifficultyQueue(dataset.animals, difficulty, () => .4)];
+  const payload = { mode: "normal", difficulty, score: completedIds.length - 1, completedIds };
+  assert.equal((await post({ ...payload, completedIds: completedIds.slice(0, -1) })).status, 400);
+  assert.equal((await post({ ...payload, mode: "practice" })).status, 400);
+  assert.equal((await post({ ...payload, score: payload.score - 1 })).status, 400);
+  assert.equal((await post(payload)).status, 200);
+  assert.equal(sqlite.prepare(`SELECT ${difficulty}_completed AS done FROM leaderboard WHERE user_id='test'`).get().done, 1);
+  assert.equal((await post({ mode: "normal", difficulty, score: 0 })).status, 200);
+  assert.equal(sqlite.prepare(`SELECT ${difficulty}_completed AS done FROM leaderboard WHERE user_id='test'`).get().done, 1, "Later failures must preserve completion");
+}
+assert.equal((await post({ mode: "normal", difficulty: "death", score: 1 })).status, 400);
+assert.equal((await post(null)).status, 400);
+assert.equal((await post({ mode: "normal", difficulty: "easy", score: 1, completedIds: ["homo-sapiens", "unknown"] })).status, 400);
+assert.equal(sqlite.prepare("SELECT hard_completed FROM leaderboard WHERE user_id='other'").get().hard_completed, 0, "Completion must belong to the submitting account");
 user = null;
 assert.equal((await post({ mode: "practice", score: 1 })).status, 401);
 sqlite.close();

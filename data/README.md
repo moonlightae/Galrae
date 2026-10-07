@@ -18,6 +18,14 @@ individually rather than copied blindly.
 
 ## Taxonomic decisions
 
+Class/order gaps were rechecked against fresh NCBI and GBIF records on
+2026-10-07, with WoRMS review of genuinely unassigned ranks. See
+[rank review](rank-review.md). `taxonomy-rank-review.json` preserves the review
+and supplemental ranked classification; the collector reapplies it through
+`taxonomy-curation.mjs`. Supplemental ranks are used for difficulty filtering
+and card labels without inserting traditional paraphyletic grades into the
+phylogenetic tree. Unassigned ranks are recorded explicitly rather than invented.
+
 - Holostei and Teleostei form separate sister branches within Neopterygii
   ([phylogeny](https://pmc.ncbi.nlm.nih.gov/articles/PMC5882744/)). Restore
   missing shared ancestors for Gadiformes, Salmoniformes, Gymnotiformes and
@@ -54,7 +62,7 @@ Keep it identical to `public/data/animals.ko.json`. Names without an established
 Korean equivalent use scientific-name transliteration; species scientific names
 remain unchanged in either language. These are card introductions,
 not translations of the full Wikipedia articles.
-`taxa.ko.json` contains Korean display names for the 553 upper taxa shown on cards.
+`taxa.ko.json` contains Korean display names for the upper taxa shown on cards.
 Keep it identical to `public/data/taxa.ko.json`. Korean labels were retrieved from
 [Wikidata](https://www.wikidata.org/) on 2026-10-05 and normalized to their taxonomic
 ranks. Missing Korean labels use curated Korean names or scientific-name

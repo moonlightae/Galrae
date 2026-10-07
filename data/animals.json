@@ -97,7 +97,14 @@
             "englishName": "Acropora millepora",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "45264",
+          "gbifUsageKey": 5184672,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Acropora millepora Maldives.jpg",
@@ -328,7 +335,14 @@
             "englishName": "Aedes aegypti",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "7159",
+          "gbifUsageKey": 1651891,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Aedes aegypti CDC-Gathany.jpg",
@@ -757,7 +771,14 @@
             "englishName": "African bush elephant",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "9785",
+          "gbifUsageKey": 2435350,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "African Bush Elephant.jpg",
@@ -964,7 +985,14 @@
             "englishName": "Xenopus laevis",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "8355",
+          "gbifUsageKey": 5217334,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "African Clawed Frog.jpg",
@@ -1447,7 +1475,14 @@
             "englishName": "African Penguin",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "92683",
+          "gbifUsageKey": 5229384,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Pingüino de El Cabo (Spheniscus demersus), Playa de Boulders, Simon's Town, Sudáfrica, 2018-07-23, DD 11.jpg",
@@ -1804,7 +1839,14 @@
             "englishName": "American alligator",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "8496",
+          "gbifUsageKey": 2441370,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "American Alligator.jpg",
@@ -2011,7 +2053,14 @@
             "englishName": "Periplaneta americana",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "6978",
+          "gbifUsageKey": 2000152,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "American-cockroach.jpg",
@@ -2194,7 +2243,14 @@
             "englishName": "American lobster",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "6706",
+          "gbifUsageKey": 5972004,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Nur01521 - Flickr - NOAA Photo Library.jpg",
@@ -2287,7 +2343,14 @@
             "englishName": "Amphimedon queenslandica",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "400682",
+          "gbifUsageKey": 2245332,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Amphimedon queenslandica adult.png",
@@ -2446,7 +2509,14 @@
             "englishName": "Antarctic krill",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "6819",
+          "gbifUsageKey": 2228010,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Antarctic krill (Euphausia superba).jpg",
@@ -2581,7 +2651,14 @@
             "englishName": "Antedon mediterranea",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "105859",
+          "gbifUsageKey": 5721033,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Antedon mediterranea.jpg",
@@ -2806,7 +2883,14 @@
             "englishName": "Apis cerana",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "7461",
+          "gbifUsageKey": 1341979,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Cerana.jpg",
@@ -3031,7 +3115,14 @@
             "englishName": "Argiope bruennichi",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "94029",
+          "gbifUsageKey": 5170994,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "(MHNT) Argiope bruennichi female dorsal.jpg",
@@ -3220,7 +3311,14 @@
             "englishName": "Arizona bark scorpion",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "218467",
+          "gbifUsageKey": 6894244,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Arizona Bark Scorpion under blacklight.jpg",
@@ -3337,7 +3435,14 @@
             "englishName": "Ascaris lumbricoides",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "6252",
+          "gbifUsageKey": 4558786,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Ascaris lumbricoides.jpeg",
@@ -3616,7 +3721,14 @@
             "englishName": "Asian water monitor",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "62051",
+          "gbifUsageKey": 2470685,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Water Monitor (about 1.5m long).jpg",
@@ -3859,7 +3971,14 @@
             "englishName": "Atlantic bluefin tuna",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "8237",
+          "gbifUsageKey": 2373980,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Bluefin-big.jpg",
@@ -4072,7 +4191,14 @@
             "englishName": "Gadus morhua",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "8049",
+          "gbifUsageKey": 8084280,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Atlantic cod.jpg",
@@ -4219,7 +4345,20 @@
             "englishName": "Atlantic horseshoe crab",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "6850",
+          "gbifUsageKey": 1010610,
+          "supplemental": {
+            "class": {
+              "scientificName": "Merostomata",
+              "sourceUrl": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=6844",
+              "taxonId": "ncbi:6844"
+            }
+          },
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "202210 Dorsal adult male Atlantic horseshoe crab.svg",
@@ -4462,7 +4601,14 @@
             "englishName": "Atlantic mudskipper",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "166755",
+          "gbifUsageKey": 2376966,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "GambianMudskippers.jpg",
@@ -4663,7 +4809,14 @@
             "englishName": "Atlantic salmon",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "8030",
+          "gbifUsageKey": 7595433,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "202409 Atlantic Salmon.svg",
@@ -4762,7 +4915,14 @@
             "englishName": "Aurelia aurita",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "6145",
+          "gbifUsageKey": 2264442,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Moon Jellyfish (14278816210).jpg",
@@ -4903,7 +5063,14 @@
             "englishName": "Callorhinchus milii",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "7868",
+          "gbifUsageKey": 2417418,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Elephant shark melb aquarium.jpg",
@@ -5062,7 +5229,14 @@
             "englishName": "Queensland lungfish",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "7892",
+          "gbifUsageKey": 2441266,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Queensland Lungfish (Neoceratodus forsteri).jpg",
@@ -5275,7 +5449,14 @@
             "englishName": "axolotl",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "8296",
+          "gbifUsageKey": 2431950,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Ambystoma mexicanum Natural History Museum University of Pisa (cropped).jpg",
@@ -5380,7 +5561,19 @@
             "englishName": "Balanoglossus gigas",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "1443183",
+          "gbifUsageKey": 2254533,
+          "supplemental": {},
+          "unassigned": [
+            "order"
+          ],
+          "additionalSources": [
+            "https://www.marinespecies.org/aphia.php?p=taxdetails&id=266573"
+          ]
+        }
       },
       "image": {
         "fileName": "Balanoglossus gigas.jpg",
@@ -5659,7 +5852,14 @@
             "englishName": "Royal python",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "51751",
+          "gbifUsageKey": 2465380,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Ball python lucy.JPG",
@@ -5746,7 +5946,14 @@
             "englishName": "Beroe ovata",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "10201",
+          "gbifUsageKey": 5233152,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Medusa010.jpg",
@@ -5899,7 +6106,14 @@
             "englishName": "bigfin reef squid",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "34570",
+          "gbifUsageKey": 8920970,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Sepiotenthis lessoniana.jpg",
@@ -6040,7 +6254,14 @@
             "englishName": "Mytilus edulis",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "6550",
+          "gbifUsageKey": 8288896,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Miesmuscheln Mytilus 2.jpg",
@@ -6505,7 +6726,14 @@
             "englishName": "Balaenoptera musculus",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "9771",
+          "gbifUsageKey": 2440735,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "202501 Blue whale.svg",
@@ -6592,7 +6820,14 @@
             "englishName": "Bolinopsis infundibulum",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "140455",
+          "gbifUsageKey": 2501240,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Ctenophore - Bolinopsis infundibulum.jpg",
@@ -6817,7 +7052,14 @@
             "englishName": "Bombus terrestris",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "30195",
+          "gbifUsageKey": 1340503,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Bumblebee October 2007-3a.jpg",
@@ -7090,7 +7332,14 @@
             "englishName": "Bombyx mori",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "7091",
+          "gbifUsageKey": 1868664,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "202103 Silkworm.svg",
@@ -7519,7 +7768,14 @@
             "englishName": "Bonobo",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "9597",
+          "gbifUsageKey": 5219533,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Bonobo at Nsele Valley Park, Kinshasa, DR Congo.jpg",
@@ -7942,7 +8198,14 @@
             "englishName": "Bornean orangutan",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "9600",
+          "gbifUsageKey": 5219532,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Nanga with male baby.jpg",
@@ -8065,7 +8328,14 @@
             "englishName": "Botryllus schlosseri",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "30301",
+          "gbifUsageKey": 5200757,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Botryllus schlosseri.jpg",
@@ -8194,7 +8464,14 @@
             "englishName": "Brachionus plicatilis",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "10195",
+          "gbifUsageKey": 4984146,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Brachionus plicatilis.jpg",
@@ -8311,7 +8588,14 @@
             "englishName": "Branchiostoma floridae",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "7739",
+          "gbifUsageKey": 5227670,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Lancelet GFP GIF.gif",
@@ -8428,7 +8712,14 @@
             "englishName": "Branchiostoma lanceolatum",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "7740",
+          "gbifUsageKey": 5227671,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Branchiostoma lanceolatum.jpg",
@@ -8845,7 +9136,14 @@
             "englishName": "brown rat",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "10116",
+          "gbifUsageKey": 2439261,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Rattus norvegicus 1.jpg",
@@ -8968,7 +9266,14 @@
             "englishName": "Caenorhabditis elegans",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "6239",
+          "gbifUsageKey": 2283683,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Adult Caenorhabditis elegans.jpg",
@@ -9109,7 +9414,14 @@
             "englishName": "California sea hare",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "6500",
+          "gbifUsageKey": 5191261,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Aplysia californica.jpg",
@@ -9328,7 +9640,14 @@
             "englishName": "Cane toad",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "8386",
+          "gbifUsageKey": 5216933,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Canetoadfemale.jpg",
@@ -9517,7 +9836,14 @@
             "englishName": "Carcinus maenas",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "6759",
+          "gbifUsageKey": 5178595,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Carcinus maenas.jpg",
@@ -9628,7 +9954,14 @@
             "englishName": "Cassiopea xamachana",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "12993",
+          "gbifUsageKey": 2264599,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Cassiopea xamachana (xndr).JPG",
@@ -10063,7 +10396,14 @@
             "englishName": "Felis catus",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "9685",
+          "gbifUsageKey": 2435035,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Cat November 2010-1a.jpg",
@@ -10204,7 +10544,14 @@
             "englishName": "Nautilus pompilius",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "34573",
+          "gbifUsageKey": 2289202,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Nautilus pompilius.jpg",
@@ -10639,7 +10986,14 @@
             "englishName": "cheetah",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "32536",
+          "gbifUsageKey": 2435270,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "TheCheethcat.jpg",
@@ -11068,7 +11422,14 @@
             "englishName": "chimpanzee",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "9598",
+          "gbifUsageKey": 5219534,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "013 Alpha male chimpanzee at Kibale forest National Park Photo by Giles Laurent.jpg",
@@ -11161,7 +11522,14 @@
             "englishName": "Chironex fleckeri",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "45396",
+          "gbifUsageKey": 2264689,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Avispa marina cropped.png",
@@ -11290,7 +11658,14 @@
             "englishName": "Ciona intestinalis",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "7719",
+          "gbifUsageKey": 2329622,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Cionaintestinalis.jpg",
@@ -11377,7 +11752,14 @@
             "englishName": "Cliona celata",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "269049",
+          "gbifUsageKey": 5183631,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Cliona celeta.JPG",
@@ -11854,7 +12236,14 @@
             "englishName": "common bottlenose dolphin",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "9739",
+          "gbifUsageKey": 2440447,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Tursiops truncatus 01-cropped.jpg",
@@ -12019,7 +12408,14 @@
             "englishName": "common cuttlefish",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "6610",
+          "gbifUsageKey": 2290849,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Sepia común (Sepia officinalis), Parque natural de la Arrábida, Portugal, 2020-07-21, DD 62.jpg",
@@ -12238,7 +12634,14 @@
             "englishName": "Common frog",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "8407",
+          "gbifUsageKey": 2426805,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "European Common Frog Rana temporaria.jpg",
@@ -12421,7 +12824,14 @@
             "englishName": "common octopus",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "6645",
+          "gbifUsageKey": 2289671,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Octopus vulgaris Merculiano.jpg",
@@ -12880,7 +13290,14 @@
             "englishName": "common ostrich",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "8801",
+          "gbifUsageKey": 2495150,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "North African Ostrich - Masai Ostrich (Struthio camelus massaicus) - Flickr - Lip Kee.jpg",
@@ -13405,7 +13822,14 @@
             "englishName": "Northern Raven",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "56781",
+          "gbifUsageKey": 2482492,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Corvus corax ad berlin 090516.jpg",
@@ -13528,7 +13952,14 @@
             "englishName": "Asterias rubens",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "7604",
+          "gbifUsageKey": 7765831,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Asterias rubens.jpg",
@@ -13747,7 +14178,14 @@
             "englishName": "common toad",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "8384",
+          "gbifUsageKey": 5217160,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Bufo bufo 2 (2005 07 11).jpg",
@@ -14146,7 +14584,14 @@
             "englishName": "common vampire bat",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "9430",
+          "gbifUsageKey": 2433298,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Desmodus rotundus A Catenazzi.jpg",
@@ -14317,7 +14762,14 @@
             "englishName": "Cornu aspersum",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "6535",
+          "gbifUsageKey": 5858758,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Snail-wiki-120-Zachi-Evenor.jpg",
@@ -14446,7 +14898,14 @@
             "englishName": "Acanthaster planci",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "133434",
+          "gbifUsageKey": 2271208,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "CrownofThornsStarfish Fiji 2005-10-12.jpg",
@@ -14617,7 +15076,14 @@
             "englishName": "common water flea",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "6669",
+          "gbifUsageKey": 2234840,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Daphnia pulex.png",
@@ -14872,7 +15338,14 @@
             "englishName": "Drosophila melanogaster",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "7227",
+          "gbifUsageKey": 5073713,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Drosophila melanogaster - side (aka).jpg",
@@ -15127,7 +15600,14 @@
             "englishName": "Drosophila simulans",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "7240",
+          "gbifUsageKey": 5075039,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Drosophila simulans-female.jpg",
@@ -15250,7 +15730,19 @@
             "englishName": "Dugesia joponica",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "6161",
+          "gbifUsageKey": 5892108,
+          "supplemental": {},
+          "unassigned": [
+            "class"
+          ],
+          "additionalSources": [
+            "https://www.marinespecies.org/aphia.php?p=taxdetails&id=484630"
+          ]
+        }
       },
       "image": {
         "fileName": "Two headed Dugesia japonica.jpg",
@@ -15475,7 +15967,14 @@
             "englishName": "dyeing dart frog",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "92724",
+          "gbifUsageKey": 9724339,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Dendrobates.tinctorius.7037.jpg",
@@ -15844,7 +16343,14 @@
             "englishName": "eastern grey kangaroo",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "9317",
+          "gbifUsageKey": 5219981,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Eastern grey kangaroo dec07 02.jpg",
@@ -15985,7 +16491,14 @@
             "englishName": "Echinococcus granulosus",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "6210",
+          "gbifUsageKey": 5817851,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Echinococcus granulosus scolex.jpg",
@@ -16144,7 +16657,14 @@
             "englishName": "Eisenia fetida",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "6396",
+          "gbifUsageKey": 5815560,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Redwiggler1.jpg",
@@ -16339,7 +16859,14 @@
             "englishName": "electric eel",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "8005",
+          "gbifUsageKey": 2401958,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Electric-eel.jpg",
@@ -16822,7 +17349,14 @@
             "englishName": "Emperor Penguin",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "9233",
+          "gbifUsageKey": 2481661,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Aptenodytes forsteri -Snow Hill Island, Antarctica -adults and juvenile-8.jpg",
@@ -17293,7 +17827,14 @@
             "englishName": "Emu",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "8790",
+          "gbifUsageKey": 2495134,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Emu 1 - Tidbinbilla.jpg",
@@ -17404,7 +17945,25 @@
             "englishName": "Euperipatoides kanangrensis",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "488523",
+          "gbifUsageKey": 2235606,
+          "supplemental": {
+            "class": {
+              "scientificName": "Udeonychophora",
+              "sourceUrl": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=2082881",
+              "taxonId": "ncbi:2082881"
+            },
+            "order": {
+              "scientificName": "Euonychophora",
+              "sourceUrl": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=2082882",
+              "taxonId": "ncbi:2082882"
+            }
+          },
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Euperipatoides kanangrensis crop.jpg",
@@ -17575,7 +18134,14 @@
             "englishName": "European eel",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "7936",
+          "gbifUsageKey": 5212973,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Anguilla anguilla Belgium 1.jpg",
@@ -17782,7 +18348,14 @@
             "englishName": "European mantis",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "7507",
+          "gbifUsageKey": 6258028,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Mantis religiosa MHNT entière.jpg",
@@ -18007,7 +18580,14 @@
             "englishName": "fire salamander",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "57571",
+          "gbifUsageKey": 2431776,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Саламандра.JPG",
@@ -18232,7 +18812,14 @@
             "englishName": "Formica rufa",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "258706",
+          "gbifUsageKey": 1315132,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "A Formica rufa sideview.jpg",
@@ -18607,7 +19194,14 @@
             "englishName": "giant anteater",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "71006",
+          "gbifUsageKey": 2436346,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Myresluger2.jpg",
@@ -18766,7 +19360,14 @@
             "englishName": "Tridacna gigas",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "80829",
+          "gbifUsageKey": 4372619,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Giant clam black&white komodo.jpg",
@@ -18919,7 +19520,14 @@
             "englishName": "Giant oceanic manta ray",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "1983395",
+          "gbifUsageKey": 9548142,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Manta birostris-Thailand3.jpg",
@@ -19102,7 +19710,14 @@
             "englishName": "North Pacific giant octopus",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "267067",
+          "gbifUsageKey": 2289485,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Enteroctopus dolfeini.jpg",
@@ -19261,7 +19876,14 @@
             "englishName": "giant squid",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "256136",
+          "gbifUsageKey": 2290184,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "MOL 1130046 Architeuthis specimen.jpg",
@@ -19493,7 +20115,14 @@
             "englishName": "golden poison frog",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "111132",
+          "gbifUsageKey": 5218020,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Schrecklicherpfeilgiftfrosch-01.jpg",
@@ -19700,7 +20329,14 @@
             "englishName": "goldfish",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "7957",
+          "gbifUsageKey": 4286942,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Goldfish3.jpg",
@@ -19859,7 +20495,14 @@
             "englishName": "great hammerhead",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "195334",
+          "gbifUsageKey": 2418792,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Sphyrna mokarran at georgia.jpg",
@@ -20018,7 +20661,14 @@
             "englishName": "great white shark",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "13397",
+          "gbifUsageKey": 2420694,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "202410 Great white shark.svg",
@@ -20201,7 +20851,14 @@
             "englishName": "Greater blue-ringed octopus",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "102866",
+          "gbifUsageKey": 2289324,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Hapalochlaena lunulata2.JPG",
@@ -20678,7 +21335,14 @@
             "englishName": "Greater Flamingo",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "435638",
+          "gbifUsageKey": 4352332,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Flamant rose Thyna009.jpg",
@@ -20951,7 +21615,14 @@
             "englishName": "green iguana",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "8517",
+          "gbifUsageKey": 2459658,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Curacao Iguana iguana 2021 3.jpg",
@@ -21230,7 +21901,14 @@
             "englishName": "Chelonia mydas",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "8469",
+          "gbifUsageKey": 2442225,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Green sea turtle (Chelonia mydas) Moorea.jpg",
@@ -21365,7 +22043,14 @@
             "englishName": "red abalone",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "6454",
+          "gbifUsageKey": 2293078,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Haliotis rufescens1.jpg",
@@ -21596,7 +22281,14 @@
             "englishName": "Harmonia axyridis",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "115357",
+          "gbifUsageKey": 4989904,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Harmonia axyridis01.jpg",
@@ -21875,7 +22567,14 @@
             "englishName": "hawksbill sea turtle",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "27787",
+          "gbifUsageKey": 8841716,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Tortuga carey (Eretmochelys imbricata), parque nacional Ras Muhammad, Egipto, 2022-03-28, DD 56.jpg",
@@ -22088,7 +22787,14 @@
             "englishName": "hellbender",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "43048",
+          "gbifUsageKey": 2432031,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Hellbender.jpg",
@@ -22331,7 +23037,14 @@
             "englishName": "Hippocampus kuda",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "103715",
+          "gbifUsageKey": 5201037,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Hippocampus kuda (Estuary seahorse) - yellow.jpg",
@@ -22778,7 +23491,14 @@
             "englishName": "Nile hippopotamus",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "9833",
+          "gbifUsageKey": 2441247,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Portrait Hippopotamus in the water.jpg",
@@ -22919,7 +23639,20 @@
             "englishName": "Hirudo medicinalis",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "6421",
+          "gbifUsageKey": 2308887,
+          "supplemental": {
+            "order": {
+              "scientificName": "Hirudinida",
+              "sourceUrl": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=2218736",
+              "taxonId": "ncbi:2218736"
+            }
+          },
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Svømmende blodigle.JPG",
@@ -23000,7 +23733,14 @@
             "englishName": "Hoilungia hongkongensis",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "1964320",
+          "gbifUsageKey": 10236802,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Hoilungia hongkongensis.jpg",
@@ -23135,7 +23875,14 @@
             "englishName": "Holothuria (Halodeima) edulis",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "206668",
+          "gbifUsageKey": 4343017,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Holothuria edulis1.JPG",
@@ -23558,7 +24305,14 @@
             "englishName": "house mouse",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "10090",
+          "gbifUsageKey": 7429082,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Maus außer Haus.JPG",
@@ -24095,7 +24849,14 @@
             "englishName": "House Sparrow",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "48849",
+          "gbifUsageKey": 5231190,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "House sparrow male in Prospect Park (53532).jpg",
@@ -24524,7 +25285,14 @@
             "englishName": null,
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "9606",
+          "gbifUsageKey": 2436436,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Human.svg",
@@ -24629,7 +25397,14 @@
             "englishName": "Hydra vulgaris",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "6087",
+          "gbifUsageKey": 5185782,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Hydravulgaris.jpg",
@@ -24932,7 +25707,14 @@
             "englishName": "Indian cobra",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "35670",
+          "gbifUsageKey": 2470351,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Cobra hood.jpg",
@@ -25373,7 +26155,14 @@
             "englishName": "Indian rhinoceros",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "9809",
+          "gbifUsageKey": 5220113,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Greater one-horned rhinoceros at Chitwan.jpg",
@@ -25526,7 +26315,14 @@
             "englishName": "Sulawesi Coelacanth",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "106881",
+          "gbifUsageKey": 2441276,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Latimeria menadoensis.jpg",
@@ -25787,7 +26583,14 @@
             "englishName": "Italian wall lizard",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "65484",
+          "gbifUsageKey": 9185677,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Podarcis siculus in Carasco 027.jpg",
@@ -25976,7 +26779,14 @@
             "englishName": "Ixodes scapularis",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "6945",
+          "gbifUsageKey": 2182727,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Adult deer tick(cropped).jpg",
@@ -26417,7 +27227,14 @@
             "englishName": "jaguar",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "9690",
+          "gbifUsageKey": 5219426,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Onça-pintada-PE Encontro das Águas-Thiagomarcelcampi(001).jpg",
@@ -26630,7 +27447,14 @@
             "englishName": "Japanese giant salamander",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "166789",
+          "gbifUsageKey": 2432039,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Japanese giant salamander in Tottori Prefecture, Japan.jpg",
@@ -27113,7 +27937,14 @@
             "englishName": "Japanese Quail",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "93934",
+          "gbifUsageKey": 2474162,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Coturnix japonica, Yehliu, Taiwan 1.jpg",
@@ -27410,7 +28241,14 @@
             "englishName": "king cobra",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "8665",
+          "gbifUsageKey": 2469850,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Ophiophagus hannah 381373252.jpg",
@@ -27773,7 +28611,14 @@
             "englishName": "koala",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "38626",
+          "gbifUsageKey": 2440012,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Koala climbing tree.jpg",
@@ -28052,7 +28897,14 @@
             "englishName": "Komodo dragon",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "61221",
+          "gbifUsageKey": 2470854,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Komodo dragon Varanus komodoensis Ragunan Zoo 2.JPG",
@@ -28199,7 +29051,14 @@
             "englishName": "largetooth sawfish",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "1577861",
+          "gbifUsageKey": 5216276,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Pristis pristis - Georgia Aquarium Jan 2006.jpg",
@@ -28424,7 +29283,14 @@
             "englishName": "black widow spider",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "6924",
+          "gbifUsageKey": 2157949,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Black-widow-red-spots-yellow-legs.jpg",
@@ -28601,7 +29467,14 @@
             "englishName": "Limax maximus",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "146086",
+          "gbifUsageKey": 2295438,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Limax maximus MHNT.jpg",
@@ -28844,7 +29717,14 @@
             "englishName": "lined seahorse",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "109281",
+          "gbifUsageKey": 5201075,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Fish4280 - Flickr - NOAA Photo Library.jpg",
@@ -29279,7 +30159,14 @@
             "englishName": "lion",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "9689",
+          "gbifUsageKey": 5219404,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "PZ lion pride.jpg",
@@ -29378,7 +30265,14 @@
             "englishName": "Lion's Mane Jellyfish",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "27804",
+          "gbifUsageKey": 2264478,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Cyanea capillata no.JPG",
@@ -29525,7 +30419,14 @@
             "englishName": "Little skate",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "7782",
+          "gbifUsageKey": 2419879,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Leucoraja erinacea.jpg",
@@ -29708,7 +30609,14 @@
             "englishName": "longnose gar",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "34771",
+          "gbifUsageKey": 2346701,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Longnose Gar (Lepisosteus osseus) (53084345984).jpg",
@@ -29867,7 +30775,14 @@
             "englishName": "Lumbricus terrestris",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "6398",
+          "gbifUsageKey": 4410657,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Lumbricus terrestris (26559560801).jpg",
@@ -30020,7 +30935,19 @@
             "englishName": "Lymnaea stagnalis",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "6523",
+          "gbifUsageKey": 2291253,
+          "supplemental": {},
+          "unassigned": [
+            "order"
+          ],
+          "additionalSources": [
+            "https://www.marinespecies.org/aphia.php?p=taxdetails&id=181582"
+          ]
+        }
       },
       "image": {
         "fileName": "Lymnaea stagnalis 01.JPG",
@@ -30149,7 +31076,14 @@
             "englishName": "Macrobiotus shonaicus",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "2107653",
+          "gbifUsageKey": 9364519,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Stec et al 2018 Fig 1 Macrobiotus shonaicus habitus.tif",
@@ -30650,7 +31584,14 @@
             "englishName": "mallard",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "8839",
+          "gbifUsageKey": 9761484,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Anas platyrhynchos (mixed pair) (32428014687).jpg",
@@ -30875,7 +31816,14 @@
             "englishName": "Tenebrio molitor",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "7067",
+          "gbifUsageKey": 1045843,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "\"+arya+\" Tenebrio molitor ꦲꦸꦭꦼꦂ ꦏꦤ꧀ꦢꦁ ulat kandang 2020 0.jpg",
@@ -31028,7 +31976,14 @@
             "englishName": "Megamouth shark",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "57985",
+          "gbifUsageKey": 2420718,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Mega mouth shark specimen.jpg",
@@ -31133,7 +32088,14 @@
             "englishName": "Metridium senile",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "6116",
+          "gbifUsageKey": 5183974,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Metridium senile 2.jpg",
@@ -31352,7 +32314,14 @@
             "englishName": "Locusta migratoria",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "7004",
+          "gbifUsageKey": 1713418,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Wanderheuschrecke-03.jpg",
@@ -31625,7 +32594,14 @@
             "englishName": "Danaus plexippus",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "13037",
+          "gbifUsageKey": 5133088,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Danaus plexippus MHNT.jpg",
@@ -31982,7 +32958,14 @@
             "englishName": "Nile crocodile",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "8501",
+          "gbifUsageKey": 2441341,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Crocodylus niloticus6.jpg",
@@ -32357,7 +33340,14 @@
             "englishName": "nine-banded armadillo",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "9361",
+          "gbifUsageKey": 2440779,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Nine-banded Armadillo.jpg",
@@ -32816,7 +33806,14 @@
             "englishName": "North Island Brown Kiwi",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "2696672",
+          "gbifUsageKey": 2495144,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Apteryx mantelli -Rotorua, North Island, New Zealand-8a.jpg",
@@ -33269,7 +34266,14 @@
             "englishName": "northern giraffe",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "9894",
+          "gbifUsageKey": 2441205,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Rothschild's giraffe (Giraffa camelopardalis rothschildi) - Murchison Falls National Park.jpg",
@@ -33506,7 +34510,14 @@
             "englishName": "ocean sunfish",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "94237",
+          "gbifUsageKey": 5213725,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Mola mola.jpg",
@@ -33743,7 +34754,14 @@
             "englishName": "Amphiprion ocellaris",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "80972",
+          "gbifUsageKey": 5212106,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Clownfisch (Amphiprion ocellaris).jpg",
@@ -33866,7 +34884,14 @@
             "englishName": "Oikopleura dioica",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "34765",
+          "gbifUsageKey": 2332555,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Oikopleura dioica 2.jpg",
@@ -34313,7 +35338,14 @@
             "englishName": "Okapia johnstoni",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "86973",
+          "gbifUsageKey": 2441207,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Okapi and son.jpg",
@@ -34466,7 +35498,14 @@
             "englishName": "Ophiothrix fragilis",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "70180",
+          "gbifUsageKey": 5187835,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Ofiuroanemona.jpg",
@@ -34943,7 +35982,14 @@
             "englishName": "Orcinus orca",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "9733",
+          "gbifUsageKey": 2440483,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Killerwhales jumping.jpg",
@@ -35078,7 +36124,14 @@
             "englishName": "Pacific hagfish",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "7765",
+          "gbifUsageKey": 2498646,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Pacific hagfish Myxine.jpg",
@@ -35225,7 +36278,14 @@
             "englishName": "Crassostrea gigas",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "29159",
+          "gbifUsageKey": 2286069,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "202407 Pacific oyster.svg",
@@ -35498,7 +36558,14 @@
             "englishName": "Papilio machaon",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "76193",
+          "gbifUsageKey": 8225376,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "(MHNT) Papilio machaon - Chęciny (Mazovie) - Poland - male.jpg",
@@ -35645,7 +36712,14 @@
             "englishName": "Paracentrotus lividus",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "7656",
+          "gbifUsageKey": 2278845,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Paracentrotus lividus profil.JPG",
@@ -35870,7 +36944,14 @@
             "englishName": "Parasteatoda tepidariorum",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "114398",
+          "gbifUsageKey": 2157402,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "202201 Common house spider.svg",
@@ -36041,7 +37122,14 @@
             "englishName": "Penaeus monodon",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "6687",
+          "gbifUsageKey": 8406925,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Penaeus monodon.jpg",
@@ -36536,7 +37624,14 @@
             "englishName": "Peregrine Falcon",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "8954",
+          "gbifUsageKey": 2481047,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Faucon pelerin 7 mai.jpg",
@@ -36659,7 +37754,14 @@
             "englishName": "Pisaster ochraceus",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "7612",
+          "gbifUsageKey": 2273754,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Ochre sea star.jpg",
@@ -37100,7 +38202,14 @@
             "englishName": "Equus quagga",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "89248",
+          "gbifUsageKey": 2440892,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Plains Zebra Equus quagga.jpg",
@@ -37235,7 +38344,20 @@
             "englishName": "Platynereis dumerilii",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "6359",
+          "gbifUsageKey": 2315901,
+          "supplemental": {
+            "class": {
+              "scientificName": "Polychaeta",
+              "sourceUrl": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=6341",
+              "taxonId": "ncbi:6341"
+            }
+          },
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "PlatynereisDumeriliiAtoke.tif",
@@ -37568,7 +38690,14 @@
             "englishName": "platypus",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "9258",
+          "gbifUsageKey": 2433376,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Duck-billed platypus (Ornithorhynchus anatinus) Scottsdale.jpg",
@@ -37655,7 +38784,14 @@
             "englishName": "Pleurobrachia pileus",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "140457",
+          "gbifUsageKey": 2501136,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Blankenberge Pleurobrachia pileus.JPG",
@@ -38096,7 +39232,14 @@
             "englishName": "Ursus maritimus",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "29073",
+          "gbifUsageKey": 2433451,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Polar Bear - Alaska (cropped).jpg",
@@ -38201,7 +39344,14 @@
             "englishName": "Portuguese man o' war",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "168775",
+          "gbifUsageKey": 2264734,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Portuguese Man-O-War (Physalia physalis).jpg",
@@ -38312,7 +39462,20 @@
             "englishName": "Priapulus caudatus",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "37621",
+          "gbifUsageKey": 2501343,
+          "supplemental": {
+            "class": {
+              "scientificName": "Priapulimorpha",
+              "sourceUrl": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=2082883",
+              "taxonId": "ncbi:2082883"
+            }
+          },
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Priapulus caudatus.jpg",
@@ -38453,7 +39616,14 @@
             "englishName": "Strongylocentrotus purpuratus",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "7668",
+          "gbifUsageKey": 2278852,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Strongylocentrotus purpuratus 1.jpg",
@@ -38654,7 +39824,14 @@
             "englishName": "rainbow trout",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "8022",
+          "gbifUsageKey": 5204019,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Female Rainbow Trout in hand.JPG",
@@ -39095,7 +40272,14 @@
             "englishName": "red fox",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "9627",
+          "gbifUsageKey": 5219243,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Portrait of a red fox in Rautas fjällurskog (cropped).jpg",
@@ -39320,7 +40504,14 @@
             "englishName": "Solenopsis invicta",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "13686",
+          "gbifUsageKey": 5035230,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Fire ants02.jpg",
@@ -39809,7 +41000,14 @@
             "englishName": "Red Junglefowl",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "9031",
+          "gbifUsageKey": 9326020,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Red jungle fowl.png",
@@ -40046,7 +41244,14 @@
             "englishName": "Pterois volitans",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "185886",
+          "gbifUsageKey": 2334438,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Pterois volitans Manado-e edit.jpg",
@@ -40475,7 +41680,14 @@
             "englishName": "Red Panda",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "9649",
+          "gbifUsageKey": 5219446,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "RedPanda SingalilaNationalPark DFrame.jpg",
@@ -40610,7 +41822,20 @@
             "englishName": "Giant tube worm",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "6426",
+          "gbifUsageKey": 2329590,
+          "supplemental": {
+            "class": {
+              "scientificName": "Polychaeta",
+              "sourceUrl": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=6341",
+              "taxonId": "ncbi:6341"
+            }
+          },
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Nur04505.jpg",
@@ -41015,7 +42240,14 @@
             "englishName": "ring-tailed lemur",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "9447",
+          "gbifUsageKey": 2436412,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Lemur catta 001.jpg",
@@ -41498,7 +42730,14 @@
             "englishName": "Rock Dove",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "8932",
+          "gbifUsageKey": 2495414,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Columba livia (Rock Dove, wild), Duncansby Head, Caithness, Scotland 1.jpg",
@@ -41855,7 +43094,14 @@
             "englishName": "Crocodylus porosus",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "8502",
+          "gbifUsageKey": 2441333,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "SaltwaterCrocodile('Maximo').jpg",
@@ -42374,7 +43620,14 @@
             "englishName": "scarlet macaw",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "176014",
+          "gbifUsageKey": 5959227,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Ara macao -Puntarenas Province, Costa Rica-8.jpg",
@@ -42497,7 +43750,19 @@
             "englishName": "Schmidtea mediterranea",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "79327",
+          "gbifUsageKey": 5892123,
+          "supplemental": {},
+          "unassigned": [
+            "class"
+          ],
+          "additionalSources": [
+            "https://www.marinespecies.org/aphia.php?p=taxdetails&id=482204"
+          ]
+        }
       },
       "image": {
         "fileName": "Smed.jpg",
@@ -42638,7 +43903,14 @@
             "englishName": "Scolopendra gigantea",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "3157688",
+          "gbifUsageKey": 5179388,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Lisimbein di Aruba.jpg",
@@ -42779,7 +44051,14 @@
             "englishName": "sea lamprey",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "7757",
+          "gbifUsageKey": 8236498,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Petromyzon marinus.001 - Aquarium Finisterrae.jpg",
@@ -43274,7 +44553,14 @@
             "englishName": "Shoebill",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "33584",
+          "gbifUsageKey": 2480347,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Entebbe Shoe Bill Stork.jpg",
@@ -43607,7 +44893,14 @@
             "englishName": "short-beaked echidna",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "9261",
+          "gbifUsageKey": 2433378,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Wild shortbeak echidna.jpg",
@@ -43766,7 +45059,14 @@
             "englishName": "shortfin mako shark",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "57983",
+          "gbifUsageKey": 5216248,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Isurus oxyrinchus by mark conlin2.JPG",
@@ -44003,7 +45303,14 @@
             "englishName": "Siamese fighting fish",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "158456",
+          "gbifUsageKey": 2393998,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Bojownik syjamski.jpg",
@@ -44438,7 +45745,14 @@
             "englishName": "snow leopard",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "29064",
+          "gbifUsageKey": 5787213,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Uncia uncia.jpg",
@@ -44909,7 +46223,14 @@
             "englishName": "Southern Cassowary",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "8787",
+          "gbifUsageKey": 5231783,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Double-wattled Cassowary.jpg",
@@ -45008,7 +46329,14 @@
             "englishName": "Spongilla lacustris",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "6055",
+          "gbifUsageKey": 2244988,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Spongilla lacustris.jpg",
@@ -45113,7 +46441,14 @@
             "englishName": "Starlet sea anemone",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "45351",
+          "gbifUsageKey": 2255972,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Nematostella vectensis (I1425) 017 (31164408140).jpg",
@@ -45242,7 +46577,14 @@
             "englishName": "Stichopus chloronotus",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "240144",
+          "gbifUsageKey": 4343242,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Reef4315 - Flickr - NOAA Photo Library.jpg",
@@ -45329,7 +46671,14 @@
             "englishName": "Sycon ciliatum",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "27933",
+          "gbifUsageKey": 2237814,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "The American Museum journal (c1900-(1918)) (18161026511).jpg",
@@ -45428,7 +46777,19 @@
             "englishName": "Symsagittifera roscoffensis",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "84072",
+          "gbifUsageKey": 2499281,
+          "supplemental": {},
+          "unassigned": [
+            "class"
+          ],
+          "additionalSources": [
+            "https://www.marinespecies.org/aphia.php?p=taxdetails&id=484585"
+          ]
+        }
       },
       "image": {
         "fileName": "Ver de Roscoff (Convoluta roscoffensis) (Ifremer 00572-68422 - 47644).jpg",
@@ -45575,7 +46936,20 @@
             "englishName": "Tachypleus tridentatus",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "6853",
+          "gbifUsageKey": 1010608,
+          "supplemental": {
+            "class": {
+              "scientificName": "Merostomata",
+              "sourceUrl": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=6844",
+              "taxonId": "ncbi:6844"
+            }
+          },
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Tachypleus tridentatus.jpg",
@@ -45716,7 +47090,14 @@
             "englishName": "Taenia solium",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "6204",
+          "gbifUsageKey": 6101576,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Taenia solium scolex.JPG",
@@ -45809,7 +47190,14 @@
             "englishName": "Tethya aurantium",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "281732",
+          "gbifUsageKey": 5183451,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Tethya aurantia.jpg",
@@ -45956,7 +47344,14 @@
             "englishName": "thornback ray",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "7781",
+          "gbifUsageKey": 5216024,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Raja clavata (juv).jpg",
@@ -46391,7 +47786,14 @@
             "englishName": "tiger",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "9694",
+          "gbifUsageKey": 5219416,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Adult male Royal Bengal tiger.jpg",
@@ -46604,7 +48006,14 @@
             "englishName": "Tiger salamander",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "8305",
+          "gbifUsageKey": 2431993,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Tigersalamander (Ambystoma tigrinum), Seitenansicht 1.jpg",
@@ -46727,7 +48136,14 @@
             "englishName": "Trichinella spiralis",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "6334",
+          "gbifUsageKey": 12176003,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Trichinella larv1 DPDx.JPG",
@@ -46874,7 +48290,14 @@
             "englishName": "Triops cancriformis",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "194544",
+          "gbifUsageKey": 2235058,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Triops cancriformis2.jpg",
@@ -47159,7 +48582,14 @@
             "englishName": "Veiled chameleon",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "179908",
+          "gbifUsageKey": 2449133,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Chamaeleo calyptratus 01.jpg",
@@ -47246,7 +48676,14 @@
             "englishName": "Cestum veneris",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "12997",
+          "gbifUsageKey": 2501198,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Cestum veneris in Hawaii.png",
@@ -47339,7 +48776,14 @@
             "englishName": "Venus' Flower Basket",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "936045",
+          "gbifUsageKey": 5180237,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Venus Flower Basket.jpg",
@@ -47492,7 +48936,14 @@
             "englishName": "West African Lungfish",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "7888",
+          "gbifUsageKey": 2441257,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Protopterus annectens Natural History Museum University of Pisa.jpg",
@@ -47885,7 +49336,14 @@
             "englishName": "West Indian manatee",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "9778",
+          "gbifUsageKey": 2435296,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Manatee.jpg",
@@ -48038,7 +49496,14 @@
             "englishName": "West Indian Ocean coelacanth",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "7897",
+          "gbifUsageKey": 2441273,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Coelacanth off Pumula on the KwaZulu-Natal South Coast, South Africa, on 22 November 2019.png",
@@ -48527,7 +49992,14 @@
             "englishName": "Western Barn Owl",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "56313",
+          "gbifUsageKey": 2497921,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Tyto alba tylluan wen detail.jpg",
@@ -48818,7 +50290,14 @@
             "englishName": "western diamondback rattlesnake",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "8730",
+          "gbifUsageKey": 2444356,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Crotalus atrox USFWS.jpg",
@@ -49241,7 +50720,14 @@
             "englishName": "Gorilla gorilla",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "9593",
+          "gbifUsageKey": 2436441,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Gorilla gorilla at the Bronx Zoo 007.jpg",
@@ -49466,7 +50952,14 @@
             "englishName": "Apis mellifera",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "7460",
+          "gbifUsageKey": 1341976,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "(MHNT) Apis mellifera (female) - on viburnum tinus flowers.jpg",
@@ -49619,7 +51112,14 @@
             "englishName": "whale shark",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "259920",
+          "gbifUsageKey": 2417522,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Whale shark Georgia aquarium.jpg",
@@ -50066,7 +51566,14 @@
             "englishName": "grey wolf",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "9612",
+          "gbifUsageKey": 5219173,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Eurasian wolf 2.jpg",
@@ -50165,7 +51672,20 @@
             "englishName": "Xenoturbella bocki",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "242395",
+          "gbifUsageKey": 4307539,
+          "supplemental": {},
+          "unassigned": [
+            "class",
+            "order"
+          ],
+          "additionalSources": [
+            "https://www.marinespecies.org/aphia.php?p=taxdetails&id=141971"
+          ]
+        }
       },
       "image": {
         "fileName": "Xenoturbella (bocki) Sweden 2008.jpg",
@@ -50374,7 +51894,14 @@
             "englishName": "Danio rerio",
             "rank": "species"
           }
-        ]
+        ],
+        "rankReview": {
+          "reviewedAt": "2026-10-07",
+          "ncbiTaxonId": "7955",
+          "gbifUsageKey": 9797255,
+          "supplemental": {},
+          "unassigned": []
+        }
       },
       "image": {
         "fileName": "Zebrafisch.jpg",

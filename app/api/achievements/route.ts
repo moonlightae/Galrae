@@ -30,10 +30,13 @@ export async function GET() {
       bestScore: row?.bestScore ?? 0,
       bestPracticeScore: row?.bestPracticeScore ?? 0,
       normalAttempts: row?.normalAttempts ?? row?.gamesPlayed ?? 0,
-      hasFailed: Boolean(row?.hasFailed || (row && row.gamesPlayed > 0 && row.bestScore < playableIds.size)),
+      hasFailed: Boolean(row?.hasFailed || (row && row.normalAttempts === null && row.gamesPlayed > 0 && row.bestScore < playableIds.size)),
       practiceStarted: Boolean(row?.practiceStarted || (row?.practiceGamesPlayed ?? 0) > 0),
       practiceCompleted: Boolean(row?.practiceCompleted || row?.bestPracticeScore === playableIds.size),
       fishSiblingMistake: Boolean(row?.fishSiblingMistake),
+      easyCompleted: Boolean(row?.easyCompleted),
+      mediumCompleted: Boolean(row?.mediumCompleted),
+      hardCompleted: Boolean(row?.hardCompleted || row?.bestScore === playableIds.size),
       collected: counts.length,
       totalSuccesses: counts.reduce((sum, record) => sum + record.count, 0),
       repeatSuccesses: counts.reduce((best, record) => Math.max(best, record.count), 0),
@@ -75,7 +78,7 @@ export async function POST(request: Request) {
     }).onConflictDoUpdate({
       target: leaderboard.userId,
       set: { ...flags, updatedAt: sql`CURRENT_TIMESTAMP`,
-        hasFailed: sql`MAX(${leaderboard.hasFailed}, ${event === "failure" || event === "fish-sibling-mistake" ? 1 : 0}, CASE WHEN ${leaderboard.gamesPlayed} > 0 AND ${leaderboard.bestScore} < ${playableIds.size} THEN 1 ELSE 0 END)`,
+        hasFailed: sql`MAX(${leaderboard.hasFailed}, ${event === "failure" || event === "fish-sibling-mistake" ? 1 : 0}, CASE WHEN ${leaderboard.normalAttempts} IS NULL AND ${leaderboard.gamesPlayed} > 0 AND ${leaderboard.bestScore} < ${playableIds.size} THEN 1 ELSE 0 END)`,
         ...(event === "normal-start" ? { normalAttempts: sql`COALESCE(${leaderboard.normalAttempts}, ${leaderboard.gamesPlayed}) + 1` } : {}),
       },
     });

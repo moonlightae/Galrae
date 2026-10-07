@@ -12,7 +12,15 @@ const state = { cardLanguage: 'en' };
 const taxonomyLabels = runInNewContext(`${helper}\ntaxonomyLabels`, { state, taxonNamesKo: names });
 const preferredRanks = new Set(['phylum', 'class', 'order', 'family', 'genus']);
 for (const animal of animals) {
-  const preferred = animal.taxonomy.lineage.filter(t => preferredRanks.has(t.rank)).slice(-5);
+  const lineage = [...animal.taxonomy.lineage];
+  for (const rank of ['class', 'order']) {
+    const extra = animal.taxonomy.rankReview?.supplemental[rank];
+    if (!extra) continue;
+    const lower = rank === 'class' ? ['subclass', 'order', 'family', 'genus', 'species'] : ['suborder', 'family', 'genus', 'species'];
+    const index = lineage.findIndex(t => lower.includes(t.rank));
+    lineage.splice(index < 0 ? lineage.length : index, 0, { ...extra, rank, wikidataId: extra.taxonId });
+  }
+  const preferred = lineage.filter(t => preferredRanks.has(t.rank)).slice(-5);
   const selected = preferred.length ? preferred : animal.taxonomy.lineage.slice(-4, -1);
   state.cardLanguage = 'en';
   assert.deepEqual(Array.from(taxonomyLabels(animal)), selected.map(t => t.scientificName));

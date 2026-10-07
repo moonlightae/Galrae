@@ -221,6 +221,45 @@
     return result;
   }
 
+  const difficultyNames = { easy: "쉬움", medium: "보통", hard: "어려움" };
+
+  function difficultyTaxa(animal, difficulty) {
+    const rank = difficulty === "easy" ? "class" : "order";
+    const taxa = animal.taxonomy.lineage.filter((taxon) => taxon.rank === rank);
+    const supplement = animal.taxonomy.rankReview?.supplemental[rank];
+    return (taxa.length ? taxa : supplement ? [supplement] : []).map((taxon) => taxon.scientificName);
+  }
+
+  function createDifficultyQueue(animals, difficulty, random = Math.random) {
+    if (!Object.hasOwn(difficultyNames, difficulty)) throw new Error("Unknown difficulty");
+    const candidates = shuffle(animals.filter((animal) => animal.id !== "homo-sapiens"), random);
+    if (difficulty === "hard") return candidates.map((animal) => animal.id);
+    const used = new Set(difficultyTaxa(animals.find((animal) => animal.id === "homo-sapiens"), difficulty));
+    return candidates.filter((animal) => {
+      const taxa = difficultyTaxa(animal, difficulty);
+      if (!taxa.length || taxa.some((id) => used.has(id))) return false;
+      taxa.forEach((id) => used.add(id));
+      return true;
+    }).map((animal) => animal.id);
+  }
+
+  function isDifficultyCompletion(ids, difficulty, speciesById) {
+    if (!Object.hasOwn(difficultyNames, difficulty) || !Array.isArray(ids)
+      || !ids.includes("homo-sapiens") || new Set(ids).size !== ids.length
+      || !ids.every((id) => typeof id === "string" && speciesById.has(id))) return false;
+    if (difficulty === "hard") return ids.length === speciesById.size;
+    const used = new Set();
+    for (const id of ids) {
+      const taxa = difficultyTaxa(speciesById.get(id), difficulty);
+      if (!taxa.length || taxa.some((taxon) => used.has(taxon))) return false;
+      taxa.forEach((taxon) => used.add(taxon));
+    }
+    return [...speciesById.values()].every((animal) => {
+      const taxa = difficultyTaxa(animal, difficulty);
+      return !taxa.length || taxa.some((id) => used.has(id));
+    });
+  }
+
   function seedSuccessCounts(collectedIds, initialSpeciesId) {
     return Object.fromEntries(collectedIds
       .filter((id) => id !== initialSpeciesId)
@@ -240,6 +279,9 @@
 
   global.GalraeLogic = {
     ANIMALIA_ID,
+    createDifficultyQueue,
+    difficultyNames,
+    isDifficultyCompletion,
     addSuccessCount,
     buildTree,
     collectLeafIds,
