@@ -16,6 +16,7 @@ const $ = (selector) => {
 const context = {
   $, dataset: {}, currentUser: null, currentGamesPlayed: 1, gameStarting: false,
   guestStartOptions: null, localStorage: { getItem: () => "1" }, state: {},
+  achievementStats: {},
   animals: [{ id: "animal" }], HUMAN_ID: "human", speciesById: new Map(),
   shuffle: (ids) => ids, preloadImage: async () => {}, buildTree() {},
   card: $("card"), lobbyPages: {}, navigationShell: $("navigation"), game: $("game"),

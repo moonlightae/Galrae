@@ -32,6 +32,7 @@ const context = {
   cardText: (a) => a, clearPreview() {}, renderTree() {}, setCard() {},
   recordSuccess: (id) => successes.push(id), recordServerSuccess() {},
   recordAchievementEvent(event) { achievementEvents.push(event); },
+  checkAchievementProgress() {},
   saveCollection: (ids) => collections.push([...ids]), submitScore: () => submissions++,
 };
 vm.runInNewContext(source.slice(source.indexOf("function placeCard("), source.indexOf("async function startGame(")), context);

@@ -42,7 +42,7 @@ export const gameMarkup = `
   </main>
   <main id="tasks-page" class="screen library-screen" data-lobby-page hidden>
     <button class="text-button page-back" type="button" data-page="lobby">← 로비</button>
-    <section class="tasks-panel"><div class="section-heading"><h1 tabindex="-1">발전과제</h1><p id="achievements-count">0 / 19 달성</p></div><p id="achievements-status" role="status">작은 도전부터 동물분류 박사까지, 나만의 메달을 모아보세요.</p><div class="achievement-grade-key" aria-label="메달 등급"><span class="grade-stone">돌</span><span class="grade-bronze">동</span><span class="grade-silver">은</span><span class="grade-gold">금</span><span class="grade-diamond">다이아</span></div><div id="achievements-grid" class="achievements-grid"></div></section>
+    <section class="tasks-panel"><div class="section-heading"><h1 tabindex="-1">발전과제</h1><p id="achievements-count">0 / 19</p></div><p id="achievements-status" role="status">메달을 가리키거나 눌러 조건과 진행도를 확인해 보세요.</p><div id="achievements-grid"></div></section>
   </main>
   <div id="navigation-shell" class="navigation-shell">
     <button id="toolbar-shade" class="toolbar-shade" type="button" tabindex="-1" aria-label="메뉴 닫기"></button>
@@ -117,5 +117,6 @@ export const gameMarkup = `
     </section>
   </div>
   <div id="species-modal" class="modal-backdrop species-modal-backdrop" hidden><section class="species-dialog" role="dialog" aria-modal="true" aria-labelledby="species-view-name"><button id="close-species-card" class="dialog-close" type="button" aria-label="카드 닫기">×</button><div class="animal-card species-view-card"><div class="card-topline"><span>동물계</span><span>ANIMALIA</span></div><div class="card-art"><img id="species-view-image" alt="" /><span id="species-view-fallback" aria-hidden="true">?</span></div><div class="card-body"><p class="card-kicker">CLASSIFIED SPECIES</p><h3 id="species-view-name">—</h3><p id="species-view-description">—</p><details id="species-view-taxonomy" class="mini-card-taxonomy" hidden><summary>상위 분류군</summary><div id="species-view-groups" class="mini-card-groups" aria-label="상위 분류군"></div></details></div><div class="card-footer"><span id="species-view-scientific">—</span><span id="species-view-success-count">분류 성공 0회</span></div></div><a id="species-view-credit" class="dialog-image-credit" href="#" target="_blank" rel="noreferrer">Image credit</a></section></div>
+  <div id="achievement-notifications" class="achievement-notifications" role="status" aria-live="polite" aria-relevant="additions" aria-label="새로 달성한 발전과제"></div>
   <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
 `;

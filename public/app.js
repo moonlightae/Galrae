@@ -1,5 +1,6 @@
 import { createTreeView } from "./tree-view.js";
-import { achievementGrades, getAchievements } from "./achievements.js";
+import { getAchievements } from "./achievements.js";
+import { createAchievementNotifications } from "./achievement-notifications.js";
 
 const { ANIMALIA_ID, addSuccessCount, buildTree, collectLeafIds, findNodeById, getExpectedPlacement, isEquivalentPlacement, seedSuccessCounts, shuffle, successCountText } = globalThis.GalraeLogic;
 const HUMAN_ID = "homo-sapiens";
@@ -83,6 +84,9 @@ let gameStarting = false;
 let guestStartOptions = null;
 const pendingCollectionWrites = new Set();
 const pendingAchievementWrites = new Set();
+let achievementStats = null;
+let achievementStatsUser = null;
+const achievementNotifications = createAchievementNotifications($("#achievement-notifications"), (task) => `${achievementMedal(task)}<div><small>발전과제 달성!</small><strong>${escapeHtml(task.title)}</strong></div>`);
 let authMode = "login";
 let accountReturnFocus = null;
 
@@ -311,6 +315,10 @@ async function loadAccount() {
     if (!response.ok) throw new Error(`Account request failed: ${response.status}`);
     const data = await responseJson(response);
     currentUser = data.user;
+    if (achievementStatsUser !== (currentUser?.id || null)) {
+      achievementNotifications.reset(); achievementStats = null;
+      achievementStatsUser = currentUser?.id || null;
+    }
     currentChatGPT = data.chatgpt;
     currentGamesPlayed = Number.isSafeInteger(data.gamesPlayed) ? data.gamesPlayed : 0;
     if (currentUser) {
@@ -410,6 +418,8 @@ async function submitAccount(event) {
     try { await syncCollection(); }
     catch (syncError) { console.error(syncError); showToast("수집 기록을 불러오지 못했습니다."); }
     renderCollection();
+    try { await refreshAchievementStats(false); }
+    catch (error) { console.error(error); }
     await loadLeaderboard();
     closeAccountModal();
     showToast(authMode === "register" ? "새 게임 계정을 만들었습니다." : "로그인했습니다.");
@@ -579,6 +589,7 @@ function recordServerSuccess(speciesId) {
     const counts = getSuccessCounts();
     counts[speciesId] = mergeSuccessRecord(counts[speciesId], data.record);
     localStorage.setItem(successCountsKey(), JSON.stringify(counts));
+    checkAchievementProgress();
   })().catch((error) => console.error(error));
   pendingCollectionWrites.add(write);
   write.then(() => pendingCollectionWrites.delete(write));
@@ -616,8 +627,7 @@ async function loadLeaderboard() {
   }
 }
 
-function renderAchievements(stats = {}) {
-  const tasks = getAchievements(stats, animals.filter((animal) => animal.id !== HUMAN_ID).length || 206);
+function achievementMedal(task) {
   const icons = {
     failure: "M5 8a8 8 0 1 1-1 8M5 3v5h5M12 8v5m0 3v.1",
     practice: "M3 5h6l3 2 3-2h6v14h-6l-3 2-3-2H3ZM12 7v14",
@@ -625,15 +635,42 @@ function renderAchievements(stats = {}) {
     attempts: "M5 8a8 8 0 0 1 14-1M19 3v4h-4M19 16a8 8 0 0 1-14 1M5 21v-4h4",
     collection: "M20 4C7 2 2 7 5 15c3 8 15 5 15-11ZM5 20 16 9",
   };
-  $("#achievements-count").textContent = `${tasks.filter((task) => task.earned).length} / ${tasks.length} 달성`;
-  $("#achievements-grid").innerHTML = tasks.map((task) => {
+  return `<div class="achievement-medal grade-${task.grade}" aria-hidden="true"><div class="medal-face"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="${icons[task.icon]}" /></svg></div></div>`;
+}
+
+function renderAchievements(stats = {}) {
+  const tasks = getAchievements(stats, animals.filter((animal) => animal.id !== HUMAN_ID).length || 206);
+  $("#achievements-count").textContent = `${tasks.filter((task) => task.earned).length} / ${tasks.length}`;
+  $("#achievements-grid").innerHTML = ["기본", "연습모드", "일반모드"].map((category) => `<section class="achievement-group"><h2>${category}</h2><div class="achievements-grid">${tasks.filter((task) => task.category === category).map((task) => {
     const progress = `${Math.min(task.value, task.goal).toLocaleString("ko-KR")} / ${task.goal.toLocaleString("ko-KR")}${task.unit || ""}`;
-    return `<article class="achievement-card${task.earned ? " is-earned" : ""}">
-      <div class="achievement-medal grade-${task.grade}" aria-hidden="true"><div class="medal-face"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="${icons[task.icon]}" /></svg></div></div>
-      <div class="achievement-info"><div class="achievement-meta"><span>${achievementGrades[task.grade]}</span><span>${task.earned ? "달성" : "미달성"}</span></div><h2>${escapeHtml(task.title)}</h2><p>${escapeHtml(task.description)}</p>
-      <div class="achievement-progress"><progress max="${task.goal}" value="${Math.min(task.value, task.goal)}" aria-label="${escapeHtml(task.title)} 진행도"></progress><span>${task.unit ? progress : task.earned ? "완료" : "조건을 달성해 보세요"}</span></div></div>
-    </article>`;
-  }).join("");
+    return `<details class="achievement-card${task.earned ? " is-earned" : ""}"><summary aria-describedby="detail-${task.id}">${achievementMedal(task)}<span>${escapeHtml(task.title)}</span></summary>
+      <div id="detail-${task.id}" class="achievement-detail"><p>${escapeHtml(task.description)}</p><div class="achievement-progress"><progress max="${task.goal}" value="${Math.min(task.value, task.goal)}" aria-label="${escapeHtml(task.title)} 진행도"></progress><span>${progress}</span></div></div>
+    </details>`;
+  }).join("")}</div></section>`).join("");
+}
+
+async function refreshAchievementStats(notify = true) {
+  const userId = currentUser?.id;
+  if (!userId) return;
+  const response = await fetch("/api/achievements", { cache: "no-store" });
+  if (!response.ok) throw new Error(`Achievement request failed: ${response.status}`);
+  const data = await responseJson(response);
+  if (currentUser?.id !== userId) return;
+  achievementStats = data.stats;
+  achievementNotifications.update(getAchievements(achievementStats, animals.length > 1 ? animals.length - 1 : 206), notify);
+}
+
+function checkAchievementProgress() {
+  if (!currentUser || !achievementStats || state.tutorial) return;
+  const counts = Object.entries(getSuccessCounts()).filter(([id]) => id !== HUMAN_ID && speciesById.has(id)).map(([, record]) => normalizeSuccessRecord(record)?.count || 0);
+  achievementStats.collected = getCollection().filter((id) => id !== HUMAN_ID).length;
+  achievementStats.totalSuccesses = counts.reduce((sum, count) => sum + count, 0);
+  achievementStats.repeatSuccesses = counts.reduce((best, count) => Math.max(best, count), 0);
+  if (!game.hidden) {
+    const metric = state.practice ? "bestPracticeScore" : "bestScore";
+    achievementStats[metric] = Math.max(achievementStats[metric] || 0, state.score);
+  }
+  achievementNotifications.update(getAchievements(achievementStats, animals.length > 1 ? animals.length - 1 : 206));
 }
 
 async function loadAchievements() {
@@ -644,12 +681,10 @@ async function loadAchievements() {
   status.textContent = "발전과제 기록을 불러오는 중…";
   try {
     await Promise.all([...pendingAchievementWrites, ...pendingCollectionWrites]);
-    const response = await fetch("/api/achievements", { cache: "no-store" });
-    if (!response.ok) throw new Error(`Achievement request failed: ${response.status}`);
-    const data = await responseJson(response);
+    await refreshAchievementStats(false);
     if (currentUser?.id !== userId) return;
-    renderAchievements(data.stats);
-    status.textContent = "일반·연습모드 기록으로 달성합니다. 튜토리얼과 자동 배치는 정답·수집 기록에 포함되지 않습니다.";
+    renderAchievements(achievementStats);
+    status.textContent = "메달을 가리키거나 눌러 조건과 진행도를 확인해 보세요.";
   } catch (error) {
     console.error(error);
     if (currentUser?.id === userId) status.textContent = "기록을 불러오지 못했어요. 발전과제 메뉴를 다시 열어 주세요.";
@@ -658,11 +693,18 @@ async function loadAchievements() {
 
 function recordAchievementEvent(event) {
   if (!currentUser) return;
+  const userId = currentUser.id;
   const write = (async () => {
     const response = await fetch("/api/achievements", {
       method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ event }),
     });
     if (!response.ok) throw new Error(`Achievement record failed: ${response.status}`);
+    if (currentUser?.id !== userId || !achievementStats) return;
+    if (event === "normal-start") achievementStats.normalAttempts += 1;
+    if (event === "failure") achievementStats.hasFailed = true;
+    if (event === "practice-start" || event === "practice-complete") achievementStats.practiceStarted = true;
+    if (event === "practice-complete") achievementStats.practiceCompleted = true;
+    checkAchievementProgress();
   })().catch((error) => { console.error(error); showToast("발전과제 기록을 저장하지 못했어요."); });
   pendingAchievementWrites.add(write);
   write.then(() => pendingAchievementWrites.delete(write));
@@ -762,6 +804,7 @@ function placeCard(targetId, placement = "wrap") {
   state.newest = state.currentId;
   state.tree = buildTree(state.classified, speciesById);
   state.score += 1;
+  checkAchievementProgress();
   state.round += 1;
   state.selected = false;
   card.classList.remove("is-selected");
@@ -895,6 +938,10 @@ async function startGame(options = {}) {
     $("#failure-score-status").textContent = "";
     card.classList.remove("is-selected", "is-dragging", "is-locked");
     card.setAttribute("draggable", "true");
+    if (currentUser && !achievementStats) {
+      try { await refreshAchievementStats(false); }
+      catch (error) { console.error(error); }
+    }
     if (!tutorial) await recordAchievementEvent(practice ? "practice-start" : "normal-start");
     Object.values(lobbyPages).forEach((screen) => { screen.hidden = true; });
     setToolbarOpen(false);
@@ -920,7 +967,7 @@ async function startGame(options = {}) {
 }
 
 async function returnToLobby() {
-  if (state.practice && !game.hidden) await submitScore();
+  if (!state.tutorial && !game.hidden) await submitScore();
   closeSpeciesCard();
   $("#tutorial-intro-modal").hidden = true;
   game.hidden = true;
@@ -960,6 +1007,8 @@ async function initialize() {
     catch (error) { console.error(error); collectionSyncFailed = true; showToast("수집 기록을 불러오지 못했습니다."); }
     setCardLanguage(state.cardLanguage);
     if (collectionSyncFailed) $("#collection-count").textContent = "수집 기록 확인 실패 · 새로고침해 주세요";
+    try { await refreshAchievementStats(false); }
+    catch (error) { console.error(error); }
     $("#boot-loading-status").textContent = "리더보드와 카드를 준비하는 중…";
     await loadLeaderboard();
     await Promise.all(getCollection().slice(0, 5).map((id) => preloadImage(speciesById.get(id)?.image.thumbnailUrl, 3000)));
@@ -995,6 +1044,22 @@ card.addEventListener("keydown", (event) => {
 });
 
 $("#start-game").addEventListener("click", () => startGame());
+$("#achievements-grid").addEventListener("pointerover", (event) => {
+  const tile = event.target.closest(".achievement-card");
+  if (tile && event.pointerType === "mouse") tile.open = true;
+});
+$("#achievements-grid").addEventListener("pointerout", (event) => {
+  const tile = event.target.closest(".achievement-card");
+  if (tile && event.pointerType === "mouse" && !tile.contains(event.relatedTarget)) tile.open = false;
+});
+$("#achievements-grid").addEventListener("focusin", (event) => {
+  const tile = event.target.closest(".achievement-card");
+  if (tile && event.target.matches(":focus-visible")) tile.open = true;
+});
+$("#achievements-grid").addEventListener("focusout", (event) => {
+  const tile = event.target.closest(".achievement-card");
+  if (tile && !tile.contains(event.relatedTarget)) tile.open = false;
+});
 $("#guest-start-dialog").addEventListener("close", (event) => {
   const options = guestStartOptions;
   guestStartOptions = null;

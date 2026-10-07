@@ -22,6 +22,7 @@ export function getAchievements(stats = {}, total = 206) {
   ];
   return tasks.map(([id, title, grade, description, metric, goal, icon, unit]) => {
     const value = Math.max(0, Number(stats[metric]) || 0);
-    return { id, title, grade, description, goal, icon, unit, value, earned: value >= goal };
+    const category = icon === "practice" ? "연습모드" : metric === "bestScore" || metric === "normalAttempts" ? "일반모드" : "기본";
+    return { id, title, grade, description, goal, icon, unit, value, category, earned: value >= goal };
   });
 }
