@@ -280,8 +280,8 @@ button, [role="button"] { -webkit-tap-highlight-color: transparent; }
 }
 .tree-canvas.is-panning { cursor: grabbing; }
 
-.phylo-tree, .phylo-tree ul { position: relative; list-style: none; margin: 0; padding: 0; }
-.phylo-tree { min-width: 720px; text-align: center; }
+.phylo-tree { position: relative; margin: 0; padding: 0; }
+.phylo-tree { text-align: center; }
 .tree-camera {
   position: absolute;
   left: 50%;
@@ -296,10 +296,7 @@ button, [role="button"] { -webkit-tap-highlight-color: transparent; }
 .layout-bottom .species-node.is-new { animation: none; }
 .layout-bottom .species-node.is-new, .radial-tree .species-node.is-new { box-shadow: 0 0 0 5px rgba(244, 215, 101, .48); }
 .radial-tree { position: relative; }
-.radial-links { position: absolute; inset: 0; overflow: visible; pointer-events: none; }
-.radial-edge { stroke: var(--forest-2); stroke-width: 2; }
-.game-screen .radial-edge { stroke: #f2fbff; filter: drop-shadow(0 1px 1px rgba(10, 15, 65, .8)); }
-.radial-tree.answer-tree .radial-edge.is-answer-path { stroke: #1f7c4a; stroke-width: 3; }
+.tree-links { position: absolute; inset: 0; overflow: visible; pointer-events: none; }
 .radial-root-target, .radial-tree .species-node, .radial-tree .clade-node, .radial-edge-target { position: absolute; z-index: 2; transform: translate(-50%, -50%); }
 .radial-root-target { min-width: 118px; min-height: 42px; cursor: pointer; }
 .radial-root-target:hover, .radial-root-target.is-drop-target { background: #36624d; box-shadow: 0 0 0 7px rgba(244, 215, 101, .28); }
@@ -309,23 +306,6 @@ button, [role="button"] { -webkit-tap-highlight-color: transparent; }
 .radial-tree .clade-node:hover, .radial-tree .clade-node.is-drop-target { transform: translate(-50%, -50%) scale(1.35); }
 .radial-edge-target { z-index: 3; width: 24px; height: 24px; padding: 0; background: transparent; border: 0; border-radius: 50%; cursor: pointer; }
 .radial-edge-target:hover, .radial-edge-target.is-drop-target { background: rgba(244, 215, 101, .45); box-shadow: inset 0 0 0 2px #b99822; }
-.phylo-tree ul { display: flex; justify-content: center; padding-top: 48px; }
-.phylo-tree ul::before { content: ""; position: absolute; top: 0; left: 50%; height: 48px; border-left: 2px solid var(--forest-2); }
-.phylo-tree li { position: relative; flex: 1; padding: 48px 10px 0; text-align: center; }
-.phylo-tree li::before, .phylo-tree li::after { content: ""; position: absolute; top: 0; width: 50%; height: 48px; border-top: 2px solid var(--forest-2); }
-.phylo-tree li::before { right: 50%; }
-.phylo-tree li::after { left: 50%; border-left: 2px solid var(--forest-2); }
-.phylo-tree li:first-child::before, .phylo-tree li:last-child::after { border: 0; }
-.phylo-tree li:last-child::before { border-right: 2px solid var(--forest-2); border-radius: 0 8px 0 0; }
-.phylo-tree li:first-child::after { border-radius: 8px 0 0; }
-.phylo-tree li:only-child::before { display: none; }
-.phylo-tree li:only-child::after {
-  left: 50%;
-  width: 0;
-  border-top: 0;
-  border-left: 2px solid var(--forest-2);
-}
-.game-screen .phylo-tree ul::before, .game-screen .phylo-tree li::before, .game-screen .phylo-tree li::after { border-color: #f2fbff; filter: drop-shadow(0 1px 1px rgba(10, 15, 65, .8)); }
 .tree-root { display: inline-block; padding: 7px 12px; color: #fff; background: var(--forest); border: 0; border-radius: 999px; font-size: .75rem; font-weight: 700; }
 .tree-root-anchor { position: relative; display: inline-flex; vertical-align: top; }
 .root-wrap-target {
@@ -343,7 +323,6 @@ button, [role="button"] { -webkit-tap-highlight-color: transparent; }
   cursor: pointer;
 }
 .root-wrap-target.is-long { height: 96px; }
-.phylo-tree:has(> ul > li:only-child > .branch-anchor) .root-wrap-target { height: 144px; }
 .root-wrap-target::after {
   content: "";
   position: absolute;
@@ -355,9 +334,6 @@ button, [role="button"] { -webkit-tap-highlight-color: transparent; }
   transition: border-color 140ms;
 }
 .root-wrap-target:hover::after, .root-wrap-target.is-drop-target::after { border-left-color: rgba(244, 215, 101, .72); }
-.branch-anchor { position: relative; display: block; width: 0; height: 0; margin: 0 auto; }
-.branch-anchor > .clade-node { position: absolute; top: 48px; left: 0; z-index: 4; transform: translate(-50%, -50%); }
-.branch-anchor > .clade-node:hover, .branch-anchor > .clade-node.is-drop-target { transform: translate(-50%, -50%) scale(1.35); }
 .edge-target {
   position: absolute;
   left: 50%;
@@ -862,12 +838,6 @@ button:focus-visible, [role="button"]:focus-visible, .primary-button:focus-visib
 .tree-zoom-controls { background: transparent; border: 0; }
 .tree-zoom-controls button:hover, .tree-reset-view:hover { color: var(--ink); background: var(--surface-muted); border: 0; }
 .tree-zoom-status, .game-progress span + span, .tree-canvas-help { color: var(--muted); }
-.game-screen .phylo-tree ul::before, .game-screen .phylo-tree li::before,
-.game-screen .phylo-tree li::after { border-color: var(--forest-2); filter: none; }
-.game-screen .radial-edge, .radial-tree.answer-tree .radial-edge.is-answer-path {
-  stroke: var(--forest-2);
-  filter: none;
-}
 .tree-root, .radial-root-target, .radial-root-target:hover, .radial-root-target.is-drop-target,
 .species-node, .species-node:hover, .species-node.is-drop-target,
 .clade-node, .clade-node:hover, .clade-node.is-drop-target,
@@ -900,17 +870,29 @@ button:focus-visible, [role="button"]:focus-visible, .primary-button:focus-visib
   border: 2px solid #88b94a;
   box-shadow: 0 0 0 5px rgba(136, 185, 74, .2);
 }
-.species-node.is-mistake { color: #38551d; background: #eef8df; border: 2px solid #88b94a; box-shadow: 0 0 0 5px rgba(136, 185, 74, .2); }
-.species-node.is-mistake .preview-tag { color: #263d13; background: #d5edb2; border-color: #88b94a; }
-.game-screen .radial-edge.is-mistake-path { stroke: #88b94a; }
-.game-screen .phylo-tree li:has(> .species-node.is-mistake)::before,
-.game-screen .phylo-tree li:has(> .species-node.is-mistake)::after { border-color: #88b94a; }
-:root[data-theme="dark"] .species-node.is-mistake { color: #dcedd5; background: #29391f; }
-:root[data-theme="dark"] .species-node.is-mistake .preview-tag { color: #dcedd5; background: #334728; }
+.species-node.is-mistake { color: #626970; background: #e5e7e9; border: 2px solid #92999f; box-shadow: none; }
+.species-node.is-mistake .preview-tag { color: #555d64; background: #e5e7e9; border-color: #92999f; }
+.species-node.is-recent-mistake { color: #38551d; background: #eef8df; border-color: #88b94a; box-shadow: 0 0 0 5px rgba(136, 185, 74, .2); }
+.species-node.is-recent-mistake .preview-tag { color: #263d13; background: #d5edb2; border-color: #88b94a; }
+:root[data-theme="dark"] .species-node.is-mistake { color: #c1c6ca; background: #343a40; }
+:root[data-theme="dark"] .species-node.is-mistake .preview-tag { color: #c1c6ca; background: #343a40; }
+:root[data-theme="dark"] .species-node.is-recent-mistake { color: #dcedd5; background: #29391f; }
+:root[data-theme="dark"] .species-node.is-recent-mistake .preview-tag { color: #dcedd5; background: #334728; }
 .answer-tree .preview-tag { color: #263d13; background: #d5edb2; border-color: #88b94a; }
-.game-screen .radial-tree.answer-tree .radial-edge.is-answer-path { stroke: #88b94a; }
-.game-screen .answer-tree li:has(> .species-node.is-preview)::before,
-.game-screen .answer-tree li:has(> .species-node.is-preview)::after { border-color: #88b94a; }
+.tree-edge { fill: none; stroke: var(--edge); stroke-width: 2; }
+.tree-edge.is-mistake-path { stroke: #92999f; }
+.tree-edge.is-recent-mistake-path, .answer-tree .tree-edge.is-answer-path { stroke: #88b94a; stroke-width: 3; }
+.phylo-tree > .species-node, .phylo-tree > .clade-node, .phylo-tree > .edge-target, .phylo-tree > .tree-root-anchor { position: absolute; z-index: 2; transform: translate(-50%, -50%); }
+.phylo-tree > .species-node { width: 156px; min-width: 0; min-height: 64px; padding: 8px; font-size: .75rem; line-height: 1.3; overflow-wrap: anywhere; }
+.phylo-tree > .species-node:hover, .phylo-tree > .species-node.is-drop-target { transform: translate(-50%, calc(-50% - 3px)); }
+.phylo-tree.layout-bottom > .species-node { transform: translate(-50%, -50%) scaleY(-1); }
+.phylo-tree.layout-bottom > .species-node:hover, .phylo-tree.layout-bottom > .species-node.is-drop-target { transform: translate(-50%, calc(-50% + 3px)) scaleY(-1); }
+.phylo-tree > .species-node.is-new { animation: none; box-shadow: 0 0 0 5px var(--line); }
+.phylo-tree > .clade-node:hover, .phylo-tree > .clade-node.is-drop-target { transform: translate(-50%, -50%) scale(1.35); }
+.phylo-tree > .clade-node { z-index: 4; }
+.phylo-tree > .edge-target { z-index: 3; height: 52px; }
+.phylo-tree .root-wrap-target { height: 44px; }
+.phylo-tree .root-wrap-target.is-long { height: 104px; }
 
 .dock-copy, .image-credit, .drag-help, .failure-panel .eyebrow,
 .failure-panel p:last-child, .failure-panel .failure-score-status,

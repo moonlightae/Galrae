@@ -2,18 +2,48 @@ export function createTreeView({ ANIMALIA_ID, buildTree, escapeHtml, speciesById
   const MIN_TREE_ZOOM = 0.03;
   const MAX_TREE_ZOOM = 3.5;
 
-  function renderNode(node, omitIncomingEdge = false) {
-    if (node.type === "leaf") {
+  function mistakeClass(node) {
+    return state.mistakes?.has(node.id) ? ` is-mistake${state.latestMistake === node.id ? " is-recent-mistake" : ""}` : "";
+  }
+
+  function renderNode(node, x, y) {
       const animal = cardText(speciesById.get(node.id));
       const fresh = state.newest === node.id ? " is-new" : "";
       const preview = node.preview ? " is-preview" : "";
-      const mistake = state.mistakes?.has(node.id) ? " is-mistake" : "";
+      const mistake = mistakeClass(node);
       const badge = mistake ? '<span class="preview-tag">자동 배치</span>' : node.preview ? `<span class="preview-tag">${state.failed ? "정답 위치" : "미리보기"}</span>` : "";
-      return `<button class="species-node${fresh}${preview}${mistake}" type="button" data-species-id="${escapeHtml(node.id)}" data-target="${escapeHtml(node.id)}" data-placement="wrap" aria-label="${escapeHtml(animal.commonName)} 카드 보기. 새 카드를 선택한 상태에서는 이 가지에 배치">${escapeHtml(animal.commonName)}${badge}</button>`;
+      return `<button class="species-node${fresh}${preview}${mistake}" type="button" style="left:${x}px;top:${y}px" data-species-id="${escapeHtml(node.id)}" data-target="${escapeHtml(node.id)}" data-placement="wrap" aria-label="${escapeHtml(animal.commonName)} 카드 보기. 새 카드를 선택한 상태에서는 이 가지에 배치">${escapeHtml(animal.commonName)}${badge}</button>`;
+  }
+
+  function layoutRectangularTree(tree) {
+    const gap = 32;
+    const levelHeight = 120;
+    function arrange(node, depth = 0) {
+      const descendants = node.type === "leaf" ? [] : node.children.map((child) => arrange(child, depth + 1)).sort((a, b) => b.leaves - a.leaves);
+      const children = [];
+      descendants.forEach((child, index) => { if (index % 2) children.push(child); else children.unshift(child); });
+      if (depth % 2) children.reverse();
+      const halfWidth = node.type === "leaf" ? 78 : node === tree ? 96 : 9;
+      const left = [], right = [];
+      for (const child of children) {
+        child.offset = left.length ? Math.max(...child.left.map((value, depth) => depth < right.length ? right[depth] + gap - value : 0)) : 0;
+        child.left.forEach((value, depth) => {
+          left[depth] = Math.min(left[depth] ?? Infinity, value + child.offset);
+          right[depth] = Math.max(right[depth] ?? -Infinity, child.right[depth] + child.offset);
+        });
+      }
+      const center = children.length ? (children[0].offset + children.at(-1).offset) / 2 : 0;
+      children.forEach((child) => { child.offset -= center; });
+      return { node, children, leaves: node.type === "leaf" ? 1 : children.reduce((sum, child) => sum + child.leaves, 0), left: [-halfWidth, ...left.map((value) => value - center)], right: [halfWidth, ...right.map((value) => value - center)] };
     }
-    const children = node.children.map((child) => `<li>${renderNode(child)}</li>`).join("");
-    const incomingEdge = omitIncomingEdge ? "" : `<button class="edge-target" type="button" data-target="${escapeHtml(node.id)}" data-placement="wrap" aria-label="이 가지에서 새로운 공통 조상 만들기"></button>`;
-    return `<span class="branch-anchor">${incomingEdge}<button class="clade-node" type="button" data-target="${escapeHtml(node.id)}" data-placement="join" aria-label="이 공통 조상에 가지 추가하기"></button></span><ul>${children}</ul>`;
+    const root = arrange(tree);
+    const min = Math.min(...root.left), max = Math.max(...root.right);
+    function position(entry, x, depth) {
+      entry.x = x; entry.y = 48 + depth * levelHeight;
+      entry.children.forEach((child) => position(child, x + child.offset, depth + 1));
+    }
+    position(root, 24 - min, 0);
+    return { root, width: max - min + 48, height: (root.left.length - 1) * levelHeight + 112 };
   }
 
   function layoutRadialTree(tree) {
@@ -40,47 +70,43 @@ export function createTreeView({ ANIMALIA_ID, buildTree, escapeHtml, speciesById
     return { root: position(tree, 0), size };
   }
 
-  function renderRadialTree(tree, answer) {
-    const { root, size } = layoutRadialTree(tree);
+  function renderPositionedTree(tree, answer) {
+    const radial = state.layout === "radial";
+    const layout = radial ? layoutRadialTree(tree) : layoutRectangularTree(tree);
+    const { root } = layout;
+    const width = radial ? layout.size : layout.width, height = radial ? layout.size : layout.height;
     const lines = [];
     const controls = [];
     function visit(entry, parent = null) {
       const { node, x, y } = entry;
       if (parent) {
-        lines.push(`<line class="radial-edge${node.preview ? " is-answer-path" : ""}${state.mistakes?.has(node.id) ? " is-mistake-path" : ""}" x1="${parent.x}" y1="${parent.y}" x2="${x}" y2="${y}" />`);
+        const edgeClass = `tree-edge${node.preview ? " is-answer-path" : ""}${state.mistakes?.has(node.id) ? " is-mistake-path" : ""}${state.latestMistake === node.id ? " is-recent-mistake-path" : ""}`;
+        const middleY = (parent.y + y) / 2;
+        lines.push(radial
+          ? `<line class="${edgeClass}" x1="${parent.x}" y1="${parent.y}" x2="${x}" y2="${y}" />`
+          : `<path class="${edgeClass}" d="M${parent.x} ${parent.y} V${middleY} H${x} V${y}" />`);
         if (node.type === "branch" && !(parent === root && root.children.length === 1)) {
-          const edgeX = Math.round((parent.x + (x - parent.x) * .76) * 10) / 10;
+          const edgeX = radial ? Math.round((parent.x + (x - parent.x) * .76) * 10) / 10 : x;
           const edgeY = Math.round((parent.y + (y - parent.y) * .76) * 10) / 10;
-          controls.push(`<button class="radial-edge-target" type="button" style="left:${edgeX}px;top:${edgeY}px" data-target="${escapeHtml(node.id)}" data-placement="wrap" aria-label="이 가지에서 새로운 공통 조상 만들기"></button>`);
+          controls.push(`<button class="${radial ? "radial-edge-target" : "edge-target"}" type="button" style="left:${edgeX}px;top:${edgeY}px" data-target="${escapeHtml(node.id)}" data-placement="wrap" aria-label="이 가지에서 새로운 공통 조상 만들기"></button>`);
         }
       }
       if (node.type === "leaf") {
-        const animal = cardText(speciesById.get(node.id));
-        const fresh = state.newest === node.id ? " is-new" : "";
-        const preview = node.preview ? " is-preview" : "";
-        const mistake = state.mistakes?.has(node.id) ? " is-mistake" : "";
-        const badge = mistake ? '<span class="preview-tag">자동 배치</span>' : node.preview ? `<span class="preview-tag">${state.failed ? "정답 위치" : "미리보기"}</span>` : "";
-        controls.push(`<button class="species-node${fresh}${preview}${mistake}" type="button" style="left:${x}px;top:${y}px" data-species-id="${escapeHtml(node.id)}" data-target="${escapeHtml(node.id)}" data-placement="wrap" aria-label="${escapeHtml(animal.commonName)} 카드 보기. 새 카드를 선택한 상태에서는 이 가지에 배치">${escapeHtml(animal.commonName)}${badge}</button>`);
+        controls.push(renderNode(node, x, y));
       } else if (parent) {
         controls.push(`<button class="clade-node" type="button" style="left:${x}px;top:${y}px" data-target="${escapeHtml(node.id)}" data-placement="join" aria-label="이 공통 조상에 가지 추가하기"></button>`);
       }
       for (const child of entry.children) visit(child, entry);
     }
     visit(root);
-    controls.push(`<button class="radial-root-target tree-root" type="button" style="left:${root.x}px;top:${root.y}px" data-target="${ANIMALIA_ID}" data-placement="top" aria-label="동물계 전체 가지에 배치">Animalia</button>`);
-    return `<div class="radial-tree base-tree${answer ? " answer-tree" : ""}" data-size="${size}" style="width:${size}px;height:${size}px"><svg class="radial-links" width="${size}" height="${size}" aria-hidden="true">${lines.join("")}</svg>${controls.join("")}</div>`;
+    controls.push(radial
+      ? `<button class="radial-root-target tree-root" type="button" style="left:${root.x}px;top:${root.y}px" data-target="${ANIMALIA_ID}" data-placement="top" aria-label="동물계 전체 가지에 배치">Animalia</button>`
+      : `<span class="tree-root-anchor" style="left:${root.x}px;top:${root.y}px"><span class="tree-root">Animalia common ancestor</span><button class="root-wrap-target${root.children.length === 1 ? " is-long" : ""}" type="button" style="height:${root.children.length === 1 ? 104 - (root.children[0].node.type === "leaf" ? 32 : 9) : 44}px" data-target="${ANIMALIA_ID}" data-placement="top" aria-label="동물계 전체 가지에 배치"></button></span>`);
+    return `<div class="${radial ? "radial-tree" : `phylo-tree layout-${state.layout}`} base-tree${answer ? " answer-tree" : ""}" data-size="${Math.max(width, height)}" data-width="${width}" data-height="${height}" style="width:${width}px;height:${height}px"><svg class="tree-links" width="${width}" height="${height}" aria-hidden="true">${lines.join("")}</svg>${controls.join("")}</div>`;
   }
 
   function renderTree(displayTree = state.tree, answer = false) {
-    let content;
-    if (state.layout === "radial") {
-      content = renderRadialTree(displayTree, answer);
-    } else {
-      const singleRootChild = displayTree.children.length === 1;
-      const treeContent = `<ul>${displayTree.children.map((child) => `<li>${renderNode(child, singleRootChild)}</li>`).join("")}</ul>`;
-      const rootControl = `<span class="tree-root-anchor"><span class="tree-root">Animalia common ancestor</span><button class="root-wrap-target${singleRootChild ? " is-long" : ""}" type="button" data-target="${ANIMALIA_ID}" data-placement="top" aria-label="동물계 전체 가지에 배치"></button></span>`;
-      content = `<div class="phylo-tree base-tree layout-${state.layout}${answer ? " answer-tree" : ""}">${rootControl}${treeContent}</div>`;
-    }
+    const content = renderPositionedTree(displayTree, answer);
     treeCanvas.innerHTML = `<div class="tree-camera">${content}</div><div class="placement-preview" aria-hidden="true" hidden></div>`;
     updateCamera();
   }
@@ -126,10 +152,10 @@ export function createTreeView({ ANIMALIA_ID, buildTree, escapeHtml, speciesById
   function resetTreeView() {
     state.panX = 0;
     state.panY = 0;
-    const radial = treeCanvas.querySelector(".radial-tree");
-    const size = Number(radial?.dataset.size);
-    state.zoom = radial && size > 0
-      ? Math.max(MIN_TREE_ZOOM, Math.min(1, (treeCanvas.clientWidth - 32) / size, (treeCanvas.clientHeight - 32) / size))
+    const tree = treeCanvas.querySelector(".base-tree");
+    const width = Number(tree?.dataset.width), height = Number(tree?.dataset.height);
+    state.zoom = width > 0 && height > 0
+      ? Math.max(MIN_TREE_ZOOM, Math.min(1, (treeCanvas.clientWidth - 32) / width, (treeCanvas.clientHeight - 32) / height))
       : 1;
     clearPreview();
     updateCamera();

@@ -94,7 +94,7 @@ const state = {
   queue: [], round: 0, score: 0, selected: false, tree: null,
   classified: [HUMAN_ID], newest: null, currentId: null, expected: null,
   previewTarget: null, previewPlacement: null, failed: false,
-  layout: "top", zoom: 1, tutorial: false, practice: false, mistakes: new Set(),
+  layout: "top", zoom: 1, tutorial: false, practice: false, mistakes: new Set(), latestMistake: null,
   cardLanguage: localStorage.getItem("galrae.card-language.v1") === "ko" ? "ko" : "en",
   panX: 0, panY: 0, panning: false, panStartX: 0, panStartY: 0,
   panOriginX: 0, panOriginY: 0, detailReturnFocus: null,
@@ -841,6 +841,7 @@ function failRound(targetId, placement) {
   if (state.practice) {
     const explanation = explainPlacement(targetId, placement);
     state.mistakes.add(state.currentId);
+    state.latestMistake = state.currentId;
     state.classified.push(state.currentId);
     state.newest = null;
     state.tree = buildTree(state.classified, speciesById);
@@ -932,6 +933,7 @@ async function startGame(options = {}) {
     state.tutorial = tutorial;
     state.practice = practice;
     state.mistakes = new Set();
+    state.latestMistake = null;
     state.round = 0; state.score = 0; state.selected = false;
     state.classified = [HUMAN_ID];
     state.tree = buildTree(state.classified, speciesById);

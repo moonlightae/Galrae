@@ -7,7 +7,7 @@ const { ANIMALIA_ID, buildTree } = globalThis.GalraeLogic;
 const dataset = JSON.parse(readFileSync(new URL("../data/animals.json", import.meta.url), "utf8"));
 const speciesById = new Map(dataset.animals.map((animal) => [animal.id, animal]));
 const appSource = readFileSync(new URL("../public/tree-view.js", import.meta.url), "utf8");
-const start = appSource.indexOf("function renderNode(");
+const start = appSource.indexOf("function mistakeClass(");
 const end = appSource.indexOf("function renderPreview(");
 assert.ok(start >= 0 && end > start, "Tree rendering functions are missing");
 
@@ -82,6 +82,37 @@ function inspectRadial(entry) {
 inspectRadial(radial.root);
 assert.equal(radialLeaves, dataset.speciesCount, "Circular layout must position every sampled species");
 
+for (const ids of [[humanId], [humanId, mantisId], dataset.animals.slice(0, 40).map((animal) => animal.id), dataset.animals.map((animal) => animal.id), dataset.animals.map((animal) => animal.id).reverse()]) {
+  const layout = context.layoutRectangularTree(buildTree(ids, speciesById));
+  const rows = new Map();
+  function inspectPosition(entry, isRoot = false) {
+    const halfWidth = entry.node.type === "leaf" ? 78 : isRoot ? 96 : 9;
+    assert.ok(entry.x - halfWidth >= 24 - 1e-8 && entry.x + halfWidth <= layout.width - 24 + 1e-8, "Every card/branch must fit inside the camera bounds");
+    if (!rows.has(entry.y)) rows.set(entry.y, []);
+    rows.get(entry.y).push({ x: entry.x, halfWidth });
+    if (entry.children.length) assert.ok(Math.abs(entry.x - (entry.children[0].x + entry.children.at(-1).x) / 2) < 1e-8, "Parents must sit halfway between the outer child branches");
+    entry.children.forEach((child) => inspectPosition(child));
+  }
+  inspectPosition(layout.root, true);
+  for (const row of rows.values()) {
+    row.sort((a, b) => a.x - b.x);
+    for (let i = 1; i < row.length; i++) assert.ok(row[i].x - row[i].halfWidth - (row[i - 1].x + row[i - 1].halfWidth) >= 32 - 1e-8, "Uneven subtrees must not overlap");
+  }
+  const left = Math.min(...[...rows.values()].flat().map((node) => node.x - node.halfWidth));
+  const right = Math.max(...[...rows.values()].flat().map((node) => node.x + node.halfWidth));
+  assert.ok(Math.abs((left + right) / 2 - layout.width / 2) < 1e-8, "The actual drawing bounds must be centered");
+}
+context.state.mistakes = new Set([humanId, ctenophoreId]);
+context.state.latestMistake = ctenophoreId;
+for (const layout of ["top", "bottom", "radial"]) {
+  context.state.layout = layout; context.renderTree(sampleTree);
+  const html = context.treeCanvas.innerHTML;
+  assert.match(html, /class="species-node is-mistake is-recent-mistake"[^>]*data-species-id="bolinopsis-infundibulum"/);
+  assert.match(html, /class="species-node is-mistake"[^>]*data-species-id="homo-sapiens"/);
+  assert.equal((html.match(/class="species-node[^"<>]*is-recent-mistake/g) || []).length, 1, "Only the latest mistake may be green");
+}
+context.state.mistakes = new Set(); context.state.latestMistake = null;
+
 const cameraStart = appSource.indexOf("function updateCamera(");
 const cameraEnd = appSource.indexOf("  return { clearPreview", cameraStart);
 assert.ok(cameraStart >= 0 && cameraEnd > cameraStart, "Tree camera functions are missing");
@@ -111,8 +142,8 @@ assert.equal(cameraState.panX, -10, "Zoom must keep the species under the pointe
 assert.equal(cameraState.panY, 10, "Zoom must keep the species under the pointer at the same y coordinate");
 assert.equal(cameraStyles.get("--tree-zoom"), 2);
 assert.equal(zoomStatus.textContent, "200%");
-cameraContext.treeCanvas.querySelector = (selector) => selector === ".radial-tree"
-  ? { dataset: { size: "1000" } }
+cameraContext.treeCanvas.querySelector = (selector) => selector === ".base-tree"
+  ? { dataset: { width: "1000", height: "1000" } }
   : { style: { setProperty: (name, value) => cameraStyles.set(name, value) } };
 cameraContext.resetTreeView();
 assert.equal(cameraState.zoom, .268, "Circular reset must fit the drawing inside the viewport");

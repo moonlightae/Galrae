@@ -45,6 +45,7 @@ assert.equal(submissions, 0, "Practice mistakes must not end or submit a game");
 assert.deepEqual(achievementEvents, ["failure"], "Practice mistakes must award the first failure medal");
 assert.deepEqual(successes, [], "Automatic placements must not count as successful classifications");
 assert.ok(state.mistakes.has("electrophorus-electricus"));
+assert.equal(state.latestMistake, "electrophorus-electricus");
 assert.deepEqual(new Set(logic.collectLeafIds(logic.findNodeById(state.tree, state.expected.ancestorId))), new Set(["anguilla-anguilla", "electrophorus-electricus"]));
 assert.match($("#failure-copy").textContent, /European eel.*Teleostei.*Longnose gar/);
 assert.equal($("#retry-game").textContent, "계속하기 →");
@@ -54,7 +55,7 @@ const view = createTreeView({ ...logic, state, speciesById, treeCanvas: canvas, 
 for (const layout of ["top", "bottom", "radial"]) {
   state.layout = layout;
   view.renderTree();
-  assert.match(canvas.innerHTML, /species-node[^"<>]*is-mistake[^>]*data-species-id="electrophorus-electricus"/);
+  assert.match(canvas.innerHTML, /species-node[^"<>]*is-mistake is-recent-mistake[^>]*data-species-id="electrophorus-electricus"/);
   assert.match(canvas.innerHTML, /자동 배치/);
 }
 
