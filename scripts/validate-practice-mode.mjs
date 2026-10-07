@@ -47,7 +47,7 @@ assert.deepEqual(successes, [], "Automatic placements must not count as successf
 assert.ok(state.mistakes.has("electrophorus-electricus"));
 assert.equal(state.latestMistake, "electrophorus-electricus");
 assert.deepEqual(new Set(logic.collectLeafIds(logic.findNodeById(state.tree, state.expected.ancestorId))), new Set(["anguilla-anguilla", "electrophorus-electricus"]));
-assert.match($("#failure-copy").textContent, /European eel.*Teleostei.*Longnose gar/);
+assert.equal($("#failure-copy").textContent, "초록색 카드를 확인하고 계속해 주세요.");
 assert.equal($("#retry-game").textContent, "계속하기 →");
 
 const canvas = { innerHTML: "", querySelector: () => null };
@@ -111,7 +111,7 @@ state.practice = true; state.failed = false; state.mistakes = new Set();
 state.queue = ["ascaris-lumbricoides"]; state.round = 0; state.score = 0;
 context.placeCard("homo-sapiens", "join");
 assert.equal(state.round, 1); assert.equal(submissions, 2, "Last mistake must still wait for explanation dismissal");
-assert.match($("#failure-copy").textContent, /기존 분기점에 바로 추가하는 대신/);
+assert.equal($("#failure-copy").textContent, "초록색 카드를 확인하고 계속해 주세요.");
 $("#retry-game").click();
 assert.equal(submissions, 3);
 assert.equal(state.score, 0); assert.equal(state.currentId, null);

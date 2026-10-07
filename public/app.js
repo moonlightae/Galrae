@@ -2,7 +2,7 @@ import { createTreeView } from "./tree-view.js";
 import { getAchievements, isFishSiblingMistake } from "./achievements.js";
 import { createAchievementNotifications } from "./achievement-notifications.js";
 
-const { ANIMALIA_ID, addSuccessCount, buildTree, collectLeafIds, findNodeById, getExpectedPlacement, isEquivalentPlacement, seedSuccessCounts, shuffle, successCountText } = globalThis.GalraeLogic;
+const { ANIMALIA_ID, addSuccessCount, buildTree, getExpectedPlacement, isEquivalentPlacement, seedSuccessCounts, shuffle, successCountText } = globalThis.GalraeLogic;
 const HUMAN_ID = "homo-sapiens";
 const COLLECTION_PREFIX = "galrae.collection.v3";
 const SUCCESS_COUNTS_PREFIX = "galrae.success-counts.v1";
@@ -814,19 +814,6 @@ function placeCard(targetId, placement = "wrap") {
   updateRound();
 }
 
-function explainPlacement(targetId, placement) {
-  const expectedTarget = findNodeById(state.tree, state.expected.targetId);
-  const wrongTarget = findNodeById(state.tree, targetId);
-  const ancestor = findNodeById(buildTree([...state.classified, state.currentId], speciesById), state.expected.ancestorId);
-  const name = (node) => node.type === "leaf" ? cardText(speciesById.get(node.id)).commonName : taxonNamesKo[node.id] || node.name;
-  const members = collectLeafIds(expectedTarget).slice(0, 2).map((id) => cardText(speciesById.get(id)).commonName).join("·");
-  const action = state.expected.placement === "join" ? `${name(ancestor)} 분기점에 가지를 추가해야 합니다` : `${members} 가지에 새 분기점을 만들어야 합니다`;
-  if (targetId === state.expected.targetId) {
-    return `${cardText(speciesById.get(state.currentId)).commonName}는 ${members}와 ${name(ancestor)} 공통 조상을 공유하므로, ${placement === "join" ? "기존 분기점에 바로 추가하는" : "새 조상을 만드는"} 대신 ${action}.`;
-  }
-  return `${cardText(speciesById.get(state.currentId)).commonName}는 ${members}와 ${name(ancestor)} 공통 조상을 공유하므로, 선택한 ${wrongTarget ? name(wrongTarget) : "위치"}에 바로 놓는 대신 ${action}.`;
-}
-
 function failRound(targetId, placement) {
   state.failed = true;
   if (!state.tutorial) {
@@ -839,7 +826,6 @@ function failRound(targetId, placement) {
   card.classList.add("is-locked");
   card.setAttribute("draggable", "false");
   if (state.practice) {
-    const explanation = explainPlacement(targetId, placement);
     state.mistakes.add(state.currentId);
     state.latestMistake = state.currentId;
     state.classified.push(state.currentId);
@@ -849,7 +835,7 @@ function failRound(targetId, placement) {
     renderTree();
     $("#round-label").textContent = `연습 모드 · ${state.round}/${state.queue.length}`;
     $("#failure-title").textContent = "올바른 위치에 자동으로 배치했어요.";
-    $("#failure-copy").textContent = explanation;
+    $("#failure-copy").textContent = "초록색 카드를 확인하고 계속해 주세요.";
     $("#retry-game").textContent = "계속하기 →";
     $("#failure-panel").hidden = false;
     $("#retry-game").focus();
