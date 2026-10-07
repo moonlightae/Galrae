@@ -34,6 +34,7 @@ const context = {
   history: { pushState(_, __, hash) { location.hash = hash; writes++; } },
   window: { scrollTo() {} },
   openAccountModal() { lobbyPages.account.focus(); },
+  loadAchievements() {},
 };
 const { showLobbyPage, restoreLobbyPage, setToolbarOpen } = runInNewContext(`${functions}\n({ showLobbyPage, restoreLobbyPage, setToolbarOpen })`, context);
 restoreLobbyPage();

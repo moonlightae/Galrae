@@ -20,6 +20,7 @@ const context = {
   shuffle: (ids) => ids, preloadImage: async () => {}, buildTree() {},
   card: $("card"), lobbyPages: {}, navigationShell: $("navigation"), game: $("game"),
   setToolbarOpen() {}, renderTree() {}, resetTreeView() {}, updateRound() {},
+  recordAchievementEvent(event) { context.achievementEvents.push(event); }, achievementEvents: [],
   window: { scrollTo() {} }, document: { activeElement: $("#start-game") },
   openAccountModal() { context.logins++; }, logins: 0, console,
   showToast(message) { assert.fail(message); },
@@ -56,4 +57,10 @@ const shown = dialog.shown;
 await context.startGame();
 assert.equal(dialog.shown, shown, "Signed-in users must start without a warning");
 assert.equal(context.game.hidden, false);
+assert.equal(context.achievementEvents.at(-1), "normal-start");
+const eventCount = context.achievementEvents.length;
+await context.startGame({ tutorial: true });
+assert.equal(context.achievementEvents.length, eventCount, "Tutorial starts must not count as normal attempts");
+await context.startGame({ practice: true });
+assert.equal(context.achievementEvents.at(-1), "practice-start");
 console.log("Guest start: warning, mode preservation, repeated taps, play, login, dismissal and signed-in bypass passed.");

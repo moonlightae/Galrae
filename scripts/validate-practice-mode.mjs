@@ -26,10 +26,12 @@ state.tree = logic.buildTree(state.classified, speciesById);
 state.expected = logic.getExpectedPlacement(state.classified, state.currentId, speciesById);
 const successes = [], collections = [];
 let submissions = 0;
+const achievementEvents = [];
 const context = {
   ...logic, state, speciesById, $, card: $("card"), taxonNamesKo: {},
   cardText: (a) => a, clearPreview() {}, renderTree() {}, setCard() {},
   recordSuccess: (id) => successes.push(id), recordServerSuccess() {},
+  recordAchievementEvent(event) { achievementEvents.push(event); },
   saveCollection: (ids) => collections.push([...ids]), submitScore: () => submissions++,
 };
 vm.runInNewContext(source.slice(source.indexOf("function placeCard("), source.indexOf("async function startGame(")), context);
@@ -38,6 +40,7 @@ assert.equal(state.failed, true, "Pause on explanation until Continue");
 assert.equal(state.score, 0, "An automatic placement must not add a correct answer");
 assert.equal(state.round, 1);
 assert.equal(submissions, 0, "Practice mistakes must not end or submit a game");
+assert.deepEqual(achievementEvents, ["failure"], "Practice mistakes must award the first failure medal");
 assert.deepEqual(successes, [], "Automatic placements must not count as successful classifications");
 assert.ok(state.mistakes.has("electrophorus-electricus"));
 assert.deepEqual(new Set(logic.collectLeafIds(logic.findNodeById(state.tree, state.expected.ancestorId))), new Set(["anguilla-anguilla", "electrophorus-electricus"]));
@@ -71,7 +74,7 @@ assert.match($("#result-copy").textContent, /직접 맞힌 카드 1종 · 자동
 const scoreRequests = [];
 const scoreContext = {
   state, $, currentUser: { id: "test" }, scoreSubmitted: false, currentGamesPlayed: 7,
-  pendingCollectionWrites: new Set(), console, loadLeaderboard: async () => {},
+  pendingCollectionWrites: new Set(), pendingAchievementWrites: new Set(), console, loadLeaderboard: async () => {},
   responseJson: async (response) => response.json(),
   fetch: async (_, options) => { scoreRequests.push(JSON.parse(options.body)); return Response.json({ entry: { gamesPlayed: 7 } }); },
 };
@@ -110,6 +113,13 @@ $("#retry-game").click();
 assert.equal(submissions, 3);
 assert.equal(state.score, 0); assert.equal(state.currentId, null);
 assert.match($("#result-copy").textContent, /직접 맞힌 카드 0종 · 자동 배치 1종/);
+assert.ok(achievementEvents.includes("practice-complete"), "Finishing practice with automatic placements must award completion");
+const eventsBeforeTutorial = achievementEvents.length;
+state.practice = false; state.tutorial = true; state.failed = false; state.currentId = "ascaris-lumbricoides";
+state.classified = ["homo-sapiens"]; state.tree = logic.buildTree(state.classified, speciesById);
+state.expected = logic.getExpectedPlacement(state.classified, state.currentId, speciesById);
+context.placeCard("homo-sapiens", "join");
+assert.equal(achievementEvents.length, eventsBeforeTutorial, "Tutorials must not record achievement events");
 
 // Exercise the real route's Drizzle queries against SQLite, including the
 // migration from an existing leaderboard. No live account or production writes.

@@ -43,6 +43,13 @@
       "when": 1791258503212,
       "tag": "0005_ancient_serpent_society",
       "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "6",
+      "when": 1791344613783,
+      "tag": "0006_wooden_thor",
+      "breakpoints": true
     }
   ]
 }

@@ -966,6 +966,42 @@ button:focus-visible, [role="button"]:focus-visible, .primary-button:focus-visib
 .tasks-panel { max-width: 900px; margin: 0 auto; }
 .tasks-panel h1 { font-size: 2rem; }
 .tasks-panel p { color: var(--muted); }
+.tasks-panel .section-heading { align-items: center; margin-bottom: 8px; }
+.tasks-panel h1 { margin: 0; }
+.achievement-grade-key { display: flex; flex-wrap: wrap; gap: 16px; margin: 24px 0; font-size: .8rem; }
+.achievement-grade-key span { display: inline-flex; align-items: center; gap: 6px; color: var(--ink); }
+.achievement-grade-key span::before { content: ""; width: 12px; height: 12px; border-radius: 50%; background: var(--medal); border: 1px solid var(--medal-edge); }
+.grade-stone { --medal: linear-gradient(135deg, #b2ada4, #716c63); --medal-edge: #625e57; --medal-ink: #302e2a; }
+.grade-bronze { --medal: linear-gradient(135deg, #e5b18a, #b57142 55%, #e3a477); --medal-edge: #8b512c; --medal-ink: #542e18; }
+.grade-silver { --medal: linear-gradient(135deg, #f2f4f6, #a8b1ba 55%, #dde3e8); --medal-edge: #858f9a; --medal-ink: #45505b; }
+.grade-gold { --medal: linear-gradient(135deg, #fff0a2, #d3a42c 55%, #f8dc73); --medal-edge: #a77c1a; --medal-ink: #72500c; }
+.grade-diamond { --medal: conic-gradient(from 25deg, #c9f6ff, #70bceb, #e7fcff, #83d6ed, #518fd9, #d6faff, #c9f6ff); --medal-edge: #4f9ccb; --medal-ink: #1c527c; }
+.achievements-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.achievement-card { display: flex; gap: 20px; align-items: center; padding: 22px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+.achievement-card.is-earned { border-color: var(--edge); }
+.achievement-medal { position: relative; flex: 0 0 64px; width: 64px; height: 78px; opacity: .45; filter: saturate(.5); }
+.is-earned .achievement-medal { opacity: 1; filter: none; }
+.achievement-medal::before, .achievement-medal::after { content: ""; position: absolute; top: 42px; width: 23px; height: 34px; background: var(--medal); clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 80%, 0 100%); }
+.achievement-medal::before { left: 10px; transform: rotate(18deg); }
+.achievement-medal::after { right: 10px; transform: rotate(-18deg); }
+.medal-face { position: relative; z-index: 1; display: grid; place-items: center; width: 64px; height: 64px; overflow: hidden; border-radius: 50%; border: 2px solid var(--medal-edge); background: var(--medal); color: var(--medal-ink); box-shadow: inset 0 0 0 4px rgba(255,255,255,.2); }
+.medal-face svg { width: 30px; height: 30px; }
+.is-earned .grade-diamond .medal-face { box-shadow: inset 0 0 0 4px rgba(255,255,255,.35), 0 0 16px rgba(91,187,239,.3); }
+.grade-diamond .medal-face::after { content: ""; position: absolute; inset: -30%; background: linear-gradient(115deg, transparent 35%, rgba(255,255,255,.75) 50%, transparent 65%); transform: translateX(-100%); }
+.is-earned .grade-diamond .medal-face::after { animation: medal-shimmer 5s ease-in-out infinite; }
+@keyframes medal-shimmer { 0%, 55% { transform: translateX(-100%); } 85%, 100% { transform: translateX(100%); } }
+.achievement-info { min-width: 0; flex: 1; }
+.achievement-meta { display: flex; justify-content: space-between; gap: 8px; font-size: .72rem; color: var(--muted); }
+.is-earned .achievement-meta { color: var(--ink); }
+.achievement-info h2 { margin: 6px 0; font-size: 1rem; line-height: 1.4; word-break: keep-all; overflow-wrap: anywhere; }
+.achievement-info p { margin: 0; font-size: .8rem; line-height: 1.6; word-break: keep-all; overflow-wrap: anywhere; }
+.achievement-progress { display: grid; gap: 6px; margin-top: 14px; font-size: .7rem; color: var(--muted); }
+.achievement-progress progress { appearance: none; width: 100%; height: 4px; border: 0; overflow: hidden; border-radius: 2px; background: var(--surface-muted); }
+.achievement-progress progress::-webkit-progress-bar { background: var(--surface-muted); }
+.achievement-progress progress::-webkit-progress-value { background: var(--edge); }
+.achievement-progress progress::-moz-progress-bar { background: var(--edge); }
+@media (max-width: 640px) { .achievements-grid { grid-template-columns: 1fr; } .achievement-card { padding: 18px; gap: 16px; } }
+@media (prefers-reduced-motion: reduce) { .is-earned .grade-diamond .medal-face::after { animation: none; transform: translateX(0); } }
 .account-page .account-dialog { position: relative; width: min(480px, 100%); max-height: none; margin: 32px auto; }
 .account-page .account-close { top: 16px; right: 16px; transform: none; }
 .navigation-shell { position: fixed; inset: 0; z-index: 40; pointer-events: none; }

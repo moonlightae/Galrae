@@ -21,7 +21,7 @@ export async function GET() {
         displayName: leaderboard.displayName,
         bestScore: leaderboard.bestScore,
         bestPracticeScore: leaderboard.bestPracticeScore,
-        gamesPlayed: leaderboard.gamesPlayed,
+        gamesPlayed: sql<number>`COALESCE(${leaderboard.normalAttempts}, ${leaderboard.gamesPlayed})`,
         achievedAt: leaderboard.achievedAt,
       })
       .from(leaderboard)
@@ -33,7 +33,7 @@ export async function GET() {
         displayName: leaderboard.displayName,
         bestScore: leaderboard.bestScore,
         bestPracticeScore: leaderboard.bestPracticeScore,
-        gamesPlayed: leaderboard.gamesPlayed,
+        gamesPlayed: sql<number>`COALESCE(${leaderboard.normalAttempts}, ${leaderboard.gamesPlayed})`,
         achievedAt: leaderboard.achievedAt,
       }).from(leaderboard).where(sql`${leaderboard.userId} = ${user.id}`).limit(1)
       : [];

@@ -42,7 +42,7 @@ export const gameMarkup = `
   </main>
   <main id="tasks-page" class="screen library-screen" data-lobby-page hidden>
     <button class="text-button page-back" type="button" data-page="lobby">← 로비</button>
-    <section class="tasks-panel"><h1 tabindex="-1">발전과제</h1><p>발전과제는 준비 중입니다.</p></section>
+    <section class="tasks-panel"><div class="section-heading"><h1 tabindex="-1">발전과제</h1><p id="achievements-count">0 / 19 달성</p></div><p id="achievements-status" role="status">작은 도전부터 동물분류 박사까지, 나만의 메달을 모아보세요.</p><div class="achievement-grade-key" aria-label="메달 등급"><span class="grade-stone">돌</span><span class="grade-bronze">동</span><span class="grade-silver">은</span><span class="grade-gold">금</span><span class="grade-diamond">다이아</span></div><div id="achievements-grid" class="achievements-grid"></div></section>
   </main>
   <div id="navigation-shell" class="navigation-shell">
     <button id="toolbar-shade" class="toolbar-shade" type="button" tabindex="-1" aria-label="메뉴 닫기"></button>

@@ -1,4 +1,5 @@
 import { createTreeView } from "./tree-view.js";
+import { achievementGrades, getAchievements } from "./achievements.js";
 
 const { ANIMALIA_ID, addSuccessCount, buildTree, collectLeafIds, findNodeById, getExpectedPlacement, isEquivalentPlacement, seedSuccessCounts, shuffle, successCountText } = globalThis.GalraeLogic;
 const HUMAN_ID = "homo-sapiens";
@@ -40,6 +41,7 @@ function showLobbyPage(page, updateHistory = true) {
   window.scrollTo(0, 0);
   const heading = lobbyPages[page].querySelector("h1, h2");
   if (heading) { heading.tabIndex = -1; heading.focus({ preventScroll: true }); }
+  if (page === "tasks") loadAchievements();
 }
 
 function restoreLobbyPage() {
@@ -80,6 +82,7 @@ let scoreSubmitted = false;
 let gameStarting = false;
 let guestStartOptions = null;
 const pendingCollectionWrites = new Set();
+const pendingAchievementWrites = new Set();
 let authMode = "login";
 let accountReturnFocus = null;
 
@@ -613,6 +616,59 @@ async function loadLeaderboard() {
   }
 }
 
+function renderAchievements(stats = {}) {
+  const tasks = getAchievements(stats, animals.filter((animal) => animal.id !== HUMAN_ID).length || 206);
+  const icons = {
+    failure: "M5 8a8 8 0 1 1-1 8M5 3v5h5M12 8v5m0 3v.1",
+    practice: "M3 5h6l3 2 3-2h6v14h-6l-3 2-3-2H3ZM12 7v14",
+    tree: "M12 21V3M12 10 5 6V3M12 15l7-5V6M12 5l5-2",
+    attempts: "M5 8a8 8 0 0 1 14-1M19 3v4h-4M19 16a8 8 0 0 1-14 1M5 21v-4h4",
+    collection: "M20 4C7 2 2 7 5 15c3 8 15 5 15-11ZM5 20 16 9",
+  };
+  $("#achievements-count").textContent = `${tasks.filter((task) => task.earned).length} / ${tasks.length} 달성`;
+  $("#achievements-grid").innerHTML = tasks.map((task) => {
+    const progress = `${Math.min(task.value, task.goal).toLocaleString("ko-KR")} / ${task.goal.toLocaleString("ko-KR")}${task.unit || ""}`;
+    return `<article class="achievement-card${task.earned ? " is-earned" : ""}">
+      <div class="achievement-medal grade-${task.grade}" aria-hidden="true"><div class="medal-face"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="${icons[task.icon]}" /></svg></div></div>
+      <div class="achievement-info"><div class="achievement-meta"><span>${achievementGrades[task.grade]}</span><span>${task.earned ? "달성" : "미달성"}</span></div><h2>${escapeHtml(task.title)}</h2><p>${escapeHtml(task.description)}</p>
+      <div class="achievement-progress"><progress max="${task.goal}" value="${Math.min(task.value, task.goal)}" aria-label="${escapeHtml(task.title)} 진행도"></progress><span>${task.unit ? progress : task.earned ? "완료" : "조건을 달성해 보세요"}</span></div></div>
+    </article>`;
+  }).join("");
+}
+
+async function loadAchievements() {
+  const userId = currentUser?.id;
+  const status = $("#achievements-status");
+  renderAchievements();
+  if (!userId) { status.textContent = "로그인하면 발전과제 진행도와 메달이 계정에 저장됩니다."; return; }
+  status.textContent = "발전과제 기록을 불러오는 중…";
+  try {
+    await Promise.all([...pendingAchievementWrites, ...pendingCollectionWrites]);
+    const response = await fetch("/api/achievements", { cache: "no-store" });
+    if (!response.ok) throw new Error(`Achievement request failed: ${response.status}`);
+    const data = await responseJson(response);
+    if (currentUser?.id !== userId) return;
+    renderAchievements(data.stats);
+    status.textContent = "일반·연습모드 기록으로 달성합니다. 튜토리얼과 자동 배치는 정답·수집 기록에 포함되지 않습니다.";
+  } catch (error) {
+    console.error(error);
+    if (currentUser?.id === userId) status.textContent = "기록을 불러오지 못했어요. 발전과제 메뉴를 다시 열어 주세요.";
+  }
+}
+
+function recordAchievementEvent(event) {
+  if (!currentUser) return;
+  const write = (async () => {
+    const response = await fetch("/api/achievements", {
+      method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ event }),
+    });
+    if (!response.ok) throw new Error(`Achievement record failed: ${response.status}`);
+  })().catch((error) => { console.error(error); showToast("발전과제 기록을 저장하지 못했어요."); });
+  pendingAchievementWrites.add(write);
+  write.then(() => pendingAchievementWrites.delete(write));
+  return write;
+}
+
 async function submitScore() {
   if (scoreSubmitted || state.tutorial) return;
   scoreSubmitted = true;
@@ -625,11 +681,15 @@ async function submitScore() {
   const status = state.failed ? $("#failure-score-status") : $("#score-submit-status");
   status.textContent = "기록 저장 중…";
   try {
-    const response = await fetch("/api/leaderboard", {
+    const write = fetch("/api/leaderboard", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ score: state.score, mode: state.practice ? "practice" : "normal" }),
     });
+    pendingAchievementWrites.add(write);
+    let response;
+    try { response = await write; }
+    finally { pendingAchievementWrites.delete(write); }
     if (!response.ok) throw new Error(`Score request failed: ${response.status}`);
     const data = await responseJson(response);
     if (!state.practice) currentGamesPlayed = Number.isSafeInteger(data.entry?.gamesPlayed) ? data.entry.gamesPlayed : currentGamesPlayed + 1;
@@ -724,6 +784,7 @@ function explainPlacement(targetId, placement) {
 
 function failRound(targetId, placement) {
   state.failed = true;
+  if (!state.tutorial) recordAchievementEvent("failure");
   state.selected = false;
   card.classList.remove("is-selected", "is-dragging");
   card.classList.add("is-locked");
@@ -773,6 +834,7 @@ function updateRound() {
     state.expected = null;
     card.classList.add("is-locked");
     card.setAttribute("draggable", "false");
+    if (state.practice) recordAchievementEvent("practice-complete");
     saveCollection(state.classified.filter((id) => !state.mistakes.has(id)));
     $("#result-title").textContent = state.practice ? "연습을 마쳤어요." : "분류를 마쳤어요.";
     $("#result-count").textContent = state.practice ? state.score : state.classified.length;
@@ -833,6 +895,7 @@ async function startGame(options = {}) {
     $("#failure-score-status").textContent = "";
     card.classList.remove("is-selected", "is-dragging", "is-locked");
     card.setAttribute("draggable", "true");
+    if (!tutorial) await recordAchievementEvent(practice ? "practice-start" : "normal-start");
     Object.values(lobbyPages).forEach((screen) => { screen.hidden = true; });
     setToolbarOpen(false);
     navigationShell.hidden = true;

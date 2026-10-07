@@ -36,6 +36,10 @@ export const leaderboard = sqliteTable("leaderboard", {
   bestPracticeScore: integer("best_practice_score").notNull().default(0),
   practiceGamesPlayed: integer("practice_games_played").notNull().default(0),
   gamesPlayed: integer("games_played").notNull().default(0),
+  normalAttempts: integer("normal_attempts"),
+  hasFailed: integer("has_failed", { mode: "boolean" }).notNull().default(false),
+  practiceStarted: integer("practice_started", { mode: "boolean" }).notNull().default(false),
+  practiceCompleted: integer("practice_completed", { mode: "boolean" }).notNull().default(false),
   achievedAt: text("achieved_at").notNull().default(sql`CURRENT_TIMESTAMP`),
   updatedAt: text("updated_at").notNull().default(sql`CURRENT_TIMESTAMP`),
 }, (table) => [
