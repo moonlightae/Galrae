@@ -53,21 +53,22 @@ assert.equal(stack.children.length, 1, "Another account can earn the same medal 
 const clientSource = readFileSync(new URL("../public/app.js", import.meta.url), "utf8");
 const elements = new Map();
 const $ = (id) => { if (!elements.has(id)) elements.set(id, {}); return elements.get(id); };
-const context = { $, getAchievements, achievementTab: "regular", animals: [{ id: "homo-sapiens" }, { id: "animal" }], HUMAN_ID: "homo-sapiens", escapeHtml: (text) => String(text) };
+const context = { $, getAchievements, animals: [{ id: "homo-sapiens" }, { id: "animal" }], HUMAN_ID: "homo-sapiens", escapeHtml: (text) => String(text) };
 runInNewContext(clientSource.slice(clientSource.indexOf("function achievementMedal("), clientSource.indexOf("async function refreshAchievementStats(")), context);
 context.renderAchievements({ bestScore: 10 });
 const html = $("#achievements-grid").innerHTML;
-for (const category of ["기본", "연습모드", "일반모드"]) assert.ok(html.includes(`<h2>${category}</h2>`));
-assert.equal((html.match(/<details /g) || []).length, 22);
+for (const category of ["기본", "연습모드", "일반모드", "특별"]) assert.ok(html.includes(`<h2>${category}</h2>`));
+assert.equal((html.match(/<details /g) || []).length, 23);
 assert.equal((html.match(/<progress /g) || []).length, 22);
 assert.ok(!html.includes("미달성") && !html.includes("achievement-meta"));
 const groups = getAchievements().reduce((counts, task) => ({ ...counts, [task.category]: (counts[task.category] || 0) + 1 }), {});
 assert.deepEqual(groups, { "기본": 9, "연습모드": 3, "일반모드": 10, "특별": 1 });
-context.achievementTab = "special"; context.renderAchievements({ fishSiblingMistake: true });
-const specialHtml = $("#achievements-grid").innerHTML;
+const specialHtml = html.slice(html.indexOf("<h2>특별</h2>"));
 assert.equal((specialHtml.match(/<details /g) || []).length, 1);
 assert.ok(specialHtml.includes("이게 왜 어류야") && specialHtml.includes("어류, 포유류, 파충류, 양서류, 조류 아니었어?"));
 assert.ok(!specialHtml.includes("동물분류 입문자"));
+assert.ok(!specialHtml.includes("<progress") && !specialHtml.includes("자매군") && !specialHtml.includes("튜토리얼 제외"));
+assert.ok(!clientSource.includes("selectAchievementTab") && !clientSource.includes("achievement-tabs"));
 const updates = [];
 Object.assign(context, {
   currentUser: { id: "player" }, achievementStats: { bestScore: 0, bestPracticeScore: 0 },

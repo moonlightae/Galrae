@@ -42,7 +42,7 @@ export const gameMarkup = `
   </main>
   <main id="tasks-page" class="screen library-screen" data-lobby-page hidden>
     <button class="text-button page-back" type="button" data-page="lobby">← 로비</button>
-    <section class="tasks-panel"><div class="section-heading"><h1 tabindex="-1">발전과제</h1><p id="achievements-count">0 / 23</p></div><p id="achievements-status" role="status">메달을 가리키거나 눌러 조건과 진행도를 확인해 보세요.</p><div id="achievement-tabs" class="auth-tabs" role="tablist" aria-label="발전과제 종류"><button id="achievement-regular-tab" class="is-active" type="button" role="tab" data-achievement-tab="regular" aria-selected="true" aria-controls="achievements-grid">일반 발전과제</button><button id="achievement-special-tab" type="button" role="tab" data-achievement-tab="special" aria-selected="false" aria-controls="achievements-grid" tabindex="-1">특별</button></div><div id="achievements-grid" role="tabpanel" aria-labelledby="achievement-regular-tab"></div></section>
+    <section class="tasks-panel"><div class="section-heading"><h1 tabindex="-1">발전과제</h1><p id="achievements-count">0 / 23</p></div><p id="achievements-status" role="status">메달을 가리키거나 눌러 설명을 확인해 보세요.</p><div id="achievements-grid"></div></section>
   </main>
   <div id="navigation-shell" class="navigation-shell">
     <button id="toolbar-shade" class="toolbar-shade" type="button" tabindex="-1" aria-label="메뉴 닫기"></button>

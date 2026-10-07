@@ -985,7 +985,6 @@ button:focus-visible, [role="button"]:focus-visible, .primary-button:focus-visib
 .achievement-detail { position: absolute; top: calc(100% + 4px); left: 0; right: 0; padding: 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); box-shadow: var(--shadow); }
 .achievement-detail::before { content: ""; position: absolute; inset: -5px 0 auto; height: 5px; }
 .achievement-detail p { margin: 0; font-size: .8rem; line-height: 1.5; word-break: keep-all; overflow-wrap: anywhere; }
-.achievement-detail p + p { margin-top: 8px; color: var(--muted); }
 .achievement-medal { position: relative; flex: 0 0 64px; width: 64px; height: 78px; opacity: .45; filter: saturate(.5); }
 .is-earned .achievement-medal { opacity: 1; filter: none; }
 .achievement-medal::before, .achievement-medal::after { content: ""; position: absolute; top: 42px; width: 23px; height: 34px; background: var(--medal); clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 80%, 0 100%); }

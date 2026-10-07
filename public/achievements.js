@@ -43,7 +43,6 @@ export function getAchievements(stats = {}, total = 206) {
   return tasks.map(([id, title, grade, description, metric, goal, icon, unit]) => {
     const value = Math.max(0, Number(stats[metric]) || 0);
     const category = icon === "fish" ? "특별" : icon === "practice" ? "연습모드" : metric === "bestScore" || metric === "normalAttempts" ? "일반모드" : "기본";
-    const condition = id === "fish-sibling" ? "어류만 있는 두 종 이상의 묶음에 포유류·파충류·양서류·조류를 자매군으로 연결해서 틀리기 · 튜토리얼 제외" : "";
-    return { id, title, grade, description, condition, goal, icon, unit, value, category, earned: value >= goal };
+    return { id, title, grade, description, goal, icon, unit, value, category, earned: value >= goal };
   });
 }

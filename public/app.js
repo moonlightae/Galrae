@@ -86,7 +86,6 @@ const pendingCollectionWrites = new Set();
 const pendingAchievementWrites = new Set();
 let achievementStats = null;
 let achievementStatsUser = null;
-let achievementTab = "regular";
 const achievementNotifications = createAchievementNotifications($("#achievement-notifications"), (task) => `${achievementMedal(task)}<div><small>발전과제 달성!</small><strong>${escapeHtml(task.title)}</strong></div>`);
 let authMode = "login";
 let accountReturnFocus = null;
@@ -643,10 +642,10 @@ function achievementMedal(task) {
 function renderAchievements(stats = {}) {
   const tasks = getAchievements(stats, animals.filter((animal) => animal.id !== HUMAN_ID).length || 206);
   $("#achievements-count").textContent = `${tasks.filter((task) => task.earned).length} / ${tasks.length}`;
-  $("#achievements-grid").innerHTML = (achievementTab === "special" ? ["특별"] : ["기본", "연습모드", "일반모드"]).map((category) => `<section class="achievement-group"><h2>${category}</h2><div class="achievements-grid">${tasks.filter((task) => task.category === category).map((task) => {
+  $("#achievements-grid").innerHTML = ["기본", "연습모드", "일반모드", "특별"].map((category) => `<section class="achievement-group"><h2>${category}</h2><div class="achievements-grid">${tasks.filter((task) => task.category === category).map((task) => {
     const progress = `${Math.min(task.value, task.goal).toLocaleString("ko-KR")} / ${task.goal.toLocaleString("ko-KR")}${task.unit || ""}`;
     return `<details class="achievement-card${task.earned ? " is-earned" : ""}"><summary aria-describedby="detail-${task.id}">${achievementMedal(task)}<span>${escapeHtml(task.title)}</span></summary>
-      <div id="detail-${task.id}" class="achievement-detail"><p>${escapeHtml(task.description)}</p>${task.condition ? `<p>${escapeHtml(task.condition)}</p>` : ""}<div class="achievement-progress"><progress max="${task.goal}" value="${Math.min(task.value, task.goal)}" aria-label="${escapeHtml(task.title)} 진행도"></progress><span>${progress}</span></div></div>
+      <div id="detail-${task.id}" class="achievement-detail"><p>${escapeHtml(task.description)}</p>${category === "특별" ? "" : `<div class="achievement-progress"><progress max="${task.goal}" value="${Math.min(task.value, task.goal)}" aria-label="${escapeHtml(task.title)} 진행도"></progress><span>${progress}</span></div>`}</div>
     </details>`;
   }).join("")}</div></section>`).join("");
 }
@@ -1051,28 +1050,6 @@ card.addEventListener("keydown", (event) => {
 });
 
 $("#start-game").addEventListener("click", () => startGame());
-function selectAchievementTab(tab) {
-  achievementTab = tab.dataset.achievementTab;
-  for (const button of document.querySelectorAll("[data-achievement-tab]")) {
-    const selected = button === tab;
-    button.classList.toggle("is-active", selected);
-    button.setAttribute("aria-selected", String(selected));
-    button.tabIndex = selected ? 0 : -1;
-  }
-  $("#achievements-grid").setAttribute("aria-labelledby", tab.id);
-  renderAchievements(achievementStats || {});
-}
-$("#achievement-tabs").addEventListener("click", (event) => {
-  const tab = event.target.closest("[data-achievement-tab]");
-  if (tab) selectAchievementTab(tab);
-});
-$("#achievement-tabs").addEventListener("keydown", (event) => {
-  if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) return;
-  event.preventDefault();
-  const tabs = [...document.querySelectorAll("[data-achievement-tab]")];
-  const tab = event.key === "Home" ? tabs[0] : event.key === "End" ? tabs[1] : tabs.find((button) => button !== event.target);
-  selectAchievementTab(tab); tab.focus();
-});
 $("#achievements-grid").addEventListener("pointerover", (event) => {
   const tile = event.target.closest(".achievement-card");
   if (tile && event.pointerType === "mouse") tile.open = true;
