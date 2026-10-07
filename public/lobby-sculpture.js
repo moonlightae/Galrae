@@ -45,6 +45,9 @@ export function createLobbySculpture(surface, lobby) {
     for (let i = 1; i < path.length; i++) tube(path[i - 1], path[i]);
     for (const p of path) joint(p);
   }
+  const rootRing = new THREE.TorusGeometry(.28, .07, 12, 48);
+  rootRing.translate(...paths[0][0]); rootRing.translate(0, -.25, 0);
+  pieces.push(rootRing);
   const attributes = { position: [], normal: [], uv: [] };
   for (const part of pieces) {
     const flat = part.toNonIndexed();
