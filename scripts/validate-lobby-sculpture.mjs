@@ -34,11 +34,11 @@ class Renderer {
   render(scene, camera) { if (camera.isPerspectiveCamera) renderedScene = scene; else renderedBlur = scene; }
 }
 const rings = [];
-class TorusGeometry extends Three.TorusGeometry {
+class ExtrudeGeometry extends Three.ExtrudeGeometry {
   constructor(...args) { super(...args); rings.push(this); }
 }
 const create = runInNewContext(source.replace(/^import .*?;\s*/, "").replace("export function", "function") + "\ncreateLobbySculpture", {
-  THREE: { ...Three, WebGLRenderer: Renderer, TorusGeometry }, document, window: { devicePixelRatio: 1, addEventListener(name, callback) { windowListeners[name] = callback; } },
+  THREE: { ...Three, WebGLRenderer: Renderer, ExtrudeGeometry }, document, window: { devicePixelRatio: 1, addEventListener(name, callback) { windowListeners[name] = callback; } },
   matchMedia: () => reduced, performance: { now: () => now }, console,
   requestAnimationFrame: (callback) => { callbacks.set(++nextFrame, callback); return nextFrame; },
   cancelAnimationFrame: (id) => callbacks.delete(id),
@@ -73,8 +73,14 @@ assert.equal(sculpture.material.roughness, .92);
 assert.equal(sculpture.material.metalness, 0);
 assert.equal(rings.length, 1, "Only the root may have a ring");
 rings[0].computeBoundingBox();
-assert.ok(rings[0].boundingBox.max.y < -2.4, "The ring must mark the lower stem end");
-assert.ok(rings[0].boundingBox.getSize(new Three.Vector3()).x < .8, "The root ring must stay small");
+assert.ok(rings[0].boundingBox.max.y < -2.3, "The ring must mark the lower stem end");
+const ringSize = rings[0].boundingBox.getSize(new Three.Vector3());
+assert.ok(ringSize.x < .9, "The root ring must stay small");
+assert.ok(Math.abs(ringSize.z - .29) < .000001, "Ring depth must match the stem diameter");
+assert.equal(rings[0].parameters.options.bevelEnabled, false, "The ring must have sharp edges");
+const outerRadius = rings[0].parameters.shapes.curves[0].xRadius;
+const innerRadius = rings[0].parameters.shapes.holes[0].curves[0].xRadius;
+assert.ok(Math.abs(outerRadius - innerRadius - .29) < .000001, "Ring wall width must match the stem diameter");
 sculpture.geometry.computeBoundingBox();
 assert.ok(sculpture.geometry.boundingBox.min.y > -3.2 && sculpture.geometry.boundingBox.max.y < 3.5);
 for (const value of sculpture.geometry.getAttribute("position").array) assert.ok(Number.isFinite(value));

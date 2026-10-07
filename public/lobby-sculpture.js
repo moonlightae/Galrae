@@ -45,14 +45,19 @@ export function createLobbySculpture(surface, lobby) {
     for (let i = 1; i < path.length; i++) tube(path[i - 1], path[i]);
     for (const p of path) joint(p);
   }
-  const rootRing = new THREE.TorusGeometry(.28, .07, 12, 48);
-  rootRing.translate(...paths[0][0]); rootRing.translate(0, -.25, 0);
+  const ringShape = new THREE.Shape(), ringHole = new THREE.Path();
+  ringShape.absarc(0, 0, .28 + stemRadius, 0, Math.PI * 2, false);
+  ringHole.absarc(0, 0, .28 - stemRadius, 0, Math.PI * 2, true);
+  ringShape.holes.push(ringHole);
+  const rootRing = new THREE.ExtrudeGeometry(ringShape, { depth: stemRadius * 2, bevelEnabled: false, curveSegments: 48, steps: 1 });
+  rootRing.translate(...paths[0][0]); rootRing.translate(0, -.2, -stemRadius);
   pieces.push(rootRing);
   const attributes = { position: [], normal: [], uv: [] };
   for (const part of pieces) {
-    const flat = part.toNonIndexed();
+    const flat = part.index ? part.toNonIndexed() : part;
     for (const name of Object.keys(attributes)) attributes[name].push(flat.getAttribute(name).array);
-    flat.dispose(); part.dispose();
+    if (flat !== part) flat.dispose();
+    part.dispose();
   }
   const geometry = new THREE.BufferGeometry();
   for (const [name, arrays] of Object.entries(attributes)) {
