@@ -1,7 +1,6 @@
 export const gameMarkup = `
   <div id="boot-loading" class="loading-screen" role="status" aria-live="polite"><div class="loading-content"><span class="loading-spinner" aria-hidden="true"></span><strong>갈래</strong><p id="boot-loading-status">계정과 기록을 불러오는 중…</p></div></div>
   <div id="game-loading" class="loading-screen" role="status" aria-live="polite" hidden><div class="loading-content"><span class="loading-spinner" aria-hidden="true"></span><strong>갈래</strong><p>첫 생물 카드를 준비하는 중…</p></div></div>
-  <div class="paper-noise" aria-hidden="true"></div>
   <main id="lobby" class="screen lobby-screen">
     <div class="lobby-main">
       <div class="lobby-left">
@@ -13,7 +12,6 @@ export const gameMarkup = `
         <div><p class="panel-label">플레이할 계</p><h2>동물계</h2><p>인간에서 시작해 서로 다른 동물의 공통 조상을 찾아갑니다.</p>
           <div class="mode-options" aria-label="계 모드 목록"><span class="is-active">동물계</span><span aria-disabled="true">식물계 · 준비 중</span><span aria-disabled="true">균계 · 준비 중</span></div>
         </div>
-        <div class="mode-badge" aria-label="선택됨">ANIMALIA</div>
         <div class="game-start-actions"><button id="start-game" class="primary-button" type="button" disabled>분류 시작 <span aria-hidden="true">→</span></button><button id="start-practice" class="primary-button" type="button" disabled>연습 모드 시작 <span aria-hidden="true">→</span></button></div>
         <div class="mode-links"><button id="start-tutorial" class="text-button" type="button">튜토리얼</button>
         </div>
