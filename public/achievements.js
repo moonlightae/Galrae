@@ -1,4 +1,20 @@
+import "./game-logic.js";
+
 export const achievementGrades = { stone: "돌", bronze: "동", silver: "은", gold: "금", diamond: "다이아" };
+
+export function isFishSiblingMistake(classified, currentId, targetId, placement, speciesById) {
+  if (placement !== "wrap") return false;
+  const hasTaxon = (id, taxonId) => speciesById.get(id)?.taxonomy.lineage.some((taxon) => taxon.wikidataId === taxonId);
+  if (!hasTaxon(currentId, "Q19159")) return false; // Tetrapoda
+  const { buildTree, findNodeById, collectLeafIds, getExpectedPlacement, isEquivalentPlacement } = globalThis.GalraeLogic;
+  const tree = buildTree(classified, speciesById);
+  const target = findNodeById(tree, targetId);
+  if (!target || target.type !== "branch") return false;
+  const members = collectLeafIds(target);
+  return members.length >= 2
+    && members.every((id) => hasTaxon(id, "Q25241") && !hasTaxon(id, "Q19159")) // Vertebrata excluding Tetrapoda
+    && !isEquivalentPlacement(tree, getExpectedPlacement(classified, currentId, speciesById), targetId, placement);
+}
 
 export function getAchievements(stats = {}, total = 206) {
   const tasks = [
@@ -17,12 +33,17 @@ export function getAchievements(stats = {}, total = 206) {
     ["collection-100", "움직이는 도감", "silver", "서로 다른 동물 100종 수집", "collected", 100, "collection", "종"],
     ["collection-all", "동물계 도감 완성", "gold", `시작 카드인 인간을 제외한 ${total}종 모두 수집`, "collected", total, "collection", "종"],
     ["repeat-10", "익숙한 얼굴", "bronze", "같은 동물을 10번 올바르게 분류", "repeatSuccesses", 10, "attempts", "회"],
+    ["repeat-100", "우연이 계속되면 인연이 되고", "gold", "같은 생물을 100번 올바르게 분류", "repeatSuccesses", 100, "attempts", "회"],
+    ["repeat-1000", "인연이 계속되면 연ㅇ...", "diamond", "같은 생물을 1,000번 올바르게 분류", "repeatSuccesses", 1000, "attempts", "회"],
     ["successes-1000", "천 번의 정답", "silver", "일반·연습모드에서 누적 정답 1,000회 달성", "totalSuccesses", 1000, "tree", "회"],
+    ["successes-10000", "서당개 삼 년이면 풍월을 읊는다더니", "diamond", "일반·연습모드에서 누적 정답 10,000회 달성", "totalSuccesses", 10000, "tree", "회"],
     ["practice-perfect", "연습의 끝판왕", "diamond", `연습모드에서 ${total}종 모두 직접 맞히기`, "bestPracticeScore", total, "practice", "종"],
+    ["fish-sibling", "이게 왜 어류야", "bronze", "어류, 포유류, 파충류, 양서류, 조류 아니었어?", "fishSiblingMistake", 1, "fish"],
   ];
   return tasks.map(([id, title, grade, description, metric, goal, icon, unit]) => {
     const value = Math.max(0, Number(stats[metric]) || 0);
-    const category = icon === "practice" ? "연습모드" : metric === "bestScore" || metric === "normalAttempts" ? "일반모드" : "기본";
-    return { id, title, grade, description, goal, icon, unit, value, category, earned: value >= goal };
+    const category = icon === "fish" ? "특별" : icon === "practice" ? "연습모드" : metric === "bestScore" || metric === "normalAttempts" ? "일반모드" : "기본";
+    const condition = id === "fish-sibling" ? "어류만 있는 두 종 이상의 묶음에 포유류·파충류·양서류·조류를 자매군으로 연결해서 틀리기 · 튜토리얼 제외" : "";
+    return { id, title, grade, description, condition, goal, icon, unit, value, category, earned: value >= goal };
   });
 }

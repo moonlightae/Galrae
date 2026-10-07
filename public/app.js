@@ -1,5 +1,5 @@
 import { createTreeView } from "./tree-view.js";
-import { getAchievements } from "./achievements.js";
+import { getAchievements, isFishSiblingMistake } from "./achievements.js";
 import { createAchievementNotifications } from "./achievement-notifications.js";
 
 const { ANIMALIA_ID, addSuccessCount, buildTree, collectLeafIds, findNodeById, getExpectedPlacement, isEquivalentPlacement, seedSuccessCounts, shuffle, successCountText } = globalThis.GalraeLogic;
@@ -86,6 +86,7 @@ const pendingCollectionWrites = new Set();
 const pendingAchievementWrites = new Set();
 let achievementStats = null;
 let achievementStatsUser = null;
+let achievementTab = "regular";
 const achievementNotifications = createAchievementNotifications($("#achievement-notifications"), (task) => `${achievementMedal(task)}<div><small>발전과제 달성!</small><strong>${escapeHtml(task.title)}</strong></div>`);
 let authMode = "login";
 let accountReturnFocus = null;
@@ -634,6 +635,7 @@ function achievementMedal(task) {
     tree: "M12 21V3M12 10 5 6V3M12 15l7-5V6M12 5l5-2",
     attempts: "M5 8a8 8 0 0 1 14-1M19 3v4h-4M19 16a8 8 0 0 1-14 1M5 21v-4h4",
     collection: "M20 4C7 2 2 7 5 15c3 8 15 5 15-11ZM5 20 16 9",
+    fish: "M3 12c4-8 11-8 15 0-4 8-11 8-15 0Zm15 0 4-5v10l-4-5M12 10h.1",
   };
   return `<div class="achievement-medal grade-${task.grade}" aria-hidden="true"><div class="medal-face"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="${icons[task.icon]}" /></svg></div></div>`;
 }
@@ -641,10 +643,10 @@ function achievementMedal(task) {
 function renderAchievements(stats = {}) {
   const tasks = getAchievements(stats, animals.filter((animal) => animal.id !== HUMAN_ID).length || 206);
   $("#achievements-count").textContent = `${tasks.filter((task) => task.earned).length} / ${tasks.length}`;
-  $("#achievements-grid").innerHTML = ["기본", "연습모드", "일반모드"].map((category) => `<section class="achievement-group"><h2>${category}</h2><div class="achievements-grid">${tasks.filter((task) => task.category === category).map((task) => {
+  $("#achievements-grid").innerHTML = (achievementTab === "special" ? ["특별"] : ["기본", "연습모드", "일반모드"]).map((category) => `<section class="achievement-group"><h2>${category}</h2><div class="achievements-grid">${tasks.filter((task) => task.category === category).map((task) => {
     const progress = `${Math.min(task.value, task.goal).toLocaleString("ko-KR")} / ${task.goal.toLocaleString("ko-KR")}${task.unit || ""}`;
     return `<details class="achievement-card${task.earned ? " is-earned" : ""}"><summary aria-describedby="detail-${task.id}">${achievementMedal(task)}<span>${escapeHtml(task.title)}</span></summary>
-      <div id="detail-${task.id}" class="achievement-detail"><p>${escapeHtml(task.description)}</p><div class="achievement-progress"><progress max="${task.goal}" value="${Math.min(task.value, task.goal)}" aria-label="${escapeHtml(task.title)} 진행도"></progress><span>${progress}</span></div></div>
+      <div id="detail-${task.id}" class="achievement-detail"><p>${escapeHtml(task.description)}</p>${task.condition ? `<p>${escapeHtml(task.condition)}</p>` : ""}<div class="achievement-progress"><progress max="${task.goal}" value="${Math.min(task.value, task.goal)}" aria-label="${escapeHtml(task.title)} 진행도"></progress><span>${progress}</span></div></div>
     </details>`;
   }).join("")}</div></section>`).join("");
 }
@@ -691,17 +693,18 @@ async function loadAchievements() {
   }
 }
 
-function recordAchievementEvent(event) {
+function recordAchievementEvent(event, details = {}) {
   if (!currentUser) return;
   const userId = currentUser.id;
   const write = (async () => {
     const response = await fetch("/api/achievements", {
-      method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ event }),
+      method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ event, ...details }),
     });
     if (!response.ok) throw new Error(`Achievement record failed: ${response.status}`);
     if (currentUser?.id !== userId || !achievementStats) return;
     if (event === "normal-start") achievementStats.normalAttempts += 1;
     if (event === "failure") achievementStats.hasFailed = true;
+    if (event === "fish-sibling-mistake") { achievementStats.hasFailed = true; achievementStats.fishSiblingMistake = true; }
     if (event === "practice-start" || event === "practice-complete") achievementStats.practiceStarted = true;
     if (event === "practice-complete") achievementStats.practiceCompleted = true;
     checkAchievementProgress();
@@ -827,7 +830,11 @@ function explainPlacement(targetId, placement) {
 
 function failRound(targetId, placement) {
   state.failed = true;
-  if (!state.tutorial) recordAchievementEvent("failure");
+  if (!state.tutorial) {
+    if (isFishSiblingMistake(state.classified, state.currentId, targetId, placement, speciesById)) {
+      recordAchievementEvent("fish-sibling-mistake", { classified: [...state.classified], currentId: state.currentId, targetId, placement });
+    } else recordAchievementEvent("failure");
+  }
   state.selected = false;
   card.classList.remove("is-selected", "is-dragging");
   card.classList.add("is-locked");
@@ -1044,6 +1051,28 @@ card.addEventListener("keydown", (event) => {
 });
 
 $("#start-game").addEventListener("click", () => startGame());
+function selectAchievementTab(tab) {
+  achievementTab = tab.dataset.achievementTab;
+  for (const button of document.querySelectorAll("[data-achievement-tab]")) {
+    const selected = button === tab;
+    button.classList.toggle("is-active", selected);
+    button.setAttribute("aria-selected", String(selected));
+    button.tabIndex = selected ? 0 : -1;
+  }
+  $("#achievements-grid").setAttribute("aria-labelledby", tab.id);
+  renderAchievements(achievementStats || {});
+}
+$("#achievement-tabs").addEventListener("click", (event) => {
+  const tab = event.target.closest("[data-achievement-tab]");
+  if (tab) selectAchievementTab(tab);
+});
+$("#achievement-tabs").addEventListener("keydown", (event) => {
+  if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) return;
+  event.preventDefault();
+  const tabs = [...document.querySelectorAll("[data-achievement-tab]")];
+  const tab = event.key === "Home" ? tabs[0] : event.key === "End" ? tabs[1] : tabs.find((button) => button !== event.target);
+  selectAchievementTab(tab); tab.focus();
+});
 $("#achievements-grid").addEventListener("pointerover", (event) => {
   const tile = event.target.closest(".achievement-card");
   if (tile && event.pointerType === "mouse") tile.open = true;

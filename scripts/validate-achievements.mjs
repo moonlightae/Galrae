@@ -5,18 +5,18 @@ import { createRequire } from "node:module";
 import { DatabaseSync } from "node:sqlite";
 import ts from "typescript";
 import { drizzle } from "drizzle-orm/d1";
-import { achievementGrades, getAchievements } from "../public/achievements.js";
+import { achievementGrades, getAchievements, isFishSiblingMistake } from "../public/achievements.js";
 
 const dataset = JSON.parse(fs.readFileSync(new URL("../public/data/animals.json", import.meta.url)));
 const total = dataset.animals.length - 1;
 const tasks = getAchievements({}, total);
-assert.equal(tasks.length, 19);
+assert.equal(tasks.length, 23);
 assert.equal(new Set(tasks.map((task) => task.id)).size, tasks.length);
 assert.equal(tasks.filter((task) => task.earned).length, 0);
 assert.deepEqual([...new Set(tasks.map((task) => task.grade))].sort(), Object.keys(achievementGrades).sort());
-for (const [metric, values] of [["bestScore", [10, 25, 50, 100, 200]], ["normalAttempts", [100, 500, 1000, 2000, 10000]]]) {
+for (const [metric, values] of [["bestScore", [10, 25, 50, 100, 200]], ["normalAttempts", [100, 500, 1000, 2000, 10000]], ["repeatSuccesses", [10, 100, 1000]], ["totalSuccesses", [1000, 10000]]]) {
   for (const value of values) {
-    const id = `${metric === "bestScore" ? "best" : "attempts"}-${value}`;
+    const id = `${{ bestScore: "best", normalAttempts: "attempts", repeatSuccesses: "repeat", totalSuccesses: "successes" }[metric]}-${value}`;
     assert.equal(getAchievements({ [metric]: value - 1 }, total).find((task) => task.id === id).earned, false);
     assert.equal(getAchievements({ [metric]: value }, total).find((task) => task.id === id).earned, true);
   }
@@ -55,6 +55,7 @@ const auth = { getGameUser: async () => user };
 const route = loadTS("../app/api/achievements/route.ts", {
   "../../game-auth": auth, "../../../db": { getDb: () => db }, "../../../db/schema": schema,
   "../../../public/data/animals.json": dataset,
+  "../../../public/achievements.js": { isFishSiblingMistake },
 });
 const post = async (body) => route.POST(new Request("https://local/api/achievements", { method: "POST", body: JSON.stringify(body) }));
 const stats = async () => (await (await route.GET()).json()).stats;
@@ -81,6 +82,7 @@ assert.equal((await stats()).normalAttempts, 0);
 await post({ event: "practice-start" });
 await post({ event: "failure" });
 data = await stats(); assert.equal(data.practiceStarted, true); assert.equal(data.hasFailed, true);
+assert.equal(data.fishSiblingMistake, false);
 assert.equal(data.normalAttempts, 0); assert.equal(data.practiceCompleted, false);
 const ids = dataset.animals.filter((animal) => animal.id !== "homo-sapiens").slice(0, 25).map((animal) => animal.id);
 sqlite.exec("INSERT INTO users(id,username,username_normalized,display_name,password_hash,password_salt,password_iterations) VALUES ('new','new','new','New','test','test',1)");
@@ -89,10 +91,47 @@ for (const id of ids) insert.run(id, 40);
 insert.run("homo-sapiens", 500); insert.run("unknown-species", 500);
 data = await stats(); assert.equal(data.collected, 25); assert.equal(data.totalSuccesses, 1000); assert.equal(data.repeatSuccesses, 40);
 assert.equal(getAchievements(data, total).find((task) => task.id === "successes-1000").earned, true);
+const classified = ["homo-sapiens", "lepisosteus-osseus", "anguilla-anguilla"];
+const speciesById = new Map(dataset.animals.map((animal) => [animal.id, animal]));
+const { buildTree, collectLeafIds, getExpectedPlacement } = globalThis.GalraeLogic;
+const fishBranch = buildTree(classified, speciesById).children.flatMap((node) => node.children || []).find((node) => collectLeafIds(node).length === 2);
+assert.ok(fishBranch, "Find the sampled fish clade");
+const special = { event: "fish-sibling-mistake", classified, currentId: "canis-lupus", targetId: fishBranch.id, placement: "wrap" };
+for (const currentId of ["canis-lupus", "gallus-gallus", "ambystoma-mexicanum", "alligator-mississippiensis"]) {
+  assert.ok(speciesById.has(currentId), currentId);
+  assert.equal(isFishSiblingMistake(classified, currentId, fishBranch.id, "wrap", speciesById), true, currentId);
+}
+assert.equal(isFishSiblingMistake(classified, "canis-lupus", fishBranch.id, "join", speciesById), false);
+assert.equal(isFishSiblingMistake(classified, "canis-lupus", "lepisosteus-osseus", "wrap", speciesById), false);
+assert.equal(isFishSiblingMistake(classified, "canis-lupus", "Q729", "wrap", speciesById), false, "Mixed fish/tetrapod branches must not count");
+assert.equal(isFishSiblingMistake(classified, "electrophorus-electricus", fishBranch.id, "wrap", speciesById), false, "A fish card must not count");
+const correct = getExpectedPlacement(classified, "canis-lupus", speciesById);
+assert.equal(isFishSiblingMistake(classified, "canis-lupus", correct.targetId, correct.placement, speciesById), false);
+const fishOnly = classified.slice(1);
+const fishOnlyCorrect = getExpectedPlacement(fishOnly, "canis-lupus", speciesById);
+assert.equal(isFishSiblingMistake(fishOnly, "canis-lupus", fishOnlyCorrect.targetId, fishOnlyCorrect.placement, speciesById), false, "A genuinely correct fish sibling placement must not count");
+const sharkIds = ["homo-sapiens", "sphyrna-mokarran", "carcharodon-carcharias"];
+const sharkTree = buildTree(sharkIds, speciesById);
+function fishClade(node) {
+  if (collectLeafIds(node).length === 2 && !collectLeafIds(node).includes("homo-sapiens")) return node;
+  return (node.children || []).map(fishClade).find(Boolean);
+}
+assert.equal(isFishSiblingMistake(sharkIds, "canis-lupus", fishClade(sharkTree).id, "wrap", speciesById), true, "Cartilaginous fish groups must count too");
+for (const bad of [{}, { classified: ["homo-sapiens", "unknown"] }, { classified: [...classified, classified[1]] }, { currentId: "homo-sapiens" }, { targetId: "lepisosteus-osseus" }, { placement: "join" }, { currentId: "electrophorus-electricus" }, { targetId: "Q729" }]) {
+  assert.equal((await post(Object.keys(bad).length ? { ...special, ...bad } : { event: special.event })).status, 400);
+}
+assert.equal((await stats()).fishSiblingMistake, false, "Rejected placements must not earn the medal");
+assert.equal((await post(special)).status, 200);
+assert.equal((await post(special)).status, 200);
+assert.equal((await stats()).fishSiblingMistake, true);
+assert.equal(getAchievements(await stats(), total).find((task) => task.id === "fish-sibling").earned, true);
+user = { id: "perfect", displayName: "Perfect" };
+assert.equal((await stats()).fishSiblingMistake, false, "Special medals belong to the authenticated account");
+user = { id: "new", displayName: "New" };
 await Promise.all([post({ event: "normal-start" }), post({ event: "normal-start" })]);
 assert.equal((await stats()).normalAttempts, 2, "Atomic increments must retain concurrent starts");
 assert.equal(sqlite.prepare("SELECT games_played FROM leaderboard WHERE user_id='new'").get().games_played, 0, "Starting must not submit a score");
 user = null;
 assert.equal((await route.GET()).status, 401); assert.equal((await post({ event: "failure" })).status, 401);
 sqlite.close();
-console.log("Achievements: 19 medals, threshold boundaries, legacy migration, account isolation, practice completion, atomic starts, collection counts and auth passed.");
+console.log("Achievements: 23 medals, threshold boundaries, fish sibling mistakes across four tetrapod groups, invalid placements, migration, persistence, account isolation and auth passed.");

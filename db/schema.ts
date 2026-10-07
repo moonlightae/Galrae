@@ -40,6 +40,7 @@ export const leaderboard = sqliteTable("leaderboard", {
   hasFailed: integer("has_failed", { mode: "boolean" }).notNull().default(false),
   practiceStarted: integer("practice_started", { mode: "boolean" }).notNull().default(false),
   practiceCompleted: integer("practice_completed", { mode: "boolean" }).notNull().default(false),
+  fishSiblingMistake: integer("fish_sibling_mistake", { mode: "boolean" }).notNull().default(false),
   achievedAt: text("achieved_at").notNull().default(sql`CURRENT_TIMESTAMP`),
   updatedAt: text("updated_at").notNull().default(sql`CURRENT_TIMESTAMP`),
 }, (table) => [

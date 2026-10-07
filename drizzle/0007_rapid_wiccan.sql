@@ -1,0 +1,1 @@
+ALTER TABLE `leaderboard` ADD `fish_sibling_mistake` integer DEFAULT false NOT NULL;

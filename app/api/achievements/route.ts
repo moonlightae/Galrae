@@ -3,9 +3,11 @@ import { getDb } from "../../../db";
 import { classifiedSpecies, leaderboard } from "../../../db/schema";
 import { animals } from "../../../public/data/animals.json";
 import { getGameUser } from "../../game-auth";
+import { isFishSiblingMistake } from "../../../public/achievements.js";
 
 export const dynamic = "force-dynamic";
 const playableIds = new Set(animals.filter((animal) => animal.id !== "homo-sapiens").map((animal) => animal.id));
+const speciesById = new Map(animals.map((animal) => [animal.id, animal]));
 
 function storageError(error: unknown) {
   console.error("Achievement storage error", error);
@@ -31,6 +33,7 @@ export async function GET() {
       hasFailed: Boolean(row?.hasFailed || (row && row.gamesPlayed > 0 && row.bestScore < playableIds.size)),
       practiceStarted: Boolean(row?.practiceStarted || (row?.practiceGamesPlayed ?? 0) > 0),
       practiceCompleted: Boolean(row?.practiceCompleted || row?.bestPracticeScore === playableIds.size),
+      fishSiblingMistake: Boolean(row?.fishSiblingMistake),
       collected: counts.length,
       totalSuccesses: counts.reduce((sum, record) => sum + record.count, 0),
       repeatSuccesses: counts.reduce((best, record) => Math.max(best, record.count), 0),
@@ -41,16 +44,28 @@ export async function GET() {
 export async function POST(request: Request) {
   const user = await getGameUser();
   if (!user) return Response.json({ error: "로그인이 필요합니다." }, { status: 401 });
-  let payload: { event?: unknown };
+  let payload: { event?: unknown; classified?: unknown; currentId?: unknown; targetId?: unknown; placement?: unknown };
   try { payload = await request.json() as typeof payload; }
   catch { return Response.json({ error: "잘못된 요청입니다." }, { status: 400 }); }
   const event = payload?.event;
-  if (event !== "normal-start" && event !== "failure" && event !== "practice-start" && event !== "practice-complete") {
+  if (event !== "normal-start" && event !== "failure" && event !== "practice-start" && event !== "practice-complete" && event !== "fish-sibling-mistake") {
     return Response.json({ error: "올바르지 않은 발전과제 이벤트입니다." }, { status: 400 });
+  }
+  if (event === "fish-sibling-mistake") {
+    const { classified, currentId, targetId, placement } = payload;
+    if (!Array.isArray(classified) || classified.length < 1 || classified.length > playableIds.size
+      || !classified.includes("homo-sapiens") || new Set(classified).size !== classified.length
+      || !classified.every((id) => typeof id === "string" && speciesById.has(id))
+      || typeof currentId !== "string" || !playableIds.has(currentId) || classified.includes(currentId)
+      || typeof targetId !== "string" || placement !== "wrap"
+      || !isFishSiblingMistake(classified, currentId, targetId, placement, speciesById)) {
+      return Response.json({ error: "특별 발전과제의 오분류 조건에 맞지 않습니다." }, { status: 400 });
+    }
   }
   try {
     const flags = {
       ...(event === "failure" ? { hasFailed: true } : {}),
+      ...(event === "fish-sibling-mistake" ? { hasFailed: true, fishSiblingMistake: true } : {}),
       ...(event === "practice-start" ? { practiceStarted: true } : {}),
       ...(event === "practice-complete" ? { practiceStarted: true, practiceCompleted: true } : {}),
     };
@@ -60,7 +75,7 @@ export async function POST(request: Request) {
     }).onConflictDoUpdate({
       target: leaderboard.userId,
       set: { ...flags, updatedAt: sql`CURRENT_TIMESTAMP`,
-        hasFailed: sql`MAX(${leaderboard.hasFailed}, ${event === "failure" ? 1 : 0}, CASE WHEN ${leaderboard.gamesPlayed} > 0 AND ${leaderboard.bestScore} < ${playableIds.size} THEN 1 ELSE 0 END)`,
+        hasFailed: sql`MAX(${leaderboard.hasFailed}, ${event === "failure" || event === "fish-sibling-mistake" ? 1 : 0}, CASE WHEN ${leaderboard.gamesPlayed} > 0 AND ${leaderboard.bestScore} < ${playableIds.size} THEN 1 ELSE 0 END)`,
         ...(event === "normal-start" ? { normalAttempts: sql`COALESCE(${leaderboard.normalAttempts}, ${leaderboard.gamesPlayed}) + 1` } : {}),
       },
     });
