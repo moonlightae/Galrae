@@ -50,7 +50,7 @@ export function createLobbySculpture(surface, lobby) {
   ringHole.absarc(0, 0, .28 - stemRadius, 0, Math.PI * 2, true);
   ringShape.holes.push(ringHole);
   const rootRing = new THREE.ExtrudeGeometry(ringShape, { depth: stemRadius * 2, bevelEnabled: false, curveSegments: 48, steps: 1 });
-  rootRing.translate(...paths[0][0]); rootRing.translate(0, -.2, -stemRadius);
+  rootRing.translate(...paths[0][0]); rootRing.translate(0, -.3, -stemRadius);
   pieces.push(rootRing);
   const attributes = { position: [], normal: [], uv: [] };
   for (const part of pieces) {
@@ -68,7 +68,7 @@ export function createLobbySculpture(surface, lobby) {
   }
   geometry.computeBoundingSphere();
   const black = new THREE.Color(0x292d32), white = new THREE.Color(0xffffff);
-  const uniforms = { front: { value: -3.2 }, from: { value: black.clone() }, to: { value: white.clone() } };
+  const uniforms = { front: { value: -3.4 }, from: { value: black.clone() }, to: { value: white.clone() } };
   const material = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: .92, metalness: 0 });
   material.onBeforeCompile = (shader) => {
     shader.uniforms.scFront = uniforms.front; shader.uniforms.scFrom = uniforms.from; shader.uniforms.scTo = uniforms.to;
@@ -148,7 +148,7 @@ export function createLobbySculpture(surface, lobby) {
     uniforms.from.value.copy(settledDark ? white : black);
     uniforms.to.value.copy(desiredDark ? white : black);
     transition = { start: performance.now(), dark: desiredDark };
-    uniforms.front.value = -3.2; requestDraw();
+    uniforms.front.value = -3.4; requestDraw();
   }
   function requestDraw() {
     if (!frame && !lobby.hidden && !document.hidden && inView) frame = requestAnimationFrame(draw);
@@ -159,7 +159,7 @@ export function createLobbySculpture(surface, lobby) {
     updateMotion(dt, now);
     if (transition) {
       const progress = reduced.matches ? 1 : Math.min((now - transition.start) / 1600, 1);
-      uniforms.front.value = -3.2 + progress * progress * (3 - 2 * progress) * 6.7;
+      uniforms.front.value = -3.4 + progress * progress * (3 - 2 * progress) * 6.9;
       if (progress === 1) { settledDark = transition.dark; transition = null; beginFill(); }
     }
     renderer.setRenderTarget(depthTarget); renderer.render(scene, camera);

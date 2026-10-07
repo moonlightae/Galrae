@@ -81,8 +81,11 @@ assert.equal(rings[0].parameters.options.bevelEnabled, false, "The ring must hav
 const outerRadius = rings[0].parameters.shapes.curves[0].xRadius;
 const innerRadius = rings[0].parameters.shapes.holes[0].curves[0].xRadius;
 assert.ok(Math.abs(outerRadius - innerRadius - .29) < .000001, "Ring wall width must match the stem diameter");
+const holeTop = rings[0].boundingBox.getCenter(new Three.Vector3()).y + innerRadius;
+assert.ok(holeTop < -2.55 - .145, "The stem's rounded end must stay outside the ring opening");
+assert.ok(rings[0].boundingBox.max.y > -2.55 - .145, "The ring must remain connected to the stem");
 sculpture.geometry.computeBoundingBox();
-assert.ok(sculpture.geometry.boundingBox.min.y > -3.2 && sculpture.geometry.boundingBox.max.y < 3.5);
+assert.ok(sculpture.geometry.boundingBox.min.y > -3.36 && sculpture.geometry.boundingBox.max.y < 3.46);
 for (const value of sculpture.geometry.getAttribute("position").array) assert.ok(Number.isFinite(value));
 const shader = { uniforms: {}, vertexShader: "#include <begin_vertex>", fragmentShader: "#include <color_fragment>" };
 sculpture.material.onBeforeCompile(shader);
@@ -97,7 +100,7 @@ assert.ok(sculpture.quaternion.angleTo(initialAngle) > .05, "Initial spin needs 
 listeners.pointerdown(pointerEvent(0, 0));
 for (let i = 1; i <= 25; i++) { tick(); listeners.pointermove(pointerEvent(i * 100, 0)); }
 listeners.pointerup(pointerEvent(2500, 0)); listeners.click();
-assert.equal(shader.uniforms.scFront.value, -3.2, "Dragging must not change color");
+assert.equal(shader.uniforms.scFront.value, -3.4, "Dragging must not change color");
 assert.equal(document.documentElement.dataset.theme, "light", "Dragging must not toggle the page theme");
 let angle = sculpture.quaternion.clone(); tick();
 const speed = sculpture.quaternion.angleTo(angle) / .016667;
@@ -122,11 +125,11 @@ assert.ok(sculpture.quaternion.angleTo(afterKeys) < .000001, "Keyboard rotation 
 listeners.click(); tick();
 assert.equal(document.documentElement.dataset.theme, "dark");
 assert.equal(surface.attributes["aria-pressed"], "true");
-assert.ok(shader.uniforms.scFront.value > -3.2 && shader.uniforms.scFront.value < 3.5);
+assert.ok(shader.uniforms.scFront.value > -3.4 && shader.uniforms.scFront.value < 3.5);
 listeners.click(); advance(3500);
 assert.equal(shader.uniforms.scTo.value.getHex(), 0x292d32);
 assert.equal(document.documentElement.dataset.theme, "light");
-assert.equal(shader.uniforms.scFront.value, 3.5);
+assert.ok(Math.abs(shader.uniforms.scFront.value - 3.5) < .000001);
 listeners.click(); advance(1800);
 assert.equal(shader.uniforms.scTo.value.getHex(), 0xffffff);
 assert.equal(document.documentElement.dataset.theme, "dark");
