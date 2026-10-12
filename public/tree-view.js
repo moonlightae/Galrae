@@ -16,17 +16,17 @@ export function createTreeView({ ANIMALIA_ID, buildTree, escapeHtml, speciesById
   }
 
   function layoutRectangularTree(tree) {
-    const gap = 32;
-    const levelHeight = 120;
-    function arrange(node, depth = 0) {
-      const descendants = node.type === "leaf" ? [] : node.children.map((child) => arrange(child, depth + 1)).sort((a, b) => b.leaves - a.leaves);
-      const children = [];
-      descendants.forEach((child, index) => { if (index % 2) children.push(child); else children.unshift(child); });
-      if (depth % 2) children.reverse();
-      const halfWidth = node.type === "leaf" ? 78 : node === tree ? 96 : 9;
+    const gap = 56;
+    const levelHeight = 152;
+    function arrange(node) {
+      const children = node.type === "leaf" ? [] : node.children.map(arrange);
+      const halfWidth = node.type === "leaf" ? 84 : node === tree ? 96 : 9;
       const left = [], right = [];
       for (const child of children) {
-        child.offset = left.length ? Math.max(...child.left.map((value, depth) => depth < right.length ? right[depth] + gap - value : 0)) : 0;
+        const compactOffset = left.length ? Math.max(...child.left.map((value, depth) => depth < right.length ? right[depth] + gap - value : 0)) : 0;
+        const spaciousOffset = left.length ? Math.max(...right) + gap - Math.min(...child.left) : 0;
+        // Reserve some space for the whole subtree without returning to the old excessive width.
+        child.offset = compactOffset + (spaciousOffset - compactOffset) * .35;
         child.left.forEach((value, depth) => {
           left[depth] = Math.min(left[depth] ?? Infinity, value + child.offset);
           right[depth] = Math.max(right[depth] ?? -Infinity, child.right[depth] + child.offset);
@@ -34,7 +34,7 @@ export function createTreeView({ ANIMALIA_ID, buildTree, escapeHtml, speciesById
       }
       const center = children.length ? (children[0].offset + children.at(-1).offset) / 2 : 0;
       children.forEach((child) => { child.offset -= center; });
-      return { node, children, leaves: node.type === "leaf" ? 1 : children.reduce((sum, child) => sum + child.leaves, 0), left: [-halfWidth, ...left.map((value) => value - center)], right: [halfWidth, ...right.map((value) => value - center)] };
+      return { node, children, left: [-halfWidth, ...left.map((value) => value - center)], right: [halfWidth, ...right.map((value) => value - center)] };
     }
     const root = arrange(tree);
     const min = Math.min(...root.left), max = Math.max(...root.right);
@@ -43,7 +43,7 @@ export function createTreeView({ ANIMALIA_ID, buildTree, escapeHtml, speciesById
       entry.children.forEach((child) => position(child, x + child.offset, depth + 1));
     }
     position(root, 24 - min, 0);
-    return { root, width: max - min + 48, height: (root.left.length - 1) * levelHeight + 112 };
+    return { root, width: max - min + 48, height: (root.left.length - 1) * levelHeight + 120 };
   }
 
   function layoutRadialTree(tree) {
@@ -52,7 +52,7 @@ export function createTreeView({ ANIMALIA_ID, buildTree, escapeHtml, speciesById
       ? depth - 1 : Math.max(depth, ...node.children.map((child) => deepestBranch(child, depth + 1)));
     const count = Math.max(leafCount(tree), 1);
     const branchDepth = Math.max(deepestBranch(tree), 0);
-    const radius = Math.max(220, count * 148 / (2 * Math.PI), (branchDepth + 1) * 96);
+    const radius = Math.max(260, count * 224 / (2 * Math.PI), (branchDepth + 1) * 112);
     const size = Math.ceil((radius + 120) * 2);
     const center = size / 2;
     let leafIndex = 0;
@@ -99,9 +99,16 @@ export function createTreeView({ ANIMALIA_ID, buildTree, escapeHtml, speciesById
       for (const child of entry.children) visit(child, entry);
     }
     visit(root);
+    const firstChild = root.children[0];
+    let trunkEnd = root.y;
+    if (!radial && firstChild) {
+      trunkEnd = (root.y + firstChild.y) / 2;
+      if (root.children.length === 1) trunkEnd = firstChild.y - (firstChild.node.type === "leaf" ? 36 : 9);
+    }
+    const trunkHeight = Math.max(0, trunkEnd - root.y - 16);
     controls.push(radial
       ? `<button class="radial-root-target tree-root" type="button" style="left:${root.x}px;top:${root.y}px" data-target="${ANIMALIA_ID}" data-placement="top" aria-label="동물계 전체 가지에 배치">Animalia</button>`
-      : `<span class="tree-root-anchor" style="left:${root.x}px;top:${root.y}px"><span class="tree-root">Animalia common ancestor</span><button class="root-wrap-target${root.children.length === 1 ? " is-long" : ""}" type="button" style="height:${root.children.length === 1 ? 104 - (root.children[0].node.type === "leaf" ? 32 : 9) : 44}px" data-target="${ANIMALIA_ID}" data-placement="top" aria-label="동물계 전체 가지에 배치"></button></span>`);
+      : `<span class="tree-root-anchor" style="left:${root.x}px;top:${root.y}px"><span class="tree-root">Animalia common ancestor</span><button class="root-wrap-target${root.children.length === 1 ? " is-long" : ""}" type="button" style="height:${trunkHeight}px" data-target="${ANIMALIA_ID}" data-placement="top" aria-label="동물계 전체 가지에 배치"></button></span>`);
     return `<div class="${radial ? "radial-tree" : `phylo-tree layout-${state.layout}`} base-tree${answer ? " answer-tree" : ""}" data-size="${Math.max(width, height)}" data-width="${width}" data-height="${height}" style="width:${width}px;height:${height}px"><svg class="tree-links" width="${width}" height="${height}" aria-hidden="true">${lines.join("")}</svg>${controls.join("")}</div>`;
   }
 

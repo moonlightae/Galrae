@@ -184,7 +184,7 @@ button, [role="button"] { -webkit-tap-highlight-color: transparent; }
 .radial-root-target, .radial-tree .species-node, .radial-tree .clade-node { position: absolute; z-index: 2; transform: translate(-50%, -50%); }
 .radial-edge-target { position: absolute; transform: translate(-50%, -50%); }
 .radial-root-target { min-width: 118px; min-height: 42px; cursor: pointer; }
-.radial-tree .species-node { min-width: 88px; max-width: 156px; min-height: 42px; padding: 7px 9px; overflow: visible; line-height: 1.2; }
+.radial-tree .species-node { width: 168px; min-width: 0; max-width: 168px; min-height: 72px; padding: 8px; overflow: visible; font-size: .85rem; line-height: 1.35; overflow-wrap: anywhere; }
 .radial-tree .species-node:hover, .radial-tree .species-node.is-drop-target { transform: translate(-50%, calc(-50% - 3px)); }
 .radial-tree .species-node.is-new { animation: none; }
 .radial-tree .clade-node:hover, .radial-tree .clade-node.is-drop-target { transform: translate(-50%, -50%) scale(1.35); }
@@ -587,7 +587,7 @@ button:focus-visible, [role="button"]:focus-visible, .primary-button:focus-visib
 .tree-edge.is-recent-mistake-path, .answer-tree .tree-edge.is-answer-path { stroke: #88b94a; stroke-width: 3; }
 .phylo-tree > .species-node, .phylo-tree > .tree-root-anchor { position: absolute; z-index: 2; transform: translate(-50%, -50%); }
 .phylo-tree > .clade-node, .phylo-tree > .edge-target { position: absolute; transform: translate(-50%, -50%); }
-.phylo-tree > .species-node { width: 156px; min-width: 0; min-height: 64px; padding: 8px; font-size: .75rem; line-height: 1.3; overflow-wrap: anywhere; }
+.phylo-tree > .species-node { width: 168px; min-width: 0; min-height: 72px; padding: 8px; font-size: .85rem; line-height: 1.35; overflow-wrap: anywhere; }
 .phylo-tree > .species-node:hover, .phylo-tree > .species-node.is-drop-target { transform: translate(-50%, calc(-50% - 3px)); }
 .phylo-tree.layout-bottom > .species-node { transform: translate(-50%, -50%) scaleY(-1); }
 .phylo-tree.layout-bottom > .species-node:hover, .phylo-tree.layout-bottom > .species-node.is-drop-target { transform: translate(-50%, calc(-50% + 3px)) scaleY(-1); }
@@ -624,7 +624,7 @@ button:focus-visible, [role="button"]:focus-visible, .primary-button:focus-visib
 .dialog-close { border-radius: 50%; }
 .loading-spinner { border-color: var(--line); border-top-color: var(--ink); }
 .tutorial-banner { border-left: 4px solid var(--ink); }
-.mode-options span, .leaderboard-player small, .leaderboard-stat small, .mini-card small, .mini-card p, .mini-card-credit, .card-kicker, .card-topline, .card-footer, .image-credit, .auth-link, .auth-login, .admin-badge, .radial-tree .species-node { font-size: .75rem; }
+.mode-options span, .leaderboard-player small, .leaderboard-stat small, .mini-card small, .mini-card p, .mini-card-credit, .card-kicker, .card-topline, .card-footer, .image-credit, .auth-link, .auth-login, .admin-badge { font-size: .75rem; }
 @media (max-width: 560px) {
   .tree-toolbar { background: var(--surface); border: 1px solid var(--line); box-shadow: 0 3px 12px rgba(32, 38, 43, .06); }
 }

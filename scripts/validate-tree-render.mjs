@@ -3,7 +3,7 @@ import { readFileSync } from "node:fs";
 import vm from "node:vm";
 
 await import(new URL("../public/game-logic.js", import.meta.url));
-const { ANIMALIA_ID, buildTree } = globalThis.GalraeLogic;
+const { ANIMALIA_ID, buildTree, collectLeafIds } = globalThis.GalraeLogic;
 const dataset = JSON.parse(readFileSync(new URL("../data/animals.json", import.meta.url), "utf8"));
 const speciesById = new Map(dataset.animals.map((animal) => [animal.id, animal]));
 const appSource = readFileSync(new URL("../public/tree-view.js", import.meta.url), "utf8");
@@ -86,22 +86,54 @@ for (const ids of [[humanId], [humanId, mantisId], dataset.animals.slice(0, 40).
   const layout = context.layoutRectangularTree(buildTree(ids, speciesById));
   const rows = new Map();
   function inspectPosition(entry, isRoot = false) {
-    const halfWidth = entry.node.type === "leaf" ? 78 : isRoot ? 96 : 9;
+    const halfWidth = entry.node.type === "leaf" ? 84 : isRoot ? 96 : 9;
     assert.ok(entry.x - halfWidth >= 24 - 1e-8 && entry.x + halfWidth <= layout.width - 24 + 1e-8, "Every card/branch must fit inside the camera bounds");
     if (!rows.has(entry.y)) rows.set(entry.y, []);
     rows.get(entry.y).push({ x: entry.x, halfWidth });
     if (entry.children.length) assert.ok(Math.abs(entry.x - (entry.children[0].x + entry.children.at(-1).x) / 2) < 1e-8, "Parents must sit halfway between the outer child branches");
-    entry.children.forEach((child) => inspectPosition(child));
+    assert.deepEqual(Array.from(entry.children, (child) => child.node.id), entry.node.type === "leaf" ? [] : entry.node.children.map((child) => child.id), "Centering must preserve the existing branch order");
+    entry.children.forEach((child) => {
+      assert.equal(child.y - entry.y, 152, "Each generation needs enough space for labels and placement targets");
+      inspectPosition(child);
+    });
   }
   inspectPosition(layout.root, true);
   for (const row of rows.values()) {
     row.sort((a, b) => a.x - b.x);
-    for (let i = 1; i < row.length; i++) assert.ok(row[i].x - row[i].halfWidth - (row[i - 1].x + row[i - 1].halfWidth) >= 32 - 1e-8, "Uneven subtrees must not overlap");
+    for (let i = 1; i < row.length; i++) assert.ok(row[i].x - row[i].halfWidth - (row[i - 1].x + row[i - 1].halfWidth) >= 56 - 1e-8, "Cards and branch groups must retain readable gaps");
   }
   const left = Math.min(...[...rows.values()].flat().map((node) => node.x - node.halfWidth));
   const right = Math.max(...[...rows.values()].flat().map((node) => node.x + node.halfWidth));
   assert.ok(Math.abs((left + right) / 2 - layout.width / 2) < 1e-8, "The actual drawing bounds must be centered");
 }
+
+function positionedLeafIds(entry) {
+  return entry.node.type === "leaf" ? [entry.node.id] : Array.from(entry.children).flatMap(positionedLeafIds);
+}
+for (const order of [dataset.animals.map((animal) => animal.id), dataset.animals.map((animal) => animal.id).reverse()]) {
+  let previous = [];
+  for (let count = 1; count <= order.length; count++) {
+    const tree = buildTree(order.slice(0, count), speciesById);
+    const layout = context.layoutRectangularTree(tree);
+    const leaves = positionedLeafIds(layout.root);
+    assert.deepEqual(leaves, collectLeafIds(tree), "Layout must not sort or mirror the game's branch order");
+    const previousIds = new Set(previous);
+    assert.deepEqual(leaves.filter((id) => previousIds.has(id)), previous, "Adding a species must not flip existing branches");
+    previous = leaves;
+  }
+}
+const radialCards = [];
+function collectRadialCards(entry) {
+  if (entry.node.type === "leaf") radialCards.push(entry);
+  entry.children.forEach(collectRadialCards);
+}
+collectRadialCards(radial.root);
+for (let i = 0; i < radialCards.length; i++) {
+  for (let j = i + 1; j < radialCards.length; j++) {
+    assert.ok(Math.abs(radialCards[i].x - radialCards[j].x) >= 192 || Math.abs(radialCards[i].y - radialCards[j].y) >= 96, "Circular cards need room for readable labels and answer badges");
+  }
+}
+assert.match(inspect([humanId]), /root-wrap-target is-long[^>]*height:100px/, "The initial trunk target must follow the taller spacing");
 context.state.mistakes = new Set([humanId, ctenophoreId]);
 context.state.latestMistake = ctenophoreId;
 for (const layout of ["top", "bottom", "radial"]) {
