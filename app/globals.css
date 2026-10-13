@@ -181,13 +181,12 @@ button, [role="button"] { -webkit-tap-highlight-color: transparent; }
 .layout-bottom .species-node.is-new { animation: none; }
 .radial-tree { position: relative; }
 .tree-links { position: absolute; inset: 0; overflow: visible; pointer-events: none; }
-.radial-root-target, .radial-tree .species-node, .radial-tree .clade-node { position: absolute; z-index: 2; transform: translate(-50%, -50%); }
-.radial-root-target { min-width: 118px; min-height: 42px; cursor: pointer; }
+.radial-tree > .tree-root-anchor, .radial-tree .species-node, .radial-tree .clade-node { position: absolute; z-index: 2; transform: translate(-50%, -50%); }
 .radial-tree .species-node { width: 168px; min-width: 0; max-width: 168px; min-height: 72px; padding: 8px; overflow: visible; font-size: .85rem; line-height: 1.35; overflow-wrap: anywhere; }
 .radial-tree .species-node:hover, .radial-tree .species-node.is-drop-target { transform: translate(-50%, calc(-50% - 3px)); }
 .radial-tree .species-node.is-new { animation: none; }
 .radial-tree .clade-node:hover, .radial-tree .clade-node.is-drop-target { transform: translate(-50%, -50%) scale(1.35); }
-.radial-tree .species-node, .radial-tree .clade-node, .radial-root-target { z-index: 4; }
+.radial-tree .species-node, .radial-tree .clade-node { z-index: 4; }
 .tree-root { display: inline-block; padding: 7px 12px; border-radius: 999px; font-size: .75rem; font-weight: 700; }
 .tree-root-anchor { position: relative; display: inline-flex; vertical-align: top; }
 .tree-pillar {
@@ -547,11 +546,11 @@ button:focus-visible, [role="button"]:focus-visible, .primary-button:focus-visib
 .tree-zoom-controls { background: transparent; border: 0; }
 .tree-zoom-controls button:hover, .tree-reset-view:hover { color: var(--ink); background: var(--surface-muted); border: 0; }
 .tree-zoom-status, .game-progress span + span, .tree-canvas-help { color: var(--muted); }
-.tree-root, .radial-root-target, .clade-node:hover, .clade-node.is-drop-target, .species-node.is-preview, .ghost-tag, .preview-tag { color: var(--ink); background: var(--surface); box-shadow: 0 2px 7px rgba(32, 38, 43, .07); }
-.radial-root-target:hover, .radial-root-target.is-drop-target, .species-node, .species-node:hover, .species-node.is-drop-target, .clade-node, .clade-node.is-preview, .answer-tree .clade-node.is-preview, .ghost-junction, .ghost-card { color: var(--ink); background: var(--surface); border-color: var(--edge); box-shadow: 0 2px 7px rgba(32, 38, 43, .07); }
+.tree-root, .clade-node:hover, .clade-node.is-drop-target, .species-node.is-preview, .ghost-tag, .preview-tag { color: var(--ink); background: var(--surface); box-shadow: 0 2px 7px rgba(32, 38, 43, .07); }
+.species-node, .species-node:hover, .species-node.is-drop-target, .clade-node, .clade-node.is-preview, .answer-tree .clade-node.is-preview, .ghost-junction, .ghost-card { color: var(--ink); background: var(--surface); border-color: var(--edge); box-shadow: 0 2px 7px rgba(32, 38, 43, .07); }
 .answer-tree .preview-tag { box-shadow: 0 2px 7px rgba(32, 38, 43, .07); }
-.tree-root, .radial-root-target { border: 1px solid var(--edge); }
-.species-node:hover, .species-node.is-drop-target, .radial-root-target:hover, .radial-root-target.is-drop-target { outline: 2px solid var(--ink); outline-offset: 2px; }
+.tree-root { border: 1px solid var(--edge); }
+.species-node:hover, .species-node.is-drop-target { outline: 2px solid var(--ink); outline-offset: 2px; }
 .clade-node:hover, .clade-node.is-drop-target, .radial-edge-target:hover, .radial-edge-target.is-drop-target { border-color: var(--ink); }
 .species-node.is-preview { border: 2px dashed var(--ink); }
 .preview-tag, .ghost-tag { border: 1px solid var(--edge); font-size: .7rem; }

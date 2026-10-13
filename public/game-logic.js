@@ -176,7 +176,7 @@
     const wantedKey = [...existingIds].sort().join("|");
     const existingParent = findNodeById(beforeTree, parent.id);
 
-    if (existingParent && existingParent.type === "branch" && leafSetKey(existingParent) === wantedKey) {
+    if (existingParent && existingParent.type === "branch" && existingParent.children.length > 1 && leafSetKey(existingParent) === wantedKey) {
       return { targetId: existingParent.id, placement: "join", ancestorId: parent.id };
     }
 
@@ -190,15 +190,6 @@
     const target = findNodeById(tree, targetId);
     const expectedTarget = findNodeById(tree, expected.targetId);
     if (!target || !expectedTarget) return false;
-
-    // The whole-tree pillar wraps; joining Animalia requires its circular target.
-    const completeTreeKey = leafSetKey(tree);
-    if (placement === "top") {
-      return targetId === ANIMALIA_ID
-        && expected.placement === "wrap"
-        && leafSetKey(target) === completeTreeKey
-        && leafSetKey(expectedTarget) === completeTreeKey;
-    }
 
     return placement === "wrap"
       && expected.placement === "wrap"

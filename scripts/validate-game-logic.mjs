@@ -169,7 +169,7 @@ const spongePlacement = getExpectedPlacement([cnidarianId, humanId], spongeId, s
 assert.equal(spongePlacement.placement, "wrap");
 assert.notEqual(spongePlacement.targetId, ANIMALIA_ID);
 assert.ok(
-  isEquivalentPlacement(planulozoaTree, spongePlacement, ANIMALIA_ID, "top"),
+  isEquivalentPlacement(planulozoaTree, spongePlacement, spongePlacement.targetId, "wrap"),
   "The Animalia trunk must accept a placement that wraps the complete sampled tree",
 );
 
@@ -178,8 +178,8 @@ const humanOnlyTree = buildTree([humanId], speciesById);
 const placozoanPlacement = getExpectedPlacement([humanId], placozoanId, speciesById);
 assert.deepEqual(
   placozoanPlacement,
-  { targetId: ANIMALIA_ID, placement: "join", ancestorId: ANIMALIA_ID },
-  "Placozoa must join the sampled Animalia root",
+  { targetId: humanId, placement: "wrap", ancestorId: ANIMALIA_ID },
+  "With one species, Placozoa must create the first real branch",
 );
 assert.ok(
   !isEquivalentPlacement(humanOnlyTree, placozoanPlacement, ANIMALIA_ID, "top"),
@@ -192,12 +192,12 @@ assert.ok(
   "Ctenophora must use the root circle instead of the trunk",
 );
 assert.ok(
-  !isEquivalentPlacement(humanOnlyTree, placozoanPlacement, humanId, "wrap"),
-  "A species card must not substitute for the root circle",
+  isEquivalentPlacement(humanOnlyTree, placozoanPlacement, humanId, "wrap"),
+  "The initial species uses the same wrap mechanism as any other leaf",
 );
 assert.ok(
-  !isEquivalentPlacement(humanOnlyTree, ctenophorePlacement, humanId, "wrap"),
-  "A species card must not substitute for a Ctenophora root join",
+  isEquivalentPlacement(humanOnlyTree, ctenophorePlacement, humanId, "wrap"),
+  "Ctenophora creates the first branch using the regular species target",
 );
 
 for (const [first, next] of [[placozoanId, ctenophoreId], [ctenophoreId, placozoanId]]) {
@@ -234,7 +234,7 @@ assert.equal(
   false,
   "Join and wrap must remain distinct inside a multi-level tree",
 );
-assert.match(appSource, /"root-wrap-target", ANIMALIA_ID, "top"/, "The whole-tree pillar must remain available");
+assert.doesNotMatch(appSource, /root-wrap-target|singleTrunk|data-placement="top"/, "Rendering must not have a special top-level placement mechanism");
 assert.doesNotMatch(appSource, /<button class="tree-root"/, "The Animalia label must not be a duplicate drop target");
 
 const legacyCounts = seedSuccessCounts([humanId, ctenophoreId], humanId);
@@ -254,7 +254,8 @@ for (const [index, speciesId] of tutorialQueue.entries()) {
   const tree = buildTree(tutorialClassified, speciesById);
   const expected = getExpectedPlacement(tutorialClassified, speciesId, speciesById);
   if (index === 0) {
-    assert.ok(isEquivalentPlacement(tree, expected, ANIMALIA_ID, "join"), "First tutorial card belongs on the root circle");
+    assert.ok(isEquivalentPlacement(tree, expected, humanId, "wrap"), "First tutorial card creates a branch around Human");
+    assert.ok(!isEquivalentPlacement(tree, expected, ANIMALIA_ID, "join"), "A unary root must not act as an existing split");
     assert.ok(!isEquivalentPlacement(tree, expected, ANIMALIA_ID, "top"), "First tutorial card must reject the whole-tree pillar");
   } else {
     assert.equal(expected.placement, index === 2 ? "join" : "wrap");

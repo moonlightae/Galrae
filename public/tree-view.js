@@ -81,44 +81,42 @@ export function createTreeView({ ANIMALIA_ID, buildTree, escapeHtml, speciesById
     function renderPillar(start, end, buttonClass, targetId, placement, edgeClass) {
       const length = Math.hypot(end.x - start.x, end.y - start.y);
       const angle = Math.atan2(end.y - start.y, end.x - start.x) * 180 / Math.PI - 90;
-      return `<span class="tree-pillar" style="left:${start.x}px;top:${start.y}px;height:${length}px;--pillar-angle:${angle}deg"><svg class="pillar-line" width="36" height="${length}" aria-hidden="true"><line class="${edgeClass}" x1="18" y1="0" x2="18" y2="${length}" /></svg><button class="${buttonClass}" type="button" data-target="${escapeHtml(targetId)}" data-placement="${placement}" aria-label="${placement === "top" ? "동물계 전체 가지에 배치" : "이 가지에서 새로운 공통 조상 만들기"}"></button></span>`;
+      return `<span class="tree-pillar" style="left:${start.x}px;top:${start.y}px;height:${length}px;--pillar-angle:${angle}deg"><svg class="pillar-line" width="36" height="${length}" aria-hidden="true"><line class="${edgeClass}" x1="18" y1="0" x2="18" y2="${length}" /></svg><button class="${buttonClass}" type="button" data-target="${escapeHtml(targetId)}" data-placement="${placement}" aria-label="이 가지에서 새로운 공통 조상 만들기"></button></span>`;
     }
     function visit(entry, parent = null) {
       const { node, x, y } = entry;
+      if (node.type === "branch" && entry.children.length === 1) {
+        visit(entry.children[0], parent);
+        return;
+      }
+      const edgeClass = `tree-edge${node.preview ? " is-answer-path" : ""}${state.mistakes?.has(node.id) ? " is-mistake-path" : ""}${state.latestMistake === node.id ? " is-recent-mistake-path" : ""}`;
       if (parent) {
-        const edgeClass = `tree-edge${node.preview ? " is-answer-path" : ""}${state.mistakes?.has(node.id) ? " is-mistake-path" : ""}${state.latestMistake === node.id ? " is-recent-mistake-path" : ""}`;
         const middleY = (parent.y + y) / 2;
-        const singleTrunk = parent === root && root.children.length === 1;
         if (radial) {
-          if (singleTrunk) controls.push(renderPillar(parent, entry, "root-wrap-target is-long", ANIMALIA_ID, "top", edgeClass));
-          else if (node.type === "leaf") lines.push(`<line class="${edgeClass}" x1="${parent.x}" y1="${parent.y}" x2="${x}" y2="${y}" />`);
+          if (node.type === "leaf") lines.push(`<line class="${edgeClass}" x1="${parent.x}" y1="${parent.y}" x2="${x}" y2="${y}" />`);
         } else {
-          lines.push(`<path class="${edgeClass}" d="M${parent.x} ${middleY} H${x}${node.type === "leaf" && !singleTrunk ? ` V${y}` : ""}" />`);
+          lines.push(`<path class="${edgeClass}" d="M${parent.x} ${middleY} H${x}${node.type === "leaf" ? ` V${y}` : ""}" />`);
         }
-        if (node.type === "branch" && !singleTrunk) {
+        if (node.type === "branch") {
           const start = radial ? parent : { x, y: middleY };
           const end = radial ? entry : { x, y: junctionY(entry) };
           controls.push(renderPillar(start, end, radial ? "radial-edge-target" : "edge-target", node.id, "wrap", edgeClass));
         }
+      } else {
+        const start = { x: root.x, y: root.y + (radial ? -52 : 16) };
+        const end = radial ? entry : { x, y: node.type === "leaf" ? y - 36 : junctionY(entry) };
+        controls.push(renderPillar(start, end, radial ? "radial-edge-target" : "edge-target", node.id, "wrap", edgeClass));
       }
       if (node.type === "leaf") {
         controls.push(renderNode(node, x, y));
-      } else {
+      } else if (entry.children.length > 1) {
         controls.push(`<button class="clade-node" type="button" style="left:${x}px;top:${junctionY(entry)}px" data-target="${escapeHtml(node.id)}" data-placement="join" aria-label="이 공통 조상에 가지 추가하기"></button>`);
       }
       for (const child of entry.children) visit(child, entry);
     }
     visit(root);
-    const firstChild = root.children[0];
-    let trunkEnd = root.y;
-    if (!radial && firstChild) {
-      trunkEnd = junctionY(root);
-      if (root.children.length === 1) trunkEnd = firstChild.node.type === "leaf" ? firstChild.y - 36 : junctionY(firstChild) - 9;
-    }
-    if (!radial) controls.push(renderPillar({ x: root.x, y: root.y + 16 }, { x: root.x, y: trunkEnd }, `root-wrap-target${root.children.length === 1 ? " is-long" : ""}`, ANIMALIA_ID, "top", "tree-edge"));
-    if (radial && root.children.length !== 1) controls.push(renderPillar({ x: root.x, y: root.y - 52 }, { x: root.x, y: root.y - 9 }, "root-wrap-target", ANIMALIA_ID, "top", "tree-edge"));
     controls.push(radial
-      ? `<span class="radial-root-target tree-root" style="left:${root.x}px;top:${root.y - 76}px;pointer-events:none">Animalia</span>`
+      ? `<span class="tree-root-anchor" style="left:${root.x}px;top:${root.y - 76}px"><span class="tree-root">Animalia</span></span>`
       : `<span class="tree-root-anchor" style="left:${root.x}px;top:${root.y}px"><span class="tree-root">Animalia common ancestor</span></span>`);
     return `<div class="${radial ? "radial-tree" : `phylo-tree layout-${state.layout}`} base-tree${answer ? " answer-tree" : ""}" data-size="${Math.max(width, height)}" data-width="${width}" data-height="${height}" style="width:${width}px;height:${height}px"><svg class="tree-links" width="${width}" height="${height}" aria-hidden="true">${lines.join("")}</svg>${controls.join("")}</div>`;
   }
