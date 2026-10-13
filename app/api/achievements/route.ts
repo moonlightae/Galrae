@@ -3,7 +3,7 @@ import { getDb } from "../../../db";
 import { classifiedSpecies, leaderboard } from "../../../db/schema";
 import { animals } from "../../../public/data/animals.json";
 import { getGameUser } from "../../game-auth";
-import { isFishSiblingMistake } from "../../../public/achievements.js";
+import { isClassificationPolytomyMistake } from "../../../public/achievements.js";
 
 export const dynamic = "force-dynamic";
 const playableIds = new Set(animals.filter((animal) => animal.id !== "homo-sapiens").map((animal) => animal.id));
@@ -60,8 +60,8 @@ export async function POST(request: Request) {
       || !classified.includes("homo-sapiens") || new Set(classified).size !== classified.length
       || !classified.every((id) => typeof id === "string" && speciesById.has(id))
       || typeof currentId !== "string" || !playableIds.has(currentId) || classified.includes(currentId)
-      || typeof targetId !== "string" || placement !== "wrap"
-      || !isFishSiblingMistake(classified, currentId, targetId, placement, speciesById)) {
+      || typeof targetId !== "string" || placement !== "join"
+      || !isClassificationPolytomyMistake(classified, currentId, targetId, placement, speciesById)) {
       return Response.json({ error: "특별 발전과제의 오분류 조건에 맞지 않습니다." }, { status: 400 });
     }
   }

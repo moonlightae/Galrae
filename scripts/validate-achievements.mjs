@@ -5,7 +5,7 @@ import { createRequire } from "node:module";
 import { DatabaseSync } from "node:sqlite";
 import ts from "typescript";
 import { drizzle } from "drizzle-orm/d1";
-import { achievementGrades, getAchievements, isFishSiblingMistake } from "../public/achievements.js";
+import { achievementGrades, getAchievements, isClassificationPolytomyMistake } from "../public/achievements.js";
 
 const dataset = JSON.parse(fs.readFileSync(new URL("../public/data/animals.json", import.meta.url)));
 const total = dataset.animals.length - 1;
@@ -59,7 +59,7 @@ const auth = { getGameUser: async () => user };
 const route = loadTS("../app/api/achievements/route.ts", {
   "../../game-auth": auth, "../../../db": { getDb: () => db }, "../../../db/schema": schema,
   "../../../public/data/animals.json": dataset,
-  "../../../public/achievements.js": { isFishSiblingMistake },
+  "../../../public/achievements.js": { isClassificationPolytomyMistake },
 });
 const post = async (body) => route.POST(new Request("https://local/api/achievements", { method: "POST", body: JSON.stringify(body) }));
 const stats = async () => (await (await route.GET()).json()).stats;
@@ -97,63 +97,53 @@ for (const id of ids) insert.run(id, 40);
 insert.run("homo-sapiens", 500); insert.run("unknown-species", 500);
 data = await stats(); assert.equal(data.collected, 25); assert.equal(data.totalSuccesses, 1000); assert.equal(data.repeatSuccesses, 40);
 assert.equal(getAchievements(data, total).find((task) => task.id === "successes-1000").earned, true);
-const classified = ["homo-sapiens", "lepisosteus-osseus", "anguilla-anguilla"];
 const speciesById = new Map(dataset.animals.map((animal) => [animal.id, animal]));
 const { buildTree, collectLeafIds, getExpectedPlacement } = globalThis.GalraeLogic;
-const fishBranch = buildTree(classified, speciesById).children.flatMap((node) => node.children || []).find((node) => collectLeafIds(node).length === 2);
-assert.ok(fishBranch, "Find the sampled fish clade");
-const special = { event: "fish-sibling-mistake", classified, currentId: "canis-lupus", targetId: fishBranch.id, placement: "wrap" };
-for (const currentId of ["canis-lupus", "gallus-gallus", "ambystoma-mexicanum", "alligator-mississippiensis"]) {
-  assert.ok(speciesById.has(currentId), currentId);
-  assert.equal(isFishSiblingMistake(classified, currentId, fishBranch.id, "wrap", speciesById), true, currentId);
+function splitBranch(ids) {
+  let node = buildTree(ids, speciesById);
+  while (node.type === "branch" && node.children.length === 1) node = node.children[0];
+  return node;
 }
-assert.equal(isFishSiblingMistake(classified, "canis-lupus", fishBranch.id, "join", speciesById), false);
-assert.equal(isFishSiblingMistake(classified, "canis-lupus", "lepisosteus-osseus", "wrap", speciesById), false);
-assert.equal(isFishSiblingMistake(classified, "canis-lupus", "Q729", "wrap", speciesById), false, "Mixed fish/tetrapod branches must not count");
-assert.equal(isFishSiblingMistake(classified, "electrophorus-electricus", fishBranch.id, "wrap", speciesById), false, "A fish card must not count");
-const correct = getExpectedPlacement(classified, "canis-lupus", speciesById);
-assert.equal(isFishSiblingMistake(classified, "canis-lupus", correct.targetId, correct.placement, speciesById), false);
-const fishOnly = classified.slice(1);
-const fishOnlyCorrect = getExpectedPlacement(fishOnly, "canis-lupus", speciesById);
-assert.equal(isFishSiblingMistake(fishOnly, "canis-lupus", fishOnlyCorrect.targetId, fishOnlyCorrect.placement, speciesById), false, "A genuinely correct fish sibling placement must not count");
-const sharkIds = ["homo-sapiens", "sphyrna-mokarran", "carcharodon-carcharias"];
-const sharkTree = buildTree(sharkIds, speciesById);
-function fishClade(node) {
-  if (collectLeafIds(node).length === 2 && !collectLeafIds(node).includes("homo-sapiens")) return node;
-  return (node.children || []).map(fishClade).find(Boolean);
+const representatives = ["anguilla-anguilla", "alligator-mississippiensis", "gallus-gallus", "ambystoma-mexicanum", "homo-sapiens"];
+for (let a = 0; a < representatives.length; a++) {
+  for (let b = a + 1; b < representatives.length; b++) {
+    for (let c = b + 1; c < representatives.length; c++) {
+      const triple = [representatives[a], representatives[b], representatives[c]];
+      for (const currentId of triple) {
+        const classified = triple.filter((id) => id !== currentId);
+        const target = splitBranch(classified);
+        assert.equal(isClassificationPolytomyMistake(classified, currentId, target.id, "join", speciesById), true, triple.join(","));
+        assert.equal(isClassificationPolytomyMistake(classified, currentId, target.id, "wrap", speciesById), false, "A new two-way split must not count");
+        const correct = getExpectedPlacement(classified, currentId, speciesById);
+        assert.equal(isClassificationPolytomyMistake(classified, currentId, correct.targetId, correct.placement, speciesById), false);
+      }
+    }
+  }
 }
-assert.equal(isFishSiblingMistake(sharkIds, "canis-lupus", fishClade(sharkTree).id, "wrap", speciesById), true, "Cartilaginous fish groups must count too");
-for (const bad of [{}, { classified: ["homo-sapiens", "unknown"] }, { classified: [...classified, classified[1]] }, { currentId: "homo-sapiens" }, { targetId: "lepisosteus-osseus" }, { placement: "join" }, { currentId: "electrophorus-electricus" }, { targetId: "Q729" }]) {
+const classified = ["homo-sapiens", "gallus-gallus"];
+const target = splitBranch(classified);
+const special = { event: "fish-sibling-mistake", classified, currentId: "anguilla-anguilla", targetId: target.id, placement: "join" };
+assert.equal(isClassificationPolytomyMistake(classified, "carcharodon-carcharias", target.id, "join", speciesById), true, "Cartilaginous fish count");
+assert.equal(isClassificationPolytomyMistake(classified, "canis-lupus", target.id, "join", speciesById), false, "Three cards in only two groups must not count");
+assert.equal(isClassificationPolytomyMistake(classified, "ascaris-lumbricoides", target.id, "join", speciesById), false);
+const nested = [...classified, "anguilla-anguilla"];
+const grouped = [...classified, "canis-lupus"];
+assert.equal(isClassificationPolytomyMistake(grouped, special.currentId, target.id, "join", speciesById), true, "A mammal branch containing human and dog counts as one group");
+const nestedTarget = splitBranch(nested);
+assert.equal(isClassificationPolytomyMistake(nested, "ambystoma-mexicanum", nestedTarget.id, "join", speciesById), false, "Groups inside a shared child are not direct branches of this split");
+assert.equal(isClassificationPolytomyMistake(["homo-sapiens", "canis-lupus"], "felis-catus", splitBranch(["homo-sapiens", "canis-lupus"]).id, "join", speciesById), false, "Three mammals must not count");
+for (const bad of [{}, { classified: ["homo-sapiens", "unknown"] }, { classified: [...classified, classified[1]] }, { currentId: "homo-sapiens" }, { targetId: "gallus-gallus" }, { placement: "wrap" }, { currentId: "canis-lupus" }, { currentId: "ascaris-lumbricoides" }]) {
   assert.equal((await post(Object.keys(bad).length ? { ...special, ...bad } : { event: special.event })).status, 400);
 }
 assert.equal((await stats()).fishSiblingMistake, false, "Rejected placements must not earn the medal");
 assert.equal((await post(special)).status, 200);
 assert.equal((await post(special)).status, 200);
 assert.equal((await stats()).fishSiblingMistake, true);
-assert.equal(getAchievements(await stats(), total).find((task) => task.id === "fish-sibling").earned, true);
+const medal = getAchievements(await stats(), total).find((task) => task.id === "fish-sibling");
+assert.equal(medal.earned, true);
+assert.equal(medal.title, "자, 이게 분류학이야");
 user = { id: "perfect", displayName: "Perfect" };
 assert.equal((await stats()).fishSiblingMistake, false, "Special medals belong to the authenticated account");
-const tetrapods = ["homo-sapiens", "canis-lupus", "gallus-gallus"];
-const tetrapodTree = buildTree(tetrapods, speciesById);
-const mammalBranch = tetrapodTree.children.flatMap((node) => node.children || []).find((node) => collectLeafIds(node).length === 2);
-assert.deepEqual(new Set(collectLeafIds(mammalBranch)), new Set(["homo-sapiens", "canis-lupus"]));
-const reverse = { ...special, classified: tetrapods, currentId: "anguilla-anguilla", targetId: mammalBranch.id };
-for (const currentId of ["anguilla-anguilla", "carcharodon-carcharias"]) {
-  assert.equal(isFishSiblingMistake(tetrapods, currentId, mammalBranch.id, "wrap", speciesById), true, currentId);
-}
-assert.equal(isFishSiblingMistake(tetrapods, reverse.currentId, mammalBranch.id, "join", speciesById), false);
-assert.equal(isFishSiblingMistake(tetrapods, reverse.currentId, "canis-lupus", "wrap", speciesById), false);
-assert.equal(isFishSiblingMistake(tetrapods, "ascaris-lumbricoides", mammalBranch.id, "wrap", speciesById), false);
-const reverseCorrect = getExpectedPlacement(tetrapods, reverse.currentId, speciesById);
-assert.equal(isFishSiblingMistake(tetrapods, reverse.currentId, reverseCorrect.targetId, reverseCorrect.placement, speciesById), false, "Correct fish placement beside all tetrapods must not count");
-const mixed = [...tetrapods, "lepisosteus-osseus"];
-assert.equal(isFishSiblingMistake(mixed, reverse.currentId, "Q729", "wrap", speciesById), false, "Mixed branches must not count in reverse either");
-for (const bad of [{ targetId: "canis-lupus" }, { placement: "join" }, { currentId: "ascaris-lumbricoides" }, { targetId: reverseCorrect.targetId, placement: reverseCorrect.placement }]) {
-  assert.equal((await post({ ...reverse, ...bad })).status, 400);
-}
-assert.equal((await stats()).fishSiblingMistake, false);
-assert.equal((await post(reverse)).status, 200);
-assert.equal((await stats()).fishSiblingMistake, true, "Reverse mistakes must persist the same medal");
 user = { id: "new", displayName: "New" };
 await Promise.all([post({ event: "normal-start" }), post({ event: "normal-start" })]);
 assert.equal((await stats()).normalAttempts, 2, "Atomic increments must retain concurrent starts");

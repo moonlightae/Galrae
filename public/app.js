@@ -1,5 +1,5 @@
 import { createTreeView } from "./tree-view.js";
-import { getAchievements, isFishSiblingMistake } from "./achievements.js";
+import { getAchievements, isClassificationPolytomyMistake } from "./achievements.js";
 import { createAchievementNotifications } from "./achievement-notifications.js";
 
 const { ANIMALIA_ID, addSuccessCount, buildTree, createDifficultyQueue, difficultyNames, getExpectedPlacement, isEquivalentPlacement, seedSuccessCounts, successCountText } = globalThis.GalraeLogic;
@@ -834,7 +834,7 @@ function placeCard(targetId, placement = "wrap") {
 function failRound(targetId, placement) {
   state.failed = true;
   if (!state.tutorial) {
-    if (isFishSiblingMistake(state.classified, state.currentId, targetId, placement, speciesById)) {
+    if (isClassificationPolytomyMistake(state.classified, state.currentId, targetId, placement, speciesById)) {
       recordAchievementEvent("fish-sibling-mistake", { classified: [...state.classified], currentId: state.currentId, targetId, placement });
     } else recordAchievementEvent("failure");
   }

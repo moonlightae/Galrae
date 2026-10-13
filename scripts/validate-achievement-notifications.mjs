@@ -65,7 +65,7 @@ const groups = getAchievements().reduce((counts, task) => ({ ...counts, [task.ca
 assert.deepEqual(groups, { "기본": 9, "연습모드": 3, "일반모드": 13, "특별": 1 });
 const specialHtml = html.slice(html.indexOf("<h2>특별</h2>"));
 assert.equal((specialHtml.match(/<details /g) || []).length, 1);
-assert.ok(specialHtml.includes("이게 왜 어류야") && specialHtml.includes("어류, 포유류, 파충류, 양서류, 조류 아니었어?"));
+assert.ok(specialHtml.includes("자, 이게 분류학이야") && specialHtml.includes("어류·파충류·조류·양서류·포유류 중 세 분류군이 한 분기점에서 갈라지도록 오분류하기"));
 assert.ok(!specialHtml.includes("동물분류 입문자"));
 assert.ok(!specialHtml.includes("<progress") && !specialHtml.includes("자매군") && !specialHtml.includes("튜토리얼 제외"));
 assert.ok(!clientSource.includes("selectAchievementTab") && !clientSource.includes("achievement-tabs"));

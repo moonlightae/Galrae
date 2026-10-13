@@ -6,7 +6,7 @@ import { DatabaseSync } from "node:sqlite";
 import ts from "typescript";
 import { drizzle } from "drizzle-orm/d1";
 import { createTreeView } from "../public/tree-view.js";
-import { isFishSiblingMistake } from "../public/achievements.js";
+import { isClassificationPolytomyMistake } from "../public/achievements.js";
 
 await import("../public/game-logic.js");
 const logic = globalThis.GalraeLogic;
@@ -29,7 +29,7 @@ const successes = [], collections = [];
 let submissions = 0;
 const achievementEvents = [];
 const context = {
-  ...logic, isFishSiblingMistake, state, speciesById, $, card: $("card"), taxonNamesKo: {},
+  ...logic, isClassificationPolytomyMistake, state, speciesById, $, card: $("card"), taxonNamesKo: {},
   cardText: (a) => a, clearPreview() {}, renderTree() {}, setCard() {},
   recordSuccess: (id) => successes.push(id), recordServerSuccess() {},
   recordAchievementEvent(event) { achievementEvents.push(event); },
@@ -194,20 +194,21 @@ sqlite.close();
 const specialEvents = [];
 context.recordAchievementEvent = (event, details) => specialEvents.push({ event, details });
 for (const scenario of [
-  { classified: ["homo-sapiens", "lepisosteus-osseus", "anguilla-anguilla"], currentId: "canis-lupus" },
-  { classified: ["homo-sapiens", "canis-lupus", "gallus-gallus"], currentId: "anguilla-anguilla" },
+  { classified: ["homo-sapiens", "gallus-gallus"], currentId: "anguilla-anguilla" },
+  { classified: ["homo-sapiens", "alligator-mississippiensis"], currentId: "gallus-gallus" },
 ]) for (const mode of ["normal", "practice", "tutorial"]) {
   state.classified = [...scenario.classified];
   state.currentId = scenario.currentId; state.failed = false; state.tutorial = mode === "tutorial"; state.practice = mode === "practice";
   state.tree = logic.buildTree(state.classified, speciesById);
   state.expected = logic.getExpectedPlacement(state.classified, state.currentId, speciesById);
-  const target = state.tree.children.flatMap((node) => node.children || []).find((node) => logic.collectLeafIds(node).length === 2);
+  let target = state.tree;
+  while (target.type === "branch" && target.children.length === 1) target = target.children[0];
   const before = specialEvents.length;
-  context.placeCard(target.id, "wrap");
+  context.placeCard(target.id, "join");
   if (mode === "tutorial") assert.equal(specialEvents.length, before, "Tutorial mistakes must not earn special medals");
   else {
     assert.equal(specialEvents.at(-1).event, "fish-sibling-mistake");
-    assert.equal(specialEvents.at(-1).details.classified.length, 3, "Capture the tree before practice auto placement");
+    assert.equal(specialEvents.at(-1).details.classified.length, 2, "Capture the tree before practice auto placement");
     assert.equal(specialEvents.at(-1).details.currentId, scenario.currentId);
   }
 }
