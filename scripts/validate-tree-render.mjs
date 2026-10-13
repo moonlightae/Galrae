@@ -73,6 +73,27 @@ const radialTargets = [...context.treeCanvas.innerHTML.matchAll(/data-target="([
   .map((match) => `${match[1]}:${match[2]}`).sort();
 assert.deepEqual(radialTargets, topTargets, "Circular layout must offer exactly the same placement targets");
 const radial = context.layoutRadialTree(fullTree);
+for (const layoutName of ["top", "bottom", "radial"]) {
+  context.state.layout = layoutName;
+  const layout = layoutName === "radial" ? radial : context.layoutRectangularTree(fullTree);
+  context.renderTree(fullTree);
+  const buttons = new Map([...context.treeCanvas.innerHTML.matchAll(/class="clade-node"[^>]*left:([\d.-]+)px;top:([\d.-]+)px[^>]*data-target="([^"]+)"/g)].map((match) => [match[3], { x: Number(match[1]), y: Number(match[2]) }]));
+  function inspectJunction(entry, parent = null) {
+    if (parent && entry.node.type === "branch") {
+      const button = buttons.get(entry.node.id);
+      assert.ok(button, "Every shared ancestor must have a junction target");
+      assert.equal(button.x, entry.x, "The target must stay at the horizontal center of the split");
+      assert.equal(button.y, layoutName === "radial" ? entry.y : (entry.y + entry.children[0].y) / 2, "Join targets must sit on the split itself, not above it on the trunk");
+    }
+    entry.children.forEach((child) => inspectJunction(child, entry));
+  }
+  inspectJunction(layout.root);
+}
+const mammalIds = [humanId, "canis-lupus"];
+const mammalLayout = context.layoutRectangularTree(buildTree(mammalIds, speciesById));
+const mammalSplit = mammalLayout.root.children[0];
+const expectedTrunkHeight = (mammalSplit.y + mammalSplit.children[0].y) / 2 - 9 - mammalLayout.root.y - 16;
+assert.match(inspect(mammalIds), new RegExp(`root-wrap-target is-long[^>]*height:${expectedTrunkHeight}px`), "The single root trunk must stop just before the actual junction");
 let radialLeaves = 0;
 function inspectRadial(entry) {
   assert.ok(Number.isFinite(entry.x) && Number.isFinite(entry.y), "Every circular node needs finite coordinates");

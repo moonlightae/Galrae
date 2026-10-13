@@ -77,6 +77,7 @@ export function createTreeView({ ANIMALIA_ID, buildTree, escapeHtml, speciesById
     const width = radial ? layout.size : layout.width, height = radial ? layout.size : layout.height;
     const lines = [];
     const controls = [];
+    const junctionY = (entry) => radial ? entry.y : (entry.y + entry.children[0].y) / 2;
     function visit(entry, parent = null) {
       const { node, x, y } = entry;
       if (parent) {
@@ -94,7 +95,7 @@ export function createTreeView({ ANIMALIA_ID, buildTree, escapeHtml, speciesById
       if (node.type === "leaf") {
         controls.push(renderNode(node, x, y));
       } else if (parent) {
-        controls.push(`<button class="clade-node" type="button" style="left:${x}px;top:${y}px" data-target="${escapeHtml(node.id)}" data-placement="join" aria-label="이 공통 조상에 가지 추가하기"></button>`);
+        controls.push(`<button class="clade-node" type="button" style="left:${x}px;top:${junctionY(entry)}px" data-target="${escapeHtml(node.id)}" data-placement="join" aria-label="이 공통 조상에 가지 추가하기"></button>`);
       }
       for (const child of entry.children) visit(child, entry);
     }
@@ -102,8 +103,8 @@ export function createTreeView({ ANIMALIA_ID, buildTree, escapeHtml, speciesById
     const firstChild = root.children[0];
     let trunkEnd = root.y;
     if (!radial && firstChild) {
-      trunkEnd = (root.y + firstChild.y) / 2;
-      if (root.children.length === 1) trunkEnd = firstChild.y - (firstChild.node.type === "leaf" ? 36 : 9);
+      trunkEnd = junctionY(root);
+      if (root.children.length === 1) trunkEnd = firstChild.node.type === "leaf" ? firstChild.y - 36 : junctionY(firstChild) - 9;
     }
     const trunkHeight = Math.max(0, trunkEnd - root.y - 16);
     controls.push(radial
