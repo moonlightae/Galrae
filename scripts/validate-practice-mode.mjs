@@ -193,9 +193,12 @@ assert.equal((await post({ mode: "practice", score: 1 })).status, 401);
 sqlite.close();
 const specialEvents = [];
 context.recordAchievementEvent = (event, details) => specialEvents.push({ event, details });
-for (const mode of ["normal", "practice", "tutorial"]) {
-  state.classified = ["homo-sapiens", "lepisosteus-osseus", "anguilla-anguilla"];
-  state.currentId = "canis-lupus"; state.failed = false; state.tutorial = mode === "tutorial"; state.practice = mode === "practice";
+for (const scenario of [
+  { classified: ["homo-sapiens", "lepisosteus-osseus", "anguilla-anguilla"], currentId: "canis-lupus" },
+  { classified: ["homo-sapiens", "canis-lupus", "gallus-gallus"], currentId: "anguilla-anguilla" },
+]) for (const mode of ["normal", "practice", "tutorial"]) {
+  state.classified = [...scenario.classified];
+  state.currentId = scenario.currentId; state.failed = false; state.tutorial = mode === "tutorial"; state.practice = mode === "practice";
   state.tree = logic.buildTree(state.classified, speciesById);
   state.expected = logic.getExpectedPlacement(state.classified, state.currentId, speciesById);
   const target = state.tree.children.flatMap((node) => node.children || []).find((node) => logic.collectLeafIds(node).length === 2);
@@ -205,7 +208,7 @@ for (const mode of ["normal", "practice", "tutorial"]) {
   else {
     assert.equal(specialEvents.at(-1).event, "fish-sibling-mistake");
     assert.equal(specialEvents.at(-1).details.classified.length, 3, "Capture the tree before practice auto placement");
-    assert.equal(specialEvents.at(-1).details.currentId, "canis-lupus");
+    assert.equal(specialEvents.at(-1).details.currentId, scenario.currentId);
   }
 }
 console.log("Practice: automatic placement, scoring, completion and special fish sibling events in normal/practice but not tutorial passed.");

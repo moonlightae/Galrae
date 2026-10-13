@@ -133,6 +133,27 @@ assert.equal((await stats()).fishSiblingMistake, true);
 assert.equal(getAchievements(await stats(), total).find((task) => task.id === "fish-sibling").earned, true);
 user = { id: "perfect", displayName: "Perfect" };
 assert.equal((await stats()).fishSiblingMistake, false, "Special medals belong to the authenticated account");
+const tetrapods = ["homo-sapiens", "canis-lupus", "gallus-gallus"];
+const tetrapodTree = buildTree(tetrapods, speciesById);
+const mammalBranch = tetrapodTree.children.flatMap((node) => node.children || []).find((node) => collectLeafIds(node).length === 2);
+assert.deepEqual(new Set(collectLeafIds(mammalBranch)), new Set(["homo-sapiens", "canis-lupus"]));
+const reverse = { ...special, classified: tetrapods, currentId: "anguilla-anguilla", targetId: mammalBranch.id };
+for (const currentId of ["anguilla-anguilla", "carcharodon-carcharias"]) {
+  assert.equal(isFishSiblingMistake(tetrapods, currentId, mammalBranch.id, "wrap", speciesById), true, currentId);
+}
+assert.equal(isFishSiblingMistake(tetrapods, reverse.currentId, mammalBranch.id, "join", speciesById), false);
+assert.equal(isFishSiblingMistake(tetrapods, reverse.currentId, "canis-lupus", "wrap", speciesById), false);
+assert.equal(isFishSiblingMistake(tetrapods, "ascaris-lumbricoides", mammalBranch.id, "wrap", speciesById), false);
+const reverseCorrect = getExpectedPlacement(tetrapods, reverse.currentId, speciesById);
+assert.equal(isFishSiblingMistake(tetrapods, reverse.currentId, reverseCorrect.targetId, reverseCorrect.placement, speciesById), false, "Correct fish placement beside all tetrapods must not count");
+const mixed = [...tetrapods, "lepisosteus-osseus"];
+assert.equal(isFishSiblingMistake(mixed, reverse.currentId, "Q729", "wrap", speciesById), false, "Mixed branches must not count in reverse either");
+for (const bad of [{ targetId: "canis-lupus" }, { placement: "join" }, { currentId: "ascaris-lumbricoides" }, { targetId: reverseCorrect.targetId, placement: reverseCorrect.placement }]) {
+  assert.equal((await post({ ...reverse, ...bad })).status, 400);
+}
+assert.equal((await stats()).fishSiblingMistake, false);
+assert.equal((await post(reverse)).status, 200);
+assert.equal((await stats()).fishSiblingMistake, true, "Reverse mistakes must persist the same medal");
 user = { id: "new", displayName: "New" };
 await Promise.all([post({ event: "normal-start" }), post({ event: "normal-start" })]);
 assert.equal((await stats()).normalAttempts, 2, "Atomic increments must retain concurrent starts");

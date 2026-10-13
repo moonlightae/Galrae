@@ -5,14 +5,16 @@ export const achievementGrades = { stone: "돌", bronze: "동", silver: "은", g
 export function isFishSiblingMistake(classified, currentId, targetId, placement, speciesById) {
   if (placement !== "wrap") return false;
   const hasTaxon = (id, taxonId) => speciesById.get(id)?.taxonomy.lineage.some((taxon) => taxon.wikidataId === taxonId);
-  if (!hasTaxon(currentId, "Q19159")) return false; // Tetrapoda
+  const isTetrapod = (id) => hasTaxon(id, "Q19159");
+  const isFish = (id) => hasTaxon(id, "Q25241") && !isTetrapod(id);
+  if (!isTetrapod(currentId) && !isFish(currentId)) return false;
   const { buildTree, findNodeById, collectLeafIds, getExpectedPlacement, isEquivalentPlacement } = globalThis.GalraeLogic;
   const tree = buildTree(classified, speciesById);
   const target = findNodeById(tree, targetId);
   if (!target || target.type !== "branch") return false;
   const members = collectLeafIds(target);
   return members.length >= 2
-    && members.every((id) => hasTaxon(id, "Q25241") && !hasTaxon(id, "Q19159")) // Vertebrata excluding Tetrapoda
+    && (isTetrapod(currentId) ? members.every(isFish) : members.every(isTetrapod))
     && !isEquivalentPlacement(tree, getExpectedPlacement(classified, currentId, speciesById), targetId, placement);
 }
 
