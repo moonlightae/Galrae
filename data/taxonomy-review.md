@@ -1,5 +1,19 @@
 # 계통 경로 점검 — 2026-10-06
 
+## 보대동물군 분기 보완 — 2026-10-13
+
+극피동물 9종과 반삭동물 Balanoglossus gigas에 누락된 Ambulacraria 공통 조상을
+추가했습니다. 게임은 `(Chordata, (Echinodermata, Hemichordata))`를 채택합니다.
+기존 세 갈래는 의도적인 불확실성 표시가 아닌 데이터 누락이었습니다.
+`canonical:ambulacraria`는 게임 내부 ID이며 Wikidata ID가 아닙니다.
+불가사리·반삭동물·사람 및 바다나리·반삭동물·창고기의 각 6개 등장 순서에서
+분기와 정답 판정을 검증합니다. 튜토리얼의 기존 반삭동물 카드는 더 이상
+같은 조상에 추가하는 예시가 아니므로 판형동물 카드로 교체했습니다.
+분류 기준 안내에는 이 보완과 후구동물의 단일계통성에 남은 논쟁을 구분했습니다.
+
+- [보대동물군의 계통유전체 근거](https://www.nature.com/articles/nature16150)
+- [2025년 후구동물 단일계통성 검토](https://www.annualreviews.org/content/journals/10.1146/annurev-ecolsys-102722-023501)
+
 현재 수록된 207종 전체를 NCBI Taxonomy의 종별 LineageEx와 대조했습니다.
 205종은 이름/동의어로 자동 대응했고, 나머지는 Leucoraja erinaceus (7782,
 게임명 Leucoraja erinacea), Magallana gigas (29159, 게임명 Crassostrea gigas)

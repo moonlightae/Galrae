@@ -939,7 +939,7 @@ async function startGame(options = {}) {
     const tutorial = !practice && (options.tutorial === true || (options.skipTutorial !== true && (currentUser ? currentGamesPlayed === 0 : guestAttempts === 0)));
     const difficulty = practice ? "hard" : options.difficulty || (tutorial ? null : "hard");
     const queue = tutorial
-      ? ["bolinopsis-infundibulum", "asterias-rubens", "balanoglossus-gigas", "formica-rufa"]
+      ? ["bolinopsis-infundibulum", "asterias-rubens", "hoilungia-hongkongensis", "formica-rufa"]
       : createDifficultyQueue(animals, difficulty);
     await preloadImage(speciesById.get(queue[0])?.image.thumbnailUrl);
     state.queue = queue;

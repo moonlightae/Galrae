@@ -29,6 +29,7 @@ const SHARED_BACKBONES = [
   { suffix: "Errantia", anchor: "Annelida", reference: "Riftia pachyptila", ancestor: "Pleistoannelida" },
 ];
 const ADDED_CLADES = [
+  { anchor: "Deuterostomia", members: ["Echinodermata", "Hemichordata"], id: "canonical:ambulacraria", name: "Ambulacraria" },
   { anchor: "Ecdysozoa", members: ["Arthropoda", "Onychophora", "Tardigrada"], id: "Q134870", name: "Panarthropoda" },
   // CAT-PMSF phylogenomics (GBE 17, evae273): Tardigrada sister to Arthropoda + Onychophora.
   { anchor: "Panarthropoda", members: ["Arthropoda", "Onychophora"], id: "canonical:antennopoda", name: "Antennopoda" },

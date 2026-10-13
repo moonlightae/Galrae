@@ -2616,6 +2616,12 @@
             "rank": "superphylum"
           },
           {
+            "wikidataId": "canonical:ambulacraria",
+            "scientificName": "Ambulacraria",
+            "englishName": "Ambulacraria",
+            "rank": "clade"
+          },
+          {
             "wikidataId": "Q44631",
             "scientificName": "Echinodermata",
             "englishName": null,
@@ -5578,6 +5584,12 @@
             "scientificName": "Deuterostomia",
             "englishName": "deuterostome",
             "rank": "superphylum"
+          },
+          {
+            "wikidataId": "canonical:ambulacraria",
+            "scientificName": "Ambulacraria",
+            "englishName": "Ambulacraria",
+            "rank": "clade"
           },
           {
             "wikidataId": "Q174301",
@@ -13971,6 +13983,12 @@
             "rank": "superphylum"
           },
           {
+            "wikidataId": "canonical:ambulacraria",
+            "scientificName": "Ambulacraria",
+            "englishName": "Ambulacraria",
+            "rank": "clade"
+          },
+          {
             "wikidataId": "Q44631",
             "scientificName": "Echinodermata",
             "englishName": null,
@@ -14909,6 +14927,12 @@
             "scientificName": "Deuterostomia",
             "englishName": "deuterostome",
             "rank": "superphylum"
+          },
+          {
+            "wikidataId": "canonical:ambulacraria",
+            "scientificName": "Ambulacraria",
+            "englishName": "Ambulacraria",
+            "rank": "clade"
           },
           {
             "wikidataId": "Q44631",
@@ -23922,6 +23946,12 @@
             "scientificName": "Deuterostomia",
             "englishName": "deuterostome",
             "rank": "superphylum"
+          },
+          {
+            "wikidataId": "canonical:ambulacraria",
+            "scientificName": "Ambulacraria",
+            "englishName": "Ambulacraria",
+            "rank": "clade"
           },
           {
             "wikidataId": "Q44631",
@@ -35559,6 +35589,12 @@
             "rank": "superphylum"
           },
           {
+            "wikidataId": "canonical:ambulacraria",
+            "scientificName": "Ambulacraria",
+            "englishName": "Ambulacraria",
+            "rank": "clade"
+          },
+          {
             "wikidataId": "Q44631",
             "scientificName": "Echinodermata",
             "englishName": null,
@@ -36785,6 +36821,12 @@
             "rank": "superphylum"
           },
           {
+            "wikidataId": "canonical:ambulacraria",
+            "scientificName": "Ambulacraria",
+            "englishName": "Ambulacraria",
+            "rank": "clade"
+          },
+          {
             "wikidataId": "Q44631",
             "scientificName": "Echinodermata",
             "englishName": null,
@@ -37861,6 +37903,12 @@
             "scientificName": "Deuterostomia",
             "englishName": "deuterostome",
             "rank": "superphylum"
+          },
+          {
+            "wikidataId": "canonical:ambulacraria",
+            "scientificName": "Ambulacraria",
+            "englishName": "Ambulacraria",
+            "rank": "clade"
           },
           {
             "wikidataId": "Q44631",
@@ -39705,6 +39753,12 @@
             "scientificName": "Deuterostomia",
             "englishName": "deuterostome",
             "rank": "superphylum"
+          },
+          {
+            "wikidataId": "canonical:ambulacraria",
+            "scientificName": "Ambulacraria",
+            "englishName": "Ambulacraria",
+            "rank": "clade"
           },
           {
             "wikidataId": "Q44631",
@@ -46690,6 +46744,12 @@
             "scientificName": "Deuterostomia",
             "englishName": "deuterostome",
             "rank": "superphylum"
+          },
+          {
+            "wikidataId": "canonical:ambulacraria",
+            "scientificName": "Ambulacraria",
+            "englishName": "Ambulacraria",
+            "rank": "clade"
           },
           {
             "wikidataId": "Q44631",
