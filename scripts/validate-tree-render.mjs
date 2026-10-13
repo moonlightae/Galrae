@@ -93,7 +93,7 @@ const mammalIds = [humanId, "canis-lupus"];
 const mammalLayout = context.layoutRectangularTree(buildTree(mammalIds, speciesById));
 const mammalSplit = mammalLayout.root.children[0];
 const expectedTrunkHeight = (mammalSplit.y + mammalSplit.children[0].y) / 2 - 9 - mammalLayout.root.y - 16;
-assert.match(inspect(mammalIds), new RegExp(`root-wrap-target is-long[^>]*height:${expectedTrunkHeight}px`), "The single root trunk must stop just before the actual junction");
+assert.match(inspect(mammalIds), new RegExp(`class="tree-pillar"[^>]*height:${expectedTrunkHeight}px[^>]*>.*?class="root-wrap-target is-long"`), "The single root trunk must stop just before the actual junction");
 let radialLeaves = 0;
 function inspectRadial(entry) {
   assert.ok(Number.isFinite(entry.x) && Number.isFinite(entry.y), "Every circular node needs finite coordinates");
@@ -154,7 +154,50 @@ for (let i = 0; i < radialCards.length; i++) {
     assert.ok(Math.abs(radialCards[i].x - radialCards[j].x) >= 192 || Math.abs(radialCards[i].y - radialCards[j].y) >= 96, "Circular cards need room for readable labels and answer badges");
   }
 }
-assert.match(inspect([humanId]), /root-wrap-target is-long[^>]*height:100px/, "The initial trunk target must follow the taller spacing");
+assert.match(inspect([humanId]), /class="tree-pillar"[^>]*height:100px[^>]*>.*?class="root-wrap-target is-long"/, "The initial trunk target must follow the taller spacing");
+
+const css = readFileSync(new URL("../app/globals.css", import.meta.url), "utf8");
+assert.match(css, /\.tree-pillar > button\s*\{[^}]*inset:\s*0;[^}]*width:\s*100%;[^}]*height:\s*100%;/, "Buttons must inherit the pillar's entire rectangle");
+assert.doesNotMatch(css, /\.phylo-tree > \.edge-target\s*\{/, "No fixed-height overlay may override the pillar button");
+assert.match(css, /\.tree-links\s*\{[^}]*pointer-events:\s*none/, "Horizontal SVG branches must remain non-interactive outside the junction circles");
+
+for (const ids of [[humanId], mammalIds, dataset.animals.slice(0, 40).map((animal) => animal.id), dataset.animals.map((animal) => animal.id)]) {
+  for (const layoutName of ["top", "bottom", "radial"]) {
+    context.state.layout = layoutName;
+    const tree = buildTree(ids, speciesById);
+    const layout = layoutName === "radial" ? context.layoutRadialTree(tree) : context.layoutRectangularTree(tree);
+    context.renderTree(tree);
+    const pillars = new Map();
+    for (const match of context.treeCanvas.innerHTML.matchAll(/<span class="tree-pillar" style="([^"]+)">([\s\S]*?)<\/span>/g)) {
+      const [, style, body] = match;
+      const target = body.match(/data-target="([^"]+)" data-placement="([^"]+)"/);
+      const number = (name) => Number(style.match(new RegExp(`${name}:([^;]+?)(?:px|deg)(?:;|$)`))[1]);
+      const length = number("height");
+      assert.equal(Number(body.match(/y2="([^"]+)"/)[1]), length, "The drawn line and inherited button must have the same length");
+      assert.ok(length > 0);
+      assert.doesNotMatch(body, /<button[^>]*style=/, "A pillar button must not define an independent size or position");
+      pillars.set(`${target[1]}:${target[2]}`, { x: number("left"), y: number("top"), length, angle: number("--pillar-angle") });
+    }
+    function checkPillar(entry, parent = null) {
+      if (parent) {
+        const singleTrunk = parent === layout.root && parent.children.length === 1;
+        if (entry.node.type === "branch" && !singleTrunk || layoutName === "radial" && singleTrunk) {
+          const targetId = singleTrunk ? ANIMALIA_ID : entry.node.id;
+          const pillar = pillars.get(`${targetId}:${singleTrunk ? "top" : "wrap"}`);
+          assert.ok(pillar, "Every existing branch target must fill its pillar");
+          const start = layoutName === "radial" ? parent : { x: entry.x, y: (parent.y + entry.y) / 2 };
+          const end = layoutName === "radial" ? entry : { x: entry.x, y: (entry.y + entry.children[0].y) / 2 };
+          assert.equal(pillar.x, start.x); assert.equal(pillar.y, start.y);
+          assert.equal(pillar.length, Math.hypot(end.x - start.x, end.y - start.y));
+          assert.equal(pillar.angle, Math.atan2(end.y - start.y, end.x - start.x) * 180 / Math.PI - 90);
+          if (layoutName !== "radial") assert.equal(pillar.angle, 0, "The expanded target must stay on the vertical pillar, not the horizontal branch");
+        }
+      }
+      entry.children.forEach((child) => checkPillar(child, entry));
+    }
+    checkPillar(layout.root);
+  }
+}
 context.state.mistakes = new Set([humanId, ctenophoreId]);
 context.state.latestMistake = ctenophoreId;
 for (const layout of ["top", "bottom", "radial"]) {

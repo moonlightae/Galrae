@@ -182,48 +182,34 @@ button, [role="button"] { -webkit-tap-highlight-color: transparent; }
 .radial-tree { position: relative; }
 .tree-links { position: absolute; inset: 0; overflow: visible; pointer-events: none; }
 .radial-root-target, .radial-tree .species-node, .radial-tree .clade-node { position: absolute; z-index: 2; transform: translate(-50%, -50%); }
-.radial-edge-target { position: absolute; transform: translate(-50%, -50%); }
 .radial-root-target { min-width: 118px; min-height: 42px; cursor: pointer; }
 .radial-tree .species-node { width: 168px; min-width: 0; max-width: 168px; min-height: 72px; padding: 8px; overflow: visible; font-size: .85rem; line-height: 1.35; overflow-wrap: anywhere; }
 .radial-tree .species-node:hover, .radial-tree .species-node.is-drop-target { transform: translate(-50%, calc(-50% - 3px)); }
 .radial-tree .species-node.is-new { animation: none; }
 .radial-tree .clade-node:hover, .radial-tree .clade-node.is-drop-target { transform: translate(-50%, -50%) scale(1.35); }
-.radial-edge-target { z-index: 3; width: 24px; height: 24px; padding: 0; background: transparent; border: 0; border-radius: 50%; cursor: pointer; }
+.radial-tree .species-node, .radial-tree .clade-node, .radial-root-target { z-index: 4; }
 .tree-root { display: inline-block; padding: 7px 12px; border-radius: 999px; font-size: .75rem; font-weight: 700; }
 .tree-root-anchor { position: relative; display: inline-flex; vertical-align: top; }
-.root-wrap-target {
+.tree-pillar {
   position: absolute;
-  left: 50%;
-  top: 100%;
-  z-index: 4;
-  width: 34px;
-  height: 48px;
-  padding: 0;
-  transform: translateX(-50%);
-  background: transparent;
-  border: 0;
-  border-radius: 999px;
-  cursor: pointer;
-}
-
-.root-wrap-target.is-long { height: 96px; }
-.root-wrap-target::after { content: ""; position: absolute; left: 50%; top: 4px; bottom: 4px; border-left: 5px solid transparent; transform: translateX(-50%); transition: border-color 140ms; }
-.edge-target {
-  position: absolute;
-  left: 50%;
-  top: -48px;
   z-index: 3;
-  width: 28px;
-  height: 96px;
+  width: 36px;
+  transform: translateX(-50%) rotate(var(--pillar-angle, 0deg));
+  transform-origin: 50% 0;
+}
+.pillar-line { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+.tree-pillar > button {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   padding: 0;
-  transform: translateX(-50%);
   background: transparent;
   border: 0;
-  border-radius: 999px;
+  border-radius: 0;
   cursor: pointer;
 }
-
-.edge-target::after { content: ""; position: absolute; left: 50%; top: 4px; bottom: 4px; border-left: 5px solid transparent; transform: translateX(-50%); transition: border-color 140ms; }
+.tree-pillar > button::after { content: ""; position: absolute; left: 50%; top: 0; bottom: 0; border-left: 5px solid transparent; transform: translateX(-50%); transition: border-color 140ms; }
 .clade-node {
   display: inline-flex;
   width: 18px;
@@ -561,7 +547,7 @@ button:focus-visible, [role="button"]:focus-visible, .primary-button:focus-visib
 .tree-zoom-controls { background: transparent; border: 0; }
 .tree-zoom-controls button:hover, .tree-reset-view:hover { color: var(--ink); background: var(--surface-muted); border: 0; }
 .tree-zoom-status, .game-progress span + span, .tree-canvas-help { color: var(--muted); }
-.tree-root, .radial-root-target, .clade-node:hover, .clade-node.is-drop-target, .species-node.is-preview, .radial-edge-target:hover, .radial-edge-target.is-drop-target, .ghost-tag, .preview-tag { color: var(--ink); background: var(--surface); box-shadow: 0 2px 7px rgba(32, 38, 43, .07); }
+.tree-root, .radial-root-target, .clade-node:hover, .clade-node.is-drop-target, .species-node.is-preview, .ghost-tag, .preview-tag { color: var(--ink); background: var(--surface); box-shadow: 0 2px 7px rgba(32, 38, 43, .07); }
 .radial-root-target:hover, .radial-root-target.is-drop-target, .species-node, .species-node:hover, .species-node.is-drop-target, .clade-node, .clade-node.is-preview, .answer-tree .clade-node.is-preview, .ghost-junction, .ghost-card { color: var(--ink); background: var(--surface); border-color: var(--edge); box-shadow: 0 2px 7px rgba(32, 38, 43, .07); }
 .answer-tree .preview-tag { box-shadow: 0 2px 7px rgba(32, 38, 43, .07); }
 .tree-root, .radial-root-target { border: 1px solid var(--edge); }
@@ -570,7 +556,7 @@ button:focus-visible, [role="button"]:focus-visible, .primary-button:focus-visib
 .species-node.is-preview { border: 2px dashed var(--ink); }
 .preview-tag, .ghost-tag { border: 1px solid var(--edge); font-size: .7rem; }
 .placement-preview::before { border-color: var(--edge); }
-.root-wrap-target:hover::after, .root-wrap-target.is-drop-target::after, .edge-target:hover::after, .edge-target.is-drop-target::after { border-left-color: var(--edge); }
+.tree-pillar > button:hover::after, .tree-pillar > button.is-drop-target::after { border-left-color: var(--edge); }
 .layout-bottom .species-node.is-new, .radial-tree .species-node.is-new { box-shadow: 0 0 0 5px var(--line); }
 .answer-tree .species-node.is-preview { color: #38551d; background: #eef8df; border: 2px solid #88b94a; box-shadow: 0 0 0 5px rgba(136, 185, 74, .2); }
 .species-node.is-mistake { color: #626970; background: #e5e7e9; border: 2px solid #92999f; box-shadow: none; }
@@ -586,7 +572,7 @@ button:focus-visible, [role="button"]:focus-visible, .primary-button:focus-visib
 .tree-edge.is-mistake-path { stroke: #92999f; }
 .tree-edge.is-recent-mistake-path, .answer-tree .tree-edge.is-answer-path { stroke: #88b94a; stroke-width: 3; }
 .phylo-tree > .species-node, .phylo-tree > .tree-root-anchor { position: absolute; z-index: 2; transform: translate(-50%, -50%); }
-.phylo-tree > .clade-node, .phylo-tree > .edge-target { position: absolute; transform: translate(-50%, -50%); }
+.phylo-tree > .clade-node { position: absolute; transform: translate(-50%, -50%); }
 .phylo-tree > .species-node { width: 168px; min-width: 0; min-height: 72px; padding: 8px; font-size: .85rem; line-height: 1.35; overflow-wrap: anywhere; }
 .phylo-tree > .species-node:hover, .phylo-tree > .species-node.is-drop-target { transform: translate(-50%, calc(-50% - 3px)); }
 .phylo-tree.layout-bottom > .species-node { transform: translate(-50%, -50%) scaleY(-1); }
@@ -594,9 +580,6 @@ button:focus-visible, [role="button"]:focus-visible, .primary-button:focus-visib
 .phylo-tree > .species-node.is-new { animation: none; box-shadow: 0 0 0 5px var(--line); }
 .phylo-tree > .clade-node:hover, .phylo-tree > .clade-node.is-drop-target { transform: translate(-50%, -50%) scale(1.35); }
 .phylo-tree > .clade-node { z-index: 4; }
-.phylo-tree > .edge-target { z-index: 3; height: 52px; }
-.phylo-tree .root-wrap-target { height: 44px; }
-.phylo-tree .root-wrap-target.is-long { height: 104px; }
 .dock-copy, .image-credit, .drag-help, .failure-panel .eyebrow, .failure-panel p:last-child, .failure-panel .failure-score-status, .dialog-image-credit { color: var(--ink); }
 .animal-card, .species-view-card { background: var(--surface); box-shadow: 0 4px 14px rgba(32, 38, 43, .09); }
 .card-dock, .species-dialog { container-type: inline-size; }
