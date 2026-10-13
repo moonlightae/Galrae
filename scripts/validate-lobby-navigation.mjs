@@ -18,6 +18,7 @@ const markup = readFileSync(new URL("../app/game-markup.ts", import.meta.url), "
 assert.match(markup, /id="taxonomy-notes-page" class="screen library-screen" data-lobby-page hidden/);
 assert.match(markup, /data-page="taxonomy-notes">분류 기준 안내/);
 const notes = markup.slice(markup.indexOf('id="taxonomy-notes-page"'), markup.indexOf('id="game"'));
+assert.ok(notes.includes("석회·육방·보통해면") && notes.includes("https://doi.org/10.1126/sciadv.adx1754"), "Sponge notes must include the adopted Silicea relationship and research source");
 assert.ok(notes.includes("새예·선형·범절지동물") && notes.includes("Cryptovermes"), "Ecdysozoan notes must explain the adopted deeper branch");
 assert.ok(notes.includes("상자해파리·해파리·히드라충") && notes.includes("https://doi.org/10.1186/s12862-018-1142-0"), "Medusozoan note must cite the adopted phylogenomic relationship");
 assert.ok(notes.includes("연체동물의 내부 분기") && notes.includes("https://doi.org/10.1126/science.ads0215"), "Mollusc note must cite the adopted genome-based phylogeny");

@@ -29,6 +29,8 @@ assert.equal(classified.length, dataset.speciesCount);
 // Independently reviewed triples: the first two must share a branch that
 // excludes the third. Exercise every arrival order, including the old false join.
 const reviewedTriples = [
+  ["euplectella-aspergillum", "amphimedon-queenslandica", "sycon-ciliatum"],
+  ["euplectella-aspergillum", "spongilla-lacustris", "sycon-ciliatum"],
   ["caenorhabditis-elegans", "formica-rufa", "priapulus-caudatus"],
   ["caenorhabditis-elegans", "euperipatoides-kanangrensis", "priapulus-caudatus"],
   ["caenorhabditis-elegans", "macrobiotus-shonaicus", "priapulus-caudatus"],

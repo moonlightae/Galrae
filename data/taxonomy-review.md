@@ -1,5 +1,16 @@
 # 계통 경로 점검 — 2026-10-06
 
+## 해면동물 분기 보완 — 2026-10-13
+
+Rossi et al. (2026), Science Advances adx1754의 계통유전체 결과를 채택해
+육방해면 1종과 보통해면 4종에 Silicea 공통 조상을 추가했습니다.
+석회해면 Sycon ciliatum은 그 밖에 둡니다. `canonical:silicea`는 게임 내부 ID입니다.
+전체 연구에서 Calcarea와 Homoscleromorpha는 다른 자매군을 이루지만,
+현재 Homoscleromorpha가 수록되지 않아 그 분기는 게임에서 생략됩니다.
+육방해면·보통해면·석회해면 두 조합의 각 6개 등장 순서에서 분기와 판정을 검증합니다.
+
+- [2026년 해면동물 계통유전체 연구](https://doi.org/10.1126/sciadv.adx1754)
+
 ## 탈피동물 분기와 거미 계급 표시 보완 — 2026-10-13
 
 2025년 GBE의 CAT-PMSF 분석에서 Nematoda와 Panarthropoda가 자매군으로

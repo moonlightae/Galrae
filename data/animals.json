@@ -2338,6 +2338,12 @@
             "rank": "phylum"
           },
           {
+            "wikidataId": "canonical:silicea",
+            "scientificName": "Silicea",
+            "englishName": "Silicea",
+            "rank": "clade"
+          },
+          {
             "wikidataId": "Q10444691",
             "scientificName": "Cellularia",
             "englishName": null,
@@ -11925,6 +11931,12 @@
             "scientificName": "Porifera",
             "englishName": null,
             "rank": "phylum"
+          },
+          {
+            "wikidataId": "canonical:silicea",
+            "scientificName": "Silicea",
+            "englishName": "Silicea",
+            "rank": "clade"
           },
           {
             "wikidataId": "Q10444691",
@@ -46858,6 +46870,12 @@
             "rank": "phylum"
           },
           {
+            "wikidataId": "canonical:silicea",
+            "scientificName": "Silicea",
+            "englishName": "Silicea",
+            "rank": "clade"
+          },
+          {
             "wikidataId": "Q10444691",
             "scientificName": "Cellularia",
             "englishName": null,
@@ -47741,6 +47759,12 @@
             "scientificName": "Porifera",
             "englishName": null,
             "rank": "phylum"
+          },
+          {
+            "wikidataId": "canonical:silicea",
+            "scientificName": "Silicea",
+            "englishName": "Silicea",
+            "rank": "clade"
           },
           {
             "wikidataId": "Q10444691",
@@ -49345,6 +49369,12 @@
             "scientificName": "Porifera",
             "englishName": null,
             "rank": "phylum"
+          },
+          {
+            "wikidataId": "canonical:silicea",
+            "scientificName": "Silicea",
+            "englishName": "Silicea",
+            "rank": "clade"
           },
           {
             "wikidataId": "Q263211",
