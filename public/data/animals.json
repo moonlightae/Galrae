@@ -6267,6 +6267,24 @@
             "rank": "phylum"
           },
           {
+            "wikidataId": "Q3060356",
+            "scientificName": "Eumollusca",
+            "englishName": null,
+            "rank": "subphylum"
+          },
+          {
+            "wikidataId": "Q675203",
+            "scientificName": "Conchifera",
+            "englishName": null,
+            "rank": "subphylum"
+          },
+          {
+            "wikidataId": "canonical:gastropoda-diasoma",
+            "scientificName": "Gastropoda + Diasoma",
+            "englishName": "Gastropoda + Diasoma",
+            "rank": "clade"
+          },
+          {
             "wikidataId": "Q25368",
             "scientificName": "Bivalvia",
             "englishName": null,
@@ -9437,6 +9455,24 @@
             "scientificName": "Mollusca",
             "englishName": "Mollusca",
             "rank": "phylum"
+          },
+          {
+            "wikidataId": "Q3060356",
+            "scientificName": "Eumollusca",
+            "englishName": null,
+            "rank": "subphylum"
+          },
+          {
+            "wikidataId": "Q675203",
+            "scientificName": "Conchifera",
+            "englishName": null,
+            "rank": "subphylum"
+          },
+          {
+            "wikidataId": "canonical:gastropoda-diasoma",
+            "scientificName": "Gastropoda + Diasoma",
+            "englishName": "Gastropoda + Diasoma",
+            "rank": "clade"
           },
           {
             "wikidataId": "Q4867740",
@@ -14769,6 +14805,24 @@
             "rank": "phylum"
           },
           {
+            "wikidataId": "Q3060356",
+            "scientificName": "Eumollusca",
+            "englishName": null,
+            "rank": "subphylum"
+          },
+          {
+            "wikidataId": "Q675203",
+            "scientificName": "Conchifera",
+            "englishName": null,
+            "rank": "subphylum"
+          },
+          {
+            "wikidataId": "canonical:gastropoda-diasoma",
+            "scientificName": "Gastropoda + Diasoma",
+            "englishName": "Gastropoda + Diasoma",
+            "rank": "clade"
+          },
+          {
             "wikidataId": "Q4867740",
             "scientificName": "Gastropoda",
             "englishName": "Gastropoda",
@@ -19421,6 +19475,24 @@
             "rank": "phylum"
           },
           {
+            "wikidataId": "Q3060356",
+            "scientificName": "Eumollusca",
+            "englishName": null,
+            "rank": "subphylum"
+          },
+          {
+            "wikidataId": "Q675203",
+            "scientificName": "Conchifera",
+            "englishName": null,
+            "rank": "subphylum"
+          },
+          {
+            "wikidataId": "canonical:gastropoda-diasoma",
+            "scientificName": "Gastropoda + Diasoma",
+            "englishName": "Gastropoda + Diasoma",
+            "rank": "clade"
+          },
+          {
             "wikidataId": "Q25368",
             "scientificName": "Bivalvia",
             "englishName": null,
@@ -22126,6 +22198,24 @@
             "scientificName": "Mollusca",
             "englishName": "Mollusca",
             "rank": "phylum"
+          },
+          {
+            "wikidataId": "Q3060356",
+            "scientificName": "Eumollusca",
+            "englishName": null,
+            "rank": "subphylum"
+          },
+          {
+            "wikidataId": "Q675203",
+            "scientificName": "Conchifera",
+            "englishName": null,
+            "rank": "subphylum"
+          },
+          {
+            "wikidataId": "canonical:gastropoda-diasoma",
+            "scientificName": "Gastropoda + Diasoma",
+            "englishName": "Gastropoda + Diasoma",
+            "rank": "clade"
           },
           {
             "wikidataId": "Q4867740",
@@ -29534,6 +29624,24 @@
             "rank": "phylum"
           },
           {
+            "wikidataId": "Q3060356",
+            "scientificName": "Eumollusca",
+            "englishName": null,
+            "rank": "subphylum"
+          },
+          {
+            "wikidataId": "Q675203",
+            "scientificName": "Conchifera",
+            "englishName": null,
+            "rank": "subphylum"
+          },
+          {
+            "wikidataId": "canonical:gastropoda-diasoma",
+            "scientificName": "Gastropoda + Diasoma",
+            "englishName": "Gastropoda + Diasoma",
+            "rank": "clade"
+          },
+          {
             "wikidataId": "Q4867740",
             "scientificName": "Gastropoda",
             "englishName": "Gastropoda",
@@ -31024,6 +31132,24 @@
             "scientificName": "Mollusca",
             "englishName": "Mollusca",
             "rank": "phylum"
+          },
+          {
+            "wikidataId": "Q3060356",
+            "scientificName": "Eumollusca",
+            "englishName": null,
+            "rank": "subphylum"
+          },
+          {
+            "wikidataId": "Q675203",
+            "scientificName": "Conchifera",
+            "englishName": null,
+            "rank": "subphylum"
+          },
+          {
+            "wikidataId": "canonical:gastropoda-diasoma",
+            "scientificName": "Gastropoda + Diasoma",
+            "englishName": "Gastropoda + Diasoma",
+            "rank": "clade"
           },
           {
             "wikidataId": "Q4867740",
@@ -36397,6 +36523,24 @@
             "scientificName": "Mollusca",
             "englishName": "Mollusca",
             "rank": "phylum"
+          },
+          {
+            "wikidataId": "Q3060356",
+            "scientificName": "Eumollusca",
+            "englishName": null,
+            "rank": "subphylum"
+          },
+          {
+            "wikidataId": "Q675203",
+            "scientificName": "Conchifera",
+            "englishName": null,
+            "rank": "subphylum"
+          },
+          {
+            "wikidataId": "canonical:gastropoda-diasoma",
+            "scientificName": "Gastropoda + Diasoma",
+            "englishName": "Gastropoda + Diasoma",
+            "rank": "clade"
           },
           {
             "wikidataId": "Q25368",

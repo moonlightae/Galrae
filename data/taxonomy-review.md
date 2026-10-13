@@ -1,5 +1,19 @@
 # 계통 경로 점검 — 2026-10-06
 
+## 연체동물 분기 보완 — 2026-10-13
+
+2025년 Science 연구 ads0215의 `(Cephalopoda, (Gastropoda, Diasoma))`를
+채택했습니다. Diasoma는 Scaphopoda와 Bivalvia를 포함합니다. 현재 데이터에
+Scaphopoda가 없어 압축 계통수에서는 복족류·이매패류가 먼저 묶입니다.
+이 공통 조상을 `canonical:gastropoda-diasoma`로 추가하고, 두 강에 누락된
+Conchifera 경로도 기존 Nautilus pompilius 경로를 기준으로 통일했습니다.
+조개·달팽이·문어와 홍합·전복·앵무조개의 각각 6개 등장 순서를 검증합니다.
+환형·편형·연체동물 사이의 문 수준 분기는 단순화를 유지하며,
+2026년 종합에서 남은 논쟁과 명칭 범위의 차이를 분류 기준 안내에 명시했습니다.
+
+- [2025년 연체동물 유전체 연구](https://doi.org/10.1126/science.ads0215)
+- [2026년 나선동물 계통 연구 종합](https://onlinelibrary.wiley.com/doi/full/10.1111/zsc.70056)
+
 ## 보대동물군 분기 보완 — 2026-10-13
 
 극피동물 9종과 반삭동물 Balanoglossus gigas에 누락된 Ambulacraria 공통 조상을

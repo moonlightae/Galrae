@@ -18,6 +18,7 @@ const markup = readFileSync(new URL("../app/game-markup.ts", import.meta.url), "
 assert.match(markup, /id="taxonomy-notes-page" class="screen library-screen" data-lobby-page hidden/);
 assert.match(markup, /data-page="taxonomy-notes">분류 기준 안내/);
 const notes = markup.slice(markup.indexOf('id="taxonomy-notes-page"'), markup.indexOf('id="game"'));
+assert.ok(notes.includes("연체동물의 내부 분기") && notes.includes("https://doi.org/10.1126/science.ads0215"), "Mollusc note must cite the adopted genome-based phylogeny");
 assert.ok(notes.includes("보대동물군과 후구동물") && notes.includes("https://www.nature.com/articles/nature16150"), "Ambulacraria note must explain the adopted grouping with a research source");
 for (const topic of ["유조·절지·완보동물", "다모류와 환대류", "나선동물의 깊은 분기", "난이도에 사용하는 계급", "검토에서 보완한 공통 갈래"]) assert.ok(notes.includes(topic), `Missing published classification note: ${topic}`);
 assert.ok(notes.includes("https://academic.oup.com/gbe/article/17/1/evae273/7931680") && notes.includes("https://www.mdpi.com/2073-4425/17/4/372"), "Adopted phylogeny must include both research sources");

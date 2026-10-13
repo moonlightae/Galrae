@@ -16,6 +16,8 @@ const TELEOST_BACKBONES = {
 // Missing ancestors found by comparing all sampled species with NCBI and
 // reviewing conflicting classifications. References: data/taxonomy-review.md.
 const SHARED_BACKBONES = [
+  { suffix: "Gastropoda", anchor: "Mollusca", reference: "Nautilus pompilius", ancestor: "Conchifera" },
+  { suffix: "Bivalvia", anchor: "Mollusca", reference: "Nautilus pompilius", ancestor: "Conchifera" },
   ...Object.entries(TELEOST_BACKBONES).map(([suffix, rule]) => ({ ...rule, suffix, anchor: "Actinopterygii" })),
   { suffix: "Dipneusti", anchor: "Gnathostomata", reference: "Homo sapiens", ancestor: "Dipnotetrapodomorpha" },
   { suffix: "Diprotodontia", anchor: "Mammalia", reference: "Homo sapiens", ancestor: "Theria" },
@@ -29,6 +31,8 @@ const SHARED_BACKBONES = [
   { suffix: "Errantia", anchor: "Annelida", reference: "Riftia pachyptila", ancestor: "Pleistoannelida" },
 ];
 const ADDED_CLADES = [
+  // Science (2025), ads0215: Cephalopoda sister to Gastropoda + Diasoma.
+  { anchor: "Conchifera", members: ["Gastropoda", "Bivalvia", "Scaphopoda"], id: "canonical:gastropoda-diasoma", name: "Gastropoda + Diasoma" },
   { anchor: "Deuterostomia", members: ["Echinodermata", "Hemichordata"], id: "canonical:ambulacraria", name: "Ambulacraria" },
   { anchor: "Ecdysozoa", members: ["Arthropoda", "Onychophora", "Tardigrada"], id: "Q134870", name: "Panarthropoda" },
   // CAT-PMSF phylogenomics (GBE 17, evae273): Tardigrada sister to Arthropoda + Onychophora.

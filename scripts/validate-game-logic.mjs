@@ -29,6 +29,8 @@ assert.equal(classified.length, dataset.speciesCount);
 // Independently reviewed triples: the first two must share a branch that
 // excludes the third. Exercise every arrival order, including the old false join.
 const reviewedTriples = [
+  ["tridacna-gigas", "cornu-aspersum", "hapalochlaena-lunulata"],
+  ["mytilus-edulis", "haliotis-rufescens", "nautilus-pompilius"],
   ["asterias-rubens", "balanoglossus-gigas", "homo-sapiens"],
   ["antedon-mediterranea", "balanoglossus-gigas", "branchiostoma-lanceolatum"],
   ["neoceratodus-forsteri", "homo-sapiens", "latimeria-chalumnae"],
