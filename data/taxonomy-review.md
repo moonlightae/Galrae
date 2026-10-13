@@ -1,5 +1,22 @@
 # 계통 경로 점검 — 2026-10-06
 
+## 탈피동물 분기와 거미 계급 표시 보완 — 2026-10-13
+
+2025년 GBE의 CAT-PMSF 분석에서 Nematoda와 Panarthropoda가 자매군으로
+회복되는 관계를 채택하여 `canonical:cryptovermes` 공통 조상을 추가했습니다.
+현재 수록종의 Priapulida는 그 묶음 바깥에 둡니다. Nematomorpha의 위치와
+다른 분석 모델에서의 차이는 분류 기준 안내에 명시했습니다.
+선형동물과 절지·유조·완보동물을 각각 새예동물과 비교하는 세 조합의
+각 6개 등장 순서에서 분기와 정답 판정을 검증합니다.
+
+집꼬마거미를 포함한 거미류의 Araneida 항목은 카드의 두 번째 목으로
+사용하지 않고 clade로 남깁니다. 인정되는 거미목은 Araneae입니다.
+카드 표시기는 문·강·목·과·속을 각각 한 번 선택하고, 동일 계급이 중복되면
+종에 더 가까운 항목을 사용해 상위 계급이 밀려나지 않게 했습니다.
+
+- [2025년 CAT-PMSF 연구](https://academic.oup.com/gbe/article/17/1/evae273/7931680)
+- [집꼬마거미 NCBI 계통](https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=Parasteatoda+tepidariorum)
+
 ## 메두소동물 분기 보완 — 2026-10-13
 
 Kayal et al. (2018)의 핵 유전체·전사체 기반 관계를 채택하여 현재 수록종에서는

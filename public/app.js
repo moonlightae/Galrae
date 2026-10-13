@@ -138,7 +138,7 @@ function setCardLanguage(language) {
 }
 
 function taxonomyLabels(animal) {
-  const preferredRanks = new Set(["phylum", "class", "order", "family", "genus"]);
+  const preferredRanks = ["phylum", "class", "order", "family", "genus"];
   const lineage = [...animal.taxonomy.lineage];
   for (const rank of ["class", "order"]) {
     const extra = animal.taxonomy.rankReview?.supplemental[rank];
@@ -148,9 +148,9 @@ function taxonomyLabels(animal) {
     lineage.splice(index < 0 ? lineage.length : index, 0, { ...extra, rank, wikidataId: extra.taxonId });
   }
   const label = (taxon) => state.cardLanguage === "ko" ? taxonNamesKo[taxon.wikidataId] || taxon.scientificName : taxon.scientificName;
-  const labels = lineage
-    .filter((taxon) => preferredRanks.has(taxon.rank) && taxon.rank !== "species")
-    .slice(-5)
+  const labels = preferredRanks
+    .map((rank) => lineage.findLast((taxon) => taxon.rank === rank))
+    .filter(Boolean)
     .map(label);
   return labels.length ? labels : animal.taxonomy.lineage.slice(-4, -1).map(label);
 }

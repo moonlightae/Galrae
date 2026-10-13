@@ -38,6 +38,7 @@ const ADDED_CLADES = [
   { anchor: "Ecdysozoa", members: ["Arthropoda", "Onychophora", "Tardigrada"], id: "Q134870", name: "Panarthropoda" },
   // CAT-PMSF phylogenomics (GBE 17, evae273): Tardigrada sister to Arthropoda + Onychophora.
   { anchor: "Panarthropoda", members: ["Arthropoda", "Onychophora"], id: "canonical:antennopoda", name: "Antennopoda" },
+  { anchor: "Ecdysozoa", members: ["Nematoda", "Nematomorpha", "Panarthropoda"], id: "canonical:cryptovermes", name: "Cryptovermes" },
   { anchor: "Echinodermata", members: ["Asterozoa", "Echinozoa"], id: "Q1328367", name: "Eleutherozoa" },
   { anchor: "Holometabola", members: ["Diptera", "Lepidoptera", "Coleoptera"], id: "Q48970749", name: "Aparaglossata" },
   { anchor: "Aparaglossata", members: ["Diptera", "Lepidoptera"], id: "Q16987281", name: "Panorpida" },
@@ -110,6 +111,8 @@ export function curateTaxonomy(animals) {
     }
 
     lineage = lineage.map((taxon) => {
+      // Araneae is the accepted spider order; the broader Araneida node is not a second card order.
+      if (taxon.wikidataId === "Q30587689") return { ...taxon, rank: "clade" };
       if (taxon.wikidataId === "Q286026") return { ...taxon, scientificName: "Sepia" };
       if (taxon.wikidataId === "Q2747865") return { ...taxon, scientificName: "Branchiostomatidae" };
       return SPECIES_TAXON_REPLACEMENTS[animal.scientificName]?.[taxon.wikidataId] ?? taxon;

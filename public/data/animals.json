@@ -186,6 +186,12 @@
             "rank": "superphylum"
           },
           {
+            "wikidataId": "canonical:cryptovermes",
+            "scientificName": "Cryptovermes",
+            "englishName": "Cryptovermes",
+            "rank": "clade"
+          },
+          {
             "wikidataId": "Q134870",
             "scientificName": "Panarthropoda",
             "englishName": "Panarthropoda",
@@ -1934,6 +1940,12 @@
             "rank": "superphylum"
           },
           {
+            "wikidataId": "canonical:cryptovermes",
+            "scientificName": "Cryptovermes",
+            "englishName": "Cryptovermes",
+            "rank": "clade"
+          },
+          {
             "wikidataId": "Q134870",
             "scientificName": "Panarthropoda",
             "englishName": "Panarthropoda",
@@ -2152,6 +2164,12 @@
             "scientificName": "Ecdysozoa",
             "englishName": null,
             "rank": "superphylum"
+          },
+          {
+            "wikidataId": "canonical:cryptovermes",
+            "scientificName": "Cryptovermes",
+            "englishName": "Cryptovermes",
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134870",
@@ -2448,6 +2466,12 @@
             "scientificName": "Ecdysozoa",
             "englishName": null,
             "rank": "superphylum"
+          },
+          {
+            "wikidataId": "canonical:cryptovermes",
+            "scientificName": "Cryptovermes",
+            "englishName": "Cryptovermes",
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134870",
@@ -2770,6 +2794,12 @@
             "rank": "superphylum"
           },
           {
+            "wikidataId": "canonical:cryptovermes",
+            "scientificName": "Cryptovermes",
+            "englishName": "Cryptovermes",
+            "rank": "clade"
+          },
+          {
             "wikidataId": "Q134870",
             "scientificName": "Panarthropoda",
             "englishName": "Panarthropoda",
@@ -3008,6 +3038,12 @@
             "rank": "superphylum"
           },
           {
+            "wikidataId": "canonical:cryptovermes",
+            "scientificName": "Cryptovermes",
+            "englishName": "Cryptovermes",
+            "rank": "clade"
+          },
+          {
             "wikidataId": "Q134870",
             "scientificName": "Panarthropoda",
             "englishName": "Panarthropoda",
@@ -3107,7 +3143,7 @@
             "wikidataId": "Q30587689",
             "scientificName": "Araneida",
             "englishName": null,
-            "rank": "order"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q1357",
@@ -3244,6 +3280,12 @@
             "scientificName": "Ecdysozoa",
             "englishName": null,
             "rank": "superphylum"
+          },
+          {
+            "wikidataId": "canonical:cryptovermes",
+            "scientificName": "Cryptovermes",
+            "englishName": "Cryptovermes",
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134870",
@@ -3446,6 +3488,12 @@
             "scientificName": "Ecdysozoa",
             "englishName": null,
             "rank": "superphylum"
+          },
+          {
+            "wikidataId": "canonical:cryptovermes",
+            "scientificName": "Cryptovermes",
+            "englishName": "Cryptovermes",
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5185",
@@ -4326,6 +4374,12 @@
             "scientificName": "Ecdysozoa",
             "englishName": null,
             "rank": "superphylum"
+          },
+          {
+            "wikidataId": "canonical:cryptovermes",
+            "scientificName": "Cryptovermes",
+            "englishName": "Cryptovermes",
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134870",
@@ -6993,6 +7047,12 @@
             "rank": "superphylum"
           },
           {
+            "wikidataId": "canonical:cryptovermes",
+            "scientificName": "Cryptovermes",
+            "englishName": "Cryptovermes",
+            "rank": "clade"
+          },
+          {
             "wikidataId": "Q134870",
             "scientificName": "Panarthropoda",
             "englishName": "Panarthropoda",
@@ -7229,6 +7289,12 @@
             "scientificName": "Ecdysozoa",
             "englishName": null,
             "rank": "superphylum"
+          },
+          {
+            "wikidataId": "canonical:cryptovermes",
+            "scientificName": "Cryptovermes",
+            "englishName": "Cryptovermes",
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134870",
@@ -9321,6 +9387,12 @@
             "rank": "superphylum"
           },
           {
+            "wikidataId": "canonical:cryptovermes",
+            "scientificName": "Cryptovermes",
+            "englishName": "Cryptovermes",
+            "rank": "clade"
+          },
+          {
             "wikidataId": "Q5185",
             "scientificName": "Nematoda",
             "englishName": "Nematoda",
@@ -9841,6 +9913,12 @@
             "scientificName": "Ecdysozoa",
             "englishName": null,
             "rank": "superphylum"
+          },
+          {
+            "wikidataId": "canonical:cryptovermes",
+            "scientificName": "Cryptovermes",
+            "englishName": "Cryptovermes",
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134870",
@@ -15149,6 +15227,12 @@
             "rank": "superphylum"
           },
           {
+            "wikidataId": "canonical:cryptovermes",
+            "scientificName": "Cryptovermes",
+            "englishName": "Cryptovermes",
+            "rank": "clade"
+          },
+          {
             "wikidataId": "Q134870",
             "scientificName": "Panarthropoda",
             "englishName": "Panarthropoda",
@@ -15331,6 +15415,12 @@
             "scientificName": "Ecdysozoa",
             "englishName": null,
             "rank": "superphylum"
+          },
+          {
+            "wikidataId": "canonical:cryptovermes",
+            "scientificName": "Cryptovermes",
+            "englishName": "Cryptovermes",
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134870",
@@ -15599,6 +15689,12 @@
             "scientificName": "Ecdysozoa",
             "englishName": null,
             "rank": "superphylum"
+          },
+          {
+            "wikidataId": "canonical:cryptovermes",
+            "scientificName": "Cryptovermes",
+            "englishName": "Cryptovermes",
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134870",
@@ -18096,6 +18192,12 @@
             "rank": "superphylum"
           },
           {
+            "wikidataId": "canonical:cryptovermes",
+            "scientificName": "Cryptovermes",
+            "englishName": "Cryptovermes",
+            "rank": "clade"
+          },
+          {
             "wikidataId": "Q134870",
             "scientificName": "Panarthropoda",
             "englishName": "Panarthropoda",
@@ -18407,6 +18509,12 @@
             "scientificName": "Ecdysozoa",
             "englishName": null,
             "rank": "superphylum"
+          },
+          {
+            "wikidataId": "canonical:cryptovermes",
+            "scientificName": "Cryptovermes",
+            "englishName": "Cryptovermes",
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134870",
@@ -18859,6 +18967,12 @@
             "scientificName": "Ecdysozoa",
             "englishName": null,
             "rank": "superphylum"
+          },
+          {
+            "wikidataId": "canonical:cryptovermes",
+            "scientificName": "Cryptovermes",
+            "englishName": "Cryptovermes",
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134870",
@@ -22364,6 +22478,12 @@
             "scientificName": "Ecdysozoa",
             "englishName": null,
             "rank": "superphylum"
+          },
+          {
+            "wikidataId": "canonical:cryptovermes",
+            "scientificName": "Cryptovermes",
+            "englishName": "Cryptovermes",
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134870",
@@ -26918,6 +27038,12 @@
             "rank": "superphylum"
           },
           {
+            "wikidataId": "canonical:cryptovermes",
+            "scientificName": "Cryptovermes",
+            "englishName": "Cryptovermes",
+            "rank": "clade"
+          },
+          {
             "wikidataId": "Q134870",
             "scientificName": "Panarthropoda",
             "englishName": "Panarthropoda",
@@ -29392,6 +29518,12 @@
             "rank": "superphylum"
           },
           {
+            "wikidataId": "canonical:cryptovermes",
+            "scientificName": "Cryptovermes",
+            "englishName": "Cryptovermes",
+            "rank": "clade"
+          },
+          {
             "wikidataId": "Q134870",
             "scientificName": "Panarthropoda",
             "englishName": "Panarthropoda",
@@ -29491,7 +29623,7 @@
             "wikidataId": "Q30587689",
             "scientificName": "Araneida",
             "englishName": null,
-            "rank": "order"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q1357",
@@ -31329,6 +31461,12 @@
             "rank": "superphylum"
           },
           {
+            "wikidataId": "canonical:cryptovermes",
+            "scientificName": "Cryptovermes",
+            "englishName": "Cryptovermes",
+            "rank": "clade"
+          },
+          {
             "wikidataId": "Q134870",
             "scientificName": "Panarthropoda",
             "englishName": "Panarthropoda",
@@ -31973,6 +32111,12 @@
             "rank": "superphylum"
           },
           {
+            "wikidataId": "canonical:cryptovermes",
+            "scientificName": "Cryptovermes",
+            "englishName": "Cryptovermes",
+            "rank": "clade"
+          },
+          {
             "wikidataId": "Q134870",
             "scientificName": "Panarthropoda",
             "englishName": "Panarthropoda",
@@ -32483,6 +32627,12 @@
             "rank": "superphylum"
           },
           {
+            "wikidataId": "canonical:cryptovermes",
+            "scientificName": "Cryptovermes",
+            "englishName": "Cryptovermes",
+            "rank": "clade"
+          },
+          {
             "wikidataId": "Q134870",
             "scientificName": "Panarthropoda",
             "englishName": "Panarthropoda",
@@ -32713,6 +32863,12 @@
             "scientificName": "Ecdysozoa",
             "englishName": null,
             "rank": "superphylum"
+          },
+          {
+            "wikidataId": "canonical:cryptovermes",
+            "scientificName": "Cryptovermes",
+            "englishName": "Cryptovermes",
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134870",
@@ -36709,6 +36865,12 @@
             "rank": "superphylum"
           },
           {
+            "wikidataId": "canonical:cryptovermes",
+            "scientificName": "Cryptovermes",
+            "englishName": "Cryptovermes",
+            "rank": "clade"
+          },
+          {
             "wikidataId": "Q134870",
             "scientificName": "Panarthropoda",
             "englishName": "Panarthropoda",
@@ -37155,6 +37317,12 @@
             "rank": "superphylum"
           },
           {
+            "wikidataId": "canonical:cryptovermes",
+            "scientificName": "Cryptovermes",
+            "englishName": "Cryptovermes",
+            "rank": "clade"
+          },
+          {
             "wikidataId": "Q134870",
             "scientificName": "Panarthropoda",
             "englishName": "Panarthropoda",
@@ -37254,7 +37422,7 @@
             "wikidataId": "Q30587689",
             "scientificName": "Araneida",
             "englishName": null,
-            "rank": "order"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q1357",
@@ -37391,6 +37559,12 @@
             "scientificName": "Ecdysozoa",
             "englishName": null,
             "rank": "superphylum"
+          },
+          {
+            "wikidataId": "canonical:cryptovermes",
+            "scientificName": "Cryptovermes",
+            "englishName": "Cryptovermes",
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134870",
@@ -40737,6 +40911,12 @@
             "scientificName": "Ecdysozoa",
             "englishName": null,
             "rank": "superphylum"
+          },
+          {
+            "wikidataId": "canonical:cryptovermes",
+            "scientificName": "Cryptovermes",
+            "englishName": "Cryptovermes",
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134870",
@@ -44228,6 +44408,12 @@
             "rank": "superphylum"
           },
           {
+            "wikidataId": "canonical:cryptovermes",
+            "scientificName": "Cryptovermes",
+            "englishName": "Cryptovermes",
+            "rank": "clade"
+          },
+          {
             "wikidataId": "Q134870",
             "scientificName": "Panarthropoda",
             "englishName": "Panarthropoda",
@@ -47267,6 +47453,12 @@
             "rank": "superphylum"
           },
           {
+            "wikidataId": "canonical:cryptovermes",
+            "scientificName": "Cryptovermes",
+            "englishName": "Cryptovermes",
+            "rank": "clade"
+          },
+          {
             "wikidataId": "Q134870",
             "scientificName": "Panarthropoda",
             "englishName": "Panarthropoda",
@@ -48497,6 +48689,12 @@
             "rank": "superphylum"
           },
           {
+            "wikidataId": "canonical:cryptovermes",
+            "scientificName": "Cryptovermes",
+            "englishName": "Cryptovermes",
+            "rank": "clade"
+          },
+          {
             "wikidataId": "Q5185",
             "scientificName": "Nematoda",
             "englishName": "Nematoda",
@@ -48625,6 +48823,12 @@
             "scientificName": "Ecdysozoa",
             "englishName": null,
             "rank": "superphylum"
+          },
+          {
+            "wikidataId": "canonical:cryptovermes",
+            "scientificName": "Cryptovermes",
+            "englishName": "Cryptovermes",
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134870",
@@ -51215,6 +51419,12 @@
             "scientificName": "Ecdysozoa",
             "englishName": null,
             "rank": "superphylum"
+          },
+          {
+            "wikidataId": "canonical:cryptovermes",
+            "scientificName": "Cryptovermes",
+            "englishName": "Cryptovermes",
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134870",
