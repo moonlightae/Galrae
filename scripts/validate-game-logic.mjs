@@ -182,22 +182,22 @@ assert.deepEqual(
   "Placozoa must join the sampled Animalia root",
 );
 assert.ok(
-  isEquivalentPlacement(humanOnlyTree, placozoanPlacement, ANIMALIA_ID, "top"),
-  "The Animalia trunk must accept Placozoa",
+  !isEquivalentPlacement(humanOnlyTree, placozoanPlacement, ANIMALIA_ID, "top"),
+  "The Animalia trunk must reject a root join",
 );
 
 const ctenophorePlacement = getExpectedPlacement([humanId], ctenophoreId, speciesById);
 assert.ok(
-  isEquivalentPlacement(humanOnlyTree, ctenophorePlacement, ANIMALIA_ID, "top"),
-  "The Animalia trunk must accept Ctenophora",
+  !isEquivalentPlacement(humanOnlyTree, ctenophorePlacement, ANIMALIA_ID, "top"),
+  "Ctenophora must use the root circle instead of the trunk",
 );
 assert.ok(
-  isEquivalentPlacement(humanOnlyTree, placozoanPlacement, humanId, "wrap"),
-  "The Human card must accept Placozoa when Human is the only classified species",
+  !isEquivalentPlacement(humanOnlyTree, placozoanPlacement, humanId, "wrap"),
+  "A species card must not substitute for the root circle",
 );
 assert.ok(
-  isEquivalentPlacement(humanOnlyTree, ctenophorePlacement, humanId, "wrap"),
-  "The Human card must accept Ctenophora when Human is the only classified species",
+  !isEquivalentPlacement(humanOnlyTree, ctenophorePlacement, humanId, "wrap"),
+  "A species card must not substitute for a Ctenophora root join",
 );
 
 for (const [first, next] of [[placozoanId, ctenophoreId], [ctenophoreId, placozoanId]]) {
@@ -205,9 +205,10 @@ for (const [first, next] of [[placozoanId, ctenophoreId], [ctenophoreId, placozo
   const pairTree = buildTree(classifiedPair, speciesById);
   const nextPlacement = getExpectedPlacement(classifiedPair, next, speciesById);
   assert.ok(
-    isEquivalentPlacement(pairTree, nextPlacement, ANIMALIA_ID, "top"),
-    `The Animalia trunk must remain usable after ${first}`,
+    !isEquivalentPlacement(pairTree, nextPlacement, ANIMALIA_ID, "top"),
+    `The Animalia trunk must reject joining ${next} after ${first}`,
   );
+  assert.ok(isEquivalentPlacement(pairTree, nextPlacement, ANIMALIA_ID, "join"), "The root circle must accept the next basal animal");
   assert.equal(
     isEquivalentPlacement(pairTree, nextPlacement, humanId, "wrap"),
     false,
@@ -233,7 +234,7 @@ assert.equal(
   false,
   "Join and wrap must remain distinct inside a multi-level tree",
 );
-assert.match(appSource, /data-target="\$\{ANIMALIA_ID\}" data-placement="top"/, "The top-level target must be the Animalia trunk");
+assert.match(appSource, /"root-wrap-target", ANIMALIA_ID, "top"/, "The whole-tree pillar must remain available");
 assert.doesNotMatch(appSource, /<button class="tree-root"/, "The Animalia label must not be a duplicate drop target");
 
 const legacyCounts = seedSuccessCounts([humanId, ctenophoreId], humanId);
@@ -253,7 +254,8 @@ for (const [index, speciesId] of tutorialQueue.entries()) {
   const tree = buildTree(tutorialClassified, speciesById);
   const expected = getExpectedPlacement(tutorialClassified, speciesId, speciesById);
   if (index === 0) {
-    assert.ok(isEquivalentPlacement(tree, expected, ANIMALIA_ID, "top"), "First tutorial card belongs on the whole-tree trunk");
+    assert.ok(isEquivalentPlacement(tree, expected, ANIMALIA_ID, "join"), "First tutorial card belongs on the root circle");
+    assert.ok(!isEquivalentPlacement(tree, expected, ANIMALIA_ID, "top"), "First tutorial card must reject the whole-tree pillar");
   } else {
     assert.equal(expected.placement, index === 2 ? "join" : "wrap");
     assert.equal(findNodeById(tree, expected.targetId).type, index === 1 ? "leaf" : "branch");

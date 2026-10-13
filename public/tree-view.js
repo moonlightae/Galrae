@@ -103,7 +103,7 @@ export function createTreeView({ ANIMALIA_ID, buildTree, escapeHtml, speciesById
       }
       if (node.type === "leaf") {
         controls.push(renderNode(node, x, y));
-      } else if (parent) {
+      } else {
         controls.push(`<button class="clade-node" type="button" style="left:${x}px;top:${junctionY(entry)}px" data-target="${escapeHtml(node.id)}" data-placement="join" aria-label="이 공통 조상에 가지 추가하기"></button>`);
       }
       for (const child of entry.children) visit(child, entry);
@@ -116,8 +116,9 @@ export function createTreeView({ ANIMALIA_ID, buildTree, escapeHtml, speciesById
       if (root.children.length === 1) trunkEnd = firstChild.node.type === "leaf" ? firstChild.y - 36 : junctionY(firstChild) - 9;
     }
     if (!radial) controls.push(renderPillar({ x: root.x, y: root.y + 16 }, { x: root.x, y: trunkEnd }, `root-wrap-target${root.children.length === 1 ? " is-long" : ""}`, ANIMALIA_ID, "top", "tree-edge"));
+    if (radial && root.children.length !== 1) controls.push(renderPillar({ x: root.x, y: root.y - 52 }, { x: root.x, y: root.y - 9 }, "root-wrap-target", ANIMALIA_ID, "top", "tree-edge"));
     controls.push(radial
-      ? `<button class="radial-root-target tree-root" type="button" style="left:${root.x}px;top:${root.y}px" data-target="${ANIMALIA_ID}" data-placement="top" aria-label="동물계 전체 가지에 배치">Animalia</button>`
+      ? `<span class="radial-root-target tree-root" style="left:${root.x}px;top:${root.y - 76}px;pointer-events:none">Animalia</span>`
       : `<span class="tree-root-anchor" style="left:${root.x}px;top:${root.y}px"><span class="tree-root">Animalia common ancestor</span></span>`);
     return `<div class="${radial ? "radial-tree" : `phylo-tree layout-${state.layout}`} base-tree${answer ? " answer-tree" : ""}" data-size="${Math.max(width, height)}" data-width="${width}" data-height="${height}" style="width:${width}px;height:${height}px"><svg class="tree-links" width="${width}" height="${height}" aria-hidden="true">${lines.join("")}</svg>${controls.join("")}</div>`;
   }
@@ -143,7 +144,7 @@ export function createTreeView({ ANIMALIA_ID, buildTree, escapeHtml, speciesById
     const targetRect = targetElement.getBoundingClientRect();
     const joiningBranch = placement === "join";
     preview.classList.toggle("is-join", joiningBranch);
-    preview.innerHTML = `<span class="ghost-tag">${joiningBranch ? "같은 조상에 추가" : "미리보기"}</span>${joiningBranch ? "" : '<span class="ghost-junction"></span>'}<span class="ghost-card">${escapeHtml(animal.commonName)}</span>`;
+    preview.innerHTML = `<span class="ghost-tag">${joiningBranch ? "같은 조상에 추가" : "새 공통 조상 만들기"}</span>${joiningBranch ? "" : '<span class="ghost-junction"></span>'}<span class="ghost-card">${escapeHtml(animal.commonName)}</span>`;
     preview.style.left = `${targetRect.left - canvasRect.left + targetRect.width / 2}px`;
     preview.style.top = `${targetRect.top - canvasRect.top + targetRect.height / 2}px`;
     preview.hidden = false;

@@ -30,6 +30,7 @@ function inspect(classifiedIds) {
   const roots = [...markup.matchAll(/class="root-wrap-target(?: is-long)?"/g)];
   const edges = [...markup.matchAll(/class="edge-target"[^>]*data-target="([^"]+)"/g)].map((match) => match[1]);
   assert.equal(roots.length, 1, "Exactly one Animalia trunk target must remain visible");
+  assert.match(markup, /class="clade-node"[^>]*data-target="Q729" data-placement="join"/, "Animalia must always have a separate circle for joining");
   if (tree.children.length === 1) {
     assert.match(markup, /class="root-wrap-target is-long"/, "The single trunk must cover the full incoming branch");
     assert.ok(!edges.includes(tree.children[0].id), "The sole child must not add a duplicate trunk target");
@@ -79,7 +80,7 @@ for (const layoutName of ["top", "bottom", "radial"]) {
   context.renderTree(fullTree);
   const buttons = new Map([...context.treeCanvas.innerHTML.matchAll(/class="clade-node"[^>]*left:([\d.-]+)px;top:([\d.-]+)px[^>]*data-target="([^"]+)"/g)].map((match) => [match[3], { x: Number(match[1]), y: Number(match[2]) }]));
   function inspectJunction(entry, parent = null) {
-    if (parent && entry.node.type === "branch") {
+    if (entry.node.type === "branch") {
       const button = buttons.get(entry.node.id);
       assert.ok(button, "Every shared ancestor must have a junction target");
       assert.equal(button.x, entry.x, "The target must stay at the horizontal center of the split");
