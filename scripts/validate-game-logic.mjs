@@ -29,6 +29,8 @@ assert.equal(classified.length, dataset.speciesCount);
 // Independently reviewed triples: the first two must share a branch that
 // excludes the third. Exercise every arrival order, including the old false join.
 const reviewedTriples = [
+  ["chironex-fleckeri", "aurelia-aurita", "hydra-vulgaris"],
+  ["chironex-fleckeri", "cassiopea-xamachana", "physalia-physalis"],
   ["tridacna-gigas", "cornu-aspersum", "hapalochlaena-lunulata"],
   ["mytilus-edulis", "haliotis-rufescens", "nautilus-pompilius"],
   ["asterias-rubens", "balanoglossus-gigas", "homo-sapiens"],
@@ -67,6 +69,11 @@ for (const [left, right, outside] of reviewedTriples) {
   }
 }
 assert.equal(lineageIds("drosophila-melanogaster").includes("Q27605"), false);
+for (const animal of dataset.animals) {
+  const names = animal.taxonomy.lineage.map((taxon) => taxon.scientificName);
+  if (names.includes("Cubozoa") || names.includes("Scyphozoa")) assert.ok(names.includes("Rhopaliophora"), `${animal.id}: missing jellyfish common ancestor`);
+  if (names.includes("Hydrozoa")) assert.ok(!names.includes("Rhopaliophora"), `${animal.id}: hydrozoans must remain outside Rhopaliophora`);
+}
 for (const animal of dataset.animals) {
   const ids = lineageIds(animal.id);
   if (ids.includes("Q1360") || ids.includes("Q5191")) {

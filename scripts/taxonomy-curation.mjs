@@ -31,6 +31,7 @@ const SHARED_BACKBONES = [
   { suffix: "Errantia", anchor: "Annelida", reference: "Riftia pachyptila", ancestor: "Pleistoannelida" },
 ];
 const ADDED_CLADES = [
+  { anchor: "Medusozoa", members: ["Cubozoa", "Scyphozoa"], id: "canonical:rhopaliophora", name: "Rhopaliophora" },
   // Science (2025), ads0215: Cephalopoda sister to Gastropoda + Diasoma.
   { anchor: "Conchifera", members: ["Gastropoda", "Bivalvia", "Scaphopoda"], id: "canonical:gastropoda-diasoma", name: "Gastropoda + Diasoma" },
   { anchor: "Deuterostomia", members: ["Echinodermata", "Hemichordata"], id: "canonical:ambulacraria", name: "Ambulacraria" },

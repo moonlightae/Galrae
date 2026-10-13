@@ -1,5 +1,17 @@
 # 계통 경로 점검 — 2026-10-06
 
+## 메두소동물 분기 보완 — 2026-10-13
+
+Kayal et al. (2018)의 핵 유전체·전사체 기반 관계를 채택하여 현재 수록종에서는
+`(Hydrozoa, (Cubozoa, Scyphozoa))`로 판정합니다. 상자해파리 1종과 해파리강
+3종에 `canonical:rhopaliophora` 공통 조상을 추가하고 히드라충강 2종은 제외했습니다.
+이 ID는 게임 내부 식별자이며 Wikidata ID가 아닙니다. 전체 연구에서
+Staurozoa와 Rhopaliophora는 Acraspeda를 형성하지만 현재 Staurozoa는 미수록입니다.
+상자해파리·보름달물해파리·히드라 및 상자해파리·뒤집힌해파리·작은부레관해파리의
+각 6개 등장 순서에서 자매군 분기와 정답 판정을 검사합니다.
+
+- [채택한 자포동물 계통유전체 연구](https://doi.org/10.1186/s12862-018-1142-0)
+
 ## 연체동물 분기 보완 — 2026-10-13
 
 2025년 Science 연구 ads0215의 `(Cephalopoda, (Gastropoda, Diasoma))`를

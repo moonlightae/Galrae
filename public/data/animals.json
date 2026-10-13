@@ -4934,6 +4934,12 @@
             "rank": "subphylum"
           },
           {
+            "wikidataId": "canonical:rhopaliophora",
+            "scientificName": "Rhopaliophora",
+            "englishName": "Rhopaliophora",
+            "rank": "clade"
+          },
+          {
             "wikidataId": "Q272388",
             "scientificName": "Scyphozoa",
             "englishName": null,
@@ -10021,6 +10027,12 @@
             "rank": "subphylum"
           },
           {
+            "wikidataId": "canonical:rhopaliophora",
+            "scientificName": "Rhopaliophora",
+            "englishName": "Rhopaliophora",
+            "rank": "clade"
+          },
+          {
             "wikidataId": "Q272388",
             "scientificName": "Scyphozoa",
             "englishName": null,
@@ -11605,6 +11617,12 @@
             "scientificName": "Medusozoa",
             "englishName": null,
             "rank": "subphylum"
+          },
+          {
+            "wikidataId": "canonical:rhopaliophora",
+            "scientificName": "Rhopaliophora",
+            "englishName": "Rhopaliophora",
+            "rank": "clade"
           },
           {
             "wikidataId": "Q273179",
@@ -30486,6 +30504,12 @@
             "scientificName": "Medusozoa",
             "englishName": null,
             "rank": "subphylum"
+          },
+          {
+            "wikidataId": "canonical:rhopaliophora",
+            "scientificName": "Rhopaliophora",
+            "englishName": "Rhopaliophora",
+            "rank": "clade"
           },
           {
             "wikidataId": "Q272388",
