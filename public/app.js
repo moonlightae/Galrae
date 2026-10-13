@@ -116,7 +116,8 @@ function shortDescription(text, maxLength = 190) {
 }
 
 function cardText(animal) {
-  return state.cardLanguage === "ko" && animal.ko ? { ...animal, ...animal.ko } : animal;
+  if (state.cardLanguage === "ko" && animal.ko) return { ...animal, ...animal.ko };
+  return animal.ko?.descriptionEn ? { ...animal, description: animal.ko.descriptionEn } : animal;
 }
 
 function setCardLanguage(language) {

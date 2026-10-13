@@ -19,6 +19,9 @@ for (const animal of dataset.animals) {
   if (ids.has(animal.id)) problems.push(`${label}: duplicate id ${animal.id}`);
   ids.add(animal.id);
   const translation = korean[animal.id];
+  if (!translation?.descriptionEn?.trim() || translation.descriptionEn.length > 190) {
+    problems.push(`${label}: missing or overlong edited English card description`);
+  }
   if (!/[가-힣]/.test(translation?.commonName || "") || !/[가-힣]/.test(translation?.description || "")) {
     problems.push(`${label}: missing Korean card name or description`);
   }

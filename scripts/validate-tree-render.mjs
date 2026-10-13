@@ -337,6 +337,11 @@ assert.equal(detailElement("#species-view-name").textContent, korean[ctenophoreI
 assert.equal(detailElement("#species-view-description").textContent, korean[ctenophoreId].description);
 languageContext.setCardLanguage("en");
 assert.equal(languageContext.cardText(speciesById.get(humanId)).commonName, "Human");
+for (const animal of dataset.animals) {
+  assert.equal(languageContext.cardText(animal).description, korean[animal.id].descriptionEn, `English card must use the edited description: ${animal.id}`);
+  assert.equal(languageContext.cardText(animal).scientificName, animal.scientificName);
+}
+assert.equal(languageContext.cardText({ description: "Original description" }).description, "Original description", "Untranslated cards must retain their original description");
 languageContext.setCardLanguage("invalid");
 assert.equal(languageState.cardLanguage, "en");
 languageState.failed = true;

@@ -1,5 +1,22 @@
 # Animal dataset
 
+## Edited card descriptions — 2026-10-13
+
+All 207 cards have reviewed Korean descriptions in `animals.ko.json` and
+short English descriptions in its `descriptionEn` field. The shared `cardText`
+helper uses these for gameplay, the collection and species details; the raw
+English Wikimedia extracts remain in `animals.json` for provenance.
+Descriptions focus on habitat, appearance and biology, allowing brief taxon
+mentions without naming sister groups or explaining placement relative to
+other animals. The raw extract is only a fallback for untranslated cards.
+Preserve the edited text when refreshing source extracts.
+
+Most edits summarise the stored extracts. Additional natural-history details:
+- [California sea hare diet, Cabrillo Marine Aquarium](https://cma.recreation.parks.lacity.gov/marine-life/southern-california-species/invertebrate/california-brown-sea-hare)
+- [Purse sponge morphology, Marine Biological Association](https://www.marlin.ac.uk/species/detail/2151)
+- [Thornback ray morphology, Marine Biological Association](https://www.marlin.ac.uk/species/detail/2187)
+- [Fruit-juice collection and culture of D. simulans, National Institute of Genetics](https://www.nig.ac.jp/nig/pdf/about_nig/29.pdf)
+
 `animals.json` is generated from the English-language Wikimedia projects by
 `scripts/collect-wikimedia-animals.mjs`. Seed articles are listed in
 `animal-seeds.json` and should identify individual species rather than broad

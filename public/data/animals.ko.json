@@ -1,830 +1,1037 @@
 {
   "acropora-millepora": {
     "commonName": "아크로포라 밀레포라",
-    "description": "서부 인도·태평양의 얕은 바다에 사는 가지 모양의 돌산호로, 아프리카 동해안부터 일본과 오스트레일리아 연안까지 분포합니다."
+    "description": "서부 인도·태평양의 얕은 바다에 사는 가지 모양의 돌산호로, 아프리카 동해안부터 일본과 오스트레일리아 연안까지 분포합니다.",
+    "descriptionEn": "A branching stony coral found in shallow waters of the western Indo-Pacific, from eastern Africa to Japan and Australia."
   },
   "aedes-aegypti": {
     "commonName": "이집트숲모기",
-    "description": "뎅기열·황열·치쿤구니야 같은 질병을 옮기는 모기로, 다리의 흑백 무늬와 가슴 등쪽의 하프 모양 무늬로 구별할 수 있습니다."
+    "description": "뎅기열·황열·치쿤구니야 같은 질병을 옮기는 모기로, 다리의 흑백 무늬와 가슴 등쪽의 하프 모양 무늬로 구별할 수 있습니다.",
+    "descriptionEn": "A mosquito with striped legs and a lyre-shaped marking on its back, capable of transmitting dengue, yellow fever and chikungunya."
   },
   "loxodonta-africana": {
     "commonName": "아프리카사바나코끼리",
-    "description": "사하라 사막 이남 아프리카에 사는 코끼리로, 현존하는 육상 동물 가운데 가장 크며 다 자란 수컷은 어깨높이 약 3~3.4m, 몸무게 약 5~7t에 이릅니다."
+    "description": "사하라 사막 이남 아프리카에 사는 코끼리로, 현존하는 육상 동물 가운데 가장 크며 다 자란 수컷은 어깨높이 약 3~3.4m, 몸무게 약 5~7t에 이릅니다.",
+    "descriptionEn": "A large elephant of sub-Saharan Africa, with adult males standing around three metres tall at the shoulder."
   },
   "xenopus-laevis": {
     "commonName": "아프리카발톱개구리",
-    "description": "피파과에 속하는 아프리카의 수생 개구리로, 발에 난 짧고 검은 발톱에서 이름이 유래했습니다."
+    "description": "피파과에 속하는 아프리카의 수생 개구리로, 발에 난 짧고 검은 발톱에서 이름이 유래했습니다.",
+    "descriptionEn": "An African aquatic frog of the family Pipidae, named for the short black claws on its feet."
   },
   "spheniscus-demersus": {
     "commonName": "아프리카펭귄",
-    "description": "아프리카 남부 해역에 사는 펭귄으로, 날개가 헤엄치기 좋은 지느러미 형태이며 눈 위의 분홍색 피부와 검은 얼굴 무늬가 특징입니다."
+    "description": "아프리카 남부 해역에 사는 펭귄으로, 날개가 헤엄치기 좋은 지느러미 형태이며 눈 위의 분홍색 피부와 검은 얼굴 무늬가 특징입니다.",
+    "descriptionEn": "A penguin of southern African waters, with black facial markings and a pink patch above each eye."
   },
   "alligator-mississippiensis": {
     "commonName": "미시시피악어",
-    "description": "미국 남동부가 원산지인 대형 악어류로, 현존하는 앨리게이터속 두 종 가운데 중국악어보다 몸집이 큽니다."
+    "description": "미국 남동부가 원산지인 대형 악어류입니다.",
+    "descriptionEn": "A large crocodilian native to the southeastern United States."
   },
   "periplaneta-americana": {
     "commonName": "이질바퀴",
-    "description": "주택에서 흔히 발견되는 바퀴 가운데 몸집이 큰 종으로, 이름과 달리 원산지는 아프리카와 중동입니다."
+    "description": "주택에서 흔히 발견되는 바퀴 가운데 몸집이 큰 종으로, 이름과 달리 원산지는 아프리카와 중동입니다.",
+    "descriptionEn": "A large cockroach often found in buildings, originally native to Africa and the Middle East."
   },
   "homarus-americanus": {
     "commonName": "아메리카바닷가재",
-    "description": "캐나다 래브라도부터 미국 뉴저지에 이르는 북아메리카 대서양 연안에 사는 바닷가재로, 몸길이 64cm와 몸무게 20kg 이상에 이르기도 합니다."
+    "description": "캐나다 래브라도부터 미국 뉴저지에 이르는 북아메리카 대서양 연안에 사는 바닷가재로, 몸길이 64cm와 몸무게 20kg 이상에 이르기도 합니다.",
+    "descriptionEn": "A lobster of the North American Atlantic coast, ranging chiefly from Labrador to New Jersey and sometimes exceeding 20 kg."
   },
   "amphimedon-queenslandica": {
     "commonName": "암피메돈 퀸즐랜디카",
-    "description": "오스트레일리아 대보초에 사는 해면으로, 유전체가 해독되어 동물의 발생과 진화를 연구하는 데 이용됩니다."
+    "description": "오스트레일리아 대보초에 사는 해면으로, 유전체가 해독되어 동물의 발생과 진화를 연구하는 데 이용됩니다.",
+    "descriptionEn": "A sponge of Australia's Great Barrier Reef, used in studies of animal development."
   },
   "euphausia-superba": {
     "commonName": "남극크릴",
-    "description": "남극 주변 남극해에 사는 작은 갑각류로, 큰 무리를 이루어 식물플랑크톤을 먹으며 남극 생태계의 먹이망에서 중요한 역할을 합니다."
+    "description": "남극 주변 남극해에 사는 작은 갑각류로, 큰 무리를 이루어 식물플랑크톤을 먹으며 남극 생태계의 먹이망에서 중요한 역할을 합니다.",
+    "descriptionEn": "A small crustacean of the Southern Ocean that forms dense swarms and feeds on phytoplankton."
   },
   "antedon-mediterranea": {
     "commonName": "지중해깃털불가사리",
-    "description": "지중해 해저에 사는 줄기 없는 바다나리류로, 깃털 같은 긴 팔로 플랑크톤을 걸러 먹습니다."
+    "description": "지중해 해저에 사는 줄기 없는 바다나리류로, 깃털 같은 긴 팔로 플랑크톤을 걸러 먹습니다.",
+    "descriptionEn": "A stalkless crinoid of the Mediterranean seabed that catches plankton with long, feathery arms."
   },
   "apis-cerana": {
     "commonName": "재래꿀벌",
-    "description": "남아시아·동남아시아·동아시아가 원산지인 꿀벌로, 꽃가루와 꿀을 먹으며 여러 장의 벌집을 만들고 사회생활을 합니다."
+    "description": "남아시아·동남아시아·동아시아가 원산지인 꿀벌로, 꽃가루와 꿀을 먹으며 여러 장의 벌집을 만들고 사회생활을 합니다.",
+    "descriptionEn": "A honey bee native to southern and eastern Asia, living in colonies with several combs and feeding on pollen and nectar."
   },
   "argiope-bruennichi": {
     "commonName": "아르기오페 브루엔니키",
-    "description": "유럽과 아시아·아프리카 일부 지역에 사는 왕거미류로, 배에 노란색·흰색·검은색 무늬가 뚜렷합니다."
+    "description": "유럽과 아시아·아프리카 일부 지역에 사는 왕거미류로, 배에 노란색·흰색·검은색 무늬가 뚜렷합니다.",
+    "descriptionEn": "An orb-weaving spider with striking yellow, white and black abdominal markings, found in parts of Europe, Asia and Africa."
   },
   "centruroides-sculpturatus": {
     "commonName": "애리조나나무껍질전갈",
-    "description": "미국 남서부와 멕시코 북서부의 소노라 사막에 흔한 작은 연갈색 전갈로, 수컷의 몸길이는 약 8cm까지 자랍니다."
+    "description": "미국 남서부와 멕시코 북서부의 소노라 사막에 흔한 작은 연갈색 전갈로, 수컷의 몸길이는 약 8cm까지 자랍니다.",
+    "descriptionEn": "A small, light-brown scorpion of the Sonoran Desert in the southwestern United States and northwestern Mexico."
   },
   "ascaris-lumbricoides": {
     "commonName": "회충",
-    "description": "회충속에 속하는 대형 기생 선충으로, 사람에게 흔히 기생하며 감염되면 회충증을 일으킵니다."
+    "description": "회충속에 속하는 대형 기생 선충으로, 사람에게 흔히 기생하며 감염되면 회충증을 일으킵니다.",
+    "descriptionEn": "A large parasitic nematode that commonly infects humans and causes ascariasis."
   },
   "varanus-salvator": {
     "commonName": "물왕도마뱀",
-    "description": "남아시아와 동남아시아가 원산지인 대형 왕도마뱀으로, 물가에 잘 적응해 헤엄치며 물고기와 개구리 등을 사냥합니다."
+    "description": "남아시아와 동남아시아가 원산지인 대형 왕도마뱀으로, 물가에 잘 적응해 헤엄치며 물고기와 개구리 등을 사냥합니다.",
+    "descriptionEn": "A large monitor lizard of South and Southeast Asia, well adapted to swimming and hunting around water."
   },
   "thunnus-thynnus": {
     "commonName": "대서양참다랑어",
-    "description": "고등어과에 속하는 다랑어로, 대서양과 지중해에 분포하며 식용 가치가 높아 중요한 어업 대상입니다."
+    "description": "고등어과에 속하는 다랑어로, 대서양과 지중해에 분포하며 식용 가치가 높아 중요한 어업 대상입니다.",
+    "descriptionEn": "A tuna of the family Scombridae, found in the Atlantic and Mediterranean and widely caught for food."
   },
   "gadus-morhua": {
     "commonName": "대서양대구",
-    "description": "대구과에 속하는 바닷물고기로, 북대서양에 널리 분포하며 사람의 식량과 상업 어업에서 중요합니다."
+    "description": "대구과에 속하는 바닷물고기로, 북대서양에 널리 분포하며 사람의 식량과 상업 어업에서 중요합니다.",
+    "descriptionEn": "A fish of the family Gadidae, widely distributed in the North Atlantic and important to commercial fisheries."
   },
   "limulus-polyphemus": {
     "commonName": "미국투구게",
-    "description": "바다와 기수역에 사는 협각류 절지동물로, 게와 같은 갑각류가 아니라 거미·전갈과 함께 협각류에 속합니다."
+    "description": "북아메리카 대서양 연안과 멕시코만의 바다·기수역에 사는 동물로, 협각류에 속합니다.",
+    "descriptionEn": "A marine and brackish-water chelicerate found along the Atlantic coast of North America and in the Gulf of Mexico."
   },
   "periophthalmus-barbarus": {
     "commonName": "대서양말뚝망둥어",
-    "description": "아프리카 열대 대서양 연안과 주변 섬의 담수·해수·기수역에 사는 말뚝망둥어류입니다."
+    "description": "아프리카 열대 대서양 연안과 주변 섬의 담수·해수·기수역에 사는 말뚝망둥어류입니다.",
+    "descriptionEn": "A mudskipper found in fresh, marine and brackish waters along Africa's tropical Atlantic coast and nearby islands."
   },
   "salmo-salar": {
     "commonName": "대서양연어",
-    "description": "연어과에 속하는 조기어류로, 대서양연어라는 이름으로 알려져 있습니다."
+    "description": "북대서양과 그곳으로 흐르는 강에 사는 연어로, 몸길이는 약 1m까지 자랍니다.",
+    "descriptionEn": "A salmon found in the North Atlantic and rivers flowing into it, growing to around a metre long."
   },
   "aurelia-aurita": {
     "commonName": "아우렐리아 아우리타",
-    "description": "유령해파리과에 속하는 해파리로, 영어로는 문젤리 또는 보통해파리라고 불리며 아우렐리아속의 기준이 되는 종입니다."
+    "description": "유령해파리과에 속하는 해파리로, 북대서양과 아르헨티나 연안에서 발견됩니다.",
+    "descriptionEn": "A jellyfish of the family Ulmaridae, found in the North Atlantic and waters off Argentina."
   },
   "callorhinchus-milii": {
     "commonName": "오스트레일리아코끼리은상어",
-    "description": "은상어류인 전두아강에 속하는 연골어류로, 이름에 상어가 들어가지만 일반적인 상어류와는 다른 계통입니다."
+    "description": "전두아강에 속하는 연골어류로, 코끼리물고기라는 별칭으로도 알려져 있습니다.",
+    "descriptionEn": "A cartilaginous fish of the subclass Holocephali, also known as the elephant fish."
   },
   "neoceratodus-forsteri": {
     "commonName": "오스트레일리아폐어",
-    "description": "네오케라토두스과에서 살아남은 유일한 종으로, 퀸즐랜드폐어라는 이름으로도 알려져 있습니다."
+    "description": "오스트레일리아의 민물에 사는 폐어로, 공기를 호흡할 수 있으며 퀸즐랜드폐어라고도 불립니다.",
+    "descriptionEn": "An Australian freshwater lungfish capable of breathing air, also known as the Queensland lungfish."
   },
   "ambystoma-mexicanum": {
     "commonName": "아홀로틀",
-    "description": "두더지도롱뇽과에 속하는 도롱뇽으로, 아홀로틀 또는 우파루파라는 이름으로 알려져 있습니다."
+    "description": "물속에서 생활하는 도롱뇽으로, 성체가 되어도 뚜렷한 바깥아가미를 유지합니다.",
+    "descriptionEn": "An aquatic salamander that retains visible external gills as an adult and reaches maturity without the usual metamorphosis."
   },
   "balanoglossus-gigas": {
     "commonName": "발라노글로수스 기가스",
-    "description": "대서양에 사는 대형 장새류로, 다른 동물에 기생하지 않고 독립적으로 살아가는 도토리벌레류입니다."
+    "description": "대서양에 사는 대형 도토리벌레류로, 독특한 냄새를 내며 빛을 내는 성질이 있습니다.",
+    "descriptionEn": "A large, free-living acorn worm of the Atlantic Ocean, noted for its strong odour and bioluminescence."
   },
   "python-regius": {
     "commonName": "볼파이톤",
-    "description": "서아프리카와 중앙아프리카의 초원·관목지·성긴 숲에 사는 비단뱀으로, 로열파이톤이라는 이름으로도 불립니다."
+    "description": "서아프리카와 중앙아프리카의 초원·관목지·성긴 숲에 사는 비단뱀으로, 위협을 받으면 몸을 둥글게 말아 방어합니다.",
+    "descriptionEn": "A python of West and Central African grasslands, shrublands and open forests that coils tightly when threatened."
   },
   "beroe-ovata": {
     "commonName": "베로에 오바타",
-    "description": "베로에과에 속하는 유즐동물로, 해파리라는 이름으로 불리기도 하지만 자포동물인 진정한 해파리와는 계통이 다릅니다."
+    "description": "남대서양과 지중해에 사는 유즐동물로, 흑해 등 다른 바다에도 도입되었습니다.",
+    "descriptionEn": "A comb jelly found in the South Atlantic and Mediterranean and introduced to several other seas."
   },
   "sepioteuthis-lessoniana": {
     "commonName": "흰꼴뚜기",
-    "description": "꼴뚜기과에 속하는 종 복합체로, 무늬오징어라는 이름으로도 알려져 있습니다."
+    "description": "인도·태평양 연안에 사는 오징어로, 몸통 가장자리를 따라 넓은 타원형 지느러미가 뻗어 있고 몸빛을 바꿀 수 있습니다.",
+    "descriptionEn": "A squid of coastal Indo-Pacific waters, with broad oval fins extending along its mantle and the ability to change colour."
   },
   "mytilus-edulis": {
     "commonName": "진주담치",
-    "description": "홍합과에 속하는 중간 크기의 식용 이매패류로, 영어로는 블루머슬 또는 보통홍합이라고 불립니다."
+    "description": "홍합과에 속하는 중간 크기의 식용 이매패류로, 어업과 양식의 대상입니다.",
+    "descriptionEn": "A medium-sized edible marine bivalve of the family Mytilidae, widely harvested and farmed."
   },
   "balaenoptera-musculus": {
     "commonName": "대왕고래",
-    "description": "수염고래류인 긴수염고래과에 속하는 고래로, 거대한 몸집을 가진 해양 포유류입니다."
+    "description": "수염고래류인 긴수염고래과에 속하는 고래로, 거대한 몸집을 가진 해양 포유류입니다.",
+    "descriptionEn": "A huge marine mammal of the family Balaenopteridae, with recorded lengths of about 30 metres."
   },
   "bolinopsis-infundibulum": {
     "commonName": "볼리놉시스 인푼디불룸",
-    "description": "볼리놉시스과에 속하는 유즐동물로, 영어로는 북방의 보통 빗해파리라는 이름으로 알려져 있습니다."
+    "description": "북대서양에 사는 유즐동물로, 북방빗해파리라는 별칭으로도 알려져 있습니다.",
+    "descriptionEn": "A comb jelly of the northern Atlantic Ocean, commonly called the northern comb jelly."
   },
   "bombus-terrestris": {
     "commonName": "서양뒤영벌",
-    "description": "유럽에서 가장 흔한 뒤영벌 가운데 하나로, 영어 이름은 연한 색의 꼬리 끝을 가리킵니다."
+    "description": "유럽에서 흔히 볼 수 있는 뒤영벌로, 꼬리 끝이 연한 색이며 온실 작물의 수분에 널리 이용됩니다.",
+    "descriptionEn": "A common European bumblebee with a pale tail tip, widely used to pollinate greenhouse crops."
   },
   "bombyx-mori": {
     "commonName": "누에나방",
-    "description": "누에나방과에 속하는 가축화된 나방으로, 비단을 얻기 위해 기르는 누에가 이 종의 유충입니다."
+    "description": "누에나방과에 속하는 가축화된 나방으로, 비단을 얻기 위해 기르는 누에가 이 종의 유충입니다.",
+    "descriptionEn": "A domesticated moth whose caterpillar, the silkworm, is raised to produce silk."
   },
   "pan-paniscus": {
     "commonName": "보노보",
-    "description": "침팬지속에 속하는 두 종 가운데 하나이며, 현존하는 대형 유인원 가운데 몸집이 가장 작습니다."
+    "description": "몸집이 비교적 작고 체형이 가느다란 대형 유인원입니다.",
+    "descriptionEn": "A great ape with a relatively small, slender build."
   },
   "pongo-pygmaeus": {
     "commonName": "보르네오오랑우탄",
-    "description": "보르네오섬에만 자연적으로 분포하는 오랑우탄입니다."
+    "description": "보르네오섬에 사는 오랑우탄으로, 거친 적갈색 털과 매우 긴 팔을 지닙니다.",
+    "descriptionEn": "An orangutan native to Borneo, with coarse reddish hair and very long arms."
   },
   "botryllus-schlosseri": {
     "commonName": "보트릴루스 슐로세리",
-    "description": "여러 개체가 모여 군체를 이루는 피낭동물로, 멍게류인 해초강에 속합니다."
+    "description": "여러 개체가 군체를 이루는 피낭동물로, 연안의 물속 물체나 식물 표면에 붙어 자랍니다.",
+    "descriptionEn": "A colonial tunicate that grows on submerged objects, plants and animals in coastal seawater."
   },
   "brachionus-plicatilis": {
     "commonName": "브라키오누스 플리카틸리스",
-    "description": "염분 변화에 잘 견디는 윤충류로, 양식장에서 물고기 유생의 먹이로 널리 길러집니다."
+    "description": "염분 변화에 잘 견디는 윤충류로, 양식장에서 물고기 유생의 먹이로 널리 길러집니다.",
+    "descriptionEn": "A rotifer that tolerates a wide range of salinity and is cultured as food for fish larvae."
   },
   "branchiostoma-floridae": {
     "commonName": "플로리다창고기",
-    "description": "브란키오스토마속에 속하는 창고기류로, 플로리다창고기라는 영어 이름으로 알려져 있습니다."
+    "description": "플로리다창고기로 알려진 창고기류로, 유전체와 발생 연구에 이용됩니다.",
+    "descriptionEn": "A lancelet known as the Florida lancelet, used in genome and developmental research."
   },
   "branchiostoma-lanceolatum": {
     "commonName": "유럽창고기",
-    "description": "두삭동물아문에 속하는 창고기류로, 유럽창고기 또는 지중해창고기라는 이름으로 알려져 있습니다."
+    "description": "두삭동물아문에 속하는 해양 동물로, 가느다란 몸과 척삭을 지닙니다.",
+    "descriptionEn": "A marine lancelet of the subphylum Cephalochordata, with a notochord and a slender body."
   },
   "rattus-norvegicus": {
     "commonName": "시궁쥐",
-    "description": "전 세계에 널리 퍼진 흔한 쥐로, 영어로는 갈색쥐·하수구쥐·노르웨이쥐 등 여러 이름으로 불립니다."
+    "description": "세계 여러 지역에 퍼진 쥐로, 갈색이나 회색 털을 지니며 꼬리는 보통 머리와 몸통을 합친 길이보다 짧습니다.",
+    "descriptionEn": "A widespread rat with brown or grey fur and a tail usually shorter than its head and body combined."
   },
   "caenorhabditis-elegans": {
     "commonName": "예쁜꼬마선충",
-    "description": "온대 지역의 흙 속에 사는 몸길이 약 1mm의 투명한 선충으로, 다른 동물에 기생하지 않고 살아갑니다."
+    "description": "온대 지역의 흙 속에 사는 몸길이 약 1mm의 투명한 선충으로, 다른 동물에 기생하지 않고 살아갑니다.",
+    "descriptionEn": "A transparent, free-living nematode about one millimetre long that lives in temperate soil environments."
   },
   "aplysia-californica": {
     "commonName": "캘리포니아군소",
-    "description": "군소과에 속하는 바다 민달팽이류로, 캘리포니아군소라는 이름으로 알려져 있습니다."
+    "description": "바다에 사는 군소류로, 여러 종류의 해조류를 먹습니다.",
+    "descriptionEn": "A marine sea hare that feeds on several kinds of algae."
   },
   "rhinella-marina": {
     "commonName": "사탕수수두꺼비",
-    "description": "남아메리카와 중앙아메리카 본토가 원산지인 대형 육상 두꺼비로, 오세아니아·카리브해의 섬과 오스트레일리아 북부 등에 도입되었습니다."
+    "description": "남아메리카와 중앙아메리카 본토가 원산지인 대형 육상 두꺼비로, 오세아니아·카리브해의 섬과 오스트레일리아 북부 등에 도입되었습니다.",
+    "descriptionEn": "A large terrestrial toad native to South and Central America and introduced to many islands and northern Australia."
   },
   "carcinus-maenas": {
     "commonName": "유럽녹색게",
-    "description": "해안 가까이에서 흔히 볼 수 있는 게로, 유럽녹색게라는 이름으로 알려져 있습니다."
+    "description": "유럽과 북아프리카 연안이 원산지인 게로, 연체동물·벌레·작은 갑각류 등을 먹습니다.",
+    "descriptionEn": "A crab native to European and North African shores that feeds on molluscs, worms and small crustaceans."
   },
   "cassiopea-xamachana": {
     "commonName": "카시오페아 자마카나",
-    "description": "카시오페아과에 속하는 해파리로, 뒤집힌 자세로 생활해 영어로는 뒤집힌해파리라고 불립니다."
+    "description": "대서양 서부의 따뜻한 바다에 사는 해파리로, 갓을 아래로 향하고 구완을 위로 펼친 자세로 생활합니다.",
+    "descriptionEn": "A jellyfish of warm western Atlantic waters that rests with its bell facing down and its oral arms pointing upward."
   },
   "felis-catus": {
     "commonName": "고양이",
-    "description": "작은 육식성 포유류를 가축화한 종으로, 집고양이라고도 불립니다."
+    "description": "작은 육식성 포유류를 가축화한 종으로, 넣었다 뺄 수 있는 발톱을 지니며 주로 고기를 먹습니다.",
+    "descriptionEn": "A small domesticated carnivorous mammal with retractable claws and a mainly meat-based diet."
   },
   "nautilus-pompilius": {
     "commonName": "앵무조개",
-    "description": "앵무조개류 가운데 가장 잘 알려진 종으로, 진주빛 껍데기와 내부의 여러 방이 특징입니다."
+    "description": "앵무조개류 가운데 가장 잘 알려진 종으로, 진주빛 껍데기와 내부의 여러 방이 특징입니다.",
+    "descriptionEn": "A nautilus with a pearly shell whose interior is divided into multiple chambers."
   },
   "acinonyx-jubatus": {
     "commonName": "치타",
-    "description": "고양이과에 속하는 대형 동물로, 아키노닉스속에서 현재 살아 있는 유일한 종입니다."
+    "description": "고양이과에 속하는 대형 동물로, 강한 뒷다리와 유연한 허리를 이용해 빠르게 달려 먹이를 쫓습니다.",
+    "descriptionEn": "A large cat built for high-speed pursuit, with powerful hind limbs and a long, flexible lower back."
   },
   "pan-troglodytes": {
     "commonName": "침팬지",
-    "description": "적도 아프리카의 숲과 사바나에 사는 중간 크기의 대형 유인원입니다."
+    "description": "적도 아프리카의 숲과 사바나에 사는 중간 크기의 대형 유인원입니다.",
+    "descriptionEn": "A medium-sized great ape of the forests and savannas of equatorial Africa."
   },
   "chironex-fleckeri": {
     "commonName": "키로넥스 플레케리",
-    "description": "오스트레일리아 북부와 인도·태평양 일부 연안에 사는 매우 강한 독의 상자해파리로, 바다말벌이라는 별칭이 있습니다."
+    "description": "오스트레일리아 북부와 인도·태평양 일부 연안에 사는 매우 강한 독의 상자해파리로, 바다말벌이라는 별칭이 있습니다.",
+    "descriptionEn": "A highly venomous box jellyfish of northern Australian and other Indo-Pacific coastal waters."
   },
   "ciona-intestinalis": {
     "commonName": "키오나 인테스티날리스",
-    "description": "매우 부드러운 피낭을 가진 멍게류로, 영어로는 꽃병멍게라는 이름으로도 불립니다."
+    "description": "부드러운 피낭에 싸인 멍게류로, 몸은 반투명하고 기둥 같은 모양입니다.",
+    "descriptionEn": "A sea squirt with a soft, translucent, column-shaped body enclosed in a delicate tunic."
   },
   "cliona-celata": {
     "commonName": "클리오나 켈라타",
-    "description": "클리오나과에 속하는 보통해면류로, 구멍을 뚫는 해면이라는 영어 이름이 있습니다."
+    "description": "석회암이나 연체동물의 껍데기에 작은 구멍을 뚫고 생활하는 해면입니다.",
+    "descriptionEn": "A sponge that bores small holes into limestone and mollusc shells."
   },
   "tursiops-truncatus": {
     "commonName": "큰돌고래",
-    "description": "큰돌고래속에 속하는 세 종 가운데 하나로, 대서양큰돌고래라는 이름으로도 알려져 있습니다."
+    "description": "큰돌고래류로, 휘어진 입선 때문에 웃는 듯한 인상을 줍니다.",
+    "descriptionEn": "A bottlenose dolphin with a curved mouth line that gives the appearance of a smile."
   },
   "sepia-officinalis": {
     "commonName": "유럽갑오징어",
-    "description": "갑오징어류 가운데 몸집이 크고 잘 알려진 종으로, 영어로는 보통갑오징어 또는 유럽갑오징어라고 불립니다."
+    "description": "몸집이 큰 갑오징어류로, 보통갑오징어 또는 유럽갑오징어라고도 불립니다.",
+    "descriptionEn": "A large cuttlefish commonly known as the European or common cuttlefish."
   },
   "rana-temporaria": {
     "commonName": "유럽산개구리",
-    "description": "개구리과에 속하는 반수생 양서류로, 유럽의 넓은 지역에서 스칸디나비아와 우랄산맥까지 분포합니다."
+    "description": "개구리과에 속하는 반수생 양서류로, 유럽의 넓은 지역에서 스칸디나비아와 우랄산맥까지 분포합니다.",
+    "descriptionEn": "A semi-aquatic frog of the family Ranidae, found across much of Europe as far as Scandinavia and the Urals."
   },
   "octopus-vulgaris": {
     "commonName": "참문어",
-    "description": "연체동물문 두족강에 속하는 문어류로, 영어로는 보통문어라고 불립니다."
+    "description": "대서양 동부와 지중해에 사는 문어로, 행동 연구에 자주 이용됩니다.",
+    "descriptionEn": "A marine octopus found in the eastern Atlantic and Mediterranean, often studied for its behaviour."
   },
   "struthio-camelus": {
     "commonName": "타조",
-    "description": "아프리카 일부 지역에 사는 날지 못하는 새로, 현존하는 새 가운데 몸집이 가장 큽니다."
+    "description": "아프리카 일부 지역에 사는 날지 못하는 새로, 현존하는 새 가운데 몸집이 가장 큽니다.",
+    "descriptionEn": "A large flightless bird of Africa, the biggest living bird species."
   },
   "corvus-corax": {
     "commonName": "큰까마귀",
-    "description": "온몸이 검은 대형 참새목 조류로, 영어로는 보통까마귀 또는 북방까마귀라는 이름으로 불립니다."
+    "description": "온몸이 검은 대형 참새목 조류로, 영어로는 보통까마귀 또는 북방까마귀라는 이름으로 불립니다.",
+    "descriptionEn": "A large, all-black passerine bird with a broad distribution across the Northern Hemisphere."
   },
   "asterias-rubens": {
     "commonName": "유럽불가사리",
-    "description": "북동부 대서양에서 가장 흔하고 친숙한 불가사리 가운데 하나입니다."
+    "description": "북동부 대서양에 흔한 불가사리로, 보통 다섯 개의 팔을 지니며 몸의 너비는 약 10~30cm입니다.",
+    "descriptionEn": "A common starfish of the northeastern Atlantic, usually with five arms and a span of about 10 to 30 cm."
   },
   "bufo-bufo": {
     "commonName": "유럽두꺼비",
-    "description": "유럽 대부분의 지역과 북아시아 서부·북서아프리카 일부에 분포하는 두꺼비입니다."
+    "description": "유럽 대부분의 지역과 북아시아 서부·북서아프리카 일부에 분포하는 두꺼비입니다.",
+    "descriptionEn": "A toad found across much of Europe, western northern Asia and parts of northwestern Africa."
   },
   "desmodus-rotundus": {
     "commonName": "흡혈박쥐",
-    "description": "아메리카가 원산지인 작은 잎코박쥐류로, 영어로는 보통흡혈박쥐라는 이름으로 불립니다."
+    "description": "아메리카에 사는 작은 박쥐로, 주로 가축의 피를 먹습니다.",
+    "descriptionEn": "A small bat of the Americas that feeds mainly on the blood of livestock."
   },
   "cornu-aspersum": {
     "commonName": "정원달팽이",
-    "description": "달팽이과에 속하는 육상 달팽이로, 오랫동안 헬릭스속으로 분류되었으나 현재는 코르누속에 둡니다."
+    "description": "달팽이과에 속하는 육상 달팽이로, 정원에서 흔히 볼 수 있습니다.",
+    "descriptionEn": "A land snail of the family Helicidae, commonly found in gardens."
   },
   "acanthaster-planci": {
     "commonName": "가시관불가사리",
-    "description": "단단한 산호의 폴립을 잡아먹는 대형 불가사리입니다."
+    "description": "단단한 산호의 폴립을 먹는 대형 불가사리로, 몸 윗면을 덮은 가시에 독이 있습니다.",
+    "descriptionEn": "A large starfish that feeds on hard coral polyps and has venomous, thorn-like spines on its upper surface."
   },
   "daphnia-pulex": {
     "commonName": "다프니아 풀렉스",
-    "description": "물벼룩류 가운데 가장 흔한 종으로 알려진 작은 담수 갑각류입니다."
+    "description": "아메리카·유럽·오스트레일리아 등에 분포하는 작은 담수 갑각류로, 연구에 널리 이용됩니다.",
+    "descriptionEn": "A small freshwater crustacean found in the Americas, Europe and Australia and widely used in research."
   },
   "drosophila-melanogaster": {
     "commonName": "노랑초파리",
-    "description": "초파리과에 속하는 파리류로, 곤충의 한 무리인 파리목에 속합니다."
+    "description": "썩는 과일이나 발효되는 먹이에 모이는 작은 파리로, 실험실 연구에 널리 이용됩니다.",
+    "descriptionEn": "A small fly attracted to rotting fruit and fermenting food, widely used in laboratory research."
   },
   "drosophila-simulans": {
     "commonName": "드로소필라 시뮬란스",
-    "description": "노랑초파리와 가까운 초파리로, 같은 멜라노가스터 종 아군에 속하며 모리셔스초파리와 세이셸초파리가 가장 가까운 친척입니다."
+    "description": "초파리과에 속하는 작은 파리로, 과일즙을 이용해 채집하거나 실험실에서 기를 수 있습니다.",
+    "descriptionEn": "A small fly of the family Drosophilidae, collected and cultured using fruit juice."
   },
   "dugesia-japonica": {
     "commonName": "플라나리아",
-    "description": "한국·일본·대만·중국·시베리아 북동부를 포함한 동아시아의 민물에 사는 플라나리아류입니다."
+    "description": "한국·일본·대만·중국·시베리아 북동부를 포함한 동아시아의 민물에 사는 플라나리아류입니다.",
+    "descriptionEn": "A freshwater planarian of East Asia, recorded in Korea, Japan, Taiwan, China and northeastern Siberia."
   },
   "dendrobates-tinctorius": {
     "commonName": "코발트독화살개구리",
-    "description": "독화살개구리류의 한 종으로, 코발트독개구리 또는 틴크라는 이름으로도 알려져 있습니다."
+    "description": "다양한 색과 무늬를 지닌 독화살개구리로, 몸길이는 보통 약 5cm까지 자랍니다.",
+    "descriptionEn": "A poison dart frog noted for its varied colours and patterns, reaching around five centimetres in body length."
   },
   "macropus-giganteus": {
     "commonName": "동부회색캥거루",
-    "description": "오스트레일리아 동부 약 3분의 1에 해당하는 지역에 사는 유대류로, 수백만 마리의 개체군이 분포합니다."
+    "description": "오스트레일리아 동부에 사는 대형 유대류로, 수컷은 몸무게가 약 70kg에 이르기도 합니다.",
+    "descriptionEn": "A large marsupial of eastern Australia, with adult males sometimes weighing nearly 70 kg."
   },
   "echinococcus-granulosus": {
     "commonName": "단방조충",
-    "description": "성체는 개과 동물의 소장에 기생하고, 가축과 사람을 중간숙주로 삼아 낭포성 포충증을 일으키는 조충입니다."
+    "description": "성체는 개과 동물의 소장에 기생하고, 가축과 사람을 중간숙주로 삼아 낭포성 포충증을 일으키는 조충입니다.",
+    "descriptionEn": "A tapeworm whose adults live in canine intestines and whose larval stages can infect livestock and humans."
   },
   "eisenia-fetida": {
     "commonName": "줄지렁이",
-    "description": "썩는 식물·퇴비·가축 분뇨 같은 유기물에서 잘 자라는 지렁이로, 흙 깊숙한 곳보다는 표면 가까이에서 생활합니다."
+    "description": "썩는 식물·퇴비·가축 분뇨 같은 유기물에서 잘 자라는 지렁이로, 흙 깊숙한 곳보다는 표면 가까이에서 생활합니다.",
+    "descriptionEn": "An earthworm that thrives near the surface in rotting vegetation, compost and manure."
   },
   "electrophorus-electricus": {
     "commonName": "전기뱀장어",
-    "description": "남아메리카의 담수에 사는 전기어류로, 이름과 달리 뱀장어류가 아니라 칼물고기류에 속하며 전기를 만드는 조직을 갖습니다."
+    "description": "남아메리카의 민물에 사는 물고기로, 전기를 만드는 특수한 기관을 지닙니다.",
+    "descriptionEn": "A South American freshwater fish with specialised organs that generate electricity."
   },
   "aptenodytes-forsteri": {
     "commonName": "황제펭귄",
-    "description": "남극에만 사는 펭귄으로, 현존하는 펭귄 가운데 키가 가장 크고 몸무게가 가장 많이 나갑니다."
+    "description": "남극에만 사는 펭귄으로, 현존하는 펭귄 가운데 키가 가장 크고 몸무게가 가장 많이 나갑니다.",
+    "descriptionEn": "A penguin native to Antarctica, with the greatest height and weight of any living penguin."
   },
   "dromaius-novaehollandiae": {
     "commonName": "에뮤",
-    "description": "오스트레일리아에만 자연적으로 분포하는 날지 못하는 새로, 그 지역의 토착 조류 가운데 키가 가장 큽니다."
+    "description": "오스트레일리아에만 자연적으로 분포하는 날지 못하는 새로, 그 지역의 토착 조류 가운데 키가 가장 큽니다.",
+    "descriptionEn": "A tall, flightless bird native to Australia."
   },
   "euperipatoides-kanangrensis": {
     "commonName": "유페리파토이데스 카낭그렌시스",
-    "description": "오스트레일리아에만 분포하는 유조동물로, 암수 모두 15쌍의 다리를 가지며 1996년에 정식으로 기재되었습니다."
+    "description": "오스트레일리아에 사는 유조동물로, 암수 모두 15쌍의 다리를 지닙니다.",
+    "descriptionEn": "An Australian onychophoran with 15 pairs of legs in both sexes."
   },
   "anguilla-anguilla": {
     "commonName": "유럽뱀장어",
-    "description": "유럽뱀장어라는 이름으로 알려진 뱀장어류로, 야생에서의 교미는 아직 관찰되지 않았으며 성장 단계들이 한때 서로 다른 종으로 여겨졌습니다."
+    "description": "유럽뱀장어로 알려진 뱀장어류로, 성장 단계에 따라 겉모습이 크게 달라집니다.",
+    "descriptionEn": "A European eel whose growth stages differ markedly in appearance."
   },
   "mantis-religiosa": {
     "commonName": "유럽사마귀",
-    "description": "사마귀과에 속하는 대형 불완전변태 곤충으로, 쉬고 있을 때 앞다리를 모으는 자세가 기도하는 모습과 닮았습니다."
+    "description": "몸집이 큰 사마귀로, 앞다리를 모아 접은 자세가 기도하는 모습과 닮았습니다.",
+    "descriptionEn": "A large mantis whose folded forelegs resemble hands held in prayer."
   },
   "salamandra-salamandra": {
     "commonName": "불도롱뇽",
-    "description": "유럽에서 흔한 도롱뇽으로, 검은 바탕에 노란 반점이나 줄무늬가 있으며 선명한 색은 독성을 알리는 경고 역할을 합니다."
+    "description": "유럽에서 흔한 도롱뇽으로, 검은 바탕에 노란 반점이나 줄무늬가 있으며 선명한 색은 독성을 알리는 경고 역할을 합니다.",
+    "descriptionEn": "A European salamander with yellow spots or stripes on a black body, using bright colours as a warning."
   },
   "formica-rufa": {
     "commonName": "붉은숲개미",
-    "description": "유라시아가 원산지인 숲개미류로, 포르미카 루파 종군의 기준이 되는 종이며 붉은숲개미라는 영어 이름이 있습니다."
+    "description": "유라시아가 원산지인 숲개미류로, 붉은숲개미라는 이름으로 알려져 있습니다.",
+    "descriptionEn": "A woodland ant native to Eurasia, commonly called the red wood ant."
   },
   "myrmecophaga-tridactyla": {
     "commonName": "큰개미핥기",
-    "description": "중앙아메리카와 남아메리카가 원산지인 곤충식 포유류로, 현존하는 네 종의 개미핥기 가운데 가장 큽니다."
+    "description": "중앙아메리카와 남아메리카에 사는 대형 포유류로, 주로 곤충을 먹습니다.",
+    "descriptionEn": "A large insect-eating mammal native to Central and South America."
   },
   "tridacna-gigas": {
     "commonName": "대왕조개",
-    "description": "트리다크나속의 대형 조개 가운데 가장 잘 알려진 종으로, 현존하는 이매패류 가운데 몸집이 가장 큽니다."
+    "description": "바다에 사는 이매패류로, 매우 큰 몸집과 껍데기가 특징입니다.",
+    "descriptionEn": "A marine bivalve notable for its enormous size."
   },
   "mobula-birostris": {
     "commonName": "대왕쥐가오리",
-    "description": "쥐가오리과에 속하는 가오리로, 전 세계의 열대·아열대 바다를 중심으로 분포하며 가오리류 가운데 가장 큽니다."
+    "description": "쥐가오리과에 속하는 가오리로, 전 세계의 열대·아열대 바다를 중심으로 분포하며 가오리류 가운데 가장 큽니다.",
+    "descriptionEn": "A very large ray of the family Mobulidae, found mainly in tropical and subtropical oceans."
   },
   "enteroctopus-dofleini": {
     "commonName": "대문어",
-    "description": "태평양 북부 연안에 널리 분포하는 대형 두족류로, 북태평양대문어라는 이름으로도 알려져 있습니다."
+    "description": "태평양 북부 연안에 널리 분포하는 대형 두족류로, 북태평양대문어라는 이름으로도 알려져 있습니다.",
+    "descriptionEn": "A large octopus widely distributed along North Pacific coasts."
   },
   "architeuthis-dux": {
     "commonName": "대왕오징어",
-    "description": "아르키테우티스과에 속하는 심해 오징어로, 매우 크게 자라며 길게 뻗은 팔 때문에 전체 길이가 특히 깁니다."
+    "description": "심해에 사는 대형 오징어로, 길게 뻗은 팔과 촉수 때문에 전체 길이가 매우 깁니다.",
+    "descriptionEn": "A very large deep-sea squid whose long arms and tentacles contribute to its exceptional total length."
   },
   "phyllobates-terribilis": {
     "commonName": "황금독화살개구리",
-    "description": "콜롬비아 열대우림에만 자연적으로 분포하는 독화살개구리로, 작은 몸집에도 매우 강한 독을 지닙니다."
+    "description": "콜롬비아 열대우림에만 자연적으로 분포하는 독화살개구리로, 작은 몸집에도 매우 강한 독을 지닙니다.",
+    "descriptionEn": "A small poison dart frog native to Colombian rainforests, known for its potent skin toxins."
   },
   "carassius-auratus": {
     "commonName": "금붕어",
-    "description": "잉어목 잉어과에 속하는 담수어로, 중국이 원산지이며 관상용으로 오래 길러온 물고기입니다."
+    "description": "잉어과에 속하는 담수어로, 중국이 원산지이며 관상용으로 오래 길러왔습니다.",
+    "descriptionEn": "A freshwater fish of the family Cyprinidae, native to China and long kept as an ornamental fish."
   },
   "sphyrna-mokarran": {
     "commonName": "큰귀상어",
-    "description": "귀상어과에 속하는 종 가운데 가장 큰 상어로, 평균 몸길이는 약 4.6m이며 따뜻한 바다에 널리 분포합니다."
+    "description": "귀상어과에 속하는 종 가운데 가장 큰 상어로, 평균 몸길이는 약 4.6m이며 따뜻한 바다에 널리 분포합니다.",
+    "descriptionEn": "A large hammerhead shark found in warm seas, with an average length of around 4 to 5 metres."
   },
   "carcharodon-carcharias": {
     "commonName": "백상아리",
-    "description": "회색 등과 흰 배를 가진 튼튼한 체형의 대형 상어로, 청상아리·악상어·연어상어와 가까운 친척입니다."
+    "description": "회색 등과 흰 배를 가진 대형 상어로, 튼튼한 체형이 특징입니다.",
+    "descriptionEn": "A large shark with a sturdy body, grey back and white underside."
   },
   "hapalochlaena-lunulata": {
     "commonName": "큰파란고리문어",
-    "description": "문어과에 속하는 파란고리문어류 네 종 가운데 하나로, 매우 강한 독을 가진 해양 동물입니다."
+    "description": "파란 고리무늬로 알려진 작은 바다 문어로, 매우 강한 독을 지닙니다.",
+    "descriptionEn": "A small marine octopus known for its blue rings and highly potent venom."
   },
   "phoenicopterus-roseus": {
     "commonName": "큰홍학",
-    "description": "홍학과에서 가장 크고 널리 분포하는 종으로, 아프리카·아시아 일부와 남유럽의 지중해 주변에 서식합니다."
+    "description": "홍학과에서 가장 크고 널리 분포하는 종으로, 아프리카·아시아 일부와 남유럽의 지중해 주변에 서식합니다.",
+    "descriptionEn": "A large flamingo found in Africa, parts of Asia and Mediterranean regions of southern Europe."
   },
   "iguana-iguana": {
     "commonName": "녹색이구아나",
-    "description": "아메리카가 원산지인 대형 도마뱀으로, 주로 나무 위에서 생활하며 대부분 식물을 먹습니다."
+    "description": "아메리카가 원산지인 대형 도마뱀으로, 주로 나무 위에서 생활하며 대부분 식물을 먹습니다.",
+    "descriptionEn": "A large lizard native to the Americas that spends much of its time in trees and feeds mainly on plants."
   },
   "chelonia-mydas": {
     "commonName": "푸른바다거북",
-    "description": "바다거북과에 속하는 대형 바다거북으로, 전 세계의 열대·아열대 바다에 분포하며 이름은 등딱지 아래의 녹색 지방에서 유래했습니다."
+    "description": "바다거북과에 속하는 대형 바다거북으로, 전 세계의 열대·아열대 바다에 분포하며 이름은 등딱지 아래의 녹색 지방에서 유래했습니다.",
+    "descriptionEn": "A large sea turtle of tropical and subtropical oceans, named for the green fat beneath its shell."
   },
   "haliotis-rufescens": {
     "commonName": "붉은전복",
-    "description": "전복과에 속하는 대형 식용 바다 달팽이류로, 캐나다 브리티시컬럼비아부터 멕시코 바하칼리포르니아까지 분포합니다."
+    "description": "전복과에 속하는 대형 식용 바다 달팽이류로, 캐나다 브리티시컬럼비아부터 멕시코 바하칼리포르니아까지 분포합니다.",
+    "descriptionEn": "A large edible marine snail found from British Columbia to Baja California."
   },
   "harmonia-axyridis": {
     "commonName": "무당벌레",
-    "description": "동아시아가 원산지인 무당벌레류로, 색과 무늬의 변이가 매우 다양하며 진딧물과 깍지벌레 방제를 위해 다른 대륙에도 도입되었습니다."
+    "description": "동아시아가 원산지인 무당벌레류로, 색과 무늬의 변이가 매우 다양하며 진딧물과 깍지벌레 방제를 위해 다른 대륙에도 도입되었습니다.",
+    "descriptionEn": "An East Asian ladybird with highly variable colours and markings, introduced elsewhere to control plant pests."
   },
   "eretmochelys-imbricata": {
     "commonName": "매부리바다거북",
-    "description": "바다거북과에 속하는 종으로, 전 세계의 열대·아열대 바다와 하구에 분포하며 심각한 멸종위기에 놓여 있습니다."
+    "description": "바다거북과에 속하는 종으로, 전 세계의 열대·아열대 바다와 하구에 분포하며 심각한 멸종위기에 놓여 있습니다.",
+    "descriptionEn": "A sea turtle found in tropical and subtropical seas and estuaries."
   },
   "cryptobranchus-alleganiensis": {
     "commonName": "헬벤더",
-    "description": "미국 동부와 중부에만 자연적으로 분포하는 수생 장수도롱뇽류로, 북아메리카에서 가장 큰 도롱뇽입니다."
+    "description": "미국 동부와 중부에만 자연적으로 분포하는 수생 장수도롱뇽류로, 북아메리카에서 가장 큰 도롱뇽입니다.",
+    "descriptionEn": "A large aquatic salamander native to the eastern and central United States."
   },
   "hippocampus-kuda": {
     "commonName": "노랑해마",
-    "description": "해마류의 한 종으로, 보통해마·하구해마·노랑해마·점박이해마 등 여러 영어 이름으로 알려져 있습니다."
+    "description": "몸빛의 변이가 다양한 해마로, 노랑해마 또는 점박이해마라는 별칭으로도 불립니다.",
+    "descriptionEn": "A seahorse whose body colour varies, commonly called the yellow or spotted seahorse."
   },
   "hippopotamus-amphibius": {
     "commonName": "하마",
-    "description": "사하라 사막 이남 아프리카가 원산지인 대형 반수생 포유류로, 현존하는 하마과 두 종 가운데 하나입니다."
+    "description": "사하라 사막 이남 아프리카에 사는 대형 포유류로, 물과 육지를 오가며 생활합니다.",
+    "descriptionEn": "A large semi-aquatic mammal native to sub-Saharan Africa."
   },
   "hirudo-medicinalis": {
     "commonName": "유럽의료용거머리",
-    "description": "의료용으로 쓰이는 거머리류 가운데 한 종으로, 다른 히루도속 거머리들과는 별개의 종입니다."
+    "description": "의료에 이용되는 거머리로, 과거 대량 채집으로 여러 지역에서 개체 수가 감소했습니다.",
+    "descriptionEn": "A leech used in medicine, with populations historically reduced by intensive collection."
   },
   "hoilungia-hongkongensis": {
     "commonName": "호일룽기아 홍콩엔시스",
-    "description": "판형동물문에 속하는 매우 단순한 동물로, 2018년에 기재되었으며 트리코플락스와 겉모습은 비슷하지만 유전적으로 구별됩니다."
+    "description": "판형동물문에 속하는 작고 단순한 몸의 동물로, 2018년에 정식으로 기재되었습니다.",
+    "descriptionEn": "A small, simple-bodied animal of the phylum Placozoa, formally described in 2018."
   },
   "holothuria-edulis": {
     "commonName": "홀로투리아 에둘리스",
-    "description": "해삼과에 속하는 해삼으로, 식용해삼 또는 분홍·검정해삼이라는 영어 이름으로 알려져 있습니다."
+    "description": "식용으로 이용되는 해삼으로, 분홍색과 어두운 몸빛이 특징입니다.",
+    "descriptionEn": "An edible sea cucumber known for its pink and dark body colouring."
   },
   "mus-musculus": {
     "commonName": "생쥐",
-    "description": "쥐과에 속하는 작은 포유류로, 뾰족한 주둥이와 큰 둥근 귀, 털이 거의 없는 긴 꼬리가 특징입니다."
+    "description": "쥐과에 속하는 작은 포유류로, 뾰족한 주둥이와 큰 둥근 귀, 털이 거의 없는 긴 꼬리가 특징입니다.",
+    "descriptionEn": "A small mammal with a pointed snout, large rounded ears and a long, almost hairless tail."
   },
   "passer-domesticus": {
     "commonName": "집참새",
-    "description": "참새과에 속하는 작은 새로, 전 세계의 많은 지역에 분포하며 성체의 몸길이는 대체로 약 16cm입니다."
+    "description": "참새과에 속하는 작은 새로, 전 세계의 많은 지역에 분포하며 성체의 몸길이는 대체로 약 16cm입니다.",
+    "descriptionEn": "A small sparrow found in many parts of the world, usually about 16 cm long."
   },
   "homo-sapiens": {
     "commonName": "사람",
-    "description": "두 발로 걷고 체모가 적으며 크고 복잡한 뇌를 가진 영장류로, 고도의 기술·문화·언어를 발달시킨 매우 사회적인 동물입니다."
+    "description": "두 발로 걷고 체모가 적으며 크고 복잡한 뇌를 가진 영장류로, 고도의 기술·문화·언어를 발달시킨 매우 사회적인 동물입니다.",
+    "descriptionEn": "A highly social primate with upright walking, little body hair and a large brain, known for complex language and culture."
   },
   "hydra-vulgaris": {
     "commonName": "히드라 불가리스",
-    "description": "민물에 사는 작은 히드라류로, 몸길이는 약 10~30mm이고 폭은 약 1mm입니다."
+    "description": "민물에 사는 작은 히드라류로, 몸길이는 약 10~30mm이고 폭은 약 1mm입니다.",
+    "descriptionEn": "A small freshwater hydroid, usually about 10 to 30 mm long and around one millimetre wide."
   },
   "naja-naja": {
     "commonName": "인도코브라",
-    "description": "코브라과에 속하는 독사로, 인도아대륙이 원산지이며 안경 모양의 무늬 때문에 안경코브라라고도 불립니다."
+    "description": "코브라과에 속하는 독사로, 인도아대륙이 원산지이며 안경 모양의 무늬 때문에 안경코브라라고도 불립니다.",
+    "descriptionEn": "A venomous snake native to the Indian subcontinent, known for the spectacle-shaped marking on its hood."
   },
   "rhinoceros-unicornis": {
     "commonName": "인도코뿔소",
-    "description": "인도아대륙이 원산지인 한 개의 뿔을 가진 코뿔소로, 현존하는 코뿔소 가운데 두 번째로 크고 아시아에서는 가장 큽니다."
+    "description": "인도아대륙이 원산지인 한 개의 뿔을 가진 코뿔소로, 현존하는 코뿔소 가운데 두 번째로 크고 아시아에서는 가장 큽니다.",
+    "descriptionEn": "A large rhinoceros native to the Indian subcontinent, with a single horn."
   },
   "latimeria-menadoensis": {
     "commonName": "인도네시아실러캔스",
-    "description": "현존하는 실러캔스 두 종 가운데 하나로, 갈색 몸빛으로 구별되며 육질의 지느러미를 가진 물고기입니다."
+    "description": "갈색 몸빛과 육질의 지느러미를 지닌 실러캔스로, 인도네시아실러캔스라는 이름으로 알려져 있습니다.",
+    "descriptionEn": "A coelacanth with brown colouring and fleshy fins, commonly known as the Indonesian coelacanth."
   },
   "podarcis-siculus": {
     "commonName": "이탈리아벽도마뱀",
-    "description": "장지뱀과에 속하는 도마뱀으로, 유럽 남부와 남동부가 원산지이며 다른 유럽 지역과 북아메리카 등에도 도입되었습니다."
+    "description": "장지뱀과에 속하는 도마뱀으로, 유럽 남부와 남동부가 원산지이며 다른 유럽 지역과 북아메리카 등에도 도입되었습니다.",
+    "descriptionEn": "A lizard native to southern and southeastern Europe and introduced to parts of North America and elsewhere."
   },
   "ixodes-scapularis": {
     "commonName": "검은다리진드기",
-    "description": "북아메리카 동부의 넓은 지역에 사는 참진드기로, 성체가 흰꼬리사슴을 자주 숙주로 삼아 사슴진드기라고 불리기도 합니다."
+    "description": "북아메리카 동부의 넓은 지역에 사는 참진드기로, 성체가 흰꼬리사슴을 자주 숙주로 삼아 사슴진드기라고 불리기도 합니다.",
+    "descriptionEn": "A hard-bodied tick of eastern North America, whose adults often feed on white-tailed deer."
   },
   "panthera-onca": {
     "commonName": "재규어",
-    "description": "아메리카에 자연적으로 분포하는 유일한 표범속 동물로, 황갈색 털과 옆구리의 장미 모양 반점이 특징입니다."
+    "description": "아메리카에 사는 대형 고양이과 동물로, 황갈색 털과 옆구리의 장미 모양 반점이 특징입니다.",
+    "descriptionEn": "A large cat native to the Americas, with yellowish fur and rosette-shaped markings on its sides."
   },
   "andrias-japonicus": {
     "commonName": "일본장수도롱뇽",
-    "description": "일본에만 자연적으로 분포하는 완전 수생 장수도롱뇽으로, 주로 혼슈 서부와 시코쿠·규슈 일부에 서식합니다."
+    "description": "일본에만 자연적으로 분포하는 완전 수생 장수도롱뇽으로, 주로 혼슈 서부와 시코쿠·규슈 일부에 서식합니다.",
+    "descriptionEn": "A large, fully aquatic salamander native to western Honshu and parts of Shikoku and Kyushu in Japan."
   },
   "coturnix-japonica": {
     "commonName": "메추라기",
-    "description": "동아시아에 사는 메추라기류로, 한때 보통메추라기의 아종으로 여겨졌으나 현재는 별개의 종으로 구분합니다."
+    "description": "동아시아에 사는 작은 메추라기류로, 오래전부터 사람이 길러왔습니다.",
+    "descriptionEn": "A small quail found in East Asia and long associated with human husbandry."
   },
   "ophiophagus-hannah": {
     "commonName": "킹코브라",
-    "description": "아시아가 원산지인 독사 종 복합체로, 가장 긴 독사로 알려져 있으며 이름과 달리 진정한 코브라속과는 계통이 다릅니다."
+    "description": "아시아에 사는 대형 독사로, 몸이 매우 길게 자랍니다.",
+    "descriptionEn": "A large venomous snake native to Asia, noted for its exceptional length."
   },
   "phascolarctos-cinereus": {
     "commonName": "코알라",
-    "description": "오스트레일리아가 원산지인 나무 위에서 생활하는 초식 유대류로, 코알라과에서 현재 살아 있는 유일한 종입니다."
+    "description": "오스트레일리아에 사는 유대류로, 주로 나무 위에서 생활하며 식물을 먹습니다.",
+    "descriptionEn": "An Australian marsupial that lives in trees and feeds on plants."
   },
   "varanus-komodoensis": {
     "commonName": "코모도왕도마뱀",
-    "description": "인도네시아 코모도섬과 주변 섬들에만 자연적으로 분포하는 왕도마뱀으로, 현존하는 도마뱀 가운데 가장 큽니다."
+    "description": "인도네시아 코모도섬과 주변 섬들에만 자연적으로 분포하는 왕도마뱀으로, 현존하는 도마뱀 가운데 가장 큽니다.",
+    "descriptionEn": "A very large monitor lizard native to Komodo and nearby Indonesian islands."
   },
   "pristis-pristis": {
     "commonName": "큰이빨톱가오리",
-    "description": "톱가오리과에 속하는 가오리로, 전 세계의 열대·아열대 연안에 분포하며 민물로 들어가기도 합니다."
+    "description": "톱가오리과에 속하는 가오리로, 전 세계의 열대·아열대 연안에 분포하며 민물로 들어가기도 합니다.",
+    "descriptionEn": "A ray of tropical and subtropical coastal waters that also enters freshwater."
   },
   "latrodectus-mactans": {
     "commonName": "남부검은과부거미",
-    "description": "북아메리카가 원산지인 독거미로, 암컷의 검은색과 붉은색 무늬가 특징이며 때때로 짝짓기 후 수컷을 잡아먹습니다."
+    "description": "북아메리카가 원산지인 독거미로, 암컷의 검은색과 붉은색 무늬가 특징이며 때때로 짝짓기 후 수컷을 잡아먹습니다.",
+    "descriptionEn": "A venomous North American spider whose females have distinctive black and red markings."
   },
   "limax-maximus": {
     "commonName": "표범민달팽이",
-    "description": "민달팽이과에 속하는 대형 종으로, 성체는 대체로 10~20cm이며 회색이나 회갈색 바탕에 짙은 반점이 있습니다."
+    "description": "민달팽이과에 속하는 대형 종으로, 성체는 대체로 10~20cm이며 회색이나 회갈색 바탕에 짙은 반점이 있습니다.",
+    "descriptionEn": "A large slug, usually 10 to 20 cm long, with dark spots on a grey or grey-brown body."
   },
   "hippocampus-erectus": {
     "commonName": "줄무늬해마",
-    "description": "실고기과에 속하는 해마로, 대서양 서부에 분포하며 낮에 활동하고 몸길이는 대체로 약 15cm입니다."
+    "description": "실고기과에 속하는 해마로, 대서양 서부에 분포하며 낮에 활동하고 몸길이는 대체로 약 15cm입니다.",
+    "descriptionEn": "A seahorse of the western Atlantic, active during the day and usually about 15 cm long."
   },
   "panthera-leo": {
     "commonName": "사자",
-    "description": "사하라 사막 이남 아프리카와 인도에 사는 대형 고양이과 동물로, 수컷은 암컷보다 크고 머리에서 가슴까지 이어지는 갈기가 특징입니다."
+    "description": "사하라 사막 이남 아프리카와 인도에 사는 대형 고양이과 동물로, 수컷은 암컷보다 크고 머리에서 가슴까지 이어지는 갈기가 특징입니다.",
+    "descriptionEn": "A large cat of Africa and India, with adult males bearing a prominent mane around the head and chest."
   },
   "cyanea-capillata": {
     "commonName": "사자갈기해파리",
-    "description": "가장 큰 해파리류 가운데 하나로, 북극과 북대서양·북태평양의 차가운 바다에 분포합니다."
+    "description": "가장 큰 해파리류 가운데 하나로, 북극과 북대서양·북태평양의 차가운 바다에 분포합니다.",
+    "descriptionEn": "A very large jellyfish found in cold Arctic, North Atlantic and North Pacific waters."
   },
   "leucoraja-erinacea": {
     "commonName": "작은홍어",
-    "description": "홍어과에 속하는 종으로, 캐나다 노바스코샤부터 미국 노스캐롤라이나까지 모래나 자갈 바닥에 서식합니다."
+    "description": "홍어과에 속하는 종으로, 캐나다 노바스코샤부터 미국 노스캐롤라이나까지 모래나 자갈 바닥에 서식합니다.",
+    "descriptionEn": "A skate found on sand or gravel seabeds from Nova Scotia to North Carolina."
   },
   "lepisosteus-osseus": {
     "commonName": "긴코가아",
-    "description": "가아과에 속하는 조기어류로, 길고 뾰족한 주둥이를 지니며 오래된 특징을 일부 유지하지만 덜 발달한 동물이라는 뜻은 아닙니다."
+    "description": "길고 바늘처럼 뾰족한 주둥이와 단단한 비늘을 지닌 물고기로, 민물과 일부 기수역에 삽니다.",
+    "descriptionEn": "A fish with a long, needle-like snout and hard scales, found in freshwater and some brackish habitats."
   },
   "lumbricus-terrestris": {
     "commonName": "유럽큰지렁이",
-    "description": "서유럽이 원산지로 여겨지는 큰 붉은 지렁이로, 세계 여러 지역에 퍼져 있으며 몸을 펴면 보통 20~25cm까지 자랍니다."
+    "description": "서유럽이 원산지로 여겨지는 큰 붉은 지렁이로, 세계 여러 지역에 퍼져 있으며 몸을 펴면 보통 20~25cm까지 자랍니다.",
+    "descriptionEn": "A large, reddish earthworm now found widely around the world, often reaching 20 to 25 cm when extended."
   },
   "lymnaea-stagnalis": {
     "commonName": "큰물달팽이",
-    "description": "물달팽이과에 속하는 대형 민물 달팽이로, 공기 호흡을 하며 기생충학·신경학·발생학 연구의 모델로 쓰입니다."
+    "description": "물달팽이과에 속하는 대형 민물 달팽이로, 공기 호흡을 하며 기생충학·신경학·발생학 연구의 모델로 쓰입니다.",
+    "descriptionEn": "A large, air-breathing freshwater snail used in studies of nerves, development and parasites."
   },
   "macrobiotus-shonaicus": {
     "commonName": "마크로비오투스 쇼나이쿠스",
-    "description": "마크로비오투스과에 속하는 완보동물로, 일본 여러 지역에서 발견되며 2018년에 정식으로 기재되었습니다."
+    "description": "일본에 사는 완보동물로, 알 표면의 독특한 구조가 특징이며 2018년에 정식으로 기재되었습니다.",
+    "descriptionEn": "A tardigrade found in Japan, formally described in 2018, with distinctive structures on its eggs."
   },
   "anas-platyrhynchos": {
     "commonName": "청둥오리",
-    "description": "아메리카·유라시아·북아프리카의 온대와 아열대에서 번식하는 수면성 오리로, 습지에서 수초와 작은 동물을 먹습니다."
+    "description": "아메리카·유라시아·북아프리카의 온대와 아열대에서 번식하는 수면성 오리로, 습지에서 수초와 작은 동물을 먹습니다.",
+    "descriptionEn": "A dabbling duck of temperate and subtropical wetlands that feeds on aquatic plants and small animals."
   },
   "tenebrio-molitor": {
     "commonName": "갈색거저리",
-    "description": "거저리과에 속하는 딱정벌레로, 유충은 밀웜이라고 불리며 따뜻하고 습한 환경을 선호합니다."
+    "description": "거저리과에 속하는 딱정벌레로, 유충은 밀웜이라고 불리며 따뜻하고 습한 환경을 선호합니다.",
+    "descriptionEn": "A beetle whose larvae are called mealworms, favouring warm, humid conditions."
   },
   "megachasma-pelagios": {
     "commonName": "넓은주둥이상어",
-    "description": "심해에 사는 드문 상어로, 입을 크게 벌리고 헤엄치며 바닷물을 걸러 플랑크톤을 먹습니다."
+    "description": "심해에 사는 드문 상어로, 입을 크게 벌리고 헤엄치며 바닷물을 걸러 플랑크톤을 먹습니다.",
+    "descriptionEn": "A rarely seen deepwater shark that swims with its mouth open to filter plankton from seawater."
   },
   "metridium-senile": {
     "commonName": "메트리디움 세닐레",
-    "description": "메트리디움과에 속하는 말미잘로, 유럽 북서부와 북아메리카 동·서해안의 바다에 분포합니다."
+    "description": "메트리디움과에 속하는 말미잘로, 유럽 북서부와 북아메리카 동·서해안의 바다에 분포합니다.",
+    "descriptionEn": "A sea anemone found off northwestern Europe and both the eastern and western coasts of North America."
   },
   "locusta-migratoria": {
     "commonName": "풀무치",
-    "description": "메뚜기류 가운데 가장 널리 분포하는 종으로, 아프리카·유럽·아시아·오스트레일리아·뉴질랜드에 서식합니다."
+    "description": "메뚜기류 가운데 가장 널리 분포하는 종으로, 아프리카·유럽·아시아·오스트레일리아·뉴질랜드에 서식합니다.",
+    "descriptionEn": "A widely distributed locust found across Africa, Europe, Asia, Australia and New Zealand."
   },
   "danaus-plexippus": {
     "commonName": "왕나비",
-    "description": "네발나비과에 속하는 나비로, 주황색·검은색·흰색 날개 무늬가 뚜렷하며 북아메리카에서 친숙한 종입니다."
+    "description": "네발나비과에 속하는 나비로, 주황색·검은색·흰색 날개 무늬가 뚜렷하며 북아메리카에서 친숙한 종입니다.",
+    "descriptionEn": "A butterfly with conspicuous orange, black and white wings, familiar across much of North America."
   },
   "crocodylus-niloticus": {
     "commonName": "나일악어",
-    "description": "아프리카의 담수 환경에 사는 대형 악어로, 사하라 사막 이남의 동부·남부·중부에 널리 분포합니다."
+    "description": "아프리카의 담수 환경에 사는 대형 악어로, 사하라 사막 이남의 동부·남부·중부에 널리 분포합니다.",
+    "descriptionEn": "A large crocodile of African freshwater habitats, widespread in eastern, southern and central sub-Saharan Africa."
   },
   "dasypus-novemcinctus": {
     "commonName": "아홉띠아르마딜로",
-    "description": "남아메리카가 원산지인 아르마딜로로, 주로 밤에 혼자 활동하며 숲·초원·건조한 관목지 등 다양한 환경에 삽니다."
+    "description": "남아메리카가 원산지인 아르마딜로로, 주로 밤에 혼자 활동하며 숲·초원·건조한 관목지 등 다양한 환경에 삽니다.",
+    "descriptionEn": "A mainly solitary, nocturnal armadillo of forests, grasslands and dry scrub, originally native to South America."
   },
   "apteryx-mantelli": {
     "commonName": "북섬갈색키위",
-    "description": "뉴질랜드 북섬의 북부 약 3분의 2에 분포하는 야행성 키위로, 날지 못하며 몸집에 비해 매우 큰 알을 낳습니다."
+    "description": "뉴질랜드 북섬의 북부 약 3분의 2에 분포하는 야행성 키위로, 날지 못하며 몸집에 비해 매우 큰 알을 낳습니다.",
+    "descriptionEn": "A nocturnal, flightless kiwi of New Zealand's North Island that lays eggs unusually large for its body."
   },
   "giraffa-camelopardalis": {
     "commonName": "북부기린",
-    "description": "아프리카 북부가 원산지인 기린류로, 세뿔기린이라는 이름으로도 알려져 있습니다."
+    "description": "아프리카 북부가 원산지인 기린류로, 세뿔기린이라는 이름으로도 알려져 있습니다.",
+    "descriptionEn": "A giraffe native to northern Africa, also known as the three-horned giraffe."
   },
   "mola-mola": {
     "commonName": "개복치",
-    "description": "개복치과에 속하는 대형 조기어류로, 전 세계의 열대·온대 바다에 분포하며 가장 무거운 경골어류인 몰라 알렉산드리니와는 다른 종입니다."
+    "description": "전 세계의 열대·온대 바다에 사는 몸집이 큰 물고기입니다.",
+    "descriptionEn": "A large marine fish found in tropical and temperate oceans around the world."
   },
   "amphiprion-ocellaris": {
     "commonName": "오셀라리스흰동가리",
-    "description": "자리돔과에 속하는 바닷물고기로, 퍼큘라흰동가리와 비슷해 가짜퍼큘라라는 영어 이름으로도 알려져 있습니다."
+    "description": "자리돔과에 속하는 바닷물고기로, 수족관에서 관상용으로 널리 기릅니다.",
+    "descriptionEn": "A marine fish of the family Pomacentridae, commonly kept in aquariums."
   },
   "oikopleura-dioica": {
     "commonName": "오이코플레우라 디오이카",
-    "description": "세계 대부분의 바다 표층에 사는 작은 부유성 피낭동물로, 발생생물학 연구의 모델로 이용됩니다."
+    "description": "세계 대부분의 바다 표층에 사는 작은 부유성 피낭동물로, 발생생물학 연구의 모델로 이용됩니다.",
+    "descriptionEn": "A small planktonic tunicate of surface waters in most oceans, used in developmental research."
   },
   "okapia-johnstoni": {
     "commonName": "오카피",
-    "description": "콩고민주공화국 북동부가 원산지인 우제류 포유류로, 숲기린 또는 얼룩말기린이라는 별칭이 있습니다."
+    "description": "콩고민주공화국 북동부의 숲에 사는 포유류입니다.",
+    "descriptionEn": "A forest-dwelling mammal native to northeastern Democratic Republic of the Congo."
   },
   "ophiothrix-fragilis": {
     "commonName": "오피오트릭스 프라길리스",
-    "description": "거미불가사리류의 한 종으로, 유럽 서부와 남아프리카 연안에 분포합니다."
+    "description": "거미불가사리류의 한 종으로, 유럽 서부와 남아프리카 연안에 분포합니다.",
+    "descriptionEn": "A brittle star found along the coasts of western Europe and South Africa."
   },
   "orcinus-orca": {
     "commonName": "범고래",
-    "description": "이빨고래류이며 참돌고래과에서 가장 큰 동물로, 검은 등과 흰 배, 눈 주변의 흰 무늬가 특징입니다."
+    "description": "몸집이 큰 이빨고래류로, 검은 등과 흰 배, 눈 주변의 흰 무늬가 특징입니다.",
+    "descriptionEn": "A large toothed whale with a black back, white underside and distinctive white patches near its eyes."
   },
   "eptatretus-stoutii": {
     "commonName": "태평양먹장어",
-    "description": "태평양 해저 가까이에 사는 턱 없는 물고기로, 위협을 받으면 방어를 위해 많은 점액을 분비합니다."
+    "description": "태평양 해저 가까이에 사는 턱 없는 물고기로, 위협을 받으면 방어를 위해 많은 점액을 분비합니다.",
+    "descriptionEn": "A jawless fish living near the Pacific seafloor that releases large amounts of slime for defence."
   },
   "crassostrea-gigas": {
     "commonName": "참굴",
-    "description": "아시아 태평양 연안이 원산지인 굴로, 북아메리카·오스트레일리아·유럽·뉴질랜드에도 도입되었습니다."
+    "description": "아시아 태평양 연안이 원산지인 굴로, 북아메리카·오스트레일리아·유럽·뉴질랜드에도 도입되었습니다.",
+    "descriptionEn": "An oyster native to Asia's Pacific coast and introduced to Europe, North America, Australia and New Zealand."
   },
   "papilio-machaon": {
     "commonName": "산호랑나비",
-    "description": "호랑나비과에 속하는 나비로, 영어로는 구세계호랑나비 또는 노랑호랑나비라고 불립니다."
+    "description": "호랑나비과에 속하는 나비로, 노랑호랑나비라는 별칭으로도 알려져 있습니다.",
+    "descriptionEn": "A butterfly of the family Papilionidae, commonly known as the yellow swallowtail."
   },
   "paracentrotus-lividus": {
     "commonName": "지중해보라성게",
-    "description": "파레키누스과에 속하는 성게로, 지중해와 대서양 동부에 분포하며 파라켄트로투스속의 기준종입니다."
+    "description": "지중해와 대서양 동부에 사는 성게로, 보라성게라는 별칭으로도 불립니다.",
+    "descriptionEn": "A sea urchin of the Mediterranean and eastern Atlantic, commonly called the purple sea urchin."
   },
   "parasteatoda-tepidariorum": {
     "commonName": "집꼬마거미",
-    "description": "파라스테아토다속에 속하는 거미로, 세계 여러 지역의 사람 사는 집 안팎에서 생활합니다."
+    "description": "세계 여러 지역의 사람 사는 집 안팎에서 생활하는 거미입니다.",
+    "descriptionEn": "A spider widely found in and around human homes."
   },
   "penaeus-monodon": {
     "commonName": "홍다리얼룩새우",
-    "description": "바다에 사는 갑각류로, 블랙타이거새우 또는 대형호랑이새우라는 이름으로 불리며 식용으로 널리 양식됩니다."
+    "description": "바다에 사는 갑각류로, 블랙타이거새우 또는 대형호랑이새우라는 이름으로 불리며 식용으로 널리 양식됩니다.",
+    "descriptionEn": "A marine crustacean commonly called the black tiger shrimp, widely farmed for food."
   },
   "falco-peregrinus": {
     "commonName": "매",
-    "description": "매과에 속하는 빠른 맹금류로, 까마귀 정도의 몸집에 청회색 등과 줄무늬가 있는 흰 배, 검은 머리를 지닙니다."
+    "description": "매과에 속하는 빠른 맹금류로, 까마귀 정도의 몸집에 청회색 등과 줄무늬가 있는 흰 배, 검은 머리를 지닙니다.",
+    "descriptionEn": "A fast bird of prey with a blue-grey back, barred white underside and black head."
   },
   "pisaster-ochraceus": {
     "commonName": "피사스터 오크라케우스",
-    "description": "태평양에 흔한 불가사리로, 조간대 생태계에서 중요한 핵심종이며 그 환경의 건강 상태를 보여주는 지표로 여겨집니다."
+    "description": "태평양에 흔한 불가사리로, 조간대 생태계에서 중요한 핵심종이며 그 환경의 건강 상태를 보여주는 지표로 여겨집니다.",
+    "descriptionEn": "A Pacific starfish that plays an important ecological role in the intertidal zone."
   },
   "equus-quagga": {
     "commonName": "사바나얼룩말",
-    "description": "얼룩말 가운데 가장 흔하고 널리 분포하는 종으로, 사하라 사막 이남 아프리카의 동부와 남부에 삽니다."
+    "description": "얼룩말 가운데 가장 흔하고 널리 분포하는 종으로, 사하라 사막 이남 아프리카의 동부와 남부에 삽니다.",
+    "descriptionEn": "A widespread zebra of eastern and southern Africa south of the Sahara."
   },
   "platynereis-dumerilii": {
     "commonName": "플라티네레이스 뒤메릴리",
-    "description": "환형동물문 다모류에 속하는 갯지렁이로, 온대부터 열대까지의 연안 바다에 서식합니다."
+    "description": "환형동물문에 속하는 갯지렁이로, 온대부터 열대까지의 연안 바다에 서식합니다.",
+    "descriptionEn": "A marine annelid worm found in coastal waters from temperate to tropical regions."
   },
   "ornithorhynchus-anatinus": {
     "commonName": "오리너구리",
-    "description": "태즈메이니아를 포함한 오스트레일리아 동부에만 자연적으로 분포하는 반수생 포유류로, 알을 낳습니다."
+    "description": "태즈메이니아를 포함한 오스트레일리아 동부에만 자연적으로 분포하는 반수생 포유류로, 알을 낳습니다.",
+    "descriptionEn": "An egg-laying, semi-aquatic mammal native to eastern Australia, including Tasmania."
   },
   "pleurobrachia-pileus": {
     "commonName": "플레우로브라키아 필레우스",
-    "description": "유즐동물의 한 종으로, 북대서양·북해·발트해·흑해의 바닷물 속에서 생활합니다."
+    "description": "유즐동물의 한 종으로, 북대서양·북해·발트해·흑해의 바닷물 속에서 생활합니다.",
+    "descriptionEn": "A comb jelly found in open waters of the North Atlantic, North Sea, Baltic Sea and Black Sea."
   },
   "ursus-maritimus": {
     "commonName": "북극곰",
-    "description": "북극과 그 주변에 사는 대형 곰으로, 불곰과 가까운 친척이며 현존하는 곰과 육상 육식동물 가운데 몸무게가 가장 많이 나갑니다."
+    "description": "북극과 그 주변에 사는 대형 곰으로, 수컷은 몸무게가 수백 kg에 이르기도 합니다.",
+    "descriptionEn": "A large bear of the Arctic and nearby regions, with adult males sometimes weighing several hundred kilograms."
   },
   "physalia-physalis": {
     "commonName": "작은부레관해파리",
-    "description": "대서양·인도양·태평양에 사는 히드라충류로, 영어로는 포르투갈군함 또는 블루보틀이라는 이름으로 알려져 있습니다."
+    "description": "대서양·인도양·태평양에 사는 히드라충류로, 영어로는 포르투갈군함 또는 블루보틀이라는 이름으로 알려져 있습니다.",
+    "descriptionEn": "A marine hydrozoan found in the Atlantic, Indian and Pacific oceans, also known as the Portuguese man o' war."
   },
   "priapulus-caudatus": {
     "commonName": "프리아풀루스 카우다투스",
-    "description": "새예동물문에 속하는 해양 무척추동물로, 마디 없는 원통형 몸을 지니고 해저의 부드러운 퇴적물 속을 파고듭니다."
+    "description": "새예동물문에 속하는 해양 무척추동물로, 마디 없는 원통형 몸을 지니고 해저의 부드러운 퇴적물 속을 파고듭니다.",
+    "descriptionEn": "A cylindrical, unsegmented marine worm of the phylum Priapulida that burrows into soft seabed sediment."
   },
   "strongylocentrotus-purpuratus": {
     "commonName": "태평양보라성게",
-    "description": "스트롱길로켄트로투스과에 속하는 성게로, 영어로 보라성게라고 불리는 여러 종 가운데 스트롱길로켄트로투스 푸르푸라투스를 가리킵니다."
+    "description": "스트롱길로켄트로투스과에 속하는 성게로, 보라성게라는 별칭으로도 알려져 있습니다.",
+    "descriptionEn": "A sea urchin of the family Strongylocentrotidae, commonly called the purple sea urchin."
   },
   "oncorhynchus-mykiss": {
     "commonName": "무지개송어",
-    "description": "북아메리카와 아시아의 태평양으로 흐르는 차가운 하천이 원산지인 송어로, 바다로 오가는 형태는 스틸헤드라고 불립니다."
+    "description": "북아메리카와 아시아의 태평양으로 흐르는 차가운 하천이 원산지인 송어로, 바다로 오가는 형태는 스틸헤드라고 불립니다.",
+    "descriptionEn": "A trout native to cold Pacific-draining rivers of North America and Asia, with some populations migrating to sea."
   },
   "vulpes-vulpes": {
     "commonName": "붉은여우",
-    "description": "진정한 여우류 가운데 가장 큰 종으로, 북아메리카·유럽·아시아와 북아프리카 일부 등 북반구에 널리 분포합니다."
+    "description": "진정한 여우류 가운데 가장 큰 종으로, 북아메리카·유럽·아시아와 북아프리카 일부 등 북반구에 널리 분포합니다.",
+    "descriptionEn": "A fox widely distributed across North America, Europe, Asia and parts of North Africa."
   },
   "solenopsis-invicta": {
     "commonName": "붉은불개미",
-    "description": "남아메리카가 원산지인 개미로, 두배자루마디개미아과의 솔레놉시스속에 속합니다."
+    "description": "남아메리카가 원산지인 개미로, 붉은불개미라는 이름으로 알려져 있습니다.",
+    "descriptionEn": "An ant native to South America, commonly known as the red imported fire ant."
   },
   "gallus-gallus": {
     "commonName": "적색야계",
-    "description": "꿩과에 속하는 열대 닭목 조류로, 동남아시아와 남아시아 일부에 분포하며 가축 닭의 기원에 가장 크게 기여한 종입니다."
+    "description": "남아시아와 동남아시아에 사는 열대 조류로, 가축 닭의 기원에 기여한 종입니다.",
+    "descriptionEn": "A tropical bird of South and Southeast Asia, with populations that contributed to the domestication of chickens."
   },
   "pterois-volitans": {
     "commonName": "붉은쏠배감펭",
-    "description": "쏨뱅이과에 속하는 독이 있는 산호초 물고기로, 인도·태평양이 원산지이며 대서양 일부에는 침입종으로 퍼졌습니다."
+    "description": "쏨뱅이과에 속하는 독이 있는 산호초 물고기로, 인도·태평양이 원산지이며 대서양 일부에는 침입종으로 퍼졌습니다.",
+    "descriptionEn": "A venomous coral-reef fish native to the Indo-Pacific and introduced to parts of the Atlantic."
   },
   "ailurus-fulgens": {
     "commonName": "레서판다",
-    "description": "히말라야 동부와 중국 남서부가 원산지인 작은 포유류로, 적갈색 털과 검은 배·다리, 고리무늬 꼬리가 특징입니다."
+    "description": "히말라야 동부와 중국 남서부가 원산지인 작은 포유류로, 적갈색 털과 검은 배·다리, 고리무늬 꼬리가 특징입니다.",
+    "descriptionEn": "A small Himalayan and southwestern Chinese mammal with reddish fur, dark legs and a ringed tail."
   },
   "riftia-pachyptila": {
     "commonName": "거대관벌레",
-    "description": "시보글리눔과에 속하는 다모류 환형동물로, 심해의 지질 활동이 활발한 지역에 사는 리프티아속의 유일한 종입니다."
+    "description": "심해의 지질 활동이 활발한 지역에 사는 바다 벌레로, 관 속에 자리 잡고 생활합니다.",
+    "descriptionEn": "A sedentary marine worm living in a tube in geologically active areas of the deep sea."
   },
   "lemur-catta": {
     "commonName": "알락꼬리여우원숭이",
-    "description": "흑백 고리무늬가 있는 긴 꼬리로 잘 알려진 곡비원류 영장류로, 여우원숭이과에 속하며 레무르속의 유일한 종입니다."
+    "description": "영장류에 속하는 동물로, 길고 검은색·흰색 고리무늬의 꼬리가 특징입니다.",
+    "descriptionEn": "A primate with a long tail marked by alternating black and white rings."
   },
   "columba-livia": {
     "commonName": "바위비둘기",
-    "description": "비둘기과에 속하는 새로, 흔히 보는 집비둘기의 야생 원종입니다."
+    "description": "비둘기과에 속하는 새로, 흔히 보는 집비둘기의 야생 원종입니다.",
+    "descriptionEn": "A bird of the family Columbidae, with wild populations that gave rise to domestic pigeons."
   },
   "crocodylus-porosus": {
     "commonName": "바다악어",
-    "description": "인도 동해안부터 동남아시아·오스트레일리아 북부·미크로네시아까지 분포하는 악어로, 바닷물·기수역·민물에서 모두 생활합니다."
+    "description": "인도 동해안부터 동남아시아·오스트레일리아 북부·미크로네시아까지 분포하는 악어로, 바닷물·기수역·민물에서 모두 생활합니다.",
+    "descriptionEn": "A crocodile found in saltwater, brackish wetlands and freshwater from eastern India to northern Australia and Micronesia."
   },
   "ara-macao": {
     "commonName": "금강앵무",
-    "description": "아메리카의 습한 상록수림에 사는 대형 앵무새로, 붉은색·노란색·초록색·파란색 깃털이 선명합니다."
+    "description": "아메리카의 습한 상록수림에 사는 대형 앵무새로, 붉은색·노란색·초록색·파란색 깃털이 선명합니다.",
+    "descriptionEn": "A large parrot of humid American evergreen forests, with vivid red, yellow, green and blue feathers."
   },
   "schmidtea-mediterranea": {
     "commonName": "슈미테아 메디테라네아",
-    "description": "유럽 남부와 튀니지의 민물에 사는 플라나리아류로, 뛰어난 재생 능력 덕분에 줄기세포와 조직 발생 연구에 쓰입니다."
+    "description": "유럽 남부와 튀니지의 민물에 사는 플라나리아류로, 뛰어난 재생 능력 덕분에 줄기세포와 조직 발생 연구에 쓰입니다.",
+    "descriptionEn": "A freshwater planarian of southern Europe and Tunisia, widely studied for its ability to regenerate."
   },
   "scolopendra-gigantea": {
     "commonName": "아마존왕지네",
-    "description": "스콜로펜드라속에 속하는 지네로, 몸길이가 30cm를 넘기도 하는 세계에서 가장 큰 지네류입니다."
+    "description": "스콜로펜드라속에 속하는 지네로, 몸길이가 30cm를 넘기도 하는 세계에서 가장 큰 지네류입니다.",
+    "descriptionEn": "A very large centipede that can exceed 30 cm in length."
   },
   "petromyzon-marinus": {
     "commonName": "바다칠성장어",
-    "description": "북반구가 원산지인 기생성 칠성장어로, 다른 물고기에 붙어 생활해 흡혈물고기라는 별칭이 있습니다."
+    "description": "북반구가 원산지인 기생성 칠성장어로, 다른 물고기에 붙어 생활해 흡혈물고기라는 별칭이 있습니다.",
+    "descriptionEn": "A parasitic lamprey of the Northern Hemisphere that attaches to other fish to feed."
   },
   "balaeniceps-rex": {
     "commonName": "넓적부리황새",
-    "description": "다리가 긴 대형 물가새로, 거대한 신발 모양의 부리에서 이름이 유래했으며 예전에는 황새류로 분류되었습니다."
+    "description": "다리가 긴 대형 물가새로, 거대한 신발 모양의 부리가 특징입니다.",
+    "descriptionEn": "A large, long-legged wetland bird with an enormous, shoe-shaped bill."
   },
   "tachyglossus-aculeatus": {
     "commonName": "짧은코가시두더지",
-    "description": "현존하는 가시두더지 네 종 가운데 하나로, 타키글로수스속에서 살아 있는 유일한 종입니다."
+    "description": "털과 가시로 몸이 덮인 가시두더지류로, 짧은 주둥이를 지닙니다.",
+    "descriptionEn": "An echidna covered in fur and spines, commonly known as the short-beaked echidna."
   },
   "isurus-oxyrinchus": {
     "commonName": "청상아리",
-    "description": "악상어과에 속하는 대형 상어로, 긴지느러미청상아리와 구별되는 종이며 매우 빠르게 헤엄칩니다."
+    "description": "악상어과에 속하는 대형 상어로, 매우 빠르게 헤엄칩니다.",
+    "descriptionEn": "A large shark of the family Lamnidae, noted for its very fast swimming."
   },
   "betta-splendens": {
     "commonName": "베타",
-    "description": "캄보디아·라오스·미얀마·말레이시아·태국·베트남 등 동남아시아 본토가 원산지인 담수어로, 관상용으로 널리 길러집니다."
+    "description": "캄보디아·라오스·미얀마·말레이시아·태국·베트남 등 동남아시아 본토가 원산지인 담수어로, 관상용으로 널리 길러집니다.",
+    "descriptionEn": "A freshwater fish native to mainland Southeast Asia and widely kept as an ornamental aquarium fish."
   },
   "panthera-uncia": {
     "commonName": "설표",
-    "description": "표범속에 속하는 고양이과 동물로, 희거나 회색인 두꺼운 털과 검은 반점, 굵고 긴 꼬리가 특징입니다."
+    "description": "희거나 회색인 두꺼운 털과 검은 반점, 굵고 긴 꼬리를 지닌 고양이과 동물입니다.",
+    "descriptionEn": "A cat with thick pale or grey fur, dark spots and a long, bushy tail."
   },
   "casuarius-casuarius": {
     "commonName": "화식조",
-    "description": "인도네시아·파푸아뉴기니·오스트레일리아 북동부에 사는 대형 조류로, 날지 못하며 대부분의 깃털이 검습니다."
+    "description": "인도네시아·파푸아뉴기니·오스트레일리아 북동부에 사는 대형 조류로, 날지 못하며 대부분의 깃털이 검습니다.",
+    "descriptionEn": "A large, mostly black, flightless bird of Indonesia, Papua New Guinea and northeastern Australia."
   },
   "spongilla-lacustris": {
     "commonName": "스폰길라 라쿠스트리스",
-    "description": "담수해면과에 속하는 해면으로, 강과 호수에서 나무나 바위에 붙어 자랍니다."
+    "description": "담수해면과에 속하는 해면으로, 강과 호수에서 나무나 바위에 붙어 자랍니다.",
+    "descriptionEn": "A freshwater sponge that grows on logs or rocks in rivers and lakes."
   },
   "nematostella-vectensis": {
     "commonName": "네마토스텔라 벡텐시스",
-    "description": "에드워드시아과에 속하는 작은 말미잘로, 미국 동해안이 원산지이며 영국 남동부와 미국 서해안에도 도입되었습니다."
+    "description": "에드워드시아과에 속하는 작은 말미잘로, 미국 동해안이 원산지이며 영국 남동부와 미국 서해안에도 도입되었습니다.",
+    "descriptionEn": "A small sea anemone native to the eastern United States and introduced to parts of Britain and the US west coast."
   },
   "stichopus-chloronotus": {
     "commonName": "스티코푸스 클로로노투스",
-    "description": "인도·태평양이 원산지인 해삼류로, 녹색해삼·가시해삼·검은혹해삼 등 여러 영어 이름이 있습니다."
+    "description": "인도·태평양에 사는 해삼류로, 검은혹해삼이라는 별칭으로도 불립니다.",
+    "descriptionEn": "A sea cucumber native to the Indo-Pacific, commonly called the black knobby sea cucumber."
   },
   "sycon-ciliatum": {
     "commonName": "시콘 킬리아툼",
-    "description": "시케타과에 속하는 석회해면류로, 영어로는 주머니해면이라고 불립니다."
+    "description": "관이나 꽃병 모양의 몸을 지닌 석회해면으로, 몸빛은 크림색에서 회백색을 띱니다.",
+    "descriptionEn": "A calcareous sponge with a tubular or vase-shaped body, ranging from creamy yellow to greyish white."
   },
   "symsagittifera-roscoffensis": {
     "commonName": "심사기티페라 로스코펜시스",
-    "description": "바다에 사는 무장동물로, 로스코프벌레라는 이름으로도 불리며 녹색 몸빛은 공생하는 조류에서 비롯됩니다."
+    "description": "바다에 사는 무장동물로, 로스코프벌레라는 이름으로도 불리며 녹색 몸빛은 공생하는 조류에서 비롯됩니다.",
+    "descriptionEn": "A marine acoel worm whose green colour comes from symbiotic algae."
   },
   "tachypleus-tridentatus": {
     "commonName": "투구게",
-    "description": "동아시아와 동남아시아에 분포하는 투구게류로, 중국·일본·한국·대만·베트남 등에서 기록되어 있습니다."
+    "description": "동아시아와 동남아시아에 분포하는 투구게류로, 중국·일본·한국·대만·베트남 등에서 기록되어 있습니다.",
+    "descriptionEn": "A horseshoe crab of East and Southeast Asian coastal waters."
   },
   "taenia-solium": {
     "commonName": "유구조충",
-    "description": "조충류인 조충과에 속하는 기생동물로, 사람을 종숙주로 삼고 돼지와 멧돼지를 중간숙주로 삼습니다."
+    "description": "조충류인 조충과에 속하는 기생동물로, 사람을 종숙주로 삼고 돼지와 멧돼지를 중간숙주로 삼습니다.",
+    "descriptionEn": "A tapeworm whose adults live in humans and whose larval stages develop in pigs and wild boars."
   },
   "tethya-aurantium": {
     "commonName": "테티아 아우란티움",
-    "description": "테티아과에 속하는 바다 해면으로, 사마귀 같은 표면의 구형 몸을 지니며 골프공해면이라는 영어 이름이 있습니다."
+    "description": "테티아과에 속하는 바다 해면으로, 사마귀 같은 표면의 구형 몸을 지니며 골프공해면이라는 영어 이름이 있습니다.",
+    "descriptionEn": "A spherical marine sponge with a warty surface, growing to around ten centimetres across."
   },
   "raja-clavata": {
     "commonName": "가시홍어",
-    "description": "홍어과에 속하는 가오리류로, 영어로는 가시등가오리 또는 가시등홍어라는 이름으로 알려져 있습니다."
+    "description": "마름모 모양의 몸과 짧은 주둥이를 지닌 가오리로, 등과 꼬리에 큰 가시가 있습니다.",
+    "descriptionEn": "A diamond-shaped ray with a short snout and large thorns on its back and tail."
   },
   "panthera-tigris": {
     "commonName": "호랑이",
-    "description": "아시아가 원산지인 대형 표범속 동물로, 튼튼한 근육과 큰 머리·발, 긴 꼬리, 주황색 바탕의 검은 줄무늬가 특징입니다."
+    "description": "아시아가 원산지인 대형 표범속 동물로, 튼튼한 근육과 큰 머리·발, 긴 꼬리, 주황색 바탕의 검은 줄무늬가 특징입니다.",
+    "descriptionEn": "A large Asian cat with a muscular body and orange fur patterned with dark stripes."
   },
   "ambystoma-tigrinum": {
     "commonName": "호랑이도롱뇽",
-    "description": "두더지도롱뇽과에 속하는 종으로, 북아메리카의 육상 도롱뇽 가운데 가장 큰 종들 중 하나입니다."
+    "description": "두더지도롱뇽과에 속하는 종으로, 북아메리카의 육상 도롱뇽 가운데 가장 큰 종들 중 하나입니다.",
+    "descriptionEn": "A large terrestrial salamander native to North America."
   },
   "trichinella-spiralis": {
     "commonName": "선모충",
-    "description": "설치류·돼지·곰·하이에나·사람 등에 기생하는 태생 선충으로, 선모충증을 일으키며 돼지조충과는 다른 동물입니다."
+    "description": "돼지·설치류·사람 등 여러 포유류에 기생하는 선충으로, 선모충증을 일으킵니다.",
+    "descriptionEn": "A parasitic nematode that infects several mammals, including pigs and humans, and causes trichinosis."
   },
   "triops-cancriformis": {
     "commonName": "유럽긴꼬리투구새우",
-    "description": "유럽에서 중동과 인도까지 분포하는 긴꼬리투구새우류로, 사육 환경에서는 보통 약 6cm, 야생에서는 11cm까지 자랍니다."
+    "description": "유럽에서 중동과 인도까지 분포하는 긴꼬리투구새우류로, 사육 환경에서는 보통 약 6cm, 야생에서는 11cm까지 자랍니다.",
+    "descriptionEn": "A tadpole shrimp found from Europe to the Middle East and India, sometimes reaching about 11 cm in the wild."
   },
   "chamaeleo-calyptratus": {
     "commonName": "예멘카멜레온",
-    "description": "예멘과 사우디아라비아가 원산지인 카멜레온으로, 자라면서 머리의 볏과 선명한 몸빛이 발달합니다."
+    "description": "예멘과 사우디아라비아가 원산지인 카멜레온으로, 자라면서 머리의 볏과 선명한 몸빛이 발달합니다.",
+    "descriptionEn": "A chameleon native to Yemen and Saudi Arabia that develops a tall head crest and vivid colours as it grows."
   },
   "cestum-veneris": {
     "commonName": "비너스의허리띠",
-    "description": "케스툼과에 속하는 유즐동물로, 케스툼속의 유일한 종이며 알려진 유즐동물 가운데 가장 큽니다."
+    "description": "유즐동물에 속하는 동물로, 매우 큰 몸집이 특징이며 비너스의 띠라는 별칭으로도 불립니다.",
+    "descriptionEn": "A comb jelly noted for its very large size, commonly known as the Venus girdle."
   },
   "euplectella-aspergillum": {
     "commonName": "해로동혈",
-    "description": "태평양의 깊은 바다에 사는 유리해면류로, 대체로 수심 500m 아래에서 발견되며 규산질 골편으로 격자 모양의 골격을 만듭니다."
+    "description": "태평양의 깊은 바다에 사는 유리해면류로, 대체로 수심 500m 아래에서 발견되며 규산질 골편으로 격자 모양의 골격을 만듭니다.",
+    "descriptionEn": "A glass sponge of deep Pacific waters that builds a lattice-like skeleton from silica spicules."
   },
   "protopterus-annectens": {
     "commonName": "서아프리카폐어",
-    "description": "아프리카폐어류의 한 종으로, 서아프리카·중앙아프리카와 남부아프리카 북쪽의 다양한 담수 환경에 서식합니다."
+    "description": "아프리카폐어류의 한 종으로, 서아프리카·중앙아프리카와 남부아프리카 북쪽의 다양한 담수 환경에 서식합니다.",
+    "descriptionEn": "A lungfish found in freshwater habitats of western and central Africa and parts of southern Africa."
   },
   "trichechus-manatus": {
     "commonName": "아메리카매너티",
-    "description": "미국 동부부터 브라질 북부까지 카리브해의 따뜻한 연안에 사는 대형 수생 포유류로, 수중 식물을 먹습니다."
+    "description": "미국 동부부터 브라질 북부까지 카리브해의 따뜻한 연안에 사는 대형 수생 포유류로, 수중 식물을 먹습니다.",
+    "descriptionEn": "A large aquatic mammal of warm Caribbean and Atlantic coastal waters that feeds on underwater plants."
   },
   "latimeria-chalumnae": {
     "commonName": "서인도양실러캔스",
-    "description": "현존하는 실러캔스 두 종 가운데 하나로, 흔한 조기어류보다 폐어와 사지동물에 계통적으로 더 가깝습니다."
+    "description": "서인도양의 코모로·마다가스카르·모잠비크·남아프리카 연안에서 발견된 실러캔스로, 푸른 몸빛을 지닙니다.",
+    "descriptionEn": "A blue coelacanth recorded off the Comoros, Madagascar, Mozambique and South Africa in the western Indian Ocean."
   },
   "tyto-alba": {
     "commonName": "서부가면올빼미",
-    "description": "유럽·아시아 남서부·아프리카가 원산지인 가면올빼미류로, 다른 지역의 가면올빼미들과 한 종으로 묶었던 분류는 수정되었습니다."
+    "description": "유럽·아시아 남서부·아프리카에 사는 가면올빼미류입니다.",
+    "descriptionEn": "A barn owl native to Europe, southwestern Asia and Africa."
   },
   "crotalus-atrox": {
     "commonName": "서부다이아몬드방울뱀",
-    "description": "미국 남서부와 멕시코에 사는 살무사과의 독사로, 다른 방울뱀류처럼 독을 지니며 현재 인정되는 아종은 없습니다."
+    "description": "미국 남서부와 멕시코에 사는 독이 있는 방울뱀입니다.",
+    "descriptionEn": "A venomous rattlesnake found in the southwestern United States and Mexico."
   },
   "gorilla-gorilla": {
     "commonName": "서부고릴라",
-    "description": "아프리카에 사는 대형 유인원으로, 고릴라속 두 종 가운데 하나이며 동부고릴라와 지리적으로 분리되어 있습니다."
+    "description": "아프리카 중서부에 사는 대형 유인원으로, 크고 튼튼한 체격을 지닙니다.",
+    "descriptionEn": "A large, robust great ape found in western central Africa."
   },
   "apis-mellifera": {
     "commonName": "서양꿀벌",
-    "description": "전 세계의 꿀벌류 가운데 가장 흔한 종으로, 한 마리의 여왕벌과 많은 일벌, 일부 수벌이 집단을 이루어 생활합니다."
+    "description": "전 세계의 꿀벌류 가운데 가장 흔한 종으로, 한 마리의 여왕벌과 많은 일벌, 일부 수벌이 집단을 이루어 생활합니다.",
+    "descriptionEn": "A honey bee that lives in colonies with a queen, many workers and some drones."
   },
   "rhincodon-typus": {
     "commonName": "고래상어",
-    "description": "느리게 헤엄치며 먹이를 걸러 먹는 상어로, 현존하는 물고기 가운데 가장 크며 고래와 같은 포유류가 아닙니다."
+    "description": "몸집이 매우 큰 상어로, 느리게 헤엄치며 바닷물에서 먹이를 걸러 먹습니다.",
+    "descriptionEn": "A very large, slow-swimming shark that filters food from seawater."
   },
   "canis-lupus": {
     "commonName": "늑대",
-    "description": "유라시아와 북아메리카가 원산지인 개과 동물로, 현존하는 야생 개과 동물 가운데 가장 크며 회색늑대라고도 불립니다."
+    "description": "유라시아와 북아메리카가 원산지인 대형 야생 개과 동물입니다.",
+    "descriptionEn": "A large wild canine native to Eurasia and North America."
   },
   "xenoturbella-bocki": {
     "commonName": "제노투르벨라 보키",
-    "description": "유럽, 특히 스웨덴 연안 해저에 사는 벌레 모양의 동물로, 하나의 구멍을 먹이 섭취와 배출에 모두 사용합니다."
+    "description": "유럽, 특히 스웨덴 연안 해저에 사는 벌레 모양의 동물로, 하나의 구멍을 먹이 섭취와 배출에 모두 사용합니다.",
+    "descriptionEn": "A marine, worm-like animal of European seabeds, particularly off Sweden, with one opening used for both feeding and waste release."
   },
   "danio-rerio": {
     "commonName": "제브라피시",
-    "description": "남아시아가 원산지인 다니오속 담수어로, 기르기 쉬운 관상어이자 발생생물학 등 여러 연구에 쓰이는 척추동물 모델입니다."
+    "description": "남아시아에 사는 작은 담수어로, 관상용으로 널리 기르며 발생 연구에도 이용됩니다.",
+    "descriptionEn": "A small freshwater fish native to South Asia, widely kept in aquariums and used in developmental research."
   }
 }
