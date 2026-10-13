@@ -73,10 +73,15 @@ export const gameMarkup = `
     <section class="collection taxonomy-notes-panel" aria-labelledby="taxonomy-notes-title">
       <div class="section-heading"><h2 id="taxonomy-notes-title">분류 기준 안내</h2></div>
       <div class="taxonomy-notes">
-        <p>계통 관계가 논쟁 중인 곳은 게임을 위해 하나의 가설을 선택했습니다. 아래 내용은 게임 중에는 표시되지 않습니다.</p>
+        <p>연구 근거에 따라 채택한 관계와 게임에서 단순화한 분기를 안내합니다. 정답 판정은 아래 기준을 따릅니다. 2026년 10월 13일 갱신.</p>
         <ul>
           <li><strong>동물계 초기 분기</strong> — 유즐동물문(Ctenophora)과 판형동물문(Placozoa)을 동물계 공통조상 바로 아래의 별도 가지로 둡니다. 둘이 자매군이라는 뜻은 아니며, 어느 쪽이 먼저 분기했는지는 게임에서 판정하지 않습니다. 이들의 정확한 위치는 연구마다 다릅니다. <a href="https://www.nature.com/articles/s41586-023-05936-6" target="_blank" rel="noreferrer">유즐동물 연구</a> · <a href="https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.2005359" target="_blank" rel="noreferrer">판형동물 연구</a></li>
           <li><strong>Symsagittifera roscoffensis</strong> — 과거 편형동물로 분류되기도 했지만, 게임에서는 편형동물문이 아닌 Xenacoelomorpha문에 둡니다. Xenacoelomorpha의 상위 위치에는 여러 가설이 있으며, 게임은 Nephrozoa의 자매군 가설을 택합니다. <a href="https://www.nature.com/articles/nature16520" target="_blank" rel="noreferrer">채택한 가설</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11521371/" target="_blank" rel="noreferrer">다른 가설</a></li>
+          <li><strong>유조·절지·완보동물</strong> — 유조동물과 절지동물을 자매군으로 묶고, 완보동물은 그 묶음의 바깥에서 분기하도록 판정합니다. 세 문을 같은 분기점에 나란히 붙이는 기존 단순화를 제거했습니다. 2025년 학술지에 수록된 CAT-PMSF 계통유전체 연구와 2026년 미토게놈 연구가 지지하는 관계를 채택했습니다. <a href="https://academic.oup.com/gbe/article/17/1/evae273/7931680" target="_blank" rel="noreferrer">2025년 연구</a> · <a href="https://www.mdpi.com/2073-4425/17/4/372" target="_blank" rel="noreferrer">2026년 연구</a></li>
+          <li><strong>다모류와 환대류</strong> — 전통적인 다모강(Polychaeta)은 측계통군이므로 하나의 독립된 갈래로 강제하지 않습니다. 지렁이·거머리를 포함하는 환대류(Clitellata)는 Sedentaria 안에 둡니다. 카드의 강·목 이름과 계통수의 공통 조상 갈래는 구분합니다. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5013799/" target="_blank" rel="noreferrer">환형동물 계통 근거</a></li>
+          <li><strong>나선동물의 깊은 분기</strong> — 환형·편형·연체동물은 Lophotrochozoa로 묶어 윤형동물과 구분하지만, 그 내부에서 표본의 계통 경로로 구분되지 않는 깊은 분기는 별도의 순서를 판정하지 않습니다. 여러 가지가 같은 원에서 갈라져 보이더라도 동시에 분화했다는 뜻은 아닙니다. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4446793/" target="_blank" rel="noreferrer">관련 계통유전체 연구</a></li>
+          <li><strong>난이도에 사용하는 계급</strong> — 쉬움은 같은 강, 보통은 같은 목에서 한 종만 출제합니다. 강·목이 누락된 경우에는 검토한 등록부 정보를 보완하고, 등록부에서도 계급이 미지정인 종은 해당 난이도에서 제외합니다. 어려움과 연습 모드에서는 전체 종을 사용합니다. 분류 등록부의 계급 차이만으로 계통 관계를 바꾸지는 않습니다.</li>
+          <li><strong>검토에서 보완한 공통 갈래</strong> — 폐어·사지동물, 유대류·태반류, 지네·범갑각류, 딱정벌레·파리·나비 등에서 누락된 공통 갈래를 보완했습니다. 전통적인 강·목 이름이 다르다는 이유만으로 동물을 별도 갈래로 나누지는 않습니다.</li>
         </ul>
       </div>
     </section>

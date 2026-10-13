@@ -30,6 +30,8 @@ const SHARED_BACKBONES = [
 ];
 const ADDED_CLADES = [
   { anchor: "Ecdysozoa", members: ["Arthropoda", "Onychophora", "Tardigrada"], id: "Q134870", name: "Panarthropoda" },
+  // CAT-PMSF phylogenomics (GBE 17, evae273): Tardigrada sister to Arthropoda + Onychophora.
+  { anchor: "Panarthropoda", members: ["Arthropoda", "Onychophora"], id: "canonical:antennopoda", name: "Antennopoda" },
   { anchor: "Echinodermata", members: ["Asterozoa", "Echinozoa"], id: "Q1328367", name: "Eleutherozoa" },
   { anchor: "Holometabola", members: ["Diptera", "Lepidoptera", "Coleoptera"], id: "Q48970749", name: "Aparaglossata" },
   { anchor: "Aparaglossata", members: ["Diptera", "Lepidoptera"], id: "Q16987281", name: "Panorpida" },

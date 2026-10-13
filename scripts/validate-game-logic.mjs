@@ -34,6 +34,8 @@ const reviewedTriples = [
   ["loxodonta-africana", "trichechus-manatus", "dasypus-novemcinctus"],
   ["scolopendra-gigantea", "aedes-aegypti", "limulus-polyphemus"],
   ["euperipatoides-kanangrensis", "aedes-aegypti", "priapulus-caudatus"],
+  ["euperipatoides-kanangrensis", "formica-rufa", "macrobiotus-shonaicus"],
+  ["euperipatoides-kanangrensis", "limulus-polyphemus", "macrobiotus-shonaicus"],
   ["macrobiotus-shonaicus", "aedes-aegypti", "caenorhabditis-elegans"],
   ["lumbricus-terrestris", "cornu-aspersum", "brachionus-plicatilis"],
   ["dugesia-japonica", "cornu-aspersum", "brachionus-plicatilis"],
@@ -61,6 +63,13 @@ for (const [left, right, outside] of reviewedTriples) {
   }
 }
 assert.equal(lineageIds("drosophila-melanogaster").includes("Q27605"), false);
+for (const animal of dataset.animals) {
+  const ids = lineageIds(animal.id);
+  if (ids.includes("Q1360") || ids.includes("Q5191")) {
+    assert.ok(ids.includes("canonical:antennopoda"), `${animal.id}: all arthropods and onychophorans must share the reviewed ancestor`);
+  }
+  if (animal.taxonomy.lineage.some((taxon) => taxon.scientificName === "Tardigrada")) assert.ok(!ids.includes("canonical:antennopoda"), "Tardigrades must remain outside Arthropoda + Onychophora");
+}
 assert.ok(joinCount > 0, "Dataset sequence never exercised join placement");
 assert.ok(wrapCount > 0, "Dataset sequence never exercised wrap placement");
 

@@ -17,6 +17,9 @@ const lobbyPages = Object.fromEntries(["lobby", "leaderboard", "collection", "ta
 const markup = readFileSync(new URL("../app/game-markup.ts", import.meta.url), "utf8");
 assert.match(markup, /id="taxonomy-notes-page" class="screen library-screen" data-lobby-page hidden/);
 assert.match(markup, /data-page="taxonomy-notes">분류 기준 안내/);
+const notes = markup.slice(markup.indexOf('id="taxonomy-notes-page"'), markup.indexOf('id="game"'));
+for (const topic of ["유조·절지·완보동물", "다모류와 환대류", "나선동물의 깊은 분기", "난이도에 사용하는 계급", "검토에서 보완한 공통 갈래"]) assert.ok(notes.includes(topic), `Missing published classification note: ${topic}`);
+assert.ok(notes.includes("https://academic.oup.com/gbe/article/17/1/evae273/7931680") && notes.includes("https://www.mdpi.com/2073-4425/17/4/372"), "Adopted phylogeny must include both research sources");
 assert.match(source, /"taxonomy-notes": \$\("#taxonomy-notes-page"\)/);
 assert.doesNotMatch(source + markup, /taxonomy-notes-modal|closeTaxonomyNotes|close-taxonomy-notes/);
 const buttons = Object.keys(lobbyPages).map((page) => Object.assign(element(), { dataset: { page } }));

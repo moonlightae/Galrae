@@ -18,6 +18,14 @@ individually rather than copied blindly.
 
 ## Taxonomic decisions
 
+- Onychophora and Arthropoda share a distinct ancestor within Panarthropoda,
+  with Tardigrada outside that pair. Adopted on 2026-10-13 from the
+  [2025 CAT-PMSF phylogenomic analysis](https://academic.oup.com/gbe/article/17/1/evae273/7931680)
+  and [2026 onychophoran mitogenomic study](https://www.mdpi.com/2073-4425/17/4/372).
+  The `canonical:antennopoda` ancestor is a game-internal identifier, not a
+  Wikidata ID. This relation is enforced by placement scoring and documented
+  in the in-game classification notes.
+
 Class/order gaps were rechecked against fresh NCBI and GBIF records on
 2026-10-07, with WoRMS review of genuinely unassigned ranks. See
 [rank review](rank-review.md). `taxonomy-rank-review.json` preserves the review

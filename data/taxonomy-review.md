@@ -33,8 +33,9 @@ Nematocera 경로를 제거하고, Platynereis를 Pleistoannelida 아래로 정�
 - 동물계 초기 분기(Eumetazoa): 게임의 기존 초기 분기 가설을 유지했습니다.
 - Polychaeta: 측계통군인 전통적 다모류를 단일 가지로 강제하지 않습니다.
   Clitellata는 Sedentaria 안에 있는 현재 경로를 유지합니다.
-- Panarthropoda의 세 문 사이 관계와 Lophotrochozoa 내부의 깊은 분기는
-  이번 점검에서 임의로 이분하지 않습니다.
+- 2026-10-06 점검에서는 Panarthropoda의 세 문 사이 관계를 구분하지 않았으나,
+  2026-10-13에는 아래 연구 근거에 따라 완보동물과 (유조동물 + 절지동물)을
+  구분하도록 갱신했습니다. Lophotrochozoa 내부의 미해결 깊은 분기는 유지합니다.
 - Tectipleura, Panpulmonata, Cyclostomata, Heteroscleromorpha, Elapinae,
   Camarodonta, Dendrobatinae 등의 명칭/중간 단계 차이는 현재 표본에서
   별도의 잘못된 종 묶음을 만들지 않습니다. 보이지 않는 단일 자식 단계와
@@ -48,10 +49,26 @@ Nematocera 경로를 제거하고, Platynereis를 Pleistoannelida 아래로 정�
 
 ## 검증 및 근거
 
-`node scripts/validate-game-logic.mjs`는 독립적으로 검토한 15개 세 종 조합을
+`node scripts/validate-game-logic.mjs`는 독립적으로 검토한 17개 세 종 조합을
 각각 6가지 등장 순서로 검사합니다. 가까운 두 종이 별도 가지를 이루는지,
 세 종을 공통 조상에 그냥 붙이는 오답이 거부되는지도 검사합니다.
 기존 207종 전체 및 무작위 순서 검사, 데이터/한국어 이름 검사도 함께 수행합니다.
+
+## 범절지동물 분기 갱신 — 2026-10-13
+
+채택한 관계는 `(Tardigrada, (Onychophora, Arthropoda))`입니다.
+2025년 GBE에 수록된 CAT-PMSF 계통유전체 연구와 2026년 미토게놈 연구가
+지지하는 유조동물·절지동물 자매군을 실제 게임 경로에 추가했습니다.
+`canonical:antennopoda`는 이 갈래에 대한 게임 내부 ID이며 Wikidata ID가 아닙니다.
+계통 경로 생성기가 이를 다시 적용하므로 데이터 재수집 후에도 유지됩니다.
+유조동물·개미·완보동물 및 유조동물·투구게·완보동물의 각 6개 출제 순서에서
+자매군 관계와 정답 판정을 검증합니다. 세 문을 공통 조상에 그냥 붙이는
+기존 판정은 더 이상 허용하지 않습니다.
+
+- [2025년 CAT-PMSF 연구](https://academic.oup.com/gbe/article/17/1/evae273/7931680)
+- [2026년 유조동물 미토게놈 연구](https://www.mdpi.com/2073-4425/17/4/372)
+
+사이트의 분류 기준 안내에도 이 관계와 남은 단순화·계급 해석을 반영했습니다.
 
 - [NCBI Taxonomy](https://www.ncbi.nlm.nih.gov/taxonomy)
 - [범절지동물 계통 연구](https://pmc.ncbi.nlm.nih.gov/articles/PMC11756273/)
