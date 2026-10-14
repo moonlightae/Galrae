@@ -749,6 +749,15 @@ button:focus-visible, [role="button"]:focus-visible, .primary-button:focus-visib
 .collection-is-tree .collection-tree-help { display: block; }
 #collection-tree .tree-pillar button { display: none; }
 #collection-tree .clade-node:disabled { opacity: 1; }
+#collection-tree .clade-node.has-ancestor-note { outline: 3px solid var(--ink); outline-offset: 3px; cursor: pointer; }
+.ancestor-dialog { position: relative; width: min(560px, calc(100% - 32px)); max-height: 85dvh; padding: 28px; overflow-y: auto; color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow); }
+.ancestor-dialog::backdrop { background: rgba(0, 0, 0, .4); }
+.ancestor-dialog h2 { margin: 0; padding-right: 32px; font-size: 1.6rem; }
+.ancestor-scientific { margin: 6px 0 24px; color: var(--muted); font-style: italic; font-size: .85rem; }
+#ancestor-content h3 { margin: 20px 0 8px; font-size: .95rem; }
+#ancestor-content p { margin: 0; font-size: .88rem; line-height: 1.7; }
+.ancestor-sources { display: grid; gap: 8px; margin-top: 24px; font-size: .78rem; }
+.ancestor-note { margin: 20px 0 0; color: var(--muted); font-size: .72rem; line-height: 1.5; }
 #collection-tree .collection-empty { position: absolute; top: 45%; left: 50%; width: min(400px, 90%); transform: translate(-50%, -50%); }
 .collection-shortcut { position: fixed; right: 76px; bottom: max(24px, env(safe-area-inset-bottom)); z-index: 30; display: grid; place-items: center; width: 64px; height: 64px; padding: 0; background: #fff; border: 0; border-radius: 50%; box-shadow: 0 4px 18px rgba(32, 38, 43, .18); transition: transform 220ms cubic-bezier(.2, .8, .2, 1.3), box-shadow 220ms ease; cursor: pointer; }
 .collection-shortcut svg { transition: transform 280ms cubic-bezier(.2, .8, .2, 1.3); }

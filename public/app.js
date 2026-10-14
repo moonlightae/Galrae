@@ -268,6 +268,7 @@ const { clearPreview, renderPreview, renderTree, resetTreeView, setTreeLayout, u
 const collectionView = createCollectionView({ $, buildTree, speciesById, escapeHtml, cardText,
   onOpenSpecies: (id, button) => openSpeciesCard(id, button, true),
   onModeChange: (mode) => { navigationShell.hidden = mode === "tree"; },
+  getLanguage: () => state.cardLanguage,
 });
 
 function preloadImage(url, timeout = 5000) {

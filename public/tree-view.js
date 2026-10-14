@@ -217,7 +217,7 @@ export function bindTreeNavigation(treeCanvas, state, { zoomTree, updateCamera }
     zoomTree(state.zoom * Math.exp(-delta * .0012), event.clientX, event.clientY);
   }, { passive: false });
   treeCanvas.addEventListener("pointerdown", (event) => {
-    if (event.button !== 0 || event.target.closest("[data-target], [data-species-id]")) return;
+    if (event.button !== 0 || event.target.closest("[data-target], [data-species-id], [data-ancestor-id]")) return;
     state.panning = true;
     state.panStartX = event.clientX; state.panStartY = event.clientY;
     state.panOriginX = state.panX; state.panOriginY = state.panY;

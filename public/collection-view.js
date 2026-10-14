@@ -1,11 +1,13 @@
 import { bindTreeNavigation, createTreeView } from "./tree-view.js";
+import { createAncestorNotes } from "./class-ancestors.js";
 
-export function createCollectionView({ $, buildTree, speciesById, escapeHtml, cardText, onOpenSpecies, onModeChange }) {
+export function createCollectionView({ $, buildTree, speciesById, escapeHtml, cardText, onOpenSpecies, onModeChange, getLanguage }) {
   const viewport = $("#collection-tree");
   const panel = $("#collection-tree-panel");
   const page = $("#collection-page");
   const grid = $("#collection-grid");
   const buttons = document.querySelectorAll("[data-collection-view]");
+  const notes = createAncestorNotes({ $, escapeHtml, getLanguage });
   const state = { layout: "top", zoom: 1, panX: 0, panY: 0, panning: false, tree: null };
   const view = createTreeView({ state, treeCanvas: viewport, $, buildTree, speciesById, escapeHtml, cardText,
     layoutControls: page, zoomStatus: $("#collection-zoom-status"),
@@ -26,8 +28,10 @@ export function createCollectionView({ $, buildTree, speciesById, escapeHtml, ca
     state.tree = buildTree(ids, speciesById);
     view.renderTree();
     viewport.querySelectorAll(".tree-pillar button, .clade-node").forEach((button) => {
-      button.disabled = true;
+      const taxonId = button.dataset.target;
       button.removeAttribute("data-target");
+      if (button.classList.contains("clade-node") && notes.annotate(button, taxonId)) return;
+      button.disabled = true;
       button.setAttribute("aria-hidden", "true");
     });
     viewport.querySelectorAll("[data-species-id]").forEach((button) => {
@@ -54,6 +58,8 @@ export function createCollectionView({ $, buildTree, speciesById, escapeHtml, ca
   viewport.addEventListener("click", (event) => {
     const button = event.target.closest("[data-species-id]");
     if (button) onOpenSpecies(button.dataset.speciesId, button);
+    const ancestor = event.target.closest("[data-ancestor-id]");
+    if (ancestor) notes.open(ancestor.dataset.ancestorId);
   });
   bindTreeNavigation(viewport, state, view);
   new ResizeObserver(() => {
