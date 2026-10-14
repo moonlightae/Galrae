@@ -1,4 +1,4 @@
-export function createTreeView({ ANIMALIA_ID, buildTree, escapeHtml, speciesById, state, treeCanvas, $, cardText }) {
+export function createTreeView({ ANIMALIA_ID, buildTree, escapeHtml, speciesById, state, treeCanvas, $, cardText, layoutControls = document, zoomStatus }) {
   const MIN_TREE_ZOOM = 0.03;
   const MAX_TREE_ZOOM = 3.5;
 
@@ -162,7 +162,7 @@ export function createTreeView({ ANIMALIA_ID, buildTree, escapeHtml, speciesById
     camera.style.setProperty("--pan-x", `${state.panX}px`);
     camera.style.setProperty("--pan-y", `${state.panY}px`);
     camera.style.setProperty("--tree-zoom", state.zoom);
-    $("#tree-zoom-status").textContent = `${Math.round(state.zoom * 100)}%`;
+    (zoomStatus || $("#tree-zoom-status")).textContent = `${Math.round(state.zoom * 100)}%`;
   }
 
   function resetTreeView() {
@@ -180,7 +180,7 @@ export function createTreeView({ ANIMALIA_ID, buildTree, escapeHtml, speciesById
   function setTreeLayout(layout) {
     if (!["top", "bottom", "radial"].includes(layout) || state.layout === layout) return;
     state.layout = layout;
-    document.querySelectorAll("[data-tree-layout]").forEach((button) => {
+    layoutControls.querySelectorAll("[data-tree-layout]").forEach((button) => {
       button.setAttribute("aria-pressed", String(button.dataset.treeLayout === layout));
     });
     clearPreview();
@@ -207,5 +207,36 @@ export function createTreeView({ ANIMALIA_ID, buildTree, escapeHtml, speciesById
     zoomTree(state.zoom * factor, rect.left + rect.width / 2, rect.top + rect.height / 2);
   }
 
-  return { clearPreview, renderPreview, renderPositionedTree, renderTree, resetTreeView, setTreeLayout, updateCamera, zoomTree, zoomTreeAtCenter };
+  return { clearPreview, renderPreview, renderTree, resetTreeView, setTreeLayout, updateCamera, zoomTree, zoomTreeAtCenter };
+}
+
+export function bindTreeNavigation(treeCanvas, state, { zoomTree, updateCamera }) {
+  treeCanvas.addEventListener("wheel", (event) => {
+    event.preventDefault();
+    const delta = event.deltaY * (event.deltaMode === 1 ? 16 : event.deltaMode === 2 ? treeCanvas.clientHeight : 1);
+    zoomTree(state.zoom * Math.exp(-delta * .0012), event.clientX, event.clientY);
+  }, { passive: false });
+  treeCanvas.addEventListener("pointerdown", (event) => {
+    if (event.button !== 0 || event.target.closest("[data-target], [data-species-id]")) return;
+    state.panning = true;
+    state.panStartX = event.clientX; state.panStartY = event.clientY;
+    state.panOriginX = state.panX; state.panOriginY = state.panY;
+    treeCanvas.classList.add("is-panning");
+    treeCanvas.setPointerCapture(event.pointerId);
+  });
+  treeCanvas.addEventListener("pointermove", (event) => {
+    if (!state.panning) return;
+    state.panX = state.panOriginX + event.clientX - state.panStartX;
+    state.panY = state.panOriginY + event.clientY - state.panStartY;
+    updateCamera();
+  });
+  function stopPanning(event) {
+    if (!state.panning) return;
+    state.panning = false;
+    treeCanvas.classList.remove("is-panning");
+    if (treeCanvas.hasPointerCapture(event.pointerId)) treeCanvas.releasePointerCapture(event.pointerId);
+  }
+  treeCanvas.addEventListener("pointerup", stopPanning);
+  treeCanvas.addEventListener("pointercancel", stopPanning);
+  treeCanvas.addEventListener("lostpointercapture", stopPanning);
 }

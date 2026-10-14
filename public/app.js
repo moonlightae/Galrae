@@ -1,4 +1,4 @@
-import { createTreeView } from "./tree-view.js";
+import { bindTreeNavigation, createTreeView } from "./tree-view.js";
 import { createCollectionView } from "./collection-view.js";
 import { getAchievements, isClassificationPolytomyMistake } from "./achievements.js";
 import { createAchievementNotifications } from "./achievement-notifications.js";
@@ -34,7 +34,7 @@ function showLobbyPage(page, updateHistory = true) {
   setToolbarOpen(false);
   game.hidden = true;
   ["#result-modal", "#tutorial-intro-modal", "#species-modal"].forEach((selector) => { $(selector).hidden = true; });
-  navigationShell.hidden = false;
+  navigationShell.hidden = page === "collection" && collectionView.isTree();
   for (const [name, screen] of Object.entries(lobbyPages)) screen.hidden = name !== page;
   toolbar.querySelectorAll("[data-page]").forEach((button) => {
     if (button.dataset.page === page) button.setAttribute("aria-current", "page");
@@ -263,10 +263,11 @@ function renderCollection() {
 }
 
 const { clearPreview, renderPreview, renderTree, resetTreeView, setTreeLayout, updateCamera, zoomTree, zoomTreeAtCenter } = createTreeView({
-  ANIMALIA_ID, buildTree, escapeHtml, speciesById, state, treeCanvas, $, cardText,
+  ANIMALIA_ID, buildTree, escapeHtml, speciesById, state, treeCanvas, $, cardText, layoutControls: game,
 });
 const collectionView = createCollectionView({ $, buildTree, speciesById, escapeHtml, cardText,
   onOpenSpecies: (id, button) => openSpeciesCard(id, button, true),
+  onModeChange: (mode) => { navigationShell.hidden = mode === "tree"; },
 });
 
 function preloadImage(url, timeout = 5000) {
@@ -1109,7 +1110,7 @@ $("#difficulty-dialog").addEventListener("close", () => { difficultyStartOptions
 document.querySelectorAll("[data-card-language]").forEach((button) => {
   button.addEventListener("click", () => setCardLanguage(button.dataset.cardLanguage));
 });
-document.querySelectorAll("[data-tree-layout]").forEach((button) => {
+game.querySelectorAll("[data-tree-layout]").forEach((button) => {
   button.addEventListener("click", () => setTreeLayout(button.dataset.treeLayout));
 });
 $("#tree-reset-view").addEventListener("click", resetTreeView);
@@ -1191,33 +1192,7 @@ treeCanvas.addEventListener("drop", (event) => {
   const placement = state.previewPlacement || "wrap";
   placeCard(targetId, placement);
 });
-treeCanvas.addEventListener("wheel", (event) => {
-  event.preventDefault();
-  const delta = event.deltaY * (event.deltaMode === 1 ? 16 : event.deltaMode === 2 ? treeCanvas.clientHeight : 1);
-  zoomTree(state.zoom * Math.exp(-delta * .0012), event.clientX, event.clientY);
-}, { passive: false });
-treeCanvas.addEventListener("pointerdown", (event) => {
-  if (event.button !== 0 || event.target.closest("[data-target], [data-species-id]")) return;
-  state.panning = true;
-  state.panStartX = event.clientX; state.panStartY = event.clientY;
-  state.panOriginX = state.panX; state.panOriginY = state.panY;
-  treeCanvas.classList.add("is-panning");
-  treeCanvas.setPointerCapture(event.pointerId);
-});
-treeCanvas.addEventListener("pointermove", (event) => {
-  if (!state.panning) return;
-  state.panX = state.panOriginX + event.clientX - state.panStartX;
-  state.panY = state.panOriginY + event.clientY - state.panStartY;
-  updateCamera();
-});
-function stopPanning(event) {
-  if (!state.panning) return;
-  state.panning = false;
-  treeCanvas.classList.remove("is-panning");
-  if (treeCanvas.hasPointerCapture(event.pointerId)) treeCanvas.releasePointerCapture(event.pointerId);
-}
-treeCanvas.addEventListener("pointerup", stopPanning);
-treeCanvas.addEventListener("pointercancel", stopPanning);
+bindTreeNavigation(treeCanvas, state, { zoomTree, updateCamera });
 new ResizeObserver(() => {
   if (state.layout === "radial" && !$("#game").hidden && treeCanvas.clientWidth && treeCanvas.clientHeight) resetTreeView();
 }).observe(treeCanvas);

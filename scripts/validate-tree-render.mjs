@@ -215,6 +215,8 @@ const zoomStatus = { textContent: "" };
 const cameraStyles = new Map();
 const cameraState = { zoom: 1, panX: 20, panY: -10, layout: "top" };
 const cameraContext = {
+  zoomStatus: undefined,
+  layoutControls: { querySelectorAll: () => [] },
   state: cameraState,
   MIN_TREE_ZOOM: .03,
   MAX_TREE_ZOOM: 3.5,
