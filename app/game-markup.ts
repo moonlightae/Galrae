@@ -30,6 +30,16 @@ export const gameMarkup = `
         <button id="lobby-sculpture" class="lobby-sculpture" type="button" aria-label="입체 계통도. 드래그 또는 방향키로 회전, 클릭 또는 Enter로 다크모드 전환." aria-pressed="false"></button>
       </div>
     </div>
+    <button class="collection-shortcut" type="button" data-page="collection" aria-label="도감 열기" title="도감">
+      <svg width="36" height="36" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <path d="M12 10 31 6l8 5v29l-19 4-8-5Z" fill="#414950" />
+        <path d="m20 15 19-4v25l-19 4Z" fill="#f0eee8" />
+        <path d="m23 18 12-2m-12 7 12-2m-12 7 12-2m-12 7 12-2" stroke="#c5c4be" stroke-width="1.5" />
+        <path d="m12 10 8 5v29l-8-5Z" fill="#5e6871" />
+        <path d="m12 10 19-4 8 5-19 4Z" fill="#78838c" />
+        <path d="m15 18 2 1m-2 3 2 1m-2 11 2 1" stroke="#e5e8e9" stroke-width="1.5" stroke-linecap="round" />
+      </svg>
+    </button>
   </main>
   <main id="leaderboard-page" class="screen library-screen" data-lobby-page hidden>
     <button class="text-button page-back" type="button" data-page="lobby">← 로비</button>
@@ -42,7 +52,7 @@ export const gameMarkup = `
   <main id="collection-page" class="screen library-screen" data-lobby-page hidden>
     <button class="text-button page-back" type="button" data-page="lobby">← 로비</button>
     <section class="collection" aria-labelledby="collection-title">
-      <div class="section-heading"><div><h2 id="collection-title">분류한 카드</h2></div><p id="collection-count">0종 발견</p></div>
+      <div class="section-heading"><div><h2 id="collection-title">도감</h2></div><p id="collection-count">0종 발견</p></div>
       <div id="collection-grid" class="collection-grid"></div>
       <p class="data-attribution">Species text and taxonomy data from <a href="https://en.wikipedia.org/" target="_blank" rel="noreferrer">English Wikipedia</a> (<a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noreferrer">CC BY-SA 4.0</a>) and <a href="https://www.wikidata.org/" target="_blank" rel="noreferrer">Wikidata</a>. Images are provided by <a href="https://commons.wikimedia.org/" target="_blank" rel="noreferrer">Wikimedia Commons</a> under the license shown on each card.</p>
     </section>
@@ -60,7 +70,7 @@ export const gameMarkup = `
         <div class="toolbar-pages">
           <button type="button" data-page="lobby" aria-current="page">로비</button>
           <button type="button" data-page="leaderboard">리더보드</button>
-          <button type="button" data-page="collection">카드 리스트</button>
+          <button type="button" data-page="collection">도감</button>
           <button type="button" data-page="tasks">발전과제</button>
           <button type="button" data-page="taxonomy-notes">분류 기준 안내</button>
         </div>
