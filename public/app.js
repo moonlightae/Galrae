@@ -1,7 +1,8 @@
-import { bindTreeNavigation, createTreeView } from "./tree-view.js";
-import { createCollectionView } from "./collection-view.js";
-import { getAchievements, isClassificationPolytomyMistake } from "./achievements.js";
-import { createAchievementNotifications } from "./achievement-notifications.js";
+const assetVersion = new URL(import.meta.url).search;
+const [{ bindTreeNavigation, createTreeView }, { createCollectionView }, { getAchievements, isClassificationPolytomyMistake }, { createAchievementNotifications }] = await Promise.all([
+  import(`./tree-view.js${assetVersion}`), import(`./collection-view.js${assetVersion}`),
+  import(`./achievements.js${assetVersion}`), import(`./achievement-notifications.js${assetVersion}`),
+]);
 
 const { ANIMALIA_ID, addSuccessCount, buildTree, createDifficultyQueue, difficultyNames, getExpectedPlacement, isEquivalentPlacement, seedSuccessCounts, successCountText } = globalThis.GalraeLogic;
 const HUMAN_ID = "homo-sapiens";
@@ -1019,7 +1020,7 @@ async function returnToLobby() {
 async function initialize() {
   const startButton = $("#start-game");
   try {
-    const [response, translationsResponse, taxaResponse] = await Promise.all([fetch("data/animals.json"), fetch("data/animals.ko.json"), fetch("data/taxa.ko.json"), loadAccount()]);
+    const [response, translationsResponse, taxaResponse] = await Promise.all([fetch(`data/animals.json${assetVersion}`), fetch(`data/animals.ko.json${assetVersion}`), fetch(`data/taxa.ko.json${assetVersion}`), loadAccount()]);
     if (!response.ok) throw new Error(`Dataset request failed: ${response.status}`);
     if (!translationsResponse.ok) throw new Error(`Translation request failed: ${translationsResponse.status}`);
     if (!taxaResponse.ok) throw new Error(`Taxon translation request failed: ${taxaResponse.status}`);

@@ -5,6 +5,9 @@ import { ancestorNotes } from "../public/class-ancestors.js";
 await import("../public/game-logic.js");
 
 const { animals } = JSON.parse(readFileSync(new URL("../public/data/animals.json", import.meta.url)));
+const tagged = await import("../public/class-ancestors.js?v=cache-regression");
+const taggedUpper = await import("../public/upper-ancestors.js?v=cache-regression");
+assert.equal(tagged.ancestorNotes.Q729, taggedUpper.upperAncestors.Q729, "A release tag must propagate to the nested upper-ancestor module");
 const speciesById = new Map(animals.map((animal) => [animal.id, animal]));
 const tree = globalThis.GalraeLogic.buildTree(animals.map((animal) => animal.id), speciesById, null, true);
 const higherRanks = new Set(["kingdom", "subkingdom", "infrakingdom", "superphylum", "phylum", "subphylum", "infraphylum", "megaclass", "superclass", "clade"]);

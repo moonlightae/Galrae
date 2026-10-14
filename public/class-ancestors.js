@@ -1,6 +1,8 @@
-import { additionalClassAncestors } from "./additional-class-ancestors.js";
-import { taxonRanks, classRanks, rankLabels } from "./taxon-ranks.js";
-import { upperAncestors } from "./upper-ancestors.js";
+const version = new URL(import.meta.url).search;
+const [{ additionalClassAncestors }, { taxonRanks, classRanks, rankLabels }, { upperAncestors }, { taxonProfiles }, { rankMark, rankNames }] = await Promise.all([
+  import(`./additional-class-ancestors.js${version}`), import(`./taxon-ranks.js${version}`), import(`./upper-ancestors.js${version}`),
+  import(`./taxon-profiles.js${version}`), import(`./rank-marks.js${version}`),
+]);
 
 export const classAncestors = {
   ...additionalClassAncestors,
@@ -95,8 +97,8 @@ for (const [id, review] of Object.entries(taxonRanks)) {
   const existing = classAncestors[id];
   classAncestors[id] = {
     ...review,
-    ko: existing?.ko || [`${review.koName}에 속하는 생물의 위치는 위 분류 경로에서 확인하실 수 있습니다.`, "계급은 분류 목록의 위치를 나타냅니다. 같은 계급이라고 같은 시기에 분화했거나 조상 모습이 같다는 뜻은 아닙니다."],
-    en: existing?.en || [`The classification above identifies the position of sampled members of ${review.name}.`, "A taxonomic rank is a position in a classification. Equal ranks do not imply equal divergence times or identical ancestral forms."],
+    ko: existing?.ko || [],
+    en: existing?.en || [],
     sources: [...(existing?.sources || []), ...review.sources],
   };
 }
@@ -141,14 +143,22 @@ export function createAncestorNotes({ $, escapeHtml, getLanguage, speciesById, c
   });
   function annotate(button, id) {
     const note = ancestorNotes[id];
+    const rank = note?.rank || button.dataset.rank || "clade";
+    const ko = getLanguage() === "ko";
+    button.dataset.rank = rank;
+    button.classList.add("ranked-taxon");
+    button.innerHTML = rankMark(rank);
+    button.title = `${rankNames[rank]?.[ko ? 0 : 1] || (ko ? "공통분기" : "Shared branch")} · ${branches.get(id)?.path.at(-1).name || id}`;
+    button.setAttribute("aria-label", button.title);
     if (!note) return false;
-    const name = getLanguage() === "ko" ? note.koName : `${note.name} (${note.rank})`;
+    const name = ko ? `${rankNames[note.rank]?.[0] ? `${rankNames[note.rank][0]} · ` : ""}${note.koName}` : `${note.name} (${note.rank})`;
     button.disabled = false;
     button.removeAttribute("aria-hidden");
     button.dataset.ancestorId = id;
     button.classList.add("has-ancestor-note");
     button.title = `${name} · ${getLanguage() === "ko" ? "조상 이야기" : "Ancestry notes"}`;
     button.setAttribute("aria-label", button.title);
+    button.addEventListener("click", (event) => { event.stopPropagation(); open(id); });
     return true;
   }
   function open(id) {
@@ -162,8 +172,8 @@ export function createAncestorNotes({ $, escapeHtml, getLanguage, speciesById, c
     $("#ancestor-title").textContent = ko ? note.koName : note.name;
     const upperRankLabels = { kingdom: "계", subkingdom: "아계", infrakingdom: "하계", superphylum: "상문", phylum: "문", subphylum: "아문", infraphylum: "하문" };
     $("#ancestor-scientific").textContent = `${note.name} · ${ko ? rankLabels[note.rank] || upperRankLabels[note.rank] : note.rank}`;
-    const representative = getCollected().map((speciesId) => speciesById.get(speciesId)).filter(Boolean).find((animal) => belongsTo(animal, id))
-      || [...speciesById.values()].find((animal) => belongsTo(animal, id));
+    const candidates = [...new Set([...getCollected(), ...speciesById.keys()])].map((speciesId) => speciesById.get(speciesId)).filter((animal) => animal && belongsTo(animal, id));
+    const representative = candidates[0];
     const animal = cardText(representative);
     const image = $("#ancestor-image");
     const fallback = $("#ancestor-image-fallback");
@@ -183,10 +193,16 @@ export function createAncestorNotes({ $, escapeHtml, getLanguage, speciesById, c
       : representative.taxonomy.lineage.filter((taxon) => classRanks.includes(taxon.rank))
         .map((taxon) => ko ? `${taxonRanks[taxon.wikidataId]?.koName || taxon.scientificName} [${rankLabels[taxon.rank]}]` : `${taxon.scientificName} [${taxon.rank}]`).join(" → ");
     const reviewText = ko ? note.review : note.reviewEn;
-    $("#ancestor-content").innerHTML = `<section><h3>${ko ? "분류 위치" : "Classification"}</h3><p>${escapeHtml(rankPath)}</p><p>${escapeHtml(reviewText)}</p></section>`
+    const profile = taxonProfiles[note.name];
+    const features = profile ? (ko ? profile.ko : profile.en) : text[0];
+    const genera = new Set();
+    const examples = candidates.filter((animal) => { const genus = animal.scientificName.split(" ")[0]; if (genera.has(genus)) return false; genera.add(genus); return true; }).slice(0, 4);
+    $("#ancestor-content").innerHTML = `<section><h3>${ko ? "주요 특징" : "Key characteristics"}</h3><p>${escapeHtml(features)}</p></section>`
+      + `<section><h3>${ko ? "대표 생물 · 현재 도감 수록종" : "Representative species in this collection"}</h3><ul>${examples.map((entry) => { const example = cardText(entry); return `<li>${escapeHtml(example.commonName)} <i>(${escapeHtml(example.scientificName)})</i></li>`; }).join("")}</ul></section>`
+      + `<section><h3>${ko ? "분류 위치" : "Classification"}</h3><p>${escapeHtml(rankPath)}</p><p>${escapeHtml(reviewText)}</p></section>`
       + text.map((paragraph, index) => `<section><h3>${labels[index]}</h3><p>${escapeHtml(paragraph)}</p></section>`).join("");
     $("#ancestor-sources").innerHTML = note.sources.map(([title, url]) => `<a href="${escapeHtml(url)}" target="_blank" rel="noreferrer">${escapeHtml(title)}</a>`).join("");
-    $("#ancestor-note").textContent = ko ? "문헌 기반 요약 · 2026-10-14 검토. 사진은 공통 조상의 복원도가 아닙니다. i 표식은 분류군 안내용이며 실제 분기나 분화 시점을 뜻하지 않습니다." : "Literature summary reviewed 2026-10-14. The photograph is not an ancestor reconstruction. An i marker identifies a taxon note, not an actual split or date of divergence.";
+    $("#ancestor-note").textContent = ko ? "문헌 기반 요약 · 2026-10-14 검토. 사진은 공통 조상의 복원도가 아닙니다. 표식의 모양은 분류 계급을 구분하며 분화 시점을 뜻하지 않습니다." : "Literature summary reviewed 2026-10-14. The photograph is not an ancestor reconstruction. Marker shapes distinguish taxonomic ranks, not divergence dates.";
     dialog.showModal();
   }
   function showGuide() {

@@ -1,4 +1,4 @@
-import "./game-logic.js";
+await import(`./game-logic.js${new URL(import.meta.url).search}`);
 
 export const achievementGrades = { stone: "돌", bronze: "동", silver: "은", gold: "금", diamond: "다이아" };
 

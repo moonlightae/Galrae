@@ -1,5 +1,7 @@
-import { bindTreeNavigation, createTreeView } from "./tree-view.js";
-import { createAncestorNotes } from "./class-ancestors.js";
+const version = new URL(import.meta.url).search;
+const [{ bindTreeNavigation, createTreeView }, { createAncestorNotes }, { legendRanks, rankNames, rankMark }] = await Promise.all([
+  import(`./tree-view.js${version}`), import(`./class-ancestors.js${version}`), import(`./rank-marks.js${version}`),
+]);
 
 export function createCollectionView({ $, buildTree, speciesById, escapeHtml, cardText, onOpenSpecies, onModeChange, getLanguage, getGuideKey }) {
   const viewport = $("#collection-tree");
@@ -20,6 +22,10 @@ export function createCollectionView({ $, buildTree, speciesById, escapeHtml, ca
     panel.hidden = mode !== "tree";
     page.classList.toggle("collection-is-tree", mode === "tree");
     if (mode !== "tree") return;
+    const ko = getLanguage() === "ko";
+    const legend = $("#collection-rank-legend");
+    legend.setAttribute("aria-label", ko ? "계통수 계급 범례" : "Taxonomic rank legend");
+    legend.innerHTML = `<ul>${legendRanks.map((rank) => `<li>${rankMark(rank)}<span>${rankNames[rank][ko ? 0 : 1]}</span></li>`).join("")}</ul><p>${ko ? "그 외: 기타 계급·공통분기" : "Other ranks / shared branches"}</p>`;
     if (!ids.length) {
       state.tree = null;
       viewport.innerHTML = '<p class="collection-empty">아직 분류한 생물이 없어요. 분류한 동물이 이곳에 모입니다.</p>';
@@ -39,7 +45,7 @@ export function createCollectionView({ $, buildTree, speciesById, escapeHtml, ca
       button.removeAttribute("data-target");
       if (button.classList.contains("clade-node") && notes.annotate(button, taxonId)) return;
       button.disabled = true;
-      button.setAttribute("aria-hidden", "true");
+      if (!button.classList.contains("ranked-taxon")) button.setAttribute("aria-hidden", "true");
     });
     viewport.querySelectorAll("[data-species-id]").forEach((button) => {
       button.setAttribute("aria-label", `${button.textContent} 카드 보기`);
@@ -66,8 +72,6 @@ export function createCollectionView({ $, buildTree, speciesById, escapeHtml, ca
   viewport.addEventListener("click", (event) => {
     const button = event.target.closest("[data-species-id]");
     if (button) onOpenSpecies(button.dataset.speciesId, button);
-    const ancestor = event.target.closest("[data-ancestor-id]");
-    if (ancestor) notes.open(ancestor.dataset.ancestorId);
   });
   bindTreeNavigation(viewport, state, view);
   new ResizeObserver(() => {

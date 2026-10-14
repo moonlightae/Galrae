@@ -3,6 +3,8 @@ import { readFileSync } from "node:fs";
 import { createCollectionView } from "../public/collection-view.js";
 import { ancestorNotes, classAncestors, createAncestorNotes, getClassIds } from "../public/class-ancestors.js";
 import { upperAncestors } from "../public/upper-ancestors.js";
+import { taxonProfiles } from "../public/taxon-profiles.js";
+import { legendRanks, rankNames, rankMark } from "../public/rank-marks.js";
 await import("../public/game-logic.js");
 const { buildTree } = globalThis.GalraeLogic;
 const { animals } = JSON.parse(readFileSync(new URL("../public/data/animals.json", import.meta.url)));
@@ -55,6 +57,7 @@ Object.defineProperty(viewport, "innerHTML", {
     branchButtons = [...markup.matchAll(/class="clade-node(?: class-marker)?"[^>]*data-target="([^"]+)"/g)].map((match, i) => {
       const button = element(`branch-${i}-${match[1]}`);
       button.dataset.target = match[1];
+      button.dataset.rank = match[0].match(/data-rank="([^"]+)"/)?.[1];
       button.classList.add("clade-node");
       return button;
     });
@@ -88,7 +91,7 @@ for (const ids of [["homo-sapiens"], ["homo-sapiens", "asterias-rubens"], animal
     element("#close-ancestor-guide").handlers.click();
   }
   assert.deepEqual(speciesButtons.map((button) => button.dataset.speciesId).sort(), [...ids].sort());
-  assert.ok(branchButtons.every((button) => button.dataset.ancestorId ? !button.disabled : button.disabled && button.attrs["aria-hidden"] === "true"));
+  assert.ok(branchButtons.every((button) => button.dataset.ancestorId ? !button.disabled : button.disabled && button.attrs["aria-label"]));
   assert.equal(element("#collection-grid").hidden, true);
   element("#collection-tree-fit").handlers.click();
   const fitZoom = cameraStyles.get("--tree-zoom");
@@ -100,13 +103,27 @@ for (const ids of [["homo-sapiens"], ["homo-sapiens", "asterias-rubens"], animal
 }
 const annotated = branchButtons.filter((button) => button.dataset.ancestorId);
 assert.equal(new Set(annotated.map((button) => button.dataset.ancestorId)).size, 143, "All ranked notes and above-class branches must be reachable");
+for (const button of annotated) {
+  let stopped = false;
+  button.handlers.click({ stopPropagation() { stopped = true; } });
+  assert.ok(stopped, "Marker clicks must not start another delegated action");
+  assert.equal(element("#ancestor-title").textContent, ancestorNotes[button.dataset.ancestorId].koName);
+  assert.equal(dialog.open, true, `${button.dataset.ancestorId}: its actual click handler must open a dialog`);
+  assert.match(element("#ancestor-content").innerHTML, /주요 특징/);
+  assert.match(element("#ancestor-content").innerHTML, /대표 생물/);
+  assert.ok(!/undefined/.test(element("#ancestor-content").innerHTML));
+}
+assert.equal(new Set(legendRanks.map(rankMark)).size, 6, "Each of the six ranks needs a distinct shape");
+const legend = element("#collection-rank-legend").innerHTML;
+assert.ok(legendRanks.every((rank, index) => index === 0 || legend.indexOf(`<span>${rankNames[rank][0]}</span>`) > legend.indexOf(`<span>${rankNames[legendRanks[index - 1]][0]}</span>`)), "Legend must follow the requested rank order");
+assert.ok(branchButtons.some((button) => button.dataset.rank === "order" && button.innerHTML === rankMark("order")), "Visible order branches need order symbols even without ancestry notes");
 assert.equal(element("#ancestor-guide").shown, 1, "Guide must not repeat after dismissal");
 assert.equal(stored.get("guide-test-user"), "seen");
 assert.ok(annotated.some((button) => button.dataset.ancestorId === "ncbi:6844"), "Horseshoe-crab class must be reachable");
 assert.ok(annotated.some((button) => button.dataset.ancestorId === "Q25368"), "Bivalves must be reachable");
 const mammal = annotated.find((button) => button.dataset.ancestorId === "Q7377");
 assert.match(mammal.title, /포유동물강/);
-viewport.handlers.click({ target: { closest: (selector) => selector === "[data-ancestor-id]" ? mammal : null } });
+mammal.handlers.click({ stopPropagation() {} });
 assert.equal(dialog.open, true);
 assert.equal(element("#ancestor-title").textContent, "포유동물강");
 assert.match(element("#ancestor-content").innerHTML, /조상/);
@@ -127,12 +144,14 @@ const koreanNames = JSON.parse(readFileSync(new URL("../public/data/taxa.ko.json
 for (const [id, note] of Object.entries(classAncestors)) {
   assert.ok(classIds.has(id), `${id} must be class-ranked in the dataset`);
   assert.equal(note.koName, koreanNames[id]);
-  assert.ok(note.ko.length >= 2);
   assert.equal(note.en.length, note.ko.length);
+  assert.ok(taxonProfiles[note.name]?.ko.length > 35, `${note.name}: needs biological characteristics`);
+  assert.ok(taxonProfiles[note.name]?.en.length > 60, `${note.name}: needs English characteristics`);
   assert.ok(note.sources.length && note.sources.every(([title, url]) => title && new URL(url).protocol === "https:"));
   notes.open(id);
   const representative = animals.find((animal) => animal.image.thumbnailUrl === element("#ancestor-image").src);
   assert.ok(getClassIds(representative).includes(id), `${id} photo must belong to the class`);
+  assert.ok(element("#ancestor-content").innerHTML.includes(taxonProfiles[note.name].en));
   assert.ok(element("#ancestor-image-credit").href);
 }
 const memberIds = new Map();

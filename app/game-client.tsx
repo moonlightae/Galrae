@@ -23,7 +23,8 @@ export default function GameClient() {
   useEffect(() => {
     if (window.__galraeBooted) return;
     window.__galraeBooted = true;
-    loadScript("/game-logic.js").then(() => loadScript("/app.js", true)).catch(console.error);
+    const version = "?v=20261014-encyclopedia-3";
+    loadScript(`/game-logic.js${version}`).then(() => loadScript(`/app.js${version}`, true)).catch(console.error);
   }, []);
   return <div dangerouslySetInnerHTML={{ __html: gameMarkup }} />;
 }
