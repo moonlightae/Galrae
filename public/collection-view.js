@@ -7,7 +7,7 @@ export function createCollectionView({ $, buildTree, speciesById, escapeHtml, ca
   const page = $("#collection-page");
   const grid = $("#collection-grid");
   const buttons = document.querySelectorAll("[data-collection-view]");
-  const notes = createAncestorNotes({ $, escapeHtml, getLanguage, speciesById, cardText, getGuideKey, getCollected: () => collected });
+  const notes = createAncestorNotes({ $, escapeHtml, getLanguage, speciesById, cardText, getGuideKey, buildTree, getCollected: () => collected });
   const state = { layout: "top", zoom: 1, panX: 0, panY: 0, panning: false, tree: null };
   const view = createTreeView({ state, treeCanvas: viewport, $, buildTree, speciesById, escapeHtml, cardText,
     layoutControls: page, zoomStatus: $("#collection-zoom-status"),

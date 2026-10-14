@@ -1,7 +1,8 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { createCollectionView } from "../public/collection-view.js";
-import { classAncestors, createAncestorNotes, getClassIds } from "../public/class-ancestors.js";
+import { ancestorNotes, classAncestors, createAncestorNotes, getClassIds } from "../public/class-ancestors.js";
+import { upperAncestors } from "../public/upper-ancestors.js";
 await import("../public/game-logic.js");
 const { buildTree } = globalThis.GalraeLogic;
 const { animals } = JSON.parse(readFileSync(new URL("../public/data/animals.json", import.meta.url)));
@@ -98,7 +99,7 @@ for (const ids of [["homo-sapiens"], ["homo-sapiens", "asterias-rubens"], animal
   assert.equal(opened, speciesButtons[0].dataset.speciesId);
 }
 const annotated = branchButtons.filter((button) => button.dataset.ancestorId);
-assert.equal(new Set(annotated.map((button) => button.dataset.ancestorId)).size, 96, "All four class-level ranks, including supplements, must have notes");
+assert.equal(new Set(annotated.map((button) => button.dataset.ancestorId)).size, 143, "All ranked notes and above-class branches must be reachable");
 assert.equal(element("#ancestor-guide").shown, 1, "Guide must not repeat after dismissal");
 assert.equal(stored.get("guide-test-user"), "seen");
 assert.ok(annotated.some((button) => button.dataset.ancestorId === "ncbi:6844"), "Horseshoe-crab class must be reachable");
@@ -113,7 +114,7 @@ element("#close-ancestor").handlers.click();
 assert.equal(dialog.open, false);
 language = "en";
 view.render(animals.map((animal) => animal.id));
-const notes = createAncestorNotes({ $: element, escapeHtml: String, getLanguage: () => language, speciesById, cardText: (animal) => animal,
+const notes = createAncestorNotes({ $: element, escapeHtml: String, getLanguage: () => language, speciesById, cardText: (animal) => animal, buildTree,
   getCollected: () => animals.map((animal) => animal.id), getGuideKey: () => "guide-test-user",
 });
 notes.open("Q7377");
@@ -134,6 +135,36 @@ for (const [id, note] of Object.entries(classAncestors)) {
   assert.ok(getClassIds(representative).includes(id), `${id} photo must belong to the class`);
   assert.ok(element("#ancestor-image-credit").href);
 }
+const memberIds = new Map();
+function indexMembers(node) {
+  const ids = node.type === "leaf" ? [node.id] : node.children.flatMap(indexMembers);
+  memberIds.set(node.id, new Set(ids));
+  return ids;
+}
+indexMembers(buildTree(animals.map((animal) => animal.id), speciesById, null, true));
+for (const lang of ["ko", "en"]) {
+  language = lang;
+  for (const [id, note] of Object.entries(upperAncestors)) {
+    notes.open(id);
+    assert.equal(element("#ancestor-title").textContent, lang === "ko" ? note.koName : note.name);
+    assert.ok(!/undefined/.test(element("#ancestor-scientific").textContent));
+    assert.ok(!/undefined/.test(element("#ancestor-content").innerHTML));
+    assert.ok(element("#ancestor-content").innerHTML.includes(lang === "ko" ? note.ko[0] : note.en[0]));
+    const representative = animals.find((animal) => animal.image.thumbnailUrl === element("#ancestor-image").src);
+    assert.ok(memberIds.get(id).has(representative.id), `${id}: photo must descend from the selected ancestor`);
+  }
+}
+language = "ko";
+const localNotes = createAncestorNotes({ $: element, escapeHtml: String, getLanguage: () => language, speciesById, cardText: (animal) => animal, buildTree,
+  getCollected: () => ["limulus-polyphemus"], getGuideKey: () => "guide-test-user" });
+localNotes.open("Q1360");
+assert.equal(element("#ancestor-image").src, speciesById.get("limulus-polyphemus").image.thumbnailUrl, "Prefer a collected descendant over an uncollected representative");
+for (const layout of layouts) {
+  layout.handlers.click();
+  const reachable = new Set(branchButtons.map((button) => button.dataset.ancestorId).filter(Boolean));
+  assert.deepEqual(reachable, new Set(Object.keys(ancestorNotes)), `${layout.dataset.treeLayout}: every note must be reachable`);
+}
+
 element("#ancestor-image").onerror();
 assert.equal(element("#ancestor-image-fallback").hidden, false);
 layouts[2].handlers.click();
@@ -155,4 +186,4 @@ assert.equal(buttons[0].attrs["aria-pressed"], "true");
 delete globalThis.document;
 delete globalThis.ResizeObserver;
 delete globalThis.localStorage;
-console.log("96 ranked taxa, unchanged topology, photos/fallback, first eligible guide/persistence and tree navigation passed.");
+console.log("143 notes, unchanged topology, photos/fallback, first eligible guide/persistence and tree navigation passed.");

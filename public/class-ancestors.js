@@ -1,5 +1,6 @@
 import { additionalClassAncestors } from "./additional-class-ancestors.js";
 import { taxonRanks, classRanks, rankLabels } from "./taxon-ranks.js";
+import { upperAncestors } from "./upper-ancestors.js";
 
 export const classAncestors = {
   ...additionalClassAncestors,
@@ -100,6 +101,14 @@ for (const [id, review] of Object.entries(taxonRanks)) {
   };
 }
 
+export const ancestorNotes = { ...classAncestors, ...upperAncestors };
+for (const id of Object.keys(upperAncestors)) {
+  const ranked = classAncestors[id];
+  if (!ranked) continue;
+  ancestorNotes[id] = { ...upperAncestors[id], sources: [...upperAncestors[id].sources, ...ranked.sources],
+    review: `${upperAncestors[id].review} ${ranked.review}`, reviewEn: `${upperAncestors[id].reviewEn} ${ranked.reviewEn}` };
+}
+
 export function getClassIds(animal) {
   const classes = animal.taxonomy.lineage.filter((taxon) => classRanks.includes(taxon.rank)).map((taxon) => taxon.wikidataId);
   const supplement = animal.taxonomy.rankReview?.supplemental.class;
@@ -107,9 +116,19 @@ export function getClassIds(animal) {
   return classes;
 }
 
-export function createAncestorNotes({ $, escapeHtml, getLanguage, speciesById, cardText, getCollected, getGuideKey }) {
+export function createAncestorNotes({ $, escapeHtml, getLanguage, speciesById, cardText, getCollected, getGuideKey, buildTree }) {
   const dialog = $("#ancestor-dialog");
   const guide = $("#ancestor-guide");
+  const branches = new Map();
+  function index(node, path = []) {
+    if (node.type === "leaf") return [node.id];
+    const branchPath = [...path, node];
+    const members = node.children.flatMap((child) => index(child, branchPath));
+    branches.set(node.id, { path: branchPath, members: new Set(members) });
+    return members;
+  }
+  index(buildTree([...speciesById.keys()], speciesById, null, true));
+  const belongsTo = (animal, id) => branches.get(id)?.members.has(animal.id) || getClassIds(animal).includes(id);
   const offeredKeys = new Set();
   $("#close-ancestor-guide").addEventListener("click", () => guide.close());
   guide.addEventListener("close", () => {
@@ -121,7 +140,7 @@ export function createAncestorNotes({ $, escapeHtml, getLanguage, speciesById, c
     if (event.target === dialog && (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom)) dialog.close();
   });
   function annotate(button, id) {
-    const note = classAncestors[id];
+    const note = ancestorNotes[id];
     if (!note) return false;
     const name = getLanguage() === "ko" ? note.koName : `${note.name} (${note.rank})`;
     button.disabled = false;
@@ -133,7 +152,7 @@ export function createAncestorNotes({ $, escapeHtml, getLanguage, speciesById, c
     return true;
   }
   function open(id) {
-    const note = classAncestors[id];
+    const note = ancestorNotes[id];
     if (!note) return;
     const ko = getLanguage() === "ko";
     const text = ko ? note.ko : note.en;
@@ -141,9 +160,10 @@ export function createAncestorNotes({ $, escapeHtml, getLanguage, speciesById, c
       ? ko ? ["어떤 생물인가요?", "진화 연구 이야기"] : ["Which animals belong here?", "Evolution research"]
       : ko ? ["어떻게 알았나요?", "조상은 어떤 모습이었을까요?", "연구 이야기"] : ["What is the evidence?", "What might the ancestor have been like?", "Research notes"];
     $("#ancestor-title").textContent = ko ? note.koName : note.name;
-    $("#ancestor-scientific").textContent = `${note.name} · ${ko ? rankLabels[note.rank] : note.rank}`;
-    const representative = getCollected().map((speciesId) => speciesById.get(speciesId)).find((animal) => getClassIds(animal).includes(id))
-      || [...speciesById.values()].find((animal) => getClassIds(animal).includes(id));
+    const upperRankLabels = { kingdom: "계", subkingdom: "아계", infrakingdom: "하계", superphylum: "상문", phylum: "문", subphylum: "아문", infraphylum: "하문" };
+    $("#ancestor-scientific").textContent = `${note.name} · ${ko ? rankLabels[note.rank] || upperRankLabels[note.rank] : note.rank}`;
+    const representative = getCollected().map((speciesId) => speciesById.get(speciesId)).filter(Boolean).find((animal) => belongsTo(animal, id))
+      || [...speciesById.values()].find((animal) => belongsTo(animal, id));
     const animal = cardText(representative);
     const image = $("#ancestor-image");
     const fallback = $("#ancestor-image-fallback");
@@ -158,8 +178,10 @@ export function createAncestorNotes({ $, escapeHtml, getLanguage, speciesById, c
     const credit = $("#ancestor-image-credit");
     credit.href = animal.image.commonsPageUrl;
     credit.textContent = `${animal.image.artist || "Unknown creator"} · ${animal.image.license}`;
-    const rankPath = representative.taxonomy.lineage.filter((taxon) => classRanks.includes(taxon.rank))
-      .map((taxon) => ko ? `${taxonRanks[taxon.wikidataId]?.koName || taxon.scientificName} [${rankLabels[taxon.rank]}]` : `${taxon.scientificName} [${taxon.rank}]`).join(" → ");
+    const rankPath = note.upper
+      ? branches.get(id).path.map((taxon) => ko ? ancestorNotes[taxon.id]?.koName || taxon.name : taxon.name).join(" → ")
+      : representative.taxonomy.lineage.filter((taxon) => classRanks.includes(taxon.rank))
+        .map((taxon) => ko ? `${taxonRanks[taxon.wikidataId]?.koName || taxon.scientificName} [${rankLabels[taxon.rank]}]` : `${taxon.scientificName} [${taxon.rank}]`).join(" → ");
     const reviewText = ko ? note.review : note.reviewEn;
     $("#ancestor-content").innerHTML = `<section><h3>${ko ? "분류 위치" : "Classification"}</h3><p>${escapeHtml(rankPath)}</p><p>${escapeHtml(reviewText)}</p></section>`
       + text.map((paragraph, index) => `<section><h3>${labels[index]}</h3><p>${escapeHtml(paragraph)}</p></section>`).join("");
