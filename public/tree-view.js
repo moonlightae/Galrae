@@ -207,5 +207,5 @@ export function createTreeView({ ANIMALIA_ID, buildTree, escapeHtml, speciesById
     zoomTree(state.zoom * factor, rect.left + rect.width / 2, rect.top + rect.height / 2);
   }
 
-  return { clearPreview, renderPreview, renderTree, resetTreeView, setTreeLayout, updateCamera, zoomTree, zoomTreeAtCenter };
+  return { clearPreview, renderPreview, renderPositionedTree, renderTree, resetTreeView, setTreeLayout, updateCamera, zoomTree, zoomTreeAtCenter };
 }

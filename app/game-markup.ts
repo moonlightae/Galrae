@@ -53,7 +53,17 @@ export const gameMarkup = `
     <button class="text-button page-back" type="button" data-page="lobby">← 로비</button>
     <section class="collection" aria-labelledby="collection-title">
       <div class="section-heading"><div><h2 id="collection-title">도감</h2></div><p id="collection-count">0종 발견</p></div>
+      <div class="collection-view-controls tree-layout-controls" role="group" aria-label="도감 보기 모드">
+        <button type="button" data-collection-view="cards" aria-pressed="true">도감</button>
+        <button type="button" data-collection-view="tree" aria-pressed="false">계통수</button>
+        <button type="button" disabled title="준비 중">내 세계 · 준비 중</button>
+      </div>
       <div id="collection-grid" class="collection-grid"></div>
+      <div id="collection-tree-panel" hidden>
+        <div class="collection-tree-toolbar tree-zoom-controls"><button id="collection-zoom-out" type="button" aria-label="도감 계통수 축소">−</button><span id="collection-zoom-status" class="tree-zoom-status" aria-live="polite">100%</span><button id="collection-zoom-in" type="button" aria-label="도감 계통수 확대">+</button><button id="collection-tree-fit" class="text-button" type="button">전체 보기</button></div>
+        <p class="collection-tree-help">가로·세로로 스크롤해 살펴보세요. 동물을 누르면 상세 카드가 열립니다.</p>
+        <div id="collection-tree" class="collection-tree-scroll" tabindex="0" role="region" aria-label="수집한 동물의 계통수"></div>
+      </div>
       <p class="data-attribution">Species text and taxonomy data from <a href="https://en.wikipedia.org/" target="_blank" rel="noreferrer">English Wikipedia</a> (<a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noreferrer">CC BY-SA 4.0</a>) and <a href="https://www.wikidata.org/" target="_blank" rel="noreferrer">Wikidata</a>. Images are provided by <a href="https://commons.wikimedia.org/" target="_blank" rel="noreferrer">Wikimedia Commons</a> under the license shown on each card.</p>
     </section>
   </main>

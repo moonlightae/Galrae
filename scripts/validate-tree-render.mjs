@@ -260,10 +260,17 @@ const detailContext = {
   shortDescription: (text) => text, escapeHtml: (text) => String(text),
   taxonomyLabels: (animal) => animal.taxonomy.lineage.map((taxon) => taxon.scientificName),
   getSuccessCounts: () => ({}), successCountText: () => "분류 성공 0회", imageCreditText: () => "credit",
+  getCollection: () => [ctenophoreId],
 };
 vm.runInNewContext(detailSource, detailContext);
 detailContext.openSpeciesCard(ctenophoreId);
 assert.equal(detailElement("#species-modal").hidden, true, "An unrevealed card must not open during play");
+detailContext.openSpeciesCard(ctenophoreId, null, true);
+assert.equal(detailElement("#species-modal").hidden, false, "Collected cards must open without belonging to the current game");
+assert.equal(detailElement("#species-view-taxonomy").hidden, false, "Collection cards must reveal taxonomy");
+detailContext.closeSpeciesCard();
+detailContext.openSpeciesCard(placozoanId, null, true);
+assert.equal(detailElement("#species-modal").hidden, true, "Collection view must not open uncollected cards");
 detailContext.openSpeciesCard(humanId);
 assert.equal(detailElement("#species-view-taxonomy").hidden, true, "Taxonomy must stay hidden during play");
 detailContext.closeSpeciesCard();

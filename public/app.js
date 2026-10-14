@@ -1,4 +1,5 @@
 import { createTreeView } from "./tree-view.js";
+import { createCollectionView } from "./collection-view.js";
 import { getAchievements, isClassificationPolytomyMistake } from "./achievements.js";
 import { createAchievementNotifications } from "./achievement-notifications.js";
 
@@ -236,6 +237,7 @@ function imageCreditText(animal) {
 
 function renderCollection() {
   const collected = getCollection();
+  collectionView.render(collected);
   const successCounts = getSuccessCounts();
   $("#collection-count").textContent = `${collected.length}종 발견`;
   const grid = $("#collection-grid");
@@ -262,6 +264,9 @@ function renderCollection() {
 
 const { clearPreview, renderPreview, renderTree, resetTreeView, setTreeLayout, updateCamera, zoomTree, zoomTreeAtCenter } = createTreeView({
   ANIMALIA_ID, buildTree, escapeHtml, speciesById, state, treeCanvas, $, cardText,
+});
+const collectionView = createCollectionView({ $, buildTree, speciesById, escapeHtml, cardText,
+  onOpenSpecies: (id, button) => openSpeciesCard(id, button, true),
 });
 
 function preloadImage(url, timeout = 5000) {
@@ -764,8 +769,8 @@ async function submitScore() {
   }
 }
 
-function openSpeciesCard(speciesId, returnFocus) {
-  if (!state.classified.includes(speciesId) && !(state.failed && speciesId === state.currentId)) return;
+function openSpeciesCard(speciesId, returnFocus, fromCollection = false) {
+  if (fromCollection ? !getCollection().includes(speciesId) : !state.classified.includes(speciesId) && !(state.failed && speciesId === state.currentId)) return;
   if (!speciesById.has(speciesId)) return;
   const animal = cardText(speciesById.get(speciesId));
   const image = $("#species-view-image");
@@ -774,7 +779,7 @@ function openSpeciesCard(speciesId, returnFocus) {
   $("#species-view-description").textContent = shortDescription(animal.description, 230);
   $("#species-view-scientific").textContent = animal.scientificName;
   const taxonomy = $("#species-view-taxonomy");
-  const revealTaxonomy = state.failed || state.mistakes?.has(speciesId);
+  const revealTaxonomy = fromCollection || state.failed || state.mistakes?.has(speciesId);
   taxonomy.hidden = !revealTaxonomy;
   taxonomy.open = false;
   $("#species-view-groups").innerHTML = revealTaxonomy
