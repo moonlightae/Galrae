@@ -736,7 +736,8 @@ button:focus-visible, [role="button"]:focus-visible, .primary-button:focus-visib
 .collection-header { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 24px; }
 .collection-header .section-heading { flex: 1 1 100%; }
 .collection-header .collection-view-controls { margin: 0; }
-.collection-is-tree { position: fixed; inset: 0; z-index: 15; width: 100%; height: 100dvh; padding: 0; overflow: hidden; background: var(--canvas); }
+.collection-is-tree { position: fixed; inset: 0; z-index: 15; width: 100%; height: 100dvh; min-height: 0; padding: 0; overflow: hidden; background: var(--canvas); }
+.collection-is-tree .collection { padding: 0; border: 0; background: transparent; box-shadow: none; }
 .collection-is-tree .collection-header { position: absolute; top: max(16px, env(safe-area-inset-top)); right: max(16px, env(safe-area-inset-right)); z-index: 5; width: min(460px, calc(100% - 32px)); justify-content: flex-end; padding: 12px; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; box-shadow: var(--shadow); }
 .collection-is-tree .collection-header .section-heading { display: none; }
 .collection-is-tree .data-attribution { display: none; }
