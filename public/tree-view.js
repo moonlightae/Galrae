@@ -12,7 +12,8 @@ export function createTreeView({ ANIMALIA_ID, buildTree, escapeHtml, speciesById
       const preview = node.preview ? " is-preview" : "";
       const mistake = mistakeClass(node);
       const badge = mistake ? '<span class="preview-tag">자동 배치</span>' : node.preview ? `<span class="preview-tag">${state.failed ? "정답 위치" : "미리보기"}</span>` : "";
-      return `<button class="species-node${fresh}${preview}${mistake}" type="button" style="left:${x}px;top:${y}px" data-species-id="${escapeHtml(node.id)}" data-target="${escapeHtml(node.id)}" data-placement="wrap" aria-label="${escapeHtml(animal.commonName)} 카드 보기. 새 카드를 선택한 상태에서는 이 가지에 배치">${escapeHtml(animal.commonName)}${badge}</button>`;
+      const classReference = node.classReference ? `<button class="clade-node class-marker" type="button" style="left:${x}px;top:${y - 56}px" data-target="${escapeHtml(node.classReference)}" aria-label="강 안내">i</button>` : "";
+      return `<button class="species-node${fresh}${preview}${mistake}" type="button" style="left:${x}px;top:${y}px" data-species-id="${escapeHtml(node.id)}" data-target="${escapeHtml(node.id)}" data-placement="wrap" aria-label="${escapeHtml(animal.commonName)} 카드 보기. 새 카드를 선택한 상태에서는 이 가지에 배치">${escapeHtml(animal.commonName)}${badge}</button>${classReference}`;
   }
 
   function layoutRectangularTree(tree) {
@@ -85,7 +86,7 @@ export function createTreeView({ ANIMALIA_ID, buildTree, escapeHtml, speciesById
     }
     function visit(entry, parent = null) {
       const { node, x, y } = entry;
-      if (node.type === "branch" && entry.children.length === 1) {
+      if (node.type === "branch" && entry.children.length === 1 && node.rank !== "class") {
         visit(entry.children[0], parent);
         return;
       }
@@ -109,8 +110,9 @@ export function createTreeView({ ANIMALIA_ID, buildTree, escapeHtml, speciesById
       }
       if (node.type === "leaf") {
         controls.push(renderNode(node, x, y));
-      } else if (entry.children.length > 1) {
-        controls.push(`<button class="clade-node" type="button" style="left:${x}px;top:${junctionY(entry)}px" data-target="${escapeHtml(node.id)}" data-placement="join" aria-label="이 공통 조상에 가지 추가하기"></button>`);
+      } else if (entry.children.length > 1 || node.rank === "class") {
+        const marker = entry.children.length === 1;
+        controls.push(`<button class="clade-node${marker ? " class-marker" : ""}" type="button" style="left:${x}px;top:${junctionY(entry)}px" data-target="${escapeHtml(node.id)}" data-placement="join" aria-label="${marker ? "강 안내" : "이 공통 조상에 가지 추가하기"}">${marker ? "i" : ""}</button>`);
       }
       for (const child of entry.children) visit(child, entry);
     }

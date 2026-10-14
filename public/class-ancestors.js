@@ -1,5 +1,7 @@
-// These notes cover class-ranked nodes that survive the game's tree compression.
+import { additionalClassAncestors } from "./additional-class-ancestors.js";
+
 export const classAncestors = {
+  ...additionalClassAncestors,
   Q7377: {
     name: "Mammalia", koName: "포유강",
     ko: ["털·젖샘과 같은 특징, 두개골 화석, DNA를 함께 비교해 관계를 추론합니다.", "공통 조상은 털과 수유 능력을 가졌을 것으로 추정합니다. 오늘날의 특정 포유류가 그 조상이라는 뜻은 아닙니다.", "2023년 Zoonomia 연구는 태반류 241종의 유전체로 그 내부 분기와 분화 시기를 분석했습니다. 포유강 전체와 태반류의 조상은 구분해야 합니다."],
@@ -86,8 +88,20 @@ export const classAncestors = {
   },
 };
 
-export function createAncestorNotes({ $, escapeHtml, getLanguage }) {
+export function getClassIds(animal) {
+  const classes = animal.taxonomy.lineage.filter((taxon) => taxon.rank === "class").map((taxon) => taxon.wikidataId);
+  const supplement = animal.taxonomy.rankReview?.supplemental.class;
+  return classes.length ? classes : supplement ? [supplement.taxonId] : [];
+}
+
+export function createAncestorNotes({ $, escapeHtml, getLanguage, speciesById, cardText, getCollected, getGuideKey }) {
   const dialog = $("#ancestor-dialog");
+  const guide = $("#ancestor-guide");
+  const offeredKeys = new Set();
+  $("#close-ancestor-guide").addEventListener("click", () => guide.close());
+  guide.addEventListener("close", () => {
+    try { localStorage.setItem(guide.dataset.guideKey, "seen"); } catch {}
+  });
   $("#close-ancestor").addEventListener("click", () => dialog.close());
   dialog.addEventListener("click", (event) => {
     const rect = dialog.getBoundingClientRect();
@@ -109,13 +123,40 @@ export function createAncestorNotes({ $, escapeHtml, getLanguage }) {
     const note = classAncestors[id];
     if (!note) return;
     const ko = getLanguage() === "ko";
-    const labels = ko ? ["어떻게 알았나요?", "조상은 어떤 모습이었을까요?", "연구 이야기"] : ["What is the evidence?", "What might the ancestor have been like?", "Research notes"];
+    const text = ko ? note.ko : note.en;
+    const labels = text.length === 2
+      ? ko ? ["어떤 생물인가요?", "진화 연구 이야기"] : ["Which animals belong here?", "Evolution research"]
+      : ko ? ["어떻게 알았나요?", "조상은 어떤 모습이었을까요?", "연구 이야기"] : ["What is the evidence?", "What might the ancestor have been like?", "Research notes"];
     $("#ancestor-title").textContent = ko ? note.koName : note.name;
     $("#ancestor-scientific").textContent = note.name;
-    $("#ancestor-content").innerHTML = (ko ? note.ko : note.en).map((text, index) => `<section><h3>${labels[index]}</h3><p>${escapeHtml(text)}</p></section>`).join("");
+    const representative = getCollected().map((speciesId) => speciesById.get(speciesId)).find((animal) => getClassIds(animal).includes(id))
+      || [...speciesById.values()].find((animal) => getClassIds(animal).includes(id));
+    const animal = cardText(representative);
+    const image = $("#ancestor-image");
+    const fallback = $("#ancestor-image-fallback");
+    fallback.hidden = true;
+    fallback.textContent = ko ? "사진을 불러오지 못했습니다." : "Image unavailable.";
+    image.hidden = false;
+    image.onerror = () => { image.hidden = true; fallback.hidden = false; };
+    image.alt = animal.commonName;
+    image.style.objectFit = animal.image.objectFit === "contain" ? "contain" : "cover";
+    image.src = animal.image.thumbnailUrl;
+    $("#ancestor-image-caption").textContent = `${ko ? "현생 대표 생물" : "Living representative"} · ${animal.commonName} (${animal.scientificName})`;
+    const credit = $("#ancestor-image-credit");
+    credit.href = animal.image.commonsPageUrl;
+    credit.textContent = `${animal.image.artist || "Unknown creator"} · ${animal.image.license}`;
+    $("#ancestor-content").innerHTML = text.map((paragraph, index) => `<section><h3>${labels[index]}</h3><p>${escapeHtml(paragraph)}</p></section>`).join("");
     $("#ancestor-sources").innerHTML = note.sources.map(([title, url]) => `<a href="${escapeHtml(url)}" target="_blank" rel="noreferrer">${escapeHtml(title)}</a>`).join("");
-    $("#ancestor-note").textContent = ko ? "문헌 기반 요약 · 2026-10-14 검토. 조상 형질은 추정이며, 화면은 수집한 종의 관계를 압축해 표시합니다." : "Literature summary reviewed 2026-10-14. Ancestral traits are inferred; the tree compresses relationships among collected species.";
+    $("#ancestor-note").textContent = ko ? "문헌 기반 요약 · 2026-10-14 검토. 사진은 공통 조상의 복원도가 아닙니다. i 표식은 강 안내용이며 실제 분기나 분화 시점을 뜻하지 않습니다." : "Literature summary reviewed 2026-10-14. The photograph is not an ancestor reconstruction. An i marker identifies a class note, not an actual split or date of divergence.";
     dialog.showModal();
   }
-  return { annotate, open };
+  function showGuide() {
+    const key = getGuideKey();
+    if (offeredKeys.has(key) || guide.open) return;
+    try { if (localStorage.getItem(key) === "seen") return; } catch {}
+    offeredKeys.add(key);
+    guide.dataset.guideKey = key;
+    guide.showModal();
+  }
+  return { annotate, open, showGuide };
 }

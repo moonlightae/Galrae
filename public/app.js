@@ -45,6 +45,7 @@ function showLobbyPage(page, updateHistory = true) {
   const heading = lobbyPages[page].querySelector("h1, h2");
   if (heading) { heading.tabIndex = -1; heading.focus({ preventScroll: true }); }
   if (page === "tasks") loadAchievements();
+  if (page === "collection") collectionView.showGuide();
 }
 
 function restoreLobbyPage() {
@@ -269,6 +270,7 @@ const collectionView = createCollectionView({ $, buildTree, speciesById, escapeH
   onOpenSpecies: (id, button) => openSpeciesCard(id, button, true),
   onModeChange: (mode) => { navigationShell.hidden = mode === "tree"; },
   getLanguage: () => state.cardLanguage,
+  getGuideKey: () => `galrae.ancestor-guide.v1.${currentUser?.id || "guest"}`,
 });
 
 function preloadImage(url, timeout = 5000) {

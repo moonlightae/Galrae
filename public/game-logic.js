@@ -20,7 +20,7 @@
     return { type: "branch", id, name, children, preview };
   }
 
-  function buildTree(classifiedIds, speciesById, previewId = null) {
+  function buildTree(classifiedIds, speciesById, previewId = null, preserveClasses = false) {
     const root = {
       id: ANIMALIA_ID,
       name: "Animalia",
@@ -39,6 +39,7 @@
           cursor.children.set(taxon.wikidataId, {
             id: taxon.wikidataId,
             name: taxon.scientificName || taxon.englishName || taxon.wikidataId,
+            rank: taxon.rank,
             children: new Map(),
             animalId: null,
           });
@@ -51,9 +52,11 @@
     function compress(node, isRoot = false) {
       const descendants = [...node.children.values()].map((child) => compress(child));
       if (node.animalId) descendants.push(leaf(node.animalId, node.animalId === previewId));
-      if (!isRoot && descendants.length === 1) return descendants[0];
+      if (!isRoot && descendants.length === 1 && !(preserveClasses && node.rank === "class")) return descendants[0];
       if (!descendants.length && node.animalId) return leaf(node.animalId, node.animalId === previewId);
-      return branch(node.id, node.name, descendants, false);
+      const result = branch(node.id, node.name, descendants, false);
+      if (preserveClasses) result.rank = node.rank;
+      return result;
     }
 
     return compress(root, true);

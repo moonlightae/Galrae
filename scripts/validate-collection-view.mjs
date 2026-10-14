@@ -1,27 +1,40 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { createCollectionView } from "../public/collection-view.js";
-import { classAncestors, createAncestorNotes } from "../public/class-ancestors.js";
+import { classAncestors, createAncestorNotes, getClassIds } from "../public/class-ancestors.js";
 await import("../public/game-logic.js");
 const { buildTree } = globalThis.GalraeLogic;
 const { animals } = JSON.parse(readFileSync(new URL("../public/data/animals.json", import.meta.url)));
 const speciesById = new Map(animals.map((animal) => [animal.id, animal]));
+function topology(node) {
+  if (node.type === "leaf") return { type: "leaf", id: node.id };
+  const children = node.children.map(topology);
+  if (node.id !== "Q729" && children.length === 1) return children[0];
+  return { type: "branch", id: node.id, children };
+}
+for (const ids of [animals.map((animal) => animal.id), ["limulus-polyphemus", "tachypleus-tridentatus"], ["mytilus-edulis", "tridacna-gigas"], ["platynereis-dumerilii", "riftia-pachyptila", "hirudo-medicinalis"]]) {
+  assert.deepEqual(topology(buildTree(ids, speciesById, null, true)), topology(buildTree(ids, speciesById)), "Class markers must preserve evolutionary relationships");
+}
 const elements = new Map();
 function element(id) {
   const classes = new Set();
-  if (!elements.has(id)) elements.set(id, { hidden: false, handlers: {}, attrs: {},
+  if (!elements.has(id)) elements.set(id, { hidden: false, handlers: {}, attrs: {}, style: {},
     dataset: {},
     classList: { toggle() {}, add(name) { classes.add(name); }, remove(name) { classes.delete(name); }, contains(name) { return classes.has(name); } },
     querySelectorAll: () => [],
     addEventListener(name, handler) { this.handlers[name] = handler; },
     setAttribute(name, value) { this.attrs[name] = value; },
     removeAttribute(name) { delete this.attrs[name]; },
+    showModal() { this.open = true; this.shown = (this.shown || 0) + 1; },
+    close() { this.open = false; this.handlers.close?.({}); },
   });
   return elements.get(id);
 }
 const buttons = ["cards", "tree"].map((mode) => Object.assign(element(mode), { dataset: { collectionView: mode } }));
 globalThis.document = { querySelectorAll: () => buttons };
 globalThis.ResizeObserver = class { observe() {} };
+const stored = new Map();
+globalThis.localStorage = { getItem: (key) => stored.get(key), setItem: (key, value) => stored.set(key, value) };
 const layouts = ["top", "bottom", "radial"].map((layout) => Object.assign(element(layout), { dataset: { treeLayout: layout } }));
 element("#collection-page").querySelectorAll = () => layouts;
 const viewport = element("#collection-tree");
@@ -38,7 +51,7 @@ Object.defineProperty(viewport, "innerHTML", {
     this.markup = markup;
     const size = markup.match(/data-width="([^"]+)" data-height="([^"]+)"/);
     tree = size ? { dataset: { width: size[1], height: size[2] }, style: {}, parentElement: { style: {} } } : null;
-    branchButtons = [...markup.matchAll(/class="clade-node"[^>]*data-target="([^"]+)"/g)].map((match, i) => {
+    branchButtons = [...markup.matchAll(/class="clade-node(?: class-marker)?"[^>]*data-target="([^"]+)"/g)].map((match, i) => {
       const button = element(`branch-${i}-${match[1]}`);
       button.dataset.target = match[1];
       button.classList.add("clade-node");
@@ -47,7 +60,7 @@ Object.defineProperty(viewport, "innerHTML", {
     speciesButtons = [...markup.matchAll(/data-species-id="([^"]+)"/g)].map((match) => Object.assign(element(match[1]), { dataset: { speciesId: match[1] }, textContent: match[1] }));
   },
 });
-viewport.querySelector = (selector) => selector === ".tree-camera" ? camera : selector === ".base-tree" ? tree : null;
+viewport.querySelector = (selector) => selector === ".tree-camera" ? camera : selector === ".base-tree" ? tree : selector === "[data-ancestor-id]" ? branchButtons?.find((button) => button.dataset.ancestorId) : null;
 viewport.querySelectorAll = (selector) => selector === "[data-species-id]" ? speciesButtons : selector.includes(".clade-node") ? branchButtons : [];
 let opened, mode, language = "ko";
 const dialog = element("#ancestor-dialog");
@@ -57,6 +70,7 @@ const view = createCollectionView({ $: element, buildTree, speciesById, escapeHt
   onOpenSpecies: (id) => { opened = id; },
   onModeChange: (value) => { mode = value; },
   getLanguage: () => language,
+  getGuideKey: () => "guide-test-user",
 });
 view.render([]);
 assert.equal(element("#collection-grid").hidden, false);
@@ -64,9 +78,14 @@ buttons[1].handlers.click();
 assert.equal(view.isTree(), true);
 assert.equal(mode, "tree");
 assert.match(viewport.markup, /아직 분류한 생물이/);
+assert.equal(element("#ancestor-guide").shown, undefined, "Empty collection must not consume the guide");
 element("#collection-tree-fit").handlers.click();
 for (const ids of [["homo-sapiens"], ["homo-sapiens", "asterias-rubens"], animals.map((animal) => animal.id)]) {
   view.render(ids);
+  if (ids.length === 1) {
+    assert.equal(element("#ancestor-guide").open, true, "A single collected class must trigger the first guide");
+    element("#close-ancestor-guide").handlers.click();
+  }
   assert.deepEqual(speciesButtons.map((button) => button.dataset.speciesId).sort(), [...ids].sort());
   assert.ok(branchButtons.every((button) => button.dataset.ancestorId ? !button.disabled : button.disabled && button.attrs["aria-hidden"] === "true"));
   assert.equal(element("#collection-grid").hidden, true);
@@ -79,7 +98,11 @@ for (const ids of [["homo-sapiens"], ["homo-sapiens", "asterias-rubens"], animal
   assert.equal(opened, speciesButtons[0].dataset.speciesId);
 }
 const annotated = branchButtons.filter((button) => button.dataset.ancestorId);
-assert.equal(annotated.length, 14, "All visible class nodes must have notes");
+assert.equal(new Set(annotated.map((button) => button.dataset.ancestorId)).size, 49, "All dataset classes, including supplements, must have notes");
+assert.equal(element("#ancestor-guide").shown, 1, "Guide must not repeat after dismissal");
+assert.equal(stored.get("guide-test-user"), "seen");
+assert.ok(annotated.some((button) => button.dataset.ancestorId === "ncbi:6844"), "Horseshoe-crab class must be reachable");
+assert.ok(annotated.some((button) => button.dataset.ancestorId === "Q25368"), "Bivalves must be reachable");
 const mammal = annotated.find((button) => button.dataset.ancestorId === "Q7377");
 assert.match(mammal.title, /포유강/);
 viewport.handlers.click({ target: { closest: (selector) => selector === "[data-ancestor-id]" ? mammal : null } });
@@ -90,19 +113,29 @@ element("#close-ancestor").handlers.click();
 assert.equal(dialog.open, false);
 language = "en";
 view.render(animals.map((animal) => animal.id));
-const notes = createAncestorNotes({ $: element, escapeHtml: String, getLanguage: () => language });
+const notes = createAncestorNotes({ $: element, escapeHtml: String, getLanguage: () => language, speciesById, cardText: (animal) => animal,
+  getCollected: () => animals.map((animal) => animal.id), getGuideKey: () => "guide-test-user",
+});
 notes.open("Q7377");
 assert.equal(element("#ancestor-title").textContent, "Mammalia");
 assert.match(element("#ancestor-content").innerHTML, /What is the evidence/);
-const classIds = new Set(animals.flatMap((animal) => animal.taxonomy.lineage.filter((taxon) => taxon.rank === "class").map((taxon) => taxon.wikidataId)));
+notes.showGuide();
+assert.equal(element("#ancestor-guide").shown, 1, "Persisted guide must not repeat after recreation");
+const classIds = new Set(animals.flatMap(getClassIds));
 const koreanNames = JSON.parse(readFileSync(new URL("../public/data/taxa.ko.json", import.meta.url)));
 for (const [id, note] of Object.entries(classAncestors)) {
   assert.ok(classIds.has(id), `${id} must be class-ranked in the dataset`);
   assert.equal(note.koName, koreanNames[id]);
-  assert.equal(note.ko.length, 3);
-  assert.equal(note.en.length, 3);
+  assert.ok(note.ko.length >= 2);
+  assert.equal(note.en.length, note.ko.length);
   assert.ok(note.sources.length && note.sources.every(([title, url]) => title && new URL(url).protocol === "https:"));
+  notes.open(id);
+  const representative = animals.find((animal) => animal.image.thumbnailUrl === element("#ancestor-image").src);
+  assert.ok(getClassIds(representative).includes(id), `${id} photo must belong to the class`);
+  assert.ok(element("#ancestor-image-credit").href);
 }
+element("#ancestor-image").onerror();
+assert.equal(element("#ancestor-image-fallback").hidden, false);
 layouts[2].handlers.click();
 assert.match(viewport.markup, /radial-tree/);
 assert.equal(layouts[2].attrs["aria-pressed"], "true");
@@ -121,4 +154,5 @@ assert.equal(element("#collection-tree-panel").hidden, true);
 assert.equal(buttons[0].attrs["aria-pressed"], "true");
 delete globalThis.document;
 delete globalThis.ResizeObserver;
-console.log("Collection fullscreen modes, empty/single/full trees, layouts, camera zoom, drag/cancel and card opening passed.");
+delete globalThis.localStorage;
+console.log("49 classes, unchanged topology, class photos/fallback, first eligible guide/persistence and tree navigation passed.");
