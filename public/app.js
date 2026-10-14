@@ -140,12 +140,12 @@ function setCardLanguage(language) {
 }
 
 function taxonomyLabels(animal) {
-  const preferredRanks = ["phylum", "class", "order", "family", "genus"];
+  const preferredRanks = ["phylum", "superclass", "class", "subclass", "infraclass", "order", "family", "genus"];
   const lineage = [...animal.taxonomy.lineage];
   for (const rank of ["class", "order"]) {
     const extra = animal.taxonomy.rankReview?.supplemental[rank];
     if (!extra || lineage.some((taxon) => taxon.rank === rank)) continue;
-    const lowerRanks = rank === "class" ? ["subclass", "order", "family", "genus", "species"] : ["suborder", "family", "genus", "species"];
+    const lowerRanks = rank === "class" ? ["subclass", "infraclass", "order", "family", "genus", "species"] : ["suborder", "family", "genus", "species"];
     const index = lineage.findIndex((taxon) => lowerRanks.includes(taxon.rank));
     lineage.splice(index < 0 ? lineage.length : index, 0, { ...extra, rank, wikidataId: extra.taxonId });
   }

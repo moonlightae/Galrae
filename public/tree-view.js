@@ -86,7 +86,7 @@ export function createTreeView({ ANIMALIA_ID, buildTree, escapeHtml, speciesById
     }
     function visit(entry, parent = null) {
       const { node, x, y } = entry;
-      if (node.type === "branch" && entry.children.length === 1 && node.rank !== "class") {
+      if (node.type === "branch" && entry.children.length === 1 && !["superclass", "class", "subclass", "infraclass"].includes(node.rank)) {
         visit(entry.children[0], parent);
         return;
       }
@@ -110,7 +110,7 @@ export function createTreeView({ ANIMALIA_ID, buildTree, escapeHtml, speciesById
       }
       if (node.type === "leaf") {
         controls.push(renderNode(node, x, y));
-      } else if (entry.children.length > 1 || node.rank === "class") {
+      } else if (entry.children.length > 1 || ["superclass", "class", "subclass", "infraclass"].includes(node.rank)) {
         const marker = entry.children.length === 1;
         controls.push(`<button class="clade-node${marker ? " class-marker" : ""}" type="button" style="left:${x}px;top:${junctionY(entry)}px" data-target="${escapeHtml(node.id)}" data-placement="join" aria-label="${marker ? "강 안내" : "이 공통 조상에 가지 추가하기"}">${marker ? "i" : ""}</button>`);
       }

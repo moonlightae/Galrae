@@ -1,4 +1,5 @@
 import { additionalClassAncestors } from "./additional-class-ancestors.js";
+import { taxonRanks, classRanks, rankLabels } from "./taxon-ranks.js";
 
 export const classAncestors = {
   ...additionalClassAncestors,
@@ -9,7 +10,7 @@ export const classAncestors = {
     sources: [["Mammary glands · University of Michigan", "https://animaldiversity.org/collections/mammal_anatomy/mammary_glands/"], ["Zoonomia · Science (2023)", "https://pmc.ncbi.nlm.nih.gov/articles/PMC10233747/"]],
   },
   Q132674: {
-    name: "Hexacorallia", koName: "육방산호강",
+    name: "Hexacorallia", koName: "육방산호아강",
     ko: ["산호와 말미잘의 관계는 유전체와 다수 유전자 비교로 검토합니다. 2021년 연구는 육방산호류의 공통 갈래를 지지했습니다.", "공통 조상의 모습을 오늘날의 산호초로 생각하면 안 됩니다. 단단한 골격을 만들지 않는 말미잘도 이 갈래에 속합니다.", "2025년 돌산호 연구는 그 조상을 단독 생활을 하는 생물로 추정했습니다. 이것은 육방산호강 전체보다 좁은 돌산호목에 대한 결과입니다."],
     en: ["Genomes and many genes are compared to test the relationships of corals and anemones. A 2021 study supported a common hexacoral lineage.", "The ancestor should not be pictured as a modern coral reef. Anemones without a hard skeleton also belong to this lineage.", "A 2025 stony-coral study inferred a solitary ancestor. This result concerns Scleractinia, a narrower group than all Hexacorallia."],
     sources: [["Anthozoan phylogenomics (2021)", "https://doi.org/10.1093/sysbio/syaa103"], ["Stony-coral phylogeny · Nature (2025)", "https://www.nature.com/articles/s41586-025-09615-6"]],
@@ -33,7 +34,7 @@ export const classAncestors = {
     sources: [["Nematode Hox genes · Scientific Reports (2024)", "https://www.nature.com/articles/s41598-024-79962-3"]],
   },
   Q204861: {
-    name: "Teleostei", koName: "진골어강",
+    name: "Teleostei", koName: "진골어하강",
     ko: ["유전자 서열뿐 아니라 염색체에 남은 유전자 배열도 공통 조상을 추론하는 단서입니다. 진골어류에는 많은 익숙한 물고기가 속합니다.", "이 갈래의 진화 역사에는 오래된 유전체 중복이 남아 있습니다. 조상을 오늘날의 특정 물고기와 동일시할 수는 없습니다.", "2022년 비교 유전체 연구는 진골어류의 유전체 중복 뒤 유전자들이 다시 분리되는 과정을 재구성했습니다. 게놈 자체가 진화의 흔적을 보존합니다."],
     en: ["Both gene sequences and their arrangement on chromosomes provide clues to common ancestry. Teleosts include many familiar fishes.", "An ancient genome duplication is recorded in this lineage's history. Its ancestor cannot be equated with a particular living fish.", "A 2022 comparative-genome study reconstructed the separation of duplicated genes after teleost genome duplication. Genomes themselves preserve evolutionary traces."],
     sources: [["An atlas of fish genome evolution (2022)", "https://doi.org/10.1101/gr.276953.122"]],
@@ -88,10 +89,22 @@ export const classAncestors = {
   },
 };
 
+for (const [id, review] of Object.entries(taxonRanks)) {
+  if (!classRanks.includes(review.rank)) { delete classAncestors[id]; continue; }
+  const existing = classAncestors[id];
+  classAncestors[id] = {
+    ...review,
+    ko: existing?.ko || [`${review.koName}에 속하는 생물의 위치는 위 분류 경로에서 확인하실 수 있습니다.`, "계급은 분류 목록의 위치를 나타냅니다. 같은 계급이라고 같은 시기에 분화했거나 조상 모습이 같다는 뜻은 아닙니다."],
+    en: existing?.en || [`The classification above identifies the position of sampled members of ${review.name}.`, "A taxonomic rank is a position in a classification. Equal ranks do not imply equal divergence times or identical ancestral forms."],
+    sources: [...(existing?.sources || []), ...review.sources],
+  };
+}
+
 export function getClassIds(animal) {
-  const classes = animal.taxonomy.lineage.filter((taxon) => taxon.rank === "class").map((taxon) => taxon.wikidataId);
+  const classes = animal.taxonomy.lineage.filter((taxon) => classRanks.includes(taxon.rank)).map((taxon) => taxon.wikidataId);
   const supplement = animal.taxonomy.rankReview?.supplemental.class;
-  return classes.length ? classes : supplement ? [supplement.taxonId] : [];
+  if (supplement && !animal.taxonomy.lineage.some((taxon) => taxon.rank === "class")) classes.push(supplement.taxonId);
+  return classes;
 }
 
 export function createAncestorNotes({ $, escapeHtml, getLanguage, speciesById, cardText, getCollected, getGuideKey }) {
@@ -110,7 +123,7 @@ export function createAncestorNotes({ $, escapeHtml, getLanguage, speciesById, c
   function annotate(button, id) {
     const note = classAncestors[id];
     if (!note) return false;
-    const name = getLanguage() === "ko" ? note.koName : note.name;
+    const name = getLanguage() === "ko" ? note.koName : `${note.name} (${note.rank})`;
     button.disabled = false;
     button.removeAttribute("aria-hidden");
     button.dataset.ancestorId = id;
@@ -128,7 +141,7 @@ export function createAncestorNotes({ $, escapeHtml, getLanguage, speciesById, c
       ? ko ? ["어떤 생물인가요?", "진화 연구 이야기"] : ["Which animals belong here?", "Evolution research"]
       : ko ? ["어떻게 알았나요?", "조상은 어떤 모습이었을까요?", "연구 이야기"] : ["What is the evidence?", "What might the ancestor have been like?", "Research notes"];
     $("#ancestor-title").textContent = ko ? note.koName : note.name;
-    $("#ancestor-scientific").textContent = note.name;
+    $("#ancestor-scientific").textContent = `${note.name} · ${ko ? rankLabels[note.rank] : note.rank}`;
     const representative = getCollected().map((speciesId) => speciesById.get(speciesId)).find((animal) => getClassIds(animal).includes(id))
       || [...speciesById.values()].find((animal) => getClassIds(animal).includes(id));
     const animal = cardText(representative);
@@ -145,9 +158,13 @@ export function createAncestorNotes({ $, escapeHtml, getLanguage, speciesById, c
     const credit = $("#ancestor-image-credit");
     credit.href = animal.image.commonsPageUrl;
     credit.textContent = `${animal.image.artist || "Unknown creator"} · ${animal.image.license}`;
-    $("#ancestor-content").innerHTML = text.map((paragraph, index) => `<section><h3>${labels[index]}</h3><p>${escapeHtml(paragraph)}</p></section>`).join("");
+    const rankPath = representative.taxonomy.lineage.filter((taxon) => classRanks.includes(taxon.rank))
+      .map((taxon) => ko ? `${taxonRanks[taxon.wikidataId]?.koName || taxon.scientificName} [${rankLabels[taxon.rank]}]` : `${taxon.scientificName} [${taxon.rank}]`).join(" → ");
+    const reviewText = ko ? note.review : note.reviewEn;
+    $("#ancestor-content").innerHTML = `<section><h3>${ko ? "분류 위치" : "Classification"}</h3><p>${escapeHtml(rankPath)}</p><p>${escapeHtml(reviewText)}</p></section>`
+      + text.map((paragraph, index) => `<section><h3>${labels[index]}</h3><p>${escapeHtml(paragraph)}</p></section>`).join("");
     $("#ancestor-sources").innerHTML = note.sources.map(([title, url]) => `<a href="${escapeHtml(url)}" target="_blank" rel="noreferrer">${escapeHtml(title)}</a>`).join("");
-    $("#ancestor-note").textContent = ko ? "문헌 기반 요약 · 2026-10-14 검토. 사진은 공통 조상의 복원도가 아닙니다. i 표식은 강 안내용이며 실제 분기나 분화 시점을 뜻하지 않습니다." : "Literature summary reviewed 2026-10-14. The photograph is not an ancestor reconstruction. An i marker identifies a class note, not an actual split or date of divergence.";
+    $("#ancestor-note").textContent = ko ? "문헌 기반 요약 · 2026-10-14 검토. 사진은 공통 조상의 복원도가 아닙니다. i 표식은 분류군 안내용이며 실제 분기나 분화 시점을 뜻하지 않습니다." : "Literature summary reviewed 2026-10-14. The photograph is not an ancestor reconstruction. An i marker identifies a taxon note, not an actual split or date of divergence.";
     dialog.showModal();
   }
   function showGuide() {

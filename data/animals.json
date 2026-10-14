@@ -59,13 +59,13 @@
             "wikidataId": "Q28524",
             "scientificName": "Anthozoa",
             "englishName": null,
-            "rank": "subphylum"
+            "rank": "class"
           },
           {
             "wikidataId": "Q132674",
             "scientificName": "Hexacorallia",
             "englishName": null,
-            "rank": "class"
+            "rank": "subclass"
           },
           {
             "wikidataId": "Q195605",
@@ -481,7 +481,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -493,7 +493,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -505,7 +505,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134683",
@@ -643,7 +643,7 @@
             "wikidataId": "Q2513125",
             "scientificName": "Theriiformes",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q2141770",
@@ -679,7 +679,7 @@
             "wikidataId": "Q130942",
             "scientificName": "Theria",
             "englishName": null,
-            "rank": "supercohort"
+            "rank": "subclass"
           },
           {
             "wikidataId": "Q17092469",
@@ -691,7 +691,7 @@
             "wikidataId": "Q25833",
             "scientificName": "Placentalia",
             "englishName": "Placentalia",
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q2718670",
@@ -917,7 +917,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -929,7 +929,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -941,7 +941,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q2521462",
@@ -959,7 +959,7 @@
             "wikidataId": "Q134861",
             "scientificName": "Lissamphibia",
             "englishName": "Lissamphibia",
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q13514368",
@@ -1131,7 +1131,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -1143,7 +1143,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -1155,7 +1155,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134683",
@@ -1179,7 +1179,7 @@
             "wikidataId": "Q10811",
             "scientificName": "Reptilia",
             "englishName": "Reptilia",
-            "rank": "class"
+            "rank": "superclass"
           },
           {
             "wikidataId": "Q3060510",
@@ -1431,7 +1431,7 @@
             "wikidataId": "Q19163",
             "scientificName": "Neornithes",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q19168",
@@ -1621,7 +1621,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -1633,7 +1633,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -1645,7 +1645,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134683",
@@ -1669,7 +1669,7 @@
             "wikidataId": "Q10811",
             "scientificName": "Reptilia",
             "englishName": "Reptilia",
-            "rank": "class"
+            "rank": "superclass"
           },
           {
             "wikidataId": "Q3060510",
@@ -3671,7 +3671,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -3683,7 +3683,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -3695,7 +3695,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134683",
@@ -3719,7 +3719,7 @@
             "wikidataId": "Q10811",
             "scientificName": "Reptilia",
             "englishName": "Reptilia",
-            "rank": "class"
+            "rank": "superclass"
           },
           {
             "wikidataId": "Q3060510",
@@ -3755,13 +3755,13 @@
             "wikidataId": "Q134665",
             "scientificName": "Lepidosauromorpha",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q728299",
             "scientificName": "Lepidosauria",
             "englishName": "Lepidosauria",
-            "rank": "superorder"
+            "rank": "class"
           },
           {
             "wikidataId": "Q122422",
@@ -3945,13 +3945,13 @@
             "wikidataId": "Q127282",
             "scientificName": "Actinopterygii",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "class"
           },
           {
             "wikidataId": "Q343460",
             "scientificName": "Actinopteri",
             "englishName": "Actinopteri",
-            "rank": "class"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q740005",
@@ -3969,7 +3969,7 @@
             "wikidataId": "Q204861",
             "scientificName": "Teleostei",
             "englishName": null,
-            "rank": "class"
+            "rank": "infraclass"
           },
           {
             "wikidataId": "Q22107334",
@@ -4195,13 +4195,13 @@
             "wikidataId": "Q127282",
             "scientificName": "Actinopterygii",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "class"
           },
           {
             "wikidataId": "Q343460",
             "scientificName": "Actinopteri",
             "englishName": "Actinopteri",
-            "rank": "class"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q740005",
@@ -4219,7 +4219,7 @@
             "wikidataId": "Q204861",
             "scientificName": "Teleostei",
             "englishName": null,
-            "rank": "class"
+            "rank": "infraclass"
           },
           {
             "wikidataId": "Q22107334",
@@ -4587,13 +4587,13 @@
             "wikidataId": "Q127282",
             "scientificName": "Actinopterygii",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "class"
           },
           {
             "wikidataId": "Q343460",
             "scientificName": "Actinopteri",
             "englishName": "Actinopteri",
-            "rank": "class"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q740005",
@@ -4611,7 +4611,7 @@
             "wikidataId": "Q204861",
             "scientificName": "Teleostei",
             "englishName": null,
-            "rank": "class"
+            "rank": "infraclass"
           },
           {
             "wikidataId": "Q22107334",
@@ -4837,13 +4837,13 @@
             "wikidataId": "Q127282",
             "scientificName": "Actinopterygii",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "class"
           },
           {
             "wikidataId": "Q343460",
             "scientificName": "Actinopteri",
             "englishName": "Actinopteri",
-            "rank": "class"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q740005",
@@ -4861,7 +4861,7 @@
             "wikidataId": "Q204861",
             "scientificName": "Teleostei",
             "englishName": null,
-            "rank": "class"
+            "rank": "infraclass"
           },
           {
             "wikidataId": "Q22107334",
@@ -5151,7 +5151,7 @@
             "wikidataId": "Q149104",
             "scientificName": "Holocephali",
             "englishName": "Holocephali",
-            "rank": "class"
+            "rank": "subclass"
           },
           {
             "wikidataId": "Q5290058",
@@ -5483,7 +5483,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -5495,7 +5495,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -5507,7 +5507,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q2521462",
@@ -5525,7 +5525,7 @@
             "wikidataId": "Q134861",
             "scientificName": "Lissamphibia",
             "englishName": "Lissamphibia",
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q13514368",
@@ -5826,7 +5826,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -5838,7 +5838,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -5850,7 +5850,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134683",
@@ -5874,7 +5874,7 @@
             "wikidataId": "Q10811",
             "scientificName": "Reptilia",
             "englishName": "Reptilia",
-            "rank": "class"
+            "rank": "superclass"
           },
           {
             "wikidataId": "Q3060510",
@@ -5910,13 +5910,13 @@
             "wikidataId": "Q134665",
             "scientificName": "Lepidosauromorpha",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q728299",
             "scientificName": "Lepidosauria",
             "englishName": "Lepidosauria",
-            "rank": "superorder"
+            "rank": "class"
           },
           {
             "wikidataId": "Q122422",
@@ -6360,13 +6360,13 @@
             "wikidataId": "Q20992205",
             "scientificName": "Autobranchia",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q131403",
             "scientificName": "Pteriomorphia",
             "englishName": "Pteriomorphia",
-            "rank": "infraclass"
+            "rank": "subclass"
           },
           {
             "wikidataId": "Q26869649",
@@ -6532,7 +6532,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -6544,7 +6544,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -6556,7 +6556,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134683",
@@ -6694,7 +6694,7 @@
             "wikidataId": "Q2513125",
             "scientificName": "Theriiformes",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q2141770",
@@ -6730,7 +6730,7 @@
             "wikidataId": "Q130942",
             "scientificName": "Theria",
             "englishName": null,
-            "rank": "supercohort"
+            "rank": "subclass"
           },
           {
             "wikidataId": "Q17092469",
@@ -6742,7 +6742,7 @@
             "wikidataId": "Q25833",
             "scientificName": "Placentalia",
             "englishName": "Placentalia",
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q132666",
@@ -7634,7 +7634,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -7646,7 +7646,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -7658,7 +7658,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134683",
@@ -7796,7 +7796,7 @@
             "wikidataId": "Q2513125",
             "scientificName": "Theriiformes",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q2141770",
@@ -7844,7 +7844,7 @@
             "wikidataId": "Q25833",
             "scientificName": "Placentalia",
             "englishName": "Placentalia",
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q132666",
@@ -8070,7 +8070,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -8082,7 +8082,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -8094,7 +8094,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134683",
@@ -8232,7 +8232,7 @@
             "wikidataId": "Q2513125",
             "scientificName": "Theriiformes",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q2141770",
@@ -8268,7 +8268,7 @@
             "wikidataId": "Q130942",
             "scientificName": "Theria",
             "englishName": null,
-            "rank": "supercohort"
+            "rank": "subclass"
           },
           {
             "wikidataId": "Q17092469",
@@ -8280,7 +8280,7 @@
             "wikidataId": "Q25833",
             "scientificName": "Placentalia",
             "englishName": "Placentalia",
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q132666",
@@ -9014,7 +9014,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -9026,7 +9026,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -9038,7 +9038,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134683",
@@ -9176,7 +9176,7 @@
             "wikidataId": "Q2513125",
             "scientificName": "Theriiformes",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q2141770",
@@ -9224,7 +9224,7 @@
             "wikidataId": "Q25833",
             "scientificName": "Placentalia",
             "englishName": "Placentalia",
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q132666",
@@ -9414,7 +9414,7 @@
             "wikidataId": "Q7319965",
             "scientificName": "Rhabditia",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q17164",
@@ -9740,7 +9740,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -9752,7 +9752,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -9764,7 +9764,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q2521462",
@@ -9782,7 +9782,7 @@
             "wikidataId": "Q134861",
             "scientificName": "Lissamphibia",
             "englishName": "Lissamphibia",
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q13514368",
@@ -10298,7 +10298,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -10310,7 +10310,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -10322,7 +10322,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134683",
@@ -10460,7 +10460,7 @@
             "wikidataId": "Q2513125",
             "scientificName": "Theriiformes",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q2141770",
@@ -10496,7 +10496,7 @@
             "wikidataId": "Q130942",
             "scientificName": "Theria",
             "englishName": null,
-            "rank": "supercohort"
+            "rank": "subclass"
           },
           {
             "wikidataId": "Q17092469",
@@ -10508,7 +10508,7 @@
             "wikidataId": "Q25833",
             "scientificName": "Placentalia",
             "englishName": "Placentalia",
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q132666",
@@ -10888,7 +10888,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -10900,7 +10900,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -10912,7 +10912,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134683",
@@ -11050,7 +11050,7 @@
             "wikidataId": "Q2513125",
             "scientificName": "Theriiformes",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q2141770",
@@ -11098,7 +11098,7 @@
             "wikidataId": "Q25833",
             "scientificName": "Placentalia",
             "englishName": "Placentalia",
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q132666",
@@ -11330,7 +11330,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -11342,7 +11342,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -11354,7 +11354,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134683",
@@ -11492,7 +11492,7 @@
             "wikidataId": "Q2513125",
             "scientificName": "Theriiformes",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q2141770",
@@ -11528,7 +11528,7 @@
             "wikidataId": "Q130942",
             "scientificName": "Theria",
             "englishName": null,
-            "rank": "supercohort"
+            "rank": "subclass"
           },
           {
             "wikidataId": "Q17092469",
@@ -11540,7 +11540,7 @@
             "wikidataId": "Q25833",
             "scientificName": "Placentalia",
             "englishName": "Placentalia",
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q132666",
@@ -12108,7 +12108,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -12120,7 +12120,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -12132,7 +12132,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134683",
@@ -12270,7 +12270,7 @@
             "wikidataId": "Q2513125",
             "scientificName": "Theriiformes",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q2141770",
@@ -12306,7 +12306,7 @@
             "wikidataId": "Q130942",
             "scientificName": "Theria",
             "englishName": null,
-            "rank": "supercohort"
+            "rank": "subclass"
           },
           {
             "wikidataId": "Q17092469",
@@ -12318,7 +12318,7 @@
             "wikidataId": "Q25833",
             "scientificName": "Placentalia",
             "englishName": "Placentalia",
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q132666",
@@ -12764,7 +12764,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -12776,7 +12776,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -12788,7 +12788,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q2521462",
@@ -12806,7 +12806,7 @@
             "wikidataId": "Q134861",
             "scientificName": "Lissamphibia",
             "englishName": "Lissamphibia",
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q13514368",
@@ -13180,7 +13180,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -13192,7 +13192,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -13204,7 +13204,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134683",
@@ -13228,7 +13228,7 @@
             "wikidataId": "Q10811",
             "scientificName": "Reptilia",
             "englishName": "Reptilia",
-            "rank": "class"
+            "rank": "superclass"
           },
           {
             "wikidataId": "Q3060510",
@@ -13480,7 +13480,7 @@
             "wikidataId": "Q19163",
             "scientificName": "Neornithes",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q19166",
@@ -13646,7 +13646,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -13658,7 +13658,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -13670,7 +13670,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134683",
@@ -13694,7 +13694,7 @@
             "wikidataId": "Q10811",
             "scientificName": "Reptilia",
             "englishName": "Reptilia",
-            "rank": "class"
+            "rank": "superclass"
           },
           {
             "wikidataId": "Q3060510",
@@ -13946,7 +13946,7 @@
             "wikidataId": "Q19163",
             "scientificName": "Neornithes",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q19168",
@@ -14148,7 +14148,7 @@
             "wikidataId": "Q1407833",
             "scientificName": "Asterozoa",
             "englishName": null,
-            "rank": "subphylum"
+            "rank": "superclass"
           },
           {
             "wikidataId": "Q25349",
@@ -14314,7 +14314,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -14326,7 +14326,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -14338,7 +14338,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q2521462",
@@ -14356,7 +14356,7 @@
             "wikidataId": "Q134861",
             "scientificName": "Lissamphibia",
             "englishName": "Lissamphibia",
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q13514368",
@@ -14540,7 +14540,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -14552,7 +14552,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -14564,7 +14564,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134683",
@@ -14702,7 +14702,7 @@
             "wikidataId": "Q2513125",
             "scientificName": "Theriiformes",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q2141770",
@@ -14738,7 +14738,7 @@
             "wikidataId": "Q130942",
             "scientificName": "Theria",
             "englishName": null,
-            "rank": "supercohort"
+            "rank": "subclass"
           },
           {
             "wikidataId": "Q17092469",
@@ -14750,7 +14750,7 @@
             "wikidataId": "Q25833",
             "scientificName": "Placentalia",
             "englishName": "Placentalia",
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q132666",
@@ -15112,7 +15112,7 @@
             "wikidataId": "Q1407833",
             "scientificName": "Asterozoa",
             "englishName": null,
-            "rank": "subphylum"
+            "rank": "superclass"
           },
           {
             "wikidataId": "Q25349",
@@ -16157,7 +16157,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -16169,7 +16169,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -16181,7 +16181,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q2521462",
@@ -16199,7 +16199,7 @@
             "wikidataId": "Q134861",
             "scientificName": "Lissamphibia",
             "englishName": "Lissamphibia",
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q13514368",
@@ -16389,7 +16389,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -16401,7 +16401,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -16413,7 +16413,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134683",
@@ -16551,7 +16551,7 @@
             "wikidataId": "Q2513125",
             "scientificName": "Theriiformes",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q2141770",
@@ -16587,7 +16587,7 @@
             "wikidataId": "Q130942",
             "scientificName": "Theria",
             "englishName": null,
-            "rank": "supercohort"
+            "rank": "subclass"
           },
           {
             "wikidataId": "Q26332",
@@ -16889,13 +16889,19 @@
             "wikidataId": "Q9373141",
             "scientificName": "Sedentaria",
             "englishName": "Sedentaria",
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q839350",
             "scientificName": "Clitellata",
             "englishName": "Clitellata",
             "rank": "class"
+          },
+          {
+            "wikidataId": "review:ncbi:6381",
+            "scientificName": "Oligochaeta",
+            "englishName": "Oligochaeta",
+            "rank": "subclass"
           },
           {
             "wikidataId": "Q965468",
@@ -17067,13 +17073,13 @@
             "wikidataId": "Q127282",
             "scientificName": "Actinopterygii",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "class"
           },
           {
             "wikidataId": "Q343460",
             "scientificName": "Actinopteri",
             "englishName": "Actinopteri",
-            "rank": "class"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q740005",
@@ -17091,7 +17097,7 @@
             "wikidataId": "Q204861",
             "scientificName": "Teleostei",
             "englishName": null,
-            "rank": "class"
+            "rank": "infraclass"
           },
           {
             "wikidataId": "Q22107334",
@@ -17281,7 +17287,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -17293,7 +17299,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -17305,7 +17311,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134683",
@@ -17329,7 +17335,7 @@
             "wikidataId": "Q10811",
             "scientificName": "Reptilia",
             "englishName": "Reptilia",
-            "rank": "class"
+            "rank": "superclass"
           },
           {
             "wikidataId": "Q3060510",
@@ -17581,7 +17587,7 @@
             "wikidataId": "Q19163",
             "scientificName": "Neornithes",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q19168",
@@ -17771,7 +17777,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -17783,7 +17789,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -17795,7 +17801,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134683",
@@ -17819,7 +17825,7 @@
             "wikidataId": "Q10811",
             "scientificName": "Reptilia",
             "englishName": "Reptilia",
-            "rank": "class"
+            "rank": "superclass"
           },
           {
             "wikidataId": "Q3060510",
@@ -18071,13 +18077,13 @@
             "wikidataId": "Q19163",
             "scientificName": "Neornithes",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q19166",
             "scientificName": "Palaeognathae",
             "englishName": "Palaeognathae",
-            "rank": "infraclass"
+            "rank": "superorder"
           },
           {
             "wikidataId": "Q19598162",
@@ -18378,13 +18384,13 @@
             "wikidataId": "Q127282",
             "scientificName": "Actinopterygii",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "class"
           },
           {
             "wikidataId": "Q343460",
             "scientificName": "Actinopteri",
             "englishName": "Actinopteri",
-            "rank": "class"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q740005",
@@ -18402,7 +18408,7 @@
             "wikidataId": "Q204861",
             "scientificName": "Teleostei",
             "englishName": null,
-            "rank": "class"
+            "rank": "infraclass"
           },
           {
             "wikidataId": "Q128685",
@@ -18794,7 +18800,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -18806,7 +18812,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -18818,7 +18824,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q2521462",
@@ -18836,7 +18842,7 @@
             "wikidataId": "Q134861",
             "scientificName": "Lissamphibia",
             "englishName": "Lissamphibia",
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q13514368",
@@ -19270,7 +19276,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -19282,7 +19288,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -19294,7 +19300,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134683",
@@ -19432,7 +19438,7 @@
             "wikidataId": "Q2513125",
             "scientificName": "Theriiformes",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q2141770",
@@ -19468,7 +19474,7 @@
             "wikidataId": "Q130942",
             "scientificName": "Theria",
             "englishName": null,
-            "rank": "supercohort"
+            "rank": "subclass"
           },
           {
             "wikidataId": "Q17092469",
@@ -19480,7 +19486,7 @@
             "wikidataId": "Q25833",
             "scientificName": "Placentalia",
             "englishName": "Placentalia",
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q173612",
@@ -19646,7 +19652,7 @@
             "wikidataId": "Q20992205",
             "scientificName": "Autobranchia",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q20992204",
@@ -19658,7 +19664,7 @@
             "wikidataId": "Q16635178",
             "scientificName": "Euheterodonta",
             "englishName": null,
-            "rank": "subterclass"
+            "rank": "infraclass"
           },
           {
             "wikidataId": "Q25385714",
@@ -19824,7 +19830,7 @@
             "wikidataId": "Q150760",
             "scientificName": "Neoselachii",
             "englishName": "Neoselachii",
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q6495741",
@@ -20353,7 +20359,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -20365,7 +20371,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -20377,7 +20383,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q2521462",
@@ -20395,7 +20401,7 @@
             "wikidataId": "Q134861",
             "scientificName": "Lissamphibia",
             "englishName": "Lissamphibia",
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q13514368",
@@ -20579,13 +20585,13 @@
             "wikidataId": "Q127282",
             "scientificName": "Actinopterygii",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "class"
           },
           {
             "wikidataId": "Q343460",
             "scientificName": "Actinopteri",
             "englishName": "Actinopteri",
-            "rank": "class"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q740005",
@@ -20603,7 +20609,7 @@
             "wikidataId": "Q204861",
             "scientificName": "Teleostei",
             "englishName": null,
-            "rank": "class"
+            "rank": "infraclass"
           },
           {
             "wikidataId": "Q22107334",
@@ -20793,6 +20799,12 @@
             "wikidataId": "Q150760",
             "scientificName": "Neoselachii",
             "englishName": "Neoselachii",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "review:ncbi:119203",
+            "scientificName": "Selachii",
+            "englishName": "sharks",
             "rank": "infraclass"
           },
           {
@@ -20959,6 +20971,12 @@
             "wikidataId": "Q150760",
             "scientificName": "Neoselachii",
             "englishName": "Neoselachii",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "review:ncbi:119203",
+            "scientificName": "Selachii",
+            "englishName": "sharks",
             "rank": "infraclass"
           },
           {
@@ -21327,7 +21345,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -21339,7 +21357,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -21351,7 +21369,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134683",
@@ -21375,7 +21393,7 @@
             "wikidataId": "Q10811",
             "scientificName": "Reptilia",
             "englishName": "Reptilia",
-            "rank": "class"
+            "rank": "superclass"
           },
           {
             "wikidataId": "Q3060510",
@@ -21627,7 +21645,7 @@
             "wikidataId": "Q19163",
             "scientificName": "Neornithes",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q19168",
@@ -21811,7 +21829,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -21823,7 +21841,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -21835,7 +21853,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134683",
@@ -21859,7 +21877,7 @@
             "wikidataId": "Q10811",
             "scientificName": "Reptilia",
             "englishName": "Reptilia",
-            "rank": "class"
+            "rank": "superclass"
           },
           {
             "wikidataId": "Q3060510",
@@ -21895,13 +21913,13 @@
             "wikidataId": "Q134665",
             "scientificName": "Lepidosauromorpha",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q728299",
             "scientificName": "Lepidosauria",
             "englishName": "Lepidosauria",
-            "rank": "superorder"
+            "rank": "class"
           },
           {
             "wikidataId": "Q122422",
@@ -22091,7 +22109,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -22103,7 +22121,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -22115,7 +22133,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134683",
@@ -22139,7 +22157,7 @@
             "wikidataId": "Q10811",
             "scientificName": "Reptilia",
             "englishName": "Reptilia",
-            "rank": "class"
+            "rank": "superclass"
           },
           {
             "wikidataId": "Q3060510",
@@ -22187,7 +22205,7 @@
             "wikidataId": "Q16114972",
             "scientificName": "Testudinata",
             "englishName": "Testudinata",
-            "rank": null
+            "rank": "subclass"
           },
           {
             "wikidataId": "Q131561696",
@@ -22787,7 +22805,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -22799,7 +22817,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -22811,7 +22829,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134683",
@@ -22835,7 +22853,7 @@
             "wikidataId": "Q10811",
             "scientificName": "Reptilia",
             "englishName": "Reptilia",
-            "rank": "class"
+            "rank": "superclass"
           },
           {
             "wikidataId": "Q3060510",
@@ -22883,7 +22901,7 @@
             "wikidataId": "Q16114972",
             "scientificName": "Testudinata",
             "englishName": "Testudinata",
-            "rank": null
+            "rank": "subclass"
           },
           {
             "wikidataId": "Q131561696",
@@ -23073,7 +23091,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -23085,7 +23103,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -23097,7 +23115,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q2521462",
@@ -23115,7 +23133,7 @@
             "wikidataId": "Q134861",
             "scientificName": "Lissamphibia",
             "englishName": "Lissamphibia",
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q13514368",
@@ -23281,13 +23299,13 @@
             "wikidataId": "Q127282",
             "scientificName": "Actinopterygii",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "class"
           },
           {
             "wikidataId": "Q343460",
             "scientificName": "Actinopteri",
             "englishName": "Actinopteri",
-            "rank": "class"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q740005",
@@ -23305,7 +23323,7 @@
             "wikidataId": "Q204861",
             "scientificName": "Teleostei",
             "englishName": null,
-            "rank": "class"
+            "rank": "infraclass"
           },
           {
             "wikidataId": "Q22107334",
@@ -23543,7 +23561,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -23555,7 +23573,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -23567,7 +23585,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134683",
@@ -23705,7 +23723,7 @@
             "wikidataId": "Q2513125",
             "scientificName": "Theriiformes",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q2141770",
@@ -23753,7 +23771,7 @@
             "wikidataId": "Q25833",
             "scientificName": "Placentalia",
             "englishName": "Placentalia",
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q132666",
@@ -23973,7 +23991,7 @@
             "wikidataId": "Q9373141",
             "scientificName": "Sedentaria",
             "englishName": "Sedentaria",
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q839350",
@@ -24209,7 +24227,7 @@
             "wikidataId": "Q2698547",
             "scientificName": "Echinozoa",
             "englishName": "Echinozoa",
-            "rank": "subphylum"
+            "rank": "superclass"
           },
           {
             "wikidataId": "Q127470",
@@ -24387,7 +24405,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -24399,7 +24417,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -24411,7 +24429,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134683",
@@ -24549,7 +24567,7 @@
             "wikidataId": "Q2513125",
             "scientificName": "Theriiformes",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q2141770",
@@ -24585,7 +24603,7 @@
             "wikidataId": "Q130942",
             "scientificName": "Theria",
             "englishName": null,
-            "rank": "supercohort"
+            "rank": "subclass"
           },
           {
             "wikidataId": "Q17092469",
@@ -24597,7 +24615,7 @@
             "wikidataId": "Q25833",
             "scientificName": "Placentalia",
             "englishName": "Placentalia",
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q132666",
@@ -24817,7 +24835,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -24829,7 +24847,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -24841,7 +24859,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134683",
@@ -24865,7 +24883,7 @@
             "wikidataId": "Q10811",
             "scientificName": "Reptilia",
             "englishName": "Reptilia",
-            "rank": "class"
+            "rank": "superclass"
           },
           {
             "wikidataId": "Q3060510",
@@ -25117,7 +25135,7 @@
             "wikidataId": "Q19163",
             "scientificName": "Neornithes",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q19168",
@@ -25361,7 +25379,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -25373,7 +25391,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -25385,7 +25403,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134683",
@@ -25523,7 +25541,7 @@
             "wikidataId": "Q2513125",
             "scientificName": "Theriiformes",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q2141770",
@@ -25559,7 +25577,7 @@
             "wikidataId": "Q130942",
             "scientificName": "Theria",
             "englishName": null,
-            "rank": "supercohort"
+            "rank": "subclass"
           },
           {
             "wikidataId": "Q17092469",
@@ -25571,7 +25589,7 @@
             "wikidataId": "Q25833",
             "scientificName": "Placentalia",
             "englishName": "Placentalia",
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q132666",
@@ -25909,7 +25927,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -25921,7 +25939,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -25933,7 +25951,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134683",
@@ -25957,7 +25975,7 @@
             "wikidataId": "Q10811",
             "scientificName": "Reptilia",
             "englishName": "Reptilia",
-            "rank": "class"
+            "rank": "superclass"
           },
           {
             "wikidataId": "Q3060510",
@@ -25993,13 +26011,13 @@
             "wikidataId": "Q134665",
             "scientificName": "Lepidosauromorpha",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q728299",
             "scientificName": "Lepidosauria",
             "englishName": "Lepidosauria",
-            "rank": "superorder"
+            "rank": "class"
           },
           {
             "wikidataId": "Q122422",
@@ -26219,7 +26237,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -26231,7 +26249,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -26243,7 +26261,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134683",
@@ -26381,7 +26399,7 @@
             "wikidataId": "Q2513125",
             "scientificName": "Theriiformes",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q2141770",
@@ -26429,7 +26447,7 @@
             "wikidataId": "Q25833",
             "scientificName": "Placentalia",
             "englishName": "Placentalia",
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q132666",
@@ -26827,7 +26845,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -26839,7 +26857,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -26851,7 +26869,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134683",
@@ -26875,7 +26893,7 @@
             "wikidataId": "Q10811",
             "scientificName": "Reptilia",
             "englishName": "Reptilia",
-            "rank": "class"
+            "rank": "superclass"
           },
           {
             "wikidataId": "Q3060510",
@@ -26911,13 +26929,13 @@
             "wikidataId": "Q134665",
             "scientificName": "Lepidosauromorpha",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q728299",
             "scientificName": "Lepidosauria",
             "englishName": "Lepidosauria",
-            "rank": "superorder"
+            "rank": "class"
           },
           {
             "wikidataId": "Q122422",
@@ -27303,7 +27321,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -27315,7 +27333,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -27327,7 +27345,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134683",
@@ -27465,7 +27483,7 @@
             "wikidataId": "Q2513125",
             "scientificName": "Theriiformes",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q2141770",
@@ -27501,7 +27519,7 @@
             "wikidataId": "Q130942",
             "scientificName": "Theria",
             "englishName": null,
-            "rank": "supercohort"
+            "rank": "subclass"
           },
           {
             "wikidataId": "Q17092469",
@@ -27513,7 +27531,7 @@
             "wikidataId": "Q25833",
             "scientificName": "Placentalia",
             "englishName": "Placentalia",
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q132666",
@@ -27751,7 +27769,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -27763,7 +27781,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -27775,7 +27793,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q2521462",
@@ -27793,7 +27811,7 @@
             "wikidataId": "Q134861",
             "scientificName": "Lissamphibia",
             "englishName": "Lissamphibia",
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q13514368",
@@ -27971,7 +27989,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -27983,7 +28001,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -27995,7 +28013,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134683",
@@ -28019,7 +28037,7 @@
             "wikidataId": "Q10811",
             "scientificName": "Reptilia",
             "englishName": "Reptilia",
-            "rank": "class"
+            "rank": "superclass"
           },
           {
             "wikidataId": "Q3060510",
@@ -28271,7 +28289,7 @@
             "wikidataId": "Q19163",
             "scientificName": "Neornithes",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q19168",
@@ -28461,7 +28479,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -28473,7 +28491,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -28485,7 +28503,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134683",
@@ -28509,7 +28527,7 @@
             "wikidataId": "Q10811",
             "scientificName": "Reptilia",
             "englishName": "Reptilia",
-            "rank": "class"
+            "rank": "superclass"
           },
           {
             "wikidataId": "Q3060510",
@@ -28545,13 +28563,13 @@
             "wikidataId": "Q134665",
             "scientificName": "Lepidosauromorpha",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q728299",
             "scientificName": "Lepidosauria",
             "englishName": "Lepidosauria",
-            "rank": "superorder"
+            "rank": "class"
           },
           {
             "wikidataId": "Q122422",
@@ -28765,7 +28783,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -28777,7 +28795,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -28789,7 +28807,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134683",
@@ -28927,7 +28945,7 @@
             "wikidataId": "Q2513125",
             "scientificName": "Theriiformes",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q2141770",
@@ -28963,7 +28981,7 @@
             "wikidataId": "Q130942",
             "scientificName": "Theria",
             "englishName": null,
-            "rank": "supercohort"
+            "rank": "subclass"
           },
           {
             "wikidataId": "Q26332",
@@ -29135,7 +29153,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -29147,7 +29165,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -29159,7 +29177,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134683",
@@ -29183,7 +29201,7 @@
             "wikidataId": "Q10811",
             "scientificName": "Reptilia",
             "englishName": "Reptilia",
-            "rank": "class"
+            "rank": "superclass"
           },
           {
             "wikidataId": "Q3060510",
@@ -29219,13 +29237,13 @@
             "wikidataId": "Q134665",
             "scientificName": "Lepidosauromorpha",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q728299",
             "scientificName": "Lepidosauria",
             "englishName": "Lepidosauria",
-            "rank": "superorder"
+            "rank": "class"
           },
           {
             "wikidataId": "Q122422",
@@ -29409,7 +29427,7 @@
             "wikidataId": "Q150760",
             "scientificName": "Neoselachii",
             "englishName": "Neoselachii",
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q6495741",
@@ -30009,13 +30027,13 @@
             "wikidataId": "Q127282",
             "scientificName": "Actinopterygii",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "class"
           },
           {
             "wikidataId": "Q343460",
             "scientificName": "Actinopteri",
             "englishName": "Actinopteri",
-            "rank": "class"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q740005",
@@ -30033,7 +30051,7 @@
             "wikidataId": "Q204861",
             "scientificName": "Teleostei",
             "englishName": null,
-            "rank": "class"
+            "rank": "infraclass"
           },
           {
             "wikidataId": "Q22107334",
@@ -30271,7 +30289,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -30283,7 +30301,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -30295,7 +30313,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134683",
@@ -30433,7 +30451,7 @@
             "wikidataId": "Q2513125",
             "scientificName": "Theriiformes",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q2141770",
@@ -30469,7 +30487,7 @@
             "wikidataId": "Q130942",
             "scientificName": "Theria",
             "englishName": null,
-            "rank": "supercohort"
+            "rank": "subclass"
           },
           {
             "wikidataId": "Q17092469",
@@ -30481,7 +30499,7 @@
             "wikidataId": "Q25833",
             "scientificName": "Placentalia",
             "englishName": "Placentalia",
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q132666",
@@ -30813,7 +30831,7 @@
             "wikidataId": "Q150760",
             "scientificName": "Neoselachii",
             "englishName": "Neoselachii",
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q6495741",
@@ -30967,13 +30985,13 @@
             "wikidataId": "Q127282",
             "scientificName": "Actinopterygii",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "class"
           },
           {
             "wikidataId": "Q343460",
             "scientificName": "Actinopteri",
             "englishName": "Actinopteri",
-            "rank": "class"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q740005",
@@ -31145,13 +31163,19 @@
             "wikidataId": "Q9373141",
             "scientificName": "Sedentaria",
             "englishName": "Sedentaria",
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q839350",
             "scientificName": "Clitellata",
             "englishName": "Clitellata",
             "rank": "class"
+          },
+          {
+            "wikidataId": "review:ncbi:6381",
+            "scientificName": "Oligochaeta",
+            "englishName": "Oligochaeta",
+            "rank": "subclass"
           },
           {
             "wikidataId": "Q965468",
@@ -31660,7 +31684,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -31672,7 +31696,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -31684,7 +31708,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134683",
@@ -31708,7 +31732,7 @@
             "wikidataId": "Q10811",
             "scientificName": "Reptilia",
             "englishName": "Reptilia",
-            "rank": "class"
+            "rank": "superclass"
           },
           {
             "wikidataId": "Q3060510",
@@ -31960,7 +31984,7 @@
             "wikidataId": "Q19163",
             "scientificName": "Neornithes",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q19168",
@@ -32400,6 +32424,12 @@
             "wikidataId": "Q150760",
             "scientificName": "Neoselachii",
             "englishName": "Neoselachii",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "review:ncbi:119203",
+            "scientificName": "Selachii",
+            "englishName": "sharks",
             "rank": "infraclass"
           },
           {
@@ -32506,13 +32536,13 @@
             "wikidataId": "Q28524",
             "scientificName": "Anthozoa",
             "englishName": null,
-            "rank": "subphylum"
+            "rank": "class"
           },
           {
             "wikidataId": "Q132674",
             "scientificName": "Hexacorallia",
             "englishName": null,
-            "rank": "class"
+            "rank": "subclass"
           },
           {
             "wikidataId": "Q147256",
@@ -33214,7 +33244,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -33226,7 +33256,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -33238,7 +33268,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134683",
@@ -33262,7 +33292,7 @@
             "wikidataId": "Q10811",
             "scientificName": "Reptilia",
             "englishName": "Reptilia",
-            "rank": "class"
+            "rank": "superclass"
           },
           {
             "wikidataId": "Q3060510",
@@ -33578,7 +33608,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -33590,7 +33620,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -33602,7 +33632,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134683",
@@ -33740,7 +33770,7 @@
             "wikidataId": "Q2513125",
             "scientificName": "Theriiformes",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q2141770",
@@ -33776,7 +33806,7 @@
             "wikidataId": "Q130942",
             "scientificName": "Theria",
             "englishName": null,
-            "rank": "supercohort"
+            "rank": "subclass"
           },
           {
             "wikidataId": "Q17092469",
@@ -33788,7 +33818,7 @@
             "wikidataId": "Q25833",
             "scientificName": "Placentalia",
             "englishName": "Placentalia",
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q173612",
@@ -33960,7 +33990,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -33972,7 +34002,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -33984,7 +34014,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134683",
@@ -34008,7 +34038,7 @@
             "wikidataId": "Q10811",
             "scientificName": "Reptilia",
             "englishName": "Reptilia",
-            "rank": "class"
+            "rank": "superclass"
           },
           {
             "wikidataId": "Q3060510",
@@ -34260,7 +34290,7 @@
             "wikidataId": "Q19163",
             "scientificName": "Neornithes",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q19166",
@@ -34426,7 +34456,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -34438,7 +34468,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -34450,7 +34480,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134683",
@@ -34588,7 +34618,7 @@
             "wikidataId": "Q2513125",
             "scientificName": "Theriiformes",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q2141770",
@@ -34624,7 +34654,7 @@
             "wikidataId": "Q130942",
             "scientificName": "Theria",
             "englishName": null,
-            "rank": "supercohort"
+            "rank": "subclass"
           },
           {
             "wikidataId": "Q17092469",
@@ -34636,7 +34666,7 @@
             "wikidataId": "Q25833",
             "scientificName": "Placentalia",
             "englishName": "Placentalia",
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q132666",
@@ -34874,13 +34904,13 @@
             "wikidataId": "Q127282",
             "scientificName": "Actinopterygii",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "class"
           },
           {
             "wikidataId": "Q343460",
             "scientificName": "Actinopteri",
             "englishName": "Actinopteri",
-            "rank": "class"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q740005",
@@ -34898,7 +34928,7 @@
             "wikidataId": "Q204861",
             "scientificName": "Teleostei",
             "englishName": null,
-            "rank": "class"
+            "rank": "infraclass"
           },
           {
             "wikidataId": "Q22107334",
@@ -35118,13 +35148,13 @@
             "wikidataId": "Q127282",
             "scientificName": "Actinopterygii",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "class"
           },
           {
             "wikidataId": "Q343460",
             "scientificName": "Actinopteri",
             "englishName": "Actinopteri",
-            "rank": "class"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q740005",
@@ -35142,7 +35172,7 @@
             "wikidataId": "Q204861",
             "scientificName": "Teleostei",
             "englishName": null,
-            "rank": "class"
+            "rank": "infraclass"
           },
           {
             "wikidataId": "Q22107334",
@@ -35504,7 +35534,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -35516,7 +35546,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -35528,7 +35558,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134683",
@@ -35666,7 +35696,7 @@
             "wikidataId": "Q2513125",
             "scientificName": "Theriiformes",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q2141770",
@@ -35714,7 +35744,7 @@
             "wikidataId": "Q25833",
             "scientificName": "Placentalia",
             "englishName": "Placentalia",
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q132666",
@@ -35928,7 +35958,7 @@
             "wikidataId": "Q1407833",
             "scientificName": "Asterozoa",
             "englishName": null,
-            "rank": "subphylum"
+            "rank": "superclass"
           },
           {
             "wikidataId": "Q59256",
@@ -36124,7 +36154,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -36136,7 +36166,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -36148,7 +36178,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134683",
@@ -36286,7 +36316,7 @@
             "wikidataId": "Q2513125",
             "scientificName": "Theriiformes",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q2141770",
@@ -36334,7 +36364,7 @@
             "wikidataId": "Q25833",
             "scientificName": "Placentalia",
             "englishName": "Placentalia",
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q132666",
@@ -36744,13 +36774,13 @@
             "wikidataId": "Q20992205",
             "scientificName": "Autobranchia",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q131403",
             "scientificName": "Pteriomorphia",
             "englishName": "Pteriomorphia",
-            "rank": "infraclass"
+            "rank": "subclass"
           },
           {
             "wikidataId": "Q133047",
@@ -37184,7 +37214,7 @@
             "wikidataId": "Q2698547",
             "scientificName": "Echinozoa",
             "englishName": "Echinozoa",
-            "rank": "subphylum"
+            "rank": "superclass"
           },
           {
             "wikidataId": "Q83483",
@@ -37808,7 +37838,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -37820,7 +37850,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -37832,7 +37862,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134683",
@@ -37856,7 +37886,7 @@
             "wikidataId": "Q10811",
             "scientificName": "Reptilia",
             "englishName": "Reptilia",
-            "rank": "class"
+            "rank": "superclass"
           },
           {
             "wikidataId": "Q3060510",
@@ -38108,7 +38138,7 @@
             "wikidataId": "Q19163",
             "scientificName": "Neornithes",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q19168",
@@ -38280,7 +38310,7 @@
             "wikidataId": "Q1407833",
             "scientificName": "Asterozoa",
             "englishName": null,
-            "rank": "subphylum"
+            "rank": "superclass"
           },
           {
             "wikidataId": "Q25349",
@@ -38446,7 +38476,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -38458,7 +38488,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -38470,7 +38500,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134683",
@@ -38608,7 +38638,7 @@
             "wikidataId": "Q2513125",
             "scientificName": "Theriiformes",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q2141770",
@@ -38656,7 +38686,7 @@
             "wikidataId": "Q25833",
             "scientificName": "Placentalia",
             "englishName": "Placentalia",
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q132666",
@@ -39042,7 +39072,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -39054,7 +39084,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -39066,7 +39096,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134683",
@@ -39198,7 +39228,7 @@
             "wikidataId": "Q21448022",
             "scientificName": "Yinotheria",
             "englishName": "Yinotheria",
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q783432",
@@ -39476,7 +39506,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -39488,7 +39518,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -39500,7 +39530,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134683",
@@ -39638,7 +39668,7 @@
             "wikidataId": "Q2513125",
             "scientificName": "Theriiformes",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q2141770",
@@ -39686,7 +39716,7 @@
             "wikidataId": "Q25833",
             "scientificName": "Placentalia",
             "englishName": "Placentalia",
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q132666",
@@ -40130,7 +40160,7 @@
             "wikidataId": "Q2698547",
             "scientificName": "Echinozoa",
             "englishName": "Echinozoa",
-            "rank": "subphylum"
+            "rank": "superclass"
           },
           {
             "wikidataId": "Q83483",
@@ -40302,13 +40332,13 @@
             "wikidataId": "Q127282",
             "scientificName": "Actinopterygii",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "class"
           },
           {
             "wikidataId": "Q343460",
             "scientificName": "Actinopteri",
             "englishName": "Actinopteri",
-            "rank": "class"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q740005",
@@ -40326,7 +40356,7 @@
             "wikidataId": "Q204861",
             "scientificName": "Teleostei",
             "englishName": null,
-            "rank": "class"
+            "rank": "infraclass"
           },
           {
             "wikidataId": "Q22107334",
@@ -40522,7 +40552,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -40534,7 +40564,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -40546,7 +40576,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134683",
@@ -40684,7 +40714,7 @@
             "wikidataId": "Q2513125",
             "scientificName": "Theriiformes",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q2141770",
@@ -40732,7 +40762,7 @@
             "wikidataId": "Q25833",
             "scientificName": "Placentalia",
             "englishName": "Placentalia",
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q132666",
@@ -41214,7 +41244,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -41226,7 +41256,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -41238,7 +41268,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134683",
@@ -41262,7 +41292,7 @@
             "wikidataId": "Q10811",
             "scientificName": "Reptilia",
             "englishName": "Reptilia",
-            "rank": "class"
+            "rank": "superclass"
           },
           {
             "wikidataId": "Q3060510",
@@ -41514,7 +41544,7 @@
             "wikidataId": "Q19163",
             "scientificName": "Neornithes",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q19168",
@@ -41698,13 +41728,13 @@
             "wikidataId": "Q127282",
             "scientificName": "Actinopterygii",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "class"
           },
           {
             "wikidataId": "Q343460",
             "scientificName": "Actinopteri",
             "englishName": "Actinopteri",
-            "rank": "class"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q740005",
@@ -41722,7 +41752,7 @@
             "wikidataId": "Q204861",
             "scientificName": "Teleostei",
             "englishName": null,
-            "rank": "class"
+            "rank": "infraclass"
           },
           {
             "wikidataId": "Q22107334",
@@ -41954,7 +41984,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -41966,7 +41996,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -41978,7 +42008,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134683",
@@ -42116,7 +42146,7 @@
             "wikidataId": "Q2513125",
             "scientificName": "Theriiformes",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q2141770",
@@ -42164,7 +42194,7 @@
             "wikidataId": "Q25833",
             "scientificName": "Placentalia",
             "englishName": "Placentalia",
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q132666",
@@ -42366,7 +42396,7 @@
             "wikidataId": "Q9373141",
             "scientificName": "Sedentaria",
             "englishName": "Sedentaria",
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q3817224",
@@ -42538,7 +42568,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -42550,7 +42580,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -42562,7 +42592,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134683",
@@ -42700,7 +42730,7 @@
             "wikidataId": "Q2513125",
             "scientificName": "Theriiformes",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q2141770",
@@ -42748,7 +42778,7 @@
             "wikidataId": "Q25833",
             "scientificName": "Placentalia",
             "englishName": "Placentalia",
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q132666",
@@ -42950,7 +42980,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -42962,7 +42992,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -42974,7 +43004,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134683",
@@ -42998,7 +43028,7 @@
             "wikidataId": "Q10811",
             "scientificName": "Reptilia",
             "englishName": "Reptilia",
-            "rank": "class"
+            "rank": "superclass"
           },
           {
             "wikidataId": "Q3060510",
@@ -43250,7 +43280,7 @@
             "wikidataId": "Q19163",
             "scientificName": "Neornithes",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q19168",
@@ -43440,7 +43470,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -43452,7 +43482,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -43464,7 +43494,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134683",
@@ -43488,7 +43518,7 @@
             "wikidataId": "Q10811",
             "scientificName": "Reptilia",
             "englishName": "Reptilia",
-            "rank": "class"
+            "rank": "superclass"
           },
           {
             "wikidataId": "Q3060510",
@@ -43804,7 +43834,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -43816,7 +43846,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -43828,7 +43858,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134683",
@@ -43852,7 +43882,7 @@
             "wikidataId": "Q10811",
             "scientificName": "Reptilia",
             "englishName": "Reptilia",
-            "rank": "class"
+            "rank": "superclass"
           },
           {
             "wikidataId": "Q3060510",
@@ -44104,7 +44134,7 @@
             "wikidataId": "Q19163",
             "scientificName": "Neornithes",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q19168",
@@ -44601,13 +44631,13 @@
             "wikidataId": "Q500266",
             "scientificName": "Cyclostomata",
             "englishName": "Cyclostomi",
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q22109950",
             "scientificName": "Petromyzontomorphi",
             "englishName": "Petromyzontomorphi",
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q22109932",
@@ -44773,7 +44803,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -44785,7 +44815,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -44797,7 +44827,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134683",
@@ -44821,7 +44851,7 @@
             "wikidataId": "Q10811",
             "scientificName": "Reptilia",
             "englishName": "Reptilia",
-            "rank": "class"
+            "rank": "superclass"
           },
           {
             "wikidataId": "Q3060510",
@@ -45073,7 +45103,7 @@
             "wikidataId": "Q19163",
             "scientificName": "Neornithes",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q19168",
@@ -45275,7 +45305,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -45287,7 +45317,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -45299,7 +45329,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134683",
@@ -45431,7 +45461,7 @@
             "wikidataId": "Q21448022",
             "scientificName": "Yinotheria",
             "englishName": "Yinotheria",
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q783432",
@@ -45603,6 +45633,12 @@
             "wikidataId": "Q150760",
             "scientificName": "Neoselachii",
             "englishName": "Neoselachii",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "review:ncbi:119203",
+            "scientificName": "Selachii",
+            "englishName": "sharks",
             "rank": "infraclass"
           },
           {
@@ -45769,13 +45805,13 @@
             "wikidataId": "Q127282",
             "scientificName": "Actinopterygii",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "class"
           },
           {
             "wikidataId": "Q343460",
             "scientificName": "Actinopteri",
             "englishName": "Actinopteri",
-            "rank": "class"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q740005",
@@ -45793,7 +45829,7 @@
             "wikidataId": "Q204861",
             "scientificName": "Teleostei",
             "englishName": null,
-            "rank": "class"
+            "rank": "infraclass"
           },
           {
             "wikidataId": "Q22107334",
@@ -46025,7 +46061,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -46037,7 +46073,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -46049,7 +46085,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134683",
@@ -46187,7 +46223,7 @@
             "wikidataId": "Q2513125",
             "scientificName": "Theriiformes",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q2141770",
@@ -46235,7 +46271,7 @@
             "wikidataId": "Q25833",
             "scientificName": "Placentalia",
             "englishName": "Placentalia",
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q132666",
@@ -46467,7 +46503,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -46479,7 +46515,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -46491,7 +46527,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134683",
@@ -46515,7 +46551,7 @@
             "wikidataId": "Q10811",
             "scientificName": "Reptilia",
             "englishName": "Reptilia",
-            "rank": "class"
+            "rank": "superclass"
           },
           {
             "wikidataId": "Q3060510",
@@ -46767,13 +46803,13 @@
             "wikidataId": "Q19163",
             "scientificName": "Neornithes",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q19166",
             "scientificName": "Palaeognathae",
             "englishName": "Palaeognathae",
-            "rank": "infraclass"
+            "rank": "superorder"
           },
           {
             "wikidataId": "Q19598162",
@@ -46991,13 +47027,13 @@
             "wikidataId": "Q28524",
             "scientificName": "Anthozoa",
             "englishName": null,
-            "rank": "subphylum"
+            "rank": "class"
           },
           {
             "wikidataId": "Q132674",
             "scientificName": "Hexacorallia",
             "englishName": null,
-            "rank": "class"
+            "rank": "subclass"
           },
           {
             "wikidataId": "Q147256",
@@ -47139,7 +47175,7 @@
             "wikidataId": "Q2698547",
             "scientificName": "Echinozoa",
             "englishName": "Echinozoa",
-            "rank": "subphylum"
+            "rank": "superclass"
           },
           {
             "wikidataId": "Q127470",
@@ -47782,7 +47818,7 @@
             "wikidataId": "Q1170475",
             "scientificName": "Tetractinomorpha",
             "englishName": "Tetractinomorpha",
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q1189104",
@@ -47930,7 +47966,7 @@
             "wikidataId": "Q150760",
             "scientificName": "Neoselachii",
             "englishName": "Neoselachii",
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q6495741",
@@ -48096,7 +48132,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -48108,7 +48144,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -48120,7 +48156,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134683",
@@ -48258,7 +48294,7 @@
             "wikidataId": "Q2513125",
             "scientificName": "Theriiformes",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q2141770",
@@ -48294,7 +48330,7 @@
             "wikidataId": "Q130942",
             "scientificName": "Theria",
             "englishName": null,
-            "rank": "supercohort"
+            "rank": "subclass"
           },
           {
             "wikidataId": "Q17092469",
@@ -48306,7 +48342,7 @@
             "wikidataId": "Q25833",
             "scientificName": "Placentalia",
             "englishName": "Placentalia",
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q132666",
@@ -48538,7 +48574,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -48550,7 +48586,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -48562,7 +48598,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q2521462",
@@ -48580,7 +48616,7 @@
             "wikidataId": "Q134861",
             "scientificName": "Lissamphibia",
             "englishName": "Lissamphibia",
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q13514368",
@@ -49060,7 +49096,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -49072,7 +49108,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -49084,7 +49120,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134683",
@@ -49108,7 +49144,7 @@
             "wikidataId": "Q10811",
             "scientificName": "Reptilia",
             "englishName": "Reptilia",
-            "rank": "class"
+            "rank": "superclass"
           },
           {
             "wikidataId": "Q3060510",
@@ -49144,13 +49180,13 @@
             "wikidataId": "Q134665",
             "scientificName": "Lepidosauromorpha",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q728299",
             "scientificName": "Lepidosauria",
             "englishName": "Lepidosauria",
-            "rank": "superorder"
+            "rank": "class"
           },
           {
             "wikidataId": "Q122422",
@@ -49712,7 +49748,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -49724,7 +49760,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -49736,7 +49772,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134683",
@@ -49874,7 +49910,7 @@
             "wikidataId": "Q2513125",
             "scientificName": "Theriiformes",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q2141770",
@@ -49922,7 +49958,7 @@
             "wikidataId": "Q25833",
             "scientificName": "Placentalia",
             "englishName": "Placentalia",
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q2718670",
@@ -50272,7 +50308,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -50284,7 +50320,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -50296,7 +50332,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134683",
@@ -50320,7 +50356,7 @@
             "wikidataId": "Q10811",
             "scientificName": "Reptilia",
             "englishName": "Reptilia",
-            "rank": "class"
+            "rank": "superclass"
           },
           {
             "wikidataId": "Q3060510",
@@ -50572,7 +50608,7 @@
             "wikidataId": "Q19163",
             "scientificName": "Neornithes",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q19168",
@@ -50768,7 +50804,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -50780,7 +50816,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -50792,7 +50828,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134683",
@@ -50816,7 +50852,7 @@
             "wikidataId": "Q10811",
             "scientificName": "Reptilia",
             "englishName": "Reptilia",
-            "rank": "class"
+            "rank": "superclass"
           },
           {
             "wikidataId": "Q3060510",
@@ -50852,13 +50888,13 @@
             "wikidataId": "Q134665",
             "scientificName": "Lepidosauromorpha",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q728299",
             "scientificName": "Lepidosauria",
             "englishName": "Lepidosauria",
-            "rank": "superorder"
+            "rank": "class"
           },
           {
             "wikidataId": "Q122422",
@@ -51066,7 +51102,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -51078,7 +51114,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -51090,7 +51126,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134683",
@@ -51228,7 +51264,7 @@
             "wikidataId": "Q2513125",
             "scientificName": "Theriiformes",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q2141770",
@@ -51264,7 +51300,7 @@
             "wikidataId": "Q130942",
             "scientificName": "Theria",
             "englishName": null,
-            "rank": "supercohort"
+            "rank": "subclass"
           },
           {
             "wikidataId": "Q17092469",
@@ -51276,7 +51312,7 @@
             "wikidataId": "Q25833",
             "scientificName": "Placentalia",
             "englishName": "Placentalia",
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q132666",
@@ -51728,6 +51764,12 @@
             "wikidataId": "Q150760",
             "scientificName": "Neoselachii",
             "englishName": "Neoselachii",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "review:ncbi:119203",
+            "scientificName": "Selachii",
+            "englishName": "sharks",
             "rank": "infraclass"
           },
           {
@@ -51900,7 +51942,7 @@
             "wikidataId": "Q1209254",
             "scientificName": "Tetrapodomorpha",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q5381965",
@@ -51912,7 +51954,7 @@
             "wikidataId": "Q150821",
             "scientificName": "Elpistostegalia",
             "englishName": null,
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q7460384",
@@ -51924,7 +51966,7 @@
             "wikidataId": "Q19159",
             "scientificName": "Tetrapoda",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q134683",
@@ -52062,7 +52104,7 @@
             "wikidataId": "Q2513125",
             "scientificName": "Theriiformes",
             "englishName": null,
-            "rank": "subclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q2141770",
@@ -52098,7 +52140,7 @@
             "wikidataId": "Q130942",
             "scientificName": "Theria",
             "englishName": null,
-            "rank": "supercohort"
+            "rank": "subclass"
           },
           {
             "wikidataId": "Q17092469",
@@ -52110,7 +52152,7 @@
             "wikidataId": "Q25833",
             "scientificName": "Placentalia",
             "englishName": "Placentalia",
-            "rank": "infraclass"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q132666",
@@ -52456,13 +52498,13 @@
             "wikidataId": "Q127282",
             "scientificName": "Actinopterygii",
             "englishName": null,
-            "rank": "superclass"
+            "rank": "class"
           },
           {
             "wikidataId": "Q343460",
             "scientificName": "Actinopteri",
             "englishName": "Actinopteri",
-            "rank": "class"
+            "rank": "clade"
           },
           {
             "wikidataId": "Q740005",
@@ -52480,7 +52522,7 @@
             "wikidataId": "Q204861",
             "scientificName": "Teleostei",
             "englishName": null,
-            "rank": "class"
+            "rank": "infraclass"
           },
           {
             "wikidataId": "Q22107334",

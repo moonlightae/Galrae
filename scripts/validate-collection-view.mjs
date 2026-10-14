@@ -98,16 +98,16 @@ for (const ids of [["homo-sapiens"], ["homo-sapiens", "asterias-rubens"], animal
   assert.equal(opened, speciesButtons[0].dataset.speciesId);
 }
 const annotated = branchButtons.filter((button) => button.dataset.ancestorId);
-assert.equal(new Set(annotated.map((button) => button.dataset.ancestorId)).size, 49, "All dataset classes, including supplements, must have notes");
+assert.equal(new Set(annotated.map((button) => button.dataset.ancestorId)).size, 96, "All four class-level ranks, including supplements, must have notes");
 assert.equal(element("#ancestor-guide").shown, 1, "Guide must not repeat after dismissal");
 assert.equal(stored.get("guide-test-user"), "seen");
 assert.ok(annotated.some((button) => button.dataset.ancestorId === "ncbi:6844"), "Horseshoe-crab class must be reachable");
 assert.ok(annotated.some((button) => button.dataset.ancestorId === "Q25368"), "Bivalves must be reachable");
 const mammal = annotated.find((button) => button.dataset.ancestorId === "Q7377");
-assert.match(mammal.title, /포유강/);
+assert.match(mammal.title, /포유동물강/);
 viewport.handlers.click({ target: { closest: (selector) => selector === "[data-ancestor-id]" ? mammal : null } });
 assert.equal(dialog.open, true);
-assert.equal(element("#ancestor-title").textContent, "포유강");
+assert.equal(element("#ancestor-title").textContent, "포유동물강");
 assert.match(element("#ancestor-content").innerHTML, /조상/);
 element("#close-ancestor").handlers.click();
 assert.equal(dialog.open, false);
@@ -155,4 +155,4 @@ assert.equal(buttons[0].attrs["aria-pressed"], "true");
 delete globalThis.document;
 delete globalThis.ResizeObserver;
 delete globalThis.localStorage;
-console.log("49 classes, unchanged topology, class photos/fallback, first eligible guide/persistence and tree navigation passed.");
+console.log("96 ranked taxa, unchanged topology, photos/fallback, first eligible guide/persistence and tree navigation passed.");

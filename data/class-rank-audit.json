@@ -1,0 +1,6519 @@
+{
+  "reviewedAt": "2026-10-14",
+  "scope": "수록 207종의 상강·강·아강·하강. 세계 전체 분류군을 모두 수록한다는 뜻이 아닙니다.",
+  "policy": "국내 목록의 기본 강과 확인된 한글명을 우선하고, 어류는 조기어강-신기어아강-진골어/전골어하강. 계통 범위가 다른 항목은 출처 차이와 게임의 계급 없는 처리/예외를 명시합니다.",
+  "nationalSourceLimit": "2025년 말 기준 국내 62,604종 전체 목록에서 강과 한글명을 확인했습니다. 최신 XLSX는 상강·아강·하강 열이 없어 해당 계급의 국내명은 2019 공식 PDF와 공식 교육 자료로 보완했습니다. 한국 목록에 없는 세계 분류군의 한글명은 공식 확인으로 간주하지 않습니다.",
+  "national2025": {
+    "speciesCount": 62604,
+    "matchedSpecies": [
+      {
+        "name": "Coturnix japonica",
+        "class": "Aves",
+        "classKo": "조강",
+        "ktsn": "120000001407",
+        "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000001407"
+      },
+      {
+        "name": "Anas platyrhynchos",
+        "class": "Aves",
+        "classKo": "조강",
+        "ktsn": "120000001440",
+        "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000001440"
+      },
+      {
+        "name": "Falco peregrinus",
+        "class": "Aves",
+        "classKo": "조강",
+        "ktsn": "120000001578",
+        "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000001578"
+      },
+      {
+        "name": "Corvus corax",
+        "class": "Aves",
+        "classKo": "조강",
+        "ktsn": "120000001968",
+        "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000001968"
+      },
+      {
+        "name": "Passer domesticus",
+        "class": "Aves",
+        "classKo": "조강",
+        "ktsn": "120000002155",
+        "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000002155"
+      },
+      {
+        "name": "Harmonia axyridis",
+        "class": "Insecta",
+        "classKo": "곤충강",
+        "ktsn": "120000015942",
+        "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000015942"
+      },
+      {
+        "name": "Tenebrio molitor",
+        "class": "Insecta",
+        "classKo": "곤충강",
+        "ktsn": "120000020779",
+        "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000020779"
+      },
+      {
+        "name": "Periplaneta americana",
+        "class": "Insecta",
+        "classKo": "곤충강",
+        "ktsn": "120000020881",
+        "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000020881"
+      },
+      {
+        "name": "Drosophila melanogaster",
+        "class": "Insecta",
+        "classKo": "곤충강",
+        "ktsn": "120000021974",
+        "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000021974"
+      },
+      {
+        "name": "Drosophila simulans",
+        "class": "Insecta",
+        "classKo": "곤충강",
+        "ktsn": "120000021979",
+        "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000021979"
+      },
+      {
+        "name": "Apis cerana",
+        "class": "Insecta",
+        "classKo": "곤충강",
+        "ktsn": "120000027385",
+        "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000027385"
+      },
+      {
+        "name": "Apis mellifera",
+        "class": "Insecta",
+        "classKo": "곤충강",
+        "ktsn": "120000027386",
+        "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000027386"
+      },
+      {
+        "name": "Formica rufa",
+        "class": "Insecta",
+        "classKo": "곤충강",
+        "ktsn": "120000029516",
+        "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000029516"
+      },
+      {
+        "name": "Bombyx mori",
+        "class": "Insecta",
+        "classKo": "곤충강",
+        "ktsn": "120000031704",
+        "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000031704"
+      },
+      {
+        "name": "Papilio machaon",
+        "class": "Insecta",
+        "classKo": "곤충강",
+        "ktsn": "120000035916",
+        "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000035916"
+      },
+      {
+        "name": "Cliona celata",
+        "class": "Demospongiae",
+        "classKo": "보통해면강",
+        "ktsn": "120000038901",
+        "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000038901"
+      },
+      {
+        "name": "Tethya aurantium",
+        "class": "Demospongiae",
+        "classKo": "보통해면강",
+        "ktsn": "120000038949",
+        "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000038949"
+      },
+      {
+        "name": "Physalia physalis",
+        "class": "Hydrozoa",
+        "classKo": "히드라충강",
+        "ktsn": "120000039609",
+        "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000039609"
+      },
+      {
+        "name": "Aurelia aurita",
+        "class": "Scyphozoa",
+        "classKo": "해파리강",
+        "ktsn": "120000039680",
+        "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000039680"
+      },
+      {
+        "name": "Metridium senile",
+        "class": "Anthozoa",
+        "classKo": "산호충강",
+        "ktsn": "120000039828",
+        "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000039828"
+      },
+      {
+        "name": "Brachionus plicatilis",
+        "class": "Eurotatoria",
+        "classKo": "진윤충강",
+        "ktsn": "120000040176",
+        "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000040176"
+      },
+      {
+        "name": "Ascaris lumbricoides",
+        "class": "Chromadorea",
+        "classKo": "크로마도레아강",
+        "ktsn": "120000040709",
+        "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000040709"
+      },
+      {
+        "name": "Taenia solium",
+        "class": "Cestoda",
+        "classKo": "조충강",
+        "ktsn": "120000041324",
+        "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000041324"
+      },
+      {
+        "name": "Dugesia japonica",
+        "class": "",
+        "classKo": "",
+        "ktsn": "120000041351",
+        "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000041351"
+      },
+      {
+        "name": "Enteroctopus dofleini",
+        "class": "Cephalopoda",
+        "classKo": "두족강",
+        "ktsn": "120000044102",
+        "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000044102"
+      },
+      {
+        "name": "Sepioteuthis lessoniana",
+        "class": "Cephalopoda",
+        "classKo": "두족강",
+        "ktsn": "120000044166",
+        "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000044166"
+      },
+      {
+        "name": "Parasteatoda tepidariorum",
+        "class": "Arachnida",
+        "classKo": "거미강",
+        "ktsn": "120000044536",
+        "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000044536"
+      },
+      {
+        "name": "Argiope bruennichi",
+        "class": "Arachnida",
+        "classKo": "거미강",
+        "ktsn": "120000044865",
+        "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000044865"
+      },
+      {
+        "name": "Penaeus monodon",
+        "class": "Malacostraca",
+        "classKo": "연갑강",
+        "ktsn": "120000049219",
+        "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000049219"
+      },
+      {
+        "name": "Daphnia pulex",
+        "class": "Branchiopoda",
+        "classKo": "새각강",
+        "ktsn": "120000049825",
+        "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000049825"
+      },
+      {
+        "name": "Platynereis dumerilii",
+        "class": "Polychaeta",
+        "classKo": "다모강",
+        "ktsn": "120000049964",
+        "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000049964"
+      },
+      {
+        "name": "Eisenia fetida",
+        "class": "Clitellata",
+        "classKo": "환대강",
+        "ktsn": "120000050394",
+        "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000050394"
+      },
+      {
+        "name": "Botryllus schlosseri",
+        "class": "Ascidiacea",
+        "classKo": "해초강",
+        "ktsn": "120000051001",
+        "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000051001"
+      },
+      {
+        "name": "Balaenoptera musculus",
+        "class": "Mammalia",
+        "classKo": "포유동물강",
+        "ktsn": "120000053366",
+        "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000053366"
+      },
+      {
+        "name": "Orcinus orca",
+        "class": "Mammalia",
+        "classKo": "포유동물강",
+        "ktsn": "120000053388",
+        "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000053388"
+      },
+      {
+        "name": "Tursiops truncatus",
+        "class": "Mammalia",
+        "classKo": "포유동물강",
+        "ktsn": "120000053400",
+        "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000053400"
+      },
+      {
+        "name": "Mus musculus",
+        "class": "Mammalia",
+        "classKo": "포유동물강",
+        "ktsn": "120000053468",
+        "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000053468"
+      },
+      {
+        "name": "Rattus norvegicus",
+        "class": "Mammalia",
+        "classKo": "포유동물강",
+        "ktsn": "120000053470",
+        "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000053470"
+      },
+      {
+        "name": "Rhincodon typus",
+        "class": "Chondrichthyes",
+        "classKo": "연골어강",
+        "ktsn": "120000057256",
+        "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000057256"
+      },
+      {
+        "name": "Carcharodon carcharias",
+        "class": "Chondrichthyes",
+        "classKo": "연골어강",
+        "ktsn": "120000057270",
+        "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000057270"
+      },
+      {
+        "name": "Isurus oxyrinchus",
+        "class": "Chondrichthyes",
+        "classKo": "연골어강",
+        "ktsn": "120000057272",
+        "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000057272"
+      },
+      {
+        "name": "Carassius auratus",
+        "class": "Actinopterygii",
+        "classKo": "조기강",
+        "ktsn": "120000057547",
+        "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000057547"
+      },
+      {
+        "name": "Oncorhynchus mykiss",
+        "class": "Actinopterygii",
+        "classKo": "조기강",
+        "ktsn": "120000057748",
+        "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000057748"
+      },
+      {
+        "name": "Hippocampus kuda",
+        "class": "Actinopterygii",
+        "classKo": "조기강",
+        "ktsn": "120000058022",
+        "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000058022"
+      },
+      {
+        "name": "Pterois volitans",
+        "class": "Actinopterygii",
+        "classKo": "조기강",
+        "ktsn": "120000058078",
+        "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000058078"
+      },
+      {
+        "name": "Thunnus thynnus",
+        "class": "Actinopterygii",
+        "classKo": "조기강",
+        "ktsn": "120000059177",
+        "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000059177"
+      },
+      {
+        "name": "Mola mola",
+        "class": "Actinopterygii",
+        "classKo": "조기강",
+        "ktsn": "120000059436",
+        "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000059436"
+      },
+      {
+        "name": "Chelonia mydas",
+        "class": "Reptilia",
+        "classKo": "파충강",
+        "ktsn": "120000059445",
+        "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000059445"
+      },
+      {
+        "name": "Oikopleura dioica",
+        "class": "Appendicularia",
+        "classKo": "유형강",
+        "ktsn": "120000066979",
+        "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000066979"
+      },
+      {
+        "name": "Trichinella spiralis",
+        "class": "Enoplea",
+        "classKo": "유침강",
+        "ktsn": "120000151472",
+        "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000151472"
+      },
+      {
+        "name": "Tachypleus tridentatus",
+        "class": "Merostomata",
+        "classKo": "퇴구강",
+        "ktsn": "120000201179",
+        "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000201179"
+      },
+      {
+        "name": "Octopus vulgaris",
+        "class": "Cephalopoda",
+        "classKo": "두족강",
+        "ktsn": "120000204500",
+        "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000204500"
+      },
+      {
+        "name": "Eretmochelys imbricata",
+        "class": "Reptilia",
+        "classKo": "파충강",
+        "ktsn": "120000208258",
+        "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000208258"
+      },
+      {
+        "name": "Hydra vulgaris",
+        "class": "Hydrozoa",
+        "classKo": "히드라충강",
+        "ktsn": "120000227019",
+        "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000227019"
+      },
+      {
+        "name": "Cyanea capillata",
+        "class": "Scyphozoa",
+        "classKo": "해파리강",
+        "ktsn": "120000235048",
+        "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000235048"
+      },
+      {
+        "name": "Cestum veneris",
+        "class": "Tentaculata",
+        "classKo": "유촉수강",
+        "ktsn": "120000235059",
+        "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000235059"
+      },
+      {
+        "name": "Pleurobrachia pileus",
+        "class": "Tentaculata",
+        "classKo": "유촉수강",
+        "ktsn": "120000235072",
+        "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000235072"
+      },
+      {
+        "name": "Bolinopsis infundibulum",
+        "class": "Tentaculata",
+        "classKo": "유촉수강",
+        "ktsn": "120000235075",
+        "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000235075"
+      },
+      {
+        "name": "Limulus polyphemus",
+        "class": "Merostomata",
+        "classKo": "퇴구강",
+        "ktsn": "120000236834",
+        "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000236834"
+      }
+    ],
+    "url": "https://www.kbr.go.kr/jfile/readDownloadFile.do?fileId=ARTICLE_2241&fileSeq=1"
+  },
+  "species": [
+    {
+      "id": "acropora-millepora",
+      "name": "Acropora millepora",
+      "ncbiTaxonId": "45264",
+      "resolvedTaxonId": "45264"
+    },
+    {
+      "id": "aedes-aegypti",
+      "name": "Aedes aegypti",
+      "ncbiTaxonId": "7159",
+      "resolvedTaxonId": "7159"
+    },
+    {
+      "id": "loxodonta-africana",
+      "name": "Loxodonta africana",
+      "ncbiTaxonId": "9785",
+      "resolvedTaxonId": "9785"
+    },
+    {
+      "id": "xenopus-laevis",
+      "name": "Xenopus laevis",
+      "ncbiTaxonId": "8355",
+      "resolvedTaxonId": "8355"
+    },
+    {
+      "id": "spheniscus-demersus",
+      "name": "Spheniscus demersus",
+      "ncbiTaxonId": "92683",
+      "resolvedTaxonId": "92683"
+    },
+    {
+      "id": "alligator-mississippiensis",
+      "name": "Alligator mississippiensis",
+      "ncbiTaxonId": "8496",
+      "resolvedTaxonId": "8496"
+    },
+    {
+      "id": "periplaneta-americana",
+      "name": "Periplaneta americana",
+      "ncbiTaxonId": "6978",
+      "resolvedTaxonId": "6978"
+    },
+    {
+      "id": "homarus-americanus",
+      "name": "Homarus americanus",
+      "ncbiTaxonId": "6706",
+      "resolvedTaxonId": "6706"
+    },
+    {
+      "id": "amphimedon-queenslandica",
+      "name": "Amphimedon queenslandica",
+      "ncbiTaxonId": "400682",
+      "resolvedTaxonId": "400682"
+    },
+    {
+      "id": "euphausia-superba",
+      "name": "Euphausia superba",
+      "ncbiTaxonId": "6819",
+      "resolvedTaxonId": "6819"
+    },
+    {
+      "id": "antedon-mediterranea",
+      "name": "Antedon mediterranea",
+      "ncbiTaxonId": "105859",
+      "resolvedTaxonId": "105859"
+    },
+    {
+      "id": "apis-cerana",
+      "name": "Apis cerana",
+      "ncbiTaxonId": "7461",
+      "resolvedTaxonId": "7461"
+    },
+    {
+      "id": "argiope-bruennichi",
+      "name": "Argiope bruennichi",
+      "ncbiTaxonId": "94029",
+      "resolvedTaxonId": "94029"
+    },
+    {
+      "id": "centruroides-sculpturatus",
+      "name": "Centruroides sculpturatus",
+      "ncbiTaxonId": "218467",
+      "resolvedTaxonId": "218467"
+    },
+    {
+      "id": "ascaris-lumbricoides",
+      "name": "Ascaris lumbricoides",
+      "ncbiTaxonId": "6252",
+      "resolvedTaxonId": "6252"
+    },
+    {
+      "id": "varanus-salvator",
+      "name": "Varanus salvator",
+      "ncbiTaxonId": "62051",
+      "resolvedTaxonId": "62051"
+    },
+    {
+      "id": "thunnus-thynnus",
+      "name": "Thunnus thynnus",
+      "ncbiTaxonId": "8237",
+      "resolvedTaxonId": "8237"
+    },
+    {
+      "id": "gadus-morhua",
+      "name": "Gadus morhua",
+      "ncbiTaxonId": "8049",
+      "resolvedTaxonId": "8049"
+    },
+    {
+      "id": "limulus-polyphemus",
+      "name": "Limulus polyphemus",
+      "ncbiTaxonId": "6850",
+      "resolvedTaxonId": "6850"
+    },
+    {
+      "id": "periophthalmus-barbarus",
+      "name": "Periophthalmus barbarus",
+      "ncbiTaxonId": "166755",
+      "resolvedTaxonId": "166755"
+    },
+    {
+      "id": "salmo-salar",
+      "name": "Salmo salar",
+      "ncbiTaxonId": "8030",
+      "resolvedTaxonId": "8030"
+    },
+    {
+      "id": "aurelia-aurita",
+      "name": "Aurelia aurita",
+      "ncbiTaxonId": "6145",
+      "resolvedTaxonId": "6145"
+    },
+    {
+      "id": "callorhinchus-milii",
+      "name": "Callorhinchus milii",
+      "ncbiTaxonId": "7868",
+      "resolvedTaxonId": "7868"
+    },
+    {
+      "id": "neoceratodus-forsteri",
+      "name": "Neoceratodus forsteri",
+      "ncbiTaxonId": "7892",
+      "resolvedTaxonId": "7892"
+    },
+    {
+      "id": "ambystoma-mexicanum",
+      "name": "Ambystoma mexicanum",
+      "ncbiTaxonId": "8296",
+      "resolvedTaxonId": "8296"
+    },
+    {
+      "id": "balanoglossus-gigas",
+      "name": "Balanoglossus gigas",
+      "ncbiTaxonId": "1443183",
+      "resolvedTaxonId": "1443183"
+    },
+    {
+      "id": "python-regius",
+      "name": "Python regius",
+      "ncbiTaxonId": "51751",
+      "resolvedTaxonId": "51751"
+    },
+    {
+      "id": "beroe-ovata",
+      "name": "Beroe ovata",
+      "ncbiTaxonId": "10201",
+      "resolvedTaxonId": "10201"
+    },
+    {
+      "id": "sepioteuthis-lessoniana",
+      "name": "Sepioteuthis lessoniana",
+      "ncbiTaxonId": "34570",
+      "resolvedTaxonId": "34570"
+    },
+    {
+      "id": "mytilus-edulis",
+      "name": "Mytilus edulis",
+      "ncbiTaxonId": "6550",
+      "resolvedTaxonId": "6550"
+    },
+    {
+      "id": "balaenoptera-musculus",
+      "name": "Balaenoptera musculus",
+      "ncbiTaxonId": "9771",
+      "resolvedTaxonId": "9771"
+    },
+    {
+      "id": "bolinopsis-infundibulum",
+      "name": "Bolinopsis infundibulum",
+      "ncbiTaxonId": "140455",
+      "resolvedTaxonId": "140455"
+    },
+    {
+      "id": "bombus-terrestris",
+      "name": "Bombus terrestris",
+      "ncbiTaxonId": "30195",
+      "resolvedTaxonId": "30195"
+    },
+    {
+      "id": "bombyx-mori",
+      "name": "Bombyx mori",
+      "ncbiTaxonId": "7091",
+      "resolvedTaxonId": "7091"
+    },
+    {
+      "id": "pan-paniscus",
+      "name": "Pan paniscus",
+      "ncbiTaxonId": "9597",
+      "resolvedTaxonId": "9597"
+    },
+    {
+      "id": "pongo-pygmaeus",
+      "name": "Pongo pygmaeus",
+      "ncbiTaxonId": "9600",
+      "resolvedTaxonId": "9600"
+    },
+    {
+      "id": "botryllus-schlosseri",
+      "name": "Botryllus schlosseri",
+      "ncbiTaxonId": "30301",
+      "resolvedTaxonId": "30301"
+    },
+    {
+      "id": "brachionus-plicatilis",
+      "name": "Brachionus plicatilis",
+      "ncbiTaxonId": "10195",
+      "resolvedTaxonId": "10195"
+    },
+    {
+      "id": "branchiostoma-floridae",
+      "name": "Branchiostoma floridae",
+      "ncbiTaxonId": "7739",
+      "resolvedTaxonId": "7739"
+    },
+    {
+      "id": "branchiostoma-lanceolatum",
+      "name": "Branchiostoma lanceolatum",
+      "ncbiTaxonId": "7740",
+      "resolvedTaxonId": "7740"
+    },
+    {
+      "id": "rattus-norvegicus",
+      "name": "Rattus norvegicus",
+      "ncbiTaxonId": "10116",
+      "resolvedTaxonId": "10116"
+    },
+    {
+      "id": "caenorhabditis-elegans",
+      "name": "Caenorhabditis elegans",
+      "ncbiTaxonId": "6239",
+      "resolvedTaxonId": "6239"
+    },
+    {
+      "id": "aplysia-californica",
+      "name": "Aplysia californica",
+      "ncbiTaxonId": "6500",
+      "resolvedTaxonId": "6500"
+    },
+    {
+      "id": "rhinella-marina",
+      "name": "Rhinella marina",
+      "ncbiTaxonId": "8386",
+      "resolvedTaxonId": "8386"
+    },
+    {
+      "id": "carcinus-maenas",
+      "name": "Carcinus maenas",
+      "ncbiTaxonId": "6759",
+      "resolvedTaxonId": "6759"
+    },
+    {
+      "id": "cassiopea-xamachana",
+      "name": "Cassiopea xamachana",
+      "ncbiTaxonId": "12993",
+      "resolvedTaxonId": "12993"
+    },
+    {
+      "id": "felis-catus",
+      "name": "Felis catus",
+      "ncbiTaxonId": "9685",
+      "resolvedTaxonId": "9685"
+    },
+    {
+      "id": "nautilus-pompilius",
+      "name": "Nautilus pompilius",
+      "ncbiTaxonId": "34573",
+      "resolvedTaxonId": "34573"
+    },
+    {
+      "id": "acinonyx-jubatus",
+      "name": "Acinonyx jubatus",
+      "ncbiTaxonId": "32536",
+      "resolvedTaxonId": "32536"
+    },
+    {
+      "id": "pan-troglodytes",
+      "name": "Pan troglodytes",
+      "ncbiTaxonId": "9598",
+      "resolvedTaxonId": "9598"
+    },
+    {
+      "id": "chironex-fleckeri",
+      "name": "Chironex fleckeri",
+      "ncbiTaxonId": "45396",
+      "resolvedTaxonId": "45396"
+    },
+    {
+      "id": "ciona-intestinalis",
+      "name": "Ciona intestinalis",
+      "ncbiTaxonId": "7719",
+      "resolvedTaxonId": "7719"
+    },
+    {
+      "id": "cliona-celata",
+      "name": "Cliona celata",
+      "ncbiTaxonId": "269049",
+      "resolvedTaxonId": "269049"
+    },
+    {
+      "id": "tursiops-truncatus",
+      "name": "Tursiops truncatus",
+      "ncbiTaxonId": "9739",
+      "resolvedTaxonId": "9739"
+    },
+    {
+      "id": "sepia-officinalis",
+      "name": "Sepia officinalis",
+      "ncbiTaxonId": "6610",
+      "resolvedTaxonId": "6610"
+    },
+    {
+      "id": "rana-temporaria",
+      "name": "Rana temporaria",
+      "ncbiTaxonId": "8407",
+      "resolvedTaxonId": "8407"
+    },
+    {
+      "id": "octopus-vulgaris",
+      "name": "Octopus vulgaris",
+      "ncbiTaxonId": "6645",
+      "resolvedTaxonId": "6645"
+    },
+    {
+      "id": "struthio-camelus",
+      "name": "Struthio camelus",
+      "ncbiTaxonId": "8801",
+      "resolvedTaxonId": "8801"
+    },
+    {
+      "id": "corvus-corax",
+      "name": "Corvus corax",
+      "ncbiTaxonId": "56781",
+      "resolvedTaxonId": "56781"
+    },
+    {
+      "id": "asterias-rubens",
+      "name": "Asterias rubens",
+      "ncbiTaxonId": "7604",
+      "resolvedTaxonId": "7604"
+    },
+    {
+      "id": "bufo-bufo",
+      "name": "Bufo bufo",
+      "ncbiTaxonId": "8384",
+      "resolvedTaxonId": "8384"
+    },
+    {
+      "id": "desmodus-rotundus",
+      "name": "Desmodus rotundus",
+      "ncbiTaxonId": "9430",
+      "resolvedTaxonId": "9430"
+    },
+    {
+      "id": "cornu-aspersum",
+      "name": "Cornu aspersum",
+      "ncbiTaxonId": "6535",
+      "resolvedTaxonId": "6535"
+    },
+    {
+      "id": "acanthaster-planci",
+      "name": "Acanthaster planci",
+      "ncbiTaxonId": "133434",
+      "resolvedTaxonId": "133434"
+    },
+    {
+      "id": "daphnia-pulex",
+      "name": "Daphnia pulex",
+      "ncbiTaxonId": "6669",
+      "resolvedTaxonId": "6669"
+    },
+    {
+      "id": "drosophila-melanogaster",
+      "name": "Drosophila melanogaster",
+      "ncbiTaxonId": "7227",
+      "resolvedTaxonId": "7227"
+    },
+    {
+      "id": "drosophila-simulans",
+      "name": "Drosophila simulans",
+      "ncbiTaxonId": "7240",
+      "resolvedTaxonId": "7240"
+    },
+    {
+      "id": "dugesia-japonica",
+      "name": "Dugesia japonica",
+      "ncbiTaxonId": "6161",
+      "resolvedTaxonId": "6161"
+    },
+    {
+      "id": "dendrobates-tinctorius",
+      "name": "Dendrobates tinctorius",
+      "ncbiTaxonId": "92724",
+      "resolvedTaxonId": "92724"
+    },
+    {
+      "id": "macropus-giganteus",
+      "name": "Macropus giganteus",
+      "ncbiTaxonId": "9317",
+      "resolvedTaxonId": "9317"
+    },
+    {
+      "id": "echinococcus-granulosus",
+      "name": "Echinococcus granulosus",
+      "ncbiTaxonId": "6210",
+      "resolvedTaxonId": "6210"
+    },
+    {
+      "id": "eisenia-fetida",
+      "name": "Eisenia fetida",
+      "ncbiTaxonId": "6396",
+      "resolvedTaxonId": "6396"
+    },
+    {
+      "id": "electrophorus-electricus",
+      "name": "Electrophorus electricus",
+      "ncbiTaxonId": "8005",
+      "resolvedTaxonId": "8005"
+    },
+    {
+      "id": "aptenodytes-forsteri",
+      "name": "Aptenodytes forsteri",
+      "ncbiTaxonId": "9233",
+      "resolvedTaxonId": "9233"
+    },
+    {
+      "id": "dromaius-novaehollandiae",
+      "name": "Dromaius novaehollandiae",
+      "ncbiTaxonId": "8790",
+      "resolvedTaxonId": "8790"
+    },
+    {
+      "id": "euperipatoides-kanangrensis",
+      "name": "Euperipatoides kanangrensis",
+      "ncbiTaxonId": "488523",
+      "resolvedTaxonId": "488523"
+    },
+    {
+      "id": "anguilla-anguilla",
+      "name": "Anguilla anguilla",
+      "ncbiTaxonId": "7936",
+      "resolvedTaxonId": "7936"
+    },
+    {
+      "id": "mantis-religiosa",
+      "name": "Mantis religiosa",
+      "ncbiTaxonId": "7507",
+      "resolvedTaxonId": "7507"
+    },
+    {
+      "id": "salamandra-salamandra",
+      "name": "Salamandra salamandra",
+      "ncbiTaxonId": "57571",
+      "resolvedTaxonId": "57571"
+    },
+    {
+      "id": "formica-rufa",
+      "name": "Formica rufa",
+      "ncbiTaxonId": "258706",
+      "resolvedTaxonId": "258706"
+    },
+    {
+      "id": "myrmecophaga-tridactyla",
+      "name": "Myrmecophaga tridactyla",
+      "ncbiTaxonId": "71006",
+      "resolvedTaxonId": "71006"
+    },
+    {
+      "id": "tridacna-gigas",
+      "name": "Tridacna gigas",
+      "ncbiTaxonId": "80829",
+      "resolvedTaxonId": "80829"
+    },
+    {
+      "id": "mobula-birostris",
+      "name": "Mobula birostris",
+      "ncbiTaxonId": "1983395",
+      "resolvedTaxonId": "1983395"
+    },
+    {
+      "id": "enteroctopus-dofleini",
+      "name": "Enteroctopus dofleini",
+      "ncbiTaxonId": "267067",
+      "resolvedTaxonId": "267067"
+    },
+    {
+      "id": "architeuthis-dux",
+      "name": "Architeuthis dux",
+      "ncbiTaxonId": "256136",
+      "resolvedTaxonId": "256136"
+    },
+    {
+      "id": "phyllobates-terribilis",
+      "name": "Phyllobates terribilis",
+      "ncbiTaxonId": "111132",
+      "resolvedTaxonId": "111132"
+    },
+    {
+      "id": "carassius-auratus",
+      "name": "Carassius auratus",
+      "ncbiTaxonId": "7957",
+      "resolvedTaxonId": "7957"
+    },
+    {
+      "id": "sphyrna-mokarran",
+      "name": "Sphyrna mokarran",
+      "ncbiTaxonId": "195334",
+      "resolvedTaxonId": "195334"
+    },
+    {
+      "id": "carcharodon-carcharias",
+      "name": "Carcharodon carcharias",
+      "ncbiTaxonId": "13397",
+      "resolvedTaxonId": "13397"
+    },
+    {
+      "id": "hapalochlaena-lunulata",
+      "name": "Hapalochlaena lunulata",
+      "ncbiTaxonId": "102866",
+      "resolvedTaxonId": "102866"
+    },
+    {
+      "id": "phoenicopterus-roseus",
+      "name": "Phoenicopterus roseus",
+      "ncbiTaxonId": "435638",
+      "resolvedTaxonId": "435638"
+    },
+    {
+      "id": "iguana-iguana",
+      "name": "Iguana iguana",
+      "ncbiTaxonId": "8517",
+      "resolvedTaxonId": "8517"
+    },
+    {
+      "id": "chelonia-mydas",
+      "name": "Chelonia mydas",
+      "ncbiTaxonId": "8469",
+      "resolvedTaxonId": "8469"
+    },
+    {
+      "id": "haliotis-rufescens",
+      "name": "Haliotis rufescens",
+      "ncbiTaxonId": "6454",
+      "resolvedTaxonId": "6454"
+    },
+    {
+      "id": "harmonia-axyridis",
+      "name": "Harmonia axyridis",
+      "ncbiTaxonId": "115357",
+      "resolvedTaxonId": "115357"
+    },
+    {
+      "id": "eretmochelys-imbricata",
+      "name": "Eretmochelys imbricata",
+      "ncbiTaxonId": "27787",
+      "resolvedTaxonId": "27787"
+    },
+    {
+      "id": "cryptobranchus-alleganiensis",
+      "name": "Cryptobranchus alleganiensis",
+      "ncbiTaxonId": "43048",
+      "resolvedTaxonId": "43048"
+    },
+    {
+      "id": "hippocampus-kuda",
+      "name": "Hippocampus kuda",
+      "ncbiTaxonId": "103715",
+      "resolvedTaxonId": "103715"
+    },
+    {
+      "id": "hippopotamus-amphibius",
+      "name": "Hippopotamus amphibius",
+      "ncbiTaxonId": "9833",
+      "resolvedTaxonId": "9833"
+    },
+    {
+      "id": "hirudo-medicinalis",
+      "name": "Hirudo medicinalis",
+      "ncbiTaxonId": "6421",
+      "resolvedTaxonId": "6421"
+    },
+    {
+      "id": "hoilungia-hongkongensis",
+      "name": "Hoilungia hongkongensis",
+      "ncbiTaxonId": "1964320",
+      "resolvedTaxonId": "1964320"
+    },
+    {
+      "id": "holothuria-edulis",
+      "name": "Holothuria edulis",
+      "ncbiTaxonId": "206668",
+      "resolvedTaxonId": "206668"
+    },
+    {
+      "id": "mus-musculus",
+      "name": "Mus musculus",
+      "ncbiTaxonId": "10090",
+      "resolvedTaxonId": "10090"
+    },
+    {
+      "id": "passer-domesticus",
+      "name": "Passer domesticus",
+      "ncbiTaxonId": "48849",
+      "resolvedTaxonId": "48849"
+    },
+    {
+      "id": "homo-sapiens",
+      "name": "Homo sapiens",
+      "ncbiTaxonId": "9606",
+      "resolvedTaxonId": "9606"
+    },
+    {
+      "id": "hydra-vulgaris",
+      "name": "Hydra vulgaris",
+      "ncbiTaxonId": "6087",
+      "resolvedTaxonId": "6087"
+    },
+    {
+      "id": "naja-naja",
+      "name": "Naja naja",
+      "ncbiTaxonId": "35670",
+      "resolvedTaxonId": "35670"
+    },
+    {
+      "id": "rhinoceros-unicornis",
+      "name": "Rhinoceros unicornis",
+      "ncbiTaxonId": "9809",
+      "resolvedTaxonId": "9809"
+    },
+    {
+      "id": "latimeria-menadoensis",
+      "name": "Latimeria menadoensis",
+      "ncbiTaxonId": "106881",
+      "resolvedTaxonId": "106881"
+    },
+    {
+      "id": "podarcis-siculus",
+      "name": "Podarcis siculus",
+      "ncbiTaxonId": "65484",
+      "resolvedTaxonId": "65484"
+    },
+    {
+      "id": "ixodes-scapularis",
+      "name": "Ixodes scapularis",
+      "ncbiTaxonId": "6945",
+      "resolvedTaxonId": "6945"
+    },
+    {
+      "id": "panthera-onca",
+      "name": "Panthera onca",
+      "ncbiTaxonId": "9690",
+      "resolvedTaxonId": "9690"
+    },
+    {
+      "id": "andrias-japonicus",
+      "name": "Andrias japonicus",
+      "ncbiTaxonId": "166789",
+      "resolvedTaxonId": "166789"
+    },
+    {
+      "id": "coturnix-japonica",
+      "name": "Coturnix japonica",
+      "ncbiTaxonId": "93934",
+      "resolvedTaxonId": "93934"
+    },
+    {
+      "id": "ophiophagus-hannah",
+      "name": "Ophiophagus hannah",
+      "ncbiTaxonId": "8665",
+      "resolvedTaxonId": "8665"
+    },
+    {
+      "id": "phascolarctos-cinereus",
+      "name": "Phascolarctos cinereus",
+      "ncbiTaxonId": "38626",
+      "resolvedTaxonId": "38626"
+    },
+    {
+      "id": "varanus-komodoensis",
+      "name": "Varanus komodoensis",
+      "ncbiTaxonId": "61221",
+      "resolvedTaxonId": "61221"
+    },
+    {
+      "id": "pristis-pristis",
+      "name": "Pristis pristis",
+      "ncbiTaxonId": "1577861",
+      "resolvedTaxonId": "1577861"
+    },
+    {
+      "id": "latrodectus-mactans",
+      "name": "Latrodectus mactans",
+      "ncbiTaxonId": "6924",
+      "resolvedTaxonId": "6924"
+    },
+    {
+      "id": "limax-maximus",
+      "name": "Limax maximus",
+      "ncbiTaxonId": "146086",
+      "resolvedTaxonId": "146086"
+    },
+    {
+      "id": "hippocampus-erectus",
+      "name": "Hippocampus erectus",
+      "ncbiTaxonId": "109281",
+      "resolvedTaxonId": "109281"
+    },
+    {
+      "id": "panthera-leo",
+      "name": "Panthera leo",
+      "ncbiTaxonId": "9689",
+      "resolvedTaxonId": "9689"
+    },
+    {
+      "id": "cyanea-capillata",
+      "name": "Cyanea capillata",
+      "ncbiTaxonId": "27804",
+      "resolvedTaxonId": "27804"
+    },
+    {
+      "id": "leucoraja-erinacea",
+      "name": "Leucoraja erinacea",
+      "ncbiTaxonId": "7782",
+      "resolvedTaxonId": "7782"
+    },
+    {
+      "id": "lepisosteus-osseus",
+      "name": "Lepisosteus osseus",
+      "ncbiTaxonId": "34771",
+      "resolvedTaxonId": "34771"
+    },
+    {
+      "id": "lumbricus-terrestris",
+      "name": "Lumbricus terrestris",
+      "ncbiTaxonId": "6398",
+      "resolvedTaxonId": "6398"
+    },
+    {
+      "id": "lymnaea-stagnalis",
+      "name": "Lymnaea stagnalis",
+      "ncbiTaxonId": "6523",
+      "resolvedTaxonId": "6523"
+    },
+    {
+      "id": "macrobiotus-shonaicus",
+      "name": "Macrobiotus shonaicus",
+      "ncbiTaxonId": "2107653",
+      "resolvedTaxonId": "2107653"
+    },
+    {
+      "id": "anas-platyrhynchos",
+      "name": "Anas platyrhynchos",
+      "ncbiTaxonId": "8839",
+      "resolvedTaxonId": "8839"
+    },
+    {
+      "id": "tenebrio-molitor",
+      "name": "Tenebrio molitor",
+      "ncbiTaxonId": "7067",
+      "resolvedTaxonId": "7067"
+    },
+    {
+      "id": "megachasma-pelagios",
+      "name": "Megachasma pelagios",
+      "ncbiTaxonId": "57985",
+      "resolvedTaxonId": "57985"
+    },
+    {
+      "id": "metridium-senile",
+      "name": "Metridium senile",
+      "ncbiTaxonId": "6116",
+      "resolvedTaxonId": "6116"
+    },
+    {
+      "id": "locusta-migratoria",
+      "name": "Locusta migratoria",
+      "ncbiTaxonId": "7004",
+      "resolvedTaxonId": "7004"
+    },
+    {
+      "id": "danaus-plexippus",
+      "name": "Danaus plexippus",
+      "ncbiTaxonId": "13037",
+      "resolvedTaxonId": "13037"
+    },
+    {
+      "id": "crocodylus-niloticus",
+      "name": "Crocodylus niloticus",
+      "ncbiTaxonId": "8501",
+      "resolvedTaxonId": "8501"
+    },
+    {
+      "id": "dasypus-novemcinctus",
+      "name": "Dasypus novemcinctus",
+      "ncbiTaxonId": "9361",
+      "resolvedTaxonId": "9361"
+    },
+    {
+      "id": "apteryx-mantelli",
+      "name": "Apteryx mantelli",
+      "ncbiTaxonId": "2696672",
+      "resolvedTaxonId": "2696672"
+    },
+    {
+      "id": "giraffa-camelopardalis",
+      "name": "Giraffa camelopardalis",
+      "ncbiTaxonId": "9894",
+      "resolvedTaxonId": "9894"
+    },
+    {
+      "id": "mola-mola",
+      "name": "Mola mola",
+      "ncbiTaxonId": "94237",
+      "resolvedTaxonId": "94237"
+    },
+    {
+      "id": "amphiprion-ocellaris",
+      "name": "Amphiprion ocellaris",
+      "ncbiTaxonId": "80972",
+      "resolvedTaxonId": "80972"
+    },
+    {
+      "id": "oikopleura-dioica",
+      "name": "Oikopleura dioica",
+      "ncbiTaxonId": "34765",
+      "resolvedTaxonId": "34765"
+    },
+    {
+      "id": "okapia-johnstoni",
+      "name": "Okapia johnstoni",
+      "ncbiTaxonId": "86973",
+      "resolvedTaxonId": "86973"
+    },
+    {
+      "id": "ophiothrix-fragilis",
+      "name": "Ophiothrix fragilis",
+      "ncbiTaxonId": "70180",
+      "resolvedTaxonId": "70180"
+    },
+    {
+      "id": "orcinus-orca",
+      "name": "Orcinus orca",
+      "ncbiTaxonId": "9733",
+      "resolvedTaxonId": "9733"
+    },
+    {
+      "id": "eptatretus-stoutii",
+      "name": "Eptatretus stoutii",
+      "ncbiTaxonId": "7765",
+      "resolvedTaxonId": "7765"
+    },
+    {
+      "id": "crassostrea-gigas",
+      "name": "Crassostrea gigas",
+      "ncbiTaxonId": "29159",
+      "resolvedTaxonId": "29159"
+    },
+    {
+      "id": "papilio-machaon",
+      "name": "Papilio machaon",
+      "ncbiTaxonId": "76193",
+      "resolvedTaxonId": "76193"
+    },
+    {
+      "id": "paracentrotus-lividus",
+      "name": "Paracentrotus lividus",
+      "ncbiTaxonId": "7656",
+      "resolvedTaxonId": "7656"
+    },
+    {
+      "id": "parasteatoda-tepidariorum",
+      "name": "Parasteatoda tepidariorum",
+      "ncbiTaxonId": "114398",
+      "resolvedTaxonId": "114398"
+    },
+    {
+      "id": "penaeus-monodon",
+      "name": "Penaeus monodon",
+      "ncbiTaxonId": "6687",
+      "resolvedTaxonId": "6687"
+    },
+    {
+      "id": "falco-peregrinus",
+      "name": "Falco peregrinus",
+      "ncbiTaxonId": "8954",
+      "resolvedTaxonId": "8954"
+    },
+    {
+      "id": "pisaster-ochraceus",
+      "name": "Pisaster ochraceus",
+      "ncbiTaxonId": "7612",
+      "resolvedTaxonId": "7612"
+    },
+    {
+      "id": "equus-quagga",
+      "name": "Equus quagga",
+      "ncbiTaxonId": "89248",
+      "resolvedTaxonId": "89248"
+    },
+    {
+      "id": "platynereis-dumerilii",
+      "name": "Platynereis dumerilii",
+      "ncbiTaxonId": "6359",
+      "resolvedTaxonId": "6359"
+    },
+    {
+      "id": "ornithorhynchus-anatinus",
+      "name": "Ornithorhynchus anatinus",
+      "ncbiTaxonId": "9258",
+      "resolvedTaxonId": "9258"
+    },
+    {
+      "id": "pleurobrachia-pileus",
+      "name": "Pleurobrachia pileus",
+      "ncbiTaxonId": "140457",
+      "resolvedTaxonId": "140457"
+    },
+    {
+      "id": "ursus-maritimus",
+      "name": "Ursus maritimus",
+      "ncbiTaxonId": "29073",
+      "resolvedTaxonId": "29073"
+    },
+    {
+      "id": "physalia-physalis",
+      "name": "Physalia physalis",
+      "ncbiTaxonId": "168775",
+      "resolvedTaxonId": "168775"
+    },
+    {
+      "id": "priapulus-caudatus",
+      "name": "Priapulus caudatus",
+      "ncbiTaxonId": "37621",
+      "resolvedTaxonId": "37621"
+    },
+    {
+      "id": "strongylocentrotus-purpuratus",
+      "name": "Strongylocentrotus purpuratus",
+      "ncbiTaxonId": "7668",
+      "resolvedTaxonId": "7668"
+    },
+    {
+      "id": "oncorhynchus-mykiss",
+      "name": "Oncorhynchus mykiss",
+      "ncbiTaxonId": "8022",
+      "resolvedTaxonId": "8022"
+    },
+    {
+      "id": "vulpes-vulpes",
+      "name": "Vulpes vulpes",
+      "ncbiTaxonId": "9627",
+      "resolvedTaxonId": "9627"
+    },
+    {
+      "id": "solenopsis-invicta",
+      "name": "Solenopsis invicta",
+      "ncbiTaxonId": "13686",
+      "resolvedTaxonId": "13686"
+    },
+    {
+      "id": "gallus-gallus",
+      "name": "Gallus gallus",
+      "ncbiTaxonId": "9031",
+      "resolvedTaxonId": "9031"
+    },
+    {
+      "id": "pterois-volitans",
+      "name": "Pterois volitans",
+      "ncbiTaxonId": "185886",
+      "resolvedTaxonId": "185886"
+    },
+    {
+      "id": "ailurus-fulgens",
+      "name": "Ailurus fulgens",
+      "ncbiTaxonId": "9649",
+      "resolvedTaxonId": "9649"
+    },
+    {
+      "id": "riftia-pachyptila",
+      "name": "Riftia pachyptila",
+      "ncbiTaxonId": "6426",
+      "resolvedTaxonId": "6426"
+    },
+    {
+      "id": "lemur-catta",
+      "name": "Lemur catta",
+      "ncbiTaxonId": "9447",
+      "resolvedTaxonId": "9447"
+    },
+    {
+      "id": "columba-livia",
+      "name": "Columba livia",
+      "ncbiTaxonId": "8932",
+      "resolvedTaxonId": "8932"
+    },
+    {
+      "id": "crocodylus-porosus",
+      "name": "Crocodylus porosus",
+      "ncbiTaxonId": "8502",
+      "resolvedTaxonId": "8502"
+    },
+    {
+      "id": "ara-macao",
+      "name": "Ara macao",
+      "ncbiTaxonId": "176014",
+      "resolvedTaxonId": "176014"
+    },
+    {
+      "id": "schmidtea-mediterranea",
+      "name": "Schmidtea mediterranea",
+      "ncbiTaxonId": "79327",
+      "resolvedTaxonId": "79327"
+    },
+    {
+      "id": "scolopendra-gigantea",
+      "name": "Scolopendra gigantea",
+      "ncbiTaxonId": "3157688",
+      "resolvedTaxonId": "3157688"
+    },
+    {
+      "id": "petromyzon-marinus",
+      "name": "Petromyzon marinus",
+      "ncbiTaxonId": "7757",
+      "resolvedTaxonId": "7757"
+    },
+    {
+      "id": "balaeniceps-rex",
+      "name": "Balaeniceps rex",
+      "ncbiTaxonId": "33584",
+      "resolvedTaxonId": "33584"
+    },
+    {
+      "id": "tachyglossus-aculeatus",
+      "name": "Tachyglossus aculeatus",
+      "ncbiTaxonId": "9261",
+      "resolvedTaxonId": "9261"
+    },
+    {
+      "id": "isurus-oxyrinchus",
+      "name": "Isurus oxyrinchus",
+      "ncbiTaxonId": "57983",
+      "resolvedTaxonId": "57983"
+    },
+    {
+      "id": "betta-splendens",
+      "name": "Betta splendens",
+      "ncbiTaxonId": "158456",
+      "resolvedTaxonId": "158456"
+    },
+    {
+      "id": "panthera-uncia",
+      "name": "Panthera uncia",
+      "ncbiTaxonId": "29064",
+      "resolvedTaxonId": "29064"
+    },
+    {
+      "id": "casuarius-casuarius",
+      "name": "Casuarius casuarius",
+      "ncbiTaxonId": "8787",
+      "resolvedTaxonId": "8787"
+    },
+    {
+      "id": "spongilla-lacustris",
+      "name": "Spongilla lacustris",
+      "ncbiTaxonId": "6055",
+      "resolvedTaxonId": "6055"
+    },
+    {
+      "id": "nematostella-vectensis",
+      "name": "Nematostella vectensis",
+      "ncbiTaxonId": "45351",
+      "resolvedTaxonId": "45351"
+    },
+    {
+      "id": "stichopus-chloronotus",
+      "name": "Stichopus chloronotus",
+      "ncbiTaxonId": "240144",
+      "resolvedTaxonId": "240144"
+    },
+    {
+      "id": "sycon-ciliatum",
+      "name": "Sycon ciliatum",
+      "ncbiTaxonId": "27933",
+      "resolvedTaxonId": "27933"
+    },
+    {
+      "id": "symsagittifera-roscoffensis",
+      "name": "Symsagittifera roscoffensis",
+      "ncbiTaxonId": "84072",
+      "resolvedTaxonId": "84072"
+    },
+    {
+      "id": "tachypleus-tridentatus",
+      "name": "Tachypleus tridentatus",
+      "ncbiTaxonId": "6853",
+      "resolvedTaxonId": "6853"
+    },
+    {
+      "id": "taenia-solium",
+      "name": "Taenia solium",
+      "ncbiTaxonId": "6204",
+      "resolvedTaxonId": "6204"
+    },
+    {
+      "id": "tethya-aurantium",
+      "name": "Tethya aurantium",
+      "ncbiTaxonId": "281732",
+      "resolvedTaxonId": "281732"
+    },
+    {
+      "id": "raja-clavata",
+      "name": "Raja clavata",
+      "ncbiTaxonId": "7781",
+      "resolvedTaxonId": "7781"
+    },
+    {
+      "id": "panthera-tigris",
+      "name": "Panthera tigris",
+      "ncbiTaxonId": "9694",
+      "resolvedTaxonId": "9694"
+    },
+    {
+      "id": "ambystoma-tigrinum",
+      "name": "Ambystoma tigrinum",
+      "ncbiTaxonId": "8305",
+      "resolvedTaxonId": "8305"
+    },
+    {
+      "id": "trichinella-spiralis",
+      "name": "Trichinella spiralis",
+      "ncbiTaxonId": "6334",
+      "resolvedTaxonId": "6334"
+    },
+    {
+      "id": "triops-cancriformis",
+      "name": "Triops cancriformis",
+      "ncbiTaxonId": "194544",
+      "resolvedTaxonId": "194544"
+    },
+    {
+      "id": "chamaeleo-calyptratus",
+      "name": "Chamaeleo calyptratus",
+      "ncbiTaxonId": "179908",
+      "resolvedTaxonId": "179908"
+    },
+    {
+      "id": "cestum-veneris",
+      "name": "Cestum veneris",
+      "ncbiTaxonId": "12997",
+      "resolvedTaxonId": "12997"
+    },
+    {
+      "id": "euplectella-aspergillum",
+      "name": "Euplectella aspergillum",
+      "ncbiTaxonId": "936045",
+      "resolvedTaxonId": "936045"
+    },
+    {
+      "id": "protopterus-annectens",
+      "name": "Protopterus annectens",
+      "ncbiTaxonId": "7888",
+      "resolvedTaxonId": "7888"
+    },
+    {
+      "id": "trichechus-manatus",
+      "name": "Trichechus manatus",
+      "ncbiTaxonId": "9778",
+      "resolvedTaxonId": "9778"
+    },
+    {
+      "id": "latimeria-chalumnae",
+      "name": "Latimeria chalumnae",
+      "ncbiTaxonId": "7897",
+      "resolvedTaxonId": "7897"
+    },
+    {
+      "id": "tyto-alba",
+      "name": "Tyto alba",
+      "ncbiTaxonId": "56313",
+      "resolvedTaxonId": "56313"
+    },
+    {
+      "id": "crotalus-atrox",
+      "name": "Crotalus atrox",
+      "ncbiTaxonId": "8730",
+      "resolvedTaxonId": "8730"
+    },
+    {
+      "id": "gorilla-gorilla",
+      "name": "Gorilla gorilla",
+      "ncbiTaxonId": "9593",
+      "resolvedTaxonId": "9593"
+    },
+    {
+      "id": "apis-mellifera",
+      "name": "Apis mellifera",
+      "ncbiTaxonId": "7460",
+      "resolvedTaxonId": "7460"
+    },
+    {
+      "id": "rhincodon-typus",
+      "name": "Rhincodon typus",
+      "ncbiTaxonId": "259920",
+      "resolvedTaxonId": "259920"
+    },
+    {
+      "id": "canis-lupus",
+      "name": "Canis lupus",
+      "ncbiTaxonId": "9612",
+      "resolvedTaxonId": "9612"
+    },
+    {
+      "id": "xenoturbella-bocki",
+      "name": "Xenoturbella bocki",
+      "ncbiTaxonId": "242395",
+      "resolvedTaxonId": "242395"
+    },
+    {
+      "id": "danio-rerio",
+      "name": "Danio rerio",
+      "ncbiTaxonId": "7955",
+      "resolvedTaxonId": "7955"
+    }
+  ],
+  "taxa": [
+    {
+      "name": "Acari",
+      "originalRank": "subclass",
+      "selectedRank": "subclass",
+      "nameKo": "응애아강",
+      "decision": "국립생물자원관 2019 국가생물종목록의 계급과 한글명을 채택합니다.",
+      "nibr2019": {
+        "rank": "subclass",
+        "nameKo": "응애아강",
+        "pdfPage": 52
+      },
+      "nibr2025": null,
+      "ncbi": {
+        "id": "6933",
+        "name": "Acari",
+        "rank": "subclass"
+      },
+      "worms": [
+        {
+          "AphiaID": 292684,
+          "scientificname": "Acari",
+          "rank": "Subclass",
+          "status": "accepted",
+          "valid_name": "Acari",
+          "valid_AphiaID": 292684,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=292684",
+          "modified": "2016-09-22T08:50:16.167Z"
+        }
+      ],
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 II (2019), PDF 52쪽",
+          "https://www.nibr.go.kr/aiibook/catImage/21/National%20Species%202.pdf#page=52"
+        ],
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=6933&mode=Info"
+        ],
+        [
+          "WoRMS: Subclass / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=292684"
+        ]
+      ],
+      "koreanNameStatus": "domestic-official",
+      "coverage": "existing",
+      "taxonId": "Q19137"
+    },
+    {
+      "name": "Actinopoda",
+      "originalRank": "subclass",
+      "selectedRank": "subclass",
+      "nameKo": "Actinopoda",
+      "decision": "WoRMS에서 확인한 계급을 채택합니다.",
+      "nibr2019": null,
+      "nibr2025": null,
+      "ncbi": null,
+      "worms": [
+        {
+          "AphiaID": 1393249,
+          "scientificname": "Actinopoda",
+          "rank": "Subclass",
+          "status": "accepted",
+          "valid_name": "Actinopoda",
+          "valid_AphiaID": 1393249,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=1393249",
+          "modified": "2019-12-17T19:34:03.573Z"
+        }
+      ],
+      "sources": [
+        [
+          "WoRMS: Subclass / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=1393249"
+        ]
+      ],
+      "koreanNameStatus": "game-label-or-scientific-name",
+      "coverage": "existing",
+      "taxonId": "Q136500323"
+    },
+    {
+      "name": "Actinopteri",
+      "originalRank": "class",
+      "selectedRank": "clade",
+      "nameKo": "조기어류",
+      "decision": "NCBI는 강, WoRMS는 상강으로 취급합니다. 게임에서는 상위 Actinopterygii를 강으로 채택하여 이 중간 분류군에는 계급을 붙이지 않습니다.",
+      "nibr2019": null,
+      "nibr2025": null,
+      "ncbi": {
+        "id": "186623",
+        "name": "Actinopteri",
+        "rank": "class"
+      },
+      "worms": [
+        {
+          "AphiaID": 843664,
+          "scientificname": "Actinopteri",
+          "rank": "Superclass",
+          "status": "accepted",
+          "valid_name": "Actinopteri",
+          "valid_AphiaID": 843664,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=843664",
+          "modified": "2022-12-22T02:09:49.983Z"
+        }
+      ],
+      "sources": [
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=186623&mode=Info"
+        ],
+        [
+          "WoRMS: Superclass / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=843664"
+        ]
+      ],
+      "koreanNameStatus": "game-label-or-scientific-name",
+      "coverage": "existing",
+      "taxonId": "Q343460"
+    },
+    {
+      "name": "Actinopterygii",
+      "originalRank": "superclass",
+      "selectedRank": "class",
+      "nameKo": "조기어강",
+      "decision": "국립생물자원관의 조기강과 국립생태원의 조기어강은 Actinopterygii를 가리킵니다. 게임은 사용자가 선택한 조기어강 표기를 사용합니다.",
+      "nibr2019": {
+        "rank": "class",
+        "nameKo": "조기강",
+        "pdfPage": 16
+      },
+      "nibr2025": {
+        "rank": "class",
+        "namesKo": [
+          "조기강"
+        ]
+      },
+      "ncbi": {
+        "id": "7898",
+        "name": "Actinopterygii",
+        "rank": "superclass"
+      },
+      "worms": [
+        {
+          "AphiaID": 10194,
+          "scientificname": "Actinopterygii",
+          "rank": "Gigaclass",
+          "status": "accepted",
+          "valid_name": "Actinopterygii",
+          "valid_AphiaID": 10194,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=10194",
+          "modified": "2021-06-29T11:30:35.110Z"
+        }
+      ],
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 (2025년 말 기준)",
+          "https://www.kbr.go.kr/jfile/readDownloadFile.do?fileId=ARTICLE_2241&fileSeq=1"
+        ],
+        [
+          "국립생물자원관 국가생물종목록 II (2019), PDF 16쪽",
+          "https://www.nibr.go.kr/aiibook/catImage/21/National%20Species%202.pdf#page=16"
+        ],
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=7898&mode=Info"
+        ],
+        [
+          "WoRMS: Gigaclass / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=10194"
+        ],
+        [
+          "국립생태원: 돌고기 분류",
+          "https://www.nie.re.kr/nie/bbs/BDIDX_r44nuH08940bL4zPQ5asH6/view.do?boardId=2270264"
+        ]
+      ],
+      "koreanNameStatus": "domestic-official",
+      "coverage": "existing",
+      "taxonId": "Q127282"
+    },
+    {
+      "name": "Amphibia",
+      "originalRank": "class",
+      "selectedRank": "class",
+      "nameKo": "양서강",
+      "decision": "국립생물자원관의 2025년 말 기준 국가생물종목록의 강 계급과 확인된 한글명을 채택합니다.",
+      "nibr2019": null,
+      "nibr2025": {
+        "rank": "class",
+        "namesKo": [
+          "양서강"
+        ]
+      },
+      "ncbi": {
+        "id": "8292",
+        "name": "Amphibia",
+        "rank": "class"
+      },
+      "worms": [
+        {
+          "AphiaID": 178701,
+          "scientificname": "Amphibia",
+          "rank": "Class",
+          "status": "accepted",
+          "valid_name": "Amphibia",
+          "valid_AphiaID": 178701,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=178701",
+          "modified": "2006-07-12T13:39:10.973Z"
+        },
+        {
+          "AphiaID": 369335,
+          "scientificname": "Amphibia",
+          "rank": "Genus",
+          "status": "unaccepted",
+          "valid_name": "Bostrychia",
+          "valid_AphiaID": 143904,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=369335",
+          "modified": "2010-08-12T10:48:12.537Z"
+        }
+      ],
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 (2025년 말 기준)",
+          "https://www.kbr.go.kr/jfile/readDownloadFile.do?fileId=ARTICLE_2241&fileSeq=1"
+        ],
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=8292&mode=Info"
+        ],
+        [
+          "WoRMS: Class / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=178701"
+        ]
+      ],
+      "koreanNameStatus": "domestic-official",
+      "coverage": "existing",
+      "taxonId": "Q10908"
+    },
+    {
+      "name": "Anthozoa",
+      "originalRank": "subphylum",
+      "selectedRank": "class",
+      "nameKo": "산호충강",
+      "decision": "국립생물자원관의 강 계급과 한글명을 채택합니다. WoRMS에서는 아문으로 취급합니다.",
+      "nibr2019": {
+        "rank": "class",
+        "nameKo": "산호충강",
+        "pdfPage": 27
+      },
+      "nibr2025": {
+        "rank": "class",
+        "namesKo": [
+          "산호충강"
+        ]
+      },
+      "ncbi": {
+        "id": "6101",
+        "name": "Anthozoa",
+        "rank": "class"
+      },
+      "worms": [
+        {
+          "AphiaID": 1292,
+          "scientificname": "Anthozoa",
+          "rank": "Subphylum",
+          "status": "accepted",
+          "valid_name": "Anthozoa",
+          "valid_AphiaID": 1292,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=1292",
+          "modified": "2024-02-29T07:57:50.617Z"
+        }
+      ],
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 (2025년 말 기준)",
+          "https://www.kbr.go.kr/jfile/readDownloadFile.do?fileId=ARTICLE_2241&fileSeq=1"
+        ],
+        [
+          "국립생물자원관 국가생물종목록 II (2019), PDF 27쪽",
+          "https://www.nibr.go.kr/aiibook/catImage/21/National%20Species%202.pdf#page=27"
+        ],
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=6101&mode=Info"
+        ],
+        [
+          "WoRMS: Subphylum / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=1292"
+        ]
+      ],
+      "koreanNameStatus": "domestic-official",
+      "coverage": "existing",
+      "taxonId": "Q28524"
+    },
+    {
+      "name": "Appendicularia",
+      "originalRank": "class",
+      "selectedRank": "class",
+      "nameKo": "유형강",
+      "decision": "국립생물자원관의 2025년 말 기준 국가생물종목록의 강 계급과 확인된 한글명을 채택합니다.",
+      "nibr2019": null,
+      "nibr2025": {
+        "rank": "class",
+        "namesKo": [
+          "유형강"
+        ]
+      },
+      "ncbi": {
+        "id": "30302",
+        "name": "Appendicularia",
+        "rank": "class"
+      },
+      "worms": [
+        {
+          "AphiaID": 146421,
+          "scientificname": "Appendicularia",
+          "rank": "Class",
+          "status": "accepted",
+          "valid_name": "Appendicularia",
+          "valid_AphiaID": 146421,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=146421",
+          "modified": "2016-02-17T08:38:10.427Z"
+        },
+        {
+          "AphiaID": 103357,
+          "scientificname": "Appendicularia",
+          "rank": "Genus",
+          "status": "accepted",
+          "valid_name": "Appendicularia",
+          "valid_AphiaID": 103357,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=103357",
+          "modified": "2008-04-10T13:29:43.590Z"
+        }
+      ],
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 (2025년 말 기준)",
+          "https://www.kbr.go.kr/jfile/readDownloadFile.do?fileId=ARTICLE_2241&fileSeq=1"
+        ],
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=30302&mode=Info"
+        ],
+        [
+          "WoRMS: Class / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=146421"
+        ]
+      ],
+      "koreanNameStatus": "domestic-official",
+      "coverage": "existing",
+      "taxonId": "Q28960"
+    },
+    {
+      "name": "Arachnida",
+      "originalRank": "class",
+      "selectedRank": "class",
+      "nameKo": "거미강",
+      "decision": "국립생물자원관의 2025년 말 기준 국가생물종목록의 강 계급과 확인된 한글명을 채택합니다.",
+      "nibr2019": {
+        "rank": "class",
+        "nameKo": "거미강",
+        "pdfPage": 51
+      },
+      "nibr2025": {
+        "rank": "class",
+        "namesKo": [
+          "거미강"
+        ]
+      },
+      "ncbi": {
+        "id": "6854",
+        "name": "Arachnida",
+        "rank": "class"
+      },
+      "worms": [
+        {
+          "AphiaID": 1300,
+          "scientificname": "Arachnida",
+          "rank": "Class",
+          "status": "accepted",
+          "valid_name": "Arachnida",
+          "valid_AphiaID": 1300,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=1300",
+          "modified": "2004-12-21T15:54:05.437Z"
+        }
+      ],
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 (2025년 말 기준)",
+          "https://www.kbr.go.kr/jfile/readDownloadFile.do?fileId=ARTICLE_2241&fileSeq=1"
+        ],
+        [
+          "국립생물자원관 국가생물종목록 II (2019), PDF 51쪽",
+          "https://www.nibr.go.kr/aiibook/catImage/21/National%20Species%202.pdf#page=51"
+        ],
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=6854&mode=Info"
+        ],
+        [
+          "WoRMS: Class / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=1300"
+        ]
+      ],
+      "koreanNameStatus": "domestic-official",
+      "coverage": "existing",
+      "taxonId": "Q1358"
+    },
+    {
+      "name": "Articulata",
+      "originalRank": "subclass",
+      "selectedRank": "subclass",
+      "nameKo": "Articulata",
+      "decision": "NCBI에서 확인한 계급을 채택합니다.",
+      "nibr2019": null,
+      "nibr2025": null,
+      "ncbi": {
+        "id": "35070",
+        "name": "Articulata",
+        "rank": "subclass"
+      },
+      "worms": [
+        {
+          "AphiaID": 183494,
+          "scientificname": "Articulata",
+          "rank": "Subclass",
+          "status": "accepted",
+          "valid_name": "Articulata",
+          "valid_AphiaID": 183494,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=183494",
+          "modified": "2007-10-10T10:36:00.193Z"
+        },
+        {
+          "AphiaID": 147803,
+          "scientificname": "Articulata",
+          "rank": "Class",
+          "status": "unaccepted",
+          "valid_name": "Rhynchonelliformea",
+          "valid_AphiaID": 104018,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=147803",
+          "modified": "2023-09-06T00:34:00.553Z"
+        }
+      ],
+      "sources": [
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=35070&mode=Info"
+        ],
+        [
+          "WoRMS: Subclass / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=183494"
+        ],
+        [
+          "WoRMS: Class / unaccepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=147803"
+        ]
+      ],
+      "koreanNameStatus": "game-label-or-scientific-name",
+      "coverage": "existing",
+      "taxonId": "Q607044"
+    },
+    {
+      "name": "Ascidiacea",
+      "originalRank": "class",
+      "selectedRank": "class",
+      "nameKo": "해초강",
+      "decision": "국립생물자원관의 2025년 말 기준 국가생물종목록의 강 계급과 확인된 한글명을 채택합니다.",
+      "nibr2019": {
+        "rank": "class",
+        "nameKo": "해초강",
+        "pdfPage": 25
+      },
+      "nibr2025": {
+        "rank": "class",
+        "namesKo": [
+          "해초강"
+        ]
+      },
+      "ncbi": {
+        "id": "7713",
+        "name": "Ascidiacea",
+        "rank": "class"
+      },
+      "worms": [
+        {
+          "AphiaID": 1839,
+          "scientificname": "Ascidiacea",
+          "rank": "Class",
+          "status": "accepted",
+          "valid_name": "Ascidiacea",
+          "valid_AphiaID": 1839,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=1839",
+          "modified": "2015-12-14T10:51:48.090Z"
+        }
+      ],
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 (2025년 말 기준)",
+          "https://www.kbr.go.kr/jfile/readDownloadFile.do?fileId=ARTICLE_2241&fileSeq=1"
+        ],
+        [
+          "국립생물자원관 국가생물종목록 II (2019), PDF 25쪽",
+          "https://www.nibr.go.kr/aiibook/catImage/21/National%20Species%202.pdf#page=25"
+        ],
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=7713&mode=Info"
+        ],
+        [
+          "WoRMS: Class / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=1839"
+        ]
+      ],
+      "koreanNameStatus": "domestic-official",
+      "coverage": "existing",
+      "taxonId": "Q190090"
+    },
+    {
+      "name": "Aspidochirotacea",
+      "originalRank": "subclass",
+      "selectedRank": "subclass",
+      "nameKo": "순수아강",
+      "decision": "국립생물자원관 2019 국가생물종목록의 계급과 한글명을 채택합니다.",
+      "nibr2019": {
+        "rank": "subclass",
+        "nameKo": "순수아강",
+        "pdfPage": 72
+      },
+      "nibr2025": null,
+      "ncbi": {
+        "id": "7681",
+        "name": "Aspidochirotacea",
+        "rank": "subclass"
+      },
+      "worms": [],
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 II (2019), PDF 72쪽",
+          "https://www.nibr.go.kr/aiibook/catImage/21/National%20Species%202.pdf#page=72"
+        ],
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=7681&mode=Info"
+        ]
+      ],
+      "koreanNameStatus": "domestic-official",
+      "coverage": "existing",
+      "taxonId": "Q3625310"
+    },
+    {
+      "name": "Asteroidea",
+      "originalRank": "class",
+      "selectedRank": "class",
+      "nameKo": "불가사리강",
+      "decision": "국립생물자원관의 2025년 말 기준 국가생물종목록의 강 계급과 확인된 한글명을 채택합니다.",
+      "nibr2019": {
+        "rank": "class",
+        "nameKo": "불가사리강",
+        "pdfPage": 71
+      },
+      "nibr2025": {
+        "rank": "class",
+        "namesKo": [
+          "불가사리강"
+        ]
+      },
+      "ncbi": {
+        "id": "7588",
+        "name": "Asteroidea",
+        "rank": "class"
+      },
+      "worms": [
+        {
+          "AphiaID": 123080,
+          "scientificname": "Asteroidea",
+          "rank": "Class",
+          "status": "accepted",
+          "valid_name": "Asteroidea",
+          "valid_AphiaID": 123080,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=123080",
+          "modified": "2009-06-22T07:47:14.980Z"
+        }
+      ],
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 (2025년 말 기준)",
+          "https://www.kbr.go.kr/jfile/readDownloadFile.do?fileId=ARTICLE_2241&fileSeq=1"
+        ],
+        [
+          "국립생물자원관 국가생물종목록 II (2019), PDF 71쪽",
+          "https://www.nibr.go.kr/aiibook/catImage/21/National%20Species%202.pdf#page=71"
+        ],
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=7588&mode=Info"
+        ],
+        [
+          "WoRMS: Class / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=123080"
+        ]
+      ],
+      "koreanNameStatus": "domestic-official",
+      "coverage": "existing",
+      "taxonId": "Q25349"
+    },
+    {
+      "name": "Asterozoa",
+      "originalRank": "subphylum",
+      "selectedRank": "superclass",
+      "nameKo": "Asterozoa",
+      "decision": "NCBI에서 확인한 계급을 채택합니다.",
+      "nibr2019": null,
+      "nibr2025": null,
+      "ncbi": {
+        "id": "7587",
+        "name": "Asterozoa",
+        "rank": "superclass"
+      },
+      "worms": [
+        {
+          "AphiaID": 148743,
+          "scientificname": "Asterozoa",
+          "rank": "Subphylum",
+          "status": "accepted",
+          "valid_name": "Asterozoa",
+          "valid_AphiaID": 148743,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=148743",
+          "modified": "2021-10-18T09:38:40.080Z"
+        }
+      ],
+      "sources": [
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=7587&mode=Info"
+        ],
+        [
+          "WoRMS: Subphylum / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=148743"
+        ]
+      ],
+      "koreanNameStatus": "game-label-or-scientific-name",
+      "coverage": "existing",
+      "taxonId": "Q1407833"
+    },
+    {
+      "name": "Autobranchia",
+      "originalRank": "subclass",
+      "selectedRank": "clade",
+      "nameKo": "Autobranchia",
+      "decision": "국내 목록의 익형아강을 채택하므로 상위의 Autobranchia에는 게임에서 아강 계급을 붙이지 않습니다. WoRMS에서는 아강입니다.",
+      "nibr2019": null,
+      "nibr2025": null,
+      "ncbi": {
+        "id": "2785011",
+        "name": "Autobranchia",
+        "rank": "subclass"
+      },
+      "worms": [
+        {
+          "AphiaID": 1424948,
+          "scientificname": "Autobranchia",
+          "rank": "Subclass",
+          "status": "accepted",
+          "valid_name": "Autobranchia",
+          "valid_AphiaID": 1424948,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=1424948",
+          "modified": "2020-07-27T14:32:58.180Z"
+        }
+      ],
+      "sources": [
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=2785011&mode=Info"
+        ],
+        [
+          "WoRMS: Subclass / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=1424948"
+        ]
+      ],
+      "koreanNameStatus": "game-label-or-scientific-name",
+      "coverage": "existing",
+      "taxonId": "Q20992205"
+    },
+    {
+      "name": "Aves",
+      "originalRank": "class",
+      "selectedRank": "class",
+      "nameKo": "조강",
+      "decision": "국립생물자원관의 2025년 말 기준 국가생물종목록의 강 계급과 확인된 한글명을 채택합니다.",
+      "nibr2019": {
+        "rank": "class",
+        "nameKo": "조강",
+        "pdfPage": 21
+      },
+      "nibr2025": {
+        "rank": "class",
+        "namesKo": [
+          "조강"
+        ]
+      },
+      "ncbi": {
+        "id": "8782",
+        "name": "Aves",
+        "rank": "class"
+      },
+      "worms": [
+        {
+          "AphiaID": 1836,
+          "scientificname": "Aves",
+          "rank": "Class",
+          "status": "accepted",
+          "valid_name": "Aves",
+          "valid_AphiaID": 1836,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=1836",
+          "modified": "2021-06-29T11:14:19.757Z"
+        }
+      ],
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 (2025년 말 기준)",
+          "https://www.kbr.go.kr/jfile/readDownloadFile.do?fileId=ARTICLE_2241&fileSeq=1"
+        ],
+        [
+          "국립생물자원관 국가생물종목록 II (2019), PDF 21쪽",
+          "https://www.nibr.go.kr/aiibook/catImage/21/National%20Species%202.pdf#page=21"
+        ],
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=8782&mode=Info"
+        ],
+        [
+          "WoRMS: Class / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=1836"
+        ]
+      ],
+      "koreanNameStatus": "domestic-official",
+      "coverage": "existing",
+      "taxonId": "Q5113"
+    },
+    {
+      "name": "Bivalvia",
+      "originalRank": "class",
+      "selectedRank": "class",
+      "nameKo": "이매패강",
+      "decision": "국립생물자원관의 2025년 말 기준 국가생물종목록의 강 계급과 확인된 한글명을 채택합니다.",
+      "nibr2019": {
+        "rank": "class",
+        "nameKo": "이매패강",
+        "pdfPage": 45
+      },
+      "nibr2025": {
+        "rank": "class",
+        "namesKo": [
+          "이매패강"
+        ]
+      },
+      "ncbi": {
+        "id": "6544",
+        "name": "Bivalvia",
+        "rank": "class"
+      },
+      "worms": [
+        {
+          "AphiaID": 105,
+          "scientificname": "Bivalvia",
+          "rank": "Class",
+          "status": "accepted",
+          "valid_name": "Bivalvia",
+          "valid_AphiaID": 105,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=105",
+          "modified": "2019-08-08T17:02:58.460Z"
+        }
+      ],
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 (2025년 말 기준)",
+          "https://www.kbr.go.kr/jfile/readDownloadFile.do?fileId=ARTICLE_2241&fileSeq=1"
+        ],
+        [
+          "국립생물자원관 국가생물종목록 II (2019), PDF 45쪽",
+          "https://www.nibr.go.kr/aiibook/catImage/21/National%20Species%202.pdf#page=45"
+        ],
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=6544&mode=Info"
+        ],
+        [
+          "WoRMS: Class / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=105"
+        ]
+      ],
+      "koreanNameStatus": "domestic-official",
+      "coverage": "existing",
+      "taxonId": "Q25368"
+    },
+    {
+      "name": "Branchiopoda",
+      "originalRank": "class",
+      "selectedRank": "class",
+      "nameKo": "새각강",
+      "decision": "국립생물자원관의 2025년 말 기준 국가생물종목록의 강 계급과 확인된 한글명을 채택합니다.",
+      "nibr2019": {
+        "rank": "class",
+        "nameKo": "새각강",
+        "pdfPage": 56
+      },
+      "nibr2025": {
+        "rank": "class",
+        "namesKo": [
+          "새각강"
+        ]
+      },
+      "ncbi": {
+        "id": "6658",
+        "name": "Branchiopoda",
+        "rank": "class"
+      },
+      "worms": [
+        {
+          "AphiaID": 1290400,
+          "scientificname": "Branchiopoda",
+          "rank": "Genus",
+          "status": "unaccepted",
+          "valid_name": "Branchipus",
+          "valid_AphiaID": 1150178,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=1290400",
+          "modified": "2018-08-14T13:26:41.447Z"
+        },
+        {
+          "AphiaID": 1069,
+          "scientificname": "Branchiopoda",
+          "rank": "Class",
+          "status": "accepted",
+          "valid_name": "Branchiopoda",
+          "valid_AphiaID": 1069,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=1069",
+          "modified": "2022-09-02T08:22:57.837Z"
+        }
+      ],
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 (2025년 말 기준)",
+          "https://www.kbr.go.kr/jfile/readDownloadFile.do?fileId=ARTICLE_2241&fileSeq=1"
+        ],
+        [
+          "국립생물자원관 국가생물종목록 II (2019), PDF 56쪽",
+          "https://www.nibr.go.kr/aiibook/catImage/21/National%20Species%202.pdf#page=56"
+        ],
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=6658&mode=Info"
+        ],
+        [
+          "WoRMS: Class / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=1069"
+        ]
+      ],
+      "koreanNameStatus": "domestic-official",
+      "coverage": "existing",
+      "taxonId": "Q188360"
+    },
+    {
+      "name": "Calcarea",
+      "originalRank": "class",
+      "selectedRank": "class",
+      "nameKo": "석회해면강",
+      "decision": "국립생물자원관의 2025년 말 기준 국가생물종목록의 강 계급과 확인된 한글명을 채택합니다.",
+      "nibr2019": {
+        "rank": "class",
+        "nameKo": "석회해면강",
+        "pdfPage": 25
+      },
+      "nibr2025": {
+        "rank": "class",
+        "namesKo": [
+          "석회해면강"
+        ]
+      },
+      "ncbi": {
+        "id": "27929",
+        "name": "Calcarea",
+        "rank": "class"
+      },
+      "worms": [
+        {
+          "AphiaID": 559,
+          "scientificname": "Calcarea",
+          "rank": "Class",
+          "status": "accepted",
+          "valid_name": "Calcarea",
+          "valid_AphiaID": 559,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=559",
+          "modified": "2018-02-10T09:51:03.073Z"
+        }
+      ],
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 (2025년 말 기준)",
+          "https://www.kbr.go.kr/jfile/readDownloadFile.do?fileId=ARTICLE_2241&fileSeq=1"
+        ],
+        [
+          "국립생물자원관 국가생물종목록 II (2019), PDF 25쪽",
+          "https://www.nibr.go.kr/aiibook/catImage/21/National%20Species%202.pdf#page=25"
+        ],
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=27929&mode=Info"
+        ],
+        [
+          "WoRMS: Class / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=559"
+        ]
+      ],
+      "koreanNameStatus": "domestic-official",
+      "coverage": "existing",
+      "taxonId": "Q209924"
+    },
+    {
+      "name": "Calcaronea",
+      "originalRank": "subclass",
+      "selectedRank": "subclass",
+      "nameKo": "Calcaronea",
+      "decision": "NCBI에서 확인한 계급을 채택합니다.",
+      "nibr2019": null,
+      "nibr2025": null,
+      "ncbi": {
+        "id": "45124",
+        "name": "Calcaronea",
+        "rank": "subclass"
+      },
+      "worms": [
+        {
+          "AphiaID": 131584,
+          "scientificname": "Calcaronea",
+          "rank": "Subclass",
+          "status": "accepted",
+          "valid_name": "Calcaronea",
+          "valid_AphiaID": 131584,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=131584",
+          "modified": "2018-02-10T09:51:03.073Z"
+        }
+      ],
+      "sources": [
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=45124&mode=Info"
+        ],
+        [
+          "WoRMS: Subclass / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=131584"
+        ]
+      ],
+      "koreanNameStatus": "game-label-or-scientific-name",
+      "coverage": "existing",
+      "taxonId": "Q1985953"
+    },
+    {
+      "name": "Canalipalpata",
+      "originalRank": "infraclass",
+      "selectedRank": "infraclass",
+      "nameKo": "Canalipalpata",
+      "decision": "NCBI에서 확인한 계급을 채택합니다.",
+      "nibr2019": null,
+      "nibr2025": null,
+      "ncbi": {
+        "id": "105391",
+        "name": "Canalipalpata",
+        "rank": "infraclass"
+      },
+      "worms": [
+        {
+          "AphiaID": 154974,
+          "scientificname": "Canalipalpata",
+          "rank": "Infraclass",
+          "status": "accepted",
+          "valid_name": "Canalipalpata",
+          "valid_AphiaID": 154974,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=154974",
+          "modified": "2014-02-18T00:49:53.643Z"
+        }
+      ],
+      "sources": [
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=105391&mode=Info"
+        ],
+        [
+          "WoRMS: Infraclass / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=154974"
+        ]
+      ],
+      "koreanNameStatus": "game-label-or-scientific-name",
+      "coverage": "existing",
+      "taxonId": "Q3817224"
+    },
+    {
+      "name": "Carinacea",
+      "originalRank": "infraclass",
+      "selectedRank": "infraclass",
+      "nameKo": "Carinacea",
+      "decision": "WoRMS에서 확인한 계급을 채택합니다.",
+      "nibr2019": null,
+      "nibr2025": null,
+      "ncbi": null,
+      "worms": [
+        {
+          "AphiaID": 510517,
+          "scientificname": "Carinacea",
+          "rank": "Infraclass",
+          "status": "accepted",
+          "valid_name": "Carinacea",
+          "valid_AphiaID": 510517,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=510517",
+          "modified": "2011-02-13T21:48:11.267Z"
+        }
+      ],
+      "sources": [
+        [
+          "WoRMS: Infraclass / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=510517"
+        ]
+      ],
+      "koreanNameStatus": "game-label-or-scientific-name",
+      "coverage": "existing",
+      "taxonId": "Q15734708"
+    },
+    {
+      "name": "Cephalopoda",
+      "originalRank": "class",
+      "selectedRank": "class",
+      "nameKo": "두족강",
+      "decision": "국립생물자원관의 2025년 말 기준 국가생물종목록의 강 계급과 확인된 한글명을 채택합니다.",
+      "nibr2019": {
+        "rank": "class",
+        "nameKo": "두족강",
+        "pdfPage": 48
+      },
+      "nibr2025": {
+        "rank": "class",
+        "namesKo": [
+          "두족강"
+        ]
+      },
+      "ncbi": {
+        "id": "6605",
+        "name": "Cephalopoda",
+        "rank": "class"
+      },
+      "worms": [
+        {
+          "AphiaID": 11707,
+          "scientificname": "Cephalopoda",
+          "rank": "Class",
+          "status": "accepted",
+          "valid_name": "Cephalopoda",
+          "valid_AphiaID": 11707,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=11707",
+          "modified": "2021-02-26T11:45:47.413Z"
+        }
+      ],
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 (2025년 말 기준)",
+          "https://www.kbr.go.kr/jfile/readDownloadFile.do?fileId=ARTICLE_2241&fileSeq=1"
+        ],
+        [
+          "국립생물자원관 국가생물종목록 II (2019), PDF 48쪽",
+          "https://www.nibr.go.kr/aiibook/catImage/21/National%20Species%202.pdf#page=48"
+        ],
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=6605&mode=Info"
+        ],
+        [
+          "WoRMS: Class / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=11707"
+        ]
+      ],
+      "koreanNameStatus": "domestic-official",
+      "coverage": "existing",
+      "taxonId": "Q128257"
+    },
+    {
+      "name": "Cestoda",
+      "originalRank": "class",
+      "selectedRank": "class",
+      "nameKo": "조충강",
+      "decision": "국립생물자원관의 2025년 말 기준 국가생물종목록의 강 계급과 확인된 한글명을 채택합니다.",
+      "nibr2019": {
+        "rank": "class",
+        "nameKo": "조충강",
+        "pdfPage": 30
+      },
+      "nibr2025": {
+        "rank": "class",
+        "namesKo": [
+          "조충강"
+        ]
+      },
+      "ncbi": {
+        "id": "6199",
+        "name": "Cestoda",
+        "rank": "class"
+      },
+      "worms": [
+        {
+          "AphiaID": 1051,
+          "scientificname": "Cestoda",
+          "rank": "Class",
+          "status": "accepted",
+          "valid_name": "Cestoda",
+          "valid_AphiaID": 1051,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=1051",
+          "modified": "2019-01-22T21:17:12.750Z"
+        }
+      ],
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 (2025년 말 기준)",
+          "https://www.kbr.go.kr/jfile/readDownloadFile.do?fileId=ARTICLE_2241&fileSeq=1"
+        ],
+        [
+          "국립생물자원관 국가생물종목록 II (2019), PDF 30쪽",
+          "https://www.nibr.go.kr/aiibook/catImage/21/National%20Species%202.pdf#page=30"
+        ],
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=6199&mode=Info"
+        ],
+        [
+          "WoRMS: Class / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=1051"
+        ]
+      ],
+      "koreanNameStatus": "domestic-official",
+      "coverage": "existing",
+      "taxonId": "Q159715"
+    },
+    {
+      "name": "Chilopoda",
+      "originalRank": "class",
+      "selectedRank": "class",
+      "nameKo": "지네강",
+      "decision": "국립생물자원관의 2025년 말 기준 국가생물종목록의 강 계급과 확인된 한글명을 채택합니다.",
+      "nibr2019": {
+        "rank": "class",
+        "nameKo": "지네강",
+        "pdfPage": 66
+      },
+      "nibr2025": {
+        "rank": "class",
+        "namesKo": [
+          "지네강"
+        ]
+      },
+      "ncbi": {
+        "id": "7540",
+        "name": "Chilopoda",
+        "rank": "class"
+      },
+      "worms": [
+        {
+          "AphiaID": 1304,
+          "scientificname": "Chilopoda",
+          "rank": "Class",
+          "status": "accepted",
+          "valid_name": "Chilopoda",
+          "valid_AphiaID": 1304,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=1304",
+          "modified": "2023-09-08T14:48:21.073Z"
+        }
+      ],
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 (2025년 말 기준)",
+          "https://www.kbr.go.kr/jfile/readDownloadFile.do?fileId=ARTICLE_2241&fileSeq=1"
+        ],
+        [
+          "국립생물자원관 국가생물종목록 II (2019), PDF 66쪽",
+          "https://www.nibr.go.kr/aiibook/catImage/21/National%20Species%202.pdf#page=66"
+        ],
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=7540&mode=Info"
+        ],
+        [
+          "WoRMS: Class / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=1304"
+        ]
+      ],
+      "koreanNameStatus": "domestic-official",
+      "coverage": "existing",
+      "taxonId": "Q43447"
+    },
+    {
+      "name": "Chondrichthyes",
+      "originalRank": "class",
+      "selectedRank": "class",
+      "nameKo": "연골어강",
+      "decision": "국립생물자원관의 2025년 말 기준 국가생물종목록의 강 계급과 확인된 한글명을 채택합니다.",
+      "nibr2019": {
+        "rank": "class",
+        "nameKo": "연골어강",
+        "pdfPage": 15
+      },
+      "nibr2025": {
+        "rank": "class",
+        "namesKo": [
+          "연골어강"
+        ]
+      },
+      "ncbi": {
+        "id": "7777",
+        "name": "Chondrichthyes",
+        "rank": "class"
+      },
+      "worms": [
+        {
+          "AphiaID": 1517375,
+          "scientificname": "Chondrichthyes",
+          "rank": "Parvphylum",
+          "status": "accepted",
+          "valid_name": "Chondrichthyes",
+          "valid_AphiaID": 1517375,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=1517375",
+          "modified": "2021-06-29T11:25:15.153Z"
+        }
+      ],
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 (2025년 말 기준)",
+          "https://www.kbr.go.kr/jfile/readDownloadFile.do?fileId=ARTICLE_2241&fileSeq=1"
+        ],
+        [
+          "국립생물자원관 국가생물종목록 II (2019), PDF 15쪽",
+          "https://www.nibr.go.kr/aiibook/catImage/21/National%20Species%202.pdf#page=15"
+        ],
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=7777&mode=Info"
+        ]
+      ],
+      "koreanNameStatus": "domestic-official",
+      "coverage": "existing",
+      "taxonId": "Q25371"
+    },
+    {
+      "name": "Chromadorea",
+      "originalRank": "class",
+      "selectedRank": "class",
+      "nameKo": "크로마도레아강",
+      "decision": "국립생물자원관의 2025년 말 기준 국가생물종목록의 강 계급과 확인된 한글명을 채택합니다.",
+      "nibr2019": null,
+      "nibr2025": {
+        "rank": "class",
+        "namesKo": [
+          "크로마도레아강"
+        ]
+      },
+      "ncbi": {
+        "id": "119089",
+        "name": "Chromadorea",
+        "rank": "class"
+      },
+      "worms": [
+        {
+          "AphiaID": 731848,
+          "scientificname": "Chromadorea",
+          "rank": "Class",
+          "status": "accepted",
+          "valid_name": "Chromadorea",
+          "valid_AphiaID": 731848,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=731848",
+          "modified": "2020-10-30T16:46:02.733Z"
+        }
+      ],
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 (2025년 말 기준)",
+          "https://www.kbr.go.kr/jfile/readDownloadFile.do?fileId=ARTICLE_2241&fileSeq=1"
+        ],
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=119089&mode=Info"
+        ],
+        [
+          "WoRMS: Class / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=731848"
+        ]
+      ],
+      "koreanNameStatus": "domestic-official",
+      "coverage": "existing",
+      "taxonId": "Q1934949"
+    },
+    {
+      "name": "Clitellata",
+      "originalRank": "class",
+      "selectedRank": "class",
+      "nameKo": "환대강",
+      "decision": "국립생물자원관의 2025년 말 기준 국가생물종목록의 강 계급과 확인된 한글명을 채택합니다.",
+      "nibr2019": {
+        "rank": "class",
+        "nameKo": "환대강",
+        "pdfPage": 49
+      },
+      "nibr2025": {
+        "rank": "class",
+        "namesKo": [
+          "환대강"
+        ]
+      },
+      "ncbi": {
+        "id": "42113",
+        "name": "Clitellata",
+        "rank": "class"
+      },
+      "worms": [
+        {
+          "AphiaID": 14165,
+          "scientificname": "Clitellata",
+          "rank": "Class",
+          "status": "accepted",
+          "valid_name": "Clitellata",
+          "valid_AphiaID": 14165,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=14165",
+          "modified": "2021-06-09T01:51:35.510Z"
+        }
+      ],
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 (2025년 말 기준)",
+          "https://www.kbr.go.kr/jfile/readDownloadFile.do?fileId=ARTICLE_2241&fileSeq=1"
+        ],
+        [
+          "국립생물자원관 국가생물종목록 II (2019), PDF 49쪽",
+          "https://www.nibr.go.kr/aiibook/catImage/21/National%20Species%202.pdf#page=49"
+        ],
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=42113&mode=Info"
+        ],
+        [
+          "WoRMS: Class / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=14165"
+        ]
+      ],
+      "koreanNameStatus": "domestic-official",
+      "coverage": "existing",
+      "taxonId": "Q839350"
+    },
+    {
+      "name": "Coelacanthi",
+      "originalRank": "class",
+      "selectedRank": "class",
+      "nameKo": "실러캔스강",
+      "decision": "WoRMS에서 확인한 계급을 채택합니다.",
+      "nibr2019": null,
+      "nibr2025": null,
+      "ncbi": null,
+      "worms": [
+        {
+          "AphiaID": 843665,
+          "scientificname": "Coelacanthi",
+          "rank": "Class",
+          "status": "alternative representation",
+          "valid_name": "Actinistia",
+          "valid_AphiaID": 1849342,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=843665",
+          "modified": "2026-08-03T23:30:50.313Z"
+        }
+      ],
+      "sources": [
+        [
+          "WoRMS: Class / alternative representation",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=843665"
+        ]
+      ],
+      "koreanNameStatus": "game-label-or-scientific-name",
+      "coverage": "existing",
+      "taxonId": "Q61881939"
+    },
+    {
+      "name": "Coleoidea",
+      "originalRank": "subclass",
+      "selectedRank": "subclass",
+      "nameKo": "Coleoidea",
+      "decision": "NCBI에서 확인한 계급을 채택합니다.",
+      "nibr2019": null,
+      "nibr2025": null,
+      "ncbi": {
+        "id": "6606",
+        "name": "Coleoidea",
+        "rank": "subclass"
+      },
+      "worms": [
+        {
+          "AphiaID": 11709,
+          "scientificname": "Coleoidea",
+          "rank": "Subclass",
+          "status": "accepted",
+          "valid_name": "Coleoidea",
+          "valid_AphiaID": 11709,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=11709",
+          "modified": "2018-02-07T15:28:10.423Z"
+        }
+      ],
+      "sources": [
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=6606&mode=Info"
+        ],
+        [
+          "WoRMS: Subclass / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=11709"
+        ]
+      ],
+      "koreanNameStatus": "game-label-or-scientific-name",
+      "coverage": "existing",
+      "taxonId": "Q749814"
+    },
+    {
+      "name": "Crinoidea",
+      "originalRank": "class",
+      "selectedRank": "class",
+      "nameKo": "바다나리강",
+      "decision": "국립생물자원관의 2025년 말 기준 국가생물종목록의 강 계급과 확인된 한글명을 채택합니다.",
+      "nibr2019": {
+        "rank": "class",
+        "nameKo": "바다나리강",
+        "pdfPage": 70
+      },
+      "nibr2025": {
+        "rank": "class",
+        "namesKo": [
+          "바다나리강"
+        ]
+      },
+      "ncbi": {
+        "id": "35069",
+        "name": "Crinoidea",
+        "rank": "class"
+      },
+      "worms": [
+        {
+          "AphiaID": 123081,
+          "scientificname": "Crinoidea",
+          "rank": "Class",
+          "status": "accepted",
+          "valid_name": "Crinoidea",
+          "valid_AphiaID": 123081,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=123081",
+          "modified": "2021-10-18T09:38:40.080Z"
+        }
+      ],
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 (2025년 말 기준)",
+          "https://www.kbr.go.kr/jfile/readDownloadFile.do?fileId=ARTICLE_2241&fileSeq=1"
+        ],
+        [
+          "국립생물자원관 국가생물종목록 II (2019), PDF 70쪽",
+          "https://www.nibr.go.kr/aiibook/catImage/21/National%20Species%202.pdf#page=70"
+        ],
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=35069&mode=Info"
+        ],
+        [
+          "WoRMS: Class / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=123081"
+        ]
+      ],
+      "koreanNameStatus": "domestic-official",
+      "coverage": "existing",
+      "taxonId": "Q33666"
+    },
+    {
+      "name": "Cubozoa",
+      "originalRank": "class",
+      "selectedRank": "class",
+      "nameKo": "입방해파리강",
+      "decision": "국립생물자원관의 2025년 말 기준 국가생물종목록의 강 계급과 확인된 한글명을 채택합니다.",
+      "nibr2019": {
+        "rank": "class",
+        "nameKo": "입방해파리강",
+        "pdfPage": 28
+      },
+      "nibr2025": {
+        "rank": "class",
+        "namesKo": [
+          "입방해파리강"
+        ]
+      },
+      "ncbi": {
+        "id": "6137",
+        "name": "Cubozoa",
+        "rank": "class"
+      },
+      "worms": [
+        {
+          "AphiaID": 135219,
+          "scientificname": "Cubozoa",
+          "rank": "Class",
+          "status": "accepted",
+          "valid_name": "Cubozoa",
+          "valid_AphiaID": 135219,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=135219",
+          "modified": "2024-02-29T07:57:50.617Z"
+        }
+      ],
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 (2025년 말 기준)",
+          "https://www.kbr.go.kr/jfile/readDownloadFile.do?fileId=ARTICLE_2241&fileSeq=1"
+        ],
+        [
+          "국립생물자원관 국가생물종목록 II (2019), PDF 28쪽",
+          "https://www.nibr.go.kr/aiibook/catImage/21/National%20Species%202.pdf#page=28"
+        ],
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=6137&mode=Info"
+        ],
+        [
+          "WoRMS: Class / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=135219"
+        ]
+      ],
+      "koreanNameStatus": "domestic-official",
+      "coverage": "existing",
+      "taxonId": "Q273179"
+    },
+    {
+      "name": "Cyclostomata",
+      "originalRank": "superclass",
+      "selectedRank": "clade",
+      "nameKo": "Cyclostomata",
+      "decision": "NCBI에서 해당 분류군의 계급을 확인하여 강 수준 계급으로 표시하지 않습니다.",
+      "nibr2019": null,
+      "nibr2025": null,
+      "ncbi": {
+        "id": "1476529",
+        "name": "Cyclostomata",
+        "rank": "clade"
+      },
+      "worms": [
+        {
+          "AphiaID": 160487,
+          "scientificname": "Cyclostomata",
+          "rank": "Order",
+          "status": "unaccepted",
+          "valid_name": "Cyclostomatida",
+          "valid_AphiaID": 110724,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=160487",
+          "modified": "2007-03-16T15:57:32.363Z"
+        }
+      ],
+      "sources": [
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1476529&mode=Info"
+        ]
+      ],
+      "koreanNameStatus": "game-label-or-scientific-name",
+      "coverage": "existing",
+      "taxonId": "Q500266"
+    },
+    {
+      "name": "Demospongiae",
+      "originalRank": "class",
+      "selectedRank": "class",
+      "nameKo": "보통해면강",
+      "decision": "국립생물자원관의 2025년 말 기준 국가생물종목록의 강 계급과 확인된 한글명을 채택합니다.",
+      "nibr2019": {
+        "rank": "class",
+        "nameKo": "보통해면강",
+        "pdfPage": 25
+      },
+      "nibr2025": {
+        "rank": "class",
+        "namesKo": [
+          "보통해면강"
+        ]
+      },
+      "ncbi": {
+        "id": "6042",
+        "name": "Demospongiae",
+        "rank": "class"
+      },
+      "worms": [
+        {
+          "AphiaID": 164811,
+          "scientificname": "Demospongiae",
+          "rank": "Class",
+          "status": "accepted",
+          "valid_name": "Demospongiae",
+          "valid_AphiaID": 164811,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=164811",
+          "modified": "2020-10-22T11:37:08.657Z"
+        }
+      ],
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 (2025년 말 기준)",
+          "https://www.kbr.go.kr/jfile/readDownloadFile.do?fileId=ARTICLE_2241&fileSeq=1"
+        ],
+        [
+          "국립생물자원관 국가생물종목록 II (2019), PDF 25쪽",
+          "https://www.nibr.go.kr/aiibook/catImage/21/National%20Species%202.pdf#page=25"
+        ],
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=6042&mode=Info"
+        ],
+        [
+          "WoRMS: Class / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=164811"
+        ]
+      ],
+      "koreanNameStatus": "domestic-official",
+      "coverage": "existing",
+      "taxonId": "Q248530"
+    },
+    {
+      "name": "Dipneusti",
+      "originalRank": "class",
+      "selectedRank": "class",
+      "nameKo": "폐어강",
+      "decision": "WoRMS에서 확인한 계급을 채택합니다.",
+      "nibr2019": null,
+      "nibr2025": null,
+      "ncbi": null,
+      "worms": [
+        {
+          "AphiaID": 843666,
+          "scientificname": "Dipneusti",
+          "rank": "Class",
+          "status": "alternative representation",
+          "valid_name": "Dipnoi",
+          "valid_AphiaID": 1849341,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=843666",
+          "modified": "2026-08-03T23:30:50.313Z"
+        }
+      ],
+      "sources": [
+        [
+          "WoRMS: Class / alternative representation",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=843666"
+        ]
+      ],
+      "koreanNameStatus": "game-label-or-scientific-name",
+      "coverage": "existing",
+      "taxonId": "Q61881941"
+    },
+    {
+      "name": "Discomedusae",
+      "originalRank": "subclass",
+      "selectedRank": "subclass",
+      "nameKo": "Discomedusae",
+      "decision": "WoRMS에서 확인한 계급을 채택합니다.",
+      "nibr2019": null,
+      "nibr2025": null,
+      "ncbi": null,
+      "worms": [
+        {
+          "AphiaID": 394976,
+          "scientificname": "Discomedusae",
+          "rank": "Subclass",
+          "status": "accepted",
+          "valid_name": "Discomedusae",
+          "valid_AphiaID": 394976,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=394976",
+          "modified": "2015-07-23T15:09:10.627Z"
+        }
+      ],
+      "sources": [
+        [
+          "WoRMS: Subclass / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=394976"
+        ]
+      ],
+      "koreanNameStatus": "game-label-or-scientific-name",
+      "coverage": "existing",
+      "taxonId": "Q1413884"
+    },
+    {
+      "name": "Dorylaimia",
+      "originalRank": "subclass",
+      "selectedRank": "subclass",
+      "nameKo": "Dorylaimia",
+      "decision": "NCBI에서 확인한 계급을 채택합니다.",
+      "nibr2019": null,
+      "nibr2025": null,
+      "ncbi": {
+        "id": "1457286",
+        "name": "Dorylaimia",
+        "rank": "subclass"
+      },
+      "worms": [
+        {
+          "AphiaID": 834581,
+          "scientificname": "Dorylaimia",
+          "rank": "Subclass",
+          "status": "accepted",
+          "valid_name": "Dorylaimia",
+          "valid_AphiaID": 834581,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=834581",
+          "modified": "2017-05-22T07:17:08.560Z"
+        }
+      ],
+      "sources": [
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1457286&mode=Info"
+        ],
+        [
+          "WoRMS: Subclass / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=834581"
+        ]
+      ],
+      "koreanNameStatus": "game-label-or-scientific-name",
+      "coverage": "existing",
+      "taxonId": "Q5217633"
+    },
+    {
+      "name": "Echinoidea",
+      "originalRank": "class",
+      "selectedRank": "class",
+      "nameKo": "성게강",
+      "decision": "국립생물자원관의 2025년 말 기준 국가생물종목록의 강 계급과 확인된 한글명을 채택합니다.",
+      "nibr2019": {
+        "rank": "class",
+        "nameKo": "성게강",
+        "pdfPage": 72
+      },
+      "nibr2025": {
+        "rank": "class",
+        "namesKo": [
+          "성게강"
+        ]
+      },
+      "ncbi": {
+        "id": "7625",
+        "name": "Echinoidea",
+        "rank": "class"
+      },
+      "worms": [
+        {
+          "AphiaID": 123082,
+          "scientificname": "Echinoidea",
+          "rank": "Class",
+          "status": "accepted",
+          "valid_name": "Echinoidea",
+          "valid_AphiaID": 123082,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=123082",
+          "modified": "2022-09-06T06:38:36.173Z"
+        }
+      ],
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 (2025년 말 기준)",
+          "https://www.kbr.go.kr/jfile/readDownloadFile.do?fileId=ARTICLE_2241&fileSeq=1"
+        ],
+        [
+          "국립생물자원관 국가생물종목록 II (2019), PDF 72쪽",
+          "https://www.nibr.go.kr/aiibook/catImage/21/National%20Species%202.pdf#page=72"
+        ],
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=7625&mode=Info"
+        ],
+        [
+          "WoRMS: Class / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=123082"
+        ]
+      ],
+      "koreanNameStatus": "domestic-official",
+      "coverage": "existing",
+      "taxonId": "Q83483"
+    },
+    {
+      "name": "Echinozoa",
+      "originalRank": "subphylum",
+      "selectedRank": "superclass",
+      "nameKo": "Echinozoa",
+      "decision": "NCBI에서 확인한 계급을 채택합니다.",
+      "nibr2019": null,
+      "nibr2025": null,
+      "ncbi": {
+        "id": "7624",
+        "name": "Echinozoa",
+        "rank": "superclass"
+      },
+      "worms": [
+        {
+          "AphiaID": 148744,
+          "scientificname": "Echinozoa",
+          "rank": "Subphylum",
+          "status": "accepted",
+          "valid_name": "Echinozoa",
+          "valid_AphiaID": 148744,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=148744",
+          "modified": "2021-10-18T09:38:40.080Z"
+        }
+      ],
+      "sources": [
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=7624&mode=Info"
+        ],
+        [
+          "WoRMS: Subphylum / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=148744"
+        ]
+      ],
+      "koreanNameStatus": "game-label-or-scientific-name",
+      "coverage": "existing",
+      "taxonId": "Q2698547"
+    },
+    {
+      "name": "Elasmobranchii",
+      "originalRank": "subclass",
+      "selectedRank": "subclass",
+      "nameKo": "Elasmobranchii",
+      "decision": "NCBI에서 확인한 계급을 채택합니다.",
+      "nibr2019": null,
+      "nibr2025": null,
+      "ncbi": {
+        "id": "7778",
+        "name": "Elasmobranchii",
+        "rank": "subclass"
+      },
+      "worms": [
+        {
+          "AphiaID": 10193,
+          "scientificname": "Elasmobranchii",
+          "rank": "Class",
+          "status": "accepted",
+          "valid_name": "Elasmobranchii",
+          "valid_AphiaID": 10193,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=10193",
+          "modified": "2021-06-29T11:30:35.110Z"
+        }
+      ],
+      "sources": [
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=7778&mode=Info"
+        ],
+        [
+          "WoRMS: Class / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=10193"
+        ]
+      ],
+      "koreanNameStatus": "game-label-or-scientific-name",
+      "coverage": "existing",
+      "taxonId": "Q194257"
+    },
+    {
+      "name": "Elpistostegalia",
+      "originalRank": "infraclass",
+      "selectedRank": "clade",
+      "nameKo": "Elpistostegalia",
+      "decision": "사족동물의 여러 강을 포함하는 계통 범위를 유지하며 게임에서는 계급을 붙이지 않습니다.",
+      "nibr2019": null,
+      "nibr2025": null,
+      "ncbi": null,
+      "worms": [],
+      "sources": [],
+      "koreanNameStatus": "game-label-or-scientific-name",
+      "coverage": "existing",
+      "taxonId": "Q150821"
+    },
+    {
+      "name": "Enoplea",
+      "originalRank": "class",
+      "selectedRank": "class",
+      "nameKo": "유침강",
+      "decision": "국립생물자원관의 2025년 말 기준 국가생물종목록의 강 계급과 확인된 한글명을 채택합니다.",
+      "nibr2019": {
+        "rank": "class",
+        "nameKo": "유침강",
+        "pdfPage": 36
+      },
+      "nibr2025": {
+        "rank": "class",
+        "namesKo": [
+          "유침강"
+        ]
+      },
+      "ncbi": {
+        "id": "119088",
+        "name": "Enoplea",
+        "rank": "class"
+      },
+      "worms": [
+        {
+          "AphiaID": 834422,
+          "scientificname": "Enoplea",
+          "rank": "Class",
+          "status": "accepted",
+          "valid_name": "Enoplea",
+          "valid_AphiaID": 834422,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=834422",
+          "modified": "2023-03-14T11:45:40.330Z"
+        }
+      ],
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 (2025년 말 기준)",
+          "https://www.kbr.go.kr/jfile/readDownloadFile.do?fileId=ARTICLE_2241&fileSeq=1"
+        ],
+        [
+          "국립생물자원관 국가생물종목록 II (2019), PDF 36쪽",
+          "https://www.nibr.go.kr/aiibook/catImage/21/National%20Species%202.pdf#page=36"
+        ],
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=119088&mode=Info"
+        ],
+        [
+          "WoRMS: Class / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=834422"
+        ]
+      ],
+      "koreanNameStatus": "domestic-official",
+      "coverage": "existing",
+      "taxonId": "Q1933805"
+    },
+    {
+      "name": "Enteropneusta",
+      "originalRank": "class",
+      "selectedRank": "class",
+      "nameKo": "장새강",
+      "decision": "국립생물자원관의 2025년 말 기준 국가생물종목록의 강 계급과 확인된 한글명을 채택합니다.",
+      "nibr2019": null,
+      "nibr2025": {
+        "rank": "class",
+        "namesKo": [
+          ""
+        ]
+      },
+      "ncbi": {
+        "id": "10220",
+        "name": "Enteropneusta",
+        "rank": "class"
+      },
+      "worms": [
+        {
+          "AphiaID": 1820,
+          "scientificname": "Enteropneusta",
+          "rank": "Class",
+          "status": "accepted",
+          "valid_name": "Enteropneusta",
+          "valid_AphiaID": 1820,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=1820",
+          "modified": "2011-08-31T21:00:22.420Z"
+        }
+      ],
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 (2025년 말 기준)",
+          "https://www.kbr.go.kr/jfile/readDownloadFile.do?fileId=ARTICLE_2241&fileSeq=1"
+        ],
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=10220&mode=Info"
+        ],
+        [
+          "WoRMS: Class / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=1820"
+        ]
+      ],
+      "koreanNameStatus": "game-label-or-scientific-name",
+      "coverage": "existing",
+      "taxonId": "Q589697"
+    },
+    {
+      "name": "Errantia",
+      "originalRank": "subclass",
+      "selectedRank": "subclass",
+      "nameKo": "유재아강",
+      "decision": "국립생물자원관 2019 국가생물종목록의 계급과 한글명을 채택합니다.",
+      "nibr2019": {
+        "rank": "subclass",
+        "nameKo": "유재아강",
+        "pdfPage": 49
+      },
+      "nibr2025": null,
+      "ncbi": {
+        "id": "105390",
+        "name": "Errantia",
+        "rank": "subclass"
+      },
+      "worms": [
+        {
+          "AphiaID": 754174,
+          "scientificname": "Errantia",
+          "rank": "Subclass",
+          "status": "accepted",
+          "valid_name": "Errantia",
+          "valid_AphiaID": 754174,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=754174",
+          "modified": "2015-03-07T02:40:30.850Z"
+        }
+      ],
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 II (2019), PDF 49쪽",
+          "https://www.nibr.go.kr/aiibook/catImage/21/National%20Species%202.pdf#page=49"
+        ],
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=105390&mode=Info"
+        ],
+        [
+          "WoRMS: Subclass / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=754174"
+        ]
+      ],
+      "koreanNameStatus": "domestic-official",
+      "coverage": "existing",
+      "taxonId": "Q6759542"
+    },
+    {
+      "name": "Eucestoda",
+      "originalRank": "subclass",
+      "selectedRank": "subclass",
+      "nameKo": "Eucestoda",
+      "decision": "NCBI에서 확인한 계급을 채택합니다.",
+      "nibr2019": null,
+      "nibr2025": null,
+      "ncbi": {
+        "id": "6200",
+        "name": "Eucestoda",
+        "rank": "subclass"
+      },
+      "worms": [
+        {
+          "AphiaID": 104909,
+          "scientificname": "Eucestoda",
+          "rank": "Subclass",
+          "status": "accepted",
+          "valid_name": "Eucestoda",
+          "valid_AphiaID": 104909,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=104909",
+          "modified": "2019-01-22T21:17:12.750Z"
+        }
+      ],
+      "sources": [
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=6200&mode=Info"
+        ],
+        [
+          "WoRMS: Subclass / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=104909"
+        ]
+      ],
+      "koreanNameStatus": "game-label-or-scientific-name",
+      "coverage": "existing",
+      "taxonId": "Q1280912"
+    },
+    {
+      "name": "Euechinoidea",
+      "originalRank": "subclass",
+      "selectedRank": "subclass",
+      "nameKo": "진성게아강",
+      "decision": "국립생물자원관 2019 국가생물종목록의 계급과 한글명을 채택합니다.",
+      "nibr2019": {
+        "rank": "subclass",
+        "nameKo": "진성게아강",
+        "pdfPage": 72
+      },
+      "nibr2025": null,
+      "ncbi": {
+        "id": "7638",
+        "name": "Euechinoidea",
+        "rank": "subclass"
+      },
+      "worms": [
+        {
+          "AphiaID": 149854,
+          "scientificname": "Euechinoidea",
+          "rank": "Subclass",
+          "status": "accepted",
+          "valid_name": "Euechinoidea",
+          "valid_AphiaID": 149854,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=149854",
+          "modified": "2010-08-31T06:33:05.797Z"
+        }
+      ],
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 II (2019), PDF 72쪽",
+          "https://www.nibr.go.kr/aiibook/catImage/21/National%20Species%202.pdf#page=72"
+        ],
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=7638&mode=Info"
+        ],
+        [
+          "WoRMS: Subclass / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=149854"
+        ]
+      ],
+      "koreanNameStatus": "domestic-official",
+      "coverage": "existing",
+      "taxonId": "Q136443"
+    },
+    {
+      "name": "Euheterodonta",
+      "originalRank": "subterclass",
+      "selectedRank": "infraclass",
+      "nameKo": "진이치하강",
+      "decision": "국립생물자원관 2019 국가생물종목록의 계급과 한글명을 채택합니다.",
+      "nibr2019": {
+        "rank": "infraclass",
+        "nameKo": "진이치하강",
+        "pdfPage": 46
+      },
+      "nibr2025": null,
+      "ncbi": {
+        "id": "735337",
+        "name": "Euheterodonta",
+        "rank": "infraclass"
+      },
+      "worms": [
+        {
+          "AphiaID": 382296,
+          "scientificname": "Euheterodonta",
+          "rank": "Subterclass",
+          "status": "accepted",
+          "valid_name": "Euheterodonta",
+          "valid_AphiaID": 382296,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=382296",
+          "modified": "2020-07-27T14:32:58.180Z"
+        }
+      ],
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 II (2019), PDF 46쪽",
+          "https://www.nibr.go.kr/aiibook/catImage/21/National%20Species%202.pdf#page=46"
+        ],
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=735337&mode=Info"
+        ]
+      ],
+      "koreanNameStatus": "domestic-official",
+      "coverage": "existing",
+      "taxonId": "Q16635178"
+    },
+    {
+      "name": "Eumalacostraca",
+      "originalRank": "subclass",
+      "selectedRank": "subclass",
+      "nameKo": "진연갑아강",
+      "decision": "국립생물자원관 2019 국가생물종목록의 계급과 한글명을 채택합니다.",
+      "nibr2019": {
+        "rank": "subclass",
+        "nameKo": "진연갑아강",
+        "pdfPage": 60
+      },
+      "nibr2025": null,
+      "ncbi": {
+        "id": "72041",
+        "name": "Eumalacostraca",
+        "rank": "subclass"
+      },
+      "worms": [
+        {
+          "AphiaID": 1086,
+          "scientificname": "Eumalacostraca",
+          "rank": "Subclass",
+          "status": "accepted",
+          "valid_name": "Eumalacostraca",
+          "valid_AphiaID": 1086,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=1086",
+          "modified": "2023-05-03T11:07:36.330Z"
+        }
+      ],
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 II (2019), PDF 60쪽",
+          "https://www.nibr.go.kr/aiibook/catImage/21/National%20Species%202.pdf#page=60"
+        ],
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=72041&mode=Info"
+        ],
+        [
+          "WoRMS: Subclass / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=1086"
+        ]
+      ],
+      "koreanNameStatus": "domestic-official",
+      "coverage": "existing",
+      "taxonId": "Q72629"
+    },
+    {
+      "name": "Eurotatoria",
+      "originalRank": "class",
+      "selectedRank": "class",
+      "nameKo": "진윤충강",
+      "decision": "국립생물자원관의 2025년 말 기준 국가생물종목록의 강 계급과 확인된 한글명을 채택합니다.",
+      "nibr2019": {
+        "rank": "class",
+        "nameKo": "진윤충강",
+        "pdfPage": 32
+      },
+      "nibr2025": {
+        "rank": "class",
+        "namesKo": [
+          "진윤충강"
+        ]
+      },
+      "ncbi": {
+        "id": "2816136",
+        "name": "Eurotatoria",
+        "rank": "class"
+      },
+      "worms": [
+        {
+          "AphiaID": 368537,
+          "scientificname": "Eurotatoria",
+          "rank": "Class",
+          "status": "accepted",
+          "valid_name": "Eurotatoria",
+          "valid_AphiaID": 368537,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=368537",
+          "modified": "2008-10-20T09:49:09.560Z"
+        }
+      ],
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 (2025년 말 기준)",
+          "https://www.kbr.go.kr/jfile/readDownloadFile.do?fileId=ARTICLE_2241&fileSeq=1"
+        ],
+        [
+          "국립생물자원관 국가생물종목록 II (2019), PDF 32쪽",
+          "https://www.nibr.go.kr/aiibook/catImage/21/National%20Species%202.pdf#page=32"
+        ],
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=2816136&mode=Info"
+        ],
+        [
+          "WoRMS: Class / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=368537"
+        ]
+      ],
+      "koreanNameStatus": "domestic-official",
+      "coverage": "existing",
+      "taxonId": "Q275594"
+    },
+    {
+      "name": "Eutardigrada",
+      "originalRank": "class",
+      "selectedRank": "class",
+      "nameKo": "진완보강",
+      "decision": "국립생물자원관의 2025년 말 기준 국가생물종목록의 강 계급과 확인된 한글명을 채택합니다.",
+      "nibr2019": {
+        "rank": "class",
+        "nameKo": "진완보강",
+        "pdfPage": 67
+      },
+      "nibr2025": {
+        "rank": "class",
+        "namesKo": [
+          "진완보강"
+        ]
+      },
+      "ncbi": {
+        "id": "42242",
+        "name": "Eutardigrada",
+        "rank": "class"
+      },
+      "worms": [
+        {
+          "AphiaID": 136619,
+          "scientificname": "Eutardigrada",
+          "rank": "Class",
+          "status": "accepted",
+          "valid_name": "Eutardigrada",
+          "valid_AphiaID": 136619,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=136619",
+          "modified": "2016-03-31T07:07:33.670Z"
+        }
+      ],
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 (2025년 말 기준)",
+          "https://www.kbr.go.kr/jfile/readDownloadFile.do?fileId=ARTICLE_2241&fileSeq=1"
+        ],
+        [
+          "국립생물자원관 국가생물종목록 II (2019), PDF 67쪽",
+          "https://www.nibr.go.kr/aiibook/catImage/21/National%20Species%202.pdf#page=67"
+        ],
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=42242&mode=Info"
+        ],
+        [
+          "WoRMS: Class / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=136619"
+        ]
+      ],
+      "koreanNameStatus": "domestic-official",
+      "coverage": "existing",
+      "taxonId": "Q136432"
+    },
+    {
+      "name": "Euthyneura",
+      "originalRank": "infraclass",
+      "selectedRank": "infraclass",
+      "nameKo": "Euthyneura",
+      "decision": "WoRMS에서 확인한 계급을 채택합니다.",
+      "nibr2019": null,
+      "nibr2025": null,
+      "ncbi": {
+        "id": "216307",
+        "name": "Euthyneura",
+        "rank": "clade"
+      },
+      "worms": [
+        {
+          "AphiaID": 1057247,
+          "scientificname": "Euthyneura",
+          "rank": "Infraclass",
+          "status": "accepted",
+          "valid_name": "Euthyneura",
+          "valid_AphiaID": 1057247,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=1057247",
+          "modified": "2024-06-26T18:51:05.597Z"
+        }
+      ],
+      "sources": [
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=216307&mode=Info"
+        ],
+        [
+          "WoRMS: Infraclass / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=1057247"
+        ]
+      ],
+      "koreanNameStatus": "game-label-or-scientific-name",
+      "coverage": "existing",
+      "taxonId": "Q5361179"
+    },
+    {
+      "name": "Gastropoda",
+      "originalRank": "class",
+      "selectedRank": "class",
+      "nameKo": "복족강",
+      "decision": "국립생물자원관의 2025년 말 기준 국가생물종목록의 강 계급과 확인된 한글명을 채택합니다.",
+      "nibr2019": {
+        "rank": "class",
+        "nameKo": "복족강",
+        "pdfPage": 38
+      },
+      "nibr2025": {
+        "rank": "class",
+        "namesKo": [
+          "복족강"
+        ]
+      },
+      "ncbi": {
+        "id": "6448",
+        "name": "Gastropoda",
+        "rank": "class"
+      },
+      "worms": [
+        {
+          "AphiaID": 101,
+          "scientificname": "Gastropoda",
+          "rank": "Class",
+          "status": "accepted",
+          "valid_name": "Gastropoda",
+          "valid_AphiaID": 101,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=101",
+          "modified": "2009-03-17T08:27:08.607Z"
+        }
+      ],
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 (2025년 말 기준)",
+          "https://www.kbr.go.kr/jfile/readDownloadFile.do?fileId=ARTICLE_2241&fileSeq=1"
+        ],
+        [
+          "국립생물자원관 국가생물종목록 II (2019), PDF 38쪽",
+          "https://www.nibr.go.kr/aiibook/catImage/21/National%20Species%202.pdf#page=38"
+        ],
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=6448&mode=Info"
+        ],
+        [
+          "WoRMS: Class / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=101"
+        ]
+      ],
+      "koreanNameStatus": "domestic-official",
+      "coverage": "existing",
+      "taxonId": "Q4867740"
+    },
+    {
+      "name": "Heterobranchia",
+      "originalRank": "subclass",
+      "selectedRank": "subclass",
+      "nameKo": "이새아강",
+      "decision": "국립생물자원관 2019 국가생물종목록의 계급과 한글명을 채택합니다.",
+      "nibr2019": {
+        "rank": "subclass",
+        "nameKo": "이새아강",
+        "pdfPage": 42
+      },
+      "nibr2025": null,
+      "ncbi": {
+        "id": "216305",
+        "name": "Heterobranchia",
+        "rank": "subclass"
+      },
+      "worms": [
+        {
+          "AphiaID": 14712,
+          "scientificname": "Heterobranchia",
+          "rank": "Subclass",
+          "status": "accepted",
+          "valid_name": "Heterobranchia",
+          "valid_AphiaID": 14712,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=14712",
+          "modified": "2018-04-15T15:18:14.960Z"
+        }
+      ],
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 II (2019), PDF 42쪽",
+          "https://www.nibr.go.kr/aiibook/catImage/21/National%20Species%202.pdf#page=42"
+        ],
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=216305&mode=Info"
+        ],
+        [
+          "WoRMS: Subclass / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=14712"
+        ]
+      ],
+      "koreanNameStatus": "domestic-official",
+      "coverage": "existing",
+      "taxonId": "Q133143"
+    },
+    {
+      "name": "Heteroconchia",
+      "originalRank": "infraclass",
+      "selectedRank": "infraclass",
+      "nameKo": "Heteroconchia",
+      "decision": "WoRMS에서 확인한 계급을 채택합니다.",
+      "nibr2019": null,
+      "nibr2025": null,
+      "ncbi": {
+        "id": "6599",
+        "name": "Heteroconchia",
+        "rank": "clade"
+      },
+      "worms": [
+        {
+          "AphiaID": 1424949,
+          "scientificname": "Heteroconchia",
+          "rank": "Infraclass",
+          "status": "accepted",
+          "valid_name": "Heteroconchia",
+          "valid_AphiaID": 1424949,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=1424949",
+          "modified": "2025-02-15T08:51:36.203Z"
+        }
+      ],
+      "sources": [
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=6599&mode=Info"
+        ],
+        [
+          "WoRMS: Infraclass / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=1424949"
+        ]
+      ],
+      "koreanNameStatus": "game-label-or-scientific-name",
+      "coverage": "existing",
+      "taxonId": "Q20992204"
+    },
+    {
+      "name": "Heteroscleromorpha",
+      "originalRank": "subclass",
+      "selectedRank": "subclass",
+      "nameKo": "이규경형해면아강",
+      "decision": "국립생물자원관 2019 국가생물종목록의 계급과 한글명을 채택합니다.",
+      "nibr2019": {
+        "rank": "subclass",
+        "nameKo": "이규경형해면아강",
+        "pdfPage": 25
+      },
+      "nibr2025": null,
+      "ncbi": {
+        "id": "1779146",
+        "name": "Heteroscleromorpha",
+        "rank": "subclass"
+      },
+      "worms": [
+        {
+          "AphiaID": 607950,
+          "scientificname": "Heteroscleromorpha",
+          "rank": "Subclass",
+          "status": "accepted",
+          "valid_name": "Heteroscleromorpha",
+          "valid_AphiaID": 607950,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=607950",
+          "modified": "2016-10-09T10:52:13.507Z"
+        }
+      ],
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 II (2019), PDF 25쪽",
+          "https://www.nibr.go.kr/aiibook/catImage/21/National%20Species%202.pdf#page=25"
+        ],
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1779146&mode=Info"
+        ],
+        [
+          "WoRMS: Subclass / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=607950"
+        ]
+      ],
+      "koreanNameStatus": "domestic-official",
+      "coverage": "existing",
+      "taxonId": "Q21694404"
+    },
+    {
+      "name": "Hexacorallia",
+      "originalRank": "class",
+      "selectedRank": "subclass",
+      "nameKo": "육방산호아강",
+      "decision": "국립생물자원관과 NCBI의 아강 계급을 채택합니다. WoRMS에서는 강으로 취급합니다.",
+      "nibr2019": {
+        "rank": "subclass",
+        "nameKo": "육방산호아강",
+        "pdfPage": 27
+      },
+      "nibr2025": null,
+      "ncbi": {
+        "id": "6102",
+        "name": "Hexacorallia",
+        "rank": "subclass"
+      },
+      "worms": [
+        {
+          "AphiaID": 1340,
+          "scientificname": "Hexacorallia",
+          "rank": "Class",
+          "status": "accepted",
+          "valid_name": "Hexacorallia",
+          "valid_AphiaID": 1340,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=1340",
+          "modified": "2024-02-29T07:57:50.617Z"
+        }
+      ],
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 II (2019), PDF 27쪽",
+          "https://www.nibr.go.kr/aiibook/catImage/21/National%20Species%202.pdf#page=27"
+        ],
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=6102&mode=Info"
+        ],
+        [
+          "WoRMS: Class / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=1340"
+        ]
+      ],
+      "koreanNameStatus": "domestic-official",
+      "coverage": "existing",
+      "taxonId": "Q132674"
+    },
+    {
+      "name": "Hexactinellida",
+      "originalRank": "class",
+      "selectedRank": "class",
+      "nameKo": "육방해면강",
+      "decision": "국립생물자원관의 2025년 말 기준 국가생물종목록의 강 계급과 확인된 한글명을 채택합니다.",
+      "nibr2019": {
+        "rank": "class",
+        "nameKo": "육방해면강",
+        "pdfPage": 27
+      },
+      "nibr2025": {
+        "rank": "class",
+        "namesKo": [
+          "육방해면강"
+        ]
+      },
+      "ncbi": {
+        "id": "60882",
+        "name": "Hexactinellida",
+        "rank": "class"
+      },
+      "worms": [
+        {
+          "AphiaID": 22612,
+          "scientificname": "Hexactinellida",
+          "rank": "Class",
+          "status": "accepted",
+          "valid_name": "Hexactinellida",
+          "valid_AphiaID": 22612,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=22612",
+          "modified": "2021-06-14T13:21:27.413Z"
+        }
+      ],
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 (2025년 말 기준)",
+          "https://www.kbr.go.kr/jfile/readDownloadFile.do?fileId=ARTICLE_2241&fileSeq=1"
+        ],
+        [
+          "국립생물자원관 국가생물종목록 II (2019), PDF 27쪽",
+          "https://www.nibr.go.kr/aiibook/catImage/21/National%20Species%202.pdf#page=27"
+        ],
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=60882&mode=Info"
+        ],
+        [
+          "WoRMS: Class / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=22612"
+        ]
+      ],
+      "koreanNameStatus": "domestic-official",
+      "coverage": "existing",
+      "taxonId": "Q263211"
+    },
+    {
+      "name": "Hexasterophora",
+      "originalRank": "subclass",
+      "selectedRank": "subclass",
+      "nameKo": "Hexasterophora",
+      "decision": "NCBI에서 확인한 계급을 채택합니다.",
+      "nibr2019": null,
+      "nibr2025": null,
+      "ncbi": {
+        "id": "60883",
+        "name": "Hexasterophora",
+        "rank": "subclass"
+      },
+      "worms": [
+        {
+          "AphiaID": 131590,
+          "scientificname": "Hexasterophora",
+          "rank": "Subclass",
+          "status": "accepted",
+          "valid_name": "Hexasterophora",
+          "valid_AphiaID": 131590,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=131590",
+          "modified": "2008-09-21T18:07:31.330Z"
+        }
+      ],
+      "sources": [
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=60883&mode=Info"
+        ],
+        [
+          "WoRMS: Subclass / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=131590"
+        ]
+      ],
+      "koreanNameStatus": "game-label-or-scientific-name",
+      "coverage": "existing",
+      "taxonId": "Q1616691"
+    },
+    {
+      "name": "Hirudinea",
+      "originalRank": "subclass",
+      "selectedRank": "subclass",
+      "nameKo": "Hirudinea",
+      "decision": "NCBI에서 확인한 계급을 채택합니다.",
+      "nibr2019": null,
+      "nibr2025": null,
+      "ncbi": {
+        "id": "55824",
+        "name": "Hirudinea",
+        "rank": "subclass"
+      },
+      "worms": [
+        {
+          "AphiaID": 2041,
+          "scientificname": "Hirudinea",
+          "rank": "Subclass",
+          "status": "accepted",
+          "valid_name": "Hirudinea",
+          "valid_AphiaID": 2041,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=2041",
+          "modified": "2018-05-18T03:17:21.623Z"
+        }
+      ],
+      "sources": [
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=55824&mode=Info"
+        ],
+        [
+          "WoRMS: Subclass / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=2041"
+        ]
+      ],
+      "koreanNameStatus": "game-label-or-scientific-name",
+      "coverage": "existing",
+      "taxonId": "Q43012"
+    },
+    {
+      "name": "Holocephali",
+      "originalRank": "class",
+      "selectedRank": "subclass",
+      "nameKo": "전두어아강",
+      "decision": "NCBI의 아강 계급을 채택하여 연골어강 안에 둡니다.",
+      "nibr2019": null,
+      "nibr2025": null,
+      "ncbi": {
+        "id": "7863",
+        "name": "Holocephali",
+        "rank": "subclass"
+      },
+      "worms": [
+        {
+          "AphiaID": 10196,
+          "scientificname": "Holocephali",
+          "rank": "Class",
+          "status": "accepted",
+          "valid_name": "Holocephali",
+          "valid_AphiaID": 10196,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=10196",
+          "modified": "2021-06-29T11:30:35.110Z"
+        }
+      ],
+      "sources": [
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=7863&mode=Info"
+        ],
+        [
+          "WoRMS: Class / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=10196"
+        ]
+      ],
+      "koreanNameStatus": "game-label-or-scientific-name",
+      "coverage": "existing",
+      "taxonId": "Q149104"
+    },
+    {
+      "name": "Holostei",
+      "originalRank": "infraclass",
+      "selectedRank": "infraclass",
+      "nameKo": "전골어하강",
+      "decision": "NCBI의 하강 계급을 채택합니다. ITIS와 WoRMS에서는 강으로 취급합니다. 한글 표기는 사용자 지정 관용명입니다.",
+      "nibr2019": null,
+      "nibr2025": null,
+      "ncbi": {
+        "id": "1489100",
+        "name": "Holostei",
+        "rank": "infraclass"
+      },
+      "worms": [
+        {
+          "AphiaID": 1517380,
+          "scientificname": "Holostei",
+          "rank": "Class",
+          "status": "accepted",
+          "valid_name": "Holostei",
+          "valid_AphiaID": 1517380,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=1517380",
+          "modified": "2026-04-20T17:22:42.167Z"
+        }
+      ],
+      "sources": [
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1489100&mode=Info"
+        ],
+        [
+          "WoRMS: Class / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=1517380"
+        ]
+      ],
+      "koreanNameStatus": "game-label-or-scientific-name",
+      "coverage": "existing",
+      "taxonId": "Q846164"
+    },
+    {
+      "name": "Holothuroidea",
+      "originalRank": "class",
+      "selectedRank": "class",
+      "nameKo": "해삼강",
+      "decision": "국립생물자원관의 2025년 말 기준 국가생물종목록의 강 계급과 확인된 한글명을 채택합니다.",
+      "nibr2019": {
+        "rank": "class",
+        "nameKo": "해삼강",
+        "pdfPage": 72
+      },
+      "nibr2025": {
+        "rank": "class",
+        "namesKo": [
+          "해삼강"
+        ]
+      },
+      "ncbi": {
+        "id": "7705",
+        "name": "Holothuroidea",
+        "rank": "class"
+      },
+      "worms": [
+        {
+          "AphiaID": 123083,
+          "scientificname": "Holothuroidea",
+          "rank": "Class",
+          "status": "accepted",
+          "valid_name": "Holothuroidea",
+          "valid_AphiaID": 123083,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=123083",
+          "modified": "2022-03-15T12:10:34.203Z"
+        }
+      ],
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 (2025년 말 기준)",
+          "https://www.kbr.go.kr/jfile/readDownloadFile.do?fileId=ARTICLE_2241&fileSeq=1"
+        ],
+        [
+          "국립생물자원관 국가생물종목록 II (2019), PDF 72쪽",
+          "https://www.nibr.go.kr/aiibook/catImage/21/National%20Species%202.pdf#page=72"
+        ],
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=7705&mode=Info"
+        ],
+        [
+          "WoRMS: Class / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=123083"
+        ]
+      ],
+      "koreanNameStatus": "domestic-official",
+      "coverage": "existing",
+      "taxonId": "Q127470"
+    },
+    {
+      "name": "Hydroidolina",
+      "originalRank": "subclass",
+      "selectedRank": "subclass",
+      "nameKo": "Hydroidolina",
+      "decision": "NCBI에서 확인한 계급을 채택합니다.",
+      "nibr2019": null,
+      "nibr2025": null,
+      "ncbi": {
+        "id": "37516",
+        "name": "Hydroidolina",
+        "rank": "subclass"
+      },
+      "worms": [
+        {
+          "AphiaID": 19494,
+          "scientificname": "Hydroidolina",
+          "rank": "Subclass",
+          "status": "accepted",
+          "valid_name": "Hydroidolina",
+          "valid_AphiaID": 19494,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=19494",
+          "modified": "2015-08-22T19:26:01.800Z"
+        }
+      ],
+      "sources": [
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=37516&mode=Info"
+        ],
+        [
+          "WoRMS: Subclass / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=19494"
+        ]
+      ],
+      "koreanNameStatus": "game-label-or-scientific-name",
+      "coverage": "existing",
+      "taxonId": "Q1942461"
+    },
+    {
+      "name": "Hydrozoa",
+      "originalRank": "class",
+      "selectedRank": "class",
+      "nameKo": "히드라충강",
+      "decision": "국립생물자원관의 2025년 말 기준 국가생물종목록의 강 계급과 확인된 한글명을 채택합니다.",
+      "nibr2019": {
+        "rank": "class",
+        "nameKo": "히드라충강",
+        "pdfPage": 28
+      },
+      "nibr2025": {
+        "rank": "class",
+        "namesKo": [
+          "히드라충강"
+        ]
+      },
+      "ncbi": {
+        "id": "6074",
+        "name": "Hydrozoa",
+        "rank": "class"
+      },
+      "worms": [
+        {
+          "AphiaID": 1337,
+          "scientificname": "Hydrozoa",
+          "rank": "Class",
+          "status": "accepted",
+          "valid_name": "Hydrozoa",
+          "valid_AphiaID": 1337,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=1337",
+          "modified": "2024-02-29T07:57:50.617Z"
+        }
+      ],
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 (2025년 말 기준)",
+          "https://www.kbr.go.kr/jfile/readDownloadFile.do?fileId=ARTICLE_2241&fileSeq=1"
+        ],
+        [
+          "국립생물자원관 국가생물종목록 II (2019), PDF 28쪽",
+          "https://www.nibr.go.kr/aiibook/catImage/21/National%20Species%202.pdf#page=28"
+        ],
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=6074&mode=Info"
+        ],
+        [
+          "WoRMS: Class / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=1337"
+        ]
+      ],
+      "koreanNameStatus": "domestic-official",
+      "coverage": "existing",
+      "taxonId": "Q181989"
+    },
+    {
+      "name": "Hyperoartia",
+      "originalRank": null,
+      "selectedRank": null,
+      "nameKo": "Hyperoartia",
+      "decision": "기관 비교 결과를 함께 기록하며 기존 계급을 유지합니다.",
+      "nibr2019": null,
+      "nibr2025": null,
+      "ncbi": {
+        "id": "117569",
+        "name": "Hyperoartia",
+        "rank": "class"
+      },
+      "worms": [],
+      "sources": [
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=117569&mode=Info"
+        ]
+      ],
+      "koreanNameStatus": "game-label-or-scientific-name",
+      "coverage": "alias:Petromyzonti"
+    },
+    {
+      "name": "Insecta",
+      "originalRank": "class",
+      "selectedRank": "class",
+      "nameKo": "곤충강",
+      "decision": "국립생물자원관의 2025년 말 기준 국가생물종목록의 강 계급과 확인된 한글명을 채택합니다.",
+      "nibr2019": null,
+      "nibr2025": {
+        "rank": "class",
+        "namesKo": [
+          "곤충강"
+        ]
+      },
+      "ncbi": {
+        "id": "50557",
+        "name": "Insecta",
+        "rank": "class"
+      },
+      "worms": [
+        {
+          "AphiaID": 1307,
+          "scientificname": "Insecta",
+          "rank": "Class",
+          "status": "accepted",
+          "valid_name": "Insecta",
+          "valid_AphiaID": 1307,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=1307",
+          "modified": "2026-05-07T07:46:24.733Z"
+        }
+      ],
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 (2025년 말 기준)",
+          "https://www.kbr.go.kr/jfile/readDownloadFile.do?fileId=ARTICLE_2241&fileSeq=1"
+        ],
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=50557&mode=Info"
+        ],
+        [
+          "WoRMS: Class / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=1307"
+        ]
+      ],
+      "koreanNameStatus": "domestic-official",
+      "coverage": "existing",
+      "taxonId": "Q1390"
+    },
+    {
+      "name": "Lepidosauria",
+      "originalRank": "superorder",
+      "selectedRank": "class",
+      "nameKo": "Lepidosauria",
+      "decision": "NCBI에서 확인한 계급을 채택합니다.",
+      "nibr2019": null,
+      "nibr2025": null,
+      "ncbi": {
+        "id": "8504",
+        "name": "Lepidosauria",
+        "rank": "class"
+      },
+      "worms": [],
+      "sources": [
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=8504&mode=Info"
+        ]
+      ],
+      "koreanNameStatus": "game-label-or-scientific-name",
+      "coverage": "existing",
+      "taxonId": "Q728299"
+    },
+    {
+      "name": "Lepidosauromorpha",
+      "originalRank": "infraclass",
+      "selectedRank": "clade",
+      "nameKo": "Lepidosauromorpha",
+      "decision": "이번에 대조한 국내 목록·NCBI·WoRMS에서 기존 계급을 직접 확인하지 못했습니다. 계통군은 유지하되 게임에서는 계급을 붙이지 않습니다. 분류군 자체가 부정된다는 뜻은 아닙니다.",
+      "nibr2019": null,
+      "nibr2025": null,
+      "ncbi": null,
+      "worms": [],
+      "sources": [],
+      "koreanNameStatus": "game-label-or-scientific-name",
+      "coverage": "existing",
+      "taxonId": "Q134665"
+    },
+    {
+      "name": "Leptocardii",
+      "originalRank": "class",
+      "selectedRank": "class",
+      "nameKo": "두삭강",
+      "decision": "NCBI에서 확인한 계급을 채택합니다.",
+      "nibr2019": null,
+      "nibr2025": null,
+      "ncbi": {
+        "id": "2682552",
+        "name": "Leptocardii",
+        "rank": "class"
+      },
+      "worms": [
+        {
+          "AphiaID": 104897,
+          "scientificname": "Leptocardii",
+          "rank": "Class",
+          "status": "accepted",
+          "valid_name": "Leptocardii",
+          "valid_AphiaID": 104897,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=104897",
+          "modified": "2013-05-06T10:14:28.297Z"
+        }
+      ],
+      "sources": [
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=2682552&mode=Info"
+        ],
+        [
+          "WoRMS: Class / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=104897"
+        ]
+      ],
+      "koreanNameStatus": "game-label-or-scientific-name",
+      "coverage": "existing",
+      "taxonId": "Q20722244"
+    },
+    {
+      "name": "Lissamphibia",
+      "originalRank": "subclass",
+      "selectedRank": "clade",
+      "nameKo": "Lissamphibia",
+      "decision": "이번에 대조한 국내 목록·NCBI·WoRMS에서 기존 계급을 직접 확인하지 못했습니다. 계통군은 유지하되 게임에서는 계급을 붙이지 않습니다. 분류군 자체가 부정된다는 뜻은 아닙니다.",
+      "nibr2019": null,
+      "nibr2025": null,
+      "ncbi": null,
+      "worms": [],
+      "sources": [],
+      "koreanNameStatus": "game-label-or-scientific-name",
+      "coverage": "existing",
+      "taxonId": "Q134861"
+    },
+    {
+      "name": "Malacostraca",
+      "originalRank": "class",
+      "selectedRank": "class",
+      "nameKo": "연갑강",
+      "decision": "국립생물자원관의 2025년 말 기준 국가생물종목록의 강 계급과 확인된 한글명을 채택합니다.",
+      "nibr2019": {
+        "rank": "class",
+        "nameKo": "연갑강",
+        "pdfPage": 60
+      },
+      "nibr2025": {
+        "rank": "class",
+        "namesKo": [
+          "연갑강"
+        ]
+      },
+      "ncbi": {
+        "id": "6681",
+        "name": "Malacostraca",
+        "rank": "class"
+      },
+      "worms": [
+        {
+          "AphiaID": 1071,
+          "scientificname": "Malacostraca",
+          "rank": "Class",
+          "status": "accepted",
+          "valid_name": "Malacostraca",
+          "valid_AphiaID": 1071,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=1071",
+          "modified": "2015-05-05T09:47:59.543Z"
+        }
+      ],
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 (2025년 말 기준)",
+          "https://www.kbr.go.kr/jfile/readDownloadFile.do?fileId=ARTICLE_2241&fileSeq=1"
+        ],
+        [
+          "국립생물자원관 국가생물종목록 II (2019), PDF 60쪽",
+          "https://www.nibr.go.kr/aiibook/catImage/21/National%20Species%202.pdf#page=60"
+        ],
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=6681&mode=Info"
+        ],
+        [
+          "WoRMS: Class / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=1071"
+        ]
+      ],
+      "koreanNameStatus": "domestic-official",
+      "coverage": "existing",
+      "taxonId": "Q182978"
+    },
+    {
+      "name": "Mammalia",
+      "originalRank": "class",
+      "selectedRank": "class",
+      "nameKo": "포유동물강",
+      "decision": "국립생물자원관의 2025년 말 기준 국가생물종목록의 강 계급과 확인된 한글명을 채택합니다.",
+      "nibr2019": {
+        "rank": "class",
+        "nameKo": "포유동물강",
+        "pdfPage": 23
+      },
+      "nibr2025": {
+        "rank": "class",
+        "namesKo": [
+          "포유동물강"
+        ]
+      },
+      "ncbi": {
+        "id": "40674",
+        "name": "Mammalia",
+        "rank": "class"
+      },
+      "worms": [
+        {
+          "AphiaID": 1837,
+          "scientificname": "Mammalia",
+          "rank": "Class",
+          "status": "accepted",
+          "valid_name": "Mammalia",
+          "valid_AphiaID": 1837,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=1837",
+          "modified": "2005-12-27T19:49:34.637Z"
+        }
+      ],
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 (2025년 말 기준)",
+          "https://www.kbr.go.kr/jfile/readDownloadFile.do?fileId=ARTICLE_2241&fileSeq=1"
+        ],
+        [
+          "국립생물자원관 국가생물종목록 II (2019), PDF 23쪽",
+          "https://www.nibr.go.kr/aiibook/catImage/21/National%20Species%202.pdf#page=23"
+        ],
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=40674&mode=Info"
+        ],
+        [
+          "WoRMS: Class / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=1837"
+        ]
+      ],
+      "koreanNameStatus": "domestic-official",
+      "coverage": "existing",
+      "taxonId": "Q7377"
+    },
+    {
+      "name": "Merostomata",
+      "originalRank": "class",
+      "selectedRank": "class",
+      "nameKo": "퇴구강",
+      "decision": "국립생물자원관의 2025년 말 기준 국가생물종목록의 강 계급과 확인된 한글명을 채택합니다.",
+      "nibr2019": {
+        "rank": "class",
+        "nameKo": "퇴구강",
+        "pdfPage": 51
+      },
+      "nibr2025": {
+        "rank": "class",
+        "namesKo": [
+          "퇴구강"
+        ]
+      },
+      "ncbi": {
+        "id": "6844",
+        "name": "Merostomata",
+        "rank": "class"
+      },
+      "worms": [
+        {
+          "AphiaID": 150507,
+          "scientificname": "Merostomata",
+          "rank": "Class",
+          "status": "accepted",
+          "valid_name": "Merostomata",
+          "valid_AphiaID": 150507,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=150507",
+          "modified": "2010-02-19T16:39:15.683Z"
+        }
+      ],
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 (2025년 말 기준)",
+          "https://www.kbr.go.kr/jfile/readDownloadFile.do?fileId=ARTICLE_2241&fileSeq=1"
+        ],
+        [
+          "국립생물자원관 국가생물종목록 II (2019), PDF 51쪽",
+          "https://www.nibr.go.kr/aiibook/catImage/21/National%20Species%202.pdf#page=51"
+        ],
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=6844&mode=Info"
+        ],
+        [
+          "WoRMS: Class / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=150507"
+        ]
+      ],
+      "koreanNameStatus": "domestic-official",
+      "coverage": "supplement",
+      "taxonId": "ncbi:6844"
+    },
+    {
+      "name": "Metophiurida",
+      "originalRank": "infraclass",
+      "selectedRank": "infraclass",
+      "nameKo": "Metophiurida",
+      "decision": "NCBI에서 확인한 계급을 채택합니다.",
+      "nibr2019": null,
+      "nibr2025": null,
+      "ncbi": {
+        "id": "2594222",
+        "name": "Metophiurida",
+        "rank": "infraclass"
+      },
+      "worms": [
+        {
+          "AphiaID": 1062634,
+          "scientificname": "Metophiurida",
+          "rank": "Infraclass",
+          "status": "accepted",
+          "valid_name": "Metophiurida",
+          "valid_AphiaID": 1062634,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=1062634",
+          "modified": "2021-08-19T13:38:46.400Z"
+        }
+      ],
+      "sources": [
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=2594222&mode=Info"
+        ],
+        [
+          "WoRMS: Infraclass / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=1062634"
+        ]
+      ],
+      "koreanNameStatus": "game-label-or-scientific-name",
+      "coverage": "existing",
+      "taxonId": "Q51310072"
+    },
+    {
+      "name": "Monogononta",
+      "originalRank": "subclass",
+      "selectedRank": "subclass",
+      "nameKo": "단소아강",
+      "decision": "국립생물자원관 2019 국가생물종목록의 계급과 한글명을 채택합니다.",
+      "nibr2019": {
+        "rank": "subclass",
+        "nameKo": "단소아강",
+        "pdfPage": 33
+      },
+      "nibr2025": null,
+      "ncbi": {
+        "id": "10191",
+        "name": "Monogononta",
+        "rank": "subclass"
+      },
+      "worms": [
+        {
+          "AphiaID": 17903,
+          "scientificname": "Monogononta",
+          "rank": "Subclass",
+          "status": "accepted",
+          "valid_name": "Monogononta",
+          "valid_AphiaID": 17903,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=17903",
+          "modified": "2016-09-21T09:29:09.567Z"
+        }
+      ],
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 II (2019), PDF 33쪽",
+          "https://www.nibr.go.kr/aiibook/catImage/21/National%20Species%202.pdf#page=33"
+        ],
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=10191&mode=Info"
+        ],
+        [
+          "WoRMS: Subclass / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=17903"
+        ]
+      ],
+      "koreanNameStatus": "domestic-official",
+      "coverage": "existing",
+      "taxonId": "Q138082"
+    },
+    {
+      "name": "Multicrustacea",
+      "originalRank": "superclass",
+      "selectedRank": "superclass",
+      "nameKo": "Multicrustacea",
+      "decision": "WoRMS에서 확인한 계급을 채택합니다.",
+      "nibr2019": null,
+      "nibr2025": null,
+      "ncbi": null,
+      "worms": [
+        {
+          "AphiaID": 845959,
+          "scientificname": "Multicrustacea",
+          "rank": "Superclass",
+          "status": "accepted",
+          "valid_name": "Multicrustacea",
+          "valid_AphiaID": 845959,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=845959",
+          "modified": "2015-05-05T09:47:59.543Z"
+        }
+      ],
+      "sources": [
+        [
+          "WoRMS: Superclass / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=845959"
+        ]
+      ],
+      "koreanNameStatus": "game-label-or-scientific-name",
+      "coverage": "existing",
+      "taxonId": "Q11937877"
+    },
+    {
+      "name": "Myophiuroida",
+      "originalRank": "subclass",
+      "selectedRank": "subclass",
+      "nameKo": "Myophiuroida",
+      "decision": "WoRMS에서 확인한 계급을 채택합니다.",
+      "nibr2019": null,
+      "nibr2025": null,
+      "ncbi": null,
+      "worms": [
+        {
+          "AphiaID": 1416548,
+          "scientificname": "Myophiuroida",
+          "rank": "Subclass",
+          "status": "accepted",
+          "valid_name": "Myophiuroida",
+          "valid_AphiaID": 1416548,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=1416548",
+          "modified": "2020-01-23T14:49:10.173Z"
+        }
+      ],
+      "sources": [
+        [
+          "WoRMS: Subclass / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=1416548"
+        ]
+      ],
+      "koreanNameStatus": "game-label-or-scientific-name",
+      "coverage": "existing",
+      "taxonId": "Q121888613"
+    },
+    {
+      "name": "Myophiuroidea",
+      "originalRank": null,
+      "selectedRank": null,
+      "nameKo": "Myophiuroidea",
+      "decision": "기관 비교 결과를 함께 기록하며 기존 계급을 유지합니다.",
+      "nibr2019": null,
+      "nibr2025": null,
+      "ncbi": {
+        "id": "2594221",
+        "name": "Myophiuroidea",
+        "rank": "subclass"
+      },
+      "worms": [
+        {
+          "AphiaID": 1062633,
+          "scientificname": "Myophiuroidea",
+          "rank": "Subclass",
+          "status": "unaccepted",
+          "valid_name": "Myophiuroida",
+          "valid_AphiaID": 1416548,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=1062633",
+          "modified": "2021-08-19T13:38:46.400Z"
+        }
+      ],
+      "sources": [
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=2594221&mode=Info"
+        ],
+        [
+          "WoRMS: Subclass / unaccepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=1062633"
+        ]
+      ],
+      "koreanNameStatus": "game-label-or-scientific-name",
+      "coverage": "alias:Myophiuroida"
+    },
+    {
+      "name": "Myxini",
+      "originalRank": "class",
+      "selectedRank": "class",
+      "nameKo": "먹장어강",
+      "decision": "국립생물자원관의 2025년 말 기준 국가생물종목록의 강 계급과 확인된 한글명을 채택합니다.",
+      "nibr2019": {
+        "rank": "class",
+        "nameKo": "먹장어강",
+        "pdfPage": 15
+      },
+      "nibr2025": {
+        "rank": "class",
+        "namesKo": [
+          "먹장어강"
+        ]
+      },
+      "ncbi": {
+        "id": "117565",
+        "name": "Myxini",
+        "rank": "class"
+      },
+      "worms": [
+        {
+          "AphiaID": 10189,
+          "scientificname": "Myxini",
+          "rank": "Class",
+          "status": "accepted",
+          "valid_name": "Myxini",
+          "valid_AphiaID": 10189,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=10189",
+          "modified": "2026-08-03T23:30:50.313Z"
+        }
+      ],
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 (2025년 말 기준)",
+          "https://www.kbr.go.kr/jfile/readDownloadFile.do?fileId=ARTICLE_2241&fileSeq=1"
+        ],
+        [
+          "국립생물자원관 국가생물종목록 II (2019), PDF 15쪽",
+          "https://www.nibr.go.kr/aiibook/catImage/21/National%20Species%202.pdf#page=15"
+        ],
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=117565&mode=Info"
+        ],
+        [
+          "WoRMS: Class / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=10189"
+        ]
+      ],
+      "koreanNameStatus": "domestic-official",
+      "coverage": "existing",
+      "taxonId": "Q15100334"
+    },
+    {
+      "name": "Nautiloidea",
+      "originalRank": "subclass",
+      "selectedRank": "subclass",
+      "nameKo": "Nautiloidea",
+      "decision": "NCBI에서 확인한 계급을 채택합니다.",
+      "nibr2019": null,
+      "nibr2025": null,
+      "ncbi": {
+        "id": "32577",
+        "name": "Nautiloidea",
+        "rank": "subclass"
+      },
+      "worms": [
+        {
+          "AphiaID": 153043,
+          "scientificname": "Nautiloidea",
+          "rank": "Subclass",
+          "status": "accepted",
+          "valid_name": "Nautiloidea",
+          "valid_AphiaID": 153043,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=153043",
+          "modified": "2026-01-27T13:00:51.657Z"
+        },
+        {
+          "AphiaID": 1773684,
+          "scientificname": "Nautiloidea",
+          "rank": "Superfamily",
+          "status": "accepted",
+          "valid_name": "Nautiloidea",
+          "valid_AphiaID": 1773684,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=1773684",
+          "modified": "2026-06-16T08:15:34.493Z"
+        }
+      ],
+      "sources": [
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=32577&mode=Info"
+        ],
+        [
+          "WoRMS: Subclass / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=153043"
+        ]
+      ],
+      "koreanNameStatus": "game-label-or-scientific-name",
+      "coverage": "existing",
+      "taxonId": "Q840536"
+    },
+    {
+      "name": "Neodermata",
+      "originalRank": "superclass",
+      "selectedRank": "superclass",
+      "nameKo": "Neodermata",
+      "decision": "NCBI에서 확인한 계급을 채택합니다.",
+      "nibr2019": null,
+      "nibr2025": null,
+      "ncbi": {
+        "id": "3695485",
+        "name": "Neodermata",
+        "rank": "superclass"
+      },
+      "worms": [
+        {
+          "AphiaID": 853123,
+          "scientificname": "Neodermata",
+          "rank": "Superclass",
+          "status": "accepted",
+          "valid_name": "Neodermata",
+          "valid_AphiaID": 853123,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=853123",
+          "modified": "2019-01-22T21:17:12.750Z"
+        }
+      ],
+      "sources": [
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=3695485&mode=Info"
+        ],
+        [
+          "WoRMS: Superclass / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=853123"
+        ]
+      ],
+      "koreanNameStatus": "game-label-or-scientific-name",
+      "coverage": "existing",
+      "taxonId": "Q150983"
+    },
+    {
+      "name": "Neognathae",
+      "originalRank": "infraclass",
+      "selectedRank": "infraclass",
+      "nameKo": "Neognathae",
+      "decision": "NCBI에서 확인한 계급을 채택합니다.",
+      "nibr2019": null,
+      "nibr2025": null,
+      "ncbi": {
+        "id": "8825",
+        "name": "Neognathae",
+        "rank": "infraclass"
+      },
+      "worms": [],
+      "sources": [
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=8825&mode=Info"
+        ]
+      ],
+      "koreanNameStatus": "game-label-or-scientific-name",
+      "coverage": "existing",
+      "taxonId": "Q19168"
+    },
+    {
+      "name": "Neoptera",
+      "originalRank": "infraclass",
+      "selectedRank": "infraclass",
+      "nameKo": "신시류 (하강)",
+      "decision": "NCBI의 하강 계급을 채택합니다. 국립생물자원관 교육 자료는 신시류로 표기하므로 신시아강이라는 이름은 사용하지 않습니다.",
+      "nibr2019": null,
+      "nibr2025": null,
+      "ncbi": {
+        "id": "33340",
+        "name": "Neoptera",
+        "rank": "infraclass"
+      },
+      "worms": [
+        {
+          "AphiaID": 380392,
+          "scientificname": "Neoptera",
+          "rank": "Infraclass",
+          "status": "accepted",
+          "valid_name": "Neoptera",
+          "valid_AphiaID": 380392,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=380392",
+          "modified": "2012-10-05 14:25:25.570"
+        }
+      ],
+      "sources": [
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=33340&mode=Info"
+        ],
+        [
+          "WoRMS: Infraclass / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=380392"
+        ],
+        [
+          "국립생물자원관 곤충 교육 자료",
+          "https://www.nibr.go.kr/aiibook/access/ecatalogt.jsp?Dir=1311&callmode=admin&catimage=&eclang=ko&start=80&um=s"
+        ]
+      ],
+      "koreanNameStatus": "game-label-or-scientific-name",
+      "coverage": "existing",
+      "taxonId": "Q23005"
+    },
+    {
+      "name": "Neopterygii",
+      "originalRank": "subclass",
+      "selectedRank": "subclass",
+      "nameKo": "신기어아강",
+      "decision": "NCBI의 아강 계급을 채택합니다. 한글 표기는 게임에서 사용하는 관용명이며 국내 공식 목록에서 직접 확인된 명칭은 아닙니다.",
+      "nibr2019": null,
+      "nibr2025": null,
+      "ncbi": {
+        "id": "41665",
+        "name": "Neopterygii",
+        "rank": "subclass"
+      },
+      "worms": [],
+      "sources": [
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=41665&mode=Info"
+        ]
+      ],
+      "koreanNameStatus": "game-label-or-scientific-name",
+      "coverage": "existing",
+      "taxonId": "Q740005"
+    },
+    {
+      "name": "Neornithes",
+      "originalRank": "subclass",
+      "selectedRank": "clade",
+      "nameKo": "Neornithes",
+      "decision": "이번에 대조한 국내 목록·NCBI·WoRMS에서 기존 계급을 직접 확인하지 못했습니다. 계통군은 유지하되 게임에서는 계급을 붙이지 않습니다. 분류군 자체가 부정된다는 뜻은 아닙니다.",
+      "nibr2019": null,
+      "nibr2025": null,
+      "ncbi": null,
+      "worms": [],
+      "sources": [],
+      "koreanNameStatus": "game-label-or-scientific-name",
+      "coverage": "existing",
+      "taxonId": "Q19163"
+    },
+    {
+      "name": "Neoselachii",
+      "originalRank": "infraclass",
+      "selectedRank": "clade",
+      "nameKo": "Neoselachii",
+      "decision": "WoRMS에서는 아강이지만 게임은 상위 Elasmobranchii를 아강으로 채택하므로 중간 계통군에는 계급을 붙이지 않습니다.",
+      "nibr2019": null,
+      "nibr2025": null,
+      "ncbi": null,
+      "worms": [
+        {
+          "AphiaID": 368407,
+          "scientificname": "Neoselachii",
+          "rank": "Subclass",
+          "status": "accepted",
+          "valid_name": "Neoselachii",
+          "valid_AphiaID": 368407,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=368407",
+          "modified": "2021-06-29T11:30:35.110Z"
+        }
+      ],
+      "sources": [
+        [
+          "WoRMS: Subclass / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=368407"
+        ]
+      ],
+      "koreanNameStatus": "game-label-or-scientific-name",
+      "coverage": "existing",
+      "taxonId": "Q150760"
+    },
+    {
+      "name": "Nuda",
+      "originalRank": "class",
+      "selectedRank": "class",
+      "nameKo": "무촉수강",
+      "decision": "국립생물자원관의 2025년 말 기준 국가생물종목록의 강 계급과 확인된 한글명을 채택합니다.",
+      "nibr2019": null,
+      "nibr2025": {
+        "rank": "class",
+        "namesKo": [
+          "무촉수강"
+        ]
+      },
+      "ncbi": {
+        "id": "1919246",
+        "name": "Nuda",
+        "rank": "class"
+      },
+      "worms": [
+        {
+          "AphiaID": 1250,
+          "scientificname": "Nuda",
+          "rank": "Class",
+          "status": "accepted",
+          "valid_name": "Nuda",
+          "valid_AphiaID": 1250,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=1250",
+          "modified": "2011-02-09T12:41:24.933Z"
+        }
+      ],
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 (2025년 말 기준)",
+          "https://www.kbr.go.kr/jfile/readDownloadFile.do?fileId=ARTICLE_2241&fileSeq=1"
+        ],
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1919246&mode=Info"
+        ],
+        [
+          "WoRMS: Class / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=1250"
+        ]
+      ],
+      "koreanNameStatus": "domestic-official",
+      "coverage": "existing",
+      "taxonId": "Q136620"
+    },
+    {
+      "name": "Oligochaeta",
+      "originalRank": null,
+      "selectedRank": "subclass",
+      "nameKo": "빈모아강",
+      "decision": "국립생물자원관과 NCBI의 아강 계급을 채택합니다.",
+      "nibr2019": {
+        "rank": "subclass",
+        "nameKo": "빈모아강",
+        "pdfPage": 49
+      },
+      "nibr2025": null,
+      "ncbi": {
+        "id": "6381",
+        "name": "Oligochaeta",
+        "rank": "subclass"
+      },
+      "worms": [
+        {
+          "AphiaID": 2036,
+          "scientificname": "Oligochaeta",
+          "rank": "Subclass",
+          "status": "accepted",
+          "valid_name": "Oligochaeta",
+          "valid_AphiaID": 2036,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=2036",
+          "modified": "2017-06-01T12:33:21.800Z"
+        },
+        {
+          "AphiaID": 1076707,
+          "scientificname": "Oligochaeta",
+          "rank": "Genus",
+          "status": "accepted",
+          "valid_name": "Oligochaeta",
+          "valid_AphiaID": 1076707,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=1076707",
+          "modified": "2019-10-29T09:13:50.717Z"
+        }
+      ],
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 II (2019), PDF 49쪽",
+          "https://www.nibr.go.kr/aiibook/catImage/21/National%20Species%202.pdf#page=49"
+        ],
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=6381&mode=Info"
+        ],
+        [
+          "WoRMS: Subclass / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=2036"
+        ]
+      ],
+      "koreanNameStatus": "domestic-official",
+      "coverage": "added",
+      "taxonId": "review:ncbi:6381"
+    },
+    {
+      "name": "Ophiuroidea",
+      "originalRank": "class",
+      "selectedRank": "class",
+      "nameKo": "거미불가사리강",
+      "decision": "국립생물자원관의 2025년 말 기준 국가생물종목록의 강 계급과 확인된 한글명을 채택합니다.",
+      "nibr2019": {
+        "rank": "class",
+        "nameKo": "거미불가사리강",
+        "pdfPage": 71
+      },
+      "nibr2025": {
+        "rank": "class",
+        "namesKo": [
+          "거미불가사리강"
+        ]
+      },
+      "ncbi": {
+        "id": "7618",
+        "name": "Ophiuroidea",
+        "rank": "class"
+      },
+      "worms": [
+        {
+          "AphiaID": 123084,
+          "scientificname": "Ophiuroidea",
+          "rank": "Class",
+          "status": "accepted",
+          "valid_name": "Ophiuroidea",
+          "valid_AphiaID": 123084,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=123084",
+          "modified": "2009-06-22T07:47:14.980Z"
+        }
+      ],
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 (2025년 말 기준)",
+          "https://www.kbr.go.kr/jfile/readDownloadFile.do?fileId=ARTICLE_2241&fileSeq=1"
+        ],
+        [
+          "국립생물자원관 국가생물종목록 II (2019), PDF 71쪽",
+          "https://www.nibr.go.kr/aiibook/catImage/21/National%20Species%202.pdf#page=71"
+        ],
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=7618&mode=Info"
+        ],
+        [
+          "WoRMS: Class / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=123084"
+        ]
+      ],
+      "koreanNameStatus": "domestic-official",
+      "coverage": "existing",
+      "taxonId": "Q59256"
+    },
+    {
+      "name": "Palaeognathae",
+      "originalRank": "infraclass",
+      "selectedRank": "superorder",
+      "nameKo": "Palaeognathae",
+      "decision": "NCBI에서 해당 분류군의 계급을 확인하여 강 수준 계급으로 표시하지 않습니다.",
+      "nibr2019": null,
+      "nibr2025": null,
+      "ncbi": {
+        "id": "8783",
+        "name": "Palaeognathae",
+        "rank": "superorder"
+      },
+      "worms": [],
+      "sources": [
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=8783&mode=Info"
+        ]
+      ],
+      "koreanNameStatus": "game-label-or-scientific-name",
+      "coverage": "existing",
+      "taxonId": "Q19166"
+    },
+    {
+      "name": "Petromyzonti",
+      "originalRank": "class",
+      "selectedRank": "class",
+      "nameKo": "칠성장어강",
+      "decision": "WoRMS에서 확인한 계급을 채택합니다.",
+      "nibr2019": null,
+      "nibr2025": null,
+      "ncbi": null,
+      "worms": [
+        {
+          "AphiaID": 843662,
+          "scientificname": "Petromyzonti",
+          "rank": "Class",
+          "status": "accepted",
+          "valid_name": "Petromyzonti",
+          "valid_AphiaID": 843662,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=843662",
+          "modified": "2021-06-29T10:55:08.920Z"
+        }
+      ],
+      "sources": [
+        [
+          "WoRMS: Class / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=843662"
+        ]
+      ],
+      "koreanNameStatus": "game-label-or-scientific-name",
+      "coverage": "existing",
+      "taxonId": "Q22109932"
+    },
+    {
+      "name": "Petromyzontomorphi",
+      "originalRank": "superclass",
+      "selectedRank": "clade",
+      "nameKo": "Petromyzontomorphi",
+      "decision": "이번에 대조한 국내 목록·NCBI·WoRMS에서 기존 계급을 직접 확인하지 못했습니다. 계통군은 유지하되 게임에서는 계급을 붙이지 않습니다. 분류군 자체가 부정된다는 뜻은 아닙니다.",
+      "nibr2019": null,
+      "nibr2025": null,
+      "ncbi": null,
+      "worms": [],
+      "sources": [],
+      "koreanNameStatus": "game-label-or-scientific-name",
+      "coverage": "existing",
+      "taxonId": "Q22109950"
+    },
+    {
+      "name": "Phyllopoda",
+      "originalRank": "subclass",
+      "selectedRank": "subclass",
+      "nameKo": "Phyllopoda",
+      "decision": "NCBI에서 확인한 계급을 채택합니다.",
+      "nibr2019": null,
+      "nibr2025": null,
+      "ncbi": {
+        "id": "116557",
+        "name": "Phyllopoda",
+        "rank": "subclass"
+      },
+      "worms": [
+        {
+          "AphiaID": 155668,
+          "scientificname": "Phyllopoda",
+          "rank": "Subclass",
+          "status": "accepted",
+          "valid_name": "Phyllopoda",
+          "valid_AphiaID": 155668,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=155668",
+          "modified": "2020-09-18T20:05:15.867Z"
+        }
+      ],
+      "sources": [
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=116557&mode=Info"
+        ],
+        [
+          "WoRMS: Subclass / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=155668"
+        ]
+      ],
+      "koreanNameStatus": "game-label-or-scientific-name",
+      "coverage": "existing",
+      "taxonId": "Q2739896"
+    },
+    {
+      "name": "Placentalia",
+      "originalRank": "infraclass",
+      "selectedRank": "clade",
+      "nameKo": "Placentalia",
+      "decision": "이번에 대조한 국내 목록·NCBI·WoRMS에서 기존 계급을 직접 확인하지 못했습니다. 계통군은 유지하되 게임에서는 계급을 붙이지 않습니다. 분류군 자체가 부정된다는 뜻은 아닙니다.",
+      "nibr2019": null,
+      "nibr2025": null,
+      "ncbi": null,
+      "worms": [],
+      "sources": [],
+      "koreanNameStatus": "game-label-or-scientific-name",
+      "coverage": "existing",
+      "taxonId": "Q25833"
+    },
+    {
+      "name": "Pleurostigmophora",
+      "originalRank": "subclass",
+      "selectedRank": "subclass",
+      "nameKo": "Pleurostigmophora",
+      "decision": "NCBI에서 확인한 계급을 채택합니다.",
+      "nibr2019": null,
+      "nibr2025": null,
+      "ncbi": {
+        "id": "115405",
+        "name": "Pleurostigmophora",
+        "rank": "subclass"
+      },
+      "worms": [],
+      "sources": [
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=115405&mode=Info"
+        ]
+      ],
+      "koreanNameStatus": "game-label-or-scientific-name",
+      "coverage": "existing",
+      "taxonId": "Q11942087"
+    },
+    {
+      "name": "Polychaeta",
+      "originalRank": "class",
+      "selectedRank": "class",
+      "nameKo": "다모강",
+      "decision": "국립생물자원관의 2025년 말 기준 국가생물종목록의 강 계급과 확인된 한글명을 채택합니다.",
+      "nibr2019": {
+        "rank": "class",
+        "nameKo": "다모강",
+        "pdfPage": 49
+      },
+      "nibr2025": {
+        "rank": "class",
+        "namesKo": [
+          "다모강"
+        ]
+      },
+      "ncbi": {
+        "id": "6341",
+        "name": "Polychaeta",
+        "rank": "class"
+      },
+      "worms": [
+        {
+          "AphiaID": 883,
+          "scientificname": "Polychaeta",
+          "rank": "Class",
+          "status": "accepted",
+          "valid_name": "Polychaeta",
+          "valid_AphiaID": 883,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=883",
+          "modified": "2016-09-22T05:13:42.990Z"
+        }
+      ],
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 (2025년 말 기준)",
+          "https://www.kbr.go.kr/jfile/readDownloadFile.do?fileId=ARTICLE_2241&fileSeq=1"
+        ],
+        [
+          "국립생물자원관 국가생물종목록 II (2019), PDF 49쪽",
+          "https://www.nibr.go.kr/aiibook/catImage/21/National%20Species%202.pdf#page=49"
+        ],
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=6341&mode=Info"
+        ],
+        [
+          "WoRMS: Class / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=883"
+        ]
+      ],
+      "koreanNameStatus": "domestic-official",
+      "coverage": "supplement",
+      "taxonId": "ncbi:6341"
+    },
+    {
+      "name": "Priapulimorpha",
+      "originalRank": "class",
+      "selectedRank": "class",
+      "nameKo": "프리아풀리모르파강",
+      "decision": "NCBI에서 확인한 계급을 채택합니다.",
+      "nibr2019": null,
+      "nibr2025": null,
+      "ncbi": {
+        "id": "2082883",
+        "name": "Priapulimorpha",
+        "rank": "class"
+      },
+      "worms": [],
+      "sources": [
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=2082883&mode=Info"
+        ]
+      ],
+      "koreanNameStatus": "game-label-or-scientific-name",
+      "coverage": "supplement",
+      "taxonId": "ncbi:2082883"
+    },
+    {
+      "name": "Pteriomorphia",
+      "originalRank": "infraclass",
+      "selectedRank": "subclass",
+      "nameKo": "익형아강",
+      "decision": "국립생물자원관의 아강 계급과 한글명을 채택합니다. 중간 Autobranchia는 게임에서 계급 없는 분류군으로 표시합니다.",
+      "nibr2019": {
+        "rank": "subclass",
+        "nameKo": "익형아강",
+        "pdfPage": 45
+      },
+      "nibr2025": null,
+      "ncbi": {
+        "id": "6545",
+        "name": "Pteriomorphia",
+        "rank": "clade"
+      },
+      "worms": [
+        {
+          "AphiaID": 206,
+          "scientificname": "Pteriomorphia",
+          "rank": "Infraclass",
+          "status": "accepted",
+          "valid_name": "Pteriomorphia",
+          "valid_AphiaID": 206,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=206",
+          "modified": "2020-03-17T14:16:13.110Z"
+        }
+      ],
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 II (2019), PDF 45쪽",
+          "https://www.nibr.go.kr/aiibook/catImage/21/National%20Species%202.pdf#page=45"
+        ],
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=6545&mode=Info"
+        ],
+        [
+          "WoRMS: Infraclass / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=206"
+        ]
+      ],
+      "koreanNameStatus": "domestic-official",
+      "coverage": "existing",
+      "taxonId": "Q131403"
+    },
+    {
+      "name": "Pterygota",
+      "originalRank": "subclass",
+      "selectedRank": "subclass",
+      "nameKo": "유시아강",
+      "decision": "NCBI의 아강 계급을 채택하며 국립생물자원관 교육 자료의 유시아강 표기를 사용합니다.",
+      "nibr2019": null,
+      "nibr2025": null,
+      "ncbi": {
+        "id": "7496",
+        "name": "Pterygota",
+        "rank": "subclass"
+      },
+      "worms": [
+        {
+          "AphiaID": 151152,
+          "scientificname": "Pterygota",
+          "rank": "Infraclass",
+          "status": "accepted",
+          "valid_name": "Pterygota",
+          "valid_AphiaID": 151152,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=151152",
+          "modified": "2022-08-23T12:31:25.090Z"
+        }
+      ],
+      "sources": [
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=7496&mode=Info"
+        ],
+        [
+          "WoRMS: Infraclass / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=151152"
+        ],
+        [
+          "국립생물자원관 곤충 교육 자료",
+          "https://www.nibr.go.kr/aiibook/access/ecatalogt.jsp?Dir=1311&callmode=admin&catimage=&eclang=ko&start=80&um=s"
+        ]
+      ],
+      "koreanNameStatus": "domestic-official",
+      "coverage": "existing",
+      "taxonId": "Q22708"
+    },
+    {
+      "name": "Reptilia",
+      "originalRank": "class",
+      "selectedRank": "superclass",
+      "nameKo": "파충류상강",
+      "decision": "국내 전통 분류에서는 파충강이지만 새까지 포함하는 게임의 단일 계통에서는 WoRMS의 상강 계급을 채택합니다. 조강과 강이 중복되지 않도록 합니다. 한글 표기는 게임 표기입니다.",
+      "nibr2019": {
+        "rank": "class",
+        "nameKo": "파충강",
+        "pdfPage": 21
+      },
+      "nibr2025": {
+        "rank": "class",
+        "namesKo": [
+          "파충강"
+        ]
+      },
+      "ncbi": null,
+      "worms": [
+        {
+          "AphiaID": 1838,
+          "scientificname": "Reptilia",
+          "rank": "Superclass",
+          "status": "accepted",
+          "valid_name": "Reptilia",
+          "valid_AphiaID": 1838,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=1838",
+          "modified": "2021-06-29T11:14:19.757Z"
+        }
+      ],
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 (2025년 말 기준)",
+          "https://www.kbr.go.kr/jfile/readDownloadFile.do?fileId=ARTICLE_2241&fileSeq=1"
+        ],
+        [
+          "국립생물자원관 국가생물종목록 II (2019), PDF 21쪽",
+          "https://www.nibr.go.kr/aiibook/catImage/21/National%20Species%202.pdf#page=21"
+        ],
+        [
+          "WoRMS: Superclass / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=1838"
+        ]
+      ],
+      "koreanNameStatus": "game-label-or-scientific-name",
+      "coverage": "existing",
+      "taxonId": "Q10811"
+    },
+    {
+      "name": "Rhabditia",
+      "originalRank": "subclass",
+      "selectedRank": "clade",
+      "nameKo": "Rhabditia",
+      "decision": "이번에 대조한 국내 목록·NCBI·WoRMS에서 기존 계급을 직접 확인하지 못했습니다. 계통군은 유지하되 게임에서는 계급을 붙이지 않습니다. 분류군 자체가 부정된다는 뜻은 아닙니다.",
+      "nibr2019": null,
+      "nibr2025": null,
+      "ncbi": null,
+      "worms": [],
+      "sources": [],
+      "koreanNameStatus": "game-label-or-scientific-name",
+      "coverage": "existing",
+      "taxonId": "Q7319965"
+    },
+    {
+      "name": "Sarcopterygii",
+      "originalRank": "superclass",
+      "selectedRank": "superclass",
+      "nameKo": "육기어상강",
+      "decision": "사족동물까지 포함하는 게임의 범위에 맞춰 NCBI의 상강 계급을 유지합니다. 전통적인 육기어강과 계급이 다르며 WoRMS는 Gigaclass로 취급합니다. 한글 표기는 관용명과 채택 계급을 조합한 게임 표기입니다.",
+      "nibr2019": null,
+      "nibr2025": null,
+      "ncbi": {
+        "id": "8287",
+        "name": "Sarcopterygii",
+        "rank": "superclass"
+      },
+      "worms": [
+        {
+          "AphiaID": 163509,
+          "scientificname": "Sarcopterygii",
+          "rank": "Gigaclass",
+          "status": "accepted",
+          "valid_name": "Sarcopterygii",
+          "valid_AphiaID": 163509,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=163509",
+          "modified": "2021-06-29T11:42:15.007Z"
+        }
+      ],
+      "sources": [
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=8287&mode=Info"
+        ],
+        [
+          "WoRMS: Gigaclass / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=163509"
+        ]
+      ],
+      "koreanNameStatus": "game-label-or-scientific-name",
+      "coverage": "existing",
+      "taxonId": "Q160830"
+    },
+    {
+      "name": "Scyphozoa",
+      "originalRank": "class",
+      "selectedRank": "class",
+      "nameKo": "해파리강",
+      "decision": "국립생물자원관의 2025년 말 기준 국가생물종목록의 강 계급과 확인된 한글명을 채택합니다.",
+      "nibr2019": {
+        "rank": "class",
+        "nameKo": "해파리강",
+        "pdfPage": 29
+      },
+      "nibr2025": {
+        "rank": "class",
+        "namesKo": [
+          "해파리강"
+        ]
+      },
+      "ncbi": {
+        "id": "6142",
+        "name": "Scyphozoa",
+        "rank": "class"
+      },
+      "worms": [
+        {
+          "AphiaID": 135220,
+          "scientificname": "Scyphozoa",
+          "rank": "Class",
+          "status": "accepted",
+          "valid_name": "Scyphozoa",
+          "valid_AphiaID": 135220,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=135220",
+          "modified": "2024-02-29T07:57:50.617Z"
+        }
+      ],
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 (2025년 말 기준)",
+          "https://www.kbr.go.kr/jfile/readDownloadFile.do?fileId=ARTICLE_2241&fileSeq=1"
+        ],
+        [
+          "국립생물자원관 국가생물종목록 II (2019), PDF 29쪽",
+          "https://www.nibr.go.kr/aiibook/catImage/21/National%20Species%202.pdf#page=29"
+        ],
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=6142&mode=Info"
+        ],
+        [
+          "WoRMS: Class / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=135220"
+        ]
+      ],
+      "koreanNameStatus": "domestic-official",
+      "coverage": "existing",
+      "taxonId": "Q272388"
+    },
+    {
+      "name": "Sedentaria",
+      "originalRank": "subclass",
+      "selectedRank": "clade",
+      "nameKo": "정재류",
+      "decision": "국내 목록은 정재아강으로 취급하지만 게임의 계통 범위에는 환대강을 포함하므로 상위 계통군에는 계급을 붙이지 않습니다.",
+      "nibr2019": {
+        "rank": "subclass",
+        "nameKo": "정재아강",
+        "pdfPage": 50
+      },
+      "nibr2025": null,
+      "ncbi": {
+        "id": "105389",
+        "name": "Sedentaria",
+        "rank": "subclass"
+      },
+      "worms": [
+        {
+          "AphiaID": 754175,
+          "scientificname": "Sedentaria",
+          "rank": "Subclass",
+          "status": "accepted",
+          "valid_name": "Sedentaria",
+          "valid_AphiaID": 754175,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=754175",
+          "modified": "2014-02-18T00:49:53.643Z"
+        }
+      ],
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 II (2019), PDF 50쪽",
+          "https://www.nibr.go.kr/aiibook/catImage/21/National%20Species%202.pdf#page=50"
+        ],
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=105389&mode=Info"
+        ],
+        [
+          "WoRMS: Subclass / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=754175"
+        ]
+      ],
+      "koreanNameStatus": "game-label-or-scientific-name",
+      "coverage": "existing",
+      "taxonId": "Q9373141"
+    },
+    {
+      "name": "Selachii",
+      "originalRank": null,
+      "selectedRank": "infraclass",
+      "nameKo": "Selachii",
+      "decision": "NCBI와 WoRMS의 하강 계급을 확인하여 상어류 경로에 추가했습니다. 국내 공식 한글명을 직접 확인하지 못해 학명을 표시합니다.",
+      "nibr2019": null,
+      "nibr2025": null,
+      "ncbi": {
+        "id": "119203",
+        "name": "Selachii",
+        "rank": "infraclass"
+      },
+      "worms": [
+        {
+          "AphiaID": 368408,
+          "scientificname": "Selachii",
+          "rank": "Infraclass",
+          "status": "accepted",
+          "valid_name": "Selachii",
+          "valid_AphiaID": 368408,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=368408",
+          "modified": "2021-06-29T11:30:35.110Z"
+        }
+      ],
+      "sources": [
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=119203&mode=Info"
+        ],
+        [
+          "WoRMS: Infraclass / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=368408"
+        ]
+      ],
+      "koreanNameStatus": "game-label-or-scientific-name",
+      "coverage": "added",
+      "taxonId": "review:ncbi:119203"
+    },
+    {
+      "name": "Teleostei",
+      "originalRank": "class",
+      "selectedRank": "infraclass",
+      "nameKo": "진골어하강",
+      "decision": "NCBI의 하강 계급과 어류 전문 문헌의 체계를 채택합니다. WoRMS에서는 강으로 취급합니다. 한글 표기는 사용자 지정 관용명입니다.",
+      "nibr2019": null,
+      "nibr2025": null,
+      "ncbi": {
+        "id": "32443",
+        "name": "Teleostei",
+        "rank": "infraclass"
+      },
+      "worms": [
+        {
+          "AphiaID": 293496,
+          "scientificname": "Teleostei",
+          "rank": "Class",
+          "status": "accepted",
+          "valid_name": "Teleostei",
+          "valid_AphiaID": 293496,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=293496",
+          "modified": "2022-12-22T02:09:49.983Z"
+        }
+      ],
+      "sources": [
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=32443&mode=Info"
+        ],
+        [
+          "WoRMS: Class / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=293496"
+        ]
+      ],
+      "koreanNameStatus": "game-label-or-scientific-name",
+      "coverage": "existing",
+      "taxonId": "Q204861"
+    },
+    {
+      "name": "Tentaculata",
+      "originalRank": "class",
+      "selectedRank": "class",
+      "nameKo": "유촉수강",
+      "decision": "국립생물자원관의 2025년 말 기준 국가생물종목록의 강 계급과 확인된 한글명을 채택합니다.",
+      "nibr2019": {
+        "rank": "class",
+        "nameKo": "유촉수강",
+        "pdfPage": 30
+      },
+      "nibr2025": {
+        "rank": "class",
+        "namesKo": [
+          "유촉수강"
+        ]
+      },
+      "ncbi": {
+        "id": "140493",
+        "name": "Tentaculata",
+        "rank": "class"
+      },
+      "worms": [
+        {
+          "AphiaID": 1249,
+          "scientificname": "Tentaculata",
+          "rank": "Class",
+          "status": "accepted",
+          "valid_name": "Tentaculata",
+          "valid_AphiaID": 1249,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=1249",
+          "modified": "2011-02-09T12:41:24.933Z"
+        }
+      ],
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 (2025년 말 기준)",
+          "https://www.kbr.go.kr/jfile/readDownloadFile.do?fileId=ARTICLE_2241&fileSeq=1"
+        ],
+        [
+          "국립생물자원관 국가생물종목록 II (2019), PDF 30쪽",
+          "https://www.nibr.go.kr/aiibook/catImage/21/National%20Species%202.pdf#page=30"
+        ],
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=140493&mode=Info"
+        ],
+        [
+          "WoRMS: Class / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=1249"
+        ]
+      ],
+      "koreanNameStatus": "domestic-official",
+      "coverage": "existing",
+      "taxonId": "Q131799"
+    },
+    {
+      "name": "Testudinata",
+      "originalRank": null,
+      "selectedRank": "subclass",
+      "nameKo": "Testudinata",
+      "decision": "NCBI에서 확인한 계급을 채택합니다.",
+      "nibr2019": null,
+      "nibr2025": null,
+      "ncbi": {
+        "id": "2841271",
+        "name": "Testudinata",
+        "rank": "subclass"
+      },
+      "worms": [],
+      "sources": [
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=2841271&mode=Info"
+        ]
+      ],
+      "koreanNameStatus": "game-label-or-scientific-name",
+      "coverage": "existing",
+      "taxonId": "Q16114972"
+    },
+    {
+      "name": "Tetractinomorpha",
+      "originalRank": "subclass",
+      "selectedRank": "clade",
+      "nameKo": "Tetractinomorpha",
+      "decision": "WoRMS에서 인정되지 않는 과거 명칭입니다. 기존 계통 경로의 식별자는 유지하되 현행 아강으로 안내하지 않습니다.",
+      "nibr2019": null,
+      "nibr2025": null,
+      "ncbi": null,
+      "worms": [
+        {
+          "AphiaID": 131588,
+          "scientificname": "Tetractinomorpha",
+          "rank": "Subclass",
+          "status": "unaccepted",
+          "valid_name": "Demospongiae",
+          "valid_AphiaID": 164811,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=131588",
+          "modified": "2009-11-20T14:36:03.590Z"
+        }
+      ],
+      "sources": [
+        [
+          "WoRMS: Subclass / unaccepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=131588"
+        ]
+      ],
+      "koreanNameStatus": "game-label-or-scientific-name",
+      "coverage": "existing",
+      "taxonId": "Q1170475"
+    },
+    {
+      "name": "Tetrapoda",
+      "originalRank": "superclass",
+      "selectedRank": "clade",
+      "nameKo": "사족동물",
+      "decision": "NCBI의 계급 없는 분류군으로 표시합니다.",
+      "nibr2019": null,
+      "nibr2025": null,
+      "ncbi": {
+        "id": "32523",
+        "name": "Tetrapoda",
+        "rank": "clade"
+      },
+      "worms": [
+        {
+          "AphiaID": 1831,
+          "scientificname": "Tetrapoda",
+          "rank": "Megaclass",
+          "status": "accepted",
+          "valid_name": "Tetrapoda",
+          "valid_AphiaID": 1831,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=1831",
+          "modified": "2021-06-29T11:14:19.757Z"
+        }
+      ],
+      "sources": [
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=32523&mode=Info"
+        ]
+      ],
+      "koreanNameStatus": "game-label-or-scientific-name",
+      "coverage": "existing",
+      "taxonId": "Q19159"
+    },
+    {
+      "name": "Tetrapodomorpha",
+      "originalRank": "subclass",
+      "selectedRank": "clade",
+      "nameKo": "Tetrapodomorpha",
+      "decision": "사족동물의 여러 강을 포함하는 계통 범위를 유지하며 게임에서는 계급을 붙이지 않습니다.",
+      "nibr2019": null,
+      "nibr2025": null,
+      "ncbi": null,
+      "worms": [],
+      "sources": [],
+      "koreanNameStatus": "game-label-or-scientific-name",
+      "coverage": "existing",
+      "taxonId": "Q1209254"
+    },
+    {
+      "name": "Theria",
+      "originalRank": "supercohort",
+      "selectedRank": "subclass",
+      "nameKo": "Theria",
+      "decision": "WoRMS에서 확인한 계급을 채택합니다.",
+      "nibr2019": null,
+      "nibr2025": null,
+      "ncbi": {
+        "id": "32525",
+        "name": "Theria",
+        "rank": "clade"
+      },
+      "worms": [
+        {
+          "AphiaID": 380416,
+          "scientificname": "Theria",
+          "rank": "Subclass",
+          "status": "accepted",
+          "valid_name": "Theria",
+          "valid_AphiaID": 380416,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=380416",
+          "modified": "2009-01-15T06:47:06.863Z"
+        }
+      ],
+      "sources": [
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=32525&mode=Info"
+        ],
+        [
+          "WoRMS: Subclass / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=380416"
+        ]
+      ],
+      "koreanNameStatus": "game-label-or-scientific-name",
+      "coverage": "existing",
+      "taxonId": "Q130942"
+    },
+    {
+      "name": "Theriiformes",
+      "originalRank": "subclass",
+      "selectedRank": "clade",
+      "nameKo": "Theriiformes",
+      "decision": "Theria 아강과 중복되지 않도록 게임에서는 계급 없는 분류군으로 표시합니다.",
+      "nibr2019": null,
+      "nibr2025": null,
+      "ncbi": null,
+      "worms": [],
+      "sources": [],
+      "koreanNameStatus": "game-label-or-scientific-name",
+      "coverage": "existing",
+      "taxonId": "Q2513125"
+    },
+    {
+      "name": "Udeonychophora",
+      "originalRank": "class",
+      "selectedRank": "class",
+      "nameKo": "우데오니코포라강",
+      "decision": "NCBI에서 확인한 계급을 채택합니다.",
+      "nibr2019": null,
+      "nibr2025": null,
+      "ncbi": {
+        "id": "2082881",
+        "name": "Udeonychophora",
+        "rank": "class"
+      },
+      "worms": [],
+      "sources": [
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=2082881&mode=Info"
+        ]
+      ],
+      "koreanNameStatus": "game-label-or-scientific-name",
+      "coverage": "supplement",
+      "taxonId": "ncbi:2082881"
+    },
+    {
+      "name": "Uniplacotomia",
+      "originalRank": "class",
+      "selectedRank": "class",
+      "nameKo": "우니플라코토미아강",
+      "decision": "NCBI에서 확인한 계급을 채택합니다.",
+      "nibr2019": null,
+      "nibr2025": null,
+      "ncbi": {
+        "id": "3043701",
+        "name": "Uniplacotomia",
+        "rank": "class"
+      },
+      "worms": [
+        {
+          "AphiaID": 1652332,
+          "scientificname": "Uniplacotomia",
+          "rank": "Class",
+          "status": "accepted",
+          "valid_name": "Uniplacotomia",
+          "valid_AphiaID": 1652332,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=1652332",
+          "modified": "2023-04-07T13:42:56.497Z"
+        }
+      ],
+      "sources": [
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=3043701&mode=Info"
+        ],
+        [
+          "WoRMS: Class / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=1652332"
+        ]
+      ],
+      "koreanNameStatus": "game-label-or-scientific-name",
+      "coverage": "existing",
+      "taxonId": "Q117527590"
+    },
+    {
+      "name": "Vetigastropoda",
+      "originalRank": "subclass",
+      "selectedRank": "subclass",
+      "nameKo": "고복족아강",
+      "decision": "국립생물자원관 2019 국가생물종목록의 계급과 한글명을 채택합니다.",
+      "nibr2019": {
+        "rank": "subclass",
+        "nameKo": "고복족아강",
+        "pdfPage": 38
+      },
+      "nibr2025": null,
+      "ncbi": {
+        "id": "216275",
+        "name": "Vetigastropoda",
+        "rank": "subclass"
+      },
+      "worms": [
+        {
+          "AphiaID": 156485,
+          "scientificname": "Vetigastropoda",
+          "rank": "Subclass",
+          "status": "accepted",
+          "valid_name": "Vetigastropoda",
+          "valid_AphiaID": 156485,
+          "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=156485",
+          "modified": "2009-04-13T21:27:48.980Z"
+        }
+      ],
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 II (2019), PDF 38쪽",
+          "https://www.nibr.go.kr/aiibook/catImage/21/National%20Species%202.pdf#page=38"
+        ],
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=216275&mode=Info"
+        ],
+        [
+          "WoRMS: Subclass / accepted",
+          "https://www.marinespecies.org/aphia.php?p=taxdetails&id=156485"
+        ]
+      ],
+      "koreanNameStatus": "domestic-official",
+      "coverage": "existing",
+      "taxonId": "Q141527"
+    },
+    {
+      "name": "Yinotheria",
+      "originalRank": "subclass",
+      "selectedRank": "clade",
+      "nameKo": "Yinotheria",
+      "decision": "이번에 대조한 국내 목록·NCBI·WoRMS에서 기존 계급을 직접 확인하지 못했습니다. 계통군은 유지하되 게임에서는 계급을 붙이지 않습니다. 분류군 자체가 부정된다는 뜻은 아닙니다.",
+      "nibr2019": null,
+      "nibr2025": null,
+      "ncbi": null,
+      "worms": [],
+      "sources": [],
+      "koreanNameStatus": "game-label-or-scientific-name",
+      "coverage": "existing",
+      "taxonId": "Q21448022"
+    }
+  ]
+}

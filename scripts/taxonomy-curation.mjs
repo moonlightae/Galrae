@@ -1,5 +1,7 @@
 import { readFileSync } from "node:fs";
 const rankReview = JSON.parse(readFileSync(new URL("../data/taxonomy-rank-review.json", import.meta.url), "utf8"));
+const classRankAudit = JSON.parse(readFileSync(new URL("../data/class-rank-audit.json", import.meta.url), "utf8"));
+const reviewedRanks = new Map(classRankAudit.taxa.filter((taxon) => taxon.taxonId).map((taxon) => [taxon.taxonId, taxon.selectedRank]));
 const XENACOELOMORPHA_ID = "Q3570860";
 const DISPUTED_XENACOELOMORPHA_ANCESTORS = new Set(["Q3059449", "Q150866", "Q2412197"]);
 const EUSAURISCHIA_ID = "Q2013709";
@@ -118,6 +120,16 @@ export function curateTaxonomy(animals) {
       if (taxon.wikidataId === "Q2747865") return { ...taxon, scientificName: "Branchiostomatidae" };
       return SPECIES_TAXON_REPLACEMENTS[animal.scientificName]?.[taxon.wikidataId] ?? taxon;
     });
+    lineage = lineage.map((taxon) => reviewedRanks.has(taxon.wikidataId) ? { ...taxon, rank: reviewedRanks.get(taxon.wikidataId) } : taxon);
+    if (["Eisenia fetida", "Lumbricus terrestris"].includes(animal.scientificName) && !lineage.some((taxon) => taxon.scientificName === "Oligochaeta")) {
+      const index = lineage.findIndex((taxon) => taxon.scientificName === "Clitellata");
+      if (index < 0) throw new Error(`Missing Clitellata for ${animal.scientificName}`);
+      lineage.splice(index + 1, 0, { wikidataId: "review:ncbi:6381", scientificName: "Oligochaeta", englishName: "Oligochaeta", rank: "subclass" });
+    }
+    const sharkIndex = lineage.findIndex((taxon) => taxon.scientificName === "Selachimorpha");
+    if (sharkIndex >= 0 && !lineage.some((taxon) => taxon.scientificName === "Selachii")) {
+      lineage.splice(sharkIndex, 0, { wikidataId: "review:ncbi:119203", scientificName: "Selachii", englishName: "sharks", rank: "infraclass" });
+    }
     return { ...animal, taxonomy: { ...animal.taxonomy, lineage, rankReview: rankReview[animal.id] } };
   });
 }

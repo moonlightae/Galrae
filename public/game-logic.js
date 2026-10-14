@@ -52,7 +52,7 @@
     function compress(node, isRoot = false) {
       const descendants = [...node.children.values()].map((child) => compress(child));
       if (node.animalId) descendants.push(leaf(node.animalId, node.animalId === previewId));
-      if (!isRoot && descendants.length === 1 && !(preserveClasses && node.rank === "class")) return descendants[0];
+      if (!isRoot && descendants.length === 1 && !(preserveClasses && ["superclass", "class", "subclass", "infraclass"].includes(node.rank))) return descendants[0];
       if (!descendants.length && node.animalId) return leaf(node.animalId, node.animalId === previewId);
       const result = branch(node.id, node.name, descendants, false);
       if (preserveClasses) result.rank = node.rank;
@@ -212,7 +212,9 @@
 
   function difficultyTaxa(animal, difficulty) {
     const rank = difficulty === "easy" ? "class" : "order";
-    const taxa = animal.taxonomy.lineage.filter((taxon) => taxon.rank === rank);
+    let taxa = animal.taxonomy.lineage.filter((taxon) => taxon.rank === rank);
+    // Some ranked trees place reptiles in a superclass without an intervening class.
+    if (rank === "class" && !taxa.length) taxa = animal.taxonomy.lineage.filter((taxon) => taxon.rank === "superclass").slice(-1);
     const supplement = animal.taxonomy.rankReview?.supplemental[rank];
     return (taxa.length ? taxa : supplement ? [supplement] : []).map((taxon) => taxon.scientificName);
   }
