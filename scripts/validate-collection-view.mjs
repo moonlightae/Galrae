@@ -6,18 +6,21 @@ import { upperAncestors } from "../public/upper-ancestors.js";
 import { taxonProfiles } from "../public/taxon-profiles.js";
 import { legendRanks, rankNames, rankMark } from "../public/rank-marks.js";
 import { orderAncestors } from "../public/order-ancestors.js";
+import { taxonCatalog } from "../public/taxon-catalog.js";
+import { taxonGroups } from "../public/taxon-groups.js";
 await import("../public/game-logic.js");
 const { buildTree } = globalThis.GalraeLogic;
 const { animals } = JSON.parse(readFileSync(new URL("../public/data/animals.json", import.meta.url)));
 const speciesById = new Map(animals.map((animal) => [animal.id, animal]));
-function topology(node) {
-  if (node.type === "leaf") return { type: "leaf", id: node.id };
-  const children = node.children.map(topology);
-  if (node.id !== "Q729" && children.length === 1) return children[0];
-  return { type: "branch", id: node.id, children };
+function leafSets(node, sets = new Map()) {
+  const ids = node.type === "leaf" ? [node.id] : node.children.flatMap((child) => [...leafSets(child, sets).get(child.id)]);
+  sets.set(node.id, new Set(ids));
+  return sets;
 }
 for (const ids of [animals.map((animal) => animal.id), ["limulus-polyphemus", "tachypleus-tridentatus"], ["mytilus-edulis", "tridacna-gigas"], ["platynereis-dumerilii", "riftia-pachyptila", "hirudo-medicinalis"]]) {
-  assert.deepEqual(topology(buildTree(ids, speciesById, null, true)), topology(buildTree(ids, speciesById)), "Class markers must preserve evolutionary relationships");
+  const collection = leafSets(buildTree(ids, speciesById, null, true));
+  assert.deepEqual(collection.get("Q729"), new Set(ids), "Truncating below order must retain every species card");
+  for (const [id, members] of leafSets(buildTree(ids, speciesById))) if (collection.has(id)) assert.deepEqual(collection.get(id), members, `${id}: retained branches must preserve their member species`);
 }
 const elements = new Map();
 function element(id) {
@@ -125,13 +128,20 @@ for (const ids of [["homo-sapiens"], ["homo-sapiens", "asterias-rubens"], animal
   assert.equal(element("#collection-grid").hidden, true);
   element("#collection-tree-fit").handlers.click();
   const fitZoom = cameraStyles.get("--tree-zoom");
-  assert.ok(fitZoom >= .03 && fitZoom <= 1);
+  assert.ok(fitZoom >= .002 && fitZoom <= 1);
+  assert.ok(Number(tree.dataset.width) * fitZoom <= viewport.clientWidth - 31 && Number(tree.dataset.height) * fitZoom <= viewport.clientHeight - 31, "Fit must show the complete expanded collection even on a small screen");
   element("#collection-zoom-in").handlers.click();
   assert.ok(cameraStyles.get("--tree-zoom") > fitZoom);
   viewport.handlers.click({ target: { closest: (selector) => selector === "[data-species-id]" ? speciesButtons[0] : null } });
   assert.equal(opened, speciesButtons[0].dataset.speciesId);
 }
 const annotated = branchButtons.filter((button) => button.dataset.ancestorId);
+const rankAudit = JSON.parse(readFileSync(new URL("../data/taxon-rank-audit.json", import.meta.url)));
+const reachableRanked = new Set(annotated.map((button) => button.dataset.ancestorId));
+for (const entry of rankAudit.taxa.filter((entry) => entry.displayScope && entry.ranked)) assert.ok(reachableRanked.has(entry.id), `${entry.name}: every source rank through order must be reachable`);
+for (const entry of rankAudit.taxa.filter((entry) => entry.representedBy)) assert.ok(reachableRanked.has(entry.representedBy), `${entry.name}: aliases must resolve to a visible accepted taxon`);
+assert.ok(!branchButtons.some((button) => ["suborder", "infraorder", "parvorder", "superfamily", "family", "subfamily", "tribe", "genus", "subgenus"].includes(button.dataset.rank)), "Ranks below order must stay out of this view");
+for (const id of ["Q471797", "Q10850"]) assert.ok(reachableRanked.has(id), "Euarchontoglires and Rodentia must be reachable even with unary branches");
 assert.deepEqual(new Set(annotated.map((button) => button.dataset.ancestorId)), new Set(Object.keys(ancestorNotes)), "Every registered note, including orders and group borders, must be reachable");
 for (const button of annotated) {
   let stopped = false;
@@ -146,8 +156,8 @@ for (const button of annotated) {
 assert.equal(new Set(legendRanks.map(rankMark)).size, 6, "Each of the six ranks needs a distinct shape");
 const legend = element("#collection-rank-legend").innerHTML;
 assert.ok(legendRanks.every((rank, index) => index === 0 || legend.indexOf(`<span>${rankNames[rank][0]}</span>`) > legend.indexOf(`<span>${rankNames[legendRanks[index - 1]][0]}</span>`)), "Legend must follow the requested rank order");
-assert.equal(branchButtons.filter((button) => button.dataset.rank === "order").length, Object.keys(orderAncestors).length, "Every visible order must have an explanation");
-assert.ok(branchButtons.filter((button) => button.dataset.rank === "order").every((button) => button.innerHTML === rankMark("order") && !button.disabled && button.handlers.click));
+assert.ok(branchButtons.filter((button) => button.dataset.rank === "order").length >= Object.keys(orderAncestors).length, "All orders must have an explanation, including formerly compressed ones");
+assert.ok(branchButtons.filter((button) => button.dataset.rank === "order").every((button) => button.innerHTML.includes(rankMark("order")) && !button.disabled && button.handlers.click));
 assert.equal(element("#ancestor-guide").shown, 1, "Guide must not repeat after dismissal");
 assert.equal(stored.get("guide-test-user"), "seen");
 assert.ok(annotated.some((button) => button.dataset.ancestorId === "ncbi:6844"), "Horseshoe-crab class must be reachable");
@@ -232,10 +242,37 @@ for (const ids of [[polychaetes[0]], polychaetes, [...polychaetes, "hirudo-medic
   view.render(ids);
   for (const layout of layouts) {
     layout.handlers.click();
-    const outlines = [...viewport.markup.matchAll(/class="taxon-group" data-group="([^"]+)" data-members="([^"]+)" style="left:([^p]+)px;top:([^p]+)px;width:([^p]+)px;height:([^p]+)px"/g)];
+    const outlines = [...viewport.markup.matchAll(/class="taxon-group" data-group="([^"]+)" data-members="([^"]+)" style="left:([^p]+)px;top:([^p]+)px;width:([^p]+)px;height:([^p]+)px"/g)].filter((match) => match[1] === "ncbi:6341");
     assert.deepEqual(new Set(outlines.flatMap((match) => match[2].split(","))), new Set(ids.filter((id) => polychaetes.includes(id))), "Borders must cover exactly the collected traditional polychaetes");
     assert.equal(outlines.length, ids.some((id) => polychaetes.includes(id)) ? 1 : 0, "All members must share one border");
     const positionedLeaves = [...viewport.markup.matchAll(/class="species-node[^"]*"[^>]*style="left:([^p]+)px;top:([^p]+)px" data-species-id="([^"]+)"/g)];
+    const allOutlines = [...viewport.markup.matchAll(/<span class="taxon-group"[^>]*>/g)].map((match) => match[0]);
+    for (const id of Object.keys(taxonGroups)) {
+      const members = ids.filter((speciesId) => ancestorNotes[id].members.includes(speciesId));
+      const shapes = allOutlines.filter((markup) => markup.includes(`data-group="${id}"`));
+      assert.equal(shapes.length, members.length ? 1 : 0, `${id}: one outline per included group`);
+      assert.equal([...viewport.markup.matchAll(new RegExp(`data-target="${id}"`, "g"))].length, members.length ? 1 : 0, `${id}: group must have one border button and no branch target`);
+      if (!members.length) continue;
+      const outline = shapes[0];
+      assert.deepEqual(new Set(outline.match(/data-members="([^"]+)"/)[1].split(",")), new Set(members));
+      const values = outline.match(/left:([^p]+)px;top:([^p]+)px;width:([^p]+)px;height:([^p]+)px/).slice(1).map(Number);
+      const [left, top, width, height] = values;
+      function contains(x, y) {
+        if (!outline.includes('data-shape="sector"')) return x >= left && x <= left + width && y >= top && y <= top + height;
+        const [cx, cy] = outline.match(/data-center="([^"]+)"/)[1].split(",").map(Number);
+        const [inner, outer] = outline.match(/data-radii="([^"]+)"/)[1].split(",").map(Number);
+        const [start, end] = outline.match(/data-angles="([^"]+)"/)[1].split(",").map(Number);
+        let angle = Math.atan2(y - cy, x - cx);
+        while (angle < start) angle += Math.PI * 2;
+        const radius = Math.hypot(x - cx, y - cy);
+        return radius >= inner && radius <= outer && angle <= end;
+      }
+      for (const leaf of positionedLeaves) {
+        const [x, y] = leaf.slice(1, 3).map(Number);
+        assert.equal(contains(x, y), members.includes(leaf[3]), `${layout.dataset.treeLayout} ${id}: incorrect inclusion of ${leaf[3]}`);
+        if (members.includes(leaf[3])) for (const dx of [-84, 84]) for (const dy of [-36, 36]) assert.ok(contains(x + dx, y + dy), `${id}: the entire member card must be inside the outline`);
+      }
+    }
     for (const outline of outlines) {
       const [left, top, width, height] = outline.slice(3).map(Number);
       assert.ok(width > 0 && height > 0);
@@ -279,7 +316,7 @@ const searchResults = element("#collection-branch-results");
 const searchForm = element("#collection-branch-search");
 for (const layout of layouts) {
   layout.handlers.click();
-  for (const [term, id] of [["포유", "Q7377"], ["TeleOstei", "Q204861"], ["다모", "ncbi:6341"]]) {
+  for (const [term, id] of [["포유", "Q7377"], ["TeleOstei", "Q204861"], ["다모", "ncbi:6341"], ["영장상목", "Q471797"], ["설치목", "Q10850"], ["Urodela", "Q53663"]]) {
     query.value = term;
     query.handlers.input();
     assert.equal(searchResults.hidden, false);

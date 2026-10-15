@@ -1,7 +1,8 @@
 const version = new URL(import.meta.url).search;
-const [{ additionalClassAncestors }, { taxonRanks, classRanks, rankLabels }, { upperAncestors }, { taxonProfiles }, { rankMark, rankNames }, { orderAncestors }] = await Promise.all([
+const [{ additionalClassAncestors }, { taxonRanks, classRanks, rankLabels }, { upperAncestors }, { taxonProfiles }, { rankMark, rankNames }, { orderAncestors }, { taxonCatalog }, { taxonGroups }] = await Promise.all([
   import(`./additional-class-ancestors.js${version}`), import(`./taxon-ranks.js${version}`), import(`./upper-ancestors.js${version}`),
   import(`./taxon-profiles.js${version}`), import(`./rank-marks.js${version}`), import(`./order-ancestors.js${version}`),
+  import(`./taxon-catalog.js${version}`), import(`./taxon-groups.js${version}`),
 ]);
 
 export const classAncestors = {
@@ -118,6 +119,34 @@ for (const id of Object.keys(upperAncestors)) {
     review: `${upperAncestors[id].review} ${ranked.review}`, reviewEn: `${upperAncestors[id].reviewEn} ${ranked.reviewEn}` };
 }
 
+for (const [id, entry] of Object.entries(taxonCatalog)) {
+  const existing = ancestorNotes[id];
+  const rank = entry.rank || "clade";
+  ancestorNotes[id] = { ...entry, rank,
+    ko: [`${entry.koName}은 이 도감에서 ${rankNames[rank]?.[0] || rank}으로 표시하는 분류군입니다. 아래 대표 생물과 전체 분류 경로에서 포함 범위를 확인할 수 있습니다.`, "등록 기관의 분류 계급은 서로 다를 수 있습니다. 국내에서 확인한 이름을 우선하며, 확인하지 못한 이름은 학명으로 표시합니다."],
+    en: [`${entry.name} is displayed at the rank of ${rank} in this collection. Its included species and full classification path are listed below.`, "Taxonomic ranks can differ among registries. Verified domestic names take priority; scientific names are retained where no Korean name was confirmed."],
+    review: `수록 분류 경로 기준.${entry.ncbiRank ? ` NCBI 계급: ${rankNames[entry.ncbiRank]?.[0] || entry.ncbiRank}.` : ""}`,
+    reviewEn: `Following the recorded lineage.${entry.ncbiRank ? ` NCBI rank: ${entry.ncbiRank}.` : ""}`,
+    ...existing, members: entry.members,
+    sources: [...(existing?.sources || []), ...entry.sources],
+    generated: !existing,
+  };
+}
+const unionMembers = (names) => [...new Set(Object.values(taxonCatalog).filter((entry) => names.includes(entry.name)).flatMap((entry) => entry.members))];
+ancestorNotes.Q5174.members = unionMembers(["Ctenophora", "Cnidaria", "Bilateria"]);
+ancestorNotes.Q27207.members = unionMembers(["Actinopterygii", "Dipneusti", "Latimeria"]);
+ancestorNotes.Q53663.aliases = ["Urodela", "도롱뇽목"];
+for (const [id, ko, en] of [
+  ["Q15731102", "닭목과 같은 계급을 중복 표시하지 않도록 Pangalliformes는 상위 공통군으로 표시합니다.", "Pangalliformes is displayed as a broader grouping, keeping Galliformes as the order."],
+  ["Q1186640", "이 도감에서는 Enterogona를 상위 공통군으로, Phlebobranchia를 편새목으로 표시합니다.", "Enterogona is displayed as a broader grouping, with Phlebobranchia as the order."],
+]) if (ancestorNotes[id]) { ancestorNotes[id].review += ` ${ko}`; ancestorNotes[id].reviewEn += ` ${en}`; }
+for (const [id, [source, ko, en]] of Object.entries(taxonGroups)) {
+  const note = ancestorNotes[id];
+  if (!note) throw new Error(`Missing outlined taxon: ${id}`);
+  Object.assign(note, { paraphyletic: true, review: `${note.review} ${ko}`, reviewEn: `${note.reviewEn} ${en}` });
+  note.sources.push(["분류 범위·계통 연구", source]);
+}
+
 export function getClassIds(animal) {
   const classes = animal.taxonomy.lineage.filter((taxon) => classRanks.includes(taxon.rank)).map((taxon) => taxon.wikidataId);
   const supplement = animal.taxonomy.rankReview?.supplemental.class;
@@ -140,7 +169,7 @@ export function createAncestorNotes({ $, escapeHtml, getLanguage, speciesById, c
     if (branches.size || !speciesById.size) return;
     index(buildTree([...speciesById.keys()], speciesById, null, true));
   }
-  const belongsTo = (animal, id) => branches.get(id)?.members.has(animal.id) || getClassIds(animal).includes(id);
+  const belongsTo = (animal, id) => ancestorNotes[id]?.members ? ancestorNotes[id].members.includes(animal.id) : branches.get(id)?.members.has(animal.id) || getClassIds(animal).includes(id);
   const offeredKeys = new Set();
   $("#close-ancestor-guide").addEventListener("click", () => guide.close());
   guide.addEventListener("close", () => {
@@ -201,21 +230,22 @@ export function createAncestorNotes({ $, escapeHtml, getLanguage, speciesById, c
     const credit = $("#ancestor-image-credit");
     credit.href = animal.image.commonsPageUrl;
     credit.textContent = `${animal.image.artist || "Unknown creator"} · ${animal.image.license}`;
-    const rankPath = note.upper
+    const rankPath = note.upper && branches.has(id)
       ? branches.get(id).path.map((taxon) => ko ? ancestorNotes[taxon.id]?.koName || taxon.name : taxon.name).join(" → ")
-      : representative.taxonomy.lineage.filter((taxon) => classRanks.includes(taxon.rank) || taxon.wikidataId === id)
-        .map((taxon) => ko ? `${ancestorNotes[taxon.wikidataId]?.koName || taxon.scientificName} [${rankLabels[taxon.rank] || rankNames[taxon.rank]?.[0]}]` : `${taxon.scientificName} [${taxon.rank}]`).join(" → ");
+      : representative.taxonomy.lineage.filter((taxon) => note.generated ? taxonCatalog[taxon.wikidataId] : classRanks.includes(taxon.rank) || taxon.wikidataId === id)
+        .map((taxon) => ko ? `${ancestorNotes[taxon.wikidataId]?.koName || taxon.scientificName} [${rankLabels[taxon.rank] || rankNames[taxon.rank]?.[0] || "계급 없음"}]` : `${taxon.scientificName} [${taxon.rank || "unranked"}]`).join(" → ");
     const reviewText = ko ? note.review : note.reviewEn;
     const profile = taxonProfiles[note.name];
-    const features = profile ? (ko ? profile.ko : profile.en) : text[0];
+    const features = profile ? (ko ? profile.ko : profile.en) : note.generated ? animal.description : text[0];
     const genera = new Set();
     const examples = candidates.filter((animal) => { const genus = animal.scientificName.split(" ")[0]; if (genera.has(genus)) return false; genera.add(genus); return true; }).slice(0, 4);
-    $("#ancestor-content").innerHTML = `<section><h3>${ko ? "주요 특징" : "Key characteristics"}</h3><p>${escapeHtml(features)}</p></section>`
+    $("#ancestor-content").innerHTML = `<section><h3>${note.generated && !profile ? ko ? "주요 특징 · 대표 수록종" : "Key characteristics · representative species" : ko ? "주요 특징" : "Key characteristics"}</h3><p>${escapeHtml(features || text[0])}</p></section>`
       + `<section><h3>${ko ? "대표 생물 · 현재 도감 수록종" : "Representative species in this collection"}</h3><ul>${examples.map((entry) => { const example = cardText(entry); return `<li>${escapeHtml(example.commonName)} <i>(${escapeHtml(example.scientificName)})</i></li>`; }).join("")}</ul></section>`
       + `<section><h3>${ko ? "분류 위치" : "Classification"}</h3><p>${escapeHtml(rankPath)}</p><p>${escapeHtml(reviewText)}</p></section>`
       + text.map((paragraph, index) => `<section><h3>${labels[index]}</h3><p>${escapeHtml(paragraph)}</p></section>`).join("");
-    $("#ancestor-sources").innerHTML = note.sources.map(([title, url]) => `<a href="${escapeHtml(url)}" target="_blank" rel="noreferrer">${escapeHtml(title)}</a>`).join("");
-    $("#ancestor-note").textContent = ko ? "문헌 기반 요약 · 2026-10-14 검토. 사진은 공통 조상의 복원도가 아닙니다. 표식의 모양은 분류 계급을 구분하며 분화 시점을 뜻하지 않습니다." : "Literature summary reviewed 2026-10-14. The photograph is not an ancestor reconstruction. Marker shapes distinguish taxonomic ranks, not divergence dates.";
+    const sources = note.generated && representative.wikipedia?.revisionUrl ? [...note.sources, ["대표 수록종 설명 · Wikipedia", representative.wikipedia.revisionUrl], ["CC BY-SA 4.0", representative.wikipedia.license.url]] : note.sources;
+    $("#ancestor-sources").innerHTML = sources.map(([title, url]) => `<a href="${escapeHtml(url)}" target="_blank" rel="noreferrer">${escapeHtml(title)}</a>`).join("");
+    $("#ancestor-note").textContent = ko ? "문헌 기반 요약 · 2026-10-15 검토. 사진은 공통 조상의 복원도가 아닙니다. 표식의 모양은 분류 계급을 구분하며 분화 시점을 뜻하지 않습니다." : "Literature summary reviewed 2026-10-15. The photograph is not an ancestor reconstruction. Marker shapes distinguish taxonomic ranks, not divergence dates.";
     dialog.showModal();
   }
   function showGuide() {

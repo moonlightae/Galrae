@@ -1,5 +1,5 @@
 const version = new URL(import.meta.url).search;
-const [{ bindTreeNavigation, createTreeView }, { createAncestorNotes, ancestorNotes, getClassIds }, { legendRanks, rankNames, rankMark }] = await Promise.all([
+const [{ bindTreeNavigation, createTreeView }, { createAncestorNotes, ancestorNotes }, { legendRanks, rankNames, rankMark }] = await Promise.all([
   import(`./tree-view.js${version}`), import(`./class-ancestors.js${version}`), import(`./rank-marks.js${version}`),
 ]);
 
@@ -15,7 +15,7 @@ export function createCollectionView({ $, buildTree, speciesById, escapeHtml, ca
   const notes = createAncestorNotes({ $, escapeHtml, getLanguage, speciesById, cardText, getGuideKey, buildTree, getCollected: () => collected });
   const state = { layout: "top", zoom: 1, panX: 0, panY: 0, panning: false, tree: null };
   const view = createTreeView({ state, treeCanvas: viewport, $, buildTree, speciesById, escapeHtml, cardText,
-    layoutControls: page, zoomStatus: $("#collection-zoom-status"),
+    layoutControls: page, zoomStatus: $("#collection-zoom-status"), minZoom: .002,
   });
   let mode = "cards", collected = [];
   let searchableBranches = [], matches = [], selectedBranch = null;
@@ -30,7 +30,7 @@ export function createCollectionView({ $, buildTree, speciesById, escapeHtml, ca
     search.placeholder = ko ? "분기점 검색" : "Search branches";
     search.setAttribute("aria-label", search.placeholder);
     const query = (search.value || "").trim().toLocaleLowerCase();
-    matches = query ? searchableBranches.filter((branch) => `${branch.koName} ${branch.name}`.toLocaleLowerCase().includes(query)) : [];
+    matches = query ? searchableBranches.filter((branch) => `${branch.koName} ${branch.name} ${(ancestorNotes[branch.id]?.aliases || []).join(" ")}`.toLocaleLowerCase().includes(query)) : [];
     results.hidden = !query;
     results.innerHTML = matches.length
       ? matches.map((branch) => `<li><button type="button" data-branch-search-id="${escapeHtml(branch.id)}"><span>${escapeHtml(ko ? branch.koName : branch.name)}</span><small>${escapeHtml(ko ? branch.name : branch.koName)}</small></button></li>`).join("")
@@ -99,15 +99,36 @@ export function createCollectionView({ $, buildTree, speciesById, escapeHtml, ca
     const collectedIds = new Set(ids);
     state.tree = buildTree([...speciesById.keys()].filter((id) => collectedIds.has(id)), speciesById, null, true);
     state.taxonGroups = Object.entries(ancestorNotes).filter(([, note]) => note.paraphyletic).map(([id]) => ({
-      id, members: new Set(ids.filter((speciesId) => getClassIds(speciesById.get(speciesId)).includes(id))),
-    }));
-    function addClassReferences(node) {
-      if (node.type === "branch") { node.children.forEach(addClassReferences); return; }
-      const animal = speciesById.get(node.id);
-      const supplement = animal.taxonomy.rankReview?.supplemental.class;
-      if (supplement && !ancestorNotes[supplement.taxonId]?.paraphyletic && !animal.taxonomy.lineage.some((taxon) => taxon.rank === "class")) node.classReference = supplement.taxonId;
+      id, members: new Set(ids.filter((speciesId) => ancestorNotes[id].members.includes(speciesId))),
+    })).filter((group) => group.members.size).sort((a, b) => a.members.size - b.members.size);
+    function removeOutlineBranches(node) {
+      if (node.type === "leaf") return [node];
+      node.children = node.children.flatMap(removeOutlineBranches);
+      return ancestorNotes[node.id]?.paraphyletic ? node.children : [node];
     }
-    addClassReferences(state.tree);
+    state.tree = removeOutlineBranches(state.tree)[0];
+    for (const group of state.taxonGroups) {
+      function orderMembers(node) {
+        if (node.type === "leaf") return { count: 1, members: Number(group.members.has(node.id)) };
+        const counts = new Map(node.children.map((child) => [child, orderMembers(child)]));
+        const score = (child) => { const value = counts.get(child); return !value.members ? 0 : value.members === value.count ? 2 : 1; };
+        node.children.sort((a, b) => score(a) - score(b));
+        return [...counts.values()].reduce((sum, value) => ({ count: sum.count + value.count, members: sum.members + value.members }), { count: 0, members: 0 });
+      }
+      orderMembers(state.tree);
+    }
+    function addRankReferences(node) {
+      if (node.type === "branch") { node.children = node.children.map(addRankReferences); return node; }
+      const animal = speciesById.get(node.id);
+      for (const rank of ["order", "class"]) {
+        const supplement = animal.taxonomy.rankReview?.supplemental[rank];
+        if (supplement && !ancestorNotes[supplement.taxonId]?.paraphyletic && !animal.taxonomy.lineage.some((taxon) => taxon.rank === rank)) {
+          node = { type: "branch", id: supplement.taxonId, name: supplement.scientificName, rank, children: [node] };
+        }
+      }
+      return node;
+    }
+    state.tree = addRankReferences(state.tree);
     const branchNames = new Map();
     function indexNames(node) {
       if (node.type === "leaf") return;

@@ -1,5 +1,7 @@
 // Traits describe living members; they are not reconstructions of a particular ancestor.
 const profiles = [
+  ["Rodentia", "위턱과 아래턱에 각각 한 쌍의 앞니가 있으며 계속 자랍니다. 송곳니가 없어 앞니와 어금니 사이에 틈이 있고, 단단한 먹이를 갉는 데 적응했습니다. 쥐·다람쥐·비버 등이 포함됩니다.", "A single pair of continuously growing incisors occurs in each jaw. Canines are absent, leaving a gap before the cheek teeth. Rodents include mice, squirrels and beavers."],
+  ["Euarchontoglires", "영장류와 설치류·토끼류, 나무두더지류·날원숭이류를 포함하는 포유류의 큰 갈래입니다. 겉모습 하나보다 DNA와 유전체 비교가 이들의 가까운 관계를 밝히는 중요한 근거입니다.", "This placental mammal lineage includes primates, rodents, lagomorphs, treeshrews and colugos. DNA and genome comparisons provide important evidence of their shared relationships."],
   ["Mammalia", "털과 젖샘, 세 개의 중이뼈가 특징입니다. 새끼에게 젖을 먹이며 육상·수중·비행 생활까지 다양한 환경에 적응했습니다.", "Hair, mammary glands and three middle-ear bones distinguish mammals. They nurse young and include terrestrial, aquatic and flying forms."],
   ["Insecta", "성체의 몸은 머리·가슴·배로 나뉘며 가슴에 다리 세 쌍이 달립니다. 더듬이 한 쌍이 있고, 날개와 완전변태의 유무는 갈래마다 다릅니다.", "Adults have a head, thorax and abdomen, three thoracic leg pairs and one antenna pair. Wings and complete metamorphosis vary among lineages."],
   ["Amphibia", "피부가 비교적 얇고 물질 교환에 관여합니다. 많은 종이 물속 유생에서 변태하지만 직접 발생과 태생도 있어 모두 올챙이 단계를 거치지는 않습니다.", "Relatively thin skin contributes to exchange with the environment. Many have aquatic larvae and metamorphosis, while direct development and live birth also occur."],

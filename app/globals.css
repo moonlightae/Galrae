@@ -782,6 +782,7 @@ button:focus-visible, [role="button"]:focus-visible, .primary-button:focus-visib
 .rank-mark { display: block; width: 24px; height: 24px; flex: 0 0 24px; pointer-events: none; }
 #collection-tree .ranked-taxon:disabled { opacity: .45; cursor: default; }
 .taxon-group { position: absolute; z-index: 1; border: 1px dashed var(--muted); border-radius: 14px; pointer-events: none; }
+.taxon-group[data-shape="sector"] { border: 0; }
 #collection-tree .clade-node.taxon-group-note { display: flex; align-items: center; gap: 5px; width: max-content; height: 32px; padding: 3px 8px; border-radius: 16px; background: var(--surface); font-size: .7rem; white-space: nowrap; }
 #collection-tree .taxon-group-note .rank-mark { width: 18px; height: 18px; flex-basis: 18px; }
 #collection-tree .clade-node.taxon-group-note:hover { transform: translate(-50%, -50%) scale(1.06); }

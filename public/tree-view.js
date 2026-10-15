@@ -1,5 +1,5 @@
-export function createTreeView({ ANIMALIA_ID, buildTree, escapeHtml, speciesById, state, treeCanvas, $, cardText, layoutControls = document, zoomStatus }) {
-  const MIN_TREE_ZOOM = 0.03;
+export function createTreeView({ ANIMALIA_ID, buildTree, escapeHtml, speciesById, state, treeCanvas, $, cardText, layoutControls = document, zoomStatus, minZoom = .03 }) {
+  const MIN_TREE_ZOOM = minZoom;
   const MAX_TREE_ZOOM = 3.5;
 
   function mistakeClass(node) {
@@ -17,8 +17,9 @@ export function createTreeView({ ANIMALIA_ID, buildTree, escapeHtml, speciesById
   }
 
   function layoutRectangularTree(tree) {
-    const gap = 56;
+    const gap = state.taxonGroups?.length ? 112 : 56;
     const levelHeight = 152;
+    const outlinePadding = (state.taxonGroups?.length || 0) * 24;
     function arrange(node) {
       const children = node.type === "leaf" ? [] : node.children.map(arrange);
       const halfWidth = node.type === "leaf" ? 84 : node === tree ? 96 : 9;
@@ -41,11 +42,11 @@ export function createTreeView({ ANIMALIA_ID, buildTree, escapeHtml, speciesById
     const root = arrange(tree);
     const min = Math.min(...root.left), max = Math.max(...root.right);
     function position(entry, x, depth) {
-      entry.x = x; entry.y = 48 + depth * levelHeight;
+      entry.x = x; entry.y = 48 + outlinePadding + depth * levelHeight;
       entry.children.forEach((child) => position(child, x + child.offset, depth + 1));
     }
-    position(root, 24 - min, 0);
-    return { root, width: max - min + 48, height: (root.left.length - 1) * levelHeight + 120 };
+    position(root, 24 + outlinePadding - min, 0);
+    return { root, width: max - min + 48 + outlinePadding * 2, height: (root.left.length - 1) * levelHeight + 120 + outlinePadding * 2 };
   }
 
   function layoutRadialTree(tree) {
@@ -55,7 +56,7 @@ export function createTreeView({ ANIMALIA_ID, buildTree, escapeHtml, speciesById
     const count = Math.max(leafCount(tree), 1);
     const branchDepth = Math.max(deepestBranch(tree), 0);
     const radius = Math.max(260, count * 224 / (2 * Math.PI), (branchDepth + 1) * 112);
-    const size = Math.ceil((radius + 120) * 2);
+    const size = Math.ceil((radius + 120 + (state.taxonGroups?.length || 0) * 24) * 2);
     const center = size / 2;
     let leafIndex = 0;
 
@@ -87,7 +88,7 @@ export function createTreeView({ ANIMALIA_ID, buildTree, escapeHtml, speciesById
     }
     function visit(entry, parent = null) {
       const { node, x, y } = entry;
-      if (node.type === "branch" && entry.children.length === 1 && !["superclass", "class", "subclass", "infraclass"].includes(node.rank)) {
+      if (node.type === "branch" && entry.children.length === 1 && !node.rank) {
         visit(entry.children[0], parent);
         return;
       }
@@ -111,13 +112,14 @@ export function createTreeView({ ANIMALIA_ID, buildTree, escapeHtml, speciesById
       }
       if (node.type === "leaf") {
         controls.push(renderNode(node, x, y));
-      } else if (entry.children.length > 1 || ["superclass", "class", "subclass", "infraclass"].includes(node.rank)) {
+      } else if (entry.children.length > 1 || node.rank) {
         const marker = entry.children.length === 1;
         controls.push(`<button class="clade-node${marker ? " class-marker" : ""}" type="button" style="left:${x}px;top:${junctionY(entry)}px" data-rank="${escapeHtml(node.rank || "clade")}" data-target="${escapeHtml(node.id)}" data-placement="join" aria-label="${marker ? "강 안내" : "이 공통 조상에 가지 추가하기"}">${marker ? "i" : ""}</button>`);
       }
       for (const child of entry.children) visit(child, entry);
     }
     visit(root);
+    const outlined = [];
     for (const group of state.taxonGroups || []) {
       if (!group.members.size) continue;
       const leaves = [];
@@ -128,12 +130,35 @@ export function createTreeView({ ANIMALIA_ID, buildTree, escapeHtml, speciesById
       }
       measure(root);
       if (!leaves.length) continue;
-      const left = Math.min(...leaves.map((leaf) => leaf.x)) - 98;
-      const right = Math.max(...leaves.map((leaf) => leaf.x)) + 98;
-      const top = Math.min(...leaves.map((leaf) => leaf.y)) - 58;
-      const bottom = Math.max(...leaves.map((leaf) => leaf.y)) + 52;
-      controls.push(`<span class="taxon-group" data-group="${escapeHtml(group.id)}" data-members="${leaves.map((leaf) => escapeHtml(leaf.node.id)).join(",")}" style="left:${left}px;top:${top}px;width:${right - left}px;height:${bottom - top}px" aria-hidden="true"></span>`);
-      controls.push(`<button class="clade-node taxon-group-note" type="button" style="left:${(left + right) / 2}px;top:${state.layout === "bottom" ? bottom : top}px" data-target="${escapeHtml(group.id)}" aria-label="분류군 설명"></button>`);
+      const padding = Math.max(0, ...outlined.filter((inner) => [...inner.members].every((id) => group.members.has(id))).map((inner) => inner.padding + 24));
+      outlined.push({ ...group, padding });
+      const left = Math.min(...leaves.map((leaf) => leaf.x)) - 98 - padding;
+      const right = Math.max(...leaves.map((leaf) => leaf.x)) + 98 + padding;
+      const top = Math.min(...leaves.map((leaf) => leaf.y)) - 58 - padding;
+      const bottom = Math.max(...leaves.map((leaf) => leaf.y)) + 52 + padding;
+      let shape = "", buttonX = (left + right) / 2, buttonY = state.layout === "bottom" ? bottom : top;
+      let geometry = "";
+      if (radial) {
+        const count = root.last - root.first + 1;
+        const radius = Math.hypot(leaves[0].x - root.x, leaves[0].y - root.y);
+        const inner = radius - 110 - padding, outer = radius + 110 + padding;
+        const margin = Math.min(Math.PI / count * .95, Math.asin(Math.min(1, 100 / radius)));
+        const start = -Math.PI / 2 + Math.min(...leaves.map((leaf) => leaf.first)) * Math.PI * 2 / count - margin;
+        const end = -Math.PI / 2 + Math.max(...leaves.map((leaf) => leaf.first)) * Math.PI * 2 / count + margin;
+        const point = (distance, angle) => `${root.x + Math.cos(angle) * distance} ${root.y + Math.sin(angle) * distance}`;
+        const all = leaves.length === count;
+        const large = end - start > Math.PI ? 1 : 0;
+        const path = all
+          ? `M${point(outer, 0)} A${outer} ${outer} 0 1 1 ${point(outer, Math.PI)} A${outer} ${outer} 0 1 1 ${point(outer, 0)} M${point(inner, 0)} A${inner} ${inner} 0 1 1 ${point(inner, Math.PI)} A${inner} ${inner} 0 1 1 ${point(inner, 0)}`
+          : `M${point(outer, start)} A${outer} ${outer} 0 ${large} 1 ${point(outer, end)} L${point(inner, end)} A${inner} ${inner} 0 ${large} 0 ${point(inner, start)} Z`;
+        shape = `<svg width="${width}" height="${height}" style="position:absolute;left:${-left}px;top:${-top}px;overflow:visible"><path d="${path}" fill="none" stroke="var(--muted)" stroke-width="1" stroke-dasharray="5 4" /></svg>`;
+        const angle = all ? -Math.PI / 2 : (start + end) / 2;
+        buttonX = root.x + Math.cos(angle) * outer;
+        buttonY = root.y + Math.sin(angle) * outer;
+        geometry = ` data-shape="sector" data-center="${root.x},${root.y}" data-radii="${inner},${outer}" data-angles="${all ? 0 : start},${all ? Math.PI * 2 : end}"`;
+      }
+      controls.push(`<span class="taxon-group" data-group="${escapeHtml(group.id)}" data-members="${leaves.map((leaf) => escapeHtml(leaf.node.id)).join(",")}" style="left:${left}px;top:${top}px;width:${right - left}px;height:${bottom - top}px"${geometry} aria-hidden="true">${shape}</span>`);
+      controls.push(`<button class="clade-node taxon-group-note" type="button" style="left:${buttonX}px;top:${buttonY}px" data-target="${escapeHtml(group.id)}" aria-label="분류군 설명"></button>`);
     }
     controls.push(radial
       ? `<span class="tree-root-anchor" style="left:${root.x}px;top:${root.y - 76}px"><span class="tree-root">Animalia</span></span>`

@@ -24,14 +24,15 @@
     const root = {
       id: ANIMALIA_ID,
       name: "Animalia",
+      rank: "kingdom",
       children: new Map(),
-      animalId: null,
+      animalIds: [],
     };
 
-    for (const speciesId of classifiedIds) {
+    for (const speciesId of new Set(classifiedIds)) {
       const animal = speciesById.get(speciesId);
       if (!animal) continue;
-      const lineage = normalizeLineage(animal.taxonomy.lineage);
+      const lineage = preserveClasses ? collectionLineage(animal.taxonomy.lineage) : normalizeLineage(animal.taxonomy.lineage);
       const rootIndex = lineage.findIndex((taxon) => taxon.wikidataId === ANIMALIA_ID);
       let cursor = root;
       for (const taxon of lineage.slice(rootIndex + 1)) {
@@ -41,19 +42,18 @@
             name: taxon.scientificName || taxon.englishName || taxon.wikidataId,
             rank: taxon.rank,
             children: new Map(),
-            animalId: null,
+            animalIds: [],
           });
         }
         cursor = cursor.children.get(taxon.wikidataId);
       }
-      cursor.animalId = speciesId;
+      cursor.animalIds.push(speciesId);
     }
 
     function compress(node, isRoot = false) {
       const descendants = [...node.children.values()].map((child) => compress(child));
-      if (node.animalId) descendants.push(leaf(node.animalId, node.animalId === previewId));
-      if (!isRoot && descendants.length === 1 && !(preserveClasses && ["superclass", "class", "subclass", "infraclass"].includes(node.rank))) return descendants[0];
-      if (!descendants.length && node.animalId) return leaf(node.animalId, node.animalId === previewId);
+      descendants.push(...node.animalIds.map((id) => leaf(id, id === previewId)));
+      if (!isRoot && descendants.length === 1 && !(preserveClasses && node.rank && node.rank !== "species")) return descendants[0];
       const result = branch(node.id, node.name, descendants, false);
       if (preserveClasses) result.rank = node.rank;
       return result;
@@ -122,6 +122,19 @@
       });
     }
     return [...prefix, canonicalBonyClade, ...suffix];
+  }
+
+  function collectionLineage(lineage) {
+    let result = normalizeLineage(lineage).map((taxon) => {
+      if (taxon.scientificName === "Urodela") return { ...taxon, wikidataId: "Q53663", scientificName: "Caudata" };
+      if (["Pangalliformes", "Enterogona"].includes(taxon.scientificName)) return { ...taxon, rank: "clade" };
+      return taxon;
+    });
+    const lower = ["suborder", "infraorder", "parvorder", "hyporder", "superfamily", "family", "epifamily", "subfamily", "tribe", "subtribe", "genus", "subgenus", "species"];
+    const classEnd = result.findLastIndex((taxon) => ["superclass", "class", "subclass", "infraclass"].includes(taxon.rank));
+    result = result.filter((taxon, index) => index > classEnd || !lower.includes(taxon.rank));
+    const end = result.findIndex((taxon) => taxon.rank === "order" || lower.includes(taxon.rank));
+    return end < 0 ? result : result.slice(0, end + (result[end].rank === "order" ? 1 : 0));
   }
 
   function containsLeaf(nodes, speciesId) {
@@ -274,6 +287,7 @@
     addSuccessCount,
     buildTree,
     collectLeafIds,
+    collectionLineage,
     findNodeById,
     getExpectedPlacement,
     isEquivalentPlacement,
