@@ -130,6 +130,7 @@ for (const ids of [["homo-sapiens"], ["homo-sapiens", "asterias-rubens"], animal
   const fitZoom = cameraStyles.get("--tree-zoom");
   assert.ok(fitZoom >= .002 && fitZoom <= 1);
   assert.ok(Number(tree.dataset.width) * fitZoom <= viewport.clientWidth - 31 && Number(tree.dataset.height) * fitZoom <= viewport.clientHeight - 31, "Fit must show the complete expanded collection even on a small screen");
+  assert.notEqual(element("#collection-zoom-status").textContent, "0%", "A fitted large tree must report a nonzero zoom percentage");
   element("#collection-zoom-in").handlers.click();
   assert.ok(cameraStyles.get("--tree-zoom") > fitZoom);
   viewport.handlers.click({ target: { closest: (selector) => selector === "[data-species-id]" ? speciesButtons[0] : null } });

@@ -207,7 +207,8 @@ export function createTreeView({ ANIMALIA_ID, buildTree, escapeHtml, speciesById
     camera.style.setProperty("--pan-x", `${state.panX}px`);
     camera.style.setProperty("--pan-y", `${state.panY}px`);
     camera.style.setProperty("--tree-zoom", state.zoom);
-    (zoomStatus || $("#tree-zoom-status")).textContent = `${Math.round(state.zoom * 100)}%`;
+    const percent = state.zoom * 100;
+    (zoomStatus || $("#tree-zoom-status")).textContent = `${percent < 1 ? percent.toFixed(1) : Math.round(percent)}%`;
   }
 
   function resetTreeView() {
