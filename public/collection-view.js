@@ -3,7 +3,7 @@ const [{ bindTreeNavigation, createTreeView }, { createAncestorNotes, ancestorNo
   import(`./tree-view.js${version}`), import(`./class-ancestors.js${version}`), import(`./rank-marks.js${version}`),
 ]);
 
-export function createCollectionView({ $, buildTree, speciesById, escapeHtml, cardText, onOpenSpecies, onModeChange, getLanguage, getGuideKey, getTaxonName = () => null }) {
+export function createCollectionView({ $, buildTree, speciesById, escapeHtml, cardText, onOpenSpecies, onModeChange, getLanguage, getGuideKey, getTaxonName = () => null, preparePhoto = () => {} }) {
   const viewport = $("#collection-tree");
   const panel = $("#collection-tree-panel");
   const page = $("#collection-page");
@@ -12,7 +12,7 @@ export function createCollectionView({ $, buildTree, speciesById, escapeHtml, ca
   const results = $("#collection-branch-results");
   const searchStatus = $("#collection-branch-status");
   const buttons = document.querySelectorAll("[data-collection-view]");
-  const notes = createAncestorNotes({ $, escapeHtml, getLanguage, speciesById, cardText, getGuideKey, buildTree, getCollected: () => collected });
+  const notes = createAncestorNotes({ $, escapeHtml, getLanguage, speciesById, cardText, getGuideKey, buildTree, getCollected: () => collected, preparePhoto });
   const state = { layout: "top", zoom: 1, panX: 0, panY: 0, panning: false, tree: null };
   const view = createTreeView({ state, treeCanvas: viewport, $, buildTree, speciesById, escapeHtml, cardText,
     layoutControls: page, zoomStatus: $("#collection-zoom-status"), minZoom: .002,

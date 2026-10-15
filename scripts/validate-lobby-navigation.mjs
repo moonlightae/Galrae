@@ -39,6 +39,7 @@ const location = { hash: "#collection" };
 let writes = 0;
 const context = {
   lobbyPages, toolbar, toolbarHandle, navigationShell, game, location,
+  collectionView: { isTree: () => false, showGuide() {} },
   $: (selector) => selector === "#guest-start-dialog" ? guestDialog : selector === "#difficulty-dialog" ? difficultyDialog : overlays[selector] ||= element(),
   history: { pushState(_, __, hash) { location.hash = hash; writes++; } },
   window: { scrollTo() {} },

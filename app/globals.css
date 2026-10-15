@@ -879,3 +879,15 @@ button:focus-visible, [role="button"]:focus-visible, .primary-button:focus-visib
   .side-toolbar, .toolbar-shade, .toolbar-handle { transition: none; }
   .collection-shortcut, .collection-shortcut svg { transition: none; transform: none !important; }
 }
+
+/* 사진은 사용자 공개 전까지 불투명한 덮개 아래에 둡니다. */
+.photo-frame { position: relative; }
+.photo-frame.is-photo-covered > img { visibility: hidden; }
+button.photo-cover { position: absolute; inset: 0; z-index: 2; width: 100%; height: 100%; margin: 0; padding: 12px; border: 0; border-radius: inherit; background: #737373; color: #fff; font: inherit; font-size: .8rem; cursor: pointer; }
+button.photo-cover:focus-visible { outline: 3px solid #fff; outline-offset: -5px; }
+.animal-card:focus-visible { outline: 3px solid var(--edge); outline-offset: 3px; }
+.ancestor-photo-art { height: 200px; border-radius: 8px; }
+.settings-dialog { width: min(480px, calc(100% - 32px)); }
+.photo-setting { display: flex; align-items: flex-start; gap: 12px; margin-top: 24px; cursor: pointer; }
+.photo-setting input { flex: 0 0 18px; width: 18px; height: 18px; margin: 3px 0 0; accent-color: var(--ink); }
+.photo-setting small { display: block; margin-top: 6px; color: var(--muted); font-size: .8rem; line-height: 1.5; }

@@ -8,6 +8,10 @@ export const gameMarkup = `
       <button id="death-difficulty" type="button" disabled><strong>죽음</strong><span id="death-difficulty-status">어려움 완주 후 해금</span></button>
     </div>
   </dialog>
+  <dialog id="settings-dialog" class="ancestor-dialog settings-dialog" aria-labelledby="settings-title">
+    <div class="difficulty-heading"><h2 id="settings-title">설정</h2><button id="close-settings" class="text-button" type="button" aria-label="설정 닫기">×</button></div>
+    <label class="photo-setting"><input id="hide-insect-photos" type="checkbox" /><span>곤충 사진 가리기<small>곤충 사진을 회색으로 덮습니다. 사진을 누르면 볼 수 있습니다.</small></span></label>
+  </dialog>
   <div id="boot-loading" class="loading-screen" role="status" aria-live="polite"><div class="loading-content"><span class="loading-spinner" aria-hidden="true"></span><strong>갈래</strong><p id="boot-loading-status">계정과 기록을 불러오는 중…</p></div></div>
   <div id="game-loading" class="loading-screen" role="status" aria-live="polite" hidden><div class="loading-content"><span class="loading-spinner" aria-hidden="true"></span><strong>갈래</strong><p>첫 생물 카드를 준비하는 중…</p></div></div>
   <main id="lobby" class="screen lobby-screen">
@@ -95,6 +99,7 @@ export const gameMarkup = `
           <button type="button" data-page="collection">도감</button>
           <button type="button" data-page="tasks">발전과제</button>
           <button type="button" data-page="taxonomy-notes">분류 기준 안내</button>
+          <button id="open-settings" type="button">설정</button>
         </div>
         <div id="auth-panel" class="auth-panel toolbar-account" aria-live="polite"><span class="auth-loading">게임 계정 확인 중…</span></div>
       </nav>
@@ -140,7 +145,7 @@ export const gameMarkup = `
       </section>
       <aside class="card-dock" aria-labelledby="card-dock-title">
         <div class="dock-copy"><p class="eyebrow">NEW SPECIES</p><h2 id="card-dock-title">새 동물 카드</h2></div>
-        <div id="active-card" class="animal-card is-draggable" draggable="true" tabindex="0" role="button" aria-describedby="drag-help">
+        <div id="active-card" class="animal-card is-draggable" draggable="true" tabindex="0" role="group" aria-describedby="drag-help">
           <div class="card-topline"><span>동물계</span><span>ANIMALIA</span></div><div class="card-art"><img id="active-image" alt="" /><span id="active-image-fallback" aria-hidden="true">?</span></div>
           <div class="card-body"><p class="card-kicker">NEW SPECIES</p><h3 id="active-name">Loading…</h3><p id="active-description">Loading the animal dataset.</p></div><div class="card-footer"><span id="active-scientific">—</span><span id="active-success-count">분류 성공 0회</span></div>
         </div>
@@ -167,7 +172,7 @@ export const gameMarkup = `
   </div>
   <div id="species-modal" class="modal-backdrop species-modal-backdrop" hidden><section class="species-dialog" role="dialog" aria-modal="true" aria-labelledby="species-view-name"><button id="close-species-card" class="dialog-close" type="button" aria-label="카드 닫기">×</button><div class="animal-card species-view-card"><div class="card-topline"><span>동물계</span><span>ANIMALIA</span></div><div class="card-art"><img id="species-view-image" alt="" /><span id="species-view-fallback" aria-hidden="true">?</span></div><div class="card-body"><p class="card-kicker">CLASSIFIED SPECIES</p><h3 id="species-view-name">—</h3><p id="species-view-description">—</p><details id="species-view-taxonomy" class="mini-card-taxonomy" hidden><summary>상위 분류군</summary><div id="species-view-groups" class="mini-card-groups" aria-label="상위 분류군"></div></details></div><div class="card-footer"><span id="species-view-scientific">—</span><span id="species-view-success-count">분류 성공 0회</span></div></div><a id="species-view-credit" class="dialog-image-credit" href="#" target="_blank" rel="noreferrer">Image credit</a></section></div>
   <dialog id="ancestor-guide" class="ancestor-dialog ancestor-guide" aria-labelledby="ancestor-guide-title"><h2 id="ancestor-guide-title">분류군의 이야기를 만나보세요</h2><p>진한 <strong>계급 표식</strong>을 누르면 특징·대표 생물·진화 연구 이야기를 볼 수 있습니다.</p><p>오른쪽 범례에서 모양별 계급을 확인하고, 문과 문을 잇는 분기와 동물계의 공통 조상도 살펴보세요.</p><button id="close-ancestor-guide" class="primary-button" type="button" autofocus>알겠어요</button></dialog>
-  <dialog id="ancestor-dialog" class="ancestor-dialog" aria-labelledby="ancestor-title"><button id="close-ancestor" class="dialog-close" type="button" aria-label="조상 설명 닫기" autofocus>×</button><h2 id="ancestor-title"></h2><p id="ancestor-scientific" class="ancestor-scientific"></p><figure class="ancestor-photo"><img id="ancestor-image" alt="" /><p id="ancestor-image-fallback" hidden></p><figcaption id="ancestor-image-caption"></figcaption><a id="ancestor-image-credit" target="_blank" rel="noreferrer"></a></figure><div id="ancestor-content"></div><div id="ancestor-sources" class="ancestor-sources" aria-label="연구 출처"></div><p id="ancestor-note" class="ancestor-note"></p></dialog>
+  <dialog id="ancestor-dialog" class="ancestor-dialog" aria-labelledby="ancestor-title"><button id="close-ancestor" class="dialog-close" type="button" aria-label="조상 설명 닫기" autofocus>×</button><h2 id="ancestor-title"></h2><p id="ancestor-scientific" class="ancestor-scientific"></p><figure class="ancestor-photo"><div class="ancestor-photo-art"><img id="ancestor-image" alt="" /><p id="ancestor-image-fallback" hidden></p></div><figcaption id="ancestor-image-caption"></figcaption><a id="ancestor-image-credit" target="_blank" rel="noreferrer"></a></figure><div id="ancestor-content"></div><div id="ancestor-sources" class="ancestor-sources" aria-label="연구 출처"></div><p id="ancestor-note" class="ancestor-note"></p></dialog>
   <div id="achievement-notifications" class="achievement-notifications" role="status" aria-live="polite" aria-relevant="additions" aria-label="새로 달성한 발전과제"></div>
   <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
 `;

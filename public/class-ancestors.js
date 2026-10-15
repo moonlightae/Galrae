@@ -154,7 +154,7 @@ export function getClassIds(animal) {
   return classes;
 }
 
-export function createAncestorNotes({ $, escapeHtml, getLanguage, speciesById, cardText, getCollected, getGuideKey, buildTree }) {
+export function createAncestorNotes({ $, escapeHtml, getLanguage, speciesById, cardText, getCollected, getGuideKey, buildTree, preparePhoto = () => {} }) {
   const dialog = $("#ancestor-dialog");
   const guide = $("#ancestor-guide");
   const branches = new Map();
@@ -225,6 +225,7 @@ export function createAncestorNotes({ $, escapeHtml, getLanguage, speciesById, c
     image.onerror = () => { image.hidden = true; fallback.hidden = false; };
     image.alt = animal.commonName;
     image.style.objectFit = animal.image.objectFit === "contain" ? "contain" : "cover";
+    preparePhoto(image, animal);
     image.src = animal.image.thumbnailUrl;
     $("#ancestor-image-caption").textContent = `${ko ? "현생 대표 생물" : "Living representative"} · ${animal.commonName} (${animal.scientificName})`;
     const credit = $("#ancestor-image-credit");

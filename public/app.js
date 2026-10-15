@@ -1,7 +1,8 @@
 const assetVersion = new URL(import.meta.url).search;
-const [{ bindTreeNavigation, createTreeView }, { createCollectionView }, { getAchievements, isClassificationPolytomyMistake }, { createAchievementNotifications }] = await Promise.all([
+const [{ bindTreeNavigation, createTreeView }, { createCollectionView }, { getAchievements, isClassificationPolytomyMistake }, { createAchievementNotifications }, { createPhotoPrivacy }] = await Promise.all([
   import(`./tree-view.js${assetVersion}`), import(`./collection-view.js${assetVersion}`),
   import(`./achievements.js${assetVersion}`), import(`./achievement-notifications.js${assetVersion}`),
+  import(`./photo-privacy.js${assetVersion}`),
 ]);
 
 const { ANIMALIA_ID, addSuccessCount, buildTree, createDifficultyQueue, difficultyNames, getExpectedPlacement, isEquivalentPlacement, seedSuccessCounts, successCountText } = globalThis.GalraeLogic;
@@ -10,6 +11,7 @@ const COLLECTION_PREFIX = "galrae.collection.v3";
 const SUCCESS_COUNTS_PREFIX = "galrae.success-counts.v1";
 
 const $ = (selector) => document.querySelector(selector);
+const photoPrivacy = createPhotoPrivacy({ root: document, storage: localStorage });
 const lobby = $("#lobby");
 const game = $("#game");
 const card = $("#active-card");
@@ -251,7 +253,7 @@ function renderCollection() {
     const animal = cardText(speciesById.get(id));
     const groups = taxonomyLabels(animal).map((group) => `<span>${escapeHtml(group)}</span>`).join("");
     return `<article class="mini-card">
-      <div class="mini-card-art"><img loading="lazy" style="object-fit:${animal.image.objectFit === "contain" ? "contain" : "cover"}" src="${escapeHtml(animal.image.thumbnailUrl)}" alt="${escapeHtml(animal.commonName)}" /></div>
+      <div class="mini-card-art"><img data-photo-species="${escapeHtml(id)}" loading="lazy" style="object-fit:${animal.image.objectFit === "contain" ? "contain" : "cover"}" src="${escapeHtml(animal.image.thumbnailUrl)}" alt="${escapeHtml(animal.commonName)}" /></div>
       <div class="mini-card-info">
         <small>ANIMALIA</small><h3>${escapeHtml(animal.commonName)}</h3>
         <p class="mini-scientific"><i>${escapeHtml(animal.scientificName)}</i></p>
@@ -262,12 +264,14 @@ function renderCollection() {
       <a class="mini-card-credit" href="${escapeHtml(animal.image.commonsPageUrl)}" target="_blank" rel="noreferrer">${escapeHtml(imageCreditText(animal))}</a>
     </article>`;
   }).join("");
+  grid.querySelectorAll("img[data-photo-species]").forEach((image) => photoPrivacy.prepare(image, speciesById.get(image.dataset.photoSpecies)));
 }
 
 const { clearPreview, renderPreview, renderTree, resetTreeView, setTreeLayout, updateCamera, zoomTree, zoomTreeAtCenter } = createTreeView({
   ANIMALIA_ID, buildTree, escapeHtml, speciesById, state, treeCanvas, $, cardText, layoutControls: game,
 });
 const collectionView = createCollectionView({ $, buildTree, speciesById, escapeHtml, cardText,
+  preparePhoto: photoPrivacy.prepare,
   onOpenSpecies: (id, button) => openSpeciesCard(id, button, true),
   onModeChange: (mode) => { navigationShell.hidden = mode === "tree"; },
   getLanguage: () => state.cardLanguage,
@@ -307,12 +311,13 @@ function setCard(speciesId) {
   fallback.hidden = false;
   image.onload = () => { image.hidden = false; fallback.hidden = true; };
   image.onerror = () => { image.hidden = true; fallback.textContent = "?"; fallback.hidden = false; };
+  photoPrivacy.prepare(image, animal);
   image.src = animal.image.thumbnailUrl;
   image.style.objectFit = animal.image.objectFit === "contain" ? "contain" : "cover";
   const credit = $("#active-credit");
   credit.href = animal.image.commonsPageUrl;
   credit.textContent = `Image: ${imageCreditText(animal)}`;
-  card.setAttribute("aria-label", `${animal.commonName} 카드. 선택한 뒤 계통수에서 배치할 위치를 골라 주세요.`);
+  card.setAttribute("aria-label", `${animal.commonName} 카드. Enter 또는 Space 키로 선택한 뒤 계통수에서 배치할 위치를 골라 주세요.`);
 }
 
 function showToast(message) {
@@ -795,9 +800,10 @@ function openSpeciesCard(speciesId, returnFocus, fromCollection = false) {
   if (speciesId !== HUMAN_ID) {
     $("#species-view-success-count").textContent = successCountText(getSuccessCounts()[speciesId]);
   }
-  image.src = animal.image.thumbnailUrl;
   image.style.objectFit = animal.image.objectFit === "contain" ? "contain" : "cover";
   image.alt = animal.commonName;
+  photoPrivacy.prepare(image, animal);
+  image.src = animal.image.thumbnailUrl;
   image.hidden = false;
   fallback.hidden = true;
   image.onerror = () => { image.hidden = true; fallback.hidden = false; };
@@ -1074,8 +1080,15 @@ card.addEventListener("click", () => {
   card.classList.toggle("is-selected", state.selected);
 });
 card.addEventListener("keydown", (event) => {
+  if (event.target !== card) return;
   if (event.key === "Enter" || event.key === " ") { event.preventDefault(); card.click(); }
 });
+
+$("#hide-insect-photos").checked = photoPrivacy.enabled;
+$("#hide-insect-photos").addEventListener("change", (event) => photoPrivacy.setEnabled(event.target.checked));
+$("#open-settings").addEventListener("click", () => { setToolbarOpen(false); $("#settings-dialog").showModal(); });
+$("#close-settings").addEventListener("click", () => $("#settings-dialog").close());
+$("#settings-dialog").addEventListener("close", () => toolbarHandle.focus());
 
 $("#start-game").addEventListener("click", () => startGame());
 $("#achievements-grid").addEventListener("pointerover", (event) => {
