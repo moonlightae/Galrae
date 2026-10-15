@@ -11,7 +11,7 @@ assert.equal(Object.keys(reviews).length, animals.length);
 for (const animal of animals) {
   assert.deepEqual(animal.taxonomy.rankReview, reviews[animal.id]);
   for (const rank of ["class", "order"]) {
-    const known = animal.taxonomy.lineage.some((taxon) => taxon.rank === rank);
+    const known = animal.taxonomy.lineage.some((taxon) => taxon.rank === rank || rank === "class" && taxon.rank === "superclass");
     const supplemental = animal.taxonomy.rankReview.supplemental[rank];
     assert.ok(known || supplemental || animal.taxonomy.rankReview.unassigned.includes(rank), `${animal.id}: unchecked ${rank}`);
     if (supplemental) assert.match(supplemental.sourceUrl, /^https:\/\/www\.ncbi\.nlm\.nih\.gov\//);
@@ -29,7 +29,8 @@ for (let run = 0; run < 30; run++) {
     const rank = difficulty === "easy" ? "class" : "order", used = new Set();
     for (const id of ids) {
       const animal = byId.get(id);
-      const taxa = animal.taxonomy.lineage.filter((taxon) => taxon.rank === rank);
+      let taxa = animal.taxonomy.lineage.filter((taxon) => taxon.rank === rank);
+      if (rank === "class" && !taxa.length) taxa = animal.taxonomy.lineage.filter((taxon) => taxon.rank === "superclass").slice(-1);
       const supplement = animal.taxonomy.rankReview.supplemental[rank];
       const names = (taxa.length ? taxa : supplement ? [supplement] : []).map((taxon) => taxon.scientificName);
       assert.ok(names.length);
@@ -45,4 +46,4 @@ for (const difficulty of ["easy", "medium"]) {
 assert.equal(isDifficultyCompletion(["homo-sapiens", "unknown"], "easy", byId), false);
 assert.equal(isDifficultyCompletion(null, "easy", byId), false);
 assert.throws(() => createDifficultyQueue(animals, "death"));
-console.log("Difficulty: 30 shuffled runs per level, full coverage, duplicate/incomplete rejection and 207 verified rank reviews passed.");
+console.log(`Difficulty: 30 shuffled runs per level, full coverage, duplicate/incomplete rejection and ${animals.length} verified rank reviews passed.`);

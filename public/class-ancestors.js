@@ -98,8 +98,8 @@ for (const [id, review] of Object.entries(taxonRanks)) {
   const existing = classAncestors[id];
   classAncestors[id] = {
     ...review,
-    ko: existing?.ko || [],
-    en: existing?.en || [],
+    ko: existing?.ko || [taxonProfiles[review.name]?.ko].filter(Boolean),
+    en: existing?.en || [taxonProfiles[review.name]?.en].filter(Boolean),
     sources: [...(existing?.sources || []), ...review.sources],
   };
 }

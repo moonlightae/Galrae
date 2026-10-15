@@ -1525,5 +1525,787 @@
     "gbifUsageKey": 9797255,
     "supplemental": {},
     "unassigned": []
+  },
+  "acropora-palmata": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "6131",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "loxodonta-cyclotis": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "99490",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "blattella-germanica": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "6973",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "haliclona-oculata": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "6058",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "meganyctiphanes-norvegica": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "48144",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "antedon-bifida": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "72669",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "pandinus-imperator": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "55084",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "ascaris-suum": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "6253",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "scomber-scombrus": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "13677",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "melanogrammus-aeglefinus": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "8056",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "chimaera-monstrosa": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "7871",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "beroe-cucumis": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "31167",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "loligo-vulgaris": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "6622",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "mytilus-galloprovincialis": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "29158",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "mnemiopsis-leidyi": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "27923",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "botrylloides-violaceus": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "581057",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "brachionus-calyciflorus": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "104777",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "pristionchus-pacificus": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "54126",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "aplysia-depilans": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "76186",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "rhizostoma-pulmo": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "269554",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "nautilus-macromphalus": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "34576",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "chironex-yamaguchii": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "672230",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "ciona-savignyi": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "51511",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "cliona-viridis": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "76786",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "acanthosepion-pharaonis": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "158019",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "struthio-molybdophanes": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "3150590",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "pteropus-vampyrus": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "132908",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "linckia-laevigata": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "109185",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "daphnia-magna": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "35525",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "electrophorus-voltai": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "2609070",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "euperipatoides-rowelli": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "49087",
+    "gbifUsageKey": null,
+    "supplemental": {
+      "class": {
+        "scientificName": "Udeonychophora",
+        "sourceUrl": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=2082881",
+        "taxonId": "ncbi:2082881"
+      },
+      "order": {
+        "scientificName": "Euonychophora",
+        "sourceUrl": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=2082882",
+        "taxonId": "ncbi:2082882"
+      }
+    },
+    "unassigned": []
+  },
+  "anguilla-rostrata": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "7938",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "tenodera-sinensis": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "406589",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "bradypus-variegatus": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "9355",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "tridacna-maxima": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "80832",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "mobula-alfredi": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "1983394",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "mesonychoteuthis-hamiltoni": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "559557",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "sphyrna-zygaena": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "195335",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "phoeniconaias-minor": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "704175",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "haliotis-discus": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "36094",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "hirudo-verbana": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "311461",
+    "gbifUsageKey": null,
+    "supplemental": {
+      "order": {
+        "scientificName": "Hirudinida",
+        "sourceUrl": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=2218736",
+        "taxonId": "ncbi:2218736"
+      }
+    },
+    "unassigned": []
+  },
+  "holothuria-atra": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "306320",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "hydra-oligactis": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "6088",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "ixodes-ricinus": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "34613",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "pristis-pectinata": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "685728",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "lepisosteus-oculatus": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "7918",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "hypsibius-dujardini": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "232323",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "cygnus-olor": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "8869",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "schistocerca-gregaria": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "7010",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "euphractus-sexcinctus": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "143300",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "apteryx-haastii": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "8823",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "lagocephalus-lagocephalus": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "546522",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "amphiprion-percula": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "161767",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "oikopleura-cophocerca": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "2547607",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "ophiothrix-spiculata": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "1266684",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "myxine-glutinosa": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "7769",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "ostrea-edulis": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "37623",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "psammechinus-miliaris": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "7660",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "falco-tinnunculus": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "100819",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "hediste-diversicolor": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "126592",
+    "gbifUsageKey": null,
+    "supplemental": {
+      "class": {
+        "scientificName": "Polychaeta",
+        "sourceUrl": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=6341",
+        "taxonId": "ncbi:6341"
+      }
+    },
+    "unassigned": []
+  },
+  "pleurobrachia-bachei": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "34499",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "nanomia-bijuga": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "168759",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "strongylocentrotus-droebachiensis": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "7671",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "pterois-miles": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "185883",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "sabella-spallanzanii": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "85702",
+    "gbifUsageKey": null,
+    "supplemental": {
+      "class": {
+        "scientificName": "Polychaeta",
+        "sourceUrl": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=6341",
+        "taxonId": "ncbi:6341"
+      }
+    },
+    "unassigned": []
+  },
+  "columba-palumbus": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "8934",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "melopsittacus-undulatus": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "13146",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "scolopendra-subspinipes": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "55038",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "lampetra-fluviatilis": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "7748",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "pelecanus-onocrotalus": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "36301",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "osphronemus-goramy": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "270604",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "ephydatia-fluviatilis": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "31330",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "apostichopus-japonicus": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "307972",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "sycon-raphanus": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "56443",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "convolutriloba-retrogemma": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "536238",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": [
+      "class"
+    ]
+  },
+  "tethya-wilhelma": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "463344",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "trichuris-trichiura": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "36087",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "triops-longicaudatus": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "58777",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "dugong-dugon": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "29137",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "bubo-bubo": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "30461",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "ginglymostoma-cirratum": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "7801",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "saccoglossus-kowalevskii": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "10224",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": [
+      "order"
+    ]
+  },
+  "oryctolagus-cuniculus": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "9986",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "lepus-europaeus": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "9983",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "erinaceus-europaeus": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "9365",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "talpa-europaea": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "9375",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "fasciola-hepatica": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "6192",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "schistosoma-mansoni": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "6183",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "archispirostreptus-gigas": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "184086",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "narceus-americanus": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "58771",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "acanthopleura-granulata": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "61363",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "katharina-tunicata": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "34587",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "anax-imperator": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "39274",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "ischnura-elegans": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "197161",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "forficula-auricularia": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "13068",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "labidura-riparia": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "50449",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "ichthyophis-glutinosus": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "194415",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "siphonops-annulatus": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "320579",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "acipenser-ruthenus": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "7906",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "huso-huso": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "61971",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "trichoplax-adhaerens": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "10228",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "spirostreptus-servatius": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": null,
+    "gbifUsageKey": 1026003,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "trigoniulus-corallinus": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "1366115",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "fasciolopsis-buski": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": null,
+    "gbifUsageKey": 2505831,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "schistosoma-haematobium": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": "6185",
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "rossella-antarctica": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": null,
+    "gbifUsageKey": 5180195,
+    "supplemental": {},
+    "unassigned": []
+  },
+  "periophthalmus-argentilineatus": {
+    "reviewedAt": "2026-10-15",
+    "ncbiTaxonId": null,
+    "gbifUsageKey": null,
+    "supplemental": {},
+    "unassigned": []
   }
 }

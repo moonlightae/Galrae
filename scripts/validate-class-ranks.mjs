@@ -7,7 +7,7 @@ const { animals } = JSON.parse(readFileSync(new URL("../data/animals.json", impo
 const audit = JSON.parse(readFileSync(new URL("../data/class-rank-audit.json", import.meta.url)));
 assert.equal(audit.species.length, animals.length);
 assert.equal(new Set(audit.species.map((animal) => animal.id)).size, animals.length);
-assert.equal(audit.taxa.length, 116);
+assert.equal(audit.taxa.length, 122);
 assert.equal(audit.national2025.speciesCount, 62604);
 assert.equal(audit.national2025.matchedSpecies.length, 59);
 assert.ok(audit.taxa.every((taxon) => taxon.coverage !== "not in selected lineage"));
@@ -25,6 +25,11 @@ for (const animal of animals) {
     assert.ok(taxonRanks[id].sources.length, `${id}: missing official comparison`);
   }
   if (animal.taxonomy.lineage.some((taxon) => taxon.scientificName === "Actinopterygii")) {
+    if (animal.taxonomy.lineage.some((taxon) => taxon.scientificName === "Acipenseriformes")) {
+      assert.deepEqual(ranked.map((taxon) => taxon.scientificName), ["Actinopterygii"]);
+      assert.ok(!animal.taxonomy.lineage.some((taxon) => ["Neopterygii", "Teleostei", "Holostei"].includes(taxon.scientificName)));
+      continue;
+    }
     assert.deepEqual(ranked.map((taxon) => taxon.rank), ["class", "subclass", "infraclass"]);
     assert.deepEqual(ranked.map((taxon) => taxon.scientificName).slice(0, 2), ["Actinopterygii", "Neopterygii"]);
     assert.ok(["Teleostei", "Holostei"].includes(ranked.at(-1).scientificName));

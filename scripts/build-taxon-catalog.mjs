@@ -55,8 +55,8 @@ for (const [id, taxon] of taxa) {
   if (scope.has(id) && ((entry.rank && entry.rank !== "clade") || visible.has(id))) catalog[id] = entry;
   if (koName !== taxon.name) names[id] = koName;
 }
-writeFileSync(new URL("../public/taxon-catalog.js", import.meta.url), `// Generated from all 207 source lineages and the official comparison snapshot.\nexport const taxonCatalog = ${JSON.stringify(catalog)};\n`);
-writeFileSync(new URL("../data/taxon-rank-audit.json", import.meta.url), JSON.stringify({ reviewedAt: "2026-10-15", baselineCommit, scope: "All ranks in the 207 included species were compared. Collection expansion stops at order; lower ranks remain only in source records and species cards. NCBI rank differences are recorded, not silently treated as errors. Existing domestic class/fish-rank policy is retained.",
+writeFileSync(new URL("../public/taxon-catalog.js", import.meta.url), `// Generated from all ${animals.length} source lineages and the official comparison snapshot.\nexport const taxonCatalog = ${JSON.stringify(catalog)};\n`);
+writeFileSync(new URL("../data/taxon-rank-audit.json", import.meta.url), JSON.stringify({ reviewedAt: "2026-10-15", baselineCommit, scope: `All ranks in the ${animals.length} included species were compared. Collection expansion stops at order; lower ranks remain only in source records and species cards. NCBI rank differences are recorded, not silently treated as errors. Existing domestic class/fish-rank policy is retained.`,
   taxa: audit, sourceSpecies: references.length, nationalMatches: Object.values(catalog).filter((entry) => entry.nationalRank).length,
   previouslyHiddenRanked: audit.filter((entry) => entry.displayScope && entry.ranked && !entry.previouslyVisible).length }, null, 2) + "\n");
 for (const file of ["data/taxa.ko.json", "public/data/taxa.ko.json"]) writeFileSync(new URL(`../${file}`, import.meta.url), JSON.stringify(names, null, 2) + "\n");

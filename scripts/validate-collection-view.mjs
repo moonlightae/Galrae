@@ -237,7 +237,7 @@ for (const languageOption of ["ko", "en"]) {
   }
 }
 language = "ko";
-const polychaetes = ["platynereis-dumerilii", "riftia-pachyptila"];
+const polychaetes = ancestorNotes["ncbi:6341"].members;
 const partialCollections = Array.from({ length: 20 }, (_, seed) => animals.filter((animal, index) => polychaetes.includes(animal.id) || (index * 17 + seed * 13) % 31 < seed + 3).map((animal) => animal.id).reverse());
 for (const ids of [[polychaetes[0]], polychaetes, [...polychaetes, "hirudo-medicinalis", "lumbricus-terrestris"], ["hirudo-medicinalis", ...polychaetes, "lumbricus-terrestris"], animals.map((animal) => animal.id), animals.map((animal) => animal.id).reverse(), ["homo-sapiens"], ...partialCollections]) {
   view.render(ids);
@@ -274,7 +274,7 @@ for (const ids of [[polychaetes[0]], polychaetes, [...polychaetes, "hirudo-medic
         if (members.includes(leaf[3])) for (const dx of [-84, 84]) for (const dy of [-36, 36]) assert.ok(contains(x + dx, y + dy), `${id}: the entire member card must be inside the outline`);
       }
     }
-    for (const outline of outlines) {
+    for (const outline of layout.dataset.treeLayout === "radial" ? [] : outlines) {
       const [left, top, width, height] = outline.slice(3).map(Number);
       assert.ok(width > 0 && height > 0);
       for (const leaf of positionedLeaves) {

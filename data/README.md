@@ -1,5 +1,30 @@
 # Animal dataset
 
+## Class/order coverage expansion — 2026-10-15
+
+Added 107 species (207 → 314), with Korean names, bilingual card descriptions,
+fixed Wikipedia revisions and per-image attribution. The reviewed manifest is
+`animal-additions-2026-10.json`. Existing species records and identifiers are unchanged.
+
+- Classes: 47 → 50; new Polyplacophora (2), Diplopoda (4), Trematoda (4).
+- Orders: 125 → 137; new orders generally have 2 species.
+- Previously singleton classes: 17 → 1; previously singleton orders: 86 → 3.
+- Remaining singletons: Priapulimorpha / Priapulomorpha and Cestida lack a
+  verified reusable image for a second species; Hoilungea and newly included
+  Trichoplacea each have one represented described species. Velamen parallelum
+  and Priapulus tuberculatospinosus were considered but deferred for image provenance.
+- Nanomia bijuga and Rossella antarctica use attributed scientific illustrations.
+- New class ranks follow NCBI; existing domestic and fish-rank decisions are retained.
+  GBIF supplies species/class/order corroboration for Spirostreptus servatius,
+  Fasciolopsis buski and Rossella antarctica where NCBI species records were unavailable.
+  Registry differences (including traditional fluke orders) are retained explicitly.
+
+References: [NCBI Taxonomy](https://www.ncbi.nlm.nih.gov/taxonomy/),
+[GBIF species matching API](https://techdocs.gbif.org/en/openapi/v1/species),
+and each record’s fixed Wikipedia revision and Wikimedia Commons file page.
+Run `node scripts/validate-animal-expansion.mjs` to check coverage.
+
+
 ## Edited card descriptions — 2026-10-13
 
 All 207 cards have reviewed Korean descriptions in `animals.ko.json` and
@@ -22,7 +47,7 @@ Most edits summarise the stored extracts. Additional natural-history details:
 `animal-seeds.json` and should identify individual species rather than broad
 groups such as “sharks” or “ants”.
 The 100 species added in September 2026 are listed in
-`animal-additions-2026-09.json`; the full dataset contains 207 species.
+`animal-additions-2026-09.json`; the full dataset contains 314 species.
 
 Some Wikipedia article concepts use a different Wikidata item from the formal
 taxon item. Those explicit links are kept in `taxon-overrides.json`.
@@ -82,7 +107,7 @@ phylogenetic tree. Unassigned ranks are recorded explicitly rather than invented
 ## Record contents
 
 `animals.ko.json` contains Korean names and card-length introductions for all
-207 species, adapted from the English descriptions at the fixed revisions below.
+314 species, adapted from the English descriptions at the fixed revisions below.
 Keep it identical to `public/data/animals.ko.json`. Names without an established
 Korean equivalent use scientific-name transliteration; species scientific names
 remain unchanged in either language. These are card introductions,

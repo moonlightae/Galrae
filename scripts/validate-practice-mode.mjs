@@ -51,7 +51,7 @@ assert.equal($("#failure-copy").textContent, "초록색 카드를 확인하고 �
 assert.equal($("#retry-game").textContent, "계속하기 →");
 
 const canvas = { innerHTML: "", querySelector: () => null };
-const view = createTreeView({ ...logic, state, speciesById, treeCanvas: canvas, $, cardText: (a) => a, escapeHtml: (s) => String(s) });
+const view = createTreeView({ ...logic, state, speciesById, treeCanvas: canvas, $, layoutControls: { querySelectorAll: () => [] }, cardText: (a) => a, escapeHtml: (s) => String(s) });
 for (const layout of ["top", "bottom", "radial"]) {
   state.layout = layout;
   view.renderTree();
@@ -172,7 +172,7 @@ row = sqlite.prepare("SELECT * FROM leaderboard WHERE user_id='test'").get();
 assert.equal(row.best_score, 20); assert.equal(row.games_played, 8);
 assert.equal(row.best_practice_score, 31); assert.equal(row.practice_games_played, 2);
 assert.equal((await post({ mode: "invalid", score: 100 })).status, 400);
-assert.equal((await post({ mode: "practice", score: 207 })).status, 400);
+assert.equal((await post({ mode: "practice", score: dataset.speciesCount })).status, 400);
 for (const difficulty of ["easy", "medium", "hard"]) {
   const completedIds = ["homo-sapiens", ...logic.createDifficultyQueue(dataset.animals, difficulty, () => .4)];
   const payload = { mode: "normal", difficulty, score: completedIds.length - 1, completedIds };

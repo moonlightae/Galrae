@@ -114,7 +114,7 @@ assert.deepEqual(lineageIds("rhincodon-typus").filter((id) => ["Q150760", "Q7372
 
 const garId = "lepisosteus-osseus";
 const teleostIds = dataset.animals.filter((animal) => lineageIds(animal.id).includes("Q204861")).map((animal) => animal.id);
-assert.equal(teleostIds.length, 15, "All sampled teleosts must have their infraclass, including the five repaired lineages");
+assert.equal(teleostIds.length, 24, "All sampled teleosts must have their infraclass, including the added species");
 assert.ok(lineageIds(garId).includes("Q846164") && !lineageIds(garId).includes("Q204861"));
 const fishTree = buildTree([humanId, garId, ...teleostIds], speciesById);
 const neopterygii = findNodeById(fishTree, "Q740005");

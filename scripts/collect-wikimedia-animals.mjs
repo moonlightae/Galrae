@@ -16,6 +16,8 @@ const REPORT_PATH = process.env.GALRAE_REPORT_PATH
   : path.join(ROOT, "data", "animals.report.json");
 const ANIMALIA_ID = "Q729";
 const CARD_IMAGES = {
+  "Nanomia bijuga": { fileName: "Nanomia bijuga whole animal and growth zones.svg", objectFit: "contain" },
+  "Rossella antarctica": { fileName: "Report on the scientific results of the voyage of H.M.S. Challenger during the years 1873-76 - under the command of Captain George S. Nares, R.N., F.R.S. and Captain Frank Turle Thomson, R.N. (1887) (14761775976).jpg", objectFit: "contain" },
   "Homo sapiens": { fileName: "Human Skull.jpg", objectFit: "contain" },
   "Xenoturbella bocki": { fileName: "Xenoturbella (bocki) Sweden 2008.jpg", objectFit: "contain", identificationNote: "Xenoturbella sp. (possibly X. bocki)" },
   "Architeuthis dux": { fileName: "MOL 1130046 Architeuthis specimen.jpg", objectFit: "contain" },

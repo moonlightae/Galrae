@@ -1664,6 +1664,755 @@
       "name": "Danio rerio",
       "ncbiTaxonId": "7955",
       "resolvedTaxonId": "7955"
+    },
+    {
+      "id": "acropora-palmata",
+      "name": "Acropora palmata",
+      "ncbiTaxonId": "6131",
+      "resolvedTaxonId": "6131",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "loxodonta-cyclotis",
+      "name": "Loxodonta cyclotis",
+      "ncbiTaxonId": "99490",
+      "resolvedTaxonId": "99490",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "blattella-germanica",
+      "name": "Blattella germanica",
+      "ncbiTaxonId": "6973",
+      "resolvedTaxonId": "6973",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "haliclona-oculata",
+      "name": "Haliclona oculata",
+      "ncbiTaxonId": "6058",
+      "resolvedTaxonId": "6058",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "meganyctiphanes-norvegica",
+      "name": "Meganyctiphanes norvegica",
+      "ncbiTaxonId": "48144",
+      "resolvedTaxonId": "48144",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "antedon-bifida",
+      "name": "Antedon bifida",
+      "ncbiTaxonId": "72669",
+      "resolvedTaxonId": "72669",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "pandinus-imperator",
+      "name": "Pandinus imperator",
+      "ncbiTaxonId": "55084",
+      "resolvedTaxonId": "55084",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "ascaris-suum",
+      "name": "Ascaris suum",
+      "ncbiTaxonId": "6253",
+      "resolvedTaxonId": "6253",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "scomber-scombrus",
+      "name": "Scomber scombrus",
+      "ncbiTaxonId": "13677",
+      "resolvedTaxonId": "13677",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "melanogrammus-aeglefinus",
+      "name": "Melanogrammus aeglefinus",
+      "ncbiTaxonId": "8056",
+      "resolvedTaxonId": "8056",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "chimaera-monstrosa",
+      "name": "Chimaera monstrosa",
+      "ncbiTaxonId": "7871",
+      "resolvedTaxonId": "7871",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "beroe-cucumis",
+      "name": "Beroe cucumis",
+      "ncbiTaxonId": "31167",
+      "resolvedTaxonId": "31167",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "loligo-vulgaris",
+      "name": "Loligo vulgaris",
+      "ncbiTaxonId": "6622",
+      "resolvedTaxonId": "6622",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "mytilus-galloprovincialis",
+      "name": "Mytilus galloprovincialis",
+      "ncbiTaxonId": "29158",
+      "resolvedTaxonId": "29158",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "mnemiopsis-leidyi",
+      "name": "Mnemiopsis leidyi",
+      "ncbiTaxonId": "27923",
+      "resolvedTaxonId": "27923",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "botrylloides-violaceus",
+      "name": "Botrylloides violaceus",
+      "ncbiTaxonId": "581057",
+      "resolvedTaxonId": "581057",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "brachionus-calyciflorus",
+      "name": "Brachionus calyciflorus",
+      "ncbiTaxonId": "104777",
+      "resolvedTaxonId": "104777",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "pristionchus-pacificus",
+      "name": "Pristionchus pacificus",
+      "ncbiTaxonId": "54126",
+      "resolvedTaxonId": "54126",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "aplysia-depilans",
+      "name": "Aplysia depilans",
+      "ncbiTaxonId": "76186",
+      "resolvedTaxonId": "76186",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "rhizostoma-pulmo",
+      "name": "Rhizostoma pulmo",
+      "ncbiTaxonId": "269554",
+      "resolvedTaxonId": "269554",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "nautilus-macromphalus",
+      "name": "Nautilus macromphalus",
+      "ncbiTaxonId": "34576",
+      "resolvedTaxonId": "34576",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "chironex-yamaguchii",
+      "name": "Chironex yamaguchii",
+      "ncbiTaxonId": "672230",
+      "resolvedTaxonId": "672230",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "ciona-savignyi",
+      "name": "Ciona savignyi",
+      "ncbiTaxonId": "51511",
+      "resolvedTaxonId": "51511",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "cliona-viridis",
+      "name": "Cliona viridis",
+      "ncbiTaxonId": "76786",
+      "resolvedTaxonId": "76786",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "acanthosepion-pharaonis",
+      "name": "Acanthosepion pharaonis",
+      "ncbiTaxonId": "158019",
+      "resolvedTaxonId": "158019",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "struthio-molybdophanes",
+      "name": "Struthio molybdophanes",
+      "ncbiTaxonId": "3150590",
+      "resolvedTaxonId": "3150590",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "pteropus-vampyrus",
+      "name": "Pteropus vampyrus",
+      "ncbiTaxonId": "132908",
+      "resolvedTaxonId": "132908",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "linckia-laevigata",
+      "name": "Linckia laevigata",
+      "ncbiTaxonId": "109185",
+      "resolvedTaxonId": "109185",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "daphnia-magna",
+      "name": "Daphnia magna",
+      "ncbiTaxonId": "35525",
+      "resolvedTaxonId": "35525",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "electrophorus-voltai",
+      "name": "Electrophorus voltai",
+      "ncbiTaxonId": "2609070",
+      "resolvedTaxonId": "2609070",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "euperipatoides-rowelli",
+      "name": "Euperipatoides rowelli",
+      "ncbiTaxonId": "49087",
+      "resolvedTaxonId": "49087",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "anguilla-rostrata",
+      "name": "Anguilla rostrata",
+      "ncbiTaxonId": "7938",
+      "resolvedTaxonId": "7938",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "tenodera-sinensis",
+      "name": "Tenodera sinensis",
+      "ncbiTaxonId": "406589",
+      "resolvedTaxonId": "406589",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "bradypus-variegatus",
+      "name": "Bradypus variegatus",
+      "ncbiTaxonId": "9355",
+      "resolvedTaxonId": "9355",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "tridacna-maxima",
+      "name": "Tridacna maxima",
+      "ncbiTaxonId": "80832",
+      "resolvedTaxonId": "80832",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "mobula-alfredi",
+      "name": "Mobula alfredi",
+      "ncbiTaxonId": "1983394",
+      "resolvedTaxonId": "1983394",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "mesonychoteuthis-hamiltoni",
+      "name": "Mesonychoteuthis hamiltoni",
+      "ncbiTaxonId": "559557",
+      "resolvedTaxonId": "559557",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "sphyrna-zygaena",
+      "name": "Sphyrna zygaena",
+      "ncbiTaxonId": "195335",
+      "resolvedTaxonId": "195335",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "phoeniconaias-minor",
+      "name": "Phoeniconaias minor",
+      "ncbiTaxonId": "704175",
+      "resolvedTaxonId": "704175",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "haliotis-discus",
+      "name": "Haliotis discus",
+      "ncbiTaxonId": "36094",
+      "resolvedTaxonId": "36094",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "hirudo-verbana",
+      "name": "Hirudo verbana",
+      "ncbiTaxonId": "311461",
+      "resolvedTaxonId": "311461",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "holothuria-atra",
+      "name": "Holothuria atra",
+      "ncbiTaxonId": "306320",
+      "resolvedTaxonId": "306320",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "hydra-oligactis",
+      "name": "Hydra oligactis",
+      "ncbiTaxonId": "6088",
+      "resolvedTaxonId": "6088",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "ixodes-ricinus",
+      "name": "Ixodes ricinus",
+      "ncbiTaxonId": "34613",
+      "resolvedTaxonId": "34613",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "pristis-pectinata",
+      "name": "Pristis pectinata",
+      "ncbiTaxonId": "685728",
+      "resolvedTaxonId": "685728",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "lepisosteus-oculatus",
+      "name": "Lepisosteus oculatus",
+      "ncbiTaxonId": "7918",
+      "resolvedTaxonId": "7918",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "hypsibius-dujardini",
+      "name": "Hypsibius dujardini",
+      "ncbiTaxonId": "232323",
+      "resolvedTaxonId": "232323",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "cygnus-olor",
+      "name": "Cygnus olor",
+      "ncbiTaxonId": "8869",
+      "resolvedTaxonId": "8869",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "schistocerca-gregaria",
+      "name": "Schistocerca gregaria",
+      "ncbiTaxonId": "7010",
+      "resolvedTaxonId": "7010",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "euphractus-sexcinctus",
+      "name": "Euphractus sexcinctus",
+      "ncbiTaxonId": "143300",
+      "resolvedTaxonId": "143300",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "apteryx-haastii",
+      "name": "Apteryx haastii",
+      "ncbiTaxonId": "8823",
+      "resolvedTaxonId": "8823",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "lagocephalus-lagocephalus",
+      "name": "Lagocephalus lagocephalus",
+      "ncbiTaxonId": "546522",
+      "resolvedTaxonId": "546522",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "amphiprion-percula",
+      "name": "Amphiprion percula",
+      "ncbiTaxonId": "161767",
+      "resolvedTaxonId": "161767",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "oikopleura-cophocerca",
+      "name": "Oikopleura cophocerca",
+      "ncbiTaxonId": "2547607",
+      "resolvedTaxonId": "2547607",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "ophiothrix-spiculata",
+      "name": "Ophiothrix spiculata",
+      "ncbiTaxonId": "1266684",
+      "resolvedTaxonId": "1266684",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "myxine-glutinosa",
+      "name": "Myxine glutinosa",
+      "ncbiTaxonId": "7769",
+      "resolvedTaxonId": "7769",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "ostrea-edulis",
+      "name": "Ostrea edulis",
+      "ncbiTaxonId": "37623",
+      "resolvedTaxonId": "37623",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "psammechinus-miliaris",
+      "name": "Psammechinus miliaris",
+      "ncbiTaxonId": "7660",
+      "resolvedTaxonId": "7660",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "falco-tinnunculus",
+      "name": "Falco tinnunculus",
+      "ncbiTaxonId": "100819",
+      "resolvedTaxonId": "100819",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "hediste-diversicolor",
+      "name": "Hediste diversicolor",
+      "ncbiTaxonId": "126592",
+      "resolvedTaxonId": "126592",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "pleurobrachia-bachei",
+      "name": "Pleurobrachia bachei",
+      "ncbiTaxonId": "34499",
+      "resolvedTaxonId": "34499",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "nanomia-bijuga",
+      "name": "Nanomia bijuga",
+      "ncbiTaxonId": "168759",
+      "resolvedTaxonId": "168759",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "strongylocentrotus-droebachiensis",
+      "name": "Strongylocentrotus droebachiensis",
+      "ncbiTaxonId": "7671",
+      "resolvedTaxonId": "7671",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "pterois-miles",
+      "name": "Pterois miles",
+      "ncbiTaxonId": "185883",
+      "resolvedTaxonId": "185883",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "sabella-spallanzanii",
+      "name": "Sabella spallanzanii",
+      "ncbiTaxonId": "85702",
+      "resolvedTaxonId": "85702",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "columba-palumbus",
+      "name": "Columba palumbus",
+      "ncbiTaxonId": "8934",
+      "resolvedTaxonId": "8934",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "melopsittacus-undulatus",
+      "name": "Melopsittacus undulatus",
+      "ncbiTaxonId": "13146",
+      "resolvedTaxonId": "13146",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "scolopendra-subspinipes",
+      "name": "Scolopendra subspinipes",
+      "ncbiTaxonId": "55038",
+      "resolvedTaxonId": "55038",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "lampetra-fluviatilis",
+      "name": "Lampetra fluviatilis",
+      "ncbiTaxonId": "7748",
+      "resolvedTaxonId": "7748",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "pelecanus-onocrotalus",
+      "name": "Pelecanus onocrotalus",
+      "ncbiTaxonId": "36301",
+      "resolvedTaxonId": "36301",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "osphronemus-goramy",
+      "name": "Osphronemus goramy",
+      "ncbiTaxonId": "270604",
+      "resolvedTaxonId": "270604",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "ephydatia-fluviatilis",
+      "name": "Ephydatia fluviatilis",
+      "ncbiTaxonId": "31330",
+      "resolvedTaxonId": "31330",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "apostichopus-japonicus",
+      "name": "Apostichopus japonicus",
+      "ncbiTaxonId": "307972",
+      "resolvedTaxonId": "307972",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "sycon-raphanus",
+      "name": "Sycon raphanus",
+      "ncbiTaxonId": "56443",
+      "resolvedTaxonId": "56443",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "convolutriloba-retrogemma",
+      "name": "Convolutriloba retrogemma",
+      "ncbiTaxonId": "536238",
+      "resolvedTaxonId": "536238",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "tethya-wilhelma",
+      "name": "Tethya wilhelma",
+      "ncbiTaxonId": "463344",
+      "resolvedTaxonId": "463344",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "trichuris-trichiura",
+      "name": "Trichuris trichiura",
+      "ncbiTaxonId": "36087",
+      "resolvedTaxonId": "36087",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "triops-longicaudatus",
+      "name": "Triops longicaudatus",
+      "ncbiTaxonId": "58777",
+      "resolvedTaxonId": "58777",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "dugong-dugon",
+      "name": "Dugong dugon",
+      "ncbiTaxonId": "29137",
+      "resolvedTaxonId": "29137",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "bubo-bubo",
+      "name": "Bubo bubo",
+      "ncbiTaxonId": "30461",
+      "resolvedTaxonId": "30461",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "ginglymostoma-cirratum",
+      "name": "Ginglymostoma cirratum",
+      "ncbiTaxonId": "7801",
+      "resolvedTaxonId": "7801",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "saccoglossus-kowalevskii",
+      "name": "Saccoglossus kowalevskii",
+      "ncbiTaxonId": "10224",
+      "resolvedTaxonId": "10224",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "oryctolagus-cuniculus",
+      "name": "Oryctolagus cuniculus",
+      "ncbiTaxonId": "9986",
+      "resolvedTaxonId": "9986",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "lepus-europaeus",
+      "name": "Lepus europaeus",
+      "ncbiTaxonId": "9983",
+      "resolvedTaxonId": "9983",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "erinaceus-europaeus",
+      "name": "Erinaceus europaeus",
+      "ncbiTaxonId": "9365",
+      "resolvedTaxonId": "9365",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "talpa-europaea",
+      "name": "Talpa europaea",
+      "ncbiTaxonId": "9375",
+      "resolvedTaxonId": "9375",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "fasciola-hepatica",
+      "name": "Fasciola hepatica",
+      "ncbiTaxonId": "6192",
+      "resolvedTaxonId": "6192",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "schistosoma-mansoni",
+      "name": "Schistosoma mansoni",
+      "ncbiTaxonId": "6183",
+      "resolvedTaxonId": "6183",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "archispirostreptus-gigas",
+      "name": "Archispirostreptus gigas",
+      "ncbiTaxonId": "184086",
+      "resolvedTaxonId": "184086",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "narceus-americanus",
+      "name": "Narceus americanus",
+      "ncbiTaxonId": "58771",
+      "resolvedTaxonId": "58771",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "acanthopleura-granulata",
+      "name": "Acanthopleura granulata",
+      "ncbiTaxonId": "61363",
+      "resolvedTaxonId": "61363",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "katharina-tunicata",
+      "name": "Katharina tunicata",
+      "ncbiTaxonId": "34587",
+      "resolvedTaxonId": "34587",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "anax-imperator",
+      "name": "Anax imperator",
+      "ncbiTaxonId": "39274",
+      "resolvedTaxonId": "39274",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "ischnura-elegans",
+      "name": "Ischnura elegans",
+      "ncbiTaxonId": "197161",
+      "resolvedTaxonId": "197161",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "forficula-auricularia",
+      "name": "Forficula auricularia",
+      "ncbiTaxonId": "13068",
+      "resolvedTaxonId": "13068",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "labidura-riparia",
+      "name": "Labidura riparia",
+      "ncbiTaxonId": "50449",
+      "resolvedTaxonId": "50449",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "ichthyophis-glutinosus",
+      "name": "Ichthyophis glutinosus",
+      "ncbiTaxonId": "194415",
+      "resolvedTaxonId": "194415",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "siphonops-annulatus",
+      "name": "Siphonops annulatus",
+      "ncbiTaxonId": "320579",
+      "resolvedTaxonId": "320579",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "acipenser-ruthenus",
+      "name": "Acipenser ruthenus",
+      "ncbiTaxonId": "7906",
+      "resolvedTaxonId": "7906",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "huso-huso",
+      "name": "Huso huso",
+      "ncbiTaxonId": "61971",
+      "resolvedTaxonId": "61971",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "trichoplax-adhaerens",
+      "name": "Trichoplax adhaerens",
+      "ncbiTaxonId": "10228",
+      "resolvedTaxonId": "10228",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "spirostreptus-servatius",
+      "name": "Spirostreptus servatius",
+      "ncbiTaxonId": null,
+      "resolvedTaxonId": null,
+      "gbifUsageKey": 1026003
+    },
+    {
+      "id": "trigoniulus-corallinus",
+      "name": "Trigoniulus corallinus",
+      "ncbiTaxonId": "1366115",
+      "resolvedTaxonId": "1366115",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "fasciolopsis-buski",
+      "name": "Fasciolopsis buski",
+      "ncbiTaxonId": null,
+      "resolvedTaxonId": null,
+      "gbifUsageKey": 2505831
+    },
+    {
+      "id": "schistosoma-haematobium",
+      "name": "Schistosoma haematobium",
+      "ncbiTaxonId": "6185",
+      "resolvedTaxonId": "6185",
+      "gbifUsageKey": null
+    },
+    {
+      "id": "rossella-antarctica",
+      "name": "Rossella antarctica",
+      "ncbiTaxonId": null,
+      "resolvedTaxonId": null,
+      "gbifUsageKey": 5180195
+    },
+    {
+      "id": "periophthalmus-argentilineatus",
+      "name": "Periophthalmus argentilineatus",
+      "ncbiTaxonId": null,
+      "resolvedTaxonId": null,
+      "gbifUsageKey": null
     }
   ],
   "taxa": [
@@ -6514,6 +7263,174 @@
       "koreanNameStatus": "game-label-or-scientific-name",
       "coverage": "existing",
       "taxonId": "Q21448022"
+    },
+    {
+      "name": "Trematoda",
+      "originalRank": "class",
+      "selectedRank": "class",
+      "nameKo": "흡충강",
+      "decision": "추가 수록종의 NCBI 분류와 Wikidata 경로를 대조했습니다.",
+      "nibr2019": null,
+      "nibr2025": null,
+      "ncbi": {
+        "id": "6178",
+        "name": "Trematoda",
+        "rank": "class"
+      },
+      "worms": [],
+      "sources": [
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=6178"
+        ],
+        [
+          "Wikidata",
+          "https://www.wikidata.org/wiki/Q207547"
+        ]
+      ],
+      "koreanNameStatus": "curated",
+      "coverage": "added 2026-10-15",
+      "taxonId": "Q207547"
+    },
+    {
+      "name": "Digenea",
+      "originalRank": "subclass",
+      "selectedRank": "subclass",
+      "nameKo": "이생아강",
+      "decision": "추가 수록종의 NCBI 분류와 Wikidata 경로를 대조했습니다.",
+      "nibr2019": null,
+      "nibr2025": null,
+      "ncbi": {
+        "id": "6179",
+        "name": "Digenea",
+        "rank": "subclass"
+      },
+      "worms": [],
+      "sources": [
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=6179"
+        ],
+        [
+          "Wikidata",
+          "https://www.wikidata.org/wiki/Q132650"
+        ]
+      ],
+      "koreanNameStatus": "curated",
+      "coverage": "added 2026-10-15",
+      "taxonId": "Q132650"
+    },
+    {
+      "name": "Diplopoda",
+      "originalRank": "class",
+      "selectedRank": "class",
+      "nameKo": "배각강",
+      "decision": "추가 수록종의 NCBI 분류와 Wikidata 경로를 대조했습니다.",
+      "nibr2019": null,
+      "nibr2025": null,
+      "ncbi": {
+        "id": "7553",
+        "name": "Diplopoda",
+        "rank": "class"
+      },
+      "worms": [],
+      "sources": [
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=7553"
+        ],
+        [
+          "Wikidata",
+          "https://www.wikidata.org/wiki/Q167367"
+        ]
+      ],
+      "koreanNameStatus": "curated",
+      "coverage": "added 2026-10-15",
+      "taxonId": "Q167367"
+    },
+    {
+      "name": "Helminthomorpha",
+      "originalRank": "subclass",
+      "selectedRank": "subclass",
+      "nameKo": "연충형아강",
+      "decision": "추가 수록종의 NCBI 분류와 Wikidata 경로를 대조했습니다.",
+      "nibr2019": null,
+      "nibr2025": null,
+      "ncbi": {
+        "id": "118561",
+        "name": "Helminthomorpha",
+        "rank": "subclass"
+      },
+      "worms": [],
+      "sources": [
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=118561"
+        ],
+        [
+          "Wikidata",
+          "https://www.wikidata.org/wiki/Q3129934"
+        ]
+      ],
+      "koreanNameStatus": "curated",
+      "coverage": "added 2026-10-15",
+      "taxonId": "Q3129934"
+    },
+    {
+      "name": "Polyplacophora",
+      "originalRank": "class",
+      "selectedRank": "class",
+      "nameKo": "다판강",
+      "decision": "추가 수록종의 NCBI 분류와 Wikidata 경로를 대조했습니다.",
+      "nibr2019": null,
+      "nibr2025": null,
+      "ncbi": {
+        "id": "6650",
+        "name": "Polyplacophora",
+        "rank": "class"
+      },
+      "worms": [],
+      "sources": [
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=6650"
+        ],
+        [
+          "Wikidata",
+          "https://www.wikidata.org/wiki/Q188906"
+        ]
+      ],
+      "koreanNameStatus": "curated",
+      "coverage": "added 2026-10-15",
+      "taxonId": "Q188906"
+    },
+    {
+      "name": "Neoloricata",
+      "originalRank": "subclass",
+      "selectedRank": "subclass",
+      "nameKo": "신석아강",
+      "decision": "추가 수록종의 NCBI 분류와 Wikidata 경로를 대조했습니다.",
+      "nibr2019": null,
+      "nibr2025": null,
+      "ncbi": {
+        "id": "6651",
+        "name": "Neoloricata",
+        "rank": "subclass"
+      },
+      "worms": [],
+      "sources": [
+        [
+          "NCBI Taxonomy",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=6651"
+        ],
+        [
+          "Wikidata",
+          "https://www.wikidata.org/wiki/Q872277"
+        ]
+      ],
+      "koreanNameStatus": "curated",
+      "coverage": "added 2026-10-15",
+      "taxonId": "Q872277"
     }
   ]
 }

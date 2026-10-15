@@ -2119,6 +2119,108 @@ export const taxonRanks = {
     "review": "이번에 대조한 국내 목록·NCBI·WoRMS에서 기존 계급을 직접 확인하지 못했습니다. 계통군은 유지하되 게임에서는 계급을 붙이지 않습니다. 분류군 자체가 부정된다는 뜻은 아닙니다.",
     "reviewEn": "Game rank: clade. Registry comparison: the previous rank was not verified in the compared registries. The game prioritizes domestic basic classes and uses Actinopterygii (class), Neopterygii (subclass), Teleostei / Holostei (infraclass) for fishes.",
     "sources": []
+  },
+  "Q207547": {
+    "name": "Trematoda",
+    "rank": "class",
+    "koName": "흡충강",
+    "review": "추가 수록종의 NCBI 분류와 Wikidata 경로를 대조했습니다.",
+    "reviewEn": "Newly included species were compared with NCBI classification and the recorded Wikidata lineage.",
+    "sources": [
+      [
+        "NCBI Taxonomy",
+        "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=6178"
+      ],
+      [
+        "Wikidata",
+        "https://www.wikidata.org/wiki/Q207547"
+      ]
+    ]
+  },
+  "Q132650": {
+    "name": "Digenea",
+    "rank": "subclass",
+    "koName": "이생아강",
+    "review": "추가 수록종의 NCBI 분류와 Wikidata 경로를 대조했습니다.",
+    "reviewEn": "Newly included species were compared with NCBI classification and the recorded Wikidata lineage.",
+    "sources": [
+      [
+        "NCBI Taxonomy",
+        "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=6179"
+      ],
+      [
+        "Wikidata",
+        "https://www.wikidata.org/wiki/Q132650"
+      ]
+    ]
+  },
+  "Q167367": {
+    "name": "Diplopoda",
+    "rank": "class",
+    "koName": "배각강",
+    "review": "추가 수록종의 NCBI 분류와 Wikidata 경로를 대조했습니다.",
+    "reviewEn": "Newly included species were compared with NCBI classification and the recorded Wikidata lineage.",
+    "sources": [
+      [
+        "NCBI Taxonomy",
+        "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=7553"
+      ],
+      [
+        "Wikidata",
+        "https://www.wikidata.org/wiki/Q167367"
+      ]
+    ]
+  },
+  "Q3129934": {
+    "name": "Helminthomorpha",
+    "rank": "subclass",
+    "koName": "연충형아강",
+    "review": "추가 수록종의 NCBI 분류와 Wikidata 경로를 대조했습니다.",
+    "reviewEn": "Newly included species were compared with NCBI classification and the recorded Wikidata lineage.",
+    "sources": [
+      [
+        "NCBI Taxonomy",
+        "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=118561"
+      ],
+      [
+        "Wikidata",
+        "https://www.wikidata.org/wiki/Q3129934"
+      ]
+    ]
+  },
+  "Q188906": {
+    "name": "Polyplacophora",
+    "rank": "class",
+    "koName": "다판강",
+    "review": "추가 수록종의 NCBI 분류와 Wikidata 경로를 대조했습니다.",
+    "reviewEn": "Newly included species were compared with NCBI classification and the recorded Wikidata lineage.",
+    "sources": [
+      [
+        "NCBI Taxonomy",
+        "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=6650"
+      ],
+      [
+        "Wikidata",
+        "https://www.wikidata.org/wiki/Q188906"
+      ]
+    ]
+  },
+  "Q872277": {
+    "name": "Neoloricata",
+    "rank": "subclass",
+    "koName": "신석아강",
+    "review": "추가 수록종의 NCBI 분류와 Wikidata 경로를 대조했습니다.",
+    "reviewEn": "Newly included species were compared with NCBI classification and the recorded Wikidata lineage.",
+    "sources": [
+      [
+        "NCBI Taxonomy",
+        "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=6651"
+      ],
+      [
+        "Wikidata",
+        "https://www.wikidata.org/wiki/Q872277"
+      ]
+    ]
   }
 };
 export const classRanks = ["superclass", "class", "subclass", "infraclass"];

@@ -42,7 +42,7 @@ const sqlite = new DatabaseSync(":memory:");
 const migrationDir = new URL("../drizzle/", import.meta.url);
 const migrations = fs.readdirSync(migrationDir).filter((path) => path.endsWith(".sql")).sort();
 for (const migration of migrations.slice(0, -1)) sqlite.exec(fs.readFileSync(new URL(migration, migrationDir), "utf8"));
-sqlite.exec("INSERT INTO leaderboard(user_id,display_name,best_score,games_played,best_practice_score,practice_games_played) VALUES ('legacy','Legacy',50,99,20,1),('perfect','Perfect',206,2,206,1)");
+sqlite.exec(`INSERT INTO leaderboard(user_id,display_name,best_score,games_played,best_practice_score,practice_games_played) VALUES ('legacy','Legacy',50,99,20,1),('perfect','Perfect',${total},2,${total},1)`);
 sqlite.exec(fs.readFileSync(new URL(migrations.at(-1), migrationDir), "utf8"));
 const client = { prepare(query) {
   const statement = sqlite.prepare(query);
@@ -71,7 +71,7 @@ assert.equal(data.practiceCompleted, false);
 assert.equal((await post({ event: "normal-start" })).status, 200);
 data = await stats(); assert.equal(data.normalAttempts, 100);
 assert.equal(getAchievements(data, total).find((task) => task.id === "attempts-100").earned, true);
-sqlite.exec("UPDATE leaderboard SET best_score=206,games_played=100 WHERE user_id='legacy'");
+sqlite.exec(`UPDATE leaderboard SET best_score=${total},games_played=100 WHERE user_id='legacy'`);
 assert.equal((await stats()).hasFailed, true, "Historical failure medals must survive a later perfect score");
 assert.equal((await post({ event: "practice-start" })).status, 200);
 assert.equal((await post({ event: "practice-complete" })).status, 200);
