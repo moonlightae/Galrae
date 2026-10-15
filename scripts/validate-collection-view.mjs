@@ -42,6 +42,23 @@ globalThis.localStorage = { getItem: (key) => stored.get(key), setItem: (key, va
 const layouts = ["top", "bottom", "radial"].map((layout) => Object.assign(element(layout), { dataset: { treeLayout: layout } }));
 element("#collection-page").querySelectorAll = () => layouts;
 const viewport = element("#collection-tree");
+viewport.addEventListener = function (name, handler) {
+  const previous = this.handlers[name];
+  this.handlers[name] = previous ? (event) => { previous(event); handler(event); } : handler;
+};
+const originalPerformance = globalThis.performance;
+let animationTime = 0, nextFrame = 0, reducedMotion = false;
+const frames = new Map();
+globalThis.performance = { now: () => animationTime };
+globalThis.requestAnimationFrame = (handler) => { frames.set(++nextFrame, handler); return nextFrame; };
+globalThis.cancelAnimationFrame = (id) => frames.delete(id);
+globalThis.matchMedia = () => ({ matches: reducedMotion });
+function advanceAnimation(ms) {
+  animationTime += ms;
+  const pending = [...frames.values()];
+  frames.clear();
+  pending.forEach((handler) => handler(animationTime));
+}
 viewport.clientWidth = 320; viewport.clientHeight = 480;
 viewport.getBoundingClientRect = () => ({ left: 0, top: 0, width: 320, height: 480 });
 viewport.setPointerCapture = () => {};
@@ -267,17 +284,51 @@ for (const layout of layouts) {
     query.handlers.input();
     assert.equal(searchResults.hidden, false);
     assert.ok(searchResults.innerHTML.includes(`data-branch-search-id="${id}"`));
+    const before = new Map(cameraStyles);
     if (id === "Q7377") searchForm.handlers.submit({ preventDefault() {} });
     else searchResults.handlers.click({ target: { closest: () => ({ dataset: { branchSearchId: id } }) } });
     assert.equal(searchResults.hidden, true);
     const target = branchButtons.find((button) => button.dataset.ancestorId === id);
     assert.ok(target.classList.contains("is-search-match"));
     assert.equal(branchButtons.filter((button) => button.classList.contains("is-search-match")).length, 1);
+    assert.deepEqual(cameraStyles, before, "Selecting a result must not teleport the camera");
+    advanceAnimation(120);
+    assert.notDeepEqual(cameraStyles, before, "The camera must move during the animation");
+    assert.equal(frames.size, 1, "Motion must continue before the destination is reached");
+    advanceAnimation(240);
+    assert.equal(frames.size, 0);
     const rect = target.getBoundingClientRect();
     assert.ok(Math.abs(rect.left + rect.width / 2 - 160) < .001 && Math.abs(rect.top + rect.height / 2 - 240) < .001, `${layout.dataset.treeLayout}: search must center the actual marker`);
     assert.ok(cameraStyles.get("--tree-zoom") >= .9);
   }
 }
+for (const interrupt of [
+  () => viewport.handlers.pointerdown({ button: 0, pointerId: 2, clientX: 20, clientY: 30, target: { closest: () => null } }),
+  () => viewport.handlers.wheel({ preventDefault() {}, deltaY: 80, deltaMode: 0, clientX: 100, clientY: 100 }),
+  () => element("#collection-tree-fit").handlers.click(),
+]) {
+  query.value = "포유"; query.handlers.input();
+  searchForm.handlers.submit({ preventDefault() {} });
+  advanceAnimation(100);
+  interrupt();
+  viewport.handlers.pointercancel({ pointerId: 2 });
+  const interrupted = new Map(cameraStyles);
+  advanceAnimation(500);
+  assert.equal(frames.size, 0);
+  assert.deepEqual(cameraStyles, interrupted, "Direct navigation must cancel pending search motion");
+}
+query.value = "포유"; query.handlers.input();
+searchForm.handlers.submit({ preventDefault() {} });
+advanceAnimation(100);
+query.value = "Teleostei"; query.handlers.input();
+searchForm.handlers.submit({ preventDefault() {} });
+assert.equal(frames.size, 1, "A second search must replace the first animation");
+advanceAnimation(360);
+reducedMotion = true;
+query.value = "포유"; query.handlers.input();
+searchForm.handlers.submit({ preventDefault() {} });
+assert.equal(frames.size, 0, "Reduced-motion preferences must skip the animation");
+reducedMotion = false;
 language = "en";
 view.render(animals.map((animal) => animal.id));
 assert.equal(query.placeholder, "Search branches");
@@ -307,4 +358,8 @@ assert.equal(buttons[0].attrs["aria-pressed"], "true");
 delete globalThis.document;
 delete globalThis.ResizeObserver;
 delete globalThis.localStorage;
+globalThis.performance = originalPerformance;
+delete globalThis.requestAnimationFrame;
+delete globalThis.cancelAnimationFrame;
+delete globalThis.matchMedia;
 console.log(`${Object.keys(ancestorNotes).length} notes, group borders, bilingual branch search/centering/empty states across 3 layouts, startup, photos and navigation passed.`);

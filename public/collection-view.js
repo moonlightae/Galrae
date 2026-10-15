@@ -19,6 +19,11 @@ export function createCollectionView({ $, buildTree, speciesById, escapeHtml, ca
   });
   let mode = "cards", collected = [];
   let searchableBranches = [], matches = [], selectedBranch = null;
+  let focusFrame = null;
+  function cancelFocusAnimation() {
+    if (focusFrame !== null) { cancelAnimationFrame(focusFrame); searchStatus.textContent = ""; }
+    focusFrame = null;
+  }
 
   function renderSearchResults() {
     const ko = getLanguage() === "ko";
@@ -36,17 +41,33 @@ export function createCollectionView({ $, buildTree, speciesById, escapeHtml, ca
   function focusBranch(id) {
     const branch = searchableBranches.find((entry) => entry.id === id);
     if (!branch) return;
+    cancelFocusAnimation();
     viewport.querySelectorAll(".is-search-match").forEach((button) => button.classList.remove("is-search-match"));
     selectedBranch = id;
     branch.button.classList.add("is-search-match");
-    view.zoomTreeAtCenter(Math.max(state.zoom, .9) / state.zoom);
     const target = branch.button.getBoundingClientRect();
     const canvas = viewport.getBoundingClientRect();
-    state.panX += canvas.left + canvas.width / 2 - target.left - target.width / 2;
-    state.panY += canvas.top + canvas.height / 2 - target.top - target.height / 2;
-    view.updateCamera();
+    const from = { panX: state.panX, panY: state.panY, zoom: state.zoom };
+    const zoom = Math.max(state.zoom, .9), ratio = zoom / state.zoom;
+    const to = {
+      panX: (state.panX + canvas.left + canvas.width / 2 - target.left - target.width / 2) * ratio,
+      panY: (state.panY + canvas.top + canvas.height / 2 - target.top - target.height / 2) * ratio,
+      zoom,
+    };
+    const started = performance.now();
+    const duration = globalThis.matchMedia?.("(prefers-reduced-motion: reduce)").matches ? 0 : 360;
+    function move(now) {
+      const progress = duration ? Math.min(1, (now - started) / duration) : 1;
+      const eased = 1 - (1 - progress) ** 3;
+      for (const key of ["panX", "panY", "zoom"]) state[key] = from[key] + (to[key] - from[key]) * eased;
+      view.updateCamera();
+      focusFrame = progress < 1 ? requestAnimationFrame(move) : null;
+      if (progress === 1) searchStatus.textContent = getLanguage() === "ko" ? `${branch.koName} 위치로 이동했습니다.` : `Moved to ${branch.name}.`;
+    }
+    searchStatus.textContent = getLanguage() === "ko" ? `${branch.koName} 위치로 이동 중…` : `Moving to ${branch.name}…`;
+    if (duration) focusFrame = requestAnimationFrame(move);
+    else move(started);
     results.hidden = true;
-    searchStatus.textContent = getLanguage() === "ko" ? `${branch.koName} 위치로 이동했습니다.` : `Moved to ${branch.name}.`;
   }
   search.addEventListener("input", renderSearchResults);
   search.addEventListener("focus", renderSearchResults);
@@ -58,6 +79,7 @@ export function createCollectionView({ $, buildTree, speciesById, escapeHtml, ca
   });
 
   function render(ids) {
+    cancelFocusAnimation();
     collected = ids;
     grid.hidden = mode !== "cards";
     panel.hidden = mode !== "tree";
@@ -129,16 +151,17 @@ export function createCollectionView({ $, buildTree, speciesById, escapeHtml, ca
     view.setTreeLayout(button.dataset.treeLayout);
     render(collected);
   }));
-  $("#collection-zoom-in").addEventListener("click", () => view.zoomTreeAtCenter(1.25));
-  $("#collection-zoom-out").addEventListener("click", () => view.zoomTreeAtCenter(.8));
-  $("#collection-tree-fit").addEventListener("click", view.resetTreeView);
+  $("#collection-zoom-in").addEventListener("click", () => { cancelFocusAnimation(); view.zoomTreeAtCenter(1.25); });
+  $("#collection-zoom-out").addEventListener("click", () => { cancelFocusAnimation(); view.zoomTreeAtCenter(.8); });
+  $("#collection-tree-fit").addEventListener("click", () => { cancelFocusAnimation(); view.resetTreeView(); });
   viewport.addEventListener("click", (event) => {
     const button = event.target.closest("[data-species-id]");
     if (button) onOpenSpecies(button.dataset.speciesId, button);
   });
-  bindTreeNavigation(viewport, state, view);
+  viewport.addEventListener("pointerdown", cancelFocusAnimation);
+  bindTreeNavigation(viewport, state, { ...view, zoomTree: (...args) => { cancelFocusAnimation(); view.zoomTree(...args); } });
   new ResizeObserver(() => {
-    if (!page.hidden && mode === "tree" && state.tree) view.resetTreeView();
+    if (!page.hidden && mode === "tree" && state.tree) { cancelFocusAnimation(); view.resetTreeView(); }
   }).observe(viewport);
   return { render, isTree: () => mode === "tree", showGuide: () => {
     if (!page.hidden && mode === "tree" && viewport.querySelector("[data-ancestor-id]")) notes.showGuide();
