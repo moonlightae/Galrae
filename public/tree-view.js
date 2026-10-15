@@ -26,8 +26,9 @@ export function createTreeView({ ANIMALIA_ID, buildTree, escapeHtml, speciesById
       for (const child of children) {
         const compactOffset = left.length ? Math.max(...child.left.map((value, depth) => depth < right.length ? right[depth] + gap - value : 0)) : 0;
         const spaciousOffset = left.length ? Math.max(...right) + gap - Math.min(...child.left) : 0;
-        // Reserve some space for the whole subtree without returning to the old excessive width.
-        child.offset = compactOffset + (spaciousOffset - compactOffset) * .35;
+        // Group borders need separate subtree columns to keep unrelated cards outside.
+        child.offset = state.taxonGroups?.some((group) => group.members.size)
+          ? spaciousOffset : compactOffset + (spaciousOffset - compactOffset) * .35;
         child.left.forEach((value, depth) => {
           left[depth] = Math.min(left[depth] ?? Infinity, value + child.offset);
           right[depth] = Math.max(right[depth] ?? -Infinity, child.right[depth] + child.offset);
@@ -121,33 +122,18 @@ export function createTreeView({ ANIMALIA_ID, buildTree, escapeHtml, speciesById
       if (!group.members.size) continue;
       const leaves = [];
       function measure(entry) {
-        entry.groupLeaves = entry.node.type === "leaf" ? [entry] : entry.children.flatMap(measure);
-        entry.groupPoints = [{ x: entry.x, y: entry.node.type === "leaf" ? entry.y : junctionY(entry) }, ...entry.children.flatMap((child) => child.groupPoints)];
-        if (entry.node.type === "leaf") leaves.push(entry);
-        return entry.groupLeaves;
+        if (entry.node.type === "leaf") {
+          if (group.members.has(entry.node.id)) leaves.push(entry);
+        } else entry.children.forEach(measure);
       }
       measure(root);
-      function surround(entry) {
-        const members = entry.groupLeaves.filter((leaf) => group.members.has(leaf.node.id));
-        if (!members.length) return;
-        // Separate outlines leave excluded descendants outside a paraphyletic group.
-        const eligible = entry.node.type === "leaf" || ["class", "subclass", "infraclass", "order"].includes(entry.node.rank);
-        if (eligible && members.length === entry.groupLeaves.length) {
-          const left = Math.min(...members.map((leaf) => leaf.x - 98), ...entry.groupPoints.map((point) => point.x - 24));
-          const right = Math.max(...members.map((leaf) => leaf.x + 98), ...entry.groupPoints.map((point) => point.x + 24));
-          const top = Math.min(...members.map((leaf) => leaf.y - 58), ...entry.groupPoints.map((point) => point.y - 28));
-          const bottom = Math.max(...members.map((leaf) => leaf.y + 52), ...entry.groupPoints.map((point) => point.y + 28));
-          const excludesOthers = leaves.every((leaf) => group.members.has(leaf.node.id)
-            || leaf.x + 84 < left || leaf.x - 84 > right || leaf.y + 36 < top || leaf.y - 36 > bottom);
-          if (excludesOthers) {
-            controls.push(`<span class="taxon-group" data-group="${escapeHtml(group.id)}" data-members="${members.map((leaf) => escapeHtml(leaf.node.id)).join(",")}" style="left:${left}px;top:${top}px;width:${right - left}px;height:${bottom - top}px" aria-hidden="true"></span>`);
-            controls.push(`<button class="clade-node taxon-group-note" type="button" style="left:${(left + right) / 2}px;top:${state.layout === "bottom" ? bottom : top}px" data-target="${escapeHtml(group.id)}" aria-label="분류군 설명"></button>`);
-            return;
-          }
-        }
-        entry.children.forEach(surround);
-      }
-      surround(root);
+      if (!leaves.length) continue;
+      const left = Math.min(...leaves.map((leaf) => leaf.x)) - 98;
+      const right = Math.max(...leaves.map((leaf) => leaf.x)) + 98;
+      const top = Math.min(...leaves.map((leaf) => leaf.y)) - 58;
+      const bottom = Math.max(...leaves.map((leaf) => leaf.y)) + 52;
+      controls.push(`<span class="taxon-group" data-group="${escapeHtml(group.id)}" data-members="${leaves.map((leaf) => escapeHtml(leaf.node.id)).join(",")}" style="left:${left}px;top:${top}px;width:${right - left}px;height:${bottom - top}px" aria-hidden="true"></span>`);
+      controls.push(`<button class="clade-node taxon-group-note" type="button" style="left:${(left + right) / 2}px;top:${state.layout === "bottom" ? bottom : top}px" data-target="${escapeHtml(group.id)}" aria-label="분류군 설명"></button>`);
     }
     controls.push(radial
       ? `<span class="tree-root-anchor" style="left:${root.x}px;top:${root.y - 76}px"><span class="tree-root">Animalia</span></span>`

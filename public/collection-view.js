@@ -25,13 +25,14 @@ export function createCollectionView({ $, buildTree, speciesById, escapeHtml, ca
     const ko = getLanguage() === "ko";
     const legend = $("#collection-rank-legend");
     legend.setAttribute("aria-label", ko ? "계통수 계급 범례" : "Taxonomic rank legend");
-    legend.innerHTML = `<ul>${legendRanks.map((rank) => `<li>${rankMark(rank)}<span>${rankNames[rank][ko ? 0 : 1]}</span></li>`).join("")}</ul><p>${ko ? "그 외: 기타 계급·공통분기<br>점선 테두리: 측계통군" : "Other ranks / shared branches<br>Dashed border: paraphyletic group"}</p>`;
+    legend.innerHTML = `<ul>${legendRanks.map((rank) => `<li>${rankMark(rank)}<span>${rankNames[rank][ko ? 0 : 1]}</span></li>`).join("")}</ul><p>${ko ? "그 외: 기타 계급·공통분기" : "Other ranks / shared branches"}</p>`;
     if (!ids.length) {
       state.tree = null;
       viewport.innerHTML = '<p class="collection-empty">아직 분류한 생물이 없어요. 분류한 동물이 이곳에 모입니다.</p>';
       return;
     }
-    state.tree = buildTree(ids, speciesById, null, true);
+    const collectedIds = new Set(ids);
+    state.tree = buildTree([...speciesById.keys()].filter((id) => collectedIds.has(id)), speciesById, null, true);
     state.taxonGroups = Object.entries(ancestorNotes).filter(([, note]) => note.paraphyletic).map(([id]) => ({
       id, members: new Set(ids.filter((speciesId) => getClassIds(speciesById.get(speciesId)).includes(id))),
     }));

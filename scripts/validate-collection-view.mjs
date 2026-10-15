@@ -202,19 +202,24 @@ for (const languageOption of ["ko", "en"]) {
 }
 language = "ko";
 const polychaetes = ["platynereis-dumerilii", "riftia-pachyptila"];
-for (const ids of [[polychaetes[0]], polychaetes, [...polychaetes, "hirudo-medicinalis", "lumbricus-terrestris"], animals.map((animal) => animal.id), ["homo-sapiens"]]) {
+const partialCollections = Array.from({ length: 20 }, (_, seed) => animals.filter((animal, index) => polychaetes.includes(animal.id) || (index * 17 + seed * 13) % 31 < seed + 3).map((animal) => animal.id).reverse());
+for (const ids of [[polychaetes[0]], polychaetes, [...polychaetes, "hirudo-medicinalis", "lumbricus-terrestris"], ["hirudo-medicinalis", ...polychaetes, "lumbricus-terrestris"], animals.map((animal) => animal.id), animals.map((animal) => animal.id).reverse(), ["homo-sapiens"], ...partialCollections]) {
   view.render(ids);
   for (const layout of layouts) {
     layout.handlers.click();
     const outlines = [...viewport.markup.matchAll(/class="taxon-group" data-group="([^"]+)" data-members="([^"]+)" style="left:([^p]+)px;top:([^p]+)px;width:([^p]+)px;height:([^p]+)px"/g)];
     assert.deepEqual(new Set(outlines.flatMap((match) => match[2].split(","))), new Set(ids.filter((id) => polychaetes.includes(id))), "Borders must cover exactly the collected traditional polychaetes");
+    assert.equal(outlines.length, ids.some((id) => polychaetes.includes(id)) ? 1 : 0, "All members must share one border");
     const positionedLeaves = [...viewport.markup.matchAll(/class="species-node[^"]*"[^>]*style="left:([^p]+)px;top:([^p]+)px" data-species-id="([^"]+)"/g)];
     for (const outline of outlines) {
       const [left, top, width, height] = outline.slice(3).map(Number);
       assert.ok(width > 0 && height > 0);
       for (const leaf of positionedLeaves) {
         const [x, y] = leaf.slice(1, 3).map(Number);
-        if (polychaetes.includes(leaf[3])) continue;
+        if (polychaetes.includes(leaf[3])) {
+          assert.ok(x - 84 >= left && x + 84 <= left + width && y - 36 >= top && y + 36 <= top + height, `${layout.dataset.treeLayout}: border must contain the entire member card`);
+          continue;
+        }
         assert.ok(x + 84 < left || x - 84 > left + width || y + 36 < top || y - 36 > top + height, `${layout.dataset.treeLayout}: border must not enclose ${leaf[3]}`);
       }
     }
@@ -223,7 +228,7 @@ for (const ids of [[polychaetes[0]], polychaetes, [...polychaetes, "hirudo-medic
     for (const button of groupButtons) {
       button.handlers.click({ stopPropagation() {} });
       assert.equal(element("#ancestor-title").textContent, "다모강");
-      assert.match(element("#ancestor-content").innerHTML, /측계통군/);
+      assert.doesNotMatch(button.innerHTML + element("#ancestor-scientific").textContent + element("#ancestor-content").innerHTML, /측계통군|paraphyletic/i);
     }
   }
 }
@@ -250,4 +255,4 @@ assert.equal(buttons[0].attrs["aria-pressed"], "true");
 delete globalThis.document;
 delete globalThis.ResizeObserver;
 delete globalThis.localStorage;
-console.log(`${Object.keys(ancestorNotes).length} notes, all visible orders, paraphyletic borders across 3 layouts/partial collections, startup, photos and navigation passed.`);
+console.log(`${Object.keys(ancestorNotes).length} notes, one group border/button across 3 layouts/partial collections, startup, photos and navigation passed.`);

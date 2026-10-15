@@ -105,10 +105,10 @@ for (const [id, review] of Object.entries(taxonRanks)) {
 
 export const ancestorNotes = { ...classAncestors, ...upperAncestors, ...orderAncestors };
 ancestorNotes["ncbi:6341"] = { ...classAncestors["ncbi:6341"], paraphyletic: true,
-  ko: ["전통적인 다모강은 갯지렁이류를 묶고 지렁이·거머리 같은 환대류를 제외한 이름입니다. 분자계통 연구에서는 환대류가 이들 사이에서 갈라져 나온 것으로 나타나므로, 이 범위는 공통 조상의 후손 일부가 빠진 측계통군입니다.",
-    "점선은 도감에 수록된 전통적 다모류의 범위를 표시하며, 새로운 공통 조상이나 단일 가지를 뜻하지 않습니다. 다른 분류군을 포함하지 않도록 떨어진 영역에는 같은 이름의 테두리를 반복합니다. Errantia·Sedentaria와 환대류의 실제 가지 관계는 유지합니다."],
-  en: ["Traditional Polychaeta groups polychaete worms while excluding clitellates such as earthworms and leeches. Molecular phylogenies place clitellates among these annelid lineages, so this traditional grouping omits some descendants of their common ancestor and is paraphyletic.",
-    "Dashed borders mark traditional polychaetes included in the collection, not a new ancestor or a single branch. Separate areas repeat the same label to avoid enclosing other groups. The tree retains the branching relationships of Errantia, Sedentaria and clitellates."],
+  ko: ["전통적인 다모강은 갯지렁이류를 묶고 지렁이·거머리 같은 환대류를 제외한 이름입니다. 분자계통 연구에서는 환대류가 이들 사이에서 갈라져 나온 것으로 나타나므로, 공통 조상의 모든 후손을 묶는 이름과는 범위가 다릅니다.",
+    "점선 테두리는 도감에 수록된 다모류를 한곳에 모아 안내합니다. 테두리의 다모강 버튼에서 설명을 열 수 있습니다. Errantia·Sedentaria와 환대류의 실제 가지 관계는 유지합니다."],
+  en: ["Traditional Polychaeta groups polychaete worms while excluding clitellates such as earthworms and leeches. Molecular phylogenies place clitellates among these annelid lineages, so its scope differs from a grouping that includes every descendant of a common ancestor.",
+    "One dashed border surrounds the polychaetes included in the collection. Its Polychaeta button opens these notes. The tree retains the branching relationships of Errantia, Sedentaria and clitellates."],
   sources: [...classAncestors["ncbi:6341"].sources, ["Annelid phylogeny and traditional Polychaeta (2016)", "https://pmc.ncbi.nlm.nih.gov/articles/PMC5013799/"]],
 };
 for (const id of Object.keys(upperAncestors)) {
@@ -159,7 +159,7 @@ export function createAncestorNotes({ $, escapeHtml, getLanguage, speciesById, c
     button.dataset.rank = rank;
     button.classList.add("ranked-taxon");
     button.innerHTML = rankMark(rank);
-    if (note?.paraphyletic) button.innerHTML += `<span>${escapeHtml(ko ? `${note.koName} · 측계통군` : `${note.name} · paraphyletic`)}</span>`;
+    if (note?.paraphyletic) button.innerHTML += `<span>${escapeHtml(ko ? note.koName : note.name)}</span>`;
     button.title = `${rankNames[rank]?.[ko ? 0 : 1] || (ko ? "공통분기" : "Shared branch")} · ${branches.get(id)?.path.at(-1).name || id}`;
     button.setAttribute("aria-label", button.title);
     if (!note) return false;
@@ -184,7 +184,7 @@ export function createAncestorNotes({ $, escapeHtml, getLanguage, speciesById, c
       : ko ? ["어떻게 알았나요?", "조상은 어떤 모습이었을까요?", "연구 이야기"] : ["What is the evidence?", "What might the ancestor have been like?", "Research notes"];
     $("#ancestor-title").textContent = ko ? note.koName : note.name;
     const upperRankLabels = { kingdom: "계", subkingdom: "아계", infrakingdom: "하계", superphylum: "상문", phylum: "문", subphylum: "아문", infraphylum: "하문" };
-    $("#ancestor-scientific").textContent = `${note.name} · ${ko ? rankLabels[note.rank] || upperRankLabels[note.rank] || rankNames[note.rank]?.[0] : note.rank}${note.paraphyletic ? ko ? " · 측계통군" : " · paraphyletic" : ""}`;
+    $("#ancestor-scientific").textContent = `${note.name} · ${ko ? rankLabels[note.rank] || upperRankLabels[note.rank] || rankNames[note.rank]?.[0] : note.rank}`;
     const candidates = [...new Set([...getCollected(), ...speciesById.keys()])].map((speciesId) => speciesById.get(speciesId)).filter((animal) => animal && belongsTo(animal, id));
     const representative = candidates[0];
     const animal = cardText(representative);
