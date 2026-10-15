@@ -1,0 +1,3570 @@
+{
+  "reviewedAt": "2026-10-15",
+  "speciesCount": 314,
+  "nationalScientificNameMatches": 84,
+  "changedCount": 31,
+  "scope": "314개 이름을 훑고, 국가목록과 학명이 정확히 일치한 84종을 대조했습니다. 외국종의 한국어 명칭을 모두 독립 검증했다는 뜻은 아닙니다. 근거가 부족한 표기는 확인되지 않음으로 남겼습니다.",
+  "nationalSource": "https://www.kbr.go.kr/jfile/readDownloadFile.do?fileId=ARTICLE_2241&fileSeq=1",
+  "changes": [
+    {
+      "id": "argiope-bruennichi",
+      "scientificName": "Argiope bruennichi",
+      "before": "아르기오페 브루엔니키",
+      "after": "긴호랑거미",
+      "reason": "확인된 국명 반영",
+      "note": "해당 학명과 정확히 일치하는 국가생물종목록의 국명을 채택했습니다. 기존 음역·영명 직역 표기를 모두 오역으로 단정하지는 않습니다.",
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 (2025년 말 기준)",
+          "https://www.kbr.go.kr/jfile/readDownloadFile.do?fileId=ARTICLE_2241&fileSeq=1"
+        ],
+        [
+          "국립생물자원관 종 상세",
+          "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000044865"
+        ]
+      ]
+    },
+    {
+      "id": "botryllus-schlosseri",
+      "scientificName": "Botryllus schlosseri",
+      "before": "보트릴루스 슐로세리",
+      "after": "스크로세르판멍게",
+      "reason": "확인된 국명 반영",
+      "note": "해당 학명과 정확히 일치하는 국가생물종목록의 국명을 채택했습니다. 기존 음역·영명 직역 표기를 모두 오역으로 단정하지는 않습니다.",
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 (2025년 말 기준)",
+          "https://www.kbr.go.kr/jfile/readDownloadFile.do?fileId=ARTICLE_2241&fileSeq=1"
+        ],
+        [
+          "국립생물자원관 종 상세",
+          "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000051001"
+        ]
+      ]
+    },
+    {
+      "id": "brachionus-plicatilis",
+      "scientificName": "Brachionus plicatilis",
+      "before": "브라키오누스 플리카틸리스",
+      "after": "주름깃완미윤충",
+      "reason": "확인된 국명 반영",
+      "note": "해당 학명과 정확히 일치하는 국가생물종목록의 국명을 채택했습니다. 기존 음역·영명 직역 표기를 모두 오역으로 단정하지는 않습니다.",
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 (2025년 말 기준)",
+          "https://www.kbr.go.kr/jfile/readDownloadFile.do?fileId=ARTICLE_2241&fileSeq=1"
+        ],
+        [
+          "국립생물자원관 종 상세",
+          "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000040176"
+        ]
+      ]
+    },
+    {
+      "id": "cliona-celata",
+      "scientificName": "Cliona celata",
+      "before": "클리오나 켈라타",
+      "after": "호박해면",
+      "reason": "확인된 국명 반영",
+      "note": "해당 학명과 정확히 일치하는 국가생물종목록의 국명을 채택했습니다. 기존 음역·영명 직역 표기를 모두 오역으로 단정하지는 않습니다.",
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 (2025년 말 기준)",
+          "https://www.kbr.go.kr/jfile/readDownloadFile.do?fileId=ARTICLE_2241&fileSeq=1"
+        ],
+        [
+          "국립생물자원관 종 상세",
+          "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000038901"
+        ]
+      ]
+    },
+    {
+      "id": "daphnia-pulex",
+      "scientificName": "Daphnia pulex",
+      "before": "다프니아 풀렉스",
+      "after": "참물벼룩",
+      "reason": "확인된 국명 반영",
+      "note": "해당 학명과 정확히 일치하는 국가생물종목록의 국명을 채택했습니다. 기존 음역·영명 직역 표기를 모두 오역으로 단정하지는 않습니다.",
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 (2025년 말 기준)",
+          "https://www.kbr.go.kr/jfile/readDownloadFile.do?fileId=ARTICLE_2241&fileSeq=1"
+        ],
+        [
+          "국립생물자원관 종 상세",
+          "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000049825"
+        ]
+      ]
+    },
+    {
+      "id": "drosophila-simulans",
+      "scientificName": "Drosophila simulans",
+      "before": "드로소필라 시뮬란스",
+      "after": "어리노랑초파리",
+      "reason": "확인된 국명 반영",
+      "note": "해당 학명과 정확히 일치하는 국가생물종목록의 국명을 채택했습니다. 기존 음역·영명 직역 표기를 모두 오역으로 단정하지는 않습니다.",
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 (2025년 말 기준)",
+          "https://www.kbr.go.kr/jfile/readDownloadFile.do?fileId=ARTICLE_2241&fileSeq=1"
+        ],
+        [
+          "국립생물자원관 종 상세",
+          "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000021979"
+        ]
+      ]
+    },
+    {
+      "id": "hippocampus-kuda",
+      "scientificName": "Hippocampus kuda",
+      "before": "노랑해마",
+      "after": "복해마",
+      "reason": "확인된 국명 반영",
+      "note": "해당 학명과 정확히 일치하는 국가생물종목록의 국명을 채택했습니다. 기존 음역·영명 직역 표기를 모두 오역으로 단정하지는 않습니다.",
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 (2025년 말 기준)",
+          "https://www.kbr.go.kr/jfile/readDownloadFile.do?fileId=ARTICLE_2241&fileSeq=1"
+        ],
+        [
+          "국립생물자원관 종 상세",
+          "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000058022"
+        ]
+      ]
+    },
+    {
+      "id": "hydra-vulgaris",
+      "scientificName": "Hydra vulgaris",
+      "before": "히드라 불가리스",
+      "after": "유두히드라",
+      "reason": "확인된 국명 반영",
+      "note": "해당 학명과 정확히 일치하는 국가생물종목록의 국명을 채택했습니다. 기존 음역·영명 직역 표기를 모두 오역으로 단정하지는 않습니다.",
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 (2025년 말 기준)",
+          "https://www.kbr.go.kr/jfile/readDownloadFile.do?fileId=ARTICLE_2241&fileSeq=1"
+        ],
+        [
+          "국립생물자원관 종 상세",
+          "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000227019"
+        ]
+      ]
+    },
+    {
+      "id": "metridium-senile",
+      "scientificName": "Metridium senile",
+      "before": "메트리디움 세닐레",
+      "after": "섬유세닐말미잘",
+      "reason": "확인된 국명 반영",
+      "note": "해당 학명과 정확히 일치하는 국가생물종목록의 국명을 채택했습니다. 기존 음역·영명 직역 표기를 모두 오역으로 단정하지는 않습니다.",
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 (2025년 말 기준)",
+          "https://www.kbr.go.kr/jfile/readDownloadFile.do?fileId=ARTICLE_2241&fileSeq=1"
+        ],
+        [
+          "국립생물자원관 종 상세",
+          "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000039828"
+        ]
+      ]
+    },
+    {
+      "id": "parasteatoda-tepidariorum",
+      "scientificName": "Parasteatoda tepidariorum",
+      "before": "집꼬마거미",
+      "after": "말꼬마거미",
+      "reason": "확인된 국명 반영",
+      "note": "해당 학명과 정확히 일치하는 국가생물종목록의 국명을 채택했습니다. 기존 음역·영명 직역 표기를 모두 오역으로 단정하지는 않습니다.",
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 (2025년 말 기준)",
+          "https://www.kbr.go.kr/jfile/readDownloadFile.do?fileId=ARTICLE_2241&fileSeq=1"
+        ],
+        [
+          "국립생물자원관 종 상세",
+          "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000044536"
+        ]
+      ]
+    },
+    {
+      "id": "platynereis-dumerilii",
+      "scientificName": "Platynereis dumerilii",
+      "before": "플라티네레이스 뒤메릴리",
+      "after": "곱사참갯지렁이",
+      "reason": "확인된 국명 반영",
+      "note": "해당 학명과 정확히 일치하는 국가생물종목록의 국명을 채택했습니다. 기존 음역·영명 직역 표기를 모두 오역으로 단정하지는 않습니다.",
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 (2025년 말 기준)",
+          "https://www.kbr.go.kr/jfile/readDownloadFile.do?fileId=ARTICLE_2241&fileSeq=1"
+        ],
+        [
+          "국립생물자원관 종 상세",
+          "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000049964"
+        ]
+      ]
+    },
+    {
+      "id": "pterois-volitans",
+      "scientificName": "Pterois volitans",
+      "before": "붉은쏠배감펭",
+      "after": "점쏠배감펭",
+      "reason": "확인된 국명 반영",
+      "note": "해당 학명과 정확히 일치하는 국가생물종목록의 국명을 채택했습니다. 기존 음역·영명 직역 표기를 모두 오역으로 단정하지는 않습니다.",
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 (2025년 말 기준)",
+          "https://www.kbr.go.kr/jfile/readDownloadFile.do?fileId=ARTICLE_2241&fileSeq=1"
+        ],
+        [
+          "국립생물자원관 종 상세",
+          "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000058078"
+        ]
+      ]
+    },
+    {
+      "id": "tachypleus-tridentatus",
+      "scientificName": "Tachypleus tridentatus",
+      "before": "투구게",
+      "after": "세가시투구게",
+      "reason": "확인된 국명 반영",
+      "note": "해당 학명과 정확히 일치하는 국가생물종목록의 국명을 채택했습니다. 기존 음역·영명 직역 표기를 모두 오역으로 단정하지는 않습니다.",
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 (2025년 말 기준)",
+          "https://www.kbr.go.kr/jfile/readDownloadFile.do?fileId=ARTICLE_2241&fileSeq=1"
+        ],
+        [
+          "국립생물자원관 종 상세",
+          "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000201179"
+        ]
+      ]
+    },
+    {
+      "id": "tethya-aurantium",
+      "scientificName": "Tethya aurantium",
+      "before": "테티아 아우란티움",
+      "after": "오렌지둥글해면",
+      "reason": "확인된 국명 반영",
+      "note": "해당 학명과 정확히 일치하는 국가생물종목록의 국명을 채택했습니다. 기존 음역·영명 직역 표기를 모두 오역으로 단정하지는 않습니다.",
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 (2025년 말 기준)",
+          "https://www.kbr.go.kr/jfile/readDownloadFile.do?fileId=ARTICLE_2241&fileSeq=1"
+        ],
+        [
+          "국립생물자원관 종 상세",
+          "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000038949"
+        ]
+      ]
+    },
+    {
+      "id": "ischnura-elegans",
+      "scientificName": "Ischnura elegans",
+      "before": "푸른꼬리실잠자리",
+      "after": "북방아시아실잠자리",
+      "reason": "확인된 국명 반영",
+      "note": "해당 학명과 정확히 일치하는 국가생물종목록의 국명을 채택했습니다. 기존 음역·영명 직역 표기를 모두 오역으로 단정하지는 않습니다.",
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 (2025년 말 기준)",
+          "https://www.kbr.go.kr/jfile/readDownloadFile.do?fileId=ARTICLE_2241&fileSeq=1"
+        ],
+        [
+          "국립생물자원관 종 상세",
+          "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000037306"
+        ]
+      ]
+    },
+    {
+      "id": "botrylloides-violaceus",
+      "scientificName": "Botrylloides violaceus",
+      "before": "보트릴로이데스 비올라케우스",
+      "after": "보라판멍게",
+      "reason": "확인된 국명 반영",
+      "note": "해당 학명과 정확히 일치하는 국가생물종목록의 국명을 채택했습니다. 기존 음역·영명 직역 표기를 모두 오역으로 단정하지는 않습니다.",
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 (2025년 말 기준)",
+          "https://www.kbr.go.kr/jfile/readDownloadFile.do?fileId=ARTICLE_2241&fileSeq=1"
+        ],
+        [
+          "국립생물자원관 종 상세",
+          "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000089429"
+        ]
+      ]
+    },
+    {
+      "id": "brachionus-calyciflorus",
+      "scientificName": "Brachionus calyciflorus",
+      "before": "브라키오누스 칼리키플로루스",
+      "after": "꽃받침완미윤충",
+      "reason": "확인된 국명 반영",
+      "note": "해당 학명과 정확히 일치하는 국가생물종목록의 국명을 채택했습니다. 기존 음역·영명 직역 표기를 모두 오역으로 단정하지는 않습니다.",
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 (2025년 말 기준)",
+          "https://www.kbr.go.kr/jfile/readDownloadFile.do?fileId=ARTICLE_2241&fileSeq=1"
+        ],
+        [
+          "국립생물자원관 종 상세",
+          "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000040168"
+        ]
+      ]
+    },
+    {
+      "id": "ciona-savignyi",
+      "scientificName": "Ciona savignyi",
+      "before": "키오나 사비니이",
+      "after": "노랑꼭지유령멍게",
+      "reason": "확인된 국명 반영",
+      "note": "해당 학명과 정확히 일치하는 국가생물종목록의 국명을 채택했습니다. 기존 음역·영명 직역 표기를 모두 오역으로 단정하지는 않습니다.",
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 (2025년 말 기준)",
+          "https://www.kbr.go.kr/jfile/readDownloadFile.do?fileId=ARTICLE_2241&fileSeq=1"
+        ],
+        [
+          "국립생물자원관 종 상세",
+          "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000087083"
+        ]
+      ]
+    },
+    {
+      "id": "forficula-auricularia",
+      "scientificName": "Forficula auricularia",
+      "before": "집게벌레",
+      "after": "양집게벌레",
+      "reason": "확인된 국명 반영",
+      "note": "해당 학명과 정확히 일치하는 국가생물종목록의 국명을 채택했습니다. 기존 음역·영명 직역 표기를 모두 오역으로 단정하지는 않습니다.",
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 (2025년 말 기준)",
+          "https://www.kbr.go.kr/jfile/readDownloadFile.do?fileId=ARTICLE_2241&fileSeq=1"
+        ],
+        [
+          "국립생물자원관 종 상세",
+          "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000020860"
+        ]
+      ]
+    },
+    {
+      "id": "pelecanus-onocrotalus",
+      "scientificName": "Pelecanus onocrotalus",
+      "before": "사다새",
+      "after": "큰사다새",
+      "reason": "확인된 국명 반영",
+      "note": "해당 학명과 정확히 일치하는 국가생물종목록의 국명을 채택했습니다. 기존 음역·영명 직역 표기를 모두 오역으로 단정하지는 않습니다.",
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 (2025년 말 기준)",
+          "https://www.kbr.go.kr/jfile/readDownloadFile.do?fileId=ARTICLE_2241&fileSeq=1"
+        ],
+        [
+          "국립생물자원관 종 상세",
+          "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000001556"
+        ]
+      ]
+    },
+    {
+      "id": "haliclona-oculata",
+      "scientificName": "Haliclona oculata",
+      "before": "할리클로나 오쿨라타",
+      "after": "눈보라해면",
+      "reason": "확인된 국명 반영",
+      "note": "해당 학명과 정확히 일치하는 국가생물종목록의 국명을 채택했습니다. 기존 음역·영명 직역 표기를 모두 오역으로 단정하지는 않습니다.",
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 (2025년 말 기준)",
+          "https://www.kbr.go.kr/jfile/readDownloadFile.do?fileId=ARTICLE_2241&fileSeq=1"
+        ],
+        [
+          "국립생물자원관 종 상세",
+          "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000150544"
+        ]
+      ]
+    },
+    {
+      "id": "linckia-laevigata",
+      "scientificName": "Linckia laevigata",
+      "before": "파란불가사리",
+      "after": "푸른불가사리",
+      "reason": "확인된 국명 반영",
+      "note": "해당 학명과 정확히 일치하는 국가생물종목록의 국명을 채택했습니다. 기존 음역·영명 직역 표기를 모두 오역으로 단정하지는 않습니다.",
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 (2025년 말 기준)",
+          "https://www.kbr.go.kr/jfile/readDownloadFile.do?fileId=ARTICLE_2241&fileSeq=1"
+        ],
+        [
+          "국립생물자원관 종 상세",
+          "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000050560"
+        ]
+      ]
+    },
+    {
+      "id": "hypsibius-dujardini",
+      "scientificName": "Hypsibius dujardini",
+      "before": "힙시비우스 뒤자르디니",
+      "after": "물곰벌레",
+      "reason": "확인된 국명 반영",
+      "note": "해당 학명과 정확히 일치하는 국가생물종목록의 국명을 채택했습니다. 기존 음역·영명 직역 표기를 모두 오역으로 단정하지는 않습니다.",
+      "sources": [
+        [
+          "국립생물자원관 국가생물종목록 (2025년 말 기준)",
+          "https://www.kbr.go.kr/jfile/readDownloadFile.do?fileId=ARTICLE_2241&fileSeq=1"
+        ],
+        [
+          "국립생물자원관 종 상세",
+          "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000040064"
+        ]
+      ]
+    },
+    {
+      "id": "lepisosteus-oculatus",
+      "scientificName": "Lepisosteus oculatus",
+      "before": "점박이동갈치",
+      "after": "점박이가아",
+      "reason": "오역 수정",
+      "note": "사용자께서 지적한 표기를 채택합니다. Lepisosteidae의 gar이며 Belonidae 동갈치류와 구별합니다.",
+      "sources": [
+        [
+          "사용자 교정",
+          "user-request"
+        ],
+        [
+          "University of Michigan · Spotted gar",
+          "https://www.animaldiversity.org/accounts/Lepisosteus_oculatus/"
+        ]
+      ]
+    },
+    {
+      "id": "scomber-scombrus",
+      "scientificName": "Scomber scombrus",
+      "before": "고등어",
+      "after": "대서양고등어",
+      "reason": "종 구분",
+      "note": "북대서양의 Scomber scombrus를 국내 고등어 Scomber japonicus와 구별합니다.",
+      "sources": [
+        [
+          "New Jersey Department of Agriculture · Korean seafood names",
+          "https://nj.gov/agriculture/seafood/NJ_Fish%26Seafood_Asian.pdf"
+        ]
+      ]
+    },
+    {
+      "id": "lagocephalus-lagocephalus",
+      "scientificName": "Lagocephalus lagocephalus",
+      "before": "바다복",
+      "after": "청밀복",
+      "reason": "오역 수정",
+      "note": "Oceanic puffer를 바다복으로 직역한 표기를 국립수산과학원에서 쓰는 청밀복으로 교체합니다.",
+      "sources": [
+        [
+          "국립수산과학원 · 부수어획 생물 식별 가이드, 117쪽",
+          "https://download.nifs.go.kr/ofiris/upload_file/ofiris/FR/osf/oceanic/list_01_33_13.pdf"
+        ],
+        [
+          "국립해양생물자원관 · 국가해양수산생물종목록",
+          "https://www.mbris.kr/pub/marine/natilist/nationalist.do?pageIndex=755"
+        ]
+      ]
+    },
+    {
+      "id": "antedon-mediterranea",
+      "scientificName": "Antedon mediterranea",
+      "before": "지중해깃털불가사리",
+      "after": "안테돈 메디테라네아",
+      "reason": "분류 혼동 수정",
+      "note": "Feather star는 이 종에서 바다나리강의 줄기 없는 바다나리입니다. 불가사리강으로 오해시키는 직역을 제거하고 국명이 확인되지 않아 학명을 음역했습니다.",
+      "sources": [
+        [
+          "WoRMS · Antedon mediterranea",
+          "https://www.marinespecies.org/aphia.php?id=124208&p=taxdetails"
+        ]
+      ]
+    },
+    {
+      "id": "tridacna-maxima",
+      "scientificName": "Tridacna maxima",
+      "before": "큰보석조개",
+      "after": "트리다크나 막시마",
+      "reason": "근거 미확인 표기 정리",
+      "note": "큰보석조개라는 한국어 종명의 신뢰할 만한 출처를 확인하지 못했습니다. 공식 국명이 있다는 뜻을 덧붙이지 않고 학명을 음역합니다.",
+      "sources": [
+        [
+          "JAMSTEC · Tridacna maxima",
+          "https://www.godac.jamstec.go.jp/bismal/j/view/9022274"
+        ],
+        [
+          "한국지질자원연구원 수록 논문 · Tridacna maxima",
+          "https://data.kigam.re.kr/ieg/cmmn/downloadFile.do?fileName=A470510.PDF"
+        ]
+      ]
+    },
+    {
+      "id": "labidura-riparia",
+      "scientificName": "Labidura riparia",
+      "before": "큰집게벌레",
+      "after": "라비두라 리파리아",
+      "reason": "아종명 일반화 방지",
+      "note": "국가생물종목록의 큰집게벌레는 L. riparia japonica, 리파라집게벌레는 L. riparia riparia에 붙은 아종명입니다. 카드의 전체 종을 특정 아종명으로 표시하지 않습니다.",
+      "sources": [
+        [
+          "국립생물자원관 · 국가생물종목록 III 곤충, 59쪽",
+          "https://www.nibr.go.kr/aiibook/catImage/22/National%20Species%203.pdf"
+        ]
+      ]
+    },
+    {
+      "id": "octopus-vulgaris",
+      "scientificName": "Octopus vulgaris",
+      "before": "참문어",
+      "after": "옥토푸스 불가리스",
+      "reason": "분리된 종 혼동 방지",
+      "note": "현재 카드의 동대서양·지중해 종을 동아시아의 Octopus sinensis와 구분합니다. 국내 문헌에 남은 참문어의 구학명 용례는 오역으로 단정하지 않습니다.",
+      "sources": [
+        [
+          "Gleadall (2016) · Octopus sinensis 종 구분",
+          "https://www.jstage.jst.go.jp/article/specdiv/21/1/21_31/_article"
+        ],
+        [
+          "NCBI · Octopus의 종 구분",
+          "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=6643"
+        ]
+      ]
+    },
+    {
+      "id": "dendrobates-tinctorius",
+      "scientificName": "Dendrobates tinctorius",
+      "before": "코발트독화살개구리",
+      "after": "덴드로바테스 틴크토리우스",
+      "reason": "종과 색채형 구분",
+      "note": "카드는 다양한 색채형을 포함한 종 전체입니다. 코발트색 개체에 한정되는 인상을 피하고 학명을 음역합니다. 코발트독화살개구리를 다른 종이라고 단정하지 않습니다.",
+      "sources": [
+        [
+          "Smithsonian · Guianas amphibian checklist",
+          "https://naturalhistory.si.edu/sites/default/files/media/file/herps-guianas-text.pdf"
+        ]
+      ]
+    }
+  ],
+  "species": [
+    {
+      "id": "acropora-millepora",
+      "scientificName": "Acropora millepora",
+      "commonName": "아크로포라 밀레포라",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "aedes-aegypti",
+      "scientificName": "Aedes aegypti",
+      "commonName": "이집트숲모기",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "loxodonta-africana",
+      "scientificName": "Loxodonta africana",
+      "commonName": "아프리카사바나코끼리",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "xenopus-laevis",
+      "scientificName": "Xenopus laevis",
+      "commonName": "아프리카발톱개구리",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "spheniscus-demersus",
+      "scientificName": "Spheniscus demersus",
+      "commonName": "아프리카펭귄",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "alligator-mississippiensis",
+      "scientificName": "Alligator mississippiensis",
+      "commonName": "미시시피악어",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "periplaneta-americana",
+      "scientificName": "Periplaneta americana",
+      "commonName": "이질바퀴",
+      "status": "national-name-match",
+      "nationalMatches": [
+        {
+          "label": "이질바퀴",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000020881",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "homarus-americanus",
+      "scientificName": "Homarus americanus",
+      "commonName": "아메리카바닷가재",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "amphimedon-queenslandica",
+      "scientificName": "Amphimedon queenslandica",
+      "commonName": "암피메돈 퀸즐랜디카",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "euphausia-superba",
+      "scientificName": "Euphausia superba",
+      "commonName": "남극크릴",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "antedon-mediterranea",
+      "scientificName": "Antedon mediterranea",
+      "commonName": "안테돈 메디테라네아",
+      "status": "corrected",
+      "nationalMatches": [],
+      "note": "Feather star는 이 종에서 바다나리강의 줄기 없는 바다나리입니다. 불가사리강으로 오해시키는 직역을 제거하고 국명이 확인되지 않아 학명을 음역했습니다."
+    },
+    {
+      "id": "apis-cerana",
+      "scientificName": "Apis cerana",
+      "commonName": "재래꿀벌",
+      "status": "national-name-match",
+      "nationalMatches": [
+        {
+          "label": "재래꿀벌",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000027385",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "argiope-bruennichi",
+      "scientificName": "Argiope bruennichi",
+      "commonName": "긴호랑거미",
+      "status": "corrected",
+      "nationalMatches": [
+        {
+          "label": "긴호랑거미",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000044865",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "해당 학명과 정확히 일치하는 국가생물종목록의 국명을 채택했습니다. 기존 음역·영명 직역 표기를 모두 오역으로 단정하지는 않습니다."
+    },
+    {
+      "id": "centruroides-sculpturatus",
+      "scientificName": "Centruroides sculpturatus",
+      "commonName": "애리조나나무껍질전갈",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "ascaris-lumbricoides",
+      "scientificName": "Ascaris lumbricoides",
+      "commonName": "회충",
+      "status": "national-name-match",
+      "nationalMatches": [
+        {
+          "label": "회충",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000040709",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "varanus-salvator",
+      "scientificName": "Varanus salvator",
+      "commonName": "물왕도마뱀",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "thunnus-thynnus",
+      "scientificName": "Thunnus thynnus",
+      "commonName": "대서양참다랑어",
+      "status": "retained-with-note",
+      "nationalMatches": [
+        {
+          "label": "대서양다랑어",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000059177",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "대서양참다랑어와 대서양다랑어의 용례 차이는 종 혼동을 일으키지 않아 유지합니다."
+    },
+    {
+      "id": "gadus-morhua",
+      "scientificName": "Gadus morhua",
+      "commonName": "대서양대구",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "limulus-polyphemus",
+      "scientificName": "Limulus polyphemus",
+      "commonName": "미국투구게",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [
+        {
+          "label": "",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000236834",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "periophthalmus-barbarus",
+      "scientificName": "Periophthalmus barbarus",
+      "commonName": "대서양말뚝망둥어",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "salmo-salar",
+      "scientificName": "Salmo salar",
+      "commonName": "대서양연어",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "aurelia-aurita",
+      "scientificName": "Aurelia aurita",
+      "commonName": "아우렐리아 아우리타",
+      "status": "retained-with-note",
+      "nationalMatches": [
+        {
+          "label": "보름달물해파리",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000039680",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "국내 보름달물해파리 용례에는 Aurelia 종 복합체의 분류 이력이 있어 이번에는 학명 음역을 유지합니다."
+    },
+    {
+      "id": "callorhinchus-milii",
+      "scientificName": "Callorhinchus milii",
+      "commonName": "오스트레일리아코끼리은상어",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "neoceratodus-forsteri",
+      "scientificName": "Neoceratodus forsteri",
+      "commonName": "오스트레일리아폐어",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "ambystoma-mexicanum",
+      "scientificName": "Ambystoma mexicanum",
+      "commonName": "아홀로틀",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "balanoglossus-gigas",
+      "scientificName": "Balanoglossus gigas",
+      "commonName": "발라노글로수스 기가스",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "python-regius",
+      "scientificName": "Python regius",
+      "commonName": "볼파이톤",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "beroe-ovata",
+      "scientificName": "Beroe ovata",
+      "commonName": "베로에 오바타",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "sepioteuthis-lessoniana",
+      "scientificName": "Sepioteuthis lessoniana",
+      "commonName": "흰꼴뚜기",
+      "status": "national-name-match",
+      "nationalMatches": [
+        {
+          "label": "흰꼴뚜기",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000044166",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "mytilus-edulis",
+      "scientificName": "Mytilus edulis",
+      "commonName": "진주담치",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "balaenoptera-musculus",
+      "scientificName": "Balaenoptera musculus",
+      "commonName": "대왕고래",
+      "status": "retained-with-note",
+      "nationalMatches": [
+        {
+          "label": "흰긴수염고래",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000053366",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "대왕고래와 흰긴수염고래는 통용 이명입니다. 명백한 오역으로 분류하지 않습니다."
+    },
+    {
+      "id": "bolinopsis-infundibulum",
+      "scientificName": "Bolinopsis infundibulum",
+      "commonName": "볼리놉시스 인푼디불룸",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [
+        {
+          "label": "",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000235075",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "bombus-terrestris",
+      "scientificName": "Bombus terrestris",
+      "commonName": "서양뒤영벌",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "bombyx-mori",
+      "scientificName": "Bombyx mori",
+      "commonName": "누에나방",
+      "status": "national-name-match",
+      "nationalMatches": [
+        {
+          "label": "누에나방",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000031704",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "pan-paniscus",
+      "scientificName": "Pan paniscus",
+      "commonName": "보노보",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "pongo-pygmaeus",
+      "scientificName": "Pongo pygmaeus",
+      "commonName": "보르네오오랑우탄",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "botryllus-schlosseri",
+      "scientificName": "Botryllus schlosseri",
+      "commonName": "스크로세르판멍게",
+      "status": "corrected",
+      "nationalMatches": [
+        {
+          "label": "스크로세르판멍게",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000051001",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "해당 학명과 정확히 일치하는 국가생물종목록의 국명을 채택했습니다. 기존 음역·영명 직역 표기를 모두 오역으로 단정하지는 않습니다."
+    },
+    {
+      "id": "brachionus-plicatilis",
+      "scientificName": "Brachionus plicatilis",
+      "commonName": "주름깃완미윤충",
+      "status": "corrected",
+      "nationalMatches": [
+        {
+          "label": "주름깃완미윤충",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000040176",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "해당 학명과 정확히 일치하는 국가생물종목록의 국명을 채택했습니다. 기존 음역·영명 직역 표기를 모두 오역으로 단정하지는 않습니다."
+    },
+    {
+      "id": "branchiostoma-floridae",
+      "scientificName": "Branchiostoma floridae",
+      "commonName": "플로리다창고기",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "branchiostoma-lanceolatum",
+      "scientificName": "Branchiostoma lanceolatum",
+      "commonName": "유럽창고기",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "rattus-norvegicus",
+      "scientificName": "Rattus norvegicus",
+      "commonName": "시궁쥐",
+      "status": "retained-with-note",
+      "nationalMatches": [
+        {
+          "label": "집쥐",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000053470",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "시궁쥐와 집쥐의 통용 명칭 차이로 처리하고 유지합니다."
+    },
+    {
+      "id": "caenorhabditis-elegans",
+      "scientificName": "Caenorhabditis elegans",
+      "commonName": "예쁜꼬마선충",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "aplysia-californica",
+      "scientificName": "Aplysia californica",
+      "commonName": "캘리포니아군소",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "rhinella-marina",
+      "scientificName": "Rhinella marina",
+      "commonName": "사탕수수두꺼비",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "carcinus-maenas",
+      "scientificName": "Carcinus maenas",
+      "commonName": "유럽녹색게",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "cassiopea-xamachana",
+      "scientificName": "Cassiopea xamachana",
+      "commonName": "카시오페아 자마카나",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "felis-catus",
+      "scientificName": "Felis catus",
+      "commonName": "고양이",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "nautilus-pompilius",
+      "scientificName": "Nautilus pompilius",
+      "commonName": "앵무조개",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "acinonyx-jubatus",
+      "scientificName": "Acinonyx jubatus",
+      "commonName": "치타",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "pan-troglodytes",
+      "scientificName": "Pan troglodytes",
+      "commonName": "침팬지",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "chironex-fleckeri",
+      "scientificName": "Chironex fleckeri",
+      "commonName": "키로넥스 플레케리",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "ciona-intestinalis",
+      "scientificName": "Ciona intestinalis",
+      "commonName": "키오나 인테스티날리스",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "cliona-celata",
+      "scientificName": "Cliona celata",
+      "commonName": "호박해면",
+      "status": "corrected",
+      "nationalMatches": [
+        {
+          "label": "호박해면",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000038901",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "해당 학명과 정확히 일치하는 국가생물종목록의 국명을 채택했습니다. 기존 음역·영명 직역 표기를 모두 오역으로 단정하지는 않습니다."
+    },
+    {
+      "id": "tursiops-truncatus",
+      "scientificName": "Tursiops truncatus",
+      "commonName": "큰돌고래",
+      "status": "national-name-match",
+      "nationalMatches": [
+        {
+          "label": "큰돌고래",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000053400",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "sepia-officinalis",
+      "scientificName": "Sepia officinalis",
+      "commonName": "유럽갑오징어",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "rana-temporaria",
+      "scientificName": "Rana temporaria",
+      "commonName": "유럽산개구리",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "octopus-vulgaris",
+      "scientificName": "Octopus vulgaris",
+      "commonName": "옥토푸스 불가리스",
+      "status": "corrected",
+      "nationalMatches": [
+        {
+          "label": "참문어",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000204500",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "현재 카드의 동대서양·지중해 종을 동아시아의 Octopus sinensis와 구분합니다. 국내 문헌에 남은 참문어의 구학명 용례는 오역으로 단정하지 않습니다."
+    },
+    {
+      "id": "struthio-camelus",
+      "scientificName": "Struthio camelus",
+      "commonName": "타조",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "corvus-corax",
+      "scientificName": "Corvus corax",
+      "commonName": "큰까마귀",
+      "status": "national-name-match",
+      "nationalMatches": [
+        {
+          "label": "큰까마귀",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000001968",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "asterias-rubens",
+      "scientificName": "Asterias rubens",
+      "commonName": "유럽불가사리",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "bufo-bufo",
+      "scientificName": "Bufo bufo",
+      "commonName": "유럽두꺼비",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "desmodus-rotundus",
+      "scientificName": "Desmodus rotundus",
+      "commonName": "흡혈박쥐",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "cornu-aspersum",
+      "scientificName": "Cornu aspersum",
+      "commonName": "정원달팽이",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "acanthaster-planci",
+      "scientificName": "Acanthaster planci",
+      "commonName": "가시관불가사리",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "daphnia-pulex",
+      "scientificName": "Daphnia pulex",
+      "commonName": "참물벼룩",
+      "status": "corrected",
+      "nationalMatches": [
+        {
+          "label": "참물벼룩",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000049825",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "해당 학명과 정확히 일치하는 국가생물종목록의 국명을 채택했습니다. 기존 음역·영명 직역 표기를 모두 오역으로 단정하지는 않습니다."
+    },
+    {
+      "id": "drosophila-melanogaster",
+      "scientificName": "Drosophila melanogaster",
+      "commonName": "노랑초파리",
+      "status": "national-name-match",
+      "nationalMatches": [
+        {
+          "label": "노랑초파리",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000021974",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "drosophila-simulans",
+      "scientificName": "Drosophila simulans",
+      "commonName": "어리노랑초파리",
+      "status": "corrected",
+      "nationalMatches": [
+        {
+          "label": "어리노랑초파리",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000021979",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "해당 학명과 정확히 일치하는 국가생물종목록의 국명을 채택했습니다. 기존 음역·영명 직역 표기를 모두 오역으로 단정하지는 않습니다."
+    },
+    {
+      "id": "dugesia-japonica",
+      "scientificName": "Dugesia japonica",
+      "commonName": "플라나리아",
+      "status": "national-name-match",
+      "nationalMatches": [
+        {
+          "label": "플라나리아",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000041351",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "dendrobates-tinctorius",
+      "scientificName": "Dendrobates tinctorius",
+      "commonName": "덴드로바테스 틴크토리우스",
+      "status": "corrected",
+      "nationalMatches": [],
+      "note": "카드는 다양한 색채형을 포함한 종 전체입니다. 코발트색 개체에 한정되는 인상을 피하고 학명을 음역합니다. 코발트독화살개구리를 다른 종이라고 단정하지 않습니다."
+    },
+    {
+      "id": "macropus-giganteus",
+      "scientificName": "Macropus giganteus",
+      "commonName": "동부회색캥거루",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "echinococcus-granulosus",
+      "scientificName": "Echinococcus granulosus",
+      "commonName": "단방조충",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "eisenia-fetida",
+      "scientificName": "Eisenia fetida",
+      "commonName": "줄지렁이",
+      "status": "national-name-match",
+      "nationalMatches": [
+        {
+          "label": "줄지렁이",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000050394",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "electrophorus-electricus",
+      "scientificName": "Electrophorus electricus",
+      "commonName": "전기뱀장어",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "aptenodytes-forsteri",
+      "scientificName": "Aptenodytes forsteri",
+      "commonName": "황제펭귄",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "dromaius-novaehollandiae",
+      "scientificName": "Dromaius novaehollandiae",
+      "commonName": "에뮤",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "euperipatoides-kanangrensis",
+      "scientificName": "Euperipatoides kanangrensis",
+      "commonName": "유페리파토이데스 카낭그렌시스",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "anguilla-anguilla",
+      "scientificName": "Anguilla anguilla",
+      "commonName": "유럽뱀장어",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "mantis-religiosa",
+      "scientificName": "Mantis religiosa",
+      "commonName": "유럽사마귀",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "salamandra-salamandra",
+      "scientificName": "Salamandra salamandra",
+      "commonName": "불도롱뇽",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "formica-rufa",
+      "scientificName": "Formica rufa",
+      "commonName": "붉은숲개미",
+      "status": "retained-with-note",
+      "nationalMatches": [
+        {
+          "label": "홍개미",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000029516",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "붉은숲개미와 홍개미의 용례 차이로 처리하고 유지합니다."
+    },
+    {
+      "id": "myrmecophaga-tridactyla",
+      "scientificName": "Myrmecophaga tridactyla",
+      "commonName": "큰개미핥기",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "tridacna-gigas",
+      "scientificName": "Tridacna gigas",
+      "commonName": "대왕조개",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "mobula-birostris",
+      "scientificName": "Mobula birostris",
+      "commonName": "대왕쥐가오리",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "enteroctopus-dofleini",
+      "scientificName": "Enteroctopus dofleini",
+      "commonName": "대문어",
+      "status": "retained-with-note",
+      "nationalMatches": [
+        {
+          "label": "문어",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000044102",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "대문어와 문어의 통용 용례 차이로 처리하고 유지합니다."
+    },
+    {
+      "id": "architeuthis-dux",
+      "scientificName": "Architeuthis dux",
+      "commonName": "대왕오징어",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "phyllobates-terribilis",
+      "scientificName": "Phyllobates terribilis",
+      "commonName": "황금독화살개구리",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "carassius-auratus",
+      "scientificName": "Carassius auratus",
+      "commonName": "금붕어",
+      "status": "retained-with-note",
+      "nationalMatches": [
+        {
+          "label": "붕어",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000057547",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "국가목록의 붕어와 관상용 금붕어가 같은 학명에 연결됩니다. 카드가 명시적으로 사육형 금붕어를 설명하므로 유지합니다."
+    },
+    {
+      "id": "sphyrna-mokarran",
+      "scientificName": "Sphyrna mokarran",
+      "commonName": "큰귀상어",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "carcharodon-carcharias",
+      "scientificName": "Carcharodon carcharias",
+      "commonName": "백상아리",
+      "status": "national-name-match",
+      "nationalMatches": [
+        {
+          "label": "백상아리",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000057270",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "hapalochlaena-lunulata",
+      "scientificName": "Hapalochlaena lunulata",
+      "commonName": "큰파란고리문어",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "phoenicopterus-roseus",
+      "scientificName": "Phoenicopterus roseus",
+      "commonName": "큰홍학",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "iguana-iguana",
+      "scientificName": "Iguana iguana",
+      "commonName": "녹색이구아나",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "chelonia-mydas",
+      "scientificName": "Chelonia mydas",
+      "commonName": "푸른바다거북",
+      "status": "national-name-match",
+      "nationalMatches": [
+        {
+          "label": "푸른바다거북",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000059445",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "haliotis-rufescens",
+      "scientificName": "Haliotis rufescens",
+      "commonName": "붉은전복",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "harmonia-axyridis",
+      "scientificName": "Harmonia axyridis",
+      "commonName": "무당벌레",
+      "status": "national-name-match",
+      "nationalMatches": [
+        {
+          "label": "무당벌레",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000015942",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "eretmochelys-imbricata",
+      "scientificName": "Eretmochelys imbricata",
+      "commonName": "매부리바다거북",
+      "status": "national-name-match",
+      "nationalMatches": [
+        {
+          "label": "매부리바다거북",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000208258",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "cryptobranchus-alleganiensis",
+      "scientificName": "Cryptobranchus alleganiensis",
+      "commonName": "헬벤더",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "hippocampus-kuda",
+      "scientificName": "Hippocampus kuda",
+      "commonName": "복해마",
+      "status": "corrected",
+      "nationalMatches": [
+        {
+          "label": "복해마",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000058022",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "해당 학명과 정확히 일치하는 국가생물종목록의 국명을 채택했습니다. 기존 음역·영명 직역 표기를 모두 오역으로 단정하지는 않습니다."
+    },
+    {
+      "id": "hippopotamus-amphibius",
+      "scientificName": "Hippopotamus amphibius",
+      "commonName": "하마",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "hirudo-medicinalis",
+      "scientificName": "Hirudo medicinalis",
+      "commonName": "유럽의료용거머리",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "hoilungia-hongkongensis",
+      "scientificName": "Hoilungia hongkongensis",
+      "commonName": "호일룽기아 홍콩엔시스",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "holothuria-edulis",
+      "scientificName": "Holothuria edulis",
+      "commonName": "홀로투리아 에둘리스",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "mus-musculus",
+      "scientificName": "Mus musculus",
+      "commonName": "생쥐",
+      "status": "national-name-match",
+      "nationalMatches": [
+        {
+          "label": "생쥐",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000053468",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "passer-domesticus",
+      "scientificName": "Passer domesticus",
+      "commonName": "집참새",
+      "status": "national-name-match",
+      "nationalMatches": [
+        {
+          "label": "집참새",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000002155",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "homo-sapiens",
+      "scientificName": "Homo sapiens",
+      "commonName": "사람",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "hydra-vulgaris",
+      "scientificName": "Hydra vulgaris",
+      "commonName": "유두히드라",
+      "status": "corrected",
+      "nationalMatches": [
+        {
+          "label": "유두히드라",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000227019",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "해당 학명과 정확히 일치하는 국가생물종목록의 국명을 채택했습니다. 기존 음역·영명 직역 표기를 모두 오역으로 단정하지는 않습니다."
+    },
+    {
+      "id": "naja-naja",
+      "scientificName": "Naja naja",
+      "commonName": "인도코브라",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "rhinoceros-unicornis",
+      "scientificName": "Rhinoceros unicornis",
+      "commonName": "인도코뿔소",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "latimeria-menadoensis",
+      "scientificName": "Latimeria menadoensis",
+      "commonName": "인도네시아실러캔스",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "podarcis-siculus",
+      "scientificName": "Podarcis siculus",
+      "commonName": "이탈리아벽도마뱀",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "ixodes-scapularis",
+      "scientificName": "Ixodes scapularis",
+      "commonName": "검은다리진드기",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "panthera-onca",
+      "scientificName": "Panthera onca",
+      "commonName": "재규어",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "andrias-japonicus",
+      "scientificName": "Andrias japonicus",
+      "commonName": "일본장수도롱뇽",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "coturnix-japonica",
+      "scientificName": "Coturnix japonica",
+      "commonName": "메추라기",
+      "status": "national-name-match",
+      "nationalMatches": [
+        {
+          "label": "메추라기",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000001407",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "ophiophagus-hannah",
+      "scientificName": "Ophiophagus hannah",
+      "commonName": "킹코브라",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "phascolarctos-cinereus",
+      "scientificName": "Phascolarctos cinereus",
+      "commonName": "코알라",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "varanus-komodoensis",
+      "scientificName": "Varanus komodoensis",
+      "commonName": "코모도왕도마뱀",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "pristis-pristis",
+      "scientificName": "Pristis pristis",
+      "commonName": "큰이빨톱가오리",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "latrodectus-mactans",
+      "scientificName": "Latrodectus mactans",
+      "commonName": "남부검은과부거미",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "limax-maximus",
+      "scientificName": "Limax maximus",
+      "commonName": "표범민달팽이",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "hippocampus-erectus",
+      "scientificName": "Hippocampus erectus",
+      "commonName": "줄무늬해마",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "panthera-leo",
+      "scientificName": "Panthera leo",
+      "commonName": "사자",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "cyanea-capillata",
+      "scientificName": "Cyanea capillata",
+      "commonName": "사자갈기해파리",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [
+        {
+          "label": "",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000235048",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "leucoraja-erinacea",
+      "scientificName": "Leucoraja erinacea",
+      "commonName": "작은홍어",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "lepisosteus-osseus",
+      "scientificName": "Lepisosteus osseus",
+      "commonName": "긴코가아",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "lumbricus-terrestris",
+      "scientificName": "Lumbricus terrestris",
+      "commonName": "유럽큰지렁이",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "lymnaea-stagnalis",
+      "scientificName": "Lymnaea stagnalis",
+      "commonName": "큰물달팽이",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "macrobiotus-shonaicus",
+      "scientificName": "Macrobiotus shonaicus",
+      "commonName": "마크로비오투스 쇼나이쿠스",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "anas-platyrhynchos",
+      "scientificName": "Anas platyrhynchos",
+      "commonName": "청둥오리",
+      "status": "national-name-match",
+      "nationalMatches": [
+        {
+          "label": "청둥오리",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000001440",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "tenebrio-molitor",
+      "scientificName": "Tenebrio molitor",
+      "commonName": "갈색거저리",
+      "status": "national-name-match",
+      "nationalMatches": [
+        {
+          "label": "갈색거저리",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000020779",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "megachasma-pelagios",
+      "scientificName": "Megachasma pelagios",
+      "commonName": "넓은주둥이상어",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "metridium-senile",
+      "scientificName": "Metridium senile",
+      "commonName": "섬유세닐말미잘",
+      "status": "corrected",
+      "nationalMatches": [
+        {
+          "label": "섬유세닐말미잘",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000039828",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "해당 학명과 정확히 일치하는 국가생물종목록의 국명을 채택했습니다. 기존 음역·영명 직역 표기를 모두 오역으로 단정하지는 않습니다."
+    },
+    {
+      "id": "locusta-migratoria",
+      "scientificName": "Locusta migratoria",
+      "commonName": "풀무치",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "danaus-plexippus",
+      "scientificName": "Danaus plexippus",
+      "commonName": "왕나비",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "crocodylus-niloticus",
+      "scientificName": "Crocodylus niloticus",
+      "commonName": "나일악어",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "dasypus-novemcinctus",
+      "scientificName": "Dasypus novemcinctus",
+      "commonName": "아홉띠아르마딜로",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "apteryx-mantelli",
+      "scientificName": "Apteryx mantelli",
+      "commonName": "북섬갈색키위",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "giraffa-camelopardalis",
+      "scientificName": "Giraffa camelopardalis",
+      "commonName": "북부기린",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "mola-mola",
+      "scientificName": "Mola mola",
+      "commonName": "개복치",
+      "status": "national-name-match",
+      "nationalMatches": [
+        {
+          "label": "개복치",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000059436",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "amphiprion-ocellaris",
+      "scientificName": "Amphiprion ocellaris",
+      "commonName": "오셀라리스흰동가리",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "oikopleura-dioica",
+      "scientificName": "Oikopleura dioica",
+      "commonName": "오이코플레우라 디오이카",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [
+        {
+          "label": "",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000066979",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "okapia-johnstoni",
+      "scientificName": "Okapia johnstoni",
+      "commonName": "오카피",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "ophiothrix-fragilis",
+      "scientificName": "Ophiothrix fragilis",
+      "commonName": "오피오트릭스 프라길리스",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "orcinus-orca",
+      "scientificName": "Orcinus orca",
+      "commonName": "범고래",
+      "status": "national-name-match",
+      "nationalMatches": [
+        {
+          "label": "범고래",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000053388",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "eptatretus-stoutii",
+      "scientificName": "Eptatretus stoutii",
+      "commonName": "태평양먹장어",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "crassostrea-gigas",
+      "scientificName": "Crassostrea gigas",
+      "commonName": "참굴",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "papilio-machaon",
+      "scientificName": "Papilio machaon",
+      "commonName": "산호랑나비",
+      "status": "national-name-match",
+      "nationalMatches": [
+        {
+          "label": "산호랑나비",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000035916",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "paracentrotus-lividus",
+      "scientificName": "Paracentrotus lividus",
+      "commonName": "지중해보라성게",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "parasteatoda-tepidariorum",
+      "scientificName": "Parasteatoda tepidariorum",
+      "commonName": "말꼬마거미",
+      "status": "corrected",
+      "nationalMatches": [
+        {
+          "label": "말꼬마거미",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000044536",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "해당 학명과 정확히 일치하는 국가생물종목록의 국명을 채택했습니다. 기존 음역·영명 직역 표기를 모두 오역으로 단정하지는 않습니다."
+    },
+    {
+      "id": "penaeus-monodon",
+      "scientificName": "Penaeus monodon",
+      "commonName": "홍다리얼룩새우",
+      "status": "retained-with-note",
+      "nationalMatches": [
+        {
+          "label": "얼룩새우",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000049219",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "홍다리얼룩새우와 얼룩새우의 기관별 용례 차이로 처리하고 유지합니다."
+    },
+    {
+      "id": "falco-peregrinus",
+      "scientificName": "Falco peregrinus",
+      "commonName": "매",
+      "status": "national-name-match",
+      "nationalMatches": [
+        {
+          "label": "매",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000001578",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "pisaster-ochraceus",
+      "scientificName": "Pisaster ochraceus",
+      "commonName": "피사스터 오크라케우스",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "equus-quagga",
+      "scientificName": "Equus quagga",
+      "commonName": "사바나얼룩말",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "platynereis-dumerilii",
+      "scientificName": "Platynereis dumerilii",
+      "commonName": "곱사참갯지렁이",
+      "status": "corrected",
+      "nationalMatches": [
+        {
+          "label": "곱사참갯지렁이",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000049964",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "해당 학명과 정확히 일치하는 국가생물종목록의 국명을 채택했습니다. 기존 음역·영명 직역 표기를 모두 오역으로 단정하지는 않습니다."
+    },
+    {
+      "id": "ornithorhynchus-anatinus",
+      "scientificName": "Ornithorhynchus anatinus",
+      "commonName": "오리너구리",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "pleurobrachia-pileus",
+      "scientificName": "Pleurobrachia pileus",
+      "commonName": "플레우로브라키아 필레우스",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [
+        {
+          "label": "",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000235072",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "ursus-maritimus",
+      "scientificName": "Ursus maritimus",
+      "commonName": "북극곰",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "physalia-physalis",
+      "scientificName": "Physalia physalis",
+      "commonName": "작은부레관해파리",
+      "status": "national-name-match",
+      "nationalMatches": [
+        {
+          "label": "작은부레관해파리",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000039609",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "priapulus-caudatus",
+      "scientificName": "Priapulus caudatus",
+      "commonName": "프리아풀루스 카우다투스",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "strongylocentrotus-purpuratus",
+      "scientificName": "Strongylocentrotus purpuratus",
+      "commonName": "태평양보라성게",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "oncorhynchus-mykiss",
+      "scientificName": "Oncorhynchus mykiss",
+      "commonName": "무지개송어",
+      "status": "national-name-match",
+      "nationalMatches": [
+        {
+          "label": "무지개송어",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000057748",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "vulpes-vulpes",
+      "scientificName": "Vulpes vulpes",
+      "commonName": "붉은여우",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "solenopsis-invicta",
+      "scientificName": "Solenopsis invicta",
+      "commonName": "붉은불개미",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "gallus-gallus",
+      "scientificName": "Gallus gallus",
+      "commonName": "적색야계",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "pterois-volitans",
+      "scientificName": "Pterois volitans",
+      "commonName": "점쏠배감펭",
+      "status": "corrected",
+      "nationalMatches": [
+        {
+          "label": "점쏠배감펭",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000058078",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "해당 학명과 정확히 일치하는 국가생물종목록의 국명을 채택했습니다. 기존 음역·영명 직역 표기를 모두 오역으로 단정하지는 않습니다."
+    },
+    {
+      "id": "ailurus-fulgens",
+      "scientificName": "Ailurus fulgens",
+      "commonName": "레서판다",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "riftia-pachyptila",
+      "scientificName": "Riftia pachyptila",
+      "commonName": "거대관벌레",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "lemur-catta",
+      "scientificName": "Lemur catta",
+      "commonName": "알락꼬리여우원숭이",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "columba-livia",
+      "scientificName": "Columba livia",
+      "commonName": "바위비둘기",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "crocodylus-porosus",
+      "scientificName": "Crocodylus porosus",
+      "commonName": "바다악어",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "ara-macao",
+      "scientificName": "Ara macao",
+      "commonName": "금강앵무",
+      "status": "retained-with-note",
+      "nationalMatches": [],
+      "note": "금강앵무와 홍금강앵무의 용례가 혼재합니다. 근거 없이 홍금강앵무로 교체하지 않았습니다."
+    },
+    {
+      "id": "schmidtea-mediterranea",
+      "scientificName": "Schmidtea mediterranea",
+      "commonName": "슈미테아 메디테라네아",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "scolopendra-gigantea",
+      "scientificName": "Scolopendra gigantea",
+      "commonName": "아마존왕지네",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "petromyzon-marinus",
+      "scientificName": "Petromyzon marinus",
+      "commonName": "바다칠성장어",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "balaeniceps-rex",
+      "scientificName": "Balaeniceps rex",
+      "commonName": "넓적부리황새",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "tachyglossus-aculeatus",
+      "scientificName": "Tachyglossus aculeatus",
+      "commonName": "짧은코가시두더지",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "isurus-oxyrinchus",
+      "scientificName": "Isurus oxyrinchus",
+      "commonName": "청상아리",
+      "status": "national-name-match",
+      "nationalMatches": [
+        {
+          "label": "청상아리",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000057272",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "betta-splendens",
+      "scientificName": "Betta splendens",
+      "commonName": "베타",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "panthera-uncia",
+      "scientificName": "Panthera uncia",
+      "commonName": "설표",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "casuarius-casuarius",
+      "scientificName": "Casuarius casuarius",
+      "commonName": "화식조",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "spongilla-lacustris",
+      "scientificName": "Spongilla lacustris",
+      "commonName": "스폰길라 라쿠스트리스",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "nematostella-vectensis",
+      "scientificName": "Nematostella vectensis",
+      "commonName": "네마토스텔라 벡텐시스",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "stichopus-chloronotus",
+      "scientificName": "Stichopus chloronotus",
+      "commonName": "스티코푸스 클로로노투스",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "sycon-ciliatum",
+      "scientificName": "Sycon ciliatum",
+      "commonName": "시콘 킬리아툼",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "symsagittifera-roscoffensis",
+      "scientificName": "Symsagittifera roscoffensis",
+      "commonName": "심사기티페라 로스코펜시스",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "tachypleus-tridentatus",
+      "scientificName": "Tachypleus tridentatus",
+      "commonName": "세가시투구게",
+      "status": "corrected",
+      "nationalMatches": [
+        {
+          "label": "세가시투구게",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000201179",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "해당 학명과 정확히 일치하는 국가생물종목록의 국명을 채택했습니다. 기존 음역·영명 직역 표기를 모두 오역으로 단정하지는 않습니다."
+    },
+    {
+      "id": "taenia-solium",
+      "scientificName": "Taenia solium",
+      "commonName": "유구조충",
+      "status": "national-name-match",
+      "nationalMatches": [
+        {
+          "label": "유구조충",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000041324",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "tethya-aurantium",
+      "scientificName": "Tethya aurantium",
+      "commonName": "오렌지둥글해면",
+      "status": "corrected",
+      "nationalMatches": [
+        {
+          "label": "오렌지둥글해면",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000038949",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "해당 학명과 정확히 일치하는 국가생물종목록의 국명을 채택했습니다. 기존 음역·영명 직역 표기를 모두 오역으로 단정하지는 않습니다."
+    },
+    {
+      "id": "raja-clavata",
+      "scientificName": "Raja clavata",
+      "commonName": "가시홍어",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "panthera-tigris",
+      "scientificName": "Panthera tigris",
+      "commonName": "호랑이",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "ambystoma-tigrinum",
+      "scientificName": "Ambystoma tigrinum",
+      "commonName": "호랑이도롱뇽",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "trichinella-spiralis",
+      "scientificName": "Trichinella spiralis",
+      "commonName": "선모충",
+      "status": "national-name-match",
+      "nationalMatches": [
+        {
+          "label": "선모충",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000151472",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "triops-cancriformis",
+      "scientificName": "Triops cancriformis",
+      "commonName": "유럽긴꼬리투구새우",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "chamaeleo-calyptratus",
+      "scientificName": "Chamaeleo calyptratus",
+      "commonName": "예멘카멜레온",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "cestum-veneris",
+      "scientificName": "Cestum veneris",
+      "commonName": "비너스의허리띠",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [
+        {
+          "label": "",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000235059",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "euplectella-aspergillum",
+      "scientificName": "Euplectella aspergillum",
+      "commonName": "해로동혈",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "protopterus-annectens",
+      "scientificName": "Protopterus annectens",
+      "commonName": "서아프리카폐어",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "trichechus-manatus",
+      "scientificName": "Trichechus manatus",
+      "commonName": "아메리카매너티",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "latimeria-chalumnae",
+      "scientificName": "Latimeria chalumnae",
+      "commonName": "서인도양실러캔스",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "tyto-alba",
+      "scientificName": "Tyto alba",
+      "commonName": "서부가면올빼미",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "crotalus-atrox",
+      "scientificName": "Crotalus atrox",
+      "commonName": "서부다이아몬드방울뱀",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "gorilla-gorilla",
+      "scientificName": "Gorilla gorilla",
+      "commonName": "서부고릴라",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "apis-mellifera",
+      "scientificName": "Apis mellifera",
+      "commonName": "서양꿀벌",
+      "status": "retained-with-note",
+      "nationalMatches": [
+        {
+          "label": "양봉꿀벌",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000027386",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "서양꿀벌과 양봉꿀벌의 통용 용례 차이로 처리하고 유지합니다."
+    },
+    {
+      "id": "rhincodon-typus",
+      "scientificName": "Rhincodon typus",
+      "commonName": "고래상어",
+      "status": "national-name-match",
+      "nationalMatches": [
+        {
+          "label": "고래상어",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000057256",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "canis-lupus",
+      "scientificName": "Canis lupus",
+      "commonName": "늑대",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "xenoturbella-bocki",
+      "scientificName": "Xenoturbella bocki",
+      "commonName": "제노투르벨라 보키",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "danio-rerio",
+      "scientificName": "Danio rerio",
+      "commonName": "제브라피시",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "acanthopleura-granulata",
+      "scientificName": "Acanthopleura granulata",
+      "commonName": "과립가시군부",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "loxodonta-cyclotis",
+      "scientificName": "Loxodonta cyclotis",
+      "commonName": "아프리카숲코끼리",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "anguilla-rostrata",
+      "scientificName": "Anguilla rostrata",
+      "commonName": "아메리카뱀장어",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "spirostreptus-servatius",
+      "scientificName": "Spirostreptus servatius",
+      "commonName": "스피로스트렙투스 세르바티우스",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "antedon-bifida",
+      "scientificName": "Antedon bifida",
+      "commonName": "안테돈 비피다",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "aplysia-depilans",
+      "scientificName": "Aplysia depilans",
+      "commonName": "아플리시아 데필란스",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "apostichopus-japonicus",
+      "scientificName": "Apostichopus japonicus",
+      "commonName": "돌기해삼",
+      "status": "national-name-match",
+      "nationalMatches": [
+        {
+          "label": "돌기해삼",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000050866",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "archispirostreptus-gigas",
+      "scientificName": "Archispirostreptus gigas",
+      "commonName": "아프리카왕노래기",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "ascaris-suum",
+      "scientificName": "Ascaris suum",
+      "commonName": "돼지회충",
+      "status": "national-name-match",
+      "nationalMatches": [
+        {
+          "label": "돼지회충",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000040710",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "scomber-scombrus",
+      "scientificName": "Scomber scombrus",
+      "commonName": "대서양고등어",
+      "status": "corrected",
+      "nationalMatches": [],
+      "note": "북대서양의 Scomber scombrus를 국내 고등어 Scomber japonicus와 구별합니다."
+    },
+    {
+      "id": "periophthalmus-argentilineatus",
+      "scientificName": "Periophthalmus argentilineatus",
+      "commonName": "줄말뚝망둑어",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "huso-huso",
+      "scientificName": "Huso huso",
+      "commonName": "벨루가철갑상어",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "beroe-cucumis",
+      "scientificName": "Beroe cucumis",
+      "commonName": "베로에 쿠쿠미스",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [
+        {
+          "label": "",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000235057",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "ischnura-elegans",
+      "scientificName": "Ischnura elegans",
+      "commonName": "북방아시아실잠자리",
+      "status": "corrected",
+      "nationalMatches": [
+        {
+          "label": "북방아시아실잠자리",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000037306",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "해당 학명과 정확히 일치하는 국가생물종목록의 국명을 채택했습니다. 기존 음역·영명 직역 표기를 모두 오역으로 단정하지는 않습니다."
+    },
+    {
+      "id": "botrylloides-violaceus",
+      "scientificName": "Botrylloides violaceus",
+      "commonName": "보라판멍게",
+      "status": "corrected",
+      "nationalMatches": [
+        {
+          "label": "보라판멍게",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000089429",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "해당 학명과 정확히 일치하는 국가생물종목록의 국명을 채택했습니다. 기존 음역·영명 직역 표기를 모두 오역으로 단정하지는 않습니다."
+    },
+    {
+      "id": "brachionus-calyciflorus",
+      "scientificName": "Brachionus calyciflorus",
+      "commonName": "꽃받침완미윤충",
+      "status": "corrected",
+      "nationalMatches": [
+        {
+          "label": "꽃받침완미윤충",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000040168",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "해당 학명과 정확히 일치하는 국가생물종목록의 국명을 채택했습니다. 기존 음역·영명 직역 표기를 모두 오역으로 단정하지는 않습니다."
+    },
+    {
+      "id": "bradypus-variegatus",
+      "scientificName": "Bradypus variegatus",
+      "commonName": "갈색목세발가락나무늘보",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "melopsittacus-undulatus",
+      "scientificName": "Melopsittacus undulatus",
+      "commonName": "사랑앵무",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "tenodera-sinensis",
+      "scientificName": "Tenodera sinensis",
+      "commonName": "왕사마귀",
+      "status": "national-name-match",
+      "nationalMatches": [
+        {
+          "label": "왕사마귀",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000020913",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "chironex-yamaguchii",
+      "scientificName": "Chironex yamaguchii",
+      "commonName": "야마구치상자해파리",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "ciona-savignyi",
+      "scientificName": "Ciona savignyi",
+      "commonName": "노랑꼭지유령멍게",
+      "status": "corrected",
+      "nationalMatches": [
+        {
+          "label": "노랑꼭지유령멍게",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000087083",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "해당 학명과 정확히 일치하는 국가생물종목록의 국명을 채택했습니다. 기존 음역·영명 직역 표기를 모두 오역으로 단정하지는 않습니다."
+    },
+    {
+      "id": "cliona-viridis",
+      "scientificName": "Cliona viridis",
+      "commonName": "클리오나 비리디스",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "mesonychoteuthis-hamiltoni",
+      "scientificName": "Mesonychoteuthis hamiltoni",
+      "commonName": "남극하트지느러미오징어",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "falco-tinnunculus",
+      "scientificName": "Falco tinnunculus",
+      "commonName": "황조롱이",
+      "status": "national-name-match",
+      "nationalMatches": [
+        {
+          "label": "황조롱이",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000001572",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "columba-palumbus",
+      "scientificName": "Columba palumbus",
+      "commonName": "숲비둘기",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "convolutriloba-retrogemma",
+      "scientificName": "Convolutriloba retrogemma",
+      "commonName": "콘볼루트릴로바 레트로겜마",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "daphnia-magna",
+      "scientificName": "Daphnia magna",
+      "commonName": "큰물벼룩",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "schistocerca-gregaria",
+      "scientificName": "Schistocerca gregaria",
+      "commonName": "사막메뚜기",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "dugong-dugon",
+      "scientificName": "Dugong dugon",
+      "commonName": "듀공",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "electrophorus-voltai",
+      "scientificName": "Electrophorus voltai",
+      "commonName": "볼타전기뱀장어",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "acropora-palmata",
+      "scientificName": "Acropora palmata",
+      "commonName": "엘크혼산호",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "anax-imperator",
+      "scientificName": "Anax imperator",
+      "commonName": "왕잠자리류 아낙스 임페라토르",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "pandinus-imperator",
+      "scientificName": "Pandinus imperator",
+      "commonName": "황제전갈",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "ephydatia-fluviatilis",
+      "scientificName": "Ephydatia fluviatilis",
+      "commonName": "에피다티아 플루비아틸리스",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "euperipatoides-rowelli",
+      "scientificName": "Euperipatoides rowelli",
+      "commonName": "에우페리파토이데스 로웰리",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "bubo-bubo",
+      "scientificName": "Bubo bubo",
+      "commonName": "수리부엉이",
+      "status": "national-name-match",
+      "nationalMatches": [
+        {
+          "label": "수리부엉이",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000001859",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "lepus-europaeus",
+      "scientificName": "Lepus europaeus",
+      "commonName": "유럽산토끼",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "erinaceus-europaeus",
+      "scientificName": "Erinaceus europaeus",
+      "commonName": "유럽고슴도치",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "talpa-europaea",
+      "scientificName": "Talpa europaea",
+      "commonName": "유럽두더지",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "oryctolagus-cuniculus",
+      "scientificName": "Oryctolagus cuniculus",
+      "commonName": "굴토끼",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "lampetra-fluviatilis",
+      "scientificName": "Lampetra fluviatilis",
+      "commonName": "유럽강칠성장어",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "loligo-vulgaris",
+      "scientificName": "Loligo vulgaris",
+      "commonName": "유럽오징어",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "fasciola-hepatica",
+      "scientificName": "Fasciola hepatica",
+      "commonName": "간질",
+      "status": "national-name-match",
+      "nationalMatches": [
+        {
+          "label": "간질",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000041165",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "fasciolopsis-buski",
+      "scientificName": "Fasciolopsis buski",
+      "commonName": "비대흡충",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "forficula-auricularia",
+      "scientificName": "Forficula auricularia",
+      "commonName": "양집게벌레",
+      "status": "corrected",
+      "nationalMatches": [
+        {
+          "label": "양집게벌레",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000020860",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "해당 학명과 정확히 일치하는 국가생물종목록의 국명을 채택했습니다. 기존 음역·영명 직역 표기를 모두 오역으로 단정하지는 않습니다."
+    },
+    {
+      "id": "blattella-germanica",
+      "scientificName": "Blattella germanica",
+      "commonName": "독일바퀴",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [
+        {
+          "label": "바퀴",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000020893",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "osphronemus-goramy",
+      "scientificName": "Osphronemus goramy",
+      "commonName": "자이언트구라미",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "apteryx-haastii",
+      "scientificName": "Apteryx haastii",
+      "commonName": "큰알락키위",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "pelecanus-onocrotalus",
+      "scientificName": "Pelecanus onocrotalus",
+      "commonName": "큰사다새",
+      "status": "corrected",
+      "nationalMatches": [
+        {
+          "label": "큰사다새",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000001556",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "해당 학명과 정확히 일치하는 국가생물종목록의 국명을 채택했습니다. 기존 음역·영명 직역 표기를 모두 오역으로 단정하지는 않습니다."
+    },
+    {
+      "id": "melanogrammus-aeglefinus",
+      "scientificName": "Melanogrammus aeglefinus",
+      "commonName": "해덕",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "haliclona-oculata",
+      "scientificName": "Haliclona oculata",
+      "commonName": "눈보라해면",
+      "status": "corrected",
+      "nationalMatches": [
+        {
+          "label": "눈보라해면",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000150544",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "해당 학명과 정확히 일치하는 국가생물종목록의 국명을 채택했습니다. 기존 음역·영명 직역 표기를 모두 오역으로 단정하지는 않습니다."
+    },
+    {
+      "id": "haliotis-discus",
+      "scientificName": "Haliotis discus",
+      "commonName": "둥근전복",
+      "status": "retained-with-note",
+      "nationalMatches": [
+        {
+          "label": "둥근전복",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000131303",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "국립수산과학원·국립해양생물자원관이 Haliotis discus에 둥근전복을 사용하므로 유지합니다."
+    },
+    {
+      "id": "hediste-diversicolor",
+      "scientificName": "Hediste diversicolor",
+      "commonName": "참갯지렁이류 헤디스테",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "hirudo-verbana",
+      "scientificName": "Hirudo verbana",
+      "commonName": "히루도 베르바나",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "holothuria-atra",
+      "scientificName": "Holothuria atra",
+      "commonName": "검은해삼",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "hydra-oligactis",
+      "scientificName": "Hydra oligactis",
+      "commonName": "갈색히드라",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "hypsibius-dujardini",
+      "scientificName": "Hypsibius dujardini",
+      "commonName": "물곰벌레",
+      "status": "corrected",
+      "nationalMatches": [
+        {
+          "label": "물곰벌레",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000040064",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "해당 학명과 정확히 일치하는 국가생물종목록의 국명을 채택했습니다. 기존 음역·영명 직역 표기를 모두 오역으로 단정하지는 않습니다."
+    },
+    {
+      "id": "ichthyophis-glutinosus",
+      "scientificName": "Ichthyophis glutinosus",
+      "commonName": "실론무족영원",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "ixodes-ricinus",
+      "scientificName": "Ixodes ricinus",
+      "commonName": "개참진드기",
+      "status": "national-name-match",
+      "nationalMatches": [
+        {
+          "label": "개참진드기",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000221333",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "katharina-tunicata",
+      "scientificName": "Katharina tunicata",
+      "commonName": "검은군부",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "labidura-riparia",
+      "scientificName": "Labidura riparia",
+      "commonName": "라비두라 리파리아",
+      "status": "corrected",
+      "nationalMatches": [],
+      "note": "국가생물종목록의 큰집게벌레는 L. riparia japonica, 리파라집게벌레는 L. riparia riparia에 붙은 아종명입니다. 카드의 전체 종을 특정 아종명으로 표시하지 않습니다."
+    },
+    {
+      "id": "pteropus-vampyrus",
+      "scientificName": "Pteropus vampyrus",
+      "commonName": "큰날여우박쥐",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "phoeniconaias-minor",
+      "scientificName": "Phoeniconaias minor",
+      "commonName": "쇠홍학",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "linckia-laevigata",
+      "scientificName": "Linckia laevigata",
+      "commonName": "푸른불가사리",
+      "status": "corrected",
+      "nationalMatches": [
+        {
+          "label": "푸른불가사리",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000050560",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "해당 학명과 정확히 일치하는 국가생물종목록의 국명을 채택했습니다. 기존 음역·영명 직역 표기를 모두 오역으로 단정하지는 않습니다."
+    },
+    {
+      "id": "tridacna-maxima",
+      "scientificName": "Tridacna maxima",
+      "commonName": "트리다크나 막시마",
+      "status": "corrected",
+      "nationalMatches": [],
+      "note": "큰보석조개라는 한국어 종명의 신뢰할 만한 출처를 확인하지 못했습니다. 공식 국명이 있다는 뜻을 덧붙이지 않고 학명을 음역합니다."
+    },
+    {
+      "id": "mytilus-galloprovincialis",
+      "scientificName": "Mytilus galloprovincialis",
+      "commonName": "지중해담치",
+      "status": "national-name-match",
+      "nationalMatches": [
+        {
+          "label": "지중해담치",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000051885",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "mnemiopsis-leidyi",
+      "scientificName": "Mnemiopsis leidyi",
+      "commonName": "므네미옵시스 레이디이",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "cygnus-olor",
+      "scientificName": "Cygnus olor",
+      "commonName": "혹고니",
+      "status": "national-name-match",
+      "nationalMatches": [
+        {
+          "label": "혹고니",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000001425",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "myxine-glutinosa",
+      "scientificName": "Myxine glutinosa",
+      "commonName": "대서양먹장어",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "nanomia-bijuga",
+      "scientificName": "Nanomia bijuga",
+      "commonName": "나노미아 비주가",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [
+        {
+          "label": "",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000471898",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "narceus-americanus",
+      "scientificName": "Narceus americanus",
+      "commonName": "아메리카노래기",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "nautilus-macromphalus",
+      "scientificName": "Nautilus macromphalus",
+      "commonName": "배꼽앵무조개",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "meganyctiphanes-norvegica",
+      "scientificName": "Meganyctiphanes norvegica",
+      "commonName": "북방크릴",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "ginglymostoma-cirratum",
+      "scientificName": "Ginglymostoma cirratum",
+      "commonName": "수염상어",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "lagocephalus-lagocephalus",
+      "scientificName": "Lagocephalus lagocephalus",
+      "commonName": "청밀복",
+      "status": "corrected",
+      "nationalMatches": [],
+      "note": "Oceanic puffer를 바다복으로 직역한 표기를 국립수산과학원에서 쓰는 청밀복으로 교체합니다."
+    },
+    {
+      "id": "oikopleura-cophocerca",
+      "scientificName": "Oikopleura cophocerca",
+      "commonName": "오이코플레우라 코포케르카",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "ophiothrix-spiculata",
+      "scientificName": "Ophiothrix spiculata",
+      "commonName": "오피오트릭스 스피쿨라타",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "amphiprion-percula",
+      "scientificName": "Amphiprion percula",
+      "commonName": "흰동가리",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "ostrea-edulis",
+      "scientificName": "Ostrea edulis",
+      "commonName": "유럽납작굴",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "acanthosepion-pharaonis",
+      "scientificName": "Acanthosepion pharaonis",
+      "commonName": "파라오갑오징어",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "pleurobrachia-bachei",
+      "scientificName": "Pleurobrachia bachei",
+      "commonName": "플레우로브라키아 바케이",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "pristionchus-pacificus",
+      "scientificName": "Pristionchus pacificus",
+      "commonName": "프리스티온쿠스 파키피쿠스",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "psammechinus-miliaris",
+      "scientificName": "Psammechinus miliaris",
+      "commonName": "프삼메키누스 밀리아리스",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "pterois-miles",
+      "scientificName": "Pterois miles",
+      "commonName": "쏠배감펭류 프테로이스 밀레스",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "chimaera-monstrosa",
+      "scientificName": "Chimaera monstrosa",
+      "commonName": "키마이라 몬스트로사",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "mobula-alfredi",
+      "scientificName": "Mobula alfredi",
+      "commonName": "암초대왕쥐가오리",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "rhizostoma-pulmo",
+      "scientificName": "Rhizostoma pulmo",
+      "commonName": "리조스토마 풀모",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "rossella-antarctica",
+      "scientificName": "Rossella antarctica",
+      "commonName": "남극로셀라해면",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "sabella-spallanzanii",
+      "scientificName": "Sabella spallanzanii",
+      "commonName": "사벨라 스팔란차니",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "saccoglossus-kowalevskii",
+      "scientificName": "Saccoglossus kowalevskii",
+      "commonName": "사코글로수스 코발레프스키이",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "schistosoma-haematobium",
+      "scientificName": "Schistosoma haematobium",
+      "commonName": "방광주혈흡충",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "schistosoma-mansoni",
+      "scientificName": "Schistosoma mansoni",
+      "commonName": "만손주혈흡충",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "scolopendra-subspinipes",
+      "scientificName": "Scolopendra subspinipes",
+      "commonName": "왕지네",
+      "status": "retained-with-note",
+      "nationalMatches": [],
+      "note": "왕지네 용례와 아종·분리종의 범위는 별도 분류 검토가 필요합니다. 명백한 오역으로 단정하거나 학명을 바꾸지 않았습니다."
+    },
+    {
+      "id": "siphonops-annulatus",
+      "scientificName": "Siphonops annulatus",
+      "commonName": "고리무족영원",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "euphractus-sexcinctus",
+      "scientificName": "Euphractus sexcinctus",
+      "commonName": "여섯띠아르마딜로",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "pristis-pectinata",
+      "scientificName": "Pristis pectinata",
+      "commonName": "작은이빨톱가오리",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "sphyrna-zygaena",
+      "scientificName": "Sphyrna zygaena",
+      "commonName": "귀상어",
+      "status": "national-name-match",
+      "nationalMatches": [
+        {
+          "label": "귀상어",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000057311",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "struthio-molybdophanes",
+      "scientificName": "Struthio molybdophanes",
+      "commonName": "소말리아타조",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "lepisosteus-oculatus",
+      "scientificName": "Lepisosteus oculatus",
+      "commonName": "점박이가아",
+      "status": "corrected",
+      "nationalMatches": [],
+      "note": "사용자께서 지적한 표기를 채택합니다. Lepisosteidae의 gar이며 Belonidae 동갈치류와 구별합니다."
+    },
+    {
+      "id": "acipenser-ruthenus",
+      "scientificName": "Acipenser ruthenus",
+      "commonName": "스털렛철갑상어",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "strongylocentrotus-droebachiensis",
+      "scientificName": "Strongylocentrotus droebachiensis",
+      "commonName": "북방초록성게",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "sycon-raphanus",
+      "scientificName": "Sycon raphanus",
+      "commonName": "시콘 라파누스",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "tethya-wilhelma",
+      "scientificName": "Tethya wilhelma",
+      "commonName": "테티아 빌헬마",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "trichoplax-adhaerens",
+      "scientificName": "Trichoplax adhaerens",
+      "commonName": "트리코플락스 아드헤렌스",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "trichuris-trichiura",
+      "scientificName": "Trichuris trichiura",
+      "commonName": "편충",
+      "status": "national-name-match",
+      "nationalMatches": [
+        {
+          "label": "편충",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000040507",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "trigoniulus-corallinus",
+      "scientificName": "Trigoniulus corallinus",
+      "commonName": "산호노래기",
+      "status": "korean-name-not-independently-verified",
+      "nationalMatches": [],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    },
+    {
+      "id": "triops-longicaudatus",
+      "scientificName": "Triops longicaudatus",
+      "commonName": "긴꼬리투구새우",
+      "status": "national-name-match",
+      "nationalMatches": [
+        {
+          "label": "긴꼬리투구새우",
+          "url": "https://species.nibr.go.kr/home/mainHome.do?cont_link=009&subMenu=009002&contCd=009002&pageMode=view&ktsn=120000049780",
+          "speciesLabel": ""
+        }
+      ],
+      "note": "외국종·비표준 국명은 국명이 확인됐다고 간주하지 않았습니다."
+    }
+  ]
+}

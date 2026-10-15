@@ -37,7 +37,7 @@
   },
   {
     "title": "Haliclona oculata",
-    "commonName": "할리클로나 오쿨라타",
+    "commonName": "눈보라해면",
     "description": "북대서양 연안에서 손가락처럼 갈라진 가지를 만드는 여과섭식 해면입니다.",
     "descriptionEn": "A branching, finger-like filter-feeding sponge of North Atlantic coasts.",
     "reference": "amphimedon-queenslandica",
@@ -97,7 +97,7 @@
   },
   {
     "title": "Atlantic mackerel",
-    "commonName": "고등어",
+    "commonName": "대서양고등어",
     "description": "북대서양에서 무리를 지어 헤엄치며 등쪽의 물결 모양 줄무늬가 특징인 물고기입니다.",
     "descriptionEn": "A schooling North Atlantic fish with wavy dark markings on its back.",
     "reference": "thunnus-thynnus",
@@ -181,7 +181,7 @@
   },
   {
     "title": "Botrylloides violaceus",
-    "commonName": "보트릴로이데스 비올라케우스",
+    "commonName": "보라판멍게",
     "description": "기질 위에 여러 개체가 모여 얇은 군체를 이루는 여과섭식 멍게류입니다.",
     "descriptionEn": "A colonial sea squirt forming thin sheets of connected filter-feeding individuals.",
     "reference": "botryllus-schlosseri",
@@ -193,7 +193,7 @@
   },
   {
     "title": "Brachionus calyciflorus",
-    "commonName": "브라키오누스 칼리키플로루스",
+    "commonName": "꽃받침완미윤충",
     "description": "담수에 사는 작은 윤형동물로 머리의 섬모를 움직여 먹이를 모읍니다.",
     "descriptionEn": "A tiny freshwater rotifer that gathers food using beating cilia around its head.",
     "reference": "brachionus-plicatilis",
@@ -265,7 +265,7 @@
   },
   {
     "title": "Ciona savignyi",
-    "commonName": "키오나 사비니이",
+    "commonName": "노랑꼭지유령멍게",
     "description": "바닥에 붙어 두 개의 수관으로 물을 들이고 내보내며 먹이를 거르는 멍게류입니다.",
     "descriptionEn": "A sessile sea squirt filtering food from water passed through its two siphons.",
     "reference": "ciona-intestinalis",
@@ -325,7 +325,7 @@
   },
   {
     "title": "Linckia laevigata",
-    "commonName": "파란불가사리",
+    "commonName": "푸른불가사리",
     "description": "인도·태평양 산호초에 살며 대개 선명한 파란색의 긴 팔을 가진 불가사리입니다.",
     "descriptionEn": "An Indo-Pacific reef sea star, often bright blue with long arms.",
     "reference": "acanthaster-planci",
@@ -409,7 +409,7 @@
   },
   {
     "title": "Tridacna maxima",
-    "commonName": "큰보석조개",
+    "commonName": "트리다크나 막시마",
     "description": "인도·태평양 산호초에 사는 조개로 외투막에 공생 조류를 지닙니다.",
     "descriptionEn": "An Indo-Pacific reef clam with symbiotic algae in its brightly patterned mantle.",
     "reference": "tridacna-gigas",
@@ -541,7 +541,7 @@
   },
   {
     "title": "Spotted gar",
-    "commonName": "점박이동갈치",
+    "commonName": "점박이가아",
     "description": "북아메리카 담수에 살며 단단한 비늘과 점무늬가 있는 긴 몸을 가진 물고기입니다.",
     "descriptionEn": "A North American freshwater gar with hard scales and dark spots on its elongated body.",
     "reference": "lepisosteus-osseus",
@@ -553,7 +553,7 @@
   },
   {
     "title": "Hypsibius dujardini",
-    "commonName": "힙시비우스 뒤자르디니",
+    "commonName": "물곰벌레",
     "description": "담수와 젖은 이끼 주변에 사는 작은 완보동물로 네 쌍의 짧은 다리가 있습니다.",
     "descriptionEn": "A tiny tardigrade of freshwater and damp moss, with four pairs of stubby legs.",
     "reference": "macrobiotus-shonaicus",
@@ -613,7 +613,7 @@
   },
   {
     "title": "Oceanic puffer",
-    "commonName": "바다복",
+    "commonName": "청밀복",
     "description": "열대와 아열대 바다에 살며 위협을 받으면 몸을 부풀리는 복어입니다.",
     "descriptionEn": "A pufferfish of tropical and subtropical seas that inflates its body when threatened.",
     "reference": "mola-mola",
@@ -829,7 +829,7 @@
   },
   {
     "title": "Great white pelican",
-    "commonName": "사다새",
+    "commonName": "큰사다새",
     "description": "큰 부리의 주머니로 물고기를 잡으며 호수와 습지에서 무리를 이루는 물새입니다.",
     "descriptionEn": "A large wetland bird catching fish with the pouch beneath its bill and gathering in flocks.",
     "reference": "balaeniceps-rex",
@@ -1117,7 +1117,7 @@
   },
   {
     "title": "Blue-tailed damselfly",
-    "commonName": "푸른꼬리실잠자리",
+    "commonName": "북방아시아실잠자리",
     "description": "유라시아의 물가에서 살며 가는 배 끝의 푸른 무늬가 눈에 띄는 실잠자리입니다.",
     "descriptionEn": "A slender Eurasian damselfly often showing a blue marking near the end of its abdomen.",
     "reference": "aedes-aegypti",
@@ -1129,7 +1129,7 @@
   },
   {
     "title": "Common earwig",
-    "commonName": "집게벌레",
+    "commonName": "양집게벌레",
     "description": "몸 뒤쪽의 집게 모양 부속지가 특징이며 틈새에 숨어 사는 작은 곤충입니다.",
     "descriptionEn": "A small insect sheltering in crevices, recognized by the forceps-like appendages at its rear.",
     "reference": "periplaneta-americana",
@@ -1141,7 +1141,7 @@
   },
   {
     "title": "Labidura riparia",
-    "commonName": "큰집게벌레",
+    "commonName": "라비두라 리파리아",
     "description": "모래와 자갈이 있는 물가에서 작은 동물을 사냥하는 집게벌레입니다.",
     "descriptionEn": "An earwig hunting small animals in sandy or gravelly habitats near water.",
     "reference": "periplaneta-americana",

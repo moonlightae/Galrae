@@ -50,7 +50,7 @@
     "descriptionEn": "A small crustacean of the Southern Ocean that forms dense swarms and feeds on phytoplankton."
   },
   "antedon-mediterranea": {
-    "commonName": "지중해깃털불가사리",
+    "commonName": "안테돈 메디테라네아",
     "description": "지중해 해저에 사는 줄기 없는 바다나리류로, 깃털 같은 긴 팔로 플랑크톤을 걸러 먹습니다.",
     "descriptionEn": "A stalkless crinoid of the Mediterranean seabed that catches plankton with long, feathery arms."
   },
@@ -60,7 +60,7 @@
     "descriptionEn": "A honey bee native to southern and eastern Asia, living in colonies with several combs and feeding on pollen and nectar."
   },
   "argiope-bruennichi": {
-    "commonName": "아르기오페 브루엔니키",
+    "commonName": "긴호랑거미",
     "description": "유럽과 아시아·아프리카 일부 지역에 사는 왕거미류로, 배에 노란색·흰색·검은색 무늬가 뚜렷합니다.",
     "descriptionEn": "An orb-weaving spider with striking yellow, white and black abdominal markings, found in parts of Europe, Asia and Africa."
   },
@@ -180,12 +180,12 @@
     "descriptionEn": "An orangutan native to Borneo, with coarse reddish hair and very long arms."
   },
   "botryllus-schlosseri": {
-    "commonName": "보트릴루스 슐로세리",
+    "commonName": "스크로세르판멍게",
     "description": "여러 개체가 군체를 이루는 피낭동물로, 연안의 물속 물체나 식물 표면에 붙어 자랍니다.",
     "descriptionEn": "A colonial tunicate that grows on submerged objects, plants and animals in coastal seawater."
   },
   "brachionus-plicatilis": {
-    "commonName": "브라키오누스 플리카틸리스",
+    "commonName": "주름깃완미윤충",
     "description": "염분 변화에 잘 견디는 윤충류로, 양식장에서 물고기 유생의 먹이로 널리 길러집니다.",
     "descriptionEn": "A rotifer that tolerates a wide range of salinity and is cultured as food for fish larvae."
   },
@@ -260,7 +260,7 @@
     "descriptionEn": "A sea squirt with a soft, translucent, column-shaped body enclosed in a delicate tunic."
   },
   "cliona-celata": {
-    "commonName": "클리오나 켈라타",
+    "commonName": "호박해면",
     "description": "석회암이나 연체동물의 껍데기에 작은 구멍을 뚫고 생활하는 해면입니다.",
     "descriptionEn": "A sponge that bores small holes into limestone and mollusc shells."
   },
@@ -280,7 +280,7 @@
     "descriptionEn": "A semi-aquatic frog of the family Ranidae, found across much of Europe as far as Scandinavia and the Urals."
   },
   "octopus-vulgaris": {
-    "commonName": "참문어",
+    "commonName": "옥토푸스 불가리스",
     "description": "대서양 동부와 지중해에 사는 문어로, 행동 연구에 자주 이용됩니다.",
     "descriptionEn": "A marine octopus found in the eastern Atlantic and Mediterranean, often studied for its behaviour."
   },
@@ -320,7 +320,7 @@
     "descriptionEn": "A large starfish that feeds on hard coral polyps and has venomous, thorn-like spines on its upper surface."
   },
   "daphnia-pulex": {
-    "commonName": "다프니아 풀렉스",
+    "commonName": "참물벼룩",
     "description": "아메리카·유럽·오스트레일리아 등에 분포하는 작은 담수 갑각류로, 연구에 널리 이용됩니다.",
     "descriptionEn": "A small freshwater crustacean found in the Americas, Europe and Australia and widely used in research."
   },
@@ -330,7 +330,7 @@
     "descriptionEn": "A small fly attracted to rotting fruit and fermenting food, widely used in laboratory research."
   },
   "drosophila-simulans": {
-    "commonName": "드로소필라 시뮬란스",
+    "commonName": "어리노랑초파리",
     "description": "초파리과에 속하는 작은 파리로, 과일즙을 이용해 채집하거나 실험실에서 기를 수 있습니다.",
     "descriptionEn": "A small fly of the family Drosophilidae, collected and cultured using fruit juice."
   },
@@ -340,7 +340,7 @@
     "descriptionEn": "A freshwater planarian of East Asia, recorded in Korea, Japan, Taiwan, China and northeastern Siberia."
   },
   "dendrobates-tinctorius": {
-    "commonName": "코발트독화살개구리",
+    "commonName": "덴드로바테스 틴크토리우스",
     "description": "다양한 색과 무늬를 지닌 독화살개구리로, 몸길이는 보통 약 5cm까지 자랍니다.",
     "descriptionEn": "A poison dart frog noted for its varied colours and patterns, reaching around five centimetres in body length."
   },
@@ -485,7 +485,7 @@
     "descriptionEn": "A large aquatic salamander native to the eastern and central United States."
   },
   "hippocampus-kuda": {
-    "commonName": "노랑해마",
+    "commonName": "복해마",
     "description": "몸빛의 변이가 다양한 해마로, 노랑해마 또는 점박이해마라는 별칭으로도 불립니다.",
     "descriptionEn": "A seahorse whose body colour varies, commonly called the yellow or spotted seahorse."
   },
@@ -525,7 +525,7 @@
     "descriptionEn": "A highly social primate with upright walking, little body hair and a large brain, known for complex language and culture."
   },
   "hydra-vulgaris": {
-    "commonName": "히드라 불가리스",
+    "commonName": "유두히드라",
     "description": "민물에 사는 작은 히드라류로, 몸길이는 약 10~30mm이고 폭은 약 1mm입니다.",
     "descriptionEn": "A small freshwater hydroid, usually about 10 to 30 mm long and around one millimetre wide."
   },
@@ -655,7 +655,7 @@
     "descriptionEn": "A rarely seen deepwater shark that swims with its mouth open to filter plankton from seawater."
   },
   "metridium-senile": {
-    "commonName": "메트리디움 세닐레",
+    "commonName": "섬유세닐말미잘",
     "description": "메트리디움과에 속하는 말미잘로, 유럽 북서부와 북아메리카 동·서해안의 바다에 분포합니다.",
     "descriptionEn": "A sea anemone found off northwestern Europe and both the eastern and western coasts of North America."
   },
@@ -740,7 +740,7 @@
     "descriptionEn": "A sea urchin of the Mediterranean and eastern Atlantic, commonly called the purple sea urchin."
   },
   "parasteatoda-tepidariorum": {
-    "commonName": "집꼬마거미",
+    "commonName": "말꼬마거미",
     "description": "세계 여러 지역의 사람 사는 집 안팎에서 생활하는 거미입니다.",
     "descriptionEn": "A spider widely found in and around human homes."
   },
@@ -765,7 +765,7 @@
     "descriptionEn": "A widespread zebra of eastern and southern Africa south of the Sahara."
   },
   "platynereis-dumerilii": {
-    "commonName": "플라티네레이스 뒤메릴리",
+    "commonName": "곱사참갯지렁이",
     "description": "환형동물문에 속하는 갯지렁이로, 온대부터 열대까지의 연안 바다에 서식합니다.",
     "descriptionEn": "A marine annelid worm found in coastal waters from temperate to tropical regions."
   },
@@ -820,7 +820,7 @@
     "descriptionEn": "A tropical bird of South and Southeast Asia, with populations that contributed to the domestication of chickens."
   },
   "pterois-volitans": {
-    "commonName": "붉은쏠배감펭",
+    "commonName": "점쏠배감펭",
     "description": "쏨뱅이과에 속하는 독이 있는 산호초 물고기로, 인도·태평양이 원산지이며 대서양 일부에는 침입종으로 퍼졌습니다.",
     "descriptionEn": "A venomous coral-reef fish native to the Indo-Pacific and introduced to parts of the Atlantic."
   },
@@ -925,7 +925,7 @@
     "descriptionEn": "A marine acoel worm whose green colour comes from symbiotic algae."
   },
   "tachypleus-tridentatus": {
-    "commonName": "투구게",
+    "commonName": "세가시투구게",
     "description": "동아시아와 동남아시아에 분포하는 투구게류로, 중국·일본·한국·대만·베트남 등에서 기록되어 있습니다.",
     "descriptionEn": "A horseshoe crab of East and Southeast Asian coastal waters."
   },
@@ -935,7 +935,7 @@
     "descriptionEn": "A tapeworm whose adults live in humans and whose larval stages develop in pigs and wild boars."
   },
   "tethya-aurantium": {
-    "commonName": "테티아 아우란티움",
+    "commonName": "오렌지둥글해면",
     "description": "테티아과에 속하는 바다 해면으로, 사마귀 같은 표면의 구형 몸을 지니며 골프공해면이라는 영어 이름이 있습니다.",
     "descriptionEn": "A spherical marine sponge with a warty surface, growing to around ten centimetres across."
   },
@@ -1050,7 +1050,7 @@
     "descriptionEn": "A small cockroach common in buildings, with two dark stripes behind the head."
   },
   "haliclona-oculata": {
-    "commonName": "할리클로나 오쿨라타",
+    "commonName": "눈보라해면",
     "description": "북대서양 연안에서 손가락처럼 갈라진 가지를 만드는 여과섭식 해면입니다.",
     "descriptionEn": "A branching, finger-like filter-feeding sponge of North Atlantic coasts."
   },
@@ -1075,7 +1075,7 @@
     "descriptionEn": "A roundworm primarily parasitizing pigs, transmitted through eggs in contaminated soil."
   },
   "scomber-scombrus": {
-    "commonName": "고등어",
+    "commonName": "대서양고등어",
     "description": "북대서양에서 무리를 지어 헤엄치며 등쪽의 물결 모양 줄무늬가 특징인 물고기입니다.",
     "descriptionEn": "A schooling North Atlantic fish with wavy dark markings on its back."
   },
@@ -1110,12 +1110,12 @@
     "descriptionEn": "A transparent lobed comb jelly that swims with comb rows and eats zooplankton."
   },
   "botrylloides-violaceus": {
-    "commonName": "보트릴로이데스 비올라케우스",
+    "commonName": "보라판멍게",
     "description": "기질 위에 여러 개체가 모여 얇은 군체를 이루는 여과섭식 멍게류입니다.",
     "descriptionEn": "A colonial sea squirt forming thin sheets of connected filter-feeding individuals."
   },
   "brachionus-calyciflorus": {
-    "commonName": "브라키오누스 칼리키플로루스",
+    "commonName": "꽃받침완미윤충",
     "description": "담수에 사는 작은 윤형동물로 머리의 섬모를 움직여 먹이를 모읍니다.",
     "descriptionEn": "A tiny freshwater rotifer that gathers food using beating cilia around its head."
   },
@@ -1145,7 +1145,7 @@
     "descriptionEn": "A box jellyfish of warm western Pacific coasts with multiple tentacles at each corner."
   },
   "ciona-savignyi": {
-    "commonName": "키오나 사비니이",
+    "commonName": "노랑꼭지유령멍게",
     "description": "바닥에 붙어 두 개의 수관으로 물을 들이고 내보내며 먹이를 거르는 멍게류입니다.",
     "descriptionEn": "A sessile sea squirt filtering food from water passed through its two siphons."
   },
@@ -1170,7 +1170,7 @@
     "descriptionEn": "A large fruit bat of Southeast Asia that feeds on fruit and floral resources."
   },
   "linckia-laevigata": {
-    "commonName": "파란불가사리",
+    "commonName": "푸른불가사리",
     "description": "인도·태평양 산호초에 살며 대개 선명한 파란색의 긴 팔을 가진 불가사리입니다.",
     "descriptionEn": "An Indo-Pacific reef sea star, often bright blue with long arms."
   },
@@ -1205,7 +1205,7 @@
     "descriptionEn": "A slow-moving, leaf-eating mammal of Central and South American forest canopies."
   },
   "tridacna-maxima": {
-    "commonName": "큰보석조개",
+    "commonName": "트리다크나 막시마",
     "description": "인도·태평양 산호초에 사는 조개로 외투막에 공생 조류를 지닙니다.",
     "descriptionEn": "An Indo-Pacific reef clam with symbiotic algae in its brightly patterned mantle."
   },
@@ -1260,12 +1260,12 @@
     "descriptionEn": "A ray of warm shallow Atlantic waters with a long, tooth-edged snout."
   },
   "lepisosteus-oculatus": {
-    "commonName": "점박이동갈치",
+    "commonName": "점박이가아",
     "description": "북아메리카 담수에 살며 단단한 비늘과 점무늬가 있는 긴 몸을 가진 물고기입니다.",
     "descriptionEn": "A North American freshwater gar with hard scales and dark spots on its elongated body."
   },
   "hypsibius-dujardini": {
-    "commonName": "힙시비우스 뒤자르디니",
+    "commonName": "물곰벌레",
     "description": "담수와 젖은 이끼 주변에 사는 작은 완보동물로 네 쌍의 짧은 다리가 있습니다.",
     "descriptionEn": "A tiny tardigrade of freshwater and damp moss, with four pairs of stubby legs."
   },
@@ -1290,7 +1290,7 @@
     "descriptionEn": "A flightless bird of New Zealand's South Island probing the ground for food with a long bill."
   },
   "lagocephalus-lagocephalus": {
-    "commonName": "바다복",
+    "commonName": "청밀복",
     "description": "열대와 아열대 바다에 살며 위협을 받으면 몸을 부풀리는 복어입니다.",
     "descriptionEn": "A pufferfish of tropical and subtropical seas that inflates its body when threatened."
   },
@@ -1380,7 +1380,7 @@
     "descriptionEn": "A jawless fish of European rivers and coasts with a round, sucker-like mouth."
   },
   "pelecanus-onocrotalus": {
-    "commonName": "사다새",
+    "commonName": "큰사다새",
     "description": "큰 부리의 주머니로 물고기를 잡으며 호수와 습지에서 무리를 이루는 물새입니다.",
     "descriptionEn": "A large wetland bird catching fish with the pouch beneath its bill and gathering in flocks."
   },
@@ -1500,17 +1500,17 @@
     "descriptionEn": "A large dragonfly hunting other insects around ponds in Europe and nearby regions."
   },
   "ischnura-elegans": {
-    "commonName": "푸른꼬리실잠자리",
+    "commonName": "북방아시아실잠자리",
     "description": "유라시아의 물가에서 살며 가는 배 끝의 푸른 무늬가 눈에 띄는 실잠자리입니다.",
     "descriptionEn": "A slender Eurasian damselfly often showing a blue marking near the end of its abdomen."
   },
   "forficula-auricularia": {
-    "commonName": "집게벌레",
+    "commonName": "양집게벌레",
     "description": "몸 뒤쪽의 집게 모양 부속지가 특징이며 틈새에 숨어 사는 작은 곤충입니다.",
     "descriptionEn": "A small insect sheltering in crevices, recognized by the forceps-like appendages at its rear."
   },
   "labidura-riparia": {
-    "commonName": "큰집게벌레",
+    "commonName": "라비두라 리파리아",
     "description": "모래와 자갈이 있는 물가에서 작은 동물을 사냥하는 집게벌레입니다.",
     "descriptionEn": "An earwig hunting small animals in sandy or gravelly habitats near water."
   },

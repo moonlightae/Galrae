@@ -20,13 +20,13 @@ Rossi et al. (2026), Science Advances adx1754의 계통유전체 결과를 채�
 선형동물과 절지·유조·완보동물을 각각 새예동물과 비교하는 세 조합의
 각 6개 등장 순서에서 분기와 정답 판정을 검증합니다.
 
-집꼬마거미를 포함한 거미류의 Araneida 항목은 카드의 두 번째 목으로
+말꼬마거미를 포함한 거미류의 Araneida 항목은 카드의 두 번째 목으로
 사용하지 않고 clade로 남깁니다. 인정되는 거미목은 Araneae입니다.
 카드 표시기는 문·강·목·과·속을 각각 한 번 선택하고, 동일 계급이 중복되면
 종에 더 가까운 항목을 사용해 상위 계급이 밀려나지 않게 했습니다.
 
 - [2025년 CAT-PMSF 연구](https://academic.oup.com/gbe/article/17/1/evae273/7931680)
-- [집꼬마거미 NCBI 계통](https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=Parasteatoda+tepidariorum)
+- [말꼬마거미 NCBI 계통](https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?name=Parasteatoda+tepidariorum)
 
 ## 메두소동물 분기 보완 — 2026-10-13
 
