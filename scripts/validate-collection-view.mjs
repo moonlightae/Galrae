@@ -70,12 +70,16 @@ let opened, mode, language = "ko";
 const dialog = element("#ancestor-dialog");
 dialog.showModal = () => { dialog.open = true; };
 dialog.close = () => { dialog.open = false; };
+const loadedSpecies = new Map(speciesById);
+speciesById.clear();
 const view = createCollectionView({ $: element, buildTree, speciesById, escapeHtml: String, cardText: (animal) => animal,
   onOpenSpecies: (id) => { opened = id; },
   onModeChange: (value) => { mode = value; },
   getLanguage: () => language,
   getGuideKey: () => "guide-test-user",
 });
+// Production creates the view before initialize() finishes fetching the dataset.
+for (const [id, animal] of loadedSpecies) speciesById.set(id, animal);
 view.render([]);
 assert.equal(element("#collection-grid").hidden, false);
 buttons[1].handlers.click();

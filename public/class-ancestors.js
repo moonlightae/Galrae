@@ -129,7 +129,10 @@ export function createAncestorNotes({ $, escapeHtml, getLanguage, speciesById, c
     branches.set(node.id, { path: branchPath, members: new Set(members) });
     return members;
   }
-  index(buildTree([...speciesById.keys()], speciesById, null, true));
+  function ensureIndexed() {
+    if (branches.size || !speciesById.size) return;
+    index(buildTree([...speciesById.keys()], speciesById, null, true));
+  }
   const belongsTo = (animal, id) => branches.get(id)?.members.has(animal.id) || getClassIds(animal).includes(id);
   const offeredKeys = new Set();
   $("#close-ancestor-guide").addEventListener("click", () => guide.close());
@@ -142,6 +145,7 @@ export function createAncestorNotes({ $, escapeHtml, getLanguage, speciesById, c
     if (event.target === dialog && (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom)) dialog.close();
   });
   function annotate(button, id) {
+    ensureIndexed();
     const note = ancestorNotes[id];
     const rank = note?.rank || button.dataset.rank || "clade";
     const ko = getLanguage() === "ko";
@@ -163,7 +167,8 @@ export function createAncestorNotes({ $, escapeHtml, getLanguage, speciesById, c
   }
   function open(id) {
     const note = ancestorNotes[id];
-    if (!note) return;
+    if (!note || !speciesById.size) return;
+    ensureIndexed();
     const ko = getLanguage() === "ko";
     const text = ko ? note.ko : note.en;
     const labels = text.length === 2
