@@ -24,7 +24,7 @@ function element(id) {
   const classes = new Set();
   if (!elements.has(id)) elements.set(id, { hidden: false, handlers: {}, attrs: {}, style: {},
     dataset: {},
-    classList: { toggle() {}, add(name) { classes.add(name); }, remove(name) { classes.delete(name); }, contains(name) { return classes.has(name); } },
+    classList: { toggle(name, force = !classes.has(name)) { force ? classes.add(name) : classes.delete(name); }, add(name) { classes.add(name); }, remove(name) { classes.delete(name); }, contains(name) { return classes.has(name); } },
     querySelectorAll: () => [],
     addEventListener(name, handler) { this.handlers[name] = handler; },
     setAttribute(name, value) { this.attrs[name] = value; },
@@ -60,13 +60,21 @@ Object.defineProperty(viewport, "innerHTML", {
       button.dataset.target = match[1];
       button.dataset.rank = match[0].match(/data-rank="([^"]+)"/)?.[1];
       button.classList.add("clade-node");
+      const position = match[0].match(/left:([^p]+)px;top:([^p]+)px/);
+      button.getBoundingClientRect = () => {
+        const zoom = Number(cameraStyles.get("--tree-zoom"));
+        const x = Number(position[1]), y = Number(position[2]);
+        return { left: 160 + parseFloat(cameraStyles.get("--pan-x")) + (x - Number(tree.dataset.width) / 2) * zoom - 18 * zoom,
+          top: 240 + parseFloat(cameraStyles.get("--pan-y")) + ((markup.includes("layout-bottom") ? Number(tree.dataset.height) - y : y) - Number(tree.dataset.height) / 2) * zoom - 18 * zoom,
+          width: 36 * zoom, height: 36 * zoom };
+      };
       return button;
     });
     speciesButtons = [...markup.matchAll(/data-species-id="([^"]+)"/g)].map((match) => Object.assign(element(match[1]), { dataset: { speciesId: match[1] }, textContent: match[1] }));
   },
 });
 viewport.querySelector = (selector) => selector === ".tree-camera" ? camera : selector === ".base-tree" ? tree : selector === "[data-ancestor-id]" ? branchButtons?.find((button) => button.dataset.ancestorId) : null;
-viewport.querySelectorAll = (selector) => selector === "[data-species-id]" ? speciesButtons : selector.includes(".clade-node") ? branchButtons : [];
+viewport.querySelectorAll = (selector) => selector === "[data-species-id]" ? speciesButtons : selector.includes(".clade-node") ? branchButtons : selector === ".is-search-match" ? branchButtons.filter((button) => button.classList.contains("is-search-match")) : [];
 let opened, mode, language = "ko";
 const dialog = element("#ancestor-dialog");
 dialog.showModal = () => { dialog.open = true; };
@@ -249,10 +257,54 @@ assert.equal(cameraStyles.get("--pan-x"), "40px");
 const oldZoom = cameraStyles.get("--tree-zoom");
 viewport.handlers.wheel({ preventDefault() {}, deltaY: -100, deltaMode: 0, clientX: 100, clientY: 100 });
 assert.ok(cameraStyles.get("--tree-zoom") > oldZoom);
+const query = element("#collection-branch-query");
+const searchResults = element("#collection-branch-results");
+const searchForm = element("#collection-branch-search");
+for (const layout of layouts) {
+  layout.handlers.click();
+  for (const [term, id] of [["포유", "Q7377"], ["TeleOstei", "Q204861"], ["다모", "ncbi:6341"]]) {
+    query.value = term;
+    query.handlers.input();
+    assert.equal(searchResults.hidden, false);
+    assert.ok(searchResults.innerHTML.includes(`data-branch-search-id="${id}"`));
+    if (id === "Q7377") searchForm.handlers.submit({ preventDefault() {} });
+    else searchResults.handlers.click({ target: { closest: () => ({ dataset: { branchSearchId: id } }) } });
+    assert.equal(searchResults.hidden, true);
+    const target = branchButtons.find((button) => button.dataset.ancestorId === id);
+    assert.ok(target.classList.contains("is-search-match"));
+    assert.equal(branchButtons.filter((button) => button.classList.contains("is-search-match")).length, 1);
+    const rect = target.getBoundingClientRect();
+    assert.ok(Math.abs(rect.left + rect.width / 2 - 160) < .001 && Math.abs(rect.top + rect.height / 2 - 240) < .001, `${layout.dataset.treeLayout}: search must center the actual marker`);
+    assert.ok(cameraStyles.get("--tree-zoom") >= .9);
+  }
+}
+language = "en";
+view.render(animals.map((animal) => animal.id));
+assert.equal(query.placeholder, "Search branches");
+query.value = "포유";
+query.handlers.input();
+assert.match(searchResults.innerHTML, /Mammalia/);
+query.handlers.keydown({ key: "Escape" });
+assert.equal(searchResults.hidden, true);
+query.handlers.focus();
+assert.equal(searchResults.hidden, false);
+query.value = '<img src=x onerror="alert(1)">';
+query.handlers.input();
+assert.match(searchResults.innerHTML, /No matching branch/);
+assert.doesNotMatch(searchResults.innerHTML, /<img/);
+view.render([]);
+query.value = "Mammalia";
+query.handlers.input();
+assert.match(element("#collection-branch-status").textContent, /^0 /);
+query.value = "";
+query.handlers.input();
+assert.equal(searchResults.hidden, true);
+language = "ko";
+view.render(animals.map((animal) => animal.id));
 buttons[0].handlers.click();
 assert.equal(element("#collection-tree-panel").hidden, true);
 assert.equal(buttons[0].attrs["aria-pressed"], "true");
 delete globalThis.document;
 delete globalThis.ResizeObserver;
 delete globalThis.localStorage;
-console.log(`${Object.keys(ancestorNotes).length} notes, one group border/button across 3 layouts/partial collections, startup, photos and navigation passed.`);
+console.log(`${Object.keys(ancestorNotes).length} notes, group borders, bilingual branch search/centering/empty states across 3 layouts, startup, photos and navigation passed.`);

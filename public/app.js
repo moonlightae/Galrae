@@ -271,6 +271,7 @@ const collectionView = createCollectionView({ $, buildTree, speciesById, escapeH
   onOpenSpecies: (id, button) => openSpeciesCard(id, button, true),
   onModeChange: (mode) => { navigationShell.hidden = mode === "tree"; },
   getLanguage: () => state.cardLanguage,
+  getTaxonName: (id) => taxonNamesKo[id],
   getGuideKey: () => `galrae.ancestor-guide.v1.${currentUser?.id || "guest"}`,
 });
 

@@ -65,6 +65,11 @@ export const gameMarkup = `
           <div class="tree-zoom-controls"><button id="collection-zoom-out" type="button" aria-label="도감 계통수 축소">−</button><span id="collection-zoom-status" class="tree-zoom-status" aria-live="polite">100%</span><button id="collection-zoom-in" type="button" aria-label="도감 계통수 확대">+</button></div><button id="collection-tree-fit" class="tree-reset-view" type="button">보기 초기화</button>
         </div>
         <p class="collection-tree-help">휠로 확대·축소하고, 빈 곳을 드래그해 이동할 수 있습니다. 진한 계급 표식을 누르면 특징·대표 생물·진화 이야기가 열립니다.</p>
+        <form id="collection-branch-search" class="collection-branch-search" role="search">
+          <input id="collection-branch-query" type="search" placeholder="분기점 검색" aria-label="분기점 검색" aria-controls="collection-branch-results" autocomplete="off" maxlength="80" />
+          <ul id="collection-branch-results" class="collection-branch-results" hidden></ul>
+          <span id="collection-branch-status" class="sr-only" role="status"></span>
+        </form>
       </div>
       <div id="collection-grid" class="collection-grid"></div>
       <div id="collection-tree-panel" hidden>

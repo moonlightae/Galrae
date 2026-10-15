@@ -738,7 +738,7 @@ button:focus-visible, [role="button"]:focus-visible, .primary-button:focus-visib
 .collection-header .collection-view-controls { margin: 0; }
 .collection-is-tree { position: fixed; inset: 0; z-index: 15; width: 100%; height: 100dvh; min-height: 0; padding: 0; overflow: hidden; background: var(--canvas); }
 .collection-is-tree .collection { padding: 0; border: 0; background: transparent; box-shadow: none; }
-.collection-is-tree .collection-header { position: absolute; top: max(16px, env(safe-area-inset-top)); right: max(16px, env(safe-area-inset-right)); z-index: 5; width: min(460px, calc(100% - 32px)); justify-content: flex-end; padding: 12px; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; box-shadow: var(--shadow); }
+.collection-is-tree .collection-header { position: absolute; top: max(16px, env(safe-area-inset-top)); right: max(16px, env(safe-area-inset-right)); z-index: 7; width: min(460px, calc(100% - 32px)); justify-content: flex-end; padding: 12px; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; box-shadow: var(--shadow); }
 .collection-is-tree .collection-header .section-heading { display: none; }
 .collection-is-tree .data-attribution { display: none; }
 .collection-tree-toolbar { display: none; width: 100%; flex-wrap: wrap; justify-content: flex-end; gap: 6px; }
@@ -747,6 +747,16 @@ button:focus-visible, [role="button"]:focus-visible, .primary-button:focus-visib
 .collection-tree-toolbar #collection-tree-fit { width: auto; min-height: 36px; padding: 6px 12px; font-size: .8rem; }
 .collection-tree-help { display: none; width: 100%; margin: 0; color: var(--muted); font-size: .72rem; line-height: 1.5; }
 .collection-is-tree .collection-tree-help { display: block; }
+.collection-branch-search { display: none; position: relative; width: min(240px, 100%); margin-left: auto; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+.collection-is-tree .collection-branch-search { display: block; }
+.collection-branch-search input { width: 100%; min-height: 40px; padding: 8px 12px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); color: var(--ink); font: inherit; font-size: .85rem; }
+.collection-branch-results { position: absolute; top: calc(100% + 6px); right: 0; width: 100%; max-height: min(280px, 35dvh); overflow-y: auto; margin: 0; padding: 4px; list-style: none; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; box-shadow: var(--shadow); }
+.collection-branch-results button { display: block; width: 100%; padding: 8px; border: 0; border-radius: 4px; background: transparent; color: var(--ink); text-align: left; cursor: pointer; }
+.collection-branch-results button:hover, .collection-branch-results button:focus-visible { background: var(--canvas); }
+.collection-branch-results small { display: block; margin-top: 3px; color: var(--muted); font-size: .7rem; }
+.branch-search-empty { padding: 8px; font-size: .78rem; line-height: 1.5; color: var(--muted); }
+#collection-tree .clade-node.is-search-match { opacity: 1; outline: 2px solid var(--ink); outline-offset: 6px; border-radius: 6px; background: var(--surface); }
 #collection-tree .tree-pillar button { display: none; }
 #collection-tree .clade-node:disabled { opacity: 1; }
 #collection-tree .clade-node.has-ancestor-note { outline: 3px solid var(--ink); outline-offset: 3px; cursor: pointer; }
@@ -785,7 +795,8 @@ button:focus-visible, [role="button"]:focus-visible, .primary-button:focus-visib
 .collection-rank-legend p { max-width: 110px; margin: 10px 0 0; font-size: .62rem; line-height: 1.4; color: var(--muted); }
 #ancestor-content ul { margin: 0; padding-left: 20px; font-size: .88rem; line-height: 1.8; }
 #ancestor-content li i { color: var(--muted); font-size: .82rem; }
-@media (max-height: 540px) { .collection-rank-legend { top: auto; bottom: 12px; transform: none; padding: 6px; } .collection-rank-legend ul { gap: 2px; } .collection-rank-legend .rank-mark { width: 18px; height: 18px; flex-basis: 18px; } .collection-rank-legend p { margin-top: 4px; } }
+@media (max-height: 760px) { .collection-rank-legend { top: auto; bottom: 12px; transform: none; } }
+@media (max-height: 540px) { .collection-rank-legend { padding: 6px; } .collection-rank-legend ul { gap: 2px; } .collection-rank-legend .rank-mark { width: 18px; height: 18px; flex-basis: 18px; } .collection-rank-legend p { margin-top: 4px; } }
 .collection-shortcut { position: fixed; right: 76px; bottom: max(24px, env(safe-area-inset-bottom)); z-index: 30; display: grid; place-items: center; width: 64px; height: 64px; padding: 0; background: #fff; border: 0; border-radius: 50%; box-shadow: 0 4px 18px rgba(32, 38, 43, .18); transition: transform 220ms cubic-bezier(.2, .8, .2, 1.3), box-shadow 220ms ease; cursor: pointer; }
 .collection-shortcut svg { transition: transform 280ms cubic-bezier(.2, .8, .2, 1.3); }
 @media (hover: hover) {
