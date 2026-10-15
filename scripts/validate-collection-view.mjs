@@ -5,6 +5,7 @@ import { ancestorNotes, classAncestors, createAncestorNotes, getClassIds } from 
 import { upperAncestors } from "../public/upper-ancestors.js";
 import { taxonProfiles } from "../public/taxon-profiles.js";
 import { legendRanks, rankNames, rankMark } from "../public/rank-marks.js";
+import { orderAncestors } from "../public/order-ancestors.js";
 await import("../public/game-logic.js");
 const { buildTree } = globalThis.GalraeLogic;
 const { animals } = JSON.parse(readFileSync(new URL("../public/data/animals.json", import.meta.url)));
@@ -54,7 +55,7 @@ Object.defineProperty(viewport, "innerHTML", {
     this.markup = markup;
     const size = markup.match(/data-width="([^"]+)" data-height="([^"]+)"/);
     tree = size ? { dataset: { width: size[1], height: size[2] }, style: {}, parentElement: { style: {} } } : null;
-    branchButtons = [...markup.matchAll(/class="clade-node(?: class-marker)?"[^>]*data-target="([^"]+)"/g)].map((match, i) => {
+    branchButtons = [...markup.matchAll(/class="clade-node(?: class-marker| taxon-group-note)?"[^>]*data-target="([^"]+)"/g)].map((match, i) => {
       const button = element(`branch-${i}-${match[1]}`);
       button.dataset.target = match[1];
       button.dataset.rank = match[0].match(/data-rank="([^"]+)"/)?.[1];
@@ -106,7 +107,7 @@ for (const ids of [["homo-sapiens"], ["homo-sapiens", "asterias-rubens"], animal
   assert.equal(opened, speciesButtons[0].dataset.speciesId);
 }
 const annotated = branchButtons.filter((button) => button.dataset.ancestorId);
-assert.equal(new Set(annotated.map((button) => button.dataset.ancestorId)).size, 143, "All ranked notes and above-class branches must be reachable");
+assert.deepEqual(new Set(annotated.map((button) => button.dataset.ancestorId)), new Set(Object.keys(ancestorNotes)), "Every registered note, including orders and group borders, must be reachable");
 for (const button of annotated) {
   let stopped = false;
   button.handlers.click({ stopPropagation() { stopped = true; } });
@@ -120,7 +121,8 @@ for (const button of annotated) {
 assert.equal(new Set(legendRanks.map(rankMark)).size, 6, "Each of the six ranks needs a distinct shape");
 const legend = element("#collection-rank-legend").innerHTML;
 assert.ok(legendRanks.every((rank, index) => index === 0 || legend.indexOf(`<span>${rankNames[rank][0]}</span>`) > legend.indexOf(`<span>${rankNames[legendRanks[index - 1]][0]}</span>`)), "Legend must follow the requested rank order");
-assert.ok(branchButtons.some((button) => button.dataset.rank === "order" && button.innerHTML === rankMark("order")), "Visible order branches need order symbols even without ancestry notes");
+assert.equal(branchButtons.filter((button) => button.dataset.rank === "order").length, Object.keys(orderAncestors).length, "Every visible order must have an explanation");
+assert.ok(branchButtons.filter((button) => button.dataset.rank === "order").every((button) => button.innerHTML === rankMark("order") && !button.disabled && button.handlers.click));
 assert.equal(element("#ancestor-guide").shown, 1, "Guide must not repeat after dismissal");
 assert.equal(stored.get("guide-test-user"), "seen");
 assert.ok(annotated.some((button) => button.dataset.ancestorId === "ncbi:6844"), "Horseshoe-crab class must be reachable");
@@ -188,6 +190,45 @@ for (const layout of layouts) {
   assert.deepEqual(reachable, new Set(Object.keys(ancestorNotes)), `${layout.dataset.treeLayout}: every note must be reachable`);
 }
 
+for (const languageOption of ["ko", "en"]) {
+  language = languageOption;
+  for (const [id, note] of Object.entries(orderAncestors)) {
+    notes.open(id);
+    const representative = animals.find((animal) => animal.image.thumbnailUrl === element("#ancestor-image").src);
+    assert.ok(memberIds.get(id).has(representative.id), `${id}: order photo must be a descendant`);
+    assert.ok(element("#ancestor-content").innerHTML.includes(note[language][0]));
+    assert.ok(!/undefined/.test(element("#ancestor-scientific").textContent + element("#ancestor-content").innerHTML));
+  }
+}
+language = "ko";
+const polychaetes = ["platynereis-dumerilii", "riftia-pachyptila"];
+for (const ids of [[polychaetes[0]], polychaetes, [...polychaetes, "hirudo-medicinalis", "lumbricus-terrestris"], animals.map((animal) => animal.id), ["homo-sapiens"]]) {
+  view.render(ids);
+  for (const layout of layouts) {
+    layout.handlers.click();
+    const outlines = [...viewport.markup.matchAll(/class="taxon-group" data-group="([^"]+)" data-members="([^"]+)" style="left:([^p]+)px;top:([^p]+)px;width:([^p]+)px;height:([^p]+)px"/g)];
+    assert.deepEqual(new Set(outlines.flatMap((match) => match[2].split(","))), new Set(ids.filter((id) => polychaetes.includes(id))), "Borders must cover exactly the collected traditional polychaetes");
+    const positionedLeaves = [...viewport.markup.matchAll(/class="species-node[^"]*"[^>]*style="left:([^p]+)px;top:([^p]+)px" data-species-id="([^"]+)"/g)];
+    for (const outline of outlines) {
+      const [left, top, width, height] = outline.slice(3).map(Number);
+      assert.ok(width > 0 && height > 0);
+      for (const leaf of positionedLeaves) {
+        const [x, y] = leaf.slice(1, 3).map(Number);
+        if (polychaetes.includes(leaf[3])) continue;
+        assert.ok(x + 84 < left || x - 84 > left + width || y + 36 < top || y - 36 > top + height, `${layout.dataset.treeLayout}: border must not enclose ${leaf[3]}`);
+      }
+    }
+    const groupButtons = branchButtons.filter((button) => button.dataset.ancestorId === "ncbi:6341");
+    assert.equal(groupButtons.length, outlines.length, "Every border needs an explanation button");
+    for (const button of groupButtons) {
+      button.handlers.click({ stopPropagation() {} });
+      assert.equal(element("#ancestor-title").textContent, "다모강");
+      assert.match(element("#ancestor-content").innerHTML, /측계통군/);
+    }
+  }
+}
+view.render(animals.map((animal) => animal.id));
+
 element("#ancestor-image").onerror();
 assert.equal(element("#ancestor-image-fallback").hidden, false);
 layouts[2].handlers.click();
@@ -209,4 +250,4 @@ assert.equal(buttons[0].attrs["aria-pressed"], "true");
 delete globalThis.document;
 delete globalThis.ResizeObserver;
 delete globalThis.localStorage;
-console.log("143 notes, unchanged topology, photos/fallback, first eligible guide/persistence and tree navigation passed.");
+console.log(`${Object.keys(ancestorNotes).length} notes, all visible orders, paraphyletic borders across 3 layouts/partial collections, startup, photos and navigation passed.`);

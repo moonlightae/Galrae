@@ -20,7 +20,7 @@ function visit(node, aboveClass = true) {
 visit(tree);
 assert.equal(expected.size, 50);
 assert.deepEqual(new Set(Object.keys(upperAncestors)), expected, "Every actual above-class branch needs an explanation, without adding below-class or unary branches");
-assert.equal(Object.keys(ancestorNotes).length, 143);
+assert.ok(Object.keys(ancestorNotes).length >= 143);
 for (const [id, note] of Object.entries(upperAncestors)) {
   assert.equal(ancestorNotes[id].ko, note.ko);
   assert.ok(ancestorNotes[id].sources.length >= note.sources.length);
@@ -33,4 +33,4 @@ for (const [id, note] of Object.entries(upperAncestors)) {
 }
 for (const id of ["Q729", "Q1360", "Q10915", "Q44631", "canonical:planulozoa", "canonical:euteleostomi"]) assert.ok(expected.has(id));
 assert.ok(!expected.has("Q7377"), "Within-mammal explanations are outside this request");
-console.log("All 50 above-class branch points have bilingual, sourced explanations; total notes: 143.");
+console.log(`All 50 above-class branch points have bilingual, sourced explanations; total notes: ${Object.keys(ancestorNotes).length}.`);

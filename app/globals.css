@@ -771,9 +771,14 @@ button:focus-visible, [role="button"]:focus-visible, .primary-button:focus-visib
 #collection-tree .clade-node.ranked-taxon { width: 36px; height: 36px; min-width: 36px; min-height: 36px; border: 0; border-radius: 0; background: transparent; color: var(--ink); box-shadow: none; outline: none; }
 .rank-mark { display: block; width: 24px; height: 24px; flex: 0 0 24px; pointer-events: none; }
 #collection-tree .ranked-taxon:disabled { opacity: .45; cursor: default; }
+.taxon-group { position: absolute; z-index: 1; border: 1px dashed var(--muted); border-radius: 14px; pointer-events: none; }
+#collection-tree .clade-node.taxon-group-note { display: flex; align-items: center; gap: 5px; width: max-content; height: 32px; padding: 3px 8px; border-radius: 16px; background: var(--surface); font-size: .7rem; white-space: nowrap; }
+#collection-tree .taxon-group-note .rank-mark { width: 18px; height: 18px; flex-basis: 18px; }
+#collection-tree .clade-node.taxon-group-note:hover { transform: translate(-50%, -50%) scale(1.06); }
 #collection-tree .ranked-taxon:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; border-radius: 4px; }
 #collection-tree .phylo-tree.layout-bottom > .ranked-taxon { transform: translate(-50%, -50%) scaleY(-1); }
 #collection-tree .phylo-tree.layout-bottom > .ranked-taxon:hover { transform: translate(-50%, -50%) scaleY(-1) scale(1.35); }
+#collection-tree .phylo-tree.layout-bottom > .taxon-group-note:hover { transform: translate(-50%, -50%) scaleY(-1) scale(1.06); }
 .collection-rank-legend { position: absolute; z-index: 6; right: max(12px, env(safe-area-inset-right)); top: 50%; transform: translateY(-50%); max-width: 145px; padding: 10px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); box-shadow: var(--shadow); pointer-events: none; }
 .collection-rank-legend ul { list-style: none; display: grid; gap: 8px; margin: 0; padding: 0; }
 .collection-rank-legend li { display: flex; align-items: center; gap: 8px; font-size: .76rem; }

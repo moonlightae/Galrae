@@ -1,5 +1,5 @@
 const version = new URL(import.meta.url).search;
-const [{ bindTreeNavigation, createTreeView }, { createAncestorNotes }, { legendRanks, rankNames, rankMark }] = await Promise.all([
+const [{ bindTreeNavigation, createTreeView }, { createAncestorNotes, ancestorNotes, getClassIds }, { legendRanks, rankNames, rankMark }] = await Promise.all([
   import(`./tree-view.js${version}`), import(`./class-ancestors.js${version}`), import(`./rank-marks.js${version}`),
 ]);
 
@@ -25,18 +25,21 @@ export function createCollectionView({ $, buildTree, speciesById, escapeHtml, ca
     const ko = getLanguage() === "ko";
     const legend = $("#collection-rank-legend");
     legend.setAttribute("aria-label", ko ? "계통수 계급 범례" : "Taxonomic rank legend");
-    legend.innerHTML = `<ul>${legendRanks.map((rank) => `<li>${rankMark(rank)}<span>${rankNames[rank][ko ? 0 : 1]}</span></li>`).join("")}</ul><p>${ko ? "그 외: 기타 계급·공통분기" : "Other ranks / shared branches"}</p>`;
+    legend.innerHTML = `<ul>${legendRanks.map((rank) => `<li>${rankMark(rank)}<span>${rankNames[rank][ko ? 0 : 1]}</span></li>`).join("")}</ul><p>${ko ? "그 외: 기타 계급·공통분기<br>점선 테두리: 측계통군" : "Other ranks / shared branches<br>Dashed border: paraphyletic group"}</p>`;
     if (!ids.length) {
       state.tree = null;
       viewport.innerHTML = '<p class="collection-empty">아직 분류한 생물이 없어요. 분류한 동물이 이곳에 모입니다.</p>';
       return;
     }
     state.tree = buildTree(ids, speciesById, null, true);
+    state.taxonGroups = Object.entries(ancestorNotes).filter(([, note]) => note.paraphyletic).map(([id]) => ({
+      id, members: new Set(ids.filter((speciesId) => getClassIds(speciesById.get(speciesId)).includes(id))),
+    }));
     function addClassReferences(node) {
       if (node.type === "branch") { node.children.forEach(addClassReferences); return; }
       const animal = speciesById.get(node.id);
       const supplement = animal.taxonomy.rankReview?.supplemental.class;
-      if (supplement && !animal.taxonomy.lineage.some((taxon) => taxon.rank === "class")) node.classReference = supplement.taxonId;
+      if (supplement && !ancestorNotes[supplement.taxonId]?.paraphyletic && !animal.taxonomy.lineage.some((taxon) => taxon.rank === "class")) node.classReference = supplement.taxonId;
     }
     addClassReferences(state.tree);
     view.renderTree();

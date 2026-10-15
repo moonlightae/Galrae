@@ -16,6 +16,7 @@ const REPORT_PATH = process.env.GALRAE_REPORT_PATH
   : path.join(ROOT, "data", "animals.report.json");
 const ANIMALIA_ID = "Q729";
 const CARD_IMAGES = {
+  "Homo sapiens": { fileName: "Samantha Cristoforetti official portrait.jpg", objectFit: "contain" },
   "Xenoturbella bocki": { fileName: "Xenoturbella (bocki) Sweden 2008.jpg", objectFit: "contain", identificationNote: "Xenoturbella sp. (possibly X. bocki)" },
   "Architeuthis dux": { fileName: "MOL 1130046 Architeuthis specimen.jpg", objectFit: "contain" },
 };

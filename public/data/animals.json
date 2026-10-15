@@ -25691,19 +25691,20 @@
         }
       },
       "image": {
-        "fileName": "Human.svg",
-        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/93/Human.svg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-        "thumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/93/Human.svg/960px-Human.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-        "width": 1060,
-        "height": 1320,
-        "sha1": "935a50a3847f19d88029d91a4e2e1dec70f188ff",
-        "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Human.svg",
-        "artist": "Carl Sagan",
-        "credit": "Derived from a public domain NASA image",
+        "fileName": "Samantha Cristoforetti official portrait.jpg",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2c/Samantha_Cristoforetti_official_portrait.jpg",
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Samantha_Cristoforetti_official_portrait.jpg/960px-Samantha_Cristoforetti_official_portrait.jpg",
+        "width": 3200,
+        "height": 4000,
+        "sha1": "7298823a482daaee1d29685579e4c92bccc5d191",
+        "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Samantha_Cristoforetti_official_portrait.jpg",
+        "artist": "NASA / Robert Markowitz",
+        "credit": "NASA Johnson Space Center · JSC2013-E-076593",
         "license": "Public domain",
-        "licenseUrl": "https://commons.wikimedia.org/wiki/File:Human.svg",
+        "licenseUrl": "https://commons.wikimedia.org/wiki/File:Samantha_Cristoforetti_official_portrait.jpg#Licensing",
         "attributionRequired": false,
-        "attribution": "Carl Sagan / Public domain / Wikimedia Commons"
+        "attribution": "NASA / Robert Markowitz / Public domain / Wikimedia Commons",
+        "objectFit": "contain"
       },
       "wikipedia": {
         "title": "Human",

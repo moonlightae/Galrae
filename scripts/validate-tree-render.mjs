@@ -295,6 +295,9 @@ detailState.classified.push("architeuthis-dux");
 detailContext.openSpeciesCard("architeuthis-dux");
 assert.equal(detailElement("#species-view-image").style.objectFit, "contain", "Whole-animal photos must remain uncropped");
 detailContext.openSpeciesCard(humanId);
+assert.equal(detailElement("#species-view-image").style.objectFit, "contain", "Human portrait must remain uncropped at every card ratio");
+assert.equal(speciesById.get(humanId).image.fileName, "Samantha Cristoforetti official portrait.jpg", "Human cards must use the clothed portrait");
+detailContext.openSpeciesCard(ctenophoreId, null, true);
 assert.equal(detailElement("#species-view-image").style.objectFit, "cover", "Opening another species must reset image fitting");
 console.log("Validated answer-card details and taxonomy visibility after failure.");
 
