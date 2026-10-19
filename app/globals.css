@@ -11,37 +11,37 @@
 
 /* 테마 */
 :root {
-  --ink: #6b4935;
-  --forest: #6b4935;
-  --forest-2: #896c56;
+  --ink: #4b2e23;
+  --forest: #4b2e23;
+  --forest-2: #75513e;
   --paper: #ffffff;
   --yellow: #ffffff;
-  --coral: #785b48;
+  --coral: #674635;
   --line: #e2d8ce;
-  --muted: #785b48;
-  --shadow: 0 8px 24px rgba(107, 73, 53, .08);
+  --muted: #674635;
+  --shadow: 0 8px 24px rgba(75, 46, 35, .08);
   --canvas: #fdfaf6;
   --surface: #ffffff;
   --surface-muted: #f4ede6;
-  --edge: #a38a74;
+  --edge: #98765f;
   color-scheme: light;
 }
 
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --ink: #f4e5d5;
-  --forest: #f4e5d5;
-  --forest-2: #c5ab94;
+  --ink: #ffad66;
+  --forest: #ffad66;
+  --forest-2: #d99a68;
   --paper: #2c231d;
   --yellow: #2c231d;
-  --coral: #d0b8a3;
+  --coral: #e0b088;
   --line: #564439;
-  --muted: #d0b8a3;
+  --muted: #e0b088;
   --shadow: 0 8px 24px rgba(0, 0, 0, .25);
   --canvas: #201914;
   --surface: #2c231d;
   --surface-muted: #3a2e25;
-  --edge: #aa8f77;
+  --edge: #aa7851;
 }
 
 :root[data-kingdom="plants"] {
@@ -61,19 +61,19 @@
 }
 
 :root[data-kingdom="plants"][data-theme="dark"] {
-  --ink: #c8f3eb;
-  --forest: #c8f3eb;
-  --forest-2: #91bdb3;
+  --ink: #a7efbd;
+  --forest: #a7efbd;
+  --forest-2: #8fbd9e;
   --paper: #18332e;
   --yellow: #18332e;
-  --coral: #a6d0c6;
+  --coral: #b2d9bc;
   --line: #35574f;
-  --muted: #a6d0c6;
+  --muted: #b2d9bc;
   --shadow: 0 8px 24px rgba(0, 0, 0, .25);
   --canvas: #102521;
   --surface: #18332e;
   --surface-muted: #224239;
-  --edge: #78a99a;
+  --edge: #75a785;
 }
 
 

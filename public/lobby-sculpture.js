@@ -68,8 +68,8 @@ export function createLobbySculpture(surface, lobby) {
   }
   geometry.computeBoundingSphere();
   const palettes = {
-    animals: { light: new THREE.Color(0x6b4935), dark: new THREE.Color(0xf4e5d5) },
-    plants: { light: new THREE.Color(0x11675f), dark: new THREE.Color(0xc8f3eb) },
+    animals: { light: new THREE.Color(0x4b2e23), dark: new THREE.Color(0xffad66) },
+    plants: { light: new THREE.Color(0x11675f), dark: new THREE.Color(0xa7efbd) },
   };
   const initialColor = palettes[document.documentElement.dataset.kingdom === "plants" ? "plants" : "animals"].light;
   const uniforms = { front: { value: -3.4 }, from: { value: initialColor.clone() }, to: { value: initialColor.clone() } };
