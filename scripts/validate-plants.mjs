@@ -74,7 +74,7 @@ const element = (selector) => {
 };
 const buttons = ["animals", "plants"].map((kingdom) => ({ dataset: { kingdom }, classList: { toggle(_, value) { this.active = value; } }, setAttribute(_, value) { this.pressed = value; } }));
 const events = [];
-const context = { gameStarting: false, selectedKingdom: "animals", $: element,
+const context = { gameStarting: false, selectedKingdom: "animals", dataset: null, $: element,
   document: { documentElement: { dataset: {} }, querySelectorAll: () => buttons },
   window: { dispatchEvent: (event) => events.push(event.type) }, Event,
 };

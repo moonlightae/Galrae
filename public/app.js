@@ -27,6 +27,10 @@ function selectKingdom(kingdom) {
     button.classList.toggle("is-active", active);
     button.setAttribute("aria-pressed", String(active));
   });
+  if (dataset) {
+    $("#collection-branch-query").value = "";
+    renderCollection();
+  }
 }
 const COLLECTION_PREFIX = "galrae.collection.v3";
 const SUCCESS_COUNTS_PREFIX = "galrae.success-counts.v1";
@@ -253,7 +257,7 @@ function migrateCollection() {
     .filter(([id, record]) => !initialSpeciesIds.has(id) && speciesById.has(id) && normalizeSuccessRecord(record))
     .map(([id]) => id);
   const canClaimLegacy = currentUser && !localStorage.getItem("galrae.collection.claimed");
-  const migrated = [...current, ...counted, ...(canClaimLegacy || !currentUser ? old : []), HUMAN_ID];
+  const migrated = [...current, ...counted, ...(canClaimLegacy || !currentUser ? old : []), HUMAN_ID, PLANT_INITIAL_ID];
   setCollection(migrated.length ? migrated : [HUMAN_ID]);
   if (canClaimLegacy) localStorage.setItem("galrae.collection.claimed", currentUser.id);
   localStorage.removeItem("galrae.collection");
@@ -269,13 +273,19 @@ function imageCreditText(animal) {
 }
 
 function renderCollection() {
-  const collected = getCollection();
+  const kingdom = selectedKingdom === "plants" ? "Plantae" : "Animalia";
+  const kingdomName = selectedKingdom === "plants" ? "식물계" : "동물계";
+  const collected = getCollection().filter((id) => speciesById.get(id)?.taxonomy.lineage[0].scientificName === kingdom);
+  $("#collection-title").textContent = `${kingdomName} 도감`;
+  $("#collection-animal-attribution").hidden = selectedKingdom === "plants";
+  $("#collection-plant-attribution").hidden = selectedKingdom !== "plants";
+  $("#collection-tree").setAttribute("aria-label", `수집한 ${kingdomName} 생물의 계통수`);
   collectionView.render(collected);
   const successCounts = getSuccessCounts();
   $("#collection-count").textContent = `${collected.length}종 발견`;
   const grid = $("#collection-grid");
   if (!collected.length) {
-    grid.innerHTML = '<div class="collection-empty">아직 분류한 생물이 없어요.<br />동물계 분류를 시작해 첫 카드를 모아보세요.</div>';
+    grid.innerHTML = `<div class="collection-empty">아직 분류한 생물이 없어요.<br />${kingdomName} 분류를 시작해 첫 카드를 모아보세요.</div>`;
     return;
   }
   grid.innerHTML = collected.map((id) => {

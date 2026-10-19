@@ -80,6 +80,7 @@ export function createCollectionView({ $, buildTree, speciesById, escapeHtml, ca
 
   function render(ids) {
     cancelFocusAnimation();
+    const changed = ids.join("|") !== collected.join("|");
     collected = ids;
     grid.hidden = mode !== "cards";
     panel.hidden = mode !== "tree";
@@ -92,7 +93,7 @@ export function createCollectionView({ $, buildTree, speciesById, escapeHtml, ca
     legend.innerHTML = `<ul>${legendRanks.map((rank) => `<li>${rankMark(rank)}<span>${rankNames[rank][ko ? 0 : 1]}</span></li>`).join("")}</ul><p>${ko ? "그 외: 기타 계급·공통분기" : "Other ranks / shared branches"}</p>`;
     if (!ids.length) {
       state.tree = null;
-      viewport.innerHTML = '<p class="collection-empty">아직 분류한 생물이 없어요. 분류한 동물이 이곳에 모입니다.</p>';
+      viewport.innerHTML = '<p class="collection-empty">아직 분류한 생물이 없어요. 분류한 생물이 이곳에 모입니다.</p>';
       renderSearchResults();
       return;
     }
@@ -137,6 +138,7 @@ export function createCollectionView({ $, buildTree, speciesById, escapeHtml, ca
     }
     indexNames(state.tree);
     view.renderTree();
+    if (changed && !page.hidden) view.resetTreeView();
     viewport.querySelectorAll(".tree-pillar button, .clade-node").forEach((button) => {
       const taxonId = button.dataset.target;
       button.removeAttribute("data-target");

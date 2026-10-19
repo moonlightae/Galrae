@@ -57,7 +57,11 @@ export const gameMarkup = `
     <section class="collection" aria-labelledby="collection-title">
       <div class="collection-header">
       <button class="text-button" type="button" data-page="lobby">← 로비</button>
-      <div class="section-heading"><div><h2 id="collection-title">도감</h2></div><p id="collection-count">0종 발견</p></div>
+      <div class="section-heading"><div><h2 id="collection-title">동물계 도감</h2></div><p id="collection-count">0종 발견</p></div>
+      <div class="tree-layout-controls" role="group" aria-label="도감의 계 선택">
+        <button type="button" data-kingdom="animals" aria-pressed="true">동물계</button>
+        <button type="button" data-kingdom="plants" aria-pressed="false">식물계</button>
+      </div>
       <div class="collection-view-controls tree-layout-controls" role="group" aria-label="도감 보기 모드">
         <button type="button" data-collection-view="cards" aria-pressed="true">도감</button>
         <button type="button" data-collection-view="tree" aria-pressed="false">계통수</button>
@@ -78,9 +82,10 @@ export const gameMarkup = `
       <div id="collection-grid" class="collection-grid"></div>
       <div id="collection-tree-panel" hidden>
         <aside id="collection-rank-legend" class="collection-rank-legend" aria-label="계통수 계급 범례"></aside>
-        <div id="collection-tree" class="tree-canvas" tabindex="0" role="region" aria-label="수집한 동물의 계통수"></div>
+        <div id="collection-tree" class="tree-canvas" tabindex="0" role="region" aria-label="수집한 동물계 생물의 계통수"></div>
       </div>
-      <p class="data-attribution">Species text and taxonomy data from <a href="https://en.wikipedia.org/" target="_blank" rel="noreferrer">English Wikipedia</a> (<a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noreferrer">CC BY-SA 4.0</a>) and <a href="https://www.wikidata.org/" target="_blank" rel="noreferrer">Wikidata</a>. Images are provided by <a href="https://commons.wikimedia.org/" target="_blank" rel="noreferrer">Wikimedia Commons</a> under the license shown on each card.</p>
+      <p id="collection-animal-attribution" class="data-attribution">Species text and taxonomy data from <a href="https://en.wikipedia.org/" target="_blank" rel="noreferrer">English Wikipedia</a> (<a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noreferrer">CC BY-SA 4.0</a>) and <a href="https://www.wikidata.org/" target="_blank" rel="noreferrer">Wikidata</a>. Images are provided by <a href="https://commons.wikimedia.org/" target="_blank" rel="noreferrer">Wikimedia Commons</a> under the license shown on each card.</p>
+      <p id="collection-plant-attribution" class="data-attribution" hidden>식물 분류 기준: <a href="https://doi.org/10.1371/journal.pone.0119248" target="_blank" rel="noreferrer">Ruggiero et al. (2015)</a>·<a href="https://www.gbif.org/" target="_blank" rel="noreferrer">GBIF</a>·<a href="https://www.ncbi.nlm.nih.gov/taxonomy" target="_blank" rel="noreferrer">NCBI</a>. 설명은 갈래에서 작성했습니다. 사진 출처와 라이선스는 각 카드에 표시합니다.</p>
     </section>
   </main>
   <main id="tasks-page" class="screen library-screen" data-lobby-page hidden>
