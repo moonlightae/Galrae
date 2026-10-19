@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "speciesCount": 11,
+  "speciesCount": 46,
   "initialSpeciesId": "hibiscus-syriacus",
   "taxa": [
     {
@@ -134,6 +134,294 @@
       "scientificName": "Anthocerotopsida",
       "koName": "뿔이끼강",
       "rank": "class"
+    },
+    {
+      "wikidataId": "plant:Glaucophyceae",
+      "scientificName": "Glaucophyceae",
+      "koName": "Glaucophyceae",
+      "rank": "class"
+    },
+    {
+      "wikidataId": "plant:Cyanidiophyceae",
+      "scientificName": "Cyanidiophyceae",
+      "koName": "Cyanidiophyceae",
+      "rank": "class"
+    },
+    {
+      "wikidataId": "plant:Bangiophyceae",
+      "scientificName": "Bangiophyceae",
+      "koName": "Bangiophyceae",
+      "rank": "class"
+    },
+    {
+      "wikidataId": "plant:Florideophyceae",
+      "scientificName": "Florideophyceae",
+      "koName": "Florideophyceae",
+      "rank": "class"
+    },
+    {
+      "wikidataId": "plant:Compsopogonophyceae",
+      "scientificName": "Compsopogonophyceae",
+      "koName": "Compsopogonophyceae",
+      "rank": "class"
+    },
+    {
+      "wikidataId": "plant:Porphyridiophyceae",
+      "scientificName": "Porphyridiophyceae",
+      "koName": "Porphyridiophyceae",
+      "rank": "class"
+    },
+    {
+      "wikidataId": "plant:Rhodellophyceae",
+      "scientificName": "Rhodellophyceae",
+      "koName": "Rhodellophyceae",
+      "rank": "class"
+    },
+    {
+      "wikidataId": "plant:Stylonematophyceae",
+      "scientificName": "Stylonematophyceae",
+      "koName": "Stylonematophyceae",
+      "rank": "class"
+    },
+    {
+      "wikidataId": "plant:Chlorodendrophyceae",
+      "scientificName": "Chlorodendrophyceae",
+      "koName": "Chlorodendrophyceae",
+      "rank": "class"
+    },
+    {
+      "wikidataId": "plant:Chlorophyceae",
+      "scientificName": "Chlorophyceae",
+      "koName": "Chlorophyceae",
+      "rank": "class"
+    },
+    {
+      "wikidataId": "plant:Pedinophyceae",
+      "scientificName": "Pedinophyceae",
+      "koName": "Pedinophyceae",
+      "rank": "class"
+    },
+    {
+      "wikidataId": "plant:Trebouxiophyceae",
+      "scientificName": "Trebouxiophyceae",
+      "koName": "Trebouxiophyceae",
+      "rank": "class"
+    },
+    {
+      "wikidataId": "plant:Ulvophyceae",
+      "scientificName": "Ulvophyceae",
+      "koName": "Ulvophyceae",
+      "rank": "class"
+    },
+    {
+      "wikidataId": "plant:Mamiellophyceae",
+      "scientificName": "Mamiellophyceae",
+      "koName": "Mamiellophyceae",
+      "rank": "class"
+    },
+    {
+      "wikidataId": "plant:Nephroselmidophyceae",
+      "scientificName": "Nephroselmidophyceae",
+      "koName": "Nephroselmidophyceae",
+      "rank": "class"
+    },
+    {
+      "wikidataId": "plant:Pyramimonadophyceae",
+      "scientificName": "Pyramimonadophyceae",
+      "koName": "Pyramimonadophyceae",
+      "rank": "class"
+    },
+    {
+      "wikidataId": "plant:Chloropicophyceae",
+      "scientificName": "Chloropicophyceae",
+      "koName": "Chloropicophyceae",
+      "rank": "class"
+    },
+    {
+      "wikidataId": "plant:Picocystophyceae",
+      "scientificName": "Picocystophyceae",
+      "koName": "Picocystophyceae",
+      "rank": "class"
+    },
+    {
+      "wikidataId": "plant:Palmophyllophyceae",
+      "scientificName": "Palmophyllophyceae",
+      "koName": "Palmophyllophyceae",
+      "rank": "class"
+    },
+    {
+      "wikidataId": "plant:Charophyceae",
+      "scientificName": "Charophyceae",
+      "koName": "Charophyceae",
+      "rank": "class"
+    },
+    {
+      "wikidataId": "plant:Chlorokybophyceae",
+      "scientificName": "Chlorokybophyceae",
+      "koName": "Chlorokybophyceae",
+      "rank": "class"
+    },
+    {
+      "wikidataId": "plant:Coleochaetophyceae",
+      "scientificName": "Coleochaetophyceae",
+      "koName": "Coleochaetophyceae",
+      "rank": "class"
+    },
+    {
+      "wikidataId": "plant:Zygnematophyceae",
+      "scientificName": "Zygnematophyceae",
+      "koName": "Zygnematophyceae",
+      "rank": "class"
+    },
+    {
+      "wikidataId": "plant:Klebsormidiophyceae",
+      "scientificName": "Klebsormidiophyceae",
+      "koName": "Klebsormidiophyceae",
+      "rank": "class"
+    },
+    {
+      "wikidataId": "plant:Mesostigmatophyceae",
+      "scientificName": "Mesostigmatophyceae",
+      "koName": "Mesostigmatophyceae",
+      "rank": "class"
+    },
+    {
+      "wikidataId": "plant:Leiosporocerotopsida",
+      "scientificName": "Leiosporocerotopsida",
+      "koName": "Leiosporocerotopsida",
+      "rank": "class"
+    },
+    {
+      "wikidataId": "plant:Andreaeobryopsida",
+      "scientificName": "Andreaeobryopsida",
+      "koName": "Andreaeobryopsida",
+      "rank": "class"
+    },
+    {
+      "wikidataId": "plant:Andreaeopsida",
+      "scientificName": "Andreaeopsida",
+      "koName": "Andreaeopsida",
+      "rank": "class"
+    },
+    {
+      "wikidataId": "plant:Oedipodiopsida",
+      "scientificName": "Oedipodiopsida",
+      "koName": "Oedipodiopsida",
+      "rank": "class"
+    },
+    {
+      "wikidataId": "plant:Sphagnopsida",
+      "scientificName": "Sphagnopsida",
+      "koName": "Sphagnopsida",
+      "rank": "class"
+    },
+    {
+      "wikidataId": "plant:Takakiopsida",
+      "scientificName": "Takakiopsida",
+      "koName": "Takakiopsida",
+      "rank": "class"
+    },
+    {
+      "wikidataId": "plant:Tetraphidopsida",
+      "scientificName": "Tetraphidopsida",
+      "koName": "Tetraphidopsida",
+      "rank": "class"
+    },
+    {
+      "wikidataId": "plant:Haplomitriopsida",
+      "scientificName": "Haplomitriopsida",
+      "koName": "Haplomitriopsida",
+      "rank": "class"
+    },
+    {
+      "wikidataId": "plant:Jungermanniopsida",
+      "scientificName": "Jungermanniopsida",
+      "koName": "Jungermanniopsida",
+      "rank": "class"
+    },
+    {
+      "wikidataId": "plant:Polytrichopsida",
+      "scientificName": "Polytrichopsida",
+      "koName": "Polytrichopsida",
+      "rank": "class"
+    },
+    {
+      "wikidataId": "plant:Viridiplantae",
+      "scientificName": "Viridiplantae",
+      "koName": "녹색식물",
+      "rank": "clade"
+    },
+    {
+      "wikidataId": "plant:Streptophyta",
+      "scientificName": "Streptophyta",
+      "koName": "스트렙토식물",
+      "rank": "clade"
+    },
+    {
+      "wikidataId": "plant:Phragmoplastophyta",
+      "scientificName": "Phragmoplastophyta",
+      "koName": "격막형성체식물",
+      "rank": "clade"
+    },
+    {
+      "wikidataId": "plant:Anydrophyta",
+      "scientificName": "Anydrophyta",
+      "koName": "접합조류·육상식물 갈래",
+      "rank": "clade"
+    },
+    {
+      "wikidataId": "plant:Bryophyta",
+      "scientificName": "Bryophyta",
+      "koName": "선태식물문",
+      "rank": "phylum"
+    },
+    {
+      "wikidataId": "plant:Marchantiophyta",
+      "scientificName": "Marchantiophyta",
+      "koName": "우산이끼문",
+      "rank": "phylum"
+    },
+    {
+      "wikidataId": "plant:Anthocerotophyta",
+      "scientificName": "Anthocerotophyta",
+      "koName": "뿔이끼문",
+      "rank": "phylum"
+    },
+    {
+      "wikidataId": "plant:Glaucophyta",
+      "scientificName": "Glaucophyta",
+      "koName": "회색조식물문",
+      "rank": "phylum"
+    },
+    {
+      "wikidataId": "plant:Rhodophyta",
+      "scientificName": "Rhodophyta",
+      "koName": "홍조식물문",
+      "rank": "phylum"
+    },
+    {
+      "wikidataId": "plant:Eurhodophytina",
+      "scientificName": "Eurhodophytina",
+      "koName": "진홍조식물",
+      "rank": "clade"
+    },
+    {
+      "wikidataId": "plant:Metarhodophytina",
+      "scientificName": "Metarhodophytina",
+      "koName": "메타홍조식물",
+      "rank": "clade"
+    },
+    {
+      "wikidataId": "plant:Chlorophyta",
+      "scientificName": "Chlorophyta",
+      "koName": "녹조식물문",
+      "rank": "phylum"
+    },
+    {
+      "wikidataId": "plant:Core Chlorophyta",
+      "scientificName": "Core Chlorophyta",
+      "koName": "핵심 녹조식물",
+      "rank": "clade"
     }
   ],
   "plants": [
@@ -154,6 +442,30 @@
             "scientificName": "Plantae",
             "koName": "식물계",
             "rank": "kingdom"
+          },
+          {
+            "wikidataId": "plant:Viridiplantae",
+            "scientificName": "Viridiplantae",
+            "koName": "녹색식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Streptophyta",
+            "scientificName": "Streptophyta",
+            "koName": "스트렙토식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Phragmoplastophyta",
+            "scientificName": "Phragmoplastophyta",
+            "koName": "격막형성체식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Anydrophyta",
+            "scientificName": "Anydrophyta",
+            "koName": "접합조류·육상식물 갈래",
+            "rank": "clade"
           },
           {
             "wikidataId": "plant:Embryophyta",
@@ -224,6 +536,30 @@
             "rank": "kingdom"
           },
           {
+            "wikidataId": "plant:Viridiplantae",
+            "scientificName": "Viridiplantae",
+            "koName": "녹색식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Streptophyta",
+            "scientificName": "Streptophyta",
+            "koName": "스트렙토식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Phragmoplastophyta",
+            "scientificName": "Phragmoplastophyta",
+            "koName": "격막형성체식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Anydrophyta",
+            "scientificName": "Anydrophyta",
+            "koName": "접합조류·육상식물 갈래",
+            "rank": "clade"
+          },
+          {
             "wikidataId": "plant:Embryophyta",
             "scientificName": "Embryophyta",
             "koName": "육상식물",
@@ -290,6 +626,30 @@
             "scientificName": "Plantae",
             "koName": "식물계",
             "rank": "kingdom"
+          },
+          {
+            "wikidataId": "plant:Viridiplantae",
+            "scientificName": "Viridiplantae",
+            "koName": "녹색식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Streptophyta",
+            "scientificName": "Streptophyta",
+            "koName": "스트렙토식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Phragmoplastophyta",
+            "scientificName": "Phragmoplastophyta",
+            "koName": "격막형성체식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Anydrophyta",
+            "scientificName": "Anydrophyta",
+            "koName": "접합조류·육상식물 갈래",
+            "rank": "clade"
           },
           {
             "wikidataId": "plant:Embryophyta",
@@ -366,6 +726,30 @@
             "rank": "kingdom"
           },
           {
+            "wikidataId": "plant:Viridiplantae",
+            "scientificName": "Viridiplantae",
+            "koName": "녹색식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Streptophyta",
+            "scientificName": "Streptophyta",
+            "koName": "스트렙토식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Phragmoplastophyta",
+            "scientificName": "Phragmoplastophyta",
+            "koName": "격막형성체식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Anydrophyta",
+            "scientificName": "Anydrophyta",
+            "koName": "접합조류·육상식물 갈래",
+            "rank": "clade"
+          },
+          {
             "wikidataId": "plant:Embryophyta",
             "scientificName": "Embryophyta",
             "koName": "육상식물",
@@ -438,6 +822,30 @@
             "scientificName": "Plantae",
             "koName": "식물계",
             "rank": "kingdom"
+          },
+          {
+            "wikidataId": "plant:Viridiplantae",
+            "scientificName": "Viridiplantae",
+            "koName": "녹색식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Streptophyta",
+            "scientificName": "Streptophyta",
+            "koName": "스트렙토식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Phragmoplastophyta",
+            "scientificName": "Phragmoplastophyta",
+            "koName": "격막형성체식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Anydrophyta",
+            "scientificName": "Anydrophyta",
+            "koName": "접합조류·육상식물 갈래",
+            "rank": "clade"
           },
           {
             "wikidataId": "plant:Embryophyta",
@@ -514,6 +922,30 @@
             "rank": "kingdom"
           },
           {
+            "wikidataId": "plant:Viridiplantae",
+            "scientificName": "Viridiplantae",
+            "koName": "녹색식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Streptophyta",
+            "scientificName": "Streptophyta",
+            "koName": "스트렙토식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Phragmoplastophyta",
+            "scientificName": "Phragmoplastophyta",
+            "koName": "격막형성체식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Anydrophyta",
+            "scientificName": "Anydrophyta",
+            "koName": "접합조류·육상식물 갈래",
+            "rank": "clade"
+          },
+          {
             "wikidataId": "plant:Embryophyta",
             "scientificName": "Embryophyta",
             "koName": "육상식물",
@@ -588,6 +1020,30 @@
             "rank": "kingdom"
           },
           {
+            "wikidataId": "plant:Viridiplantae",
+            "scientificName": "Viridiplantae",
+            "koName": "녹색식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Streptophyta",
+            "scientificName": "Streptophyta",
+            "koName": "스트렙토식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Phragmoplastophyta",
+            "scientificName": "Phragmoplastophyta",
+            "koName": "격막형성체식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Anydrophyta",
+            "scientificName": "Anydrophyta",
+            "koName": "접합조류·육상식물 갈래",
+            "rank": "clade"
+          },
+          {
             "wikidataId": "plant:Embryophyta",
             "scientificName": "Embryophyta",
             "koName": "육상식물",
@@ -644,6 +1100,30 @@
             "rank": "kingdom"
           },
           {
+            "wikidataId": "plant:Viridiplantae",
+            "scientificName": "Viridiplantae",
+            "koName": "녹색식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Streptophyta",
+            "scientificName": "Streptophyta",
+            "koName": "스트렙토식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Phragmoplastophyta",
+            "scientificName": "Phragmoplastophyta",
+            "koName": "격막형성체식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Anydrophyta",
+            "scientificName": "Anydrophyta",
+            "koName": "접합조류·육상식물 갈래",
+            "rank": "clade"
+          },
+          {
             "wikidataId": "plant:Embryophyta",
             "scientificName": "Embryophyta",
             "koName": "육상식물",
@@ -694,6 +1174,30 @@
             "rank": "kingdom"
           },
           {
+            "wikidataId": "plant:Viridiplantae",
+            "scientificName": "Viridiplantae",
+            "koName": "녹색식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Streptophyta",
+            "scientificName": "Streptophyta",
+            "koName": "스트렙토식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Phragmoplastophyta",
+            "scientificName": "Phragmoplastophyta",
+            "koName": "격막형성체식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Anydrophyta",
+            "scientificName": "Anydrophyta",
+            "koName": "접합조류·육상식물 갈래",
+            "rank": "clade"
+          },
+          {
             "wikidataId": "plant:Embryophyta",
             "scientificName": "Embryophyta",
             "koName": "육상식물",
@@ -712,9 +1216,15 @@
             "rank": "clade"
           },
           {
-            "wikidataId": "plant:Bryopsida",
-            "scientificName": "Bryopsida",
-            "koName": "선강",
+            "wikidataId": "plant:Bryophyta",
+            "scientificName": "Bryophyta",
+            "koName": "선태식물문",
+            "rank": "phylum"
+          },
+          {
+            "wikidataId": "plant:Polytrichopsida",
+            "scientificName": "Polytrichopsida",
+            "koName": "Polytrichopsida",
             "rank": "class"
           }
         ]
@@ -750,6 +1260,30 @@
             "rank": "kingdom"
           },
           {
+            "wikidataId": "plant:Viridiplantae",
+            "scientificName": "Viridiplantae",
+            "koName": "녹색식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Streptophyta",
+            "scientificName": "Streptophyta",
+            "koName": "스트렙토식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Phragmoplastophyta",
+            "scientificName": "Phragmoplastophyta",
+            "koName": "격막형성체식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Anydrophyta",
+            "scientificName": "Anydrophyta",
+            "koName": "접합조류·육상식물 갈래",
+            "rank": "clade"
+          },
+          {
             "wikidataId": "plant:Embryophyta",
             "scientificName": "Embryophyta",
             "koName": "육상식물",
@@ -766,6 +1300,12 @@
             "scientificName": "Setaphyta",
             "koName": "이끼·우산이끼 갈래",
             "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Marchantiophyta",
+            "scientificName": "Marchantiophyta",
+            "koName": "우산이끼문",
+            "rank": "phylum"
           },
           {
             "wikidataId": "plant:Marchantiopsida",
@@ -806,6 +1346,30 @@
             "rank": "kingdom"
           },
           {
+            "wikidataId": "plant:Viridiplantae",
+            "scientificName": "Viridiplantae",
+            "koName": "녹색식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Streptophyta",
+            "scientificName": "Streptophyta",
+            "koName": "스트렙토식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Phragmoplastophyta",
+            "scientificName": "Phragmoplastophyta",
+            "koName": "격막형성체식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Anydrophyta",
+            "scientificName": "Anydrophyta",
+            "koName": "접합조류·육상식물 갈래",
+            "rank": "clade"
+          },
+          {
             "wikidataId": "plant:Embryophyta",
             "scientificName": "Embryophyta",
             "koName": "육상식물",
@@ -816,6 +1380,12 @@
             "scientificName": "Bryophytes",
             "koName": "선태식물",
             "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Anthocerotophyta",
+            "scientificName": "Anthocerotophyta",
+            "koName": "뿔이끼문",
+            "rank": "phylum"
           },
           {
             "wikidataId": "plant:Anthocerotopsida",
@@ -836,9 +1406,2226 @@
         "width": 1365,
         "height": 1352
       }
+    },
+    {
+      "id": "cyanophora-paradoxa",
+      "scientificName": "Cyanophora paradoxa",
+      "commonName": "Cyanophora paradoxa",
+      "wikidataId": "Q3008053",
+      "description": "A glaucophyte alga with photosynthetic plastids inside its cells.",
+      "ko": {
+        "commonName": "Cyanophora paradoxa",
+        "description": "회색조류의 한 종으로, 세포 안에 광합성을 하는 색소체를 갖습니다."
+      },
+      "taxonomy": {
+        "lineage": [
+          {
+            "wikidataId": "plant:Plantae",
+            "scientificName": "Plantae",
+            "koName": "식물계",
+            "rank": "kingdom"
+          },
+          {
+            "wikidataId": "plant:Glaucophyta",
+            "scientificName": "Glaucophyta",
+            "koName": "회색조식물문",
+            "rank": "phylum"
+          },
+          {
+            "wikidataId": "plant:Glaucophyceae",
+            "scientificName": "Glaucophyceae",
+            "koName": "Glaucophyceae",
+            "rank": "class"
+          }
+        ]
+      },
+      "image": {
+        "fileName": "Woelfib_cyanphoraparadoxa_teilungsfigur_1_0632002_img_54414492_ude_20131024233254_small.jpg",
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/d/de/Woelfib_cyanphoraparadoxa_teilungsfigur_1_0632002_img_54414492_ude_20131024233254_small.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/de/Woelfib_cyanphoraparadoxa_teilungsfigur_1_0632002_img_54414492_ude_20131024233254_small.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Woelfib_cyanphoraparadoxa_teilungsfigur_1_0632002_img_54414492_ude_20131024233254_small.jpg",
+        "artist": "Wolfgang Bettighofer at www.protisten.de",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "width": 400,
+        "height": 267
+      }
+    },
+    {
+      "id": "cyanidioschyzon-merolae",
+      "scientificName": "Cyanidioschyzon merolae",
+      "commonName": "Cyanidioschyzon merolae",
+      "wikidataId": "Q2707700",
+      "description": "A small unicellular red alga studied in hot, acidic environments.",
+      "ko": {
+        "commonName": "Cyanidioschyzon merolae",
+        "description": "뜨겁고 산성인 환경에서 연구되는 작은 단세포 홍조류입니다."
+      },
+      "taxonomy": {
+        "lineage": [
+          {
+            "wikidataId": "plant:Plantae",
+            "scientificName": "Plantae",
+            "koName": "식물계",
+            "rank": "kingdom"
+          },
+          {
+            "wikidataId": "plant:Rhodophyta",
+            "scientificName": "Rhodophyta",
+            "koName": "홍조식물문",
+            "rank": "phylum"
+          },
+          {
+            "wikidataId": "plant:Cyanidiophyceae",
+            "scientificName": "Cyanidiophyceae",
+            "koName": "Cyanidiophyceae",
+            "rank": "class"
+          }
+        ]
+      },
+      "image": {
+        "fileName": "Cyanidioschyzon_merolae_10D.jpg",
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/5/55/Cyanidioschyzon_merolae_10D.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/55/Cyanidioschyzon_merolae_10D.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Cyanidioschyzon_merolae_10D.jpg",
+        "artist": "ja:User:NEON / User:NEON_ja",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "width": 512,
+        "height": 512
+      }
+    },
+    {
+      "id": "bangia-atropurpurea",
+      "scientificName": "Bangia atropurpurea",
+      "commonName": "Bangia atropurpurea",
+      "wikidataId": "Q2711675",
+      "description": "A filamentous red alga, belonging to a different lineage from flowering land plants.",
+      "ko": {
+        "commonName": "Bangia atropurpurea",
+        "description": "실 모양으로 자라는 홍조류입니다. 꽃과 씨앗을 만드는 육상식물과 다른 갈래입니다."
+      },
+      "taxonomy": {
+        "lineage": [
+          {
+            "wikidataId": "plant:Plantae",
+            "scientificName": "Plantae",
+            "koName": "식물계",
+            "rank": "kingdom"
+          },
+          {
+            "wikidataId": "plant:Rhodophyta",
+            "scientificName": "Rhodophyta",
+            "koName": "홍조식물문",
+            "rank": "phylum"
+          },
+          {
+            "wikidataId": "plant:Eurhodophytina",
+            "scientificName": "Eurhodophytina",
+            "koName": "진홍조식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Bangiophyceae",
+            "scientificName": "Bangiophyceae",
+            "koName": "Bangiophyceae",
+            "rank": "class"
+          }
+        ]
+      },
+      "image": {
+        "fileName": "Bangia atropurpurea 113032695.jpg",
+        "thumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/38/Bangia_atropurpurea_113032695.jpg/960px-Bangia_atropurpurea_113032695.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/38/Bangia_atropurpurea_113032695.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Bangia_atropurpurea_113032695.jpg",
+        "artist": "psweet",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "width": 1000,
+        "height": 667
+      }
+    },
+    {
+      "id": "chondrus-crispus",
+      "scientificName": "Chondrus crispus",
+      "commonName": "Chondrus crispus",
+      "wikidataId": "Q4963539",
+      "description": "A marine red alga with a flattened, repeatedly branching body.",
+      "ko": {
+        "commonName": "Chondrus crispus",
+        "description": "바닷물에서 자라는 홍조류로, 몸이 납작하고 여러 번 갈라집니다."
+      },
+      "taxonomy": {
+        "lineage": [
+          {
+            "wikidataId": "plant:Plantae",
+            "scientificName": "Plantae",
+            "koName": "식물계",
+            "rank": "kingdom"
+          },
+          {
+            "wikidataId": "plant:Rhodophyta",
+            "scientificName": "Rhodophyta",
+            "koName": "홍조식물문",
+            "rank": "phylum"
+          },
+          {
+            "wikidataId": "plant:Eurhodophytina",
+            "scientificName": "Eurhodophytina",
+            "koName": "진홍조식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Florideophyceae",
+            "scientificName": "Florideophyceae",
+            "koName": "Florideophyceae",
+            "rank": "class"
+          }
+        ]
+      },
+      "image": {
+        "fileName": "Chondrus_crispus_-_Köhler–s_Medizinal-Pflanzen-034.jpg",
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Chondrus_crispus_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-034.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Chondrus_crispus_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-034.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Chondrus_crispus_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-034.jpg",
+        "artist": "Franz Eugen Köhler, Köhler's Medizinal-Pflanzen",
+        "license": "Public domain",
+        "licenseUrl": "https://commons.wikimedia.org/wiki/File:Chondrus_crispus_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-034.jpg",
+        "width": 500,
+        "height": 595
+      }
+    },
+    {
+      "id": "compsopogon-caeruleus",
+      "scientificName": "Compsopogon caeruleus",
+      "commonName": "Compsopogon caeruleus",
+      "wikidataId": "Q5157105",
+      "description": "A filamentous red alga found mainly in fresh water.",
+      "ko": {
+        "commonName": "Compsopogon caeruleus",
+        "description": "주로 민물에서 자라는 실 모양 홍조류입니다."
+      },
+      "taxonomy": {
+        "lineage": [
+          {
+            "wikidataId": "plant:Plantae",
+            "scientificName": "Plantae",
+            "koName": "식물계",
+            "rank": "kingdom"
+          },
+          {
+            "wikidataId": "plant:Rhodophyta",
+            "scientificName": "Rhodophyta",
+            "koName": "홍조식물문",
+            "rank": "phylum"
+          },
+          {
+            "wikidataId": "plant:Metarhodophytina",
+            "scientificName": "Metarhodophytina",
+            "koName": "메타홍조식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Compsopogonophyceae",
+            "scientificName": "Compsopogonophyceae",
+            "koName": "Compsopogonophyceae",
+            "rank": "class"
+          }
+        ]
+      },
+      "image": {
+        "fileName": "Compsopogon_1.jpg",
+        "thumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/87/Compsopogon_1.jpg/960px-Compsopogon_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/87/Compsopogon_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Compsopogon_1.jpg",
+        "artist": "Okamura, Kintaro, 1867-1935",
+        "license": "No restrictions",
+        "licenseUrl": "http://biodivlib.wikispaces.com/Permissions#Content%20provided%20under%20Due%20Diligence",
+        "width": 1944,
+        "height": 3010
+      }
+    },
+    {
+      "id": "porphyridium-purpureum",
+      "scientificName": "Porphyridium purpureum",
+      "commonName": "Porphyridium purpureum",
+      "wikidataId": "Q34733453",
+      "description": "A unicellular red alga that produces mucilaginous material.",
+      "ko": {
+        "commonName": "Porphyridium purpureum",
+        "description": "점액질 물질을 만드는 단세포 홍조류입니다."
+      },
+      "taxonomy": {
+        "lineage": [
+          {
+            "wikidataId": "plant:Plantae",
+            "scientificName": "Plantae",
+            "koName": "식물계",
+            "rank": "kingdom"
+          },
+          {
+            "wikidataId": "plant:Rhodophyta",
+            "scientificName": "Rhodophyta",
+            "koName": "홍조식물문",
+            "rank": "phylum"
+          },
+          {
+            "wikidataId": "plant:Metarhodophytina",
+            "scientificName": "Metarhodophytina",
+            "koName": "메타홍조식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Porphyridiophyceae",
+            "scientificName": "Porphyridiophyceae",
+            "koName": "Porphyridiophyceae",
+            "rank": "class"
+          }
+        ]
+      },
+      "image": {
+        "fileName": "Porphyridium_purpureum_DOTkamina.png",
+        "thumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/Porphyridium_purpureum_DOTkamina.png/960px-Porphyridium_purpureum_DOTkamina.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Porphyridium_purpureum_DOTkamina.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Porphyridium_purpureum_DOTkamina.png",
+        "artist": "Dotkamina",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "width": 1080,
+        "height": 1300
+      }
+    },
+    {
+      "id": "rhodella-violacea",
+      "scientificName": "Rhodella violacea",
+      "commonName": "Rhodella violacea",
+      "wikidataId": null,
+      "description": "A small unicellular red alga with photosynthetic plastids.",
+      "ko": {
+        "commonName": "Rhodella violacea",
+        "description": "작은 단세포 홍조류로, 광합성을 하는 색소체를 갖습니다."
+      },
+      "taxonomy": {
+        "lineage": [
+          {
+            "wikidataId": "plant:Plantae",
+            "scientificName": "Plantae",
+            "koName": "식물계",
+            "rank": "kingdom"
+          },
+          {
+            "wikidataId": "plant:Rhodophyta",
+            "scientificName": "Rhodophyta",
+            "koName": "홍조식물문",
+            "rank": "phylum"
+          },
+          {
+            "wikidataId": "plant:Metarhodophytina",
+            "scientificName": "Metarhodophytina",
+            "koName": "메타홍조식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Rhodellophyceae",
+            "scientificName": "Rhodellophyceae",
+            "koName": "Rhodellophyceae",
+            "rank": "class"
+          }
+        ]
+      },
+      "image": {
+        "thumbnailUrl": "/plant-no-photo.svg",
+        "originalUrl": "/plant-no-photo.svg",
+        "commonsPageUrl": "https://www.gbif.org/species/search?q=Rhodella%20violacea",
+        "artist": "갈래",
+        "license": "CC0 1.0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "identificationNote": "종 사진 미확보 · 대체 안내 이미지",
+        "photoUnavailable": true
+      }
+    },
+    {
+      "id": "stylonema-alsidii",
+      "scientificName": "Stylonema alsidii",
+      "commonName": "Stylonema alsidii",
+      "wikidataId": "Q21318540",
+      "description": "A marine red alga forming small filaments.",
+      "ko": {
+        "commonName": "Stylonema alsidii",
+        "description": "바다에서 작은 실 모양 몸을 이루는 홍조류입니다."
+      },
+      "taxonomy": {
+        "lineage": [
+          {
+            "wikidataId": "plant:Plantae",
+            "scientificName": "Plantae",
+            "koName": "식물계",
+            "rank": "kingdom"
+          },
+          {
+            "wikidataId": "plant:Rhodophyta",
+            "scientificName": "Rhodophyta",
+            "koName": "홍조식물문",
+            "rank": "phylum"
+          },
+          {
+            "wikidataId": "plant:Metarhodophytina",
+            "scientificName": "Metarhodophytina",
+            "koName": "메타홍조식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Stylonematophyceae",
+            "scientificName": "Stylonematophyceae",
+            "koName": "Stylonematophyceae",
+            "rank": "class"
+          }
+        ]
+      },
+      "image": {
+        "fileName": "Stylonemaalsidii.jpg",
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a8/Stylonemaalsidii.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a8/Stylonemaalsidii.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Stylonemaalsidii.jpg",
+        "artist": "Ignacio Bárbara",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "width": 431,
+        "height": 345
+      }
+    },
+    {
+      "id": "tetraselmis-suecica",
+      "scientificName": "Tetraselmis suecica",
+      "commonName": "Tetraselmis suecica",
+      "wikidataId": "Q7706734",
+      "description": "A flagellated unicellular green alga used in microalgal cultivation.",
+      "ko": {
+        "commonName": "Tetraselmis suecica",
+        "description": "편모로 움직이는 단세포 녹조류이며 미세조류 배양에 이용됩니다."
+      },
+      "taxonomy": {
+        "lineage": [
+          {
+            "wikidataId": "plant:Plantae",
+            "scientificName": "Plantae",
+            "koName": "식물계",
+            "rank": "kingdom"
+          },
+          {
+            "wikidataId": "plant:Viridiplantae",
+            "scientificName": "Viridiplantae",
+            "koName": "녹색식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Chlorophyta",
+            "scientificName": "Chlorophyta",
+            "koName": "녹조식물문",
+            "rank": "phylum"
+          },
+          {
+            "wikidataId": "plant:Core Chlorophyta",
+            "scientificName": "Core Chlorophyta",
+            "koName": "핵심 녹조식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Chlorodendrophyceae",
+            "scientificName": "Chlorodendrophyceae",
+            "koName": "Chlorodendrophyceae",
+            "rank": "class"
+          }
+        ]
+      },
+      "image": {
+        "fileName": "Bacillario008.png",
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b9/Bacillario008.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b9/Bacillario008.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Bacillario008.png",
+        "artist": "NOAA",
+        "license": "Public domain",
+        "licenseUrl": "https://commons.wikimedia.org/wiki/File:Bacillario008.png",
+        "width": 175,
+        "height": 156
+      }
+    },
+    {
+      "id": "chlamydomonas-reinhardtii",
+      "scientificName": "Chlamydomonas reinhardtii",
+      "commonName": "Chlamydomonas reinhardtii",
+      "wikidataId": "Q291827",
+      "description": "A unicellular green alga with two flagella, used to study photosynthesis and cell motility.",
+      "ko": {
+        "commonName": "클라미도모나스",
+        "description": "두 편모로 움직이는 단세포 녹조류로 광합성과 세포 운동 연구에 쓰입니다."
+      },
+      "taxonomy": {
+        "lineage": [
+          {
+            "wikidataId": "plant:Plantae",
+            "scientificName": "Plantae",
+            "koName": "식물계",
+            "rank": "kingdom"
+          },
+          {
+            "wikidataId": "plant:Viridiplantae",
+            "scientificName": "Viridiplantae",
+            "koName": "녹색식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Chlorophyta",
+            "scientificName": "Chlorophyta",
+            "koName": "녹조식물문",
+            "rank": "phylum"
+          },
+          {
+            "wikidataId": "plant:Core Chlorophyta",
+            "scientificName": "Core Chlorophyta",
+            "koName": "핵심 녹조식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Chlorophyceae",
+            "scientificName": "Chlorophyceae",
+            "koName": "Chlorophyceae",
+            "rank": "class"
+          }
+        ]
+      },
+      "image": {
+        "fileName": "Chlamydomonas6-1.jpg",
+        "thumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/Chlamydomonas6-1.jpg/960px-Chlamydomonas6-1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Chlamydomonas6-1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Chlamydomonas6-1.jpg",
+        "artist": "Dartmouth Electron Microscope Facility, Dartmouth College",
+        "license": "Public domain",
+        "licenseUrl": "https://commons.wikimedia.org/wiki/File:Chlamydomonas6-1.jpg",
+        "width": 1024,
+        "height": 1049
+      }
+    },
+    {
+      "id": "pedinomonas-minor",
+      "scientificName": "Pedinomonas minor",
+      "commonName": "Pedinomonas minor",
+      "wikidataId": null,
+      "description": "A small flagellated green alga belonging to a green-plant lineage distinct from land plants.",
+      "ko": {
+        "commonName": "Pedinomonas minor",
+        "description": "작은 편모성 녹조류로, 육상식물과 구분되는 녹색식물의 갈래에 속합니다."
+      },
+      "taxonomy": {
+        "lineage": [
+          {
+            "wikidataId": "plant:Plantae",
+            "scientificName": "Plantae",
+            "koName": "식물계",
+            "rank": "kingdom"
+          },
+          {
+            "wikidataId": "plant:Viridiplantae",
+            "scientificName": "Viridiplantae",
+            "koName": "녹색식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Chlorophyta",
+            "scientificName": "Chlorophyta",
+            "koName": "녹조식물문",
+            "rank": "phylum"
+          },
+          {
+            "wikidataId": "plant:Pedinophyceae",
+            "scientificName": "Pedinophyceae",
+            "koName": "Pedinophyceae",
+            "rank": "class"
+          }
+        ]
+      },
+      "image": {
+        "thumbnailUrl": "/plant-no-photo.svg",
+        "originalUrl": "/plant-no-photo.svg",
+        "commonsPageUrl": "https://www.gbif.org/species/search?q=Pedinomonas%20minor",
+        "artist": "갈래",
+        "license": "CC0 1.0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "identificationNote": "종 사진 미확보 · 대체 안내 이미지",
+        "photoUnavailable": true
+      }
+    },
+    {
+      "id": "chlorella-vulgaris",
+      "scientificName": "Chlorella vulgaris",
+      "commonName": "Chlorella vulgaris",
+      "wikidataId": "Q309972",
+      "description": "A unicellular green alga with rounded photosynthetic cells.",
+      "ko": {
+        "commonName": "클로렐라",
+        "description": "둥근 세포를 가진 단세포 녹조류로, 광합성을 하며 자랍니다."
+      },
+      "taxonomy": {
+        "lineage": [
+          {
+            "wikidataId": "plant:Plantae",
+            "scientificName": "Plantae",
+            "koName": "식물계",
+            "rank": "kingdom"
+          },
+          {
+            "wikidataId": "plant:Viridiplantae",
+            "scientificName": "Viridiplantae",
+            "koName": "녹색식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Chlorophyta",
+            "scientificName": "Chlorophyta",
+            "koName": "녹조식물문",
+            "rank": "phylum"
+          },
+          {
+            "wikidataId": "plant:Core Chlorophyta",
+            "scientificName": "Core Chlorophyta",
+            "koName": "핵심 녹조식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Trebouxiophyceae",
+            "scientificName": "Trebouxiophyceae",
+            "koName": "Trebouxiophyceae",
+            "rank": "class"
+          }
+        ]
+      },
+      "image": {
+        "fileName": "Chlorella_vulgaris_NIES2170.jpg",
+        "thumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/83/Chlorella_vulgaris_NIES2170.jpg/960px-Chlorella_vulgaris_NIES2170.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/83/Chlorella_vulgaris_NIES2170.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Chlorella_vulgaris_NIES2170.jpg",
+        "artist": "ja:User:NEON / User:NEON_ja",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "width": 1200,
+        "height": 900
+      }
+    },
+    {
+      "id": "ulva-lactuca",
+      "scientificName": "Ulva lactuca",
+      "commonName": "Ulva lactuca",
+      "wikidataId": "Q852879",
+      "description": "A marine green alga with a thin, sheet-like body, distinct from a land plant's leaf.",
+      "ko": {
+        "commonName": "갈파래",
+        "description": "바다에서 얇은 잎 같은 몸을 만드는 녹조류입니다. 몸은 육상식물의 잎과 다릅니다."
+      },
+      "taxonomy": {
+        "lineage": [
+          {
+            "wikidataId": "plant:Plantae",
+            "scientificName": "Plantae",
+            "koName": "식물계",
+            "rank": "kingdom"
+          },
+          {
+            "wikidataId": "plant:Viridiplantae",
+            "scientificName": "Viridiplantae",
+            "koName": "녹색식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Chlorophyta",
+            "scientificName": "Chlorophyta",
+            "koName": "녹조식물문",
+            "rank": "phylum"
+          },
+          {
+            "wikidataId": "plant:Core Chlorophyta",
+            "scientificName": "Core Chlorophyta",
+            "koName": "핵심 녹조식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Ulvophyceae",
+            "scientificName": "Ulvophyceae",
+            "koName": "Ulvophyceae",
+            "rank": "class"
+          }
+        ]
+      },
+      "image": {
+        "fileName": "Sea_lettuce_in_Brofjorden_1_-_cropped.jpg",
+        "thumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/82/Sea_lettuce_in_Brofjorden_1_-_cropped.jpg/960px-Sea_lettuce_in_Brofjorden_1_-_cropped.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/82/Sea_lettuce_in_Brofjorden_1_-_cropped.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Sea_lettuce_in_Brofjorden_1_-_cropped.jpg",
+        "artist": "W.carter",
+        "license": "CC0",
+        "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+        "width": 3025,
+        "height": 3026
+      }
+    },
+    {
+      "id": "micromonas-pusilla",
+      "scientificName": "Micromonas pusilla",
+      "commonName": "Micromonas pusilla",
+      "wikidataId": "Q6839686",
+      "description": "A very small unicellular green alga forming part of marine phytoplankton.",
+      "ko": {
+        "commonName": "Micromonas pusilla",
+        "description": "바다의 식물플랑크톤을 이루는 매우 작은 단세포 녹조류입니다."
+      },
+      "taxonomy": {
+        "lineage": [
+          {
+            "wikidataId": "plant:Plantae",
+            "scientificName": "Plantae",
+            "koName": "식물계",
+            "rank": "kingdom"
+          },
+          {
+            "wikidataId": "plant:Viridiplantae",
+            "scientificName": "Viridiplantae",
+            "koName": "녹색식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Chlorophyta",
+            "scientificName": "Chlorophyta",
+            "koName": "녹조식물문",
+            "rank": "phylum"
+          },
+          {
+            "wikidataId": "plant:Mamiellophyceae",
+            "scientificName": "Mamiellophyceae",
+            "koName": "Mamiellophyceae",
+            "rank": "class"
+          }
+        ]
+      },
+      "image": {
+        "fileName": "Esquema_Micromonas_pusilla.jpg",
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/4/47/Esquema_Micromonas_pusilla.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/47/Esquema_Micromonas_pusilla.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Esquema_Micromonas_pusilla.jpg",
+        "artist": "No machine-readable author provided. Esv assumed (based on copyright claims).",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "width": 642,
+        "height": 1149
+      }
+    },
+    {
+      "id": "nephroselmis-olivacea",
+      "scientificName": "Nephroselmis olivacea",
+      "commonName": "Nephroselmis olivacea",
+      "wikidataId": null,
+      "description": "A flagellated unicellular green alga with photosynthetic plastids.",
+      "ko": {
+        "commonName": "Nephroselmis olivacea",
+        "description": "편모를 가진 단세포 녹조류로, 광합성을 하는 색소체를 갖습니다."
+      },
+      "taxonomy": {
+        "lineage": [
+          {
+            "wikidataId": "plant:Plantae",
+            "scientificName": "Plantae",
+            "koName": "식물계",
+            "rank": "kingdom"
+          },
+          {
+            "wikidataId": "plant:Viridiplantae",
+            "scientificName": "Viridiplantae",
+            "koName": "녹색식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Chlorophyta",
+            "scientificName": "Chlorophyta",
+            "koName": "녹조식물문",
+            "rank": "phylum"
+          },
+          {
+            "wikidataId": "plant:Nephroselmidophyceae",
+            "scientificName": "Nephroselmidophyceae",
+            "koName": "Nephroselmidophyceae",
+            "rank": "class"
+          }
+        ]
+      },
+      "image": {
+        "fileName": "Nephroselmis olivacea, Stein (1878), plate 19 cropped.jpg",
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Nephroselmis_olivacea%2C_Stein_%281878%29%2C_plate_19_cropped.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Nephroselmis_olivacea%2C_Stein_%281878%29%2C_plate_19_cropped.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Nephroselmis_olivacea,_Stein_(1878),_plate_19_cropped.jpg",
+        "artist": "Friedrich von Stein, 1818-1885",
+        "license": "Public domain",
+        "licenseUrl": "https://commons.wikimedia.org/wiki/File:Nephroselmis_olivacea,_Stein_(1878),_plate_19_cropped.jpg",
+        "width": 721,
+        "height": 830
+      }
+    },
+    {
+      "id": "pyramimonas-parkeae",
+      "scientificName": "Pyramimonas parkeae",
+      "commonName": "Pyramimonas parkeae",
+      "wikidataId": null,
+      "description": "A small unicellular green alga that moves using several flagella.",
+      "ko": {
+        "commonName": "Pyramimonas parkeae",
+        "description": "여러 편모로 움직이는 작은 단세포 녹조류입니다."
+      },
+      "taxonomy": {
+        "lineage": [
+          {
+            "wikidataId": "plant:Plantae",
+            "scientificName": "Plantae",
+            "koName": "식물계",
+            "rank": "kingdom"
+          },
+          {
+            "wikidataId": "plant:Viridiplantae",
+            "scientificName": "Viridiplantae",
+            "koName": "녹색식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Chlorophyta",
+            "scientificName": "Chlorophyta",
+            "koName": "녹조식물문",
+            "rank": "phylum"
+          },
+          {
+            "wikidataId": "plant:Pyramimonadophyceae",
+            "scientificName": "Pyramimonadophyceae",
+            "koName": "Pyramimonadophyceae",
+            "rank": "class"
+          }
+        ]
+      },
+      "image": {
+        "fileName": "41396 2021 899 Fig3 FITC bacterivory@green algae.webp",
+        "thumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a5/41396_2021_899_Fig3_FITC_bacterivory%40green_algae.webp/960px-41396_2021_899_Fig3_FITC_bacterivory%40green_algae.webp?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a5/41396_2021_899_Fig3_FITC_bacterivory%40green_algae.webp?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:41396_2021_899_Fig3_FITC_bacterivory@green_algae.webp",
+        "artist": "Nicholas A. Bock, Sophie Charvet, John Burns, Yangtsho Gyaltshen, Andrey Rozenberg, Solange Duhamel, Eunsoo Kim",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+        "width": 1946,
+        "height": 2292,
+        "identificationNote": "비교 현미경 그림 · a–h 패널이 Pyramimonas parkeae입니다."
+      }
+    },
+    {
+      "id": "chloropicon-primus",
+      "scientificName": "Chloropicon primus",
+      "commonName": "Chloropicon primus",
+      "wikidataId": null,
+      "description": "A very small unicellular green alga found in marine environments.",
+      "ko": {
+        "commonName": "Chloropicon primus",
+        "description": "바다에서 발견되는 매우 작은 단세포 녹조류입니다."
+      },
+      "taxonomy": {
+        "lineage": [
+          {
+            "wikidataId": "plant:Plantae",
+            "scientificName": "Plantae",
+            "koName": "식물계",
+            "rank": "kingdom"
+          },
+          {
+            "wikidataId": "plant:Viridiplantae",
+            "scientificName": "Viridiplantae",
+            "koName": "녹색식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Chlorophyta",
+            "scientificName": "Chlorophyta",
+            "koName": "녹조식물문",
+            "rank": "phylum"
+          },
+          {
+            "wikidataId": "plant:Chloropicophyceae",
+            "scientificName": "Chloropicophyceae",
+            "koName": "Chloropicophyceae",
+            "rank": "class"
+          }
+        ]
+      },
+      "image": {
+        "thumbnailUrl": "/plant-no-photo.svg",
+        "originalUrl": "/plant-no-photo.svg",
+        "commonsPageUrl": "https://www.gbif.org/species/search?q=Chloropicon%20primus",
+        "artist": "갈래",
+        "license": "CC0 1.0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "identificationNote": "종 사진 미확보 · 대체 안내 이미지",
+        "photoUnavailable": true
+      }
+    },
+    {
+      "id": "picocystis-salinarum",
+      "scientificName": "Picocystis salinarum",
+      "commonName": "Picocystis salinarum",
+      "wikidataId": "Q7191039",
+      "description": "A small unicellular green alga that can live in highly saline water.",
+      "ko": {
+        "commonName": "Picocystis salinarum",
+        "description": "염분이 높은 물에서도 살아가는 작은 단세포 녹조류입니다."
+      },
+      "taxonomy": {
+        "lineage": [
+          {
+            "wikidataId": "plant:Plantae",
+            "scientificName": "Plantae",
+            "koName": "식물계",
+            "rank": "kingdom"
+          },
+          {
+            "wikidataId": "plant:Viridiplantae",
+            "scientificName": "Viridiplantae",
+            "koName": "녹색식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Chlorophyta",
+            "scientificName": "Chlorophyta",
+            "koName": "녹조식물문",
+            "rank": "phylum"
+          },
+          {
+            "wikidataId": "plant:Picocystophyceae",
+            "scientificName": "Picocystophyceae",
+            "koName": "Picocystophyceae",
+            "rank": "class"
+          }
+        ]
+      },
+      "image": {
+        "fileName": "Picocystis_salinarum.jpg",
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/8/88/Picocystis_salinarum.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/88/Picocystis_salinarum.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Picocystis_salinarum.jpg",
+        "artist": "Microbial Life- Educational Resources\n\nCarleton University",
+        "license": "CC0",
+        "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+        "width": 300,
+        "height": 250
+      }
+    },
+    {
+      "id": "palmophyllum-crassum",
+      "scientificName": "Palmophyllum crassum",
+      "commonName": "Palmophyllum crassum",
+      "wikidataId": "Q28232176",
+      "description": "A marine green alga whose cells are embedded in a gelatinous matrix.",
+      "ko": {
+        "commonName": "Palmophyllum crassum",
+        "description": "점액질 바탕에 녹색 세포가 모여 몸을 이루는 해양 녹조류입니다."
+      },
+      "taxonomy": {
+        "lineage": [
+          {
+            "wikidataId": "plant:Plantae",
+            "scientificName": "Plantae",
+            "koName": "식물계",
+            "rank": "kingdom"
+          },
+          {
+            "wikidataId": "plant:Viridiplantae",
+            "scientificName": "Viridiplantae",
+            "koName": "녹색식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Palmophyllophyceae",
+            "scientificName": "Palmophyllophyceae",
+            "koName": "Palmophyllophyceae",
+            "rank": "class"
+          }
+        ]
+      },
+      "image": {
+        "fileName": "Palmophyllum_crassum_20084925.jpg",
+        "thumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b6/Palmophyllum_crassum_20084925.jpg/960px-Palmophyllum_crassum_20084925.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b6/Palmophyllum_crassum_20084925.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Palmophyllum_crassum_20084925.jpg",
+        "artist": "Julien Renoult",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+        "width": 2048,
+        "height": 1536
+      }
+    },
+    {
+      "id": "chara-vulgaris",
+      "scientificName": "Chara vulgaris",
+      "commonName": "Chara vulgaris",
+      "wikidataId": "Q505001",
+      "description": "A freshwater stonewort with a branched body divided into nodes and internodes.",
+      "ko": {
+        "commonName": "Chara vulgaris",
+        "description": "민물에서 마디가 있는 가지 모양 몸을 만드는 윤조류입니다."
+      },
+      "taxonomy": {
+        "lineage": [
+          {
+            "wikidataId": "plant:Plantae",
+            "scientificName": "Plantae",
+            "koName": "식물계",
+            "rank": "kingdom"
+          },
+          {
+            "wikidataId": "plant:Viridiplantae",
+            "scientificName": "Viridiplantae",
+            "koName": "녹색식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Streptophyta",
+            "scientificName": "Streptophyta",
+            "koName": "스트렙토식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Phragmoplastophyta",
+            "scientificName": "Phragmoplastophyta",
+            "koName": "격막형성체식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Charophyceae",
+            "scientificName": "Charophyceae",
+            "koName": "Charophyceae",
+            "rank": "class"
+          }
+        ]
+      },
+      "image": {
+        "fileName": "Chara_vulgaris_2007.jpg",
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/6/61/Chara_vulgaris_2007.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/61/Chara_vulgaris_2007.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Chara_vulgaris_2007.jpg",
+        "artist": "Chris F. Carter",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "width": 900,
+        "height": 675
+      }
+    },
+    {
+      "id": "chlorokybus-atmophyticus",
+      "scientificName": "Chlorokybus atmophyticus",
+      "commonName": "Chlorokybus atmophyticus",
+      "wikidataId": "Q20672036",
+      "description": "A green alga forming small cell packets within the streptophyte lineage.",
+      "ko": {
+        "commonName": "Chlorokybus atmophyticus",
+        "description": "세포가 작은 무리를 이루는 녹조류로, 육상식물과 가까운 녹색식물 갈래에 속합니다."
+      },
+      "taxonomy": {
+        "lineage": [
+          {
+            "wikidataId": "plant:Plantae",
+            "scientificName": "Plantae",
+            "koName": "식물계",
+            "rank": "kingdom"
+          },
+          {
+            "wikidataId": "plant:Viridiplantae",
+            "scientificName": "Viridiplantae",
+            "koName": "녹색식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Streptophyta",
+            "scientificName": "Streptophyta",
+            "koName": "스트렙토식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Chlorokybophyceae",
+            "scientificName": "Chlorokybophyceae",
+            "koName": "Chlorokybophyceae",
+            "rank": "class"
+          }
+        ]
+      },
+      "image": {
+        "fileName": "Chlorokybus_atmophyticus.jpg",
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8c/Chlorokybus_atmophyticus.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8c/Chlorokybus_atmophyticus.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Chlorokybus_atmophyticus.jpg",
+        "artist": "Iker Irisarri, Tatyana Darienko, Thomas Pröschold, Janine M. R. Fürst-Jansen, Mahwash Jamy, Jan de Vries",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+        "width": 294,
+        "height": 174
+      }
+    },
+    {
+      "id": "coleochaete-scutata",
+      "scientificName": "Coleochaete scutata",
+      "commonName": "Coleochaete scutata",
+      "wikidataId": null,
+      "description": "A freshwater green alga that forms disc-shaped bodies.",
+      "ko": {
+        "commonName": "Coleochaete scutata",
+        "description": "민물에서 원반 모양의 몸을 만드는 녹조류입니다."
+      },
+      "taxonomy": {
+        "lineage": [
+          {
+            "wikidataId": "plant:Plantae",
+            "scientificName": "Plantae",
+            "koName": "식물계",
+            "rank": "kingdom"
+          },
+          {
+            "wikidataId": "plant:Viridiplantae",
+            "scientificName": "Viridiplantae",
+            "koName": "녹색식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Streptophyta",
+            "scientificName": "Streptophyta",
+            "koName": "스트렙토식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Phragmoplastophyta",
+            "scientificName": "Phragmoplastophyta",
+            "koName": "격막형성체식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Coleochaetophyceae",
+            "scientificName": "Coleochaetophyceae",
+            "koName": "Coleochaetophyceae",
+            "rank": "class"
+          }
+        ]
+      },
+      "image": {
+        "thumbnailUrl": "/plant-no-photo.svg",
+        "originalUrl": "/plant-no-photo.svg",
+        "commonsPageUrl": "https://www.gbif.org/species/search?q=Coleochaete%20scutata",
+        "artist": "갈래",
+        "license": "CC0 1.0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "identificationNote": "종 사진 미확보 · 대체 안내 이미지",
+        "photoUnavailable": true
+      }
+    },
+    {
+      "id": "closterium-lunula",
+      "scientificName": "Closterium lunula",
+      "commonName": "Closterium lunula",
+      "wikidataId": null,
+      "description": "A unicellular desmid with characteristically curved, crescent-like cells.",
+      "ko": {
+        "commonName": "Closterium lunula",
+        "description": "초승달처럼 휜 세포가 특징인 단세포 접합조류입니다."
+      },
+      "taxonomy": {
+        "lineage": [
+          {
+            "wikidataId": "plant:Plantae",
+            "scientificName": "Plantae",
+            "koName": "식물계",
+            "rank": "kingdom"
+          },
+          {
+            "wikidataId": "plant:Viridiplantae",
+            "scientificName": "Viridiplantae",
+            "koName": "녹색식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Streptophyta",
+            "scientificName": "Streptophyta",
+            "koName": "스트렙토식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Phragmoplastophyta",
+            "scientificName": "Phragmoplastophyta",
+            "koName": "격막형성체식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Anydrophyta",
+            "scientificName": "Anydrophyta",
+            "koName": "접합조류·육상식물 갈래",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Zygnematophyceae",
+            "scientificName": "Zygnematophyceae",
+            "koName": "Zygnematophyceae",
+            "rank": "class"
+          }
+        ]
+      },
+      "image": {
+        "fileName": "Bancsó 2021 Fig 8-10 Closterium lunula.jpg",
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b1/Bancs%C3%B3_2021_Fig_8-10_Closterium_lunula.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b1/Bancs%C3%B3_2021_Fig_8-10_Closterium_lunula.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Bancs%C3%B3_2021_Fig_8-10_Closterium_lunula.jpg",
+        "artist": "Sándor Bancsó",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+        "width": 796,
+        "height": 3204
+      }
+    },
+    {
+      "id": "klebsormidium-flaccidum",
+      "scientificName": "Klebsormidium flaccidum",
+      "commonName": "Klebsormidium flaccidum",
+      "wikidataId": null,
+      "description": "A green alga whose cells join in unbranched filaments.",
+      "ko": {
+        "commonName": "Klebsormidium flaccidum",
+        "description": "세포들이 한 줄로 이어져 실 모양을 이루는 녹조류입니다."
+      },
+      "taxonomy": {
+        "lineage": [
+          {
+            "wikidataId": "plant:Plantae",
+            "scientificName": "Plantae",
+            "koName": "식물계",
+            "rank": "kingdom"
+          },
+          {
+            "wikidataId": "plant:Viridiplantae",
+            "scientificName": "Viridiplantae",
+            "koName": "녹색식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Streptophyta",
+            "scientificName": "Streptophyta",
+            "koName": "스트렙토식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Klebsormidiophyceae",
+            "scientificName": "Klebsormidiophyceae",
+            "koName": "Klebsormidiophyceae",
+            "rank": "class"
+          }
+        ]
+      },
+      "image": {
+        "fileName": "Mikhailyuk et al 2025 Figure 3E.jpg",
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Mikhailyuk_et_al_2025_Figure_3E.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Mikhailyuk_et_al_2025_Figure_3E.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Mikhailyuk_et_al_2025_Figure_3E.jpg",
+        "artist": "Tatiana I. Mikhailyuk, Oksana M. Vinogradova, Eduard M. Demchenko, Viktoriya R. Petlovana, Karin Glaser & Ulf Karsten",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+        "width": 318,
+        "height": 551
+      }
+    },
+    {
+      "id": "mesostigma-viride",
+      "scientificName": "Mesostigma viride",
+      "commonName": "Mesostigma viride",
+      "wikidataId": "Q141467",
+      "description": "A flagellated unicellular green alga studied in early streptophyte evolution.",
+      "ko": {
+        "commonName": "Mesostigma viride",
+        "description": "편모를 가진 단세포 녹조류로, 육상식물을 포함하는 갈래의 초기 분기를 이해하는 데 연구됩니다."
+      },
+      "taxonomy": {
+        "lineage": [
+          {
+            "wikidataId": "plant:Plantae",
+            "scientificName": "Plantae",
+            "koName": "식물계",
+            "rank": "kingdom"
+          },
+          {
+            "wikidataId": "plant:Viridiplantae",
+            "scientificName": "Viridiplantae",
+            "koName": "녹색식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Streptophyta",
+            "scientificName": "Streptophyta",
+            "koName": "스트렙토식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Mesostigmatophyceae",
+            "scientificName": "Mesostigmatophyceae",
+            "koName": "Mesostigmatophyceae",
+            "rank": "class"
+          }
+        ]
+      },
+      "image": {
+        "fileName": "Mesostigma_viride_534857918.jpg",
+        "thumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/19/Mesostigma_viride_534857918.jpg/960px-Mesostigma_viride_534857918.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/19/Mesostigma_viride_534857918.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Mesostigma_viride_534857918.jpg",
+        "artist": "Petr Knotek",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+        "width": 1106,
+        "height": 1106
+      }
+    },
+    {
+      "id": "leiosporoceros-dussii",
+      "scientificName": "Leiosporoceros dussii",
+      "commonName": "Leiosporoceros dussii",
+      "wikidataId": "Q1051851",
+      "description": "A hornwort with horn-shaped sporophytes representing a class distinct from Anthocerotopsida.",
+      "ko": {
+        "commonName": "Leiosporoceros dussii",
+        "description": "뿔 모양 포자체를 만드는 뿔이끼류로, 뿔이끼강과 구분되는 강의 대표종입니다."
+      },
+      "taxonomy": {
+        "lineage": [
+          {
+            "wikidataId": "plant:Plantae",
+            "scientificName": "Plantae",
+            "koName": "식물계",
+            "rank": "kingdom"
+          },
+          {
+            "wikidataId": "plant:Viridiplantae",
+            "scientificName": "Viridiplantae",
+            "koName": "녹색식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Streptophyta",
+            "scientificName": "Streptophyta",
+            "koName": "스트렙토식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Phragmoplastophyta",
+            "scientificName": "Phragmoplastophyta",
+            "koName": "격막형성체식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Anydrophyta",
+            "scientificName": "Anydrophyta",
+            "koName": "접합조류·육상식물 갈래",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Embryophyta",
+            "scientificName": "Embryophyta",
+            "koName": "육상식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Bryophytes",
+            "scientificName": "Bryophytes",
+            "koName": "선태식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Anthocerotophyta",
+            "scientificName": "Anthocerotophyta",
+            "koName": "뿔이끼문",
+            "rank": "phylum"
+          },
+          {
+            "wikidataId": "plant:Leiosporocerotopsida",
+            "scientificName": "Leiosporocerotopsida",
+            "koName": "Leiosporocerotopsida",
+            "rank": "class"
+          }
+        ]
+      },
+      "image": {
+        "fileName": "Leiosporoceros_dussii_-_Derek_-_264719276.jpeg",
+        "thumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2f/Leiosporoceros_dussii_-_Derek_-_264719276.jpeg/960px-Leiosporoceros_dussii_-_Derek_-_264719276.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Leiosporoceros_dussii_-_Derek_-_264719276.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Leiosporoceros_dussii_-_Derek_-_264719276.jpeg",
+        "artist": "Derek",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+        "width": 1536,
+        "height": 2048
+      }
+    },
+    {
+      "id": "andreaeobryum-macrosporum",
+      "scientificName": "Andreaeobryum macrosporum",
+      "commonName": "Andreaeobryum macrosporum",
+      "wikidataId": "Q80301",
+      "description": "A rock-dwelling moss representing its own class.",
+      "ko": {
+        "commonName": "Andreaeobryum macrosporum",
+        "description": "바위에 붙어 자라는 이끼류이며 독립된 강의 대표종입니다."
+      },
+      "taxonomy": {
+        "lineage": [
+          {
+            "wikidataId": "plant:Plantae",
+            "scientificName": "Plantae",
+            "koName": "식물계",
+            "rank": "kingdom"
+          },
+          {
+            "wikidataId": "plant:Viridiplantae",
+            "scientificName": "Viridiplantae",
+            "koName": "녹색식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Streptophyta",
+            "scientificName": "Streptophyta",
+            "koName": "스트렙토식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Phragmoplastophyta",
+            "scientificName": "Phragmoplastophyta",
+            "koName": "격막형성체식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Anydrophyta",
+            "scientificName": "Anydrophyta",
+            "koName": "접합조류·육상식물 갈래",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Embryophyta",
+            "scientificName": "Embryophyta",
+            "koName": "육상식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Bryophytes",
+            "scientificName": "Bryophytes",
+            "koName": "선태식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Setaphyta",
+            "scientificName": "Setaphyta",
+            "koName": "이끼·우산이끼 갈래",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Bryophyta",
+            "scientificName": "Bryophyta",
+            "koName": "선태식물문",
+            "rank": "phylum"
+          },
+          {
+            "wikidataId": "plant:Andreaeobryopsida",
+            "scientificName": "Andreaeobryopsida",
+            "koName": "Andreaeobryopsida",
+            "rank": "class"
+          }
+        ]
+      },
+      "image": {
+        "thumbnailUrl": "/plant-no-photo.svg",
+        "originalUrl": "/plant-no-photo.svg",
+        "commonsPageUrl": "https://www.gbif.org/species/search?q=Andreaeobryum%20macrosporum",
+        "artist": "갈래",
+        "license": "CC0 1.0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "identificationNote": "종 사진 미확보 · 대체 안내 이미지",
+        "photoUnavailable": true
+      }
+    },
+    {
+      "id": "andreaea-rupestris",
+      "scientificName": "Andreaea rupestris",
+      "commonName": "Andreaea rupestris",
+      "wikidataId": "Q292408",
+      "description": "A rock-dwelling moss whose capsules open through longitudinal slits.",
+      "ko": {
+        "commonName": "Andreaea rupestris",
+        "description": "바위에서 자라는 이끼류로, 삭이 세로로 갈라져 포자를 내보냅니다."
+      },
+      "taxonomy": {
+        "lineage": [
+          {
+            "wikidataId": "plant:Plantae",
+            "scientificName": "Plantae",
+            "koName": "식물계",
+            "rank": "kingdom"
+          },
+          {
+            "wikidataId": "plant:Viridiplantae",
+            "scientificName": "Viridiplantae",
+            "koName": "녹색식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Streptophyta",
+            "scientificName": "Streptophyta",
+            "koName": "스트렙토식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Phragmoplastophyta",
+            "scientificName": "Phragmoplastophyta",
+            "koName": "격막형성체식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Anydrophyta",
+            "scientificName": "Anydrophyta",
+            "koName": "접합조류·육상식물 갈래",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Embryophyta",
+            "scientificName": "Embryophyta",
+            "koName": "육상식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Bryophytes",
+            "scientificName": "Bryophytes",
+            "koName": "선태식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Setaphyta",
+            "scientificName": "Setaphyta",
+            "koName": "이끼·우산이끼 갈래",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Bryophyta",
+            "scientificName": "Bryophyta",
+            "koName": "선태식물문",
+            "rank": "phylum"
+          },
+          {
+            "wikidataId": "plant:Andreaeopsida",
+            "scientificName": "Andreaeopsida",
+            "koName": "Andreaeopsida",
+            "rank": "class"
+          }
+        ]
+      },
+      "image": {
+        "fileName": "Andreaea_rupestris_(c,_113340-471133)_6045.JPG",
+        "thumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f0/Andreaea_rupestris_%28c%2C_113340-471133%29_6045.JPG/960px-Andreaea_rupestris_%28c%2C_113340-471133%29_6045.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Andreaea_rupestris_%28c%2C_113340-471133%29_6045.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Andreaea_rupestris_(c,_113340-471133)_6045.JPG",
+        "artist": "HermannSchachner",
+        "license": "CC0",
+        "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+        "width": 2816,
+        "height": 1880
+      }
+    },
+    {
+      "id": "bryum-argenteum",
+      "scientificName": "Bryum argenteum",
+      "commonName": "Bryum argenteum",
+      "wikidataId": "Q1937687",
+      "description": "A small moss with silvery shoot tips, often found in urban crevices.",
+      "ko": {
+        "commonName": "은이끼",
+        "description": "잎 끝이 은빛으로 보이는 작은 이끼로, 도시의 틈새에서도 자랍니다."
+      },
+      "taxonomy": {
+        "lineage": [
+          {
+            "wikidataId": "plant:Plantae",
+            "scientificName": "Plantae",
+            "koName": "식물계",
+            "rank": "kingdom"
+          },
+          {
+            "wikidataId": "plant:Viridiplantae",
+            "scientificName": "Viridiplantae",
+            "koName": "녹색식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Streptophyta",
+            "scientificName": "Streptophyta",
+            "koName": "스트렙토식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Phragmoplastophyta",
+            "scientificName": "Phragmoplastophyta",
+            "koName": "격막형성체식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Anydrophyta",
+            "scientificName": "Anydrophyta",
+            "koName": "접합조류·육상식물 갈래",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Embryophyta",
+            "scientificName": "Embryophyta",
+            "koName": "육상식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Bryophytes",
+            "scientificName": "Bryophytes",
+            "koName": "선태식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Setaphyta",
+            "scientificName": "Setaphyta",
+            "koName": "이끼·우산이끼 갈래",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Bryophyta",
+            "scientificName": "Bryophyta",
+            "koName": "선태식물문",
+            "rank": "phylum"
+          },
+          {
+            "wikidataId": "plant:Bryopsida",
+            "scientificName": "Bryopsida",
+            "koName": "선강",
+            "rank": "class"
+          }
+        ]
+      },
+      "image": {
+        "fileName": "Bryum_argenteum_(d,_144719-474801)_4161.JPG",
+        "thumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3d/Bryum_argenteum_%28d%2C_144719-474801%29_4161.JPG/960px-Bryum_argenteum_%28d%2C_144719-474801%29_4161.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Bryum_argenteum_%28d%2C_144719-474801%29_4161.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Bryum_argenteum_(d,_144719-474801)_4161.JPG",
+        "artist": "HermannSchachner",
+        "license": "CC0",
+        "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+        "width": 2816,
+        "height": 1880
+      }
+    },
+    {
+      "id": "oedipodium-griffithianum",
+      "scientificName": "Oedipodium griffithianum",
+      "commonName": "Oedipodium griffithianum",
+      "wikidataId": "Q867501",
+      "description": "A small moss with broad leaves and spore-bearing capsules.",
+      "ko": {
+        "commonName": "Oedipodium griffithianum",
+        "description": "포자를 담은 삭과 넓은 잎을 가진 작은 이끼류입니다."
+      },
+      "taxonomy": {
+        "lineage": [
+          {
+            "wikidataId": "plant:Plantae",
+            "scientificName": "Plantae",
+            "koName": "식물계",
+            "rank": "kingdom"
+          },
+          {
+            "wikidataId": "plant:Viridiplantae",
+            "scientificName": "Viridiplantae",
+            "koName": "녹색식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Streptophyta",
+            "scientificName": "Streptophyta",
+            "koName": "스트렙토식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Phragmoplastophyta",
+            "scientificName": "Phragmoplastophyta",
+            "koName": "격막형성체식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Anydrophyta",
+            "scientificName": "Anydrophyta",
+            "koName": "접합조류·육상식물 갈래",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Embryophyta",
+            "scientificName": "Embryophyta",
+            "koName": "육상식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Bryophytes",
+            "scientificName": "Bryophytes",
+            "koName": "선태식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Setaphyta",
+            "scientificName": "Setaphyta",
+            "koName": "이끼·우산이끼 갈래",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Bryophyta",
+            "scientificName": "Bryophyta",
+            "koName": "선태식물문",
+            "rank": "phylum"
+          },
+          {
+            "wikidataId": "plant:Oedipodiopsida",
+            "scientificName": "Oedipodiopsida",
+            "koName": "Oedipodiopsida",
+            "rank": "class"
+          }
+        ]
+      },
+      "image": {
+        "fileName": "Oedipodium_griffithianum_1.jpg",
+        "thumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d8/Oedipodium_griffithianum_1.jpg/960px-Oedipodium_griffithianum_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Oedipodium_griffithianum_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Oedipodium_griffithianum_1.jpg",
+        "artist": "Kristian Hassel",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "width": 3160,
+        "height": 2456
+      }
+    },
+    {
+      "id": "sphagnum-palustre",
+      "scientificName": "Sphagnum palustre",
+      "commonName": "Sphagnum palustre",
+      "wikidataId": "Q1385612",
+      "description": "A peat moss with cells capable of holding large amounts of water.",
+      "ko": {
+        "commonName": "Sphagnum palustre",
+        "description": "많은 물을 머금을 수 있는 세포를 가진 물이끼류입니다."
+      },
+      "taxonomy": {
+        "lineage": [
+          {
+            "wikidataId": "plant:Plantae",
+            "scientificName": "Plantae",
+            "koName": "식물계",
+            "rank": "kingdom"
+          },
+          {
+            "wikidataId": "plant:Viridiplantae",
+            "scientificName": "Viridiplantae",
+            "koName": "녹색식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Streptophyta",
+            "scientificName": "Streptophyta",
+            "koName": "스트렙토식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Phragmoplastophyta",
+            "scientificName": "Phragmoplastophyta",
+            "koName": "격막형성체식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Anydrophyta",
+            "scientificName": "Anydrophyta",
+            "koName": "접합조류·육상식물 갈래",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Embryophyta",
+            "scientificName": "Embryophyta",
+            "koName": "육상식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Bryophytes",
+            "scientificName": "Bryophytes",
+            "koName": "선태식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Setaphyta",
+            "scientificName": "Setaphyta",
+            "koName": "이끼·우산이끼 갈래",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Bryophyta",
+            "scientificName": "Bryophyta",
+            "koName": "선태식물문",
+            "rank": "phylum"
+          },
+          {
+            "wikidataId": "plant:Sphagnopsida",
+            "scientificName": "Sphagnopsida",
+            "koName": "Sphagnopsida",
+            "rank": "class"
+          }
+        ]
+      },
+      "image": {
+        "fileName": "Sphagnum.palustre.-.lindsey.jpg",
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Sphagnum.palustre.-.lindsey.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Sphagnum.palustre.-.lindsey.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Sphagnum.palustre.-.lindsey.jpg",
+        "artist": "James K. Lindsey",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "width": 640,
+        "height": 425
+      }
+    },
+    {
+      "id": "takakia-lepidozioides",
+      "scientificName": "Takakia lepidozioides",
+      "commonName": "Takakia lepidozioides",
+      "wikidataId": "Q7677100",
+      "description": "A moss with small, finely divided leaves, classified in a separate class.",
+      "ko": {
+        "commonName": "Takakia lepidozioides",
+        "description": "작고 가늘게 갈라진 잎을 가진 이끼류로 독립된 강으로 분류됩니다."
+      },
+      "taxonomy": {
+        "lineage": [
+          {
+            "wikidataId": "plant:Plantae",
+            "scientificName": "Plantae",
+            "koName": "식물계",
+            "rank": "kingdom"
+          },
+          {
+            "wikidataId": "plant:Viridiplantae",
+            "scientificName": "Viridiplantae",
+            "koName": "녹색식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Streptophyta",
+            "scientificName": "Streptophyta",
+            "koName": "스트렙토식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Phragmoplastophyta",
+            "scientificName": "Phragmoplastophyta",
+            "koName": "격막형성체식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Anydrophyta",
+            "scientificName": "Anydrophyta",
+            "koName": "접합조류·육상식물 갈래",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Embryophyta",
+            "scientificName": "Embryophyta",
+            "koName": "육상식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Bryophytes",
+            "scientificName": "Bryophytes",
+            "koName": "선태식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Setaphyta",
+            "scientificName": "Setaphyta",
+            "koName": "이끼·우산이끼 갈래",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Bryophyta",
+            "scientificName": "Bryophyta",
+            "koName": "선태식물문",
+            "rank": "phylum"
+          },
+          {
+            "wikidataId": "plant:Takakiopsida",
+            "scientificName": "Takakiopsida",
+            "koName": "Takakiopsida",
+            "rank": "class"
+          }
+        ]
+      },
+      "image": {
+        "fileName": "Takakia_lepidozioides.jpg",
+        "thumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/Takakia_lepidozioides.jpg/960px-Takakia_lepidozioides.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b9/Takakia_lepidozioides.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Takakia_lepidozioides.jpg",
+        "artist": "Stu Crawford",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "width": 4000,
+        "height": 3000
+      }
+    },
+    {
+      "id": "tetraphis-pellucida",
+      "scientificName": "Tetraphis pellucida",
+      "commonName": "Tetraphis pellucida",
+      "wikidataId": "Q1731367",
+      "description": "A moss distinguished by four teeth around the capsule opening.",
+      "ko": {
+        "commonName": "Tetraphis pellucida",
+        "description": "삭 입구에 네 개의 이가 있는 것이 특징인 이끼류입니다."
+      },
+      "taxonomy": {
+        "lineage": [
+          {
+            "wikidataId": "plant:Plantae",
+            "scientificName": "Plantae",
+            "koName": "식물계",
+            "rank": "kingdom"
+          },
+          {
+            "wikidataId": "plant:Viridiplantae",
+            "scientificName": "Viridiplantae",
+            "koName": "녹색식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Streptophyta",
+            "scientificName": "Streptophyta",
+            "koName": "스트렙토식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Phragmoplastophyta",
+            "scientificName": "Phragmoplastophyta",
+            "koName": "격막형성체식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Anydrophyta",
+            "scientificName": "Anydrophyta",
+            "koName": "접합조류·육상식물 갈래",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Embryophyta",
+            "scientificName": "Embryophyta",
+            "koName": "육상식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Bryophytes",
+            "scientificName": "Bryophytes",
+            "koName": "선태식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Setaphyta",
+            "scientificName": "Setaphyta",
+            "koName": "이끼·우산이끼 갈래",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Bryophyta",
+            "scientificName": "Bryophyta",
+            "koName": "선태식물문",
+            "rank": "phylum"
+          },
+          {
+            "wikidataId": "plant:Tetraphidopsida",
+            "scientificName": "Tetraphidopsida",
+            "koName": "Tetraphidopsida",
+            "rank": "class"
+          }
+        ]
+      },
+      "image": {
+        "fileName": "Tetraphis_pellucida.jpeg",
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/8/83/Tetraphis_pellucida.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/83/Tetraphis_pellucida.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Tetraphis_pellucida.jpeg",
+        "artist": "Kristian Peters -- Fabelfroh 10:09, 4 December 2006 (UTC)",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+        "width": 800,
+        "height": 600
+      }
+    },
+    {
+      "id": "haplomitrium-hookeri",
+      "scientificName": "Haplomitrium hookeri",
+      "commonName": "Haplomitrium hookeri",
+      "wikidataId": "Q5892125",
+      "description": "A leafy liverwort belonging to a different class from Marchantia.",
+      "ko": {
+        "commonName": "Haplomitrium hookeri",
+        "description": "작은 잎이 줄기를 둘러싸는 태류로, 우산이끼와 다른 강에 속합니다."
+      },
+      "taxonomy": {
+        "lineage": [
+          {
+            "wikidataId": "plant:Plantae",
+            "scientificName": "Plantae",
+            "koName": "식물계",
+            "rank": "kingdom"
+          },
+          {
+            "wikidataId": "plant:Viridiplantae",
+            "scientificName": "Viridiplantae",
+            "koName": "녹색식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Streptophyta",
+            "scientificName": "Streptophyta",
+            "koName": "스트렙토식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Phragmoplastophyta",
+            "scientificName": "Phragmoplastophyta",
+            "koName": "격막형성체식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Anydrophyta",
+            "scientificName": "Anydrophyta",
+            "koName": "접합조류·육상식물 갈래",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Embryophyta",
+            "scientificName": "Embryophyta",
+            "koName": "육상식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Bryophytes",
+            "scientificName": "Bryophytes",
+            "koName": "선태식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Setaphyta",
+            "scientificName": "Setaphyta",
+            "koName": "이끼·우산이끼 갈래",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Marchantiophyta",
+            "scientificName": "Marchantiophyta",
+            "koName": "우산이끼문",
+            "rank": "phylum"
+          },
+          {
+            "wikidataId": "plant:Haplomitriopsida",
+            "scientificName": "Haplomitriopsida",
+            "koName": "Haplomitriopsida",
+            "rank": "class"
+          }
+        ]
+      },
+      "image": {
+        "fileName": "Untersuchungen über Haplomitrium Hookeri (1843) plate XIII.jpg",
+        "thumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8a/Untersuchungen_%C3%BCber_Haplomitrium_Hookeri_%281843%29_plate_XIII.jpg/960px-Untersuchungen_%C3%BCber_Haplomitrium_Hookeri_%281843%29_plate_XIII.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Untersuchungen_%C3%BCber_Haplomitrium_Hookeri_%281843%29_plate_XIII.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Untersuchungen_%C3%BCber_Haplomitrium_Hookeri_(1843)_plate_XIII.jpg",
+        "artist": "Carl Moritz Gottsche (1808-1892)",
+        "license": "Public domain",
+        "licenseUrl": "https://commons.wikimedia.org/wiki/File:Untersuchungen_%C3%BCber_Haplomitrium_Hookeri_(1843)_plate_XIII.jpg",
+        "width": 2520,
+        "height": 3627
+      }
+    },
+    {
+      "id": "porella-platyphylla",
+      "scientificName": "Porella platyphylla",
+      "commonName": "Porella platyphylla",
+      "wikidataId": "Q905960",
+      "description": "A leafy liverwort with leaves arranged along stems, unlike thalloid Marchantia.",
+      "ko": {
+        "commonName": "Porella platyphylla",
+        "description": "줄기를 따라 잎이 배열되는 태류로, 납작한 엽상체의 우산이끼와 형태가 다릅니다."
+      },
+      "taxonomy": {
+        "lineage": [
+          {
+            "wikidataId": "plant:Plantae",
+            "scientificName": "Plantae",
+            "koName": "식물계",
+            "rank": "kingdom"
+          },
+          {
+            "wikidataId": "plant:Viridiplantae",
+            "scientificName": "Viridiplantae",
+            "koName": "녹색식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Streptophyta",
+            "scientificName": "Streptophyta",
+            "koName": "스트렙토식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Phragmoplastophyta",
+            "scientificName": "Phragmoplastophyta",
+            "koName": "격막형성체식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Anydrophyta",
+            "scientificName": "Anydrophyta",
+            "koName": "접합조류·육상식물 갈래",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Embryophyta",
+            "scientificName": "Embryophyta",
+            "koName": "육상식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Bryophytes",
+            "scientificName": "Bryophytes",
+            "koName": "선태식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Setaphyta",
+            "scientificName": "Setaphyta",
+            "koName": "이끼·우산이끼 갈래",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Marchantiophyta",
+            "scientificName": "Marchantiophyta",
+            "koName": "우산이끼문",
+            "rank": "phylum"
+          },
+          {
+            "wikidataId": "plant:Jungermanniopsida",
+            "scientificName": "Jungermanniopsida",
+            "koName": "Jungermanniopsida",
+            "rank": "class"
+          }
+        ]
+      },
+      "image": {
+        "fileName": "Porella_platyphylla.jpg",
+        "thumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/Porella_platyphylla.jpg/960px-Porella_platyphylla.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Porella_platyphylla.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Porella_platyphylla.jpg",
+        "artist": "See file page",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+        "width": 2272,
+        "height": 1704
+      }
     }
   ],
+  "classCoverage": {
+    "scope": "Extant Plantae including land plants, green algae, red algae and glaucophytes; frozen game classification",
+    "sources": [
+      [
+        "Ruggiero et al. 2015, Table S1",
+        "https://doi.org/10.1371/journal.pone.0119248.s002"
+      ],
+      [
+        "GBIF Backbone accepted Plantae classes",
+        "https://api.gbif.org/v1/species/search?highertaxon_key=6&rank=CLASS&status=ACCEPTED&limit=1000"
+      ]
+    ],
+    "aliases": {
+      "Nephrophyceae": "Nephroselmidophyceae",
+      "Conjugatophyceae": "Zygnematophyceae"
+    },
+    "excludedHistoricalClasses": [
+      "Pleurastrophyceae",
+      "Prasinophyceae",
+      "Rhodophyceae"
+    ],
+    "expectedClasses": [
+      "Andreaeobryopsida",
+      "Andreaeopsida",
+      "Anthocerotopsida",
+      "Bangiophyceae",
+      "Bryopsida",
+      "Charophyceae",
+      "Chlorodendrophyceae",
+      "Chlorokybophyceae",
+      "Chlorophyceae",
+      "Chloropicophyceae",
+      "Coleochaetophyceae",
+      "Compsopogonophyceae",
+      "Cyanidiophyceae",
+      "Cycadopsida",
+      "Florideophyceae",
+      "Ginkgoopsida",
+      "Glaucophyceae",
+      "Gnetopsida",
+      "Haplomitriopsida",
+      "Jungermanniopsida",
+      "Klebsormidiophyceae",
+      "Leiosporocerotopsida",
+      "Liliopsida",
+      "Lycopodiopsida",
+      "Magnoliopsida",
+      "Mamiellophyceae",
+      "Marchantiopsida",
+      "Mesostigmatophyceae",
+      "Nephroselmidophyceae",
+      "Oedipodiopsida",
+      "Palmophyllophyceae",
+      "Pedinophyceae",
+      "Picocystophyceae",
+      "Pinopsida",
+      "Polypodiopsida",
+      "Polytrichopsida",
+      "Porphyridiophyceae",
+      "Pyramimonadophyceae",
+      "Rhodellophyceae",
+      "Sphagnopsida",
+      "Stylonematophyceae",
+      "Takakiopsida",
+      "Tetraphidopsida",
+      "Trebouxiophyceae",
+      "Ulvophyceae",
+      "Zygnematophyceae"
+    ],
+    "membershipSources": {
+      "Cyanidioschyzon merolae": "https://pubmed.ncbi.nlm.nih.gov/12755171",
+      "Tetraselmis suecica": "https://www.ccap.ac.uk/catalogue/strain-66-22c",
+      "Pyramimonas parkeae": "https://www.ccap.ac.uk/catalogue/strain-67-7",
+      "Chloropicon primus": "https://ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1764295",
+      "Coleochaete scutata": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=3125&mode=Info",
+      "Oedipodium griffithianum": "https://itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=15877",
+      "Tetraphis pellucida": "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=15791"
+    }
+  },
   "sources": [
+    [
+      "Ruggiero et al. 2015, Table S1",
+      "https://doi.org/10.1371/journal.pone.0119248.s002"
+    ],
+    [
+      "GBIF Backbone accepted Plantae classes",
+      "https://api.gbif.org/v1/species/search?highertaxon_key=6&rank=CLASS&status=ACCEPTED&limit=1000"
+    ],
     [
       "Plant Tree of Life · Cambridge University Botanic Garden",
       "https://s3-eu-west-1.amazonaws.com/assets.botanic.cam.ac.uk/wp-content/uploads/2023/10/evolution_trail_web.pdf"
@@ -852,5 +3639,5 @@
       "https://treeoflife.kew.org/"
     ]
   ],
-  "classificationNote": "Class-level teaching dataset of representative land plants. Magnoliopsida denotes eudicots here; it is not the traditional paraphyletic dicot grouping. Unsampled lineages are omitted; sibling order does not imply relative age."
+  "classificationNote": "Class-level teaching dataset of extant Plantae including green algae, red algae and glaucophytes. The frozen class roster reconciles Ruggiero et al. 2015 with GBIF Backbone, merges synonymous class names, and excludes historical groupings and fossils. Magnoliopsida denotes sampled eudicots here. Unresolved higher relationships are multifurcations, not assertions of simultaneous divergence. Missing photos use an explicitly labelled placeholder."
 }

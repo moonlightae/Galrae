@@ -983,7 +983,7 @@ async function startGame(options = {}) {
     return;
   }
   if (options.difficulty && !Object.hasOwn(difficultyNames, options.difficulty)) return;
-  if (selectedKingdom === "plants" && !options.practice && !options.tutorial) {
+  if (selectedKingdom === "plants" && !options.practice && !options.tutorial && options.difficulty !== "easy") {
     showToast("구현 중입니다.");
     return;
   }
@@ -1000,7 +1000,7 @@ async function startGame(options = {}) {
   try {
     const guestAttempts = Number(localStorage.getItem("galrae.guest-attempts.v1")) || 0;
     const practice = options.practice === true;
-    const tutorial = !practice && (options.tutorial === true || (options.skipTutorial !== true && (currentUser ? currentGamesPlayed === 0 : guestAttempts === 0)));
+    const tutorial = !practice && (options.tutorial === true || (selectedKingdom !== "plants" && options.skipTutorial !== true && (currentUser ? currentGamesPlayed === 0 : guestAttempts === 0)));
     const difficulty = practice ? "hard" : options.difficulty || (tutorial ? null : "hard");
     const initialSpeciesId = selectedKingdom === "plants" ? PLANT_INITIAL_ID : HUMAN_ID;
     const queue = tutorial

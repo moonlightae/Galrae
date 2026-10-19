@@ -1,11 +1,18 @@
 # Animal dataset
 
-## 식물계 연습·튜토리얼 데이터
+## 식물계 쉬움·연습·튜토리얼 데이터
 
-`plants.json`과 `public/data/plants.json`은 11개 강의 대표 식물로 구성되며,
-분류 경로는 강에서 끝납니다. 무궁화는 시작 카드이고 연습 모드에는 나머지 10종이 출제됩니다.
+`plants.json`과 `public/data/plants.json`은 현생 식물 46개 강의 대표종으로 구성되며,
+분류 경로는 강에서 끝납니다. 무궁화는 시작 카드이고 쉬움·연습 모드에는 나머지 45종이 출제됩니다.
 튜토리얼은 밭뿔이끼·벼·브라켄고사리·구주소나무 순서로 진행하며 기록에는 포함되지 않습니다.
-목 이하의 분류와 식물계 일반 난이도는 포함하지 않습니다.
+목 이하의 분류와 식물계 보통·어려움은 포함하지 않습니다.
+
+범위는 육상식물·녹조류·홍조류·회색조류를 포함한 현생 Plantae입니다.
+`plant-class-coverage.json`에 Ruggiero et al. (2015) 보충 분류표와 GBIF Backbone을
+대조한 고정 기준 46개 강, 동의어 통합, 제외한 옛 분류명을 기록했습니다.
+멸종 분류군은 제외하며, 모든 분류 체계에서 강의 수가 같다는 뜻은 아닙니다.
+대표종은 `plant-class-additions.json`에 기록합니다. 큰솔이끼는 선강(Bryopsida)에서
+솔이끼강(Polytrichopsida)으로 바로잡고 선강 대표종으로 은이끼를 추가했습니다.
 
 식물의 상위 갈래는 Cambridge University Botanic Garden의 Plant Tree of Life,
 NCBI Taxonomy, Kew Tree of Life를 참고한 교육용 축약 계통수입니다.
@@ -13,9 +20,12 @@ NCBI Taxonomy, Kew Tree of Life를 참고한 교육용 축약 계통수입니다
 가리킵니다. 전통적인 모든 쌍떡잎식물을 하나의 단일계통군으로 묶지 않습니다.
 미수록 갈래는 생략하며, 가지 표시 순서는 생물의 나이나 진화 정도를 뜻하지 않습니다.
 강마다 한 대표종만 있으므로 이 버전에서 강 내부 관계는 판정하지 않습니다.
+불확실한 상위 관계는 다분기로 남겼으며, 같은 시점에 분기했다는 뜻은 아닙니다.
 
 한·영 설명은 직접 작성했으며, 사진마다 Wikimedia Commons 원본 페이지·저작자·
-라이선스를 기록했습니다. `node scripts/build-plant-dataset.mjs`로 사진 메타데이터를
+라이선스를 기록했습니다. 종이 확인되는 공개 사진을 확보하지 못한 카드에는
+사진 미확보 안내를 표시합니다. 비교 그림은 해당 종이 있는 패널을 출처에 명시합니다.
+`node scripts/build-plant-dataset.mjs`로 사진 메타데이터를
 다시 수집하고, `node scripts/validate-plants.mjs`로 데이터와 판정 로직을 확인합니다.
 
 ## Class/order coverage expansion — 2026-10-15

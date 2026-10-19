@@ -6,6 +6,7 @@ import "../public/game-logic.js";
 const read = (path) => readFileSync(new URL(path, import.meta.url), "utf8");
 assert.equal(read("../data/plants.json"), read("../public/data/plants.json"));
 const { plants, initialSpeciesId } = JSON.parse(read("../data/plants.json"));
+const coverage = JSON.parse(read("../data/plant-class-coverage.json"));
 const { animals } = JSON.parse(read("../data/animals.json"));
 const { buildTree, createDifficultyQueue, getExpectedPlacement, isEquivalentPlacement, collectLeafIds } = globalThis.GalraeLogic;
 const speciesById = new Map([...animals, ...plants].map((plant) => [plant.id, plant]));
@@ -17,10 +18,16 @@ for (const plant of plants) {
   assert.equal(plant.taxonomy.lineage.filter((taxon) => taxon.rank === "class").length, 1);
   assert.ok(plant.ko.commonName && plant.ko.description && plant.description);
   assert.ok(plant.image.artist && plant.image.license);
-  assert.match(plant.image.commonsPageUrl, /^https:\/\/commons.wikimedia.org\//);
+  if (plant.image.photoUnavailable) {
+    assert.equal(plant.image.thumbnailUrl, "/plant-no-photo.svg");
+    assert.match(plant.image.identificationNote, /사진 미확보/);
+  } else assert.match(plant.image.commonsPageUrl, /^https:\/\/commons.wikimedia.org\//);
   classes.add(plant.taxonomy.lineage.at(-1).wikidataId);
 }
 assert.equal(classes.size, plants.length);
+assert.deepEqual([...classes].map((id) => id.replace(/^plant:/, "")).sort(), coverage.expectedClasses);
+assert.equal(classes.size, 46, "Every reviewed extant class must be represented exactly once");
+assert.equal(speciesById.get("polytrichum-commune").taxonomy.lineage.at(-1).scientificName, "Polytrichopsida");
 let seed = 17;
 const random = () => ((seed = (Math.imul(seed, 1664525) + 1013904223) >>> 0) / 2 ** 32);
 for (let run = 0; run < 50; run++) {

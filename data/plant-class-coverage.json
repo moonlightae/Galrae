@@ -1,0 +1,79 @@
+{
+  "scope": "Extant Plantae including land plants, green algae, red algae and glaucophytes; frozen game classification",
+  "sources": [
+    [
+      "Ruggiero et al. 2015, Table S1",
+      "https://doi.org/10.1371/journal.pone.0119248.s002"
+    ],
+    [
+      "GBIF Backbone accepted Plantae classes",
+      "https://api.gbif.org/v1/species/search?highertaxon_key=6&rank=CLASS&status=ACCEPTED&limit=1000"
+    ]
+  ],
+  "aliases": {
+    "Nephrophyceae": "Nephroselmidophyceae",
+    "Conjugatophyceae": "Zygnematophyceae"
+  },
+  "excludedHistoricalClasses": [
+    "Pleurastrophyceae",
+    "Prasinophyceae",
+    "Rhodophyceae"
+  ],
+  "expectedClasses": [
+    "Andreaeobryopsida",
+    "Andreaeopsida",
+    "Anthocerotopsida",
+    "Bangiophyceae",
+    "Bryopsida",
+    "Charophyceae",
+    "Chlorodendrophyceae",
+    "Chlorokybophyceae",
+    "Chlorophyceae",
+    "Chloropicophyceae",
+    "Coleochaetophyceae",
+    "Compsopogonophyceae",
+    "Cyanidiophyceae",
+    "Cycadopsida",
+    "Florideophyceae",
+    "Ginkgoopsida",
+    "Glaucophyceae",
+    "Gnetopsida",
+    "Haplomitriopsida",
+    "Jungermanniopsida",
+    "Klebsormidiophyceae",
+    "Leiosporocerotopsida",
+    "Liliopsida",
+    "Lycopodiopsida",
+    "Magnoliopsida",
+    "Mamiellophyceae",
+    "Marchantiopsida",
+    "Mesostigmatophyceae",
+    "Nephroselmidophyceae",
+    "Oedipodiopsida",
+    "Palmophyllophyceae",
+    "Pedinophyceae",
+    "Picocystophyceae",
+    "Pinopsida",
+    "Polypodiopsida",
+    "Polytrichopsida",
+    "Porphyridiophyceae",
+    "Pyramimonadophyceae",
+    "Rhodellophyceae",
+    "Sphagnopsida",
+    "Stylonematophyceae",
+    "Takakiopsida",
+    "Tetraphidopsida",
+    "Trebouxiophyceae",
+    "Ulvophyceae",
+    "Zygnematophyceae"
+  ],
+  "membershipSources": {
+    "Cyanidioschyzon merolae": "https://pubmed.ncbi.nlm.nih.gov/12755171",
+    "Tetraselmis suecica": "https://www.ccap.ac.uk/catalogue/strain-66-22c",
+    "Pyramimonas parkeae": "https://www.ccap.ac.uk/catalogue/strain-67-7",
+    "Chloropicon primus": "https://ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1764295",
+    "Coleochaete scutata": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=3125&mode=Info",
+    "Oedipodium griffithianum": "https://itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=15877",
+    "Tetraphis pellucida": "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=15791"
+  }
+}
