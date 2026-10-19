@@ -11,37 +11,69 @@
 
 /* 테마 */
 :root {
-  --ink: #292d32;
-  --forest: #363b40;
-  --forest-2: #70777e;
-  --paper: #fcfcfb;
-  --yellow: #fcfcfb;
-  --coral: #50565c;
-  --line: #d5d9dc;
-  --muted: #50565c;
-  --shadow: 0 8px 24px rgba(32, 38, 43, .08);
-  --canvas: #f6f7f6;
-  --surface: #fcfcfb;
-  --surface-muted: #f0f2f1;
-  --edge: #92999f;
+  --ink: #6b4935;
+  --forest: #6b4935;
+  --forest-2: #896c56;
+  --paper: #ffffff;
+  --yellow: #ffffff;
+  --coral: #785b48;
+  --line: #e2d8ce;
+  --muted: #785b48;
+  --shadow: 0 8px 24px rgba(107, 73, 53, .08);
+  --canvas: #fdfaf6;
+  --surface: #ffffff;
+  --surface-muted: #f4ede6;
+  --edge: #a38a74;
   color-scheme: light;
 }
 
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --ink: #eceeed;
-  --forest: #d8dcda;
-  --forest-2: #a0a7ac;
-  --paper: #202326;
-  --yellow: #202326;
-  --coral: #b8bec3;
-  --line: #3b4146;
-  --muted: #b8bec3;
+  --ink: #f4e5d5;
+  --forest: #f4e5d5;
+  --forest-2: #c5ab94;
+  --paper: #2c231d;
+  --yellow: #2c231d;
+  --coral: #d0b8a3;
+  --line: #564439;
+  --muted: #d0b8a3;
   --shadow: 0 8px 24px rgba(0, 0, 0, .25);
-  --canvas: #151719;
-  --surface: #202326;
-  --surface-muted: #2c3034;
-  --edge: #7b858e;
+  --canvas: #201914;
+  --surface: #2c231d;
+  --surface-muted: #3a2e25;
+  --edge: #aa8f77;
+}
+
+:root[data-kingdom="plants"] {
+  --ink: #11675f;
+  --forest: #11675f;
+  --forest-2: #397c73;
+  --paper: #ffffff;
+  --yellow: #ffffff;
+  --coral: #386e67;
+  --line: #cde2dd;
+  --muted: #386e67;
+  --shadow: 0 8px 24px rgba(17, 103, 95, .08);
+  --canvas: #f5fbf9;
+  --surface: #ffffff;
+  --surface-muted: #e9f4f0;
+  --edge: #74a69b;
+}
+
+:root[data-kingdom="plants"][data-theme="dark"] {
+  --ink: #c8f3eb;
+  --forest: #c8f3eb;
+  --forest-2: #91bdb3;
+  --paper: #18332e;
+  --yellow: #18332e;
+  --coral: #a6d0c6;
+  --line: #35574f;
+  --muted: #a6d0c6;
+  --shadow: 0 8px 24px rgba(0, 0, 0, .25);
+  --canvas: #102521;
+  --surface: #18332e;
+  --surface-muted: #224239;
+  --edge: #78a99a;
 }
 
 
@@ -500,6 +532,7 @@ button, [role="button"] { -webkit-tap-highlight-color: transparent; }
 
 /* 공통 테마와 상태 표시 */
 html, body, .screen, .mode-panel, .leaderboard, .collection, .card-dock, .failure-panel, .result-modal, .account-dialog, .species-dialog, .tutorial-intro-dialog, .taxonomy-notes-panel, .loading-content, .animal-card, .mini-card { transition: background-color 600ms ease, color 600ms ease, border-color 600ms ease; }
+.lobby-intro h1, .intro-copy, .mode-panel h2, .mode-panel p, .mode-options button { transition: color 600ms ease, background-color 600ms ease, border-color 600ms ease; }
 :root[data-theme="dark"] .modal-backdrop { background: rgba(15, 17, 19, .88); }
 :root[data-theme="dark"] .toolbar-shade { background: rgba(0, 0, 0, .58); }
 :root[data-theme="dark"] .answer-tree .species-node.is-preview { color: #dcedd5; background: #29391f; }

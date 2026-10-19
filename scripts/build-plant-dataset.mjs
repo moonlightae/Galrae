@@ -18,7 +18,7 @@ const taxa = [
 ].map(([scientificName, koName, rank]) => ({ wikidataId: `plant:${scientificName}`, scientificName, koName, rank }));
 const byName = new Map(taxa.map((taxon) => [taxon.scientificName, taxon]));
 const seeds = [
-  ["Helianthus annuus", "해바라기", "Common sunflower", "넓은 잎과 큰 꽃차례가 특징인 한해살이 속씨식물입니다.", "An annual flowering plant with broad leaves and large flower heads.", "Tracheophyta/Euphyllophyta/Spermatophyta/Angiosperms/Magnoliopsida"],
+  ["Hibiscus syriacus", "무궁화", "Rose of Sharon", "여름부터 가을까지 꽃을 피우는 낙엽 관목으로, 다섯 장의 꽃잎과 긴 수술기둥이 특징입니다.", "A deciduous shrub that flowers from summer into autumn, with five petals and a prominent staminal column.", "Tracheophyta/Euphyllophyta/Spermatophyta/Angiosperms/Magnoliopsida"],
   ["Oryza sativa", "벼", "Asian rice", "좁고 긴 잎을 가진 외떡잎식물로, 낟알을 식량으로 이용합니다.", "A monocot with long narrow leaves, cultivated for its edible grain.", "Tracheophyta/Euphyllophyta/Spermatophyta/Angiosperms/Liliopsida"],
   ["Pinus sylvestris", "구주소나무", "Scots pine", "바늘 모양 잎과 솔방울을 만드는 상록성 겉씨식물입니다.", "An evergreen gymnosperm with needle-like leaves and seed cones.", "Tracheophyta/Euphyllophyta/Spermatophyta/Acrogymnospermae/Pinopsida + Gnetopsida/Pinopsida"],
   ["Cycas revoluta", "소철", "Sago cycad", "깃 모양 잎이 줄기 끝에 모이는 겉씨식물로, 야자나무와는 다른 갈래입니다.", "A gymnosperm with a crown of pinnate leaves, belonging to a different lineage from palms.", "Tracheophyta/Euphyllophyta/Spermatophyta/Acrogymnospermae/Cycadopsida + Ginkgoopsida/Cycadopsida"],
@@ -62,7 +62,7 @@ const plants = seeds.map(([scientificName, commonName, enName, description, desc
       width: info.width, height: info.height },
   };
 });
-const dataset = { schemaVersion: 1, speciesCount: plants.length, initialSpeciesId: "helianthus-annuus", taxa, plants,
+const dataset = { schemaVersion: 1, speciesCount: plants.length, initialSpeciesId: "hibiscus-syriacus", taxa, plants,
   sources: [["Plant Tree of Life · Cambridge University Botanic Garden", "https://s3-eu-west-1.amazonaws.com/assets.botanic.cam.ac.uk/wp-content/uploads/2023/10/evolution_trail_web.pdf"], ["NCBI Taxonomy", "https://www.ncbi.nlm.nih.gov/taxonomy"], ["Kew Tree of Life", "https://treeoflife.kew.org/"]],
   classificationNote: "Class-level teaching dataset of representative land plants. Magnoliopsida denotes eudicots here; it is not the traditional paraphyletic dicot grouping. Unsampled lineages are omitted; sibling order does not imply relative age." };
 for (const target of ["data/plants.json", "public/data/plants.json"]) await writeFile(target, `${JSON.stringify(dataset, null, 2)}\n`);

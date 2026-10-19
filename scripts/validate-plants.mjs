@@ -62,19 +62,41 @@ for (const layout of ["top", "bottom", "radial"]) {
 const client = read("../public/app.js");
 const elements = new Map();
 const element = (selector) => {
-  if (!elements.has(selector)) elements.set(selector, {});
+  if (!elements.has(selector)) elements.set(selector, { hidden: false });
   return elements.get(selector);
 };
 const buttons = ["animals", "plants"].map((kingdom) => ({ dataset: { kingdom }, classList: { toggle(_, value) { this.active = value; } }, setAttribute(_, value) { this.pressed = value; } }));
-const context = { gameStarting: false, selectedKingdom: "animals", $: element, document: { querySelectorAll: () => buttons } };
+const events = [];
+const context = { gameStarting: false, selectedKingdom: "animals", $: element,
+  document: { documentElement: { dataset: {} }, querySelectorAll: () => buttons },
+  window: { dispatchEvent: (event) => events.push(event.type) }, Event,
+};
 vm.runInNewContext(client.slice(client.indexOf("function selectKingdom("), client.indexOf("const COLLECTION_PREFIX")), context);
 context.selectKingdom("plants");
 assert.equal(context.selectedKingdom, "plants");
-assert.equal(element("#start-practice").hidden, true);
-assert.equal(element("#start-tutorial").hidden, true);
+assert.equal(element("#start-practice").hidden, false);
+assert.equal(element("#start-tutorial").hidden, false);
+assert.equal(context.document.documentElement.dataset.kingdom, "plants");
+assert.equal(events.at(-1), "galrae:kingdom-change");
+assert.doesNotMatch(element("#kingdom-description").textContent, /쉬움|강마다|해바라기/);
+assert.match(element("#kingdom-description").textContent, /무궁화/);
 assert.equal(buttons[1].pressed, "true");
 context.selectKingdom("animals");
 assert.equal(element("#start-practice").hidden, false);
 assert.equal(element("#start-tutorial").hidden, false);
 assert.equal(buttons[0].pressed, "true");
+const migrationContext = { PLANT_INITIAL_ID: initialSpeciesId, speciesById, collectionKey: () => "collection",
+  localStorage: { getItem: () => JSON.stringify(["helianthus-annuus", "ginkgo-biloba"]) },
+};
+vm.runInNewContext(client.slice(client.indexOf("function getCollection("), client.indexOf("function setCollection(")), migrationContext);
+assert.deepEqual(Array.from(migrationContext.getCollection()), [initialSpeciesId, "ginkgo-biloba"]);
+const tutorial = ["anthoceros-agrestis", "oryza-sativa", "pteridium-aquilinum", "pinus-sylvestris"];
+const tutorialClassified = [initialSpeciesId];
+for (const [index, id] of tutorial.entries()) {
+  const expected = getExpectedPlacement(tutorialClassified, id, speciesById);
+  if (index < 2) assert.equal(expected.targetId, initialSpeciesId);
+  else assert.deepEqual(new Set(collectLeafIds(globalThis.GalraeLogic.findNodeById(buildTree(tutorialClassified, speciesById), expected.targetId))), new Set([initialSpeciesId, "oryza-sativa"]));
+  assert.equal(expected.placement, "wrap");
+  tutorialClassified.push(id);
+}
 console.log(`Validated ${classes.size} plant classes, 50 complete queue orders, mixed collection roots and kingdom selection.`);

@@ -67,8 +67,12 @@ export function createLobbySculpture(surface, lobby) {
     geometry.setAttribute(name, new THREE.BufferAttribute(merged, name === "uv" ? 2 : 3));
   }
   geometry.computeBoundingSphere();
-  const black = new THREE.Color(0x292d32), white = new THREE.Color(0xffffff);
-  const uniforms = { front: { value: -3.4 }, from: { value: black.clone() }, to: { value: white.clone() } };
+  const palettes = {
+    animals: { light: new THREE.Color(0x6b4935), dark: new THREE.Color(0xf4e5d5) },
+    plants: { light: new THREE.Color(0x11675f), dark: new THREE.Color(0xc8f3eb) },
+  };
+  const initialColor = palettes[document.documentElement.dataset.kingdom === "plants" ? "plants" : "animals"].light;
+  const uniforms = { front: { value: -3.4 }, from: { value: initialColor.clone() }, to: { value: initialColor.clone() } };
   const material = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: .92, metalness: 0 });
   material.onBeforeCompile = (shader) => {
     shader.uniforms.scFront = uniforms.front; shader.uniforms.scFrom = uniforms.from; shader.uniforms.scTo = uniforms.to;
@@ -126,7 +130,8 @@ export function createLobbySculpture(surface, lobby) {
   const maxSpeed = 1.6, friction = .045;
   const randomSigned = (min, max) => (min + Math.random() * (max - min)) * (Math.random() < .5 ? -1 : 1);
   const velocity = { x: reduced.matches ? 0 : randomSigned(.008, .018), y: reduced.matches ? 0 : randomSigned(.07, .12) };
-  let desiredDark = false, settledDark = false, transition = null;
+  let desiredDark = false, transition = null;
+  const settledColor = initialColor.clone();
   document.documentElement.dataset.theme = "light";
   surface.setAttribute("aria-pressed", "false");
   let frame = 0, lastFrame = 0, pointer = null, touched = false, suppressClick = false, inView = true;
@@ -144,10 +149,12 @@ export function createLobbySculpture(surface, lobby) {
     sculpture.rotateOnWorldAxis(xAxis, velocity.x * dt);
   }
   function beginFill() {
-    if (desiredDark === settledDark) return;
-    uniforms.from.value.copy(settledDark ? white : black);
-    uniforms.to.value.copy(desiredDark ? white : black);
-    transition = { start: performance.now(), dark: desiredDark };
+    const palette = palettes[document.documentElement.dataset.kingdom === "plants" ? "plants" : "animals"];
+    const targetColor = desiredDark ? palette.dark : palette.light;
+    if (targetColor.equals(settledColor)) return;
+    uniforms.from.value.copy(settledColor);
+    uniforms.to.value.copy(targetColor);
+    transition = { start: performance.now() };
     uniforms.front.value = -3.4; requestDraw();
   }
   function requestDraw() {
@@ -160,7 +167,7 @@ export function createLobbySculpture(surface, lobby) {
     if (transition) {
       const progress = reduced.matches ? 1 : Math.min((now - transition.start) / 1600, 1);
       uniforms.front.value = -3.4 + progress * progress * (3 - 2 * progress) * 6.9;
-      if (progress === 1) { settledDark = transition.dark; transition = null; beginFill(); }
+      if (progress === 1) { settledColor.copy(uniforms.to.value); transition = null; beginFill(); }
     }
     renderer.setRenderTarget(depthTarget); renderer.render(scene, camera);
     renderer.setRenderTarget(null); renderer.render(blurScene, blurCamera);
@@ -212,6 +219,8 @@ export function createLobbySculpture(surface, lobby) {
     surface.setAttribute("aria-pressed", String(desiredDark));
     if (!transition) beginFill();
   });
+  const changeKingdom = () => { if (!transition) beginFill(); };
+  window.addEventListener("galrae:kingdom-change", changeKingdom);
   surface.addEventListener("keydown", (event) => {
     const keys = { ArrowLeft: [0, -.12], ArrowRight: [0, .12], ArrowUp: [-.1, 0], ArrowDown: [.1, 0] };
     if (!keys[event.key]) return;
@@ -227,6 +236,7 @@ export function createLobbySculpture(surface, lobby) {
     if (event.persisted) return;
     cancelAnimationFrame(frame); observer.disconnect(); visibilityObserver.disconnect(); intersection.disconnect();
     document.removeEventListener("visibilitychange", refreshVisibility); reduced.removeEventListener("change", refreshVisibility);
+    window.removeEventListener("galrae:kingdom-change", changeKingdom);
     geometry.dispose(); material.dispose(); depthTarget.dispose();
     blurQuad.geometry.dispose(); blurMaterial.dispose(); renderer.dispose();
   }, { once: true });

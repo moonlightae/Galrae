@@ -259,7 +259,7 @@ assert.equal(successCountText(firstSuccess[placozoanId]), "분류 성공 1회");
 assert.equal(successCountText(secondSuccess[placozoanId]), "분류 성공 2회");
 assert.equal(successCountText(secondSuccess[humanId]), "분류 성공 0회", "Other species counts must not change");
 const clientSource = fs.readFileSync(new URL("../public/app.js", import.meta.url), "utf8");
-const tutorialQueue = JSON.parse(clientSource.match(/const queue = tutorial\s*\? (\[[^\]]+\])/)[1]);
+const tutorialQueue = JSON.parse(clientSource.match(/\["bolinopsis-infundibulum"[^\]]+\]/)[0]);
 assert.equal(tutorialQueue.length, 4, "Tutorial must offer all four placement cases");
 const tutorialClassified = [humanId];
 for (const [index, speciesId] of tutorialQueue.entries()) {

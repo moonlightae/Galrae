@@ -258,7 +258,7 @@ const detailElement = (selector) => {
 const detailState = { classified: [humanId], currentId: ctenophoreId, failed: false };
 const detailContext = {
   state: detailState, speciesById, HUMAN_ID: humanId, $: detailElement,
-  initialSpeciesIds: new Set([humanId, "helianthus-annuus"]), setKingdomLabel() {},
+  initialSpeciesIds: new Set([humanId, "hibiscus-syriacus"]), setKingdomLabel() {},
   photoPrivacy: { prepare(image, animal) { image.preparedSpecies = animal.id; } },
   cardText: (animal) => animal,
   shortDescription: (text) => text, escapeHtml: (text) => String(text),

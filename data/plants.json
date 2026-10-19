@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "speciesCount": 11,
-  "initialSpeciesId": "helianthus-annuus",
+  "initialSpeciesId": "hibiscus-syriacus",
   "taxa": [
     {
       "wikidataId": "plant:Plantae",
@@ -138,14 +138,14 @@
   ],
   "plants": [
     {
-      "id": "helianthus-annuus",
-      "scientificName": "Helianthus annuus",
-      "commonName": "Common sunflower",
-      "wikidataId": "Q171497",
-      "description": "An annual flowering plant with broad leaves and large flower heads.",
+      "id": "hibiscus-syriacus",
+      "scientificName": "Hibiscus syriacus",
+      "commonName": "Rose of Sharon",
+      "wikidataId": "Q157756",
+      "description": "A deciduous shrub that flowers from summer into autumn, with five petals and a prominent staminal column.",
       "ko": {
-        "commonName": "해바라기",
-        "description": "넓은 잎과 큰 꽃차례가 특징인 한해살이 속씨식물입니다."
+        "commonName": "무궁화",
+        "description": "여름부터 가을까지 꽃을 피우는 낙엽 관목으로, 다섯 장의 꽃잎과 긴 수술기둥이 특징입니다."
       },
       "taxonomy": {
         "lineage": [
@@ -194,15 +194,15 @@
         ]
       },
       "image": {
-        "fileName": "Sunflower_sky_backdrop.jpg",
-        "thumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Sunflower_sky_backdrop.jpg/960px-Sunflower_sky_backdrop.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/40/Sunflower_sky_backdrop.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-        "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Sunflower_sky_backdrop.jpg",
-        "artist": "Fir0002",
-        "license": "GFDL 1.2",
-        "licenseUrl": "http://www.gnu.org/licenses/old-licenses/fdl-1.2.html",
-        "width": 1404,
-        "height": 1555
+        "fileName": "Hibiscus_Syriacus.JPG",
+        "thumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/Hibiscus_Syriacus.JPG/960px-Hibiscus_Syriacus.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/98/Hibiscus_Syriacus.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Hibiscus_Syriacus.JPG",
+        "artist": "Eric Kounce TexasRaiser",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "width": 1536,
+        "height": 1024
       }
     },
     {

@@ -7,7 +7,7 @@ const [{ bindTreeNavigation, createTreeView }, { createCollectionView }, { getAc
 
 const { ANIMALIA_ID, addSuccessCount, buildTree, createDifficultyQueue, difficultyNames, getExpectedPlacement, isEquivalentPlacement, seedSuccessCounts, successCountText } = globalThis.GalraeLogic;
 const HUMAN_ID = "homo-sapiens";
-const PLANT_INITIAL_ID = "helianthus-annuus";
+const PLANT_INITIAL_ID = "hibiscus-syriacus";
 const initialSpeciesIds = new Set([HUMAN_ID, PLANT_INITIAL_ID]);
 let selectedKingdom = "animals";
 let plants = [];
@@ -15,18 +15,18 @@ let plants = [];
 function selectKingdom(kingdom) {
   if (!["animals", "plants"].includes(kingdom) || gameStarting) return;
   selectedKingdom = kingdom;
+  document.documentElement.dataset.kingdom = kingdom;
+  window.dispatchEvent(new Event("galrae:kingdom-change"));
   const plant = kingdom === "plants";
   $("#kingdom-title").textContent = plant ? "식물계" : "동물계";
   $("#kingdom-description").textContent = plant
-    ? "해바라기에서 시작해 식물의 공통 조상을 찾아갑니다. 쉬움 · 강마다 한 종씩 출제합니다."
+    ? "무궁화에서 시작해 서로 다른 식물의 공통 조상을 찾아갑니다."
     : "인간에서 시작해 서로 다른 동물의 공통 조상을 찾아갑니다.";
   document.querySelectorAll("[data-kingdom]").forEach((button) => {
     const active = button.dataset.kingdom === kingdom;
     button.classList.toggle("is-active", active);
     button.setAttribute("aria-pressed", String(active));
   });
-  $("#start-practice").hidden = plant;
-  $("#start-tutorial").hidden = plant;
 }
 const COLLECTION_PREFIX = "galrae.collection.v3";
 const SUCCESS_COUNTS_PREFIX = "galrae.success-counts.v1";
@@ -231,7 +231,7 @@ function recordSuccess(speciesId) {
 function getCollection() {
   try {
     const stored = JSON.parse(localStorage.getItem(collectionKey()));
-    return Array.isArray(stored) ? stored.filter((id) => speciesById.has(id)) : [];
+    return Array.isArray(stored) ? [...new Set(stored.map((id) => id === "helianthus-annuus" ? PLANT_INITIAL_ID : id))].filter((id) => speciesById.has(id)) : [];
   } catch { return []; }
 }
 
@@ -946,7 +946,7 @@ function updateRound() {
     $("#result-title").textContent = state.practice ? "연습을 마쳤어요." : "분류를 마쳤어요.";
     $("#result-count").textContent = state.practice ? state.score : state.classified.length;
     $("#result-unit").textContent = "species";
-    $("#result-copy").textContent = state.practice ? `직접 맞힌 카드 ${state.score}종 · 자동 배치 ${state.mistakes.size}종. 연습 기록은 일반 기록과 별도로 저장됩니다.` : `${difficultyNames[state.difficulty]} 난이도 완주 · ${state.kingdom === "plants" ? "해바라기를" : "인간을"} 포함한 ${state.classified.length}종을 분류했습니다.${state.difficulty === "hard" ? " 죽음 난이도가 해금되었습니다. 플레이는 준비 중입니다." : ""}`;
+    $("#result-copy").textContent = state.practice ? `직접 맞힌 카드 ${state.score}종 · 자동 배치 ${state.mistakes.size}종. 연습 기록은 일반 기록과 별도로 저장됩니다.` : `${difficultyNames[state.difficulty]} 난이도 완주 · ${state.kingdom === "plants" ? "무궁화를" : "인간을"} 포함한 ${state.classified.length}종을 분류했습니다.${state.difficulty === "hard" ? " 죽음 난이도가 해금되었습니다. 플레이는 준비 중입니다." : ""}`;
     $("#return-lobby").textContent = "수집함 보기 →";
     $("#result-modal").hidden = false;
     submitScore();
@@ -958,17 +958,21 @@ function updateRound() {
   $("#round-label").textContent = `${state.practice ? "연습 모드" : state.tutorial ? "튜토리얼" : difficultyNames[state.difficulty]} · ${state.round + 1}/${state.queue.length}`;
   const banner = $("#tutorial-banner");
   banner.hidden = !state.tutorial;
-  if (state.tutorial) banner.textContent = [
+  if (state.tutorial) banner.textContent = (state.kingdom === "plants" ? [
+    "연습 1/4 · 첫 분기 만들기. 밭뿔이끼와 무궁화의 공통 조상을 만듭니다. 카드를 선택한 뒤 무궁화 카드로 이어지는 기둥을 눌러 보세요.",
+    "연습 2/4 · 한 생물 옆에 추가하기. 벼는 밭뿔이끼보다 무궁화와 더 가까운 조상을 공유합니다. 카드를 선택한 뒤 무궁화 노드를 눌러 보세요.",
+    "연습 3/4 · 기존 가지에서 먼저 분기하기. 고사리는 무궁화·벼보다 먼저 갈라집니다. 두 식물을 묶는 원형 분기점으로 이어지는 기둥을 눌러 보세요.",
+    "연습 4/4 · 더 가까운 갈래 찾기. 소나무는 고사리보다 무궁화·벼와 더 가까운 조상을 공유합니다. 무궁화·벼를 묶는 원형 분기점으로 이어지는 기둥을 눌러 보세요.",
+  ] : [
     "연습 1/4 · 첫 분기 만들기. 유즐동물과 인간의 공통 조상을 만듭니다. 카드를 선택한 뒤 인간 카드로 이어지는 기둥을 누르거나, 그 기둥으로 카드를 옮겨 보세요.",
     "연습 2/4 · 한 생물 옆에 추가하기. 불가사리는 유즐동물보다 인간과 더 가까운 조상을 공유합니다. 카드를 선택한 뒤 인간 노드를 눌러 보세요.",
     "연습 3/4 · 같은 공통 조상에 추가하기. 판형동물은 게임에서 동물계 공통 조상 아래 별도 가지로 둡니다. 카드를 선택한 뒤 최상단의 원형 분기점을 눌러 보세요.",
     "연습 4/4 · 기존 가지에서 먼저 분기하기. 개미는 인간·불가사리 묶음의 바깥에서 갈라집니다. 카드를 선택한 뒤 그 묶음의 원과 Animalia 쪽 분기점 사이의 기둥을 눌러 보세요.",
-  ][state.round];
+  ])[state.round];
 }
 
 async function startGame(options = {}) {
   if (!dataset || gameStarting) return;
-  if (selectedKingdom === "plants") options = { ...options, difficulty: "easy", tutorial: false, practice: false, skipTutorial: true };
   if ($("#difficulty-dialog").open) return;
   if (!options.practice && !options.tutorial && !options.difficulty) {
     if ($("#guest-start-dialog").open || $("#difficulty-dialog").open) return;
@@ -979,6 +983,10 @@ async function startGame(options = {}) {
     return;
   }
   if (options.difficulty && !Object.hasOwn(difficultyNames, options.difficulty)) return;
+  if (selectedKingdom === "plants" && !options.practice && !options.tutorial) {
+    showToast("구현 중입니다.");
+    return;
+  }
   if (!currentUser && options.guestConfirmed !== true) {
     const dialog = $("#guest-start-dialog");
     if (dialog.open) return;
@@ -996,7 +1004,9 @@ async function startGame(options = {}) {
     const difficulty = practice ? "hard" : options.difficulty || (tutorial ? null : "hard");
     const initialSpeciesId = selectedKingdom === "plants" ? PLANT_INITIAL_ID : HUMAN_ID;
     const queue = tutorial
-      ? ["bolinopsis-infundibulum", "asterias-rubens", "hoilungia-hongkongensis", "formica-rufa"]
+      ? selectedKingdom === "plants"
+        ? ["anthoceros-agrestis", "oryza-sativa", "pteridium-aquilinum", "pinus-sylvestris"]
+        : ["bolinopsis-infundibulum", "asterias-rubens", "hoilungia-hongkongensis", "formica-rufa"]
       : createDifficultyQueue(selectedKingdom === "plants" ? plants : animals, difficulty, Math.random, initialSpeciesId);
     await preloadImage(speciesById.get(queue[0])?.image.thumbnailUrl);
     state.queue = queue;
@@ -1008,7 +1018,7 @@ async function startGame(options = {}) {
     state.latestMistake = null;
     state.round = 0; state.score = 0; state.selected = false;
     state.classified = [initialSpeciesId];
-    if (selectedKingdom === "plants") saveCollection([initialSpeciesId]);
+    if (selectedKingdom === "plants" && !tutorial) saveCollection([initialSpeciesId]);
     state.tree = buildTree(state.classified, speciesById);
     state.newest = null; state.currentId = null; state.expected = null;
     state.previewTarget = null; state.previewPlacement = null; state.failed = false;
@@ -1033,6 +1043,11 @@ async function startGame(options = {}) {
     $("#tutorial-complete-panel").hidden = true;
     $("#species-modal").hidden = true;
     $("#tutorial-intro-modal").hidden = !tutorial;
+    $("#card-dock-title").textContent = selectedKingdom === "plants" ? "새 식물 카드" : "새 동물 카드";
+    $("#tutorial-complete-panel p:not(.eyebrow)").textContent = selectedKingdom === "plants"
+      ? "소나무가 추가된 위치를 살펴보세요. 네 장의 식물 카드로 가지를 고르는 방법을 연습했습니다."
+      : "개미가 추가된 위치를 살펴보세요. 네 가지 배치 방법을 모두 연습했습니다.";
+    $("#tutorial-play").textContent = selectedKingdom === "plants" ? "연습 모드 시작 →" : "실전 시작 →";
     renderTree();
     resetTreeView();
     updateRound();
@@ -1086,7 +1101,7 @@ async function initialize() {
       speciesById.set(animal.id, animal);
     }
     if (!speciesById.has(HUMAN_ID)) throw new Error("Human is missing from the dataset");
-    if (!speciesById.has(PLANT_INITIAL_ID)) throw new Error("Sunflower is missing from the dataset");
+    if (!speciesById.has(PLANT_INITIAL_ID)) throw new Error("Rose of Sharon is missing from the dataset");
     migrateCollection();
     let collectionSyncFailed = false;
     try { await syncCollection(); }
@@ -1198,7 +1213,7 @@ $("#start-tutorial").addEventListener("click", () => startGame({ tutorial: true 
 $("#tutorial-begin").addEventListener("click", () => { $("#tutorial-intro-modal").hidden = true; card.focus(); });
 $("#tutorial-quit").addEventListener("click", returnToLobby);
 $("#tutorial-complete-lobby").addEventListener("click", returnToLobby);
-$("#tutorial-play").addEventListener("click", () => startGame({ skipTutorial: true, difficulty: state.difficulty }));
+$("#tutorial-play").addEventListener("click", () => startGame(state.kingdom === "plants" ? { practice: true } : { skipTutorial: true, difficulty: state.difficulty }));
 $("#auth-panel").addEventListener("click", (event) => {
   if (event.target.closest("#open-account")) openAccountModal(event.target.closest("#open-account"));
   if (event.target.closest("#logout-account")) logoutAccount();
@@ -1266,6 +1281,6 @@ new ResizeObserver(() => {
 
 initialize();
 // Keep the lobby artwork independent of account/data loading and gameplay.
-import("./lobby-sculpture.js")
+import(`./lobby-sculpture.js${assetVersion}`)
   .then(({ createLobbySculpture }) => createLobbySculpture($("#lobby-sculpture"), lobby))
   .catch((error) => { $("#lobby-sculpture").hidden = true; console.warn("Lobby artwork unavailable", error); });

@@ -22,7 +22,7 @@ const posted = [];
 const knownIds = ["homo-sapiens", ...Array.from({ length: 1001 }, (_, index) => `species-${index}`)];
 const context = {
   currentUser: { id: "test-user" }, dataset: {}, HUMAN_ID: "homo-sapiens",
-  initialSpeciesIds: new Set(["homo-sapiens", "helianthus-annuus"]),
+  initialSpeciesIds: new Set(["homo-sapiens", "hibiscus-syriacus"]),
   pendingCollectionWrites: new Set(), speciesById: new Map(knownIds.map((id) => [id, {}])),
   getCollection: () => localIds,
   setCollection: (ids) => { localIds = ids; },
@@ -54,16 +54,16 @@ await syncCollection();
 assert.deepEqual(posted.map((batch) => batch.length), [400, 400, 201]);
 assert.equal(posted.flat().length, 1001, "Human must not be sent as a classified species");
 
-context.speciesById.set("helianthus-annuus", {});
+context.speciesById.set("hibiscus-syriacus", {});
 context.speciesById.set("ginkgo-biloba", {});
-localIds = ["homo-sapiens", "helianthus-annuus", "ginkgo-biloba"];
+localIds = ["homo-sapiens", "hibiscus-syriacus", "ginkgo-biloba"];
 localCounts = { "ginkgo-biloba": { count: 2, minimum: false } };
 remoteRecords = [];
 posted.length = 0;
 await syncCollection();
 assert.deepEqual(posted.flat().map((record) => record.speciesId), ["ginkgo-biloba"]);
-assert.ok(localIds.includes("helianthus-annuus"), "Sunflower stays collected without fabricating a classification count");
-assert.equal(localCounts["helianthus-annuus"], undefined);
+assert.ok(localIds.includes("hibiscus-syriacus"), "Rose of Sharon stays collected without fabricating a classification count");
+assert.equal(localCounts["hibiscus-syriacus"], undefined);
 
 context.fetch = async () => ({ ok: false, status: 503 });
 await assert.rejects(syncCollection(), /Collection request failed: 503/);

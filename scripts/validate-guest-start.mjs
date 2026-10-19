@@ -15,7 +15,7 @@ const $ = (selector) => {
 };
 const context = {
   $, dataset: {}, currentUser: null, currentGamesPlayed: 1, gameStarting: false,
-  selectedKingdom: "animals", PLANT_INITIAL_ID: "helianthus-annuus", plants: [{ id: "plant" }], saveCollection() {},
+  selectedKingdom: "animals", PLANT_INITIAL_ID: "hibiscus-syriacus", plants: [{ id: "plant" }], saveCollection: (ids) => context.savedCollections.push(ids), savedCollections: [],
   guestStartOptions: null, localStorage: { getItem: () => "1" }, state: {},
   difficultyStartOptions: null, difficultyNames: { easy: "쉬움", medium: "보통", hard: "어려움" },
   createDifficultyQueue: (...args) => { context.queueArguments = args; return ["animal"]; },
@@ -27,7 +27,7 @@ const context = {
   recordAchievementEvent(event) { context.achievementEvents.push(event); }, achievementEvents: [],
   window: { scrollTo() {} }, document: { activeElement: $("#start-game"), querySelectorAll: () => ["easy", "medium", "hard"].map((difficulty) => { const button = $(`#choose-${difficulty}`); button.dataset = { difficulty }; return button; }) },
   openAccountModal() { context.logins++; }, logins: 0, console,
-  showToast(message) { assert.fail(message); },
+  showToast(message) { context.messages.push(message); }, messages: [],
 };
 runInNewContext(source.slice(source.indexOf("async function startGame("), source.indexOf("async function returnToLobby(")), context);
 runInNewContext(source.slice(source.indexOf('$("#start-game").addEventListener'), source.indexOf('$("#start-practice").addEventListener')), context);
@@ -94,19 +94,27 @@ context.currentGamesPlayed = 0;
 context.localStorage.getItem = () => "0";
 context.game.hidden = true;
 await context.startGame();
-assert.equal($("#difficulty-dialog").open, false, "Plants must skip the animal difficulty picker");
+assert.equal($("#difficulty-dialog").open, true, "Plants keep the same difficulty UI");
+$("#choose-easy").listeners.click();
+await new Promise(setImmediate);
+assert.equal(context.messages.at(-1), "구현 중입니다.");
+assert.equal(context.game.hidden, true);
+await context.startGame({ practice: true });
 assert.equal(dialog.open, true, "Guest choice must remain available in plant mode");
 dialog.close("play");
 await new Promise(setImmediate);
 assert.equal(context.state.kingdom, "plants");
-assert.equal(context.state.difficulty, "easy");
+assert.equal(context.state.difficulty, "hard");
+assert.equal(context.state.practice, true);
 assert.equal(context.state.tutorial, false, "Plant games must not start the animal tutorial");
-assert.equal(context.state.classified[0], "helianthus-annuus");
+assert.equal(context.state.classified[0], "hibiscus-syriacus");
 assert.equal(context.queueArguments[0], context.plants);
-assert.equal(context.queueArguments[3], "helianthus-annuus");
+assert.equal(context.queueArguments[3], "hibiscus-syriacus");
 context.currentUser = { id: "signed-in" };
-await context.startGame({ difficulty: "hard", practice: true, tutorial: true });
-assert.equal(context.state.difficulty, "easy");
+const previousSaves = context.savedCollections.length;
+await context.startGame({ tutorial: true });
+assert.equal(context.savedCollections.length, previousSaves, "Plant tutorials must not change collection records");
+assert.deepEqual(Array.from(context.state.queue), ["anthoceros-agrestis", "oryza-sativa", "pteridium-aquilinum", "pinus-sylvestris"]);
 assert.equal(context.state.practice, false);
-assert.equal(context.state.tutorial, false);
+assert.equal(context.state.tutorial, true);
 console.log("Start: difficulty selection/cancellation, guest warning, mode preservation, repeat taps, account bypass and death unlock passed.");

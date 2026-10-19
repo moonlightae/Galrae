@@ -38,7 +38,7 @@ class ExtrudeGeometry extends Three.ExtrudeGeometry {
   constructor(...args) { super(...args); rings.push(this); }
 }
 const create = runInNewContext(source.replace(/^import .*?;\s*/, "").replace("export function", "function") + "\ncreateLobbySculpture", {
-  THREE: { ...Three, WebGLRenderer: Renderer, ExtrudeGeometry }, document, window: { devicePixelRatio: 1, addEventListener(name, callback) { windowListeners[name] = callback; } },
+  THREE: { ...Three, WebGLRenderer: Renderer, ExtrudeGeometry }, document, window: { devicePixelRatio: 1, addEventListener(name, callback) { windowListeners[name] = callback; }, removeEventListener() {} },
   matchMedia: () => reduced, performance: { now: () => now }, console,
   requestAnimationFrame: (callback) => { callbacks.set(++nextFrame, callback); return nextFrame; },
   cancelAnimationFrame: (id) => callbacks.delete(id),
@@ -89,7 +89,7 @@ assert.ok(sculpture.geometry.boundingBox.min.y > -3.36 && sculpture.geometry.bou
 for (const value of sculpture.geometry.getAttribute("position").array) assert.ok(Number.isFinite(value));
 const shader = { uniforms: {}, vertexShader: "#include <begin_vertex>", fragmentShader: "#include <color_fragment>" };
 sculpture.material.onBeforeCompile(shader);
-assert.equal(shader.uniforms.scFrom.value.getHex(), 0x292d32, "Sculpture matches the light wordmark's charcoal color");
+assert.equal(shader.uniforms.scFrom.value.getHex(), 0x6b4935, "Sculpture matches the animal theme's brown wordmark");
 assert.equal(document.documentElement.dataset.theme, "light");
 assert.equal(surface.attributes["aria-pressed"], "false");
 const initialAngle = sculpture.quaternion.clone();
@@ -127,11 +127,11 @@ assert.equal(document.documentElement.dataset.theme, "dark");
 assert.equal(surface.attributes["aria-pressed"], "true");
 assert.ok(shader.uniforms.scFront.value > -3.4 && shader.uniforms.scFront.value < 3.5);
 listeners.click(); advance(3500);
-assert.equal(shader.uniforms.scTo.value.getHex(), 0x292d32);
+assert.equal(shader.uniforms.scTo.value.getHex(), 0x6b4935);
 assert.equal(document.documentElement.dataset.theme, "light");
 assert.ok(Math.abs(shader.uniforms.scFront.value - 3.5) < .000001);
 listeners.click(); advance(1800);
-assert.equal(shader.uniforms.scTo.value.getHex(), 0xffffff);
+assert.equal(shader.uniforms.scTo.value.getHex(), 0xf4e5d5);
 assert.equal(document.documentElement.dataset.theme, "dark");
 
 // Hidden screens, offscreen art and background tabs do not keep rendering.
@@ -142,8 +142,23 @@ intersectionCallback([{ isIntersecting: true }]); tick();
 document.hidden = true; documentListeners.visibilitychange(); assert.equal(callbacks.size, 0);
 document.hidden = false; documentListeners.visibilitychange(); tick();
 reduced.matches = true; visibilityCallback(); tick(); assert.equal(callbacks.size, 0);
-listeners.click(); tick(); assert.equal(shader.uniforms.scTo.value.getHex(), 0x292d32);
+listeners.click(); tick(); assert.equal(shader.uniforms.scTo.value.getHex(), 0x6b4935);
 assert.equal(document.documentElement.dataset.theme, "light");
+reduced.matches = false;
+document.documentElement.dataset.kingdom = "plants"; windowListeners["galrae:kingdom-change"](); tick();
+assert.equal(shader.uniforms.scFrom.value.getHex(), 0x6b4935);
+assert.equal(shader.uniforms.scTo.value.getHex(), 0x11675f);
+assert.ok(shader.uniforms.scFront.value > -3.4 && shader.uniforms.scFront.value < 3.5);
+document.documentElement.dataset.kingdom = "animals"; windowListeners["galrae:kingdom-change"]();
+advance(3500);
+assert.equal(shader.uniforms.scTo.value.getHex(), 0x6b4935, "Rapid kingdom changes settle at the latest palette");
+document.documentElement.dataset.kingdom = "plants"; windowListeners["galrae:kingdom-change"](); advance(1800);
+assert.equal(shader.uniforms.scTo.value.getHex(), 0x11675f);
+listeners.click(); advance(1800);
+assert.equal(shader.uniforms.scTo.value.getHex(), 0xc8f3eb, "Dark mode keeps the plant palette");
+reduced.matches = true;
+document.documentElement.dataset.kingdom = "animals"; windowListeners["galrae:kingdom-change"](); tick();
+assert.equal(shader.uniforms.scTo.value.getHex(), 0xf4e5d5);
 resizeCallback(); tick();
 let disposed = 0;
 for (const resource of [depthTarget, blurQuad.geometry, blurQuad.material]) resource.addEventListener("dispose", () => disposed++);

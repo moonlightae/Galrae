@@ -4,7 +4,7 @@ export const gameMarkup = `
     <div class="difficulty-options">
       <button type="button" data-difficulty="easy"><strong>쉬움</strong><span>같은 강에서는 한 종만 출제합니다.</span></button>
       <button type="button" data-difficulty="medium"><strong>보통</strong><span>같은 목에서는 한 종만 출제합니다.</span></button>
-      <button type="button" data-difficulty="hard"><strong>어려움</strong><span>모든 동물을 분류합니다.</span></button>
+      <button type="button" data-difficulty="hard"><strong>어려움</strong><span>모든 생물을 분류합니다.</span></button>
       <button id="death-difficulty" type="button" disabled><strong>죽음</strong><span id="death-difficulty-status">어려움 완주 후 해금</span></button>
     </div>
   </dialog>
