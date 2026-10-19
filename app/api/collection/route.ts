@@ -6,7 +6,7 @@ import { getGameUser } from "../../game-auth";
 // Four bound values per row; keep each batch below D1's 100-parameter limit.
 const INSERT_BATCH_SIZE = 20;
 const REQUEST_BATCH_SIZE = 400;
-const validId = (id: unknown): id is string => typeof id === "string" && /^[a-z0-9-]{1,80}$/.test(id) && id !== "homo-sapiens";
+const validId = (id: unknown): id is string => typeof id === "string" && /^[a-z0-9-]{1,80}$/.test(id) && !["homo-sapiens", "helianthus-annuus"].includes(id);
 
 type CollectionRecord = { speciesId: string; count: number; minimum: boolean };
 

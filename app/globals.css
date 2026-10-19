@@ -83,7 +83,8 @@ button, [role="button"] { -webkit-tap-highlight-color: transparent; }
 .mode-panel h2 { position: relative; font-size: 2.25rem; }
 .mode-panel p:not(.panel-label) { position: relative; margin: 0 0 20px; line-height: 1.65; }
 .mode-options { position: relative; z-index: 1; display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 24px; }
-.mode-options span { padding: 7px 9px; border-radius: 999px; }
+.mode-options span, .mode-options button { padding: 7px 9px; border-radius: 999px; }
+.mode-options button { font: inherit; font-size: .75rem; color: var(--ink); background: transparent; border: 1px solid transparent; cursor: pointer; }
 .mode-options .is-active { font-weight: 800; }
 .primary-button {
   position: relative;

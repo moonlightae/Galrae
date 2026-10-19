@@ -15,9 +15,10 @@ const $ = (selector) => {
 };
 const context = {
   $, dataset: {}, currentUser: null, currentGamesPlayed: 1, gameStarting: false,
+  selectedKingdom: "animals", PLANT_INITIAL_ID: "helianthus-annuus", plants: [{ id: "plant" }], saveCollection() {},
   guestStartOptions: null, localStorage: { getItem: () => "1" }, state: {},
   difficultyStartOptions: null, difficultyNames: { easy: "쉬움", medium: "보통", hard: "어려움" },
-  createDifficultyQueue: () => ["animal"],
+  createDifficultyQueue: (...args) => { context.queueArguments = args; return ["animal"]; },
   achievementStats: {},
   animals: [{ id: "animal" }], HUMAN_ID: "human", speciesById: new Map(),
   shuffle: (ids) => ids, preloadImage: async () => {}, buildTree() {},
@@ -87,4 +88,25 @@ assert.equal($("#death-difficulty-status").textContent, "해금됨 · 준비 중
 $("#close-difficulty").listeners.click();
 assert.equal(context.difficultyStartOptions, null);
 assert.equal($("#difficulty-dialog").open, false);
+context.selectedKingdom = "plants";
+context.currentUser = null;
+context.currentGamesPlayed = 0;
+context.localStorage.getItem = () => "0";
+context.game.hidden = true;
+await context.startGame();
+assert.equal($("#difficulty-dialog").open, false, "Plants must skip the animal difficulty picker");
+assert.equal(dialog.open, true, "Guest choice must remain available in plant mode");
+dialog.close("play");
+await new Promise(setImmediate);
+assert.equal(context.state.kingdom, "plants");
+assert.equal(context.state.difficulty, "easy");
+assert.equal(context.state.tutorial, false, "Plant games must not start the animal tutorial");
+assert.equal(context.state.classified[0], "helianthus-annuus");
+assert.equal(context.queueArguments[0], context.plants);
+assert.equal(context.queueArguments[3], "helianthus-annuus");
+context.currentUser = { id: "signed-in" };
+await context.startGame({ difficulty: "hard", practice: true, tutorial: true });
+assert.equal(context.state.difficulty, "easy");
+assert.equal(context.state.practice, false);
+assert.equal(context.state.tutorial, false);
 console.log("Start: difficulty selection/cancellation, guest warning, mode preservation, repeat taps, account bypass and death unlock passed.");

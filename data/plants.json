@@ -1,0 +1,856 @@
+{
+  "schemaVersion": 1,
+  "speciesCount": 11,
+  "initialSpeciesId": "helianthus-annuus",
+  "taxa": [
+    {
+      "wikidataId": "plant:Plantae",
+      "scientificName": "Plantae",
+      "koName": "식물계",
+      "rank": "kingdom"
+    },
+    {
+      "wikidataId": "plant:Embryophyta",
+      "scientificName": "Embryophyta",
+      "koName": "육상식물",
+      "rank": "clade"
+    },
+    {
+      "wikidataId": "plant:Bryophytes",
+      "scientificName": "Bryophytes",
+      "koName": "선태식물",
+      "rank": "clade"
+    },
+    {
+      "wikidataId": "plant:Setaphyta",
+      "scientificName": "Setaphyta",
+      "koName": "이끼·우산이끼 갈래",
+      "rank": "clade"
+    },
+    {
+      "wikidataId": "plant:Tracheophyta",
+      "scientificName": "Tracheophyta",
+      "koName": "관다발식물",
+      "rank": "clade"
+    },
+    {
+      "wikidataId": "plant:Euphyllophyta",
+      "scientificName": "Euphyllophyta",
+      "koName": "진엽식물",
+      "rank": "clade"
+    },
+    {
+      "wikidataId": "plant:Spermatophyta",
+      "scientificName": "Spermatophyta",
+      "koName": "종자식물",
+      "rank": "clade"
+    },
+    {
+      "wikidataId": "plant:Acrogymnospermae",
+      "scientificName": "Acrogymnospermae",
+      "koName": "겉씨식물",
+      "rank": "clade"
+    },
+    {
+      "wikidataId": "plant:Cycadopsida + Ginkgoopsida",
+      "scientificName": "Cycadopsida + Ginkgoopsida",
+      "koName": "소철·은행 갈래",
+      "rank": "clade"
+    },
+    {
+      "wikidataId": "plant:Pinopsida + Gnetopsida",
+      "scientificName": "Pinopsida + Gnetopsida",
+      "koName": "침엽수·마황 갈래",
+      "rank": "clade"
+    },
+    {
+      "wikidataId": "plant:Angiosperms",
+      "scientificName": "Angiosperms",
+      "koName": "속씨식물",
+      "rank": "clade"
+    },
+    {
+      "wikidataId": "plant:Magnoliopsida",
+      "scientificName": "Magnoliopsida",
+      "koName": "목련강",
+      "rank": "class"
+    },
+    {
+      "wikidataId": "plant:Liliopsida",
+      "scientificName": "Liliopsida",
+      "koName": "백합강",
+      "rank": "class"
+    },
+    {
+      "wikidataId": "plant:Pinopsida",
+      "scientificName": "Pinopsida",
+      "koName": "소나무강",
+      "rank": "class"
+    },
+    {
+      "wikidataId": "plant:Cycadopsida",
+      "scientificName": "Cycadopsida",
+      "koName": "소철강",
+      "rank": "class"
+    },
+    {
+      "wikidataId": "plant:Ginkgoopsida",
+      "scientificName": "Ginkgoopsida",
+      "koName": "은행강",
+      "rank": "class"
+    },
+    {
+      "wikidataId": "plant:Gnetopsida",
+      "scientificName": "Gnetopsida",
+      "koName": "마황강",
+      "rank": "class"
+    },
+    {
+      "wikidataId": "plant:Polypodiopsida",
+      "scientificName": "Polypodiopsida",
+      "koName": "고사리강",
+      "rank": "class"
+    },
+    {
+      "wikidataId": "plant:Lycopodiopsida",
+      "scientificName": "Lycopodiopsida",
+      "koName": "석송강",
+      "rank": "class"
+    },
+    {
+      "wikidataId": "plant:Bryopsida",
+      "scientificName": "Bryopsida",
+      "koName": "선강",
+      "rank": "class"
+    },
+    {
+      "wikidataId": "plant:Marchantiopsida",
+      "scientificName": "Marchantiopsida",
+      "koName": "우산이끼강",
+      "rank": "class"
+    },
+    {
+      "wikidataId": "plant:Anthocerotopsida",
+      "scientificName": "Anthocerotopsida",
+      "koName": "뿔이끼강",
+      "rank": "class"
+    }
+  ],
+  "plants": [
+    {
+      "id": "helianthus-annuus",
+      "scientificName": "Helianthus annuus",
+      "commonName": "Common sunflower",
+      "wikidataId": "Q171497",
+      "description": "An annual flowering plant with broad leaves and large flower heads.",
+      "ko": {
+        "commonName": "해바라기",
+        "description": "넓은 잎과 큰 꽃차례가 특징인 한해살이 속씨식물입니다."
+      },
+      "taxonomy": {
+        "lineage": [
+          {
+            "wikidataId": "plant:Plantae",
+            "scientificName": "Plantae",
+            "koName": "식물계",
+            "rank": "kingdom"
+          },
+          {
+            "wikidataId": "plant:Embryophyta",
+            "scientificName": "Embryophyta",
+            "koName": "육상식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Tracheophyta",
+            "scientificName": "Tracheophyta",
+            "koName": "관다발식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Euphyllophyta",
+            "scientificName": "Euphyllophyta",
+            "koName": "진엽식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Spermatophyta",
+            "scientificName": "Spermatophyta",
+            "koName": "종자식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Angiosperms",
+            "scientificName": "Angiosperms",
+            "koName": "속씨식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Magnoliopsida",
+            "scientificName": "Magnoliopsida",
+            "koName": "목련강",
+            "rank": "class"
+          }
+        ]
+      },
+      "image": {
+        "fileName": "Sunflower_sky_backdrop.jpg",
+        "thumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Sunflower_sky_backdrop.jpg/960px-Sunflower_sky_backdrop.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/40/Sunflower_sky_backdrop.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Sunflower_sky_backdrop.jpg",
+        "artist": "Fir0002",
+        "license": "GFDL 1.2",
+        "licenseUrl": "http://www.gnu.org/licenses/old-licenses/fdl-1.2.html",
+        "width": 1404,
+        "height": 1555
+      }
+    },
+    {
+      "id": "oryza-sativa",
+      "scientificName": "Oryza sativa",
+      "commonName": "Asian rice",
+      "wikidataId": "Q161426",
+      "description": "A monocot with long narrow leaves, cultivated for its edible grain.",
+      "ko": {
+        "commonName": "벼",
+        "description": "좁고 긴 잎을 가진 외떡잎식물로, 낟알을 식량으로 이용합니다."
+      },
+      "taxonomy": {
+        "lineage": [
+          {
+            "wikidataId": "plant:Plantae",
+            "scientificName": "Plantae",
+            "koName": "식물계",
+            "rank": "kingdom"
+          },
+          {
+            "wikidataId": "plant:Embryophyta",
+            "scientificName": "Embryophyta",
+            "koName": "육상식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Tracheophyta",
+            "scientificName": "Tracheophyta",
+            "koName": "관다발식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Euphyllophyta",
+            "scientificName": "Euphyllophyta",
+            "koName": "진엽식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Spermatophyta",
+            "scientificName": "Spermatophyta",
+            "koName": "종자식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Angiosperms",
+            "scientificName": "Angiosperms",
+            "koName": "속씨식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Liliopsida",
+            "scientificName": "Liliopsida",
+            "koName": "백합강",
+            "rank": "class"
+          }
+        ]
+      },
+      "image": {
+        "fileName": "Mature_Rice_(India)_by_Augustus_Binu.jpg",
+        "thumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/Mature_Rice_%28India%29_by_Augustus_Binu.jpg/960px-Mature_Rice_%28India%29_by_Augustus_Binu.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f2/Mature_Rice_%28India%29_by_Augustus_Binu.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Mature_Rice_(India)_by_Augustus_Binu.jpg",
+        "artist": "Augustus Binu : flickr : Instagram",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "width": 3020,
+        "height": 2000
+      }
+    },
+    {
+      "id": "pinus-sylvestris",
+      "scientificName": "Pinus sylvestris",
+      "commonName": "Scots pine",
+      "wikidataId": "Q133128",
+      "description": "An evergreen gymnosperm with needle-like leaves and seed cones.",
+      "ko": {
+        "commonName": "구주소나무",
+        "description": "바늘 모양 잎과 솔방울을 만드는 상록성 겉씨식물입니다."
+      },
+      "taxonomy": {
+        "lineage": [
+          {
+            "wikidataId": "plant:Plantae",
+            "scientificName": "Plantae",
+            "koName": "식물계",
+            "rank": "kingdom"
+          },
+          {
+            "wikidataId": "plant:Embryophyta",
+            "scientificName": "Embryophyta",
+            "koName": "육상식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Tracheophyta",
+            "scientificName": "Tracheophyta",
+            "koName": "관다발식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Euphyllophyta",
+            "scientificName": "Euphyllophyta",
+            "koName": "진엽식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Spermatophyta",
+            "scientificName": "Spermatophyta",
+            "koName": "종자식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Acrogymnospermae",
+            "scientificName": "Acrogymnospermae",
+            "koName": "겉씨식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Pinopsida + Gnetopsida",
+            "scientificName": "Pinopsida + Gnetopsida",
+            "koName": "침엽수·마황 갈래",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Pinopsida",
+            "scientificName": "Pinopsida",
+            "koName": "소나무강",
+            "rank": "class"
+          }
+        ]
+      },
+      "image": {
+        "fileName": "Skuleskogen_pine.jpg",
+        "thumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/Skuleskogen_pine.jpg/960px-Skuleskogen_pine.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/91/Skuleskogen_pine.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Skuleskogen_pine.jpg",
+        "artist": "Mickaël Delcey (Silverkey)",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "width": 2592,
+        "height": 3888
+      }
+    },
+    {
+      "id": "cycas-revoluta",
+      "scientificName": "Cycas revoluta",
+      "commonName": "Sago cycad",
+      "wikidataId": "Q161517",
+      "description": "A gymnosperm with a crown of pinnate leaves, belonging to a different lineage from palms.",
+      "ko": {
+        "commonName": "소철",
+        "description": "깃 모양 잎이 줄기 끝에 모이는 겉씨식물로, 야자나무와는 다른 갈래입니다."
+      },
+      "taxonomy": {
+        "lineage": [
+          {
+            "wikidataId": "plant:Plantae",
+            "scientificName": "Plantae",
+            "koName": "식물계",
+            "rank": "kingdom"
+          },
+          {
+            "wikidataId": "plant:Embryophyta",
+            "scientificName": "Embryophyta",
+            "koName": "육상식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Tracheophyta",
+            "scientificName": "Tracheophyta",
+            "koName": "관다발식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Euphyllophyta",
+            "scientificName": "Euphyllophyta",
+            "koName": "진엽식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Spermatophyta",
+            "scientificName": "Spermatophyta",
+            "koName": "종자식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Acrogymnospermae",
+            "scientificName": "Acrogymnospermae",
+            "koName": "겉씨식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Cycadopsida + Ginkgoopsida",
+            "scientificName": "Cycadopsida + Ginkgoopsida",
+            "koName": "소철·은행 갈래",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Cycadopsida",
+            "scientificName": "Cycadopsida",
+            "koName": "소철강",
+            "rank": "class"
+          }
+        ]
+      },
+      "image": {
+        "fileName": "Cycas_inflorescence.jpg",
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Cycas_inflorescence.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Cycas_inflorescence.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Cycas_inflorescence.jpg",
+        "artist": "See file page",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "width": 800,
+        "height": 1067
+      }
+    },
+    {
+      "id": "ginkgo-biloba",
+      "scientificName": "Ginkgo biloba",
+      "commonName": "Ginkgo",
+      "wikidataId": "Q43284",
+      "description": "A deciduous gymnosperm with fan-shaped leaves, the only living species of its class.",
+      "ko": {
+        "commonName": "은행나무",
+        "description": "부채 모양 잎을 가진 낙엽성 겉씨식물이며 은행강의 유일한 현생종입니다."
+      },
+      "taxonomy": {
+        "lineage": [
+          {
+            "wikidataId": "plant:Plantae",
+            "scientificName": "Plantae",
+            "koName": "식물계",
+            "rank": "kingdom"
+          },
+          {
+            "wikidataId": "plant:Embryophyta",
+            "scientificName": "Embryophyta",
+            "koName": "육상식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Tracheophyta",
+            "scientificName": "Tracheophyta",
+            "koName": "관다발식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Euphyllophyta",
+            "scientificName": "Euphyllophyta",
+            "koName": "진엽식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Spermatophyta",
+            "scientificName": "Spermatophyta",
+            "koName": "종자식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Acrogymnospermae",
+            "scientificName": "Acrogymnospermae",
+            "koName": "겉씨식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Cycadopsida + Ginkgoopsida",
+            "scientificName": "Cycadopsida + Ginkgoopsida",
+            "koName": "소철·은행 갈래",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Ginkgoopsida",
+            "scientificName": "Ginkgoopsida",
+            "koName": "은행강",
+            "rank": "class"
+          }
+        ]
+      },
+      "image": {
+        "fileName": "GINKGOBAUM-2.jpg",
+        "thumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e0/GINKGOBAUM-2.jpg/960px-GINKGOBAUM-2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e0/GINKGOBAUM-2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:GINKGOBAUM-2.jpg",
+        "artist": "EecherplazGinkgo06.jpg: Cayambe\nderivative work: Ginkgotree (talk)",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "width": 2188,
+        "height": 3008
+      }
+    },
+    {
+      "id": "ephedra-distachya",
+      "scientificName": "Ephedra distachya",
+      "commonName": "Joint pine",
+      "wikidataId": "Q162784",
+      "description": "A gymnosperm with jointed green stems and small reduced leaves.",
+      "ko": {
+        "commonName": "양마황",
+        "description": "마디가 뚜렷한 녹색 줄기와 작게 줄어든 잎을 가진 겉씨식물입니다."
+      },
+      "taxonomy": {
+        "lineage": [
+          {
+            "wikidataId": "plant:Plantae",
+            "scientificName": "Plantae",
+            "koName": "식물계",
+            "rank": "kingdom"
+          },
+          {
+            "wikidataId": "plant:Embryophyta",
+            "scientificName": "Embryophyta",
+            "koName": "육상식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Tracheophyta",
+            "scientificName": "Tracheophyta",
+            "koName": "관다발식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Euphyllophyta",
+            "scientificName": "Euphyllophyta",
+            "koName": "진엽식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Spermatophyta",
+            "scientificName": "Spermatophyta",
+            "koName": "종자식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Acrogymnospermae",
+            "scientificName": "Acrogymnospermae",
+            "koName": "겉씨식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Pinopsida + Gnetopsida",
+            "scientificName": "Pinopsida + Gnetopsida",
+            "koName": "침엽수·마황 갈래",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Gnetopsida",
+            "scientificName": "Gnetopsida",
+            "koName": "마황강",
+            "rank": "class"
+          }
+        ]
+      },
+      "image": {
+        "fileName": "Ephedra_distachya_(with_cones)_2011_1.jpg",
+        "thumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/71/Ephedra_distachya_%28with_cones%29_2011_1.jpg/960px-Ephedra_distachya_%28with_cones%29_2011_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/71/Ephedra_distachya_%28with_cones%29_2011_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Ephedra_distachya_(with_cones)_2011_1.jpg",
+        "artist": "Le.Loup.Gris",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "width": 2288,
+        "height": 1712
+      }
+    },
+    {
+      "id": "pteridium-aquilinum",
+      "scientificName": "Pteridium aquilinum",
+      "commonName": "Bracken",
+      "wikidataId": "Q213548",
+      "description": "A vascular plant with divided fronds that reproduces by spores rather than seeds.",
+      "ko": {
+        "commonName": "브라켄고사리",
+        "description": "큰 잎이 갈라지는 관다발식물로, 씨앗 대신 포자로 번식합니다."
+      },
+      "taxonomy": {
+        "lineage": [
+          {
+            "wikidataId": "plant:Plantae",
+            "scientificName": "Plantae",
+            "koName": "식물계",
+            "rank": "kingdom"
+          },
+          {
+            "wikidataId": "plant:Embryophyta",
+            "scientificName": "Embryophyta",
+            "koName": "육상식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Tracheophyta",
+            "scientificName": "Tracheophyta",
+            "koName": "관다발식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Euphyllophyta",
+            "scientificName": "Euphyllophyta",
+            "koName": "진엽식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Polypodiopsida",
+            "scientificName": "Polypodiopsida",
+            "koName": "고사리강",
+            "rank": "class"
+          }
+        ]
+      },
+      "image": {
+        "fileName": "Adelaarsvaren_planten_Pteridium_aquilinum.jpg",
+        "thumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Adelaarsvaren_planten_Pteridium_aquilinum.jpg/960px-Adelaarsvaren_planten_Pteridium_aquilinum.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Adelaarsvaren_planten_Pteridium_aquilinum.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Adelaarsvaren_planten_Pteridium_aquilinum.jpg",
+        "artist": "Rasbak",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+        "width": 1237,
+        "height": 1697
+      }
+    },
+    {
+      "id": "lycopodium-clavatum",
+      "scientificName": "Lycopodium clavatum",
+      "commonName": "Stag's-horn clubmoss",
+      "wikidataId": "Q466426",
+      "description": "A vascular plant with small leaves and cones of spore-bearing structures.",
+      "ko": {
+        "commonName": "석송",
+        "description": "작은 잎이 줄기를 둘러싸며, 포자낭이 모인 이삭을 만드는 관다발식물입니다."
+      },
+      "taxonomy": {
+        "lineage": [
+          {
+            "wikidataId": "plant:Plantae",
+            "scientificName": "Plantae",
+            "koName": "식물계",
+            "rank": "kingdom"
+          },
+          {
+            "wikidataId": "plant:Embryophyta",
+            "scientificName": "Embryophyta",
+            "koName": "육상식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Tracheophyta",
+            "scientificName": "Tracheophyta",
+            "koName": "관다발식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Lycopodiopsida",
+            "scientificName": "Lycopodiopsida",
+            "koName": "석송강",
+            "rank": "class"
+          }
+        ]
+      },
+      "image": {
+        "fileName": "Lycopodium_clavatum_151207.jpg",
+        "thumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1d/Lycopodium_clavatum_151207.jpg/960px-Lycopodium_clavatum_151207.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Lycopodium_clavatum_151207.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Lycopodium_clavatum_151207.jpg",
+        "artist": "Bernd Haynold",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "width": 2368,
+        "height": 2677
+      }
+    },
+    {
+      "id": "polytrichum-commune",
+      "scientificName": "Polytrichum commune",
+      "commonName": "Common haircap moss",
+      "wikidataId": "Q178025",
+      "description": "A moss with upright leafy shoots and spores formed in capsules on stalks.",
+      "ko": {
+        "commonName": "큰솔이끼",
+        "description": "곧게 선 줄기에 작은 잎이 달리고, 자루 끝의 삭에서 포자를 만듭니다."
+      },
+      "taxonomy": {
+        "lineage": [
+          {
+            "wikidataId": "plant:Plantae",
+            "scientificName": "Plantae",
+            "koName": "식물계",
+            "rank": "kingdom"
+          },
+          {
+            "wikidataId": "plant:Embryophyta",
+            "scientificName": "Embryophyta",
+            "koName": "육상식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Bryophytes",
+            "scientificName": "Bryophytes",
+            "koName": "선태식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Setaphyta",
+            "scientificName": "Setaphyta",
+            "koName": "이끼·우산이끼 갈래",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Bryopsida",
+            "scientificName": "Bryopsida",
+            "koName": "선강",
+            "rank": "class"
+          }
+        ]
+      },
+      "image": {
+        "fileName": "Polytrichum_commune.jpeg",
+        "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/2/29/Polytrichum_commune.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/29/Polytrichum_commune.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Polytrichum_commune.jpeg",
+        "artist": "Kristian Peters -- Fabelfroh 14:35, 21 October 2007 (UTC)",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+        "width": 800,
+        "height": 600
+      }
+    },
+    {
+      "id": "marchantia-polymorpha",
+      "scientificName": "Marchantia polymorpha",
+      "commonName": "Common liverwort",
+      "wikidataId": "Q992846",
+      "description": "A liverwort with a flat thallus and umbrella-like reproductive structures.",
+      "ko": {
+        "commonName": "우산이끼",
+        "description": "납작한 엽상체가 땅 위로 퍼지며, 우산 모양 생식기관을 만드는 태류입니다."
+      },
+      "taxonomy": {
+        "lineage": [
+          {
+            "wikidataId": "plant:Plantae",
+            "scientificName": "Plantae",
+            "koName": "식물계",
+            "rank": "kingdom"
+          },
+          {
+            "wikidataId": "plant:Embryophyta",
+            "scientificName": "Embryophyta",
+            "koName": "육상식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Bryophytes",
+            "scientificName": "Bryophytes",
+            "koName": "선태식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Setaphyta",
+            "scientificName": "Setaphyta",
+            "koName": "이끼·우산이끼 갈래",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Marchantiopsida",
+            "scientificName": "Marchantiopsida",
+            "koName": "우산이끼강",
+            "rank": "class"
+          }
+        ]
+      },
+      "image": {
+        "fileName": "Marchantia_polymorpha_(b,_145318-481413)_3497.JPG",
+        "thumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e8/Marchantia_polymorpha_%28b%2C_145318-481413%29_3497.JPG/960px-Marchantia_polymorpha_%28b%2C_145318-481413%29_3497.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e8/Marchantia_polymorpha_%28b%2C_145318-481413%29_3497.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Marchantia_polymorpha_(b,_145318-481413)_3497.JPG",
+        "artist": "HermannSchachner",
+        "license": "CC0",
+        "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+        "width": 2816,
+        "height": 1880
+      }
+    },
+    {
+      "id": "anthoceros-agrestis",
+      "scientificName": "Anthoceros agrestis",
+      "commonName": "Field hornwort",
+      "wikidataId": "Q341574",
+      "description": "A small land plant with long horn-like sporophytes growing from a flat thallus.",
+      "ko": {
+        "commonName": "밭뿔이끼",
+        "description": "납작한 몸 위로 뿔처럼 긴 포자체가 자라는 작은 육상식물입니다."
+      },
+      "taxonomy": {
+        "lineage": [
+          {
+            "wikidataId": "plant:Plantae",
+            "scientificName": "Plantae",
+            "koName": "식물계",
+            "rank": "kingdom"
+          },
+          {
+            "wikidataId": "plant:Embryophyta",
+            "scientificName": "Embryophyta",
+            "koName": "육상식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Bryophytes",
+            "scientificName": "Bryophytes",
+            "koName": "선태식물",
+            "rank": "clade"
+          },
+          {
+            "wikidataId": "plant:Anthocerotopsida",
+            "scientificName": "Anthocerotopsida",
+            "koName": "뿔이끼강",
+            "rank": "class"
+          }
+        ]
+      },
+      "image": {
+        "fileName": "Anthoceros_agrestis_060910a.jpg",
+        "thumbnailUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3b/Anthoceros_agrestis_060910a.jpg/960px-Anthoceros_agrestis_060910a.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Anthoceros_agrestis_060910a.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "commonsPageUrl": "https://commons.wikimedia.org/wiki/File:Anthoceros_agrestis_060910a.jpg",
+        "artist": "BerndH",
+        "license": "CC BY-SA 3.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+        "width": 1365,
+        "height": 1352
+      }
+    }
+  ],
+  "sources": [
+    [
+      "Plant Tree of Life · Cambridge University Botanic Garden",
+      "https://s3-eu-west-1.amazonaws.com/assets.botanic.cam.ac.uk/wp-content/uploads/2023/10/evolution_trail_web.pdf"
+    ],
+    [
+      "NCBI Taxonomy",
+      "https://www.ncbi.nlm.nih.gov/taxonomy"
+    ],
+    [
+      "Kew Tree of Life",
+      "https://treeoflife.kew.org/"
+    ]
+  ],
+  "classificationNote": "Class-level teaching dataset of representative land plants. Magnoliopsida denotes eudicots here; it is not the traditional paraphyletic dicot grouping. Unsampled lineages are omitted; sibling order does not imply relative age."
+}

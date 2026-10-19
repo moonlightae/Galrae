@@ -1,5 +1,22 @@
 # Animal dataset
 
+## 식물계 쉬움 데이터
+
+`plants.json`과 `public/data/plants.json`은 11개 강의 대표 식물로 구성되며,
+분류 경로는 강에서 끝납니다. 해바라기는 시작 카드이고 나머지 10종이 출제됩니다.
+목 이하의 분류와 식물계 보통·어려움은 포함하지 않습니다.
+
+식물의 상위 갈래는 Cambridge University Botanic Garden의 Plant Tree of Life,
+NCBI Taxonomy, Kew Tree of Life를 참고한 교육용 축약 계통수입니다.
+계급은 분류 체계마다 다를 수 있으며, 여기서 목련강은 수록된 진정쌍떡잎식물을
+가리킵니다. 전통적인 모든 쌍떡잎식물을 하나의 단일계통군으로 묶지 않습니다.
+미수록 갈래는 생략하며, 가지 표시 순서는 생물의 나이나 진화 정도를 뜻하지 않습니다.
+강마다 한 대표종만 있으므로 이 버전에서 강 내부 관계는 판정하지 않습니다.
+
+한·영 설명은 직접 작성했으며, 사진마다 Wikimedia Commons 원본 페이지·저작자·
+라이선스를 기록했습니다. `node scripts/build-plant-dataset.mjs`로 사진 메타데이터를
+다시 수집하고, `node scripts/validate-plants.mjs`로 데이터와 판정 로직을 확인합니다.
+
 ## Class/order coverage expansion — 2026-10-15
 
 Added 107 species (207 → 314), with Korean names, bilingual card descriptions,

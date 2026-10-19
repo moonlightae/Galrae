@@ -21,10 +21,13 @@
   }
 
   function buildTree(classifiedIds, speciesById, previewId = null, preserveClasses = false) {
+    const lineages = [...new Set(classifiedIds)].map((id) => speciesById.get(id)?.taxonomy.lineage).filter(Boolean);
+    const kingdoms = new Map(lineages.map((lineage) => [lineage[0].wikidataId, lineage[0]]));
+    const rootTaxon = kingdoms.size === 1 ? kingdoms.values().next().value : null;
     const root = {
-      id: ANIMALIA_ID,
-      name: "Animalia",
-      rank: "kingdom",
+      id: rootTaxon?.wikidataId || (kingdoms.size ? "life" : ANIMALIA_ID),
+      name: rootTaxon?.scientificName || (kingdoms.size ? "Eukaryota" : "Animalia"),
+      rank: rootTaxon?.rank || (kingdoms.size ? "domain" : "kingdom"),
       children: new Map(),
       animalIds: [],
     };
@@ -33,7 +36,7 @@
       const animal = speciesById.get(speciesId);
       if (!animal) continue;
       const lineage = preserveClasses ? collectionLineage(animal.taxonomy.lineage) : normalizeLineage(animal.taxonomy.lineage);
-      const rootIndex = lineage.findIndex((taxon) => taxon.wikidataId === ANIMALIA_ID);
+      const rootIndex = lineage.findIndex((taxon) => taxon.wikidataId === root.id);
       let cursor = root;
       for (const taxon of lineage.slice(rootIndex + 1)) {
         if (!cursor.children.has(taxon.wikidataId)) {
@@ -232,11 +235,11 @@
     return (taxa.length ? taxa : supplement ? [supplement] : []).map((taxon) => taxon.scientificName);
   }
 
-  function createDifficultyQueue(animals, difficulty, random = Math.random) {
+  function createDifficultyQueue(animals, difficulty, random = Math.random, initialSpeciesId = "homo-sapiens") {
     if (!Object.hasOwn(difficultyNames, difficulty)) throw new Error("Unknown difficulty");
-    const candidates = shuffle(animals.filter((animal) => animal.id !== "homo-sapiens"), random);
+    const candidates = shuffle(animals.filter((animal) => animal.id !== initialSpeciesId), random);
     if (difficulty === "hard") return candidates.map((animal) => animal.id);
-    const used = new Set(difficultyTaxa(animals.find((animal) => animal.id === "homo-sapiens"), difficulty));
+    const used = new Set(difficultyTaxa(animals.find((animal) => animal.id === initialSpeciesId), difficulty));
     return candidates.filter((animal) => {
       const taxa = difficultyTaxa(animal, difficulty);
       if (!taxa.length || taxa.some((id) => used.has(id))) return false;

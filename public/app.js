@@ -7,6 +7,27 @@ const [{ bindTreeNavigation, createTreeView }, { createCollectionView }, { getAc
 
 const { ANIMALIA_ID, addSuccessCount, buildTree, createDifficultyQueue, difficultyNames, getExpectedPlacement, isEquivalentPlacement, seedSuccessCounts, successCountText } = globalThis.GalraeLogic;
 const HUMAN_ID = "homo-sapiens";
+const PLANT_INITIAL_ID = "helianthus-annuus";
+const initialSpeciesIds = new Set([HUMAN_ID, PLANT_INITIAL_ID]);
+let selectedKingdom = "animals";
+let plants = [];
+
+function selectKingdom(kingdom) {
+  if (!["animals", "plants"].includes(kingdom) || gameStarting) return;
+  selectedKingdom = kingdom;
+  const plant = kingdom === "plants";
+  $("#kingdom-title").textContent = plant ? "식물계" : "동물계";
+  $("#kingdom-description").textContent = plant
+    ? "해바라기에서 시작해 식물의 공통 조상을 찾아갑니다. 쉬움 · 강마다 한 종씩 출제합니다."
+    : "인간에서 시작해 서로 다른 동물의 공통 조상을 찾아갑니다.";
+  document.querySelectorAll("[data-kingdom]").forEach((button) => {
+    const active = button.dataset.kingdom === kingdom;
+    button.classList.toggle("is-active", active);
+    button.setAttribute("aria-pressed", String(active));
+  });
+  $("#start-practice").hidden = plant;
+  $("#start-tutorial").hidden = plant;
+}
 const COLLECTION_PREFIX = "galrae.collection.v3";
 const SUCCESS_COUNTS_PREFIX = "galrae.success-counts.v1";
 
@@ -100,6 +121,7 @@ let accountReturnFocus = null;
 const state = {
   queue: [], round: 0, score: 0, selected: false, tree: null,
   classified: [HUMAN_ID], newest: null, currentId: null, expected: null,
+  kingdom: "animals",
   previewTarget: null, previewPlacement: null, failed: false,
   layout: "top", zoom: 1, tutorial: false, practice: false, difficulty: "hard", mistakes: new Set(), latestMistake: null,
   cardLanguage: localStorage.getItem("galrae.card-language.v1") === "ko" ? "ko" : "en",
@@ -123,6 +145,13 @@ function shortDescription(text, maxLength = 190) {
 function cardText(animal) {
   if (state.cardLanguage === "ko" && animal.ko) return { ...animal, ...animal.ko };
   return animal.ko?.descriptionEn ? { ...animal, description: animal.ko.descriptionEn } : animal;
+}
+
+function setKingdomLabel(container, animal) {
+  const name = animal.taxonomy.lineage[0].scientificName;
+  const labels = container.querySelectorAll(".card-topline span");
+  labels[0].textContent = name === "Plantae" ? "식물계" : "동물계";
+  labels[1].textContent = name.toUpperCase();
 }
 
 function setCardLanguage(language) {
@@ -192,7 +221,7 @@ function mergeSuccessRecord(left, right) {
 
 function migrateSuccessCounts() {
   if (localStorage.getItem(successCountsKey()) !== null) return;
-  localStorage.setItem(successCountsKey(), JSON.stringify(seedSuccessCounts(getCollection(), HUMAN_ID)));
+  localStorage.setItem(successCountsKey(), JSON.stringify(seedSuccessCounts(getCollection().filter((id) => !initialSpeciesIds.has(id)), HUMAN_ID)));
 }
 
 function recordSuccess(speciesId) {
@@ -221,7 +250,7 @@ function migrateCollection() {
   } catch { old = []; }
   const current = getCollection();
   const counted = Object.entries(getSuccessCounts())
-    .filter(([id, record]) => id !== HUMAN_ID && speciesById.has(id) && normalizeSuccessRecord(record))
+    .filter(([id, record]) => !initialSpeciesIds.has(id) && speciesById.has(id) && normalizeSuccessRecord(record))
     .map(([id]) => id);
   const canClaimLegacy = currentUser && !localStorage.getItem("galrae.collection.claimed");
   const migrated = [...current, ...counted, ...(canClaimLegacy || !currentUser ? old : []), HUMAN_ID];
@@ -255,9 +284,9 @@ function renderCollection() {
     return `<article class="mini-card">
       <div class="mini-card-art"><img data-photo-species="${escapeHtml(id)}" loading="lazy" style="object-fit:${animal.image.objectFit === "contain" ? "contain" : "cover"}" src="${escapeHtml(animal.image.thumbnailUrl)}" alt="${escapeHtml(animal.commonName)}" /></div>
       <div class="mini-card-info">
-        <small>ANIMALIA</small><h3>${escapeHtml(animal.commonName)}</h3>
+        <small>${animal.taxonomy.lineage[0].scientificName.toUpperCase()}</small><h3>${escapeHtml(animal.commonName)}</h3>
         <p class="mini-scientific"><i>${escapeHtml(animal.scientificName)}</i></p>
-        ${id === HUMAN_ID ? "" : `<p class="mini-success">${escapeHtml(successCountText(successCounts[id]))}</p>`}
+        ${initialSpeciesIds.has(id) ? "" : `<p class="mini-success">${escapeHtml(successCountText(successCounts[id]))}</p>`}
         <details class="mini-card-taxonomy"><summary>상위 분류군</summary><div class="mini-card-groups" aria-label="상위 분류군">${groups}</div></details>
         <p>${escapeHtml(shortDescription(animal.description, 145))}</p>
       </div>
@@ -299,6 +328,7 @@ function preloadImage(url, timeout = 5000) {
 
 function setCard(speciesId) {
   const animal = cardText(speciesById.get(speciesId));
+  setKingdomLabel(card, animal);
   const image = $("#active-image");
   const fallback = $("#active-image-fallback");
   $("#active-name").textContent = animal.commonName;
@@ -574,12 +604,12 @@ async function syncCollection() {
   const ids = new Set([...getCollection(), ...Object.keys(counts).filter((id) => speciesById.has(id)), HUMAN_ID]);
   const remoteById = new Map();
   for (const record of Array.isArray(remoteData.records) ? remoteData.records : []) {
-    if (!speciesById.has(record.speciesId) || record.speciesId === HUMAN_ID) continue;
+    if (!speciesById.has(record.speciesId) || initialSpeciesIds.has(record.speciesId)) continue;
     remoteById.set(record.speciesId, record);
     ids.add(record.speciesId);
     counts[record.speciesId] = mergeSuccessRecord(counts[record.speciesId], record);
   }
-  const records = [...ids].filter((id) => id !== HUMAN_ID && speciesById.has(id)).map((speciesId) => {
+  const records = [...ids].filter((id) => !initialSpeciesIds.has(id) && speciesById.has(id)).map((speciesId) => {
     const record = normalizeSuccessRecord(counts[speciesId]) || { count: 1, minimum: true };
     counts[speciesId] = record;
     return { speciesId, ...record };
@@ -689,9 +719,10 @@ async function refreshAchievementStats(notify = true) {
 }
 
 function checkAchievementProgress() {
-  if (!currentUser || !achievementStats || state.tutorial) return;
-  const counts = Object.entries(getSuccessCounts()).filter(([id]) => id !== HUMAN_ID && speciesById.has(id)).map(([, record]) => normalizeSuccessRecord(record)?.count || 0);
-  achievementStats.collected = getCollection().filter((id) => id !== HUMAN_ID).length;
+  if (!currentUser || !achievementStats || state.tutorial || state.kingdom === "plants") return;
+  const animalIds = new Set(animals.filter((animal) => animal.id !== HUMAN_ID).map((animal) => animal.id));
+  const counts = Object.entries(getSuccessCounts()).filter(([id]) => animalIds.has(id)).map(([, record]) => normalizeSuccessRecord(record)?.count || 0);
+  achievementStats.collected = getCollection().filter((id) => animalIds.has(id)).length;
   achievementStats.totalSuccesses = counts.reduce((sum, count) => sum + count, 0);
   achievementStats.repeatSuccesses = counts.reduce((best, count) => Math.max(best, count), 0);
   if (!game.hidden) {
@@ -720,7 +751,7 @@ async function loadAchievements() {
 }
 
 function recordAchievementEvent(event, details = {}) {
-  if (!currentUser) return;
+  if (!currentUser || state.kingdom === "plants") return;
   const userId = currentUser.id;
   const write = (async () => {
     const response = await fetch("/api/achievements", {
@@ -743,6 +774,11 @@ function recordAchievementEvent(event, details = {}) {
 async function submitScore() {
   if (scoreSubmitted || state.tutorial) return;
   scoreSubmitted = true;
+  if (state.kingdom === "plants") {
+    const status = state.failed ? $("#failure-score-status") : $("#score-submit-status");
+    status.textContent = "식물 수집 기록은 도감에 저장됩니다. 리더보드·발전과제는 동물계 기록입니다.";
+    return;
+  }
   if (!currentUser) {
     if (state.practice) return;
     if (!state.failed && state.round === state.queue.length && state.difficulty === "hard") {
@@ -796,8 +832,9 @@ function openSpeciesCard(speciesId, returnFocus, fromCollection = false) {
   $("#species-view-groups").innerHTML = revealTaxonomy
     ? taxonomyLabels(animal).map((group) => `<span>${escapeHtml(group)}</span>`).join("")
     : "";
-  $("#species-view-success-count").hidden = speciesId === HUMAN_ID;
-  if (speciesId !== HUMAN_ID) {
+  setKingdomLabel($("#species-modal"), animal);
+  $("#species-view-success-count").hidden = initialSpeciesIds.has(speciesId);
+  if (!initialSpeciesIds.has(speciesId)) {
     $("#species-view-success-count").textContent = successCountText(getSuccessCounts()[speciesId]);
   }
   image.style.objectFit = animal.image.objectFit === "contain" ? "contain" : "cover";
@@ -909,7 +946,7 @@ function updateRound() {
     $("#result-title").textContent = state.practice ? "연습을 마쳤어요." : "분류를 마쳤어요.";
     $("#result-count").textContent = state.practice ? state.score : state.classified.length;
     $("#result-unit").textContent = "species";
-    $("#result-copy").textContent = state.practice ? `직접 맞힌 카드 ${state.score}종 · 자동 배치 ${state.mistakes.size}종. 연습 기록은 일반 기록과 별도로 저장됩니다.` : `${difficultyNames[state.difficulty]} 난이도 완주 · 인간을 포함한 ${state.classified.length}종을 분류했습니다.${state.difficulty === "hard" ? " 죽음 난이도가 해금되었습니다. 플레이는 준비 중입니다." : ""}`;
+    $("#result-copy").textContent = state.practice ? `직접 맞힌 카드 ${state.score}종 · 자동 배치 ${state.mistakes.size}종. 연습 기록은 일반 기록과 별도로 저장됩니다.` : `${difficultyNames[state.difficulty]} 난이도 완주 · ${state.kingdom === "plants" ? "해바라기를" : "인간을"} 포함한 ${state.classified.length}종을 분류했습니다.${state.difficulty === "hard" ? " 죽음 난이도가 해금되었습니다. 플레이는 준비 중입니다." : ""}`;
     $("#return-lobby").textContent = "수집함 보기 →";
     $("#result-modal").hidden = false;
     submitScore();
@@ -931,6 +968,7 @@ function updateRound() {
 
 async function startGame(options = {}) {
   if (!dataset || gameStarting) return;
+  if (selectedKingdom === "plants") options = { ...options, difficulty: "easy", tutorial: false, practice: false, skipTutorial: true };
   if ($("#difficulty-dialog").open) return;
   if (!options.practice && !options.tutorial && !options.difficulty) {
     if ($("#guest-start-dialog").open || $("#difficulty-dialog").open) return;
@@ -956,18 +994,21 @@ async function startGame(options = {}) {
     const practice = options.practice === true;
     const tutorial = !practice && (options.tutorial === true || (options.skipTutorial !== true && (currentUser ? currentGamesPlayed === 0 : guestAttempts === 0)));
     const difficulty = practice ? "hard" : options.difficulty || (tutorial ? null : "hard");
+    const initialSpeciesId = selectedKingdom === "plants" ? PLANT_INITIAL_ID : HUMAN_ID;
     const queue = tutorial
       ? ["bolinopsis-infundibulum", "asterias-rubens", "hoilungia-hongkongensis", "formica-rufa"]
-      : createDifficultyQueue(animals, difficulty);
+      : createDifficultyQueue(selectedKingdom === "plants" ? plants : animals, difficulty, Math.random, initialSpeciesId);
     await preloadImage(speciesById.get(queue[0])?.image.thumbnailUrl);
     state.queue = queue;
     state.tutorial = tutorial;
     state.practice = practice;
     state.difficulty = difficulty;
+    state.kingdom = selectedKingdom;
     state.mistakes = new Set();
     state.latestMistake = null;
     state.round = 0; state.score = 0; state.selected = false;
-    state.classified = [HUMAN_ID];
+    state.classified = [initialSpeciesId];
+    if (selectedKingdom === "plants") saveCollection([initialSpeciesId]);
     state.tree = buildTree(state.classified, speciesById);
     state.newest = null; state.currentId = null; state.expected = null;
     state.previewTarget = null; state.previewPlacement = null; state.failed = false;
@@ -1027,20 +1068,25 @@ async function returnToLobby() {
 async function initialize() {
   const startButton = $("#start-game");
   try {
-    const [response, translationsResponse, taxaResponse] = await Promise.all([fetch(`data/animals.json${assetVersion}`), fetch(`data/animals.ko.json${assetVersion}`), fetch(`data/taxa.ko.json${assetVersion}`), loadAccount()]);
+    const [response, translationsResponse, taxaResponse, plantsResponse] = await Promise.all([fetch(`data/animals.json${assetVersion}`), fetch(`data/animals.ko.json${assetVersion}`), fetch(`data/taxa.ko.json${assetVersion}`), fetch(`data/plants.json${assetVersion}`), loadAccount()]);
     if (!response.ok) throw new Error(`Dataset request failed: ${response.status}`);
     if (!translationsResponse.ok) throw new Error(`Translation request failed: ${translationsResponse.status}`);
     if (!taxaResponse.ok) throw new Error(`Taxon translation request failed: ${taxaResponse.status}`);
+    if (!plantsResponse.ok) throw new Error(`Plant dataset request failed: ${plantsResponse.status}`);
     dataset = await response.json();
     const translations = await translationsResponse.json();
     taxonNamesKo = await taxaResponse.json();
+    const plantDataset = await plantsResponse.json();
+    plants = plantDataset.plants;
+    for (const taxon of plantDataset.taxa) taxonNamesKo[taxon.wikidataId] = taxon.koName;
     animals = dataset.animals;
     speciesById.clear();
-    for (const animal of animals) {
-      animal.ko = translations[animal.id];
+    for (const animal of [...animals, ...plants]) {
+      animal.ko = animal.ko || translations[animal.id];
       speciesById.set(animal.id, animal);
     }
     if (!speciesById.has(HUMAN_ID)) throw new Error("Human is missing from the dataset");
+    if (!speciesById.has(PLANT_INITIAL_ID)) throw new Error("Sunflower is missing from the dataset");
     migrateCollection();
     let collectionSyncFailed = false;
     try { await syncCollection(); }
@@ -1091,6 +1137,9 @@ $("#close-settings").addEventListener("click", () => $("#settings-dialog").close
 $("#settings-dialog").addEventListener("close", () => toolbarHandle.focus());
 
 $("#start-game").addEventListener("click", () => startGame());
+document.querySelectorAll("[data-kingdom]").forEach((button) => {
+  button.addEventListener("click", () => selectKingdom(button.dataset.kingdom));
+});
 $("#achievements-grid").addEventListener("pointerover", (event) => {
   const tile = event.target.closest(".achievement-card");
   if (tile && event.pointerType === "mouse") tile.open = true;

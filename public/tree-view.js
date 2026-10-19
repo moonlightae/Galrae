@@ -161,8 +161,8 @@ export function createTreeView({ ANIMALIA_ID, buildTree, escapeHtml, speciesById
       controls.push(`<button class="clade-node taxon-group-note" type="button" style="left:${buttonX}px;top:${buttonY}px" data-target="${escapeHtml(group.id)}" aria-label="분류군 설명"></button>`);
     }
     controls.push(radial
-      ? `<span class="tree-root-anchor" style="left:${root.x}px;top:${root.y - 76}px"><span class="tree-root">Animalia</span></span>`
-      : `<span class="tree-root-anchor" style="left:${root.x}px;top:${root.y}px"><span class="tree-root">Animalia common ancestor</span></span>`);
+      ? `<span class="tree-root-anchor" style="left:${root.x}px;top:${root.y - 76}px"><span class="tree-root">${escapeHtml(tree.name)}</span></span>`
+      : `<span class="tree-root-anchor" style="left:${root.x}px;top:${root.y}px"><span class="tree-root">${escapeHtml(tree.name)} common ancestor</span></span>`);
     return `<div class="${radial ? "radial-tree" : `phylo-tree layout-${state.layout}`} base-tree${answer ? " answer-tree" : ""}" data-size="${Math.max(width, height)}" data-width="${width}" data-height="${height}" style="width:${width}px;height:${height}px"><svg class="tree-links" width="${width}" height="${height}" aria-hidden="true">${lines.join("")}</svg>${controls.join("")}</div>`;
   }
 

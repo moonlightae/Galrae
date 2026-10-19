@@ -22,8 +22,8 @@ export const gameMarkup = `
           <p class="intro-copy">하나의 생명에서 뻗어 나온 수많은 갈래. 새로운 생물의 자리를 찾아 계통수를 완성해 보세요.</p>
         </section>
         <section class="mode-panel" aria-label="게임 시작">
-        <div><p class="panel-label">플레이할 계</p><h2>동물계</h2><p>인간에서 시작해 서로 다른 동물의 공통 조상을 찾아갑니다.</p>
-          <div class="mode-options" aria-label="계 모드 목록"><span class="is-active">동물계</span><span aria-disabled="true">식물계 · 준비 중</span><span aria-disabled="true">균계 · 준비 중</span></div>
+        <div><p class="panel-label">플레이할 계</p><h2 id="kingdom-title">동물계</h2><p id="kingdom-description">인간에서 시작해 서로 다른 동물의 공통 조상을 찾아갑니다.</p>
+          <div class="mode-options" aria-label="계 모드 목록"><button type="button" data-kingdom="animals" class="is-active" aria-pressed="true">동물계</button><button type="button" data-kingdom="plants" aria-pressed="false">식물계</button><span aria-disabled="true">균계 · 준비 중</span></div>
         </div>
         <div class="game-start-actions"><button id="start-game" class="primary-button" type="button" disabled>분류 시작 <span aria-hidden="true">→</span></button><button id="start-practice" class="primary-button" type="button" disabled>연습 모드 시작 <span aria-hidden="true">→</span></button></div>
         <div class="mode-links"><button id="start-tutorial" class="text-button" type="button">튜토리얼</button>
