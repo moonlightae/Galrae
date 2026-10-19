@@ -71,6 +71,13 @@
       "when": 1792394339206,
       "tag": "0009_happy_monster_badoon",
       "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "6",
+      "when": 1792395828481,
+      "tag": "0010_salty_anthem",
+      "breakpoints": true
     }
   ]
 }

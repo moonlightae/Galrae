@@ -64,6 +64,7 @@ export const plantProgress = sqliteTable("plant_progress", {
   bestScore: integer("best_score").notNull().default(0),
   bestPracticeScore: integer("best_practice_score").notNull().default(0),
   normalAttempts: integer("normal_attempts").notNull().default(0),
+  grassSiblingMistake: integer("grass_sibling_mistake", { mode: "boolean" }).notNull().default(false),
   hasFailed: integer("has_failed", { mode: "boolean" }).notNull().default(false),
   practiceStarted: integer("practice_started", { mode: "boolean" }).notNull().default(false),
   practiceCompleted: integer("practice_completed", { mode: "boolean" }).notNull().default(false),

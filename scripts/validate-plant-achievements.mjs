@@ -5,7 +5,7 @@ import { createRequire } from "node:module";
 import { DatabaseSync } from "node:sqlite";
 import ts from "typescript";
 import { drizzle } from "drizzle-orm/d1";
-import { getAchievements, getPlantAlgaeGroups } from "../public/achievements.js";
+import { getAchievements, isGrassSiblingMistake } from "../public/achievements.js";
 
 const read = (path) => fs.readFileSync(new URL(path, import.meta.url), "utf8");
 const dataset = JSON.parse(read("../public/data/plants.json"));
@@ -25,9 +25,19 @@ for (const [metric, prefix, goals] of [
   assert.equal(getAchievements({ [metric]: goal - 1 }, total, "plants").find((task) => task.id === id).earned, false);
   assert.equal(getAchievements({ [metric]: goal }, total, "plants").find((task) => task.id === id).earned, true);
 }
-assert.equal(getPlantAlgaeGroups([dataset.initialSpeciesId, "homo-sapiens", "unknown"], speciesById), 0);
+
 const algae = ["cyanophora-paradoxa", "chondrus-crispus", "chlorella-vulgaris"];
-assert.equal(getPlantAlgaeGroups(algae, speciesById), 3);
+const special = { event: "grass-sibling-mistake", classified: [dataset.initialSpeciesId, "pteridium-aquilinum"], currentId: "oryza-sativa", targetId: "pteridium-aquilinum", placement: "wrap" };
+for (const [current, other] of [["oryza-sativa", "pteridium-aquilinum"], ["pteridium-aquilinum", "oryza-sativa"]]) {
+  for (const classified of [[dataset.initialSpeciesId, other], [other, dataset.initialSpeciesId], [dataset.initialSpeciesId, other, "pinus-sylvestris"]]) {
+    assert.equal(isGrassSiblingMistake(classified, current, other, "wrap", speciesById), true);
+    const expected = globalThis.GalraeLogic.getExpectedPlacement(classified, current, speciesById);
+    assert.equal(isGrassSiblingMistake(classified, current, expected.targetId, expected.placement, speciesById), false);
+  }
+  assert.equal(isGrassSiblingMistake([other], current, other, "wrap", speciesById), false, "No misleading award when the two leaves are all that exist");
+  assert.equal(isGrassSiblingMistake([dataset.initialSpeciesId, other], current, other, "join", speciesById), false);
+}
+assert.equal(isGrassSiblingMistake([dataset.initialSpeciesId, "pteridium-aquilinum"], "pinus-sylvestris", "pteridium-aquilinum", "wrap", speciesById), false);
 
 const require = createRequire(import.meta.url);
 function loadTS(path, overrides = {}) {
@@ -55,7 +65,7 @@ const db = drizzle(client, { schema });
 let user = { id: "one" };
 const route = loadTS("../app/api/plant-achievements/route.ts", {
   "../../game-auth": { getGameUser: async () => user }, "../../../db": { getDb: () => db }, "../../../db/schema": schema,
-  "../../../public/data/plants.json": dataset, "../../../public/achievements.js": { getPlantAlgaeGroups },
+  "../../../public/data/plants.json": dataset, "../../../public/achievements.js": { isGrassSiblingMistake },
 });
 const post = (payload) => route.POST(new Request("https://local/api/plant-achievements", { method: "POST", body: JSON.stringify(payload) }));
 const stats = async () => (await (await route.GET()).json()).stats;
@@ -88,10 +98,24 @@ data = await stats(); assert.equal(data.easyCompleted, true); assert.equal(data.
 const insert = sqlite.prepare("INSERT INTO classified_species(user_id,species_id,success_count) VALUES ('one',?,?)");
 for (const id of algae) insert.run(id, 10);
 insert.run(dataset.initialSpeciesId, 999); insert.run("homo-sapiens", 999); insert.run("unknown", 999);
-data = await stats(); assert.equal(data.collected, 3); assert.equal(data.totalSuccesses, 30); assert.equal(data.algaeGroups, 3);
-assert.equal(getAchievements(data, total, "plants").find((task) => task.id === "plant-algae-groups").earned, true);
+data = await stats(); assert.equal(data.collected, 3); assert.equal(data.totalSuccesses, 30); assert.equal(data.grassSiblingMistake, false);
+assert.equal(getAchievements(data, total, "plants").find((task) => task.id === "plant-grass-sibling").earned, false);
+for (const invalid of [
+  { ...special, classified: null }, { ...special, classified: ["pteridium-aquilinum"] },
+  { ...special, classified: [...special.classified, special.classified[0]] },
+  { ...special, classified: [...special.classified, "homo-sapiens"] },
+  { ...special, classified: [...special.classified, special.currentId] },
+  { ...special, currentId: "unknown" }, { ...special, targetId: "unknown" },
+  { ...special, targetId: dataset.initialSpeciesId }, { ...special, placement: "join" },
+]) assert.equal((await post(invalid)).status, 400, "Invalid special event must not award a medal");
+assert.equal((await stats()).grassSiblingMistake, false);
+assert.equal((await post(special)).status, 200);
+assert.equal(getAchievements(await stats(), total, "plants").find((task) => task.id === "plant-grass-sibling").earned, true);
+await post({ event: "normal-start" });
+assert.equal((await stats()).grassSiblingMistake, true, "Special progress must survive later events");
 assert.equal(sqlite.prepare("SELECT best_score FROM leaderboard WHERE user_id='one'").get().best_score, 200);
 user = { id: "two" };
+assert.equal((await stats()).grassSiblingMistake, false);
 assert.equal((await stats()).normalAttempts, 0); assert.equal((await stats()).collected, 0);
 await post({ event: "practice-start" });
 sqlite.exec("DELETE FROM users WHERE id='two'");
@@ -123,7 +147,7 @@ Object.assign(context, {
   state: { kingdom: "plants", tutorial: false, practice: false, score: 5 }, game: { hidden: false },
   plantAchievementStats: { bestScore: 0, bestPracticeScore: 0 }, achievementStats: { bestScore: 200 },
   plants: dataset.plants, animals: [{ id: "homo-sapiens" }, { id: "animal" }],
-  PLANT_INITIAL_ID: dataset.initialSpeciesId, HUMAN_ID: "homo-sapiens", speciesById, getAchievements, getPlantAlgaeGroups,
+  PLANT_INITIAL_ID: dataset.initialSpeciesId, HUMAN_ID: "homo-sapiens", speciesById, getAchievements, isGrassSiblingMistake,
   getSuccessCounts: () => ({ "cyanophora-paradoxa": { count: 10 }, "homo-sapiens": { count: 999 }, "hibiscus-syriacus": { count: 999 } }),
   getCollection: () => [dataset.initialSpeciesId, "cyanophora-paradoxa", "homo-sapiens"], normalizeSuccessRecord: (record) => record,
   plantAchievementNotifications: { update(tasks) { notices.push(tasks); } },
@@ -142,4 +166,30 @@ assert.equal(notices.at(-1).find((task) => task.id === "plant-practice-perfect")
 context.state.tutorial = true;
 const beforeTutorial = notices.length;
 context.checkAchievementProgress(); assert.equal(notices.length, beforeTutorial);
-console.log("Plant achievements: 24 medals, boundaries, validated completion, account/kingdom isolation, migration, cascade and client results passed.");
+const specialEvents = [];
+const playContext = {
+  ...globalThis.GalraeLogic, speciesById, isGrassSiblingMistake,
+  isClassificationPolytomyMistake() { return false; },
+  state: {}, $: () => ({ focus() {} }),
+  card: { classList: { add() {}, remove() {} }, setAttribute() {} },
+  renderTree() {}, submitScore() {},
+  recordAchievementEvent(event, details) { specialEvents.push({ event, details }); },
+};
+vm.runInNewContext(source.slice(source.indexOf("function failRound("), source.indexOf("function updateRound(")), playContext);
+for (const practice of [false, true]) {
+  playContext.state = { kingdom: "plants", classified: [...special.classified], currentId: special.currentId, practice, tutorial: false, mistakes: new Set(), round: 0, queue: [special.currentId] };
+  playContext.failRound(special.targetId, special.placement);
+  assert.equal(specialEvents.at(-1).event, special.event);
+  assert.deepEqual(Array.from(specialEvents.at(-1).details.classified), special.classified, "Capture proof before practice auto-placement mutates it");
+}
+const beforeSpecialTutorial = specialEvents.length;
+playContext.state = { kingdom: "plants", classified: [...special.classified], currentId: special.currentId, practice: false, tutorial: true };
+playContext.failRound(special.targetId, special.placement);
+assert.equal(specialEvents.length, beforeSpecialTutorial);
+vm.runInNewContext(source.slice(source.indexOf("function recordAchievementEvent("), source.indexOf("async function submitScore(")), context);
+context.state.tutorial = false; context.plantAchievementStats.grassSiblingMistake = false;
+context.showToast = () => assert.fail("Saving a validated special event must not fail");
+await context.recordAchievementEvent(special.event, { classified: special.classified, currentId: special.currentId, targetId: special.targetId, placement: special.placement });
+assert.equal(context.plantAchievementStats.grassSiblingMistake, true);
+assert.equal(requests.at(-1).url, "/api/plant-achievements");
+console.log("Plant achievements: 24 medals, thresholds, validated completion/special placement, both species orders, normal/practice/tutorial routing, account isolation and migration passed.");

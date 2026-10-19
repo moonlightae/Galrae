@@ -26,40 +26,39 @@ export function isClassificationPolytomyMistake(classified, currentId, targetId,
     && !isEquivalentPlacement(tree, getExpectedPlacement(classified, currentId, speciesById), targetId, placement);
 }
 
-export function getPlantAlgaeGroups(ids, speciesById) {
-  const groups = new Set();
-  for (const id of ids) {
-    const names = new Set((speciesById.get(id)?.taxonomy.lineage || []).map((taxon) => taxon.scientificName));
-    if (names.has("Embryophyta")) continue;
-    for (const group of ["Glaucophyta", "Rhodophyta", "Viridiplantae"]) if (names.has(group)) groups.add(group);
-  }
-  return groups.size;
+export function isGrassSiblingMistake(classified, currentId, targetId, placement, speciesById) {
+  const pair = ["oryza-sativa", "pteridium-aquilinum"];
+  if (placement !== "wrap" || !pair.includes(currentId) || !classified.includes("hibiscus-syriacus")) return false;
+  const other = pair.find((id) => id !== currentId);
+  if (targetId !== other || !classified.includes(other) || classified.includes(currentId)) return false;
+  const { buildTree, getExpectedPlacement, isEquivalentPlacement } = globalThis.GalraeLogic;
+  return !isEquivalentPlacement(buildTree(classified, speciesById), getExpectedPlacement(classified, currentId, speciesById), targetId, placement);
 }
 
 export function getAchievements(stats = {}, total = 206, kingdom = "animals") {
   const tasks = kingdom === "plants" ? [
-    ["first-failure", "킹받네", "stone", "식물 분류 실패하기 · 튜토리얼 제외", "hasFailed", 1, "failure"],
-    ["first-practice", "가보자고", "stone", "식물계 연습모드 시작하기", "practiceStarted", 1, "practice"],
-    ["practice-complete", "중요한 건 꺾여도 그냥 하는 마음", "silver", "식물계 연습모드 완주 · 자동 배치 포함", "practiceCompleted", 1, "practice"],
+    ["first-failure", "정답인 줄 알았던 건에 대하여", "stone", "식물 분류 실패하기 · 튜토리얼 제외", "hasFailed", 1, "failure"],
+    ["first-practice", "정답아, 내게 힘을 빌려줘", "stone", "식물계 연습모드 시작하기", "practiceStarted", 1, "practice"],
+    ["practice-complete", "꺾여도 완주는 하는 마음", "silver", "식물계 연습모드 완주 · 자동 배치 포함", "practiceCompleted", 1, "practice"],
     ...[
-      ["이거 실화냐?", "stone", 5], ["ㅇㅈ? ㅇ 인정", "bronze", 10], ["폼 미쳤다", "silver", 20],
-      ["가슴이 웅장해진다", "gold", 30], ["이왜진", "diamond", 40],
+      ["나, 식물 분류 좋아하네", "stone", 5], ["식물 분류, 참 쉽죠?", "bronze", 10], ["분류 폼 올라온다", "silver", 20],
+      ["분류 좀 해 본 녀석인가", "gold", 30], ["이러다 다 맞히겠어", "diamond", 40],
     ].map(([title, grade, goal]) => [`best-${goal}`, title, grade, `식물계 일반모드 최고기록 ${goal}종`, "bestScore", goal, "tree", "종"]),
     ...[
-      ["머선 129", "stone", 10], ["가즈아", "bronze", 50], ["존버는 승리한다", "silver", 100],
-      ["광기 그 자체", "gold", 500], ["ㄹㅇㅋㅋ", "diamond", 1000],
+      ["한 판 더는 못 참지", "stone", 10], ["한 판만 더 한다며", "bronze", 50], ["백 번 찍어 안 넘어가는 계통수", "silver", 100],
+      ["포기를 모르는 분류왕", "gold", 500], ["분명 잠깐만 하려고 했는데", "diamond", 1000],
     ].map(([title, grade, goal]) => [`attempts-${goal}`, title, grade, `식물계 일반모드 ${goal.toLocaleString("ko-KR")}회 도전`, "normalAttempts", goal, "attempts", "회"]),
-    ["collection-10", "내 마음속에 저장", "bronze", "서로 다른 식물 10종 직접 분류", "collected", 10, "collection", "종"],
-    ["collection-25", "알잘딱깔센", "silver", "서로 다른 식물 25종 직접 분류", "collected", 25, "collection", "종"],
-    ["collection-all", "완전 럭키비키잖아", "gold", `시작 카드 무궁화를 제외한 식물 ${total}종 모두 수집`, "collected", total, "collection", "종"],
-    ["repeat-10", "또 너야?", "bronze", "같은 식물을 10번 올바르게 분류", "repeatSuccesses", 10, "attempts", "회"],
-    ["repeat-100", "형이 왜 거기서 나와", "gold", "같은 식물을 100번 올바르게 분류", "repeatSuccesses", 100, "attempts", "회"],
-    ["repeat-1000", "어쩔식물 저쩔식물", "diamond", "같은 식물을 1,000번 올바르게 분류", "repeatSuccesses", 1000, "attempts", "회"],
-    ["successes-100", "이븐하게 맞혔네요", "silver", "식물계 일반·연습모드 누적 정답 100회", "totalSuccesses", 100, "tree", "회"],
-    ["successes-1000", "레게노", "diamond", "식물계 일반·연습모드 누적 정답 1,000회", "totalSuccesses", 1000, "tree", "회"],
-    ["practice-perfect", "무야호", "diamond", `연습모드에서 식물 ${total}종 모두 직접 맞히기`, "bestPracticeScore", total, "practice", "종"],
-    ["complete-easy", "중요한 건 꺾이지 않는 마음", "silver", "식물계 쉬움 난이도 완주 · 연습·튜토리얼 제외", "easyCompleted", 1, "tree"],
-    ["algae-groups", "상상도 못한 정체", "bronze", "회색조류·홍조류·녹조류에서 한 종씩 직접 분류", "algaeGroups", 3, "algae", "갈래"],
+    ["collection-10", "내 도감 속에 저장", "bronze", "서로 다른 식물 10종 직접 분류", "collected", 10, "collection", "종"],
+    ["collection-25", "반은 모았잖아, 한잔해", "silver", "서로 다른 식물 25종 직접 분류", "collected", 25, "collection", "종"],
+    ["collection-all", "도감 정상화", "gold", `시작 카드 무궁화를 제외한 식물 ${total}종 모두 수집`, "collected", total, "collection", "종"],
+    ["repeat-10", "또 너네? 자리 알지?", "bronze", "같은 식물을 10번 올바르게 분류", "repeatSuccesses", 10, "attempts", "회"],
+    ["repeat-100", "너의 자리는.", "gold", "같은 식물을 100번 올바르게 분류", "repeatSuccesses", 100, "attempts", "회"],
+    ["repeat-1000", "천 번째 만남은 계획대로", "diamond", "같은 식물을 1,000번 올바르게 분류", "repeatSuccesses", 1000, "attempts", "회"],
+    ["successes-100", "정답이 복사가 된다고", "silver", "식물계 일반·연습모드 누적 정답 100회", "totalSuccesses", 100, "tree", "회"],
+    ["successes-1000", "분류해 봐서 아는데", "diamond", "식물계 일반·연습모드 누적 정답 1,000회", "totalSuccesses", 1000, "tree", "회"],
+    ["practice-perfect", "자동 배치는 약한 자들이나", "diamond", `연습모드에서 식물 ${total}종 모두 직접 맞히기`, "bestPracticeScore", total, "practice", "종"],
+    ["complete-easy", "쉬움 컷", "silver", "식물계 쉬움 난이도 완주 · 연습·튜토리얼 제외", "easyCompleted", 1, "tree"],
+    ["grass-sibling", "너 내 풀 동료가 돼라", "bronze", "무궁화가 있는 계통수에서 벼와 고사리만 한 쌍으로 오분류하기 · 튜토리얼 제외", "grassSiblingMistake", 1, "grass"],
   ] : [
     ["first-failure", "실패는 성공의 어머니", "stone", "분류 실패하기 · 튜토리얼 제외", "hasFailed", 1, "failure"],
     ["first-practice", "넴쥬포인트 찍어주세요", "stone", "연습모드 해보기", "practiceStarted", 1, "practice"],
@@ -88,7 +87,7 @@ export function getAchievements(stats = {}, total = 206, kingdom = "animals") {
   ];
   return tasks.map(([id, title, grade, description, metric, goal, icon, unit]) => {
     const value = Math.max(0, Number(stats[metric]) || 0);
-    const category = icon === "fish" || icon === "algae" ? "특별" : icon === "practice" ? "연습모드" : metric === "bestScore" || metric === "normalAttempts" || id.startsWith("complete-") ? "일반모드" : "기본";
+    const category = icon === "fish" || icon === "grass" ? "특별" : icon === "practice" ? "연습모드" : metric === "bestScore" || metric === "normalAttempts" || id.startsWith("complete-") ? "일반모드" : "기본";
     return { id: kingdom === "plants" ? `plant-${id}` : id, title, grade, description, goal, icon, unit, value, category, earned: value >= goal };
   });
 }

@@ -23,7 +23,7 @@ export default function GameClient() {
   useEffect(() => {
     if (window.__galraeBooted) return;
     window.__galraeBooted = true;
-    const version = "?v=20261019-plant-meme-achievements-1";
+    const version = "?v=20261019-plant-meaning-achievements-2";
     loadScript(`/game-logic.js${version}`).then(() => loadScript(`/app.js${version}`, true)).catch(console.error);
   }, []);
   return <div dangerouslySetInnerHTML={{ __html: gameMarkup }} />;

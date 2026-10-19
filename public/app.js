@@ -1,5 +1,5 @@
 const assetVersion = new URL(import.meta.url).search;
-const [{ bindTreeNavigation, createTreeView }, { createCollectionView }, { getAchievements, getPlantAlgaeGroups, isClassificationPolytomyMistake }, { createAchievementNotifications }, { createPhotoPrivacy }] = await Promise.all([
+const [{ bindTreeNavigation, createTreeView }, { createCollectionView }, { getAchievements, isGrassSiblingMistake, isClassificationPolytomyMistake }, { createAchievementNotifications }, { createPhotoPrivacy }] = await Promise.all([
   import(`./tree-view.js${assetVersion}`), import(`./collection-view.js${assetVersion}`),
   import(`./achievements.js${assetVersion}`), import(`./achievement-notifications.js${assetVersion}`),
   import(`./photo-privacy.js${assetVersion}`),
@@ -705,7 +705,7 @@ function achievementMedal(task) {
     attempts: "M5 8a8 8 0 0 1 14-1M19 3v4h-4M19 16a8 8 0 0 1-14 1M5 21v-4h4",
     collection: "M20 4C7 2 2 7 5 15c3 8 15 5 15-11ZM5 20 16 9",
     fish: "M3 12c4-8 11-8 15 0-4 8-11 8-15 0Zm15 0 4-5v10l-4-5M12 10h.1",
-    algae: "M5 21c8-4-1-9 7-17M12 21c-4-6 9-7 6-16M3 14l3-3m4 2 4-3m3 5 4-3",
+    grass: "M12 21V9M12 17C8 17 4 13 4 7c6 0 8 4 8 10Zm0-3c0-6 3-9 8-10 0 6-3 10-8 10Z",
   };
   return `<div class="achievement-medal grade-${task.grade}" aria-hidden="true"><div class="medal-face"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="${icons[task.icon]}" /></svg></div></div>`;
 }
@@ -749,7 +749,6 @@ function checkAchievementProgress() {
   stats.collected = getCollection().filter((id) => playableIds.has(id)).length;
   stats.totalSuccesses = counts.reduce((sum, count) => sum + count, 0);
   stats.repeatSuccesses = counts.reduce((best, count) => Math.max(best, count), 0);
-  if (plant) stats.algaeGroups = getPlantAlgaeGroups(entries.filter(([, record]) => normalizeSuccessRecord(record)).map(([id]) => id), speciesById);
   if (!game.hidden) {
     const metric = state.practice ? "bestPracticeScore" : "bestScore";
     stats[metric] = Math.max(stats[metric] || 0, state.score);
@@ -789,6 +788,7 @@ function recordAchievementEvent(event, details = {}) {
     if (currentUser?.id !== userId || !stats) return;
     if (event === "normal-start") stats.normalAttempts += 1;
     if (event === "failure") stats.hasFailed = true;
+    if (event === "grass-sibling-mistake") { stats.hasFailed = true; stats.grassSiblingMistake = true; }
     if (event === "fish-sibling-mistake") { stats.hasFailed = true; stats.fishSiblingMistake = true; }
     if (event === "practice-start" || event === "practice-complete") stats.practiceStarted = true;
     if (event === "practice-complete") stats.practiceCompleted = true;
@@ -936,7 +936,9 @@ function placeCard(targetId, placement = "wrap") {
 function failRound(targetId, placement) {
   state.failed = true;
   if (!state.tutorial) {
-    if (isClassificationPolytomyMistake(state.classified, state.currentId, targetId, placement, speciesById)) {
+    if (state.kingdom === "plants" && isGrassSiblingMistake(state.classified, state.currentId, targetId, placement, speciesById)) {
+      recordAchievementEvent("grass-sibling-mistake", { classified: [...state.classified], currentId: state.currentId, targetId, placement });
+    } else if (isClassificationPolytomyMistake(state.classified, state.currentId, targetId, placement, speciesById)) {
       recordAchievementEvent("fish-sibling-mistake", { classified: [...state.classified], currentId: state.currentId, targetId, placement });
     } else recordAchievementEvent("failure");
   }

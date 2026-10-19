@@ -1,0 +1,1 @@
+ALTER TABLE `plant_progress` ADD `grass_sibling_mistake` integer DEFAULT false NOT NULL;
