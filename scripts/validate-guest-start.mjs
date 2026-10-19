@@ -19,7 +19,7 @@ const context = {
   guestStartOptions: null, localStorage: { getItem: () => "1" }, state: {},
   difficultyStartOptions: null, difficultyNames: { easy: "쉬움", medium: "보통", hard: "어려움" },
   createDifficultyQueue: (...args) => { context.queueArguments = args; return ["animal"]; },
-  achievementStats: {},
+  achievementStats: {}, plantAchievementStats: {},
   animals: [{ id: "animal" }], HUMAN_ID: "human", speciesById: new Map(),
   shuffle: (ids) => ids, preloadImage: async () => {}, buildTree() {},
   card: $("card"), lobbyPages: {}, navigationShell: $("navigation"), game: $("game"),
@@ -130,4 +130,5 @@ assert.equal(context.savedCollections.length, previousSaves, "Plant tutorials mu
 assert.deepEqual(Array.from(context.state.queue), ["anthoceros-agrestis", "oryza-sativa", "pteridium-aquilinum", "pinus-sylvestris"]);
 assert.equal(context.state.practice, false);
 assert.equal(context.state.tutorial, true);
+assert.deepEqual(context.messages, ["구현 중입니다."], "Starting supported modes must not hide a startup error in a toast");
 console.log("Start: difficulty selection/cancellation, guest warning, mode preservation, repeat taps, account bypass and death unlock passed.");

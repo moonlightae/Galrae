@@ -64,6 +64,13 @@
       "when": 1791380398731,
       "tag": "0008_rapid_silk_fever",
       "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "6",
+      "when": 1792394339206,
+      "tag": "0009_happy_monster_badoon",
+      "breakpoints": true
     }
   ]
 }

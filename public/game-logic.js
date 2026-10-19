@@ -248,9 +248,9 @@
     }).map((animal) => animal.id);
   }
 
-  function isDifficultyCompletion(ids, difficulty, speciesById) {
+  function isDifficultyCompletion(ids, difficulty, speciesById, initialSpeciesId = "homo-sapiens") {
     if (!Object.hasOwn(difficultyNames, difficulty) || !Array.isArray(ids)
-      || !ids.includes("homo-sapiens") || new Set(ids).size !== ids.length
+      || !ids.includes(initialSpeciesId) || new Set(ids).size !== ids.length
       || !ids.every((id) => typeof id === "string" && speciesById.has(id))) return false;
     if (difficulty === "hard") return ids.length === speciesById.size;
     const used = new Set();

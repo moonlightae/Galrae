@@ -28,6 +28,7 @@ const context = {
   collectionView: { render(ids) { shown = Array.from(ids); } },
   document: { documentElement: { dataset: {} }, querySelectorAll: () => buttons },
   window: { dispatchEvent() {} }, Event,
+  loadAchievements() {},
 };
 vm.runInNewContext(source.slice(source.indexOf("function selectKingdom("), source.indexOf("const COLLECTION_PREFIX")), context);
 vm.runInNewContext(source.slice(source.indexOf("function renderCollection("), source.indexOf("const { clearPreview")), context);

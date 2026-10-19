@@ -53,7 +53,7 @@ assert.equal(stack.children.length, 1, "Another account can earn the same medal 
 const clientSource = readFileSync(new URL("../public/app.js", import.meta.url), "utf8");
 const elements = new Map();
 const $ = (id) => { if (!elements.has(id)) elements.set(id, {}); return elements.get(id); };
-const context = { $, getAchievements, animals: [{ id: "homo-sapiens" }, { id: "animal" }], HUMAN_ID: "homo-sapiens", escapeHtml: (text) => String(text) };
+const context = { $, getAchievements, selectedKingdom: "animals", animals: [{ id: "homo-sapiens" }, { id: "animal" }], HUMAN_ID: "homo-sapiens", escapeHtml: (text) => String(text) };
 runInNewContext(clientSource.slice(clientSource.indexOf("function achievementMedal("), clientSource.indexOf("async function refreshAchievementStats(")), context);
 context.renderAchievements({ bestScore: 10 });
 const html = $("#achievements-grid").innerHTML;

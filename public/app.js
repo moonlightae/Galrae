@@ -1,5 +1,5 @@
 const assetVersion = new URL(import.meta.url).search;
-const [{ bindTreeNavigation, createTreeView }, { createCollectionView }, { getAchievements, isClassificationPolytomyMistake }, { createAchievementNotifications }, { createPhotoPrivacy }] = await Promise.all([
+const [{ bindTreeNavigation, createTreeView }, { createCollectionView }, { getAchievements, getPlantAlgaeGroups, isClassificationPolytomyMistake }, { createAchievementNotifications }, { createPhotoPrivacy }] = await Promise.all([
   import(`./tree-view.js${assetVersion}`), import(`./collection-view.js${assetVersion}`),
   import(`./achievements.js${assetVersion}`), import(`./achievement-notifications.js${assetVersion}`),
   import(`./photo-privacy.js${assetVersion}`),
@@ -30,6 +30,7 @@ function selectKingdom(kingdom) {
   if (dataset) {
     $("#collection-branch-query").value = "";
     renderCollection();
+    if (!$("#tasks-page").hidden) loadAchievements();
   }
 }
 const COLLECTION_PREFIX = "galrae.collection.v3";
@@ -117,8 +118,10 @@ let difficultyStartOptions = null;
 const pendingCollectionWrites = new Set();
 const pendingAchievementWrites = new Set();
 let achievementStats = null;
+let plantAchievementStats = null;
 let achievementStatsUser = null;
 const achievementNotifications = createAchievementNotifications($("#achievement-notifications"), (task) => `${achievementMedal(task)}<div><small>발전과제 달성!</small><strong>${escapeHtml(task.title)}</strong></div>`);
+const plantAchievementNotifications = createAchievementNotifications($("#achievement-notifications"), (task) => `${achievementMedal(task)}<div><small>식물계 발전과제 달성!</small><strong>${escapeHtml(task.title)}</strong></div>`);
 let authMode = "login";
 let accountReturnFocus = null;
 
@@ -383,7 +386,7 @@ async function loadAccount() {
     const data = await responseJson(response);
     currentUser = data.user;
     if (achievementStatsUser !== (currentUser?.id || null)) {
-      achievementNotifications.reset(); achievementStats = null;
+      achievementNotifications.reset(); plantAchievementNotifications.reset(); achievementStats = null; plantAchievementStats = null;
       achievementStatsUser = currentUser?.id || null;
     }
     currentChatGPT = data.chatgpt;
@@ -702,12 +705,15 @@ function achievementMedal(task) {
     attempts: "M5 8a8 8 0 0 1 14-1M19 3v4h-4M19 16a8 8 0 0 1-14 1M5 21v-4h4",
     collection: "M20 4C7 2 2 7 5 15c3 8 15 5 15-11ZM5 20 16 9",
     fish: "M3 12c4-8 11-8 15 0-4 8-11 8-15 0Zm15 0 4-5v10l-4-5M12 10h.1",
+    algae: "M5 21c8-4-1-9 7-17M12 21c-4-6 9-7 6-16M3 14l3-3m4 2 4-3m3 5 4-3",
   };
   return `<div class="achievement-medal grade-${task.grade}" aria-hidden="true"><div class="medal-face"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="${icons[task.icon]}" /></svg></div></div>`;
 }
 
-function renderAchievements(stats = {}) {
-  const tasks = getAchievements(stats, animals.filter((animal) => animal.id !== HUMAN_ID).length || 206);
+function renderAchievements(stats = {}, kingdom = selectedKingdom) {
+  const total = kingdom === "plants" ? (plants.length > 1 ? plants.length - 1 : 45) : animals.filter((animal) => animal.id !== HUMAN_ID).length || 206;
+  const tasks = getAchievements(stats, total, kingdom);
+  $("#achievements-title").textContent = `${kingdom === "plants" ? "식물계" : "동물계"} 발전과제`;
   $("#achievements-count").textContent = `${tasks.filter((task) => task.earned).length} / ${tasks.length}`;
   $("#achievements-grid").innerHTML = ["기본", "연습모드", "일반모드", "특별"].map((category) => `<section class="achievement-group"><h2>${category}</h2><div class="achievements-grid">${tasks.filter((task) => task.category === category).map((task) => {
     const progress = `${Math.min(task.value, task.goal).toLocaleString("ko-KR")} / ${task.goal.toLocaleString("ko-KR")}${task.unit || ""}`;
@@ -717,63 +723,75 @@ function renderAchievements(stats = {}) {
   }).join("")}</div></section>`).join("");
 }
 
-async function refreshAchievementStats(notify = true) {
+async function refreshAchievementStats(notify = true, kingdom = selectedKingdom) {
   const userId = currentUser?.id;
   if (!userId) return;
-  const response = await fetch("/api/achievements", { cache: "no-store" });
+  const response = await fetch(kingdom === "plants" ? "/api/plant-achievements" : "/api/achievements", { cache: "no-store" });
   if (!response.ok) throw new Error(`Achievement request failed: ${response.status}`);
   const data = await responseJson(response);
   if (currentUser?.id !== userId) return;
-  achievementStats = data.stats;
-  achievementNotifications.update(getAchievements(achievementStats, animals.length > 1 ? animals.length - 1 : 206), notify);
+  if (kingdom === "plants") {
+    plantAchievementStats = data.stats;
+    plantAchievementNotifications.update(getAchievements(plantAchievementStats, plants.length > 1 ? plants.length - 1 : 45, kingdom), notify);
+  } else {
+    achievementStats = data.stats;
+    achievementNotifications.update(getAchievements(achievementStats, animals.length > 1 ? animals.length - 1 : 206), notify);
+  }
 }
 
 function checkAchievementProgress() {
-  if (!currentUser || !achievementStats || state.tutorial || state.kingdom === "plants") return;
-  const animalIds = new Set(animals.filter((animal) => animal.id !== HUMAN_ID).map((animal) => animal.id));
-  const counts = Object.entries(getSuccessCounts()).filter(([id]) => animalIds.has(id)).map(([, record]) => normalizeSuccessRecord(record)?.count || 0);
-  achievementStats.collected = getCollection().filter((id) => animalIds.has(id)).length;
-  achievementStats.totalSuccesses = counts.reduce((sum, count) => sum + count, 0);
-  achievementStats.repeatSuccesses = counts.reduce((best, count) => Math.max(best, count), 0);
+  const plant = state.kingdom === "plants";
+  const stats = plant ? plantAchievementStats : achievementStats;
+  if (!currentUser || !stats || state.tutorial) return;
+  const playableIds = new Set((plant ? plants : animals).filter((animal) => animal.id !== (plant ? PLANT_INITIAL_ID : HUMAN_ID)).map((animal) => animal.id));
+  const entries = Object.entries(getSuccessCounts()).filter(([id]) => playableIds.has(id));
+  const counts = entries.map(([, record]) => normalizeSuccessRecord(record)?.count || 0);
+  stats.collected = getCollection().filter((id) => playableIds.has(id)).length;
+  stats.totalSuccesses = counts.reduce((sum, count) => sum + count, 0);
+  stats.repeatSuccesses = counts.reduce((best, count) => Math.max(best, count), 0);
+  if (plant) stats.algaeGroups = getPlantAlgaeGroups(entries.filter(([, record]) => normalizeSuccessRecord(record)).map(([id]) => id), speciesById);
   if (!game.hidden) {
     const metric = state.practice ? "bestPracticeScore" : "bestScore";
-    achievementStats[metric] = Math.max(achievementStats[metric] || 0, state.score);
+    stats[metric] = Math.max(stats[metric] || 0, state.score);
   }
-  achievementNotifications.update(getAchievements(achievementStats, animals.length > 1 ? animals.length - 1 : 206));
+  (plant ? plantAchievementNotifications : achievementNotifications).update(getAchievements(stats, plant ? plants.length - 1 : animals.length > 1 ? animals.length - 1 : 206, plant ? "plants" : "animals"));
 }
 
 async function loadAchievements() {
   const userId = currentUser?.id;
+  const kingdom = selectedKingdom;
   const status = $("#achievements-status");
-  renderAchievements();
+  renderAchievements((kingdom === "plants" ? plantAchievementStats : achievementStats) || {}, kingdom);
   if (!userId) { status.textContent = "로그인하면 발전과제 진행도와 메달이 계정에 저장됩니다."; return; }
   status.textContent = "발전과제 기록을 불러오는 중…";
   try {
     await Promise.all([...pendingAchievementWrites, ...pendingCollectionWrites]);
-    await refreshAchievementStats(false);
-    if (currentUser?.id !== userId) return;
-    renderAchievements(achievementStats);
+    await refreshAchievementStats(false, kingdom);
+    if (currentUser?.id !== userId || selectedKingdom !== kingdom) return;
+    renderAchievements(kingdom === "plants" ? plantAchievementStats : achievementStats, kingdom);
     status.textContent = "메달을 가리키거나 눌러 조건과 진행도를 확인해 보세요.";
   } catch (error) {
     console.error(error);
-    if (currentUser?.id === userId) status.textContent = "기록을 불러오지 못했어요. 발전과제 메뉴를 다시 열어 주세요.";
+    if (currentUser?.id === userId && selectedKingdom === kingdom) status.textContent = "기록을 불러오지 못했어요. 발전과제 메뉴를 다시 열어 주세요.";
   }
 }
 
 function recordAchievementEvent(event, details = {}) {
-  if (!currentUser || state.kingdom === "plants") return;
+  if (!currentUser || state.tutorial || (state.kingdom === "plants" && event === "practice-complete")) return;
+  const plant = state.kingdom === "plants";
   const userId = currentUser.id;
   const write = (async () => {
-    const response = await fetch("/api/achievements", {
+    const response = await fetch(plant ? "/api/plant-achievements" : "/api/achievements", {
       method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ event, ...details }),
     });
     if (!response.ok) throw new Error(`Achievement record failed: ${response.status}`);
-    if (currentUser?.id !== userId || !achievementStats) return;
-    if (event === "normal-start") achievementStats.normalAttempts += 1;
-    if (event === "failure") achievementStats.hasFailed = true;
-    if (event === "fish-sibling-mistake") { achievementStats.hasFailed = true; achievementStats.fishSiblingMistake = true; }
-    if (event === "practice-start" || event === "practice-complete") achievementStats.practiceStarted = true;
-    if (event === "practice-complete") achievementStats.practiceCompleted = true;
+    const stats = plant ? plantAchievementStats : achievementStats;
+    if (currentUser?.id !== userId || !stats) return;
+    if (event === "normal-start") stats.normalAttempts += 1;
+    if (event === "failure") stats.hasFailed = true;
+    if (event === "fish-sibling-mistake") { stats.hasFailed = true; stats.fishSiblingMistake = true; }
+    if (event === "practice-start" || event === "practice-complete") stats.practiceStarted = true;
+    if (event === "practice-complete") stats.practiceCompleted = true;
     checkAchievementProgress();
   })().catch((error) => { console.error(error); showToast("발전과제 기록을 저장하지 못했어요."); });
   pendingAchievementWrites.add(write);
@@ -786,7 +804,27 @@ async function submitScore() {
   scoreSubmitted = true;
   if (state.kingdom === "plants") {
     const status = state.failed ? $("#failure-score-status") : $("#score-submit-status");
-    status.textContent = "식물 수집 기록은 도감에 저장됩니다. 리더보드·발전과제는 동물계 기록입니다.";
+    if (!currentUser) { status.textContent = "로그인하면 식물계 발전과제를 저장할 수 있습니다."; return; }
+    const userId = currentUser.id;
+    status.textContent = "식물계 기록 저장 중…";
+    try {
+      const write = fetch("/api/plant-achievements", {
+        method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ event: "result", score: state.score, mode: state.practice ? "practice" : "normal", difficulty: state.difficulty,
+          ...(!state.failed && state.round === state.queue.length ? { completedIds: state.classified } : {}) }),
+      });
+      pendingAchievementWrites.add(write);
+      let response;
+      try { response = await write; } finally { pendingAchievementWrites.delete(write); }
+      if (!response.ok) throw new Error(`Plant score request failed: ${response.status}`);
+      if (currentUser?.id !== userId) return;
+      await Promise.all([...pendingAchievementWrites, ...pendingCollectionWrites]);
+      await refreshAchievementStats(true, "plants");
+      status.textContent = "식물계 발전과제와 수집 기록을 저장했습니다.";
+    } catch (error) {
+      console.error(error); scoreSubmitted = false;
+      status.textContent = "식물계 기록을 저장하지 못했어요.";
+    }
     return;
   }
   if (!currentUser) {
@@ -816,7 +854,7 @@ async function submitScore() {
     if (!state.practice) currentGamesPlayed = Number.isSafeInteger(data.entry?.gamesPlayed) ? data.entry.gamesPlayed : currentGamesPlayed + 1;
     status.textContent = state.practice ? "연습 기록을 저장했습니다." : "리더보드에 기록했습니다.";
     await Promise.all([...pendingCollectionWrites]);
-    try { await refreshAchievementStats(); }
+    try { await refreshAchievementStats(true, "animals"); }
     catch (error) { console.error(error); showToast("기록은 저장했지만 발전과제를 불러오지 못했어요."); }
     await loadLeaderboard();
   } catch (error) {
@@ -1039,8 +1077,8 @@ async function startGame(options = {}) {
     $("#failure-score-status").textContent = "";
     card.classList.remove("is-selected", "is-dragging", "is-locked");
     card.setAttribute("draggable", "true");
-    if (currentUser && !achievementStats) {
-      try { await refreshAchievementStats(false); }
+    if (currentUser && !(selectedKingdom === "plants" ? plantAchievementStats : achievementStats)) {
+      try { await refreshAchievementStats(false, selectedKingdom); }
       catch (error) { console.error(error); }
     }
     if (!tutorial) await recordAchievementEvent(practice ? "practice-start" : "normal-start");
