@@ -16,6 +16,7 @@ const validId = (id) => !initialIds.has(id) && (animalMap.has(id) || plantMap.ha
   const SCORES_KEY = "galrae.local.scores.v1";
   const PLANTS_KEY = "galrae.local.plant-progress.v1";
   const COLLECTIONS_KEY = "galrae.local.collections.v1";
+  const ADMIN_HASH = "176d93ddc019ee61587d34434d66fd0acf535ce06ccde632172b27003c61fb80";
 
   function read(key, fallback) {
     try { return JSON.parse(localStorage.getItem(key)) ?? fallback; }
@@ -24,7 +25,12 @@ const validId = (id) => !initialIds.has(id) && (animalMap.has(id) || plantMap.ha
   function write(key, value) { localStorage.setItem(key, JSON.stringify(value)); }
 
   function accounts() {
-    return read(ACCOUNTS_KEY, []);
+    const list = read(ACCOUNTS_KEY, []);
+    if (!list.some((account) => account.username === "admin")) {
+      list.unshift({ id: "local-admin", username: "admin", displayName: "Admin", passwordHash: ADMIN_HASH, isAdmin: true });
+      write(ACCOUNTS_KEY, list);
+    }
+    return list;
   }
 
   function currentAccount() {
