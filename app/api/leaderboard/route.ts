@@ -2,8 +2,10 @@ import { asc, desc, inArray, sql } from "drizzle-orm";
 import { getGameUser } from "../../game-auth";
 import { getDb } from "../../../db";
 import { classifiedSpecies, leaderboard } from "../../../db/schema";
-import { animals, speciesCount } from "../../../public/data/animals.json";
+import dataset from "../../../public/data/animals.json";
 import "../../../public/game-logic.js";
+
+const { animals, speciesCount } = dataset;
 
 export const dynamic = "force-dynamic";
 const speciesById = new Map(animals.map((animal) => [animal.id, animal]));

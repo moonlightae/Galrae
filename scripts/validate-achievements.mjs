@@ -58,7 +58,7 @@ let user = { id: "legacy", displayName: "Legacy" };
 const auth = { getGameUser: async () => user };
 const route = loadTS("../app/api/achievements/route.ts", {
   "../../game-auth": auth, "../../../db": { getDb: () => db }, "../../../db/schema": schema,
-  "../../../public/data/animals.json": dataset,
+  "../../../public/data/animals.json": { default: dataset },
   "../../../public/achievements.js": { isClassificationPolytomyMistake },
 });
 const post = async (body) => route.POST(new Request("https://local/api/achievements", { method: "POST", body: JSON.stringify(body) }));
@@ -150,7 +150,7 @@ assert.equal((await stats()).normalAttempts, 2, "Atomic increments must retain c
 assert.equal(sqlite.prepare("SELECT games_played FROM leaderboard WHERE user_id='new'").get().games_played, 0, "Starting must not submit a score");
 const scoreRoute = loadTS("../app/api/leaderboard/route.ts", {
   "../../game-auth": auth, "../../../db": { getDb: () => db }, "../../../db/schema": schema,
-  "../../../public/data/animals.json": dataset, "../../../public/game-logic.js": {},
+  "../../../public/data/animals.json": { default: dataset }, "../../../public/game-logic.js": {},
 });
 user = { id: "easy-perfect", displayName: "Easy" };
 await post({ event: "normal-start" });

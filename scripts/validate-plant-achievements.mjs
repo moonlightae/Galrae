@@ -65,7 +65,7 @@ const db = drizzle(client, { schema });
 let user = { id: "one" };
 const route = loadTS("../app/api/plant-achievements/route.ts", {
   "../../game-auth": { getGameUser: async () => user }, "../../../db": { getDb: () => db }, "../../../db/schema": schema,
-  "../../../public/data/plants.json": dataset, "../../../public/achievements.js": { isGrassSiblingMistake },
+  "../../../public/data/plants.json": { default: dataset }, "../../../public/achievements.js": { isGrassSiblingMistake },
 });
 const post = (payload) => route.POST(new Request("https://local/api/plant-achievements", { method: "POST", body: JSON.stringify(payload) }));
 const stats = async () => (await (await route.GET()).json()).stats;

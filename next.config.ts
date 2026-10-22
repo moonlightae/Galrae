@@ -1,10 +1,12 @@
 import type { NextConfig } from "next";
+import { resolve } from "node:path";
 
 const nextConfig: NextConfig = {
   ...(process.env.VERCEL === "1" ? {
-    // Vercel uses browser storage; Cloudflare route.ts handlers belong to Sites.
-    pageExtensions: ["tsx", "jsx"],
-    env: { NEXT_PUBLIC_BROWSER_STORAGE: "1" },
+    webpack(config, { webpack }) {
+      config.plugins.push(new webpack.NormalModuleReplacementPlugin(/[\\/]db[\\/]index\.ts$/, resolve("db/vercel.ts")));
+      return config;
+    },
   } : {}),
 };
 

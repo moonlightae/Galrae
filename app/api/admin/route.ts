@@ -1,6 +1,6 @@
 import { asc, eq, inArray } from "drizzle-orm";
 import { getDb } from "../../../db";
-import { classifiedSpecies, leaderboard, sessions, users } from "../../../db/schema";
+import { classifiedSpecies, leaderboard, plantProgress, sessions, users } from "../../../db/schema";
 import { getGameUser, makePasswordRecord } from "../../game-auth";
 
 async function requireAdmin() {
@@ -70,6 +70,7 @@ export async function POST(request: Request) {
     await db.delete(classifiedSpecies).where(eq(classifiedSpecies.userId, target.id));
     await db.delete(leaderboard).where(eq(leaderboard.userId, target.id));
     await db.delete(sessions).where(eq(sessions.userId, target.id));
+    await db.delete(plantProgress).where(eq(plantProgress.userId, target.id));
     await db.delete(users).where(eq(users.id, target.id));
     return Response.json({ ok: true });
   }

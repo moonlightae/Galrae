@@ -1,9 +1,11 @@
 import { eq, sql } from "drizzle-orm";
 import { getDb } from "../../../db";
 import { classifiedSpecies, plantProgress } from "../../../db/schema";
-import { plants, initialSpeciesId } from "../../../public/data/plants.json";
+import dataset from "../../../public/data/plants.json";
 import { isGrassSiblingMistake } from "../../../public/achievements.js";
 import { getGameUser } from "../../game-auth";
+
+const { plants, initialSpeciesId } = dataset;
 
 export const dynamic = "force-dynamic";
 const speciesById = new Map(plants.map((plant) => [plant.id, plant]));

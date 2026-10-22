@@ -1,9 +1,11 @@
 import { eq, sql } from "drizzle-orm";
 import { getDb } from "../../../db";
 import { classifiedSpecies, leaderboard } from "../../../db/schema";
-import { animals } from "../../../public/data/animals.json";
+import dataset from "../../../public/data/animals.json";
 import { getGameUser } from "../../game-auth";
 import { isClassificationPolytomyMistake } from "../../../public/achievements.js";
+
+const { animals } = dataset;
 
 export const dynamic = "force-dynamic";
 const playableIds = new Set(animals.filter((animal) => animal.id !== "homo-sapiens").map((animal) => animal.id));

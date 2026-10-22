@@ -57,9 +57,13 @@ npm run dev
 
 Sites에서는 Vinext·Cloudflare Workers·D1을 사용합니다. Vercel에서는 기본 `VERCEL=1` 환경 변수를 감지하여 `npm run build`가 Next.js 빌드를 실행하고 `.next/routes-manifest.json`을 생성합니다. Vercel 프로젝트의 Framework Preset은 Next.js, Build Command는 `npm run build`, Output Directory는 기본값을 사용합니다.
 
-Vercel의 계정·수집 기록·리더보드·발전과제는 기존처럼 해당 브라우저의 localStorage에 저장됩니다. 기존 브라우저 계정과 점수 저장 키를 유지합니다. 다른 기기·브라우저·도메인과 공유되지 않으며 ChatGPT 계정 연결은 지원하지 않습니다. Cloudflare 전용 API는 Vercel 빌드에서 제외하고, Sites에서는 기존 서버 API를 그대로 사용합니다.
+Vercel은 계정·수집 기록·리더보드·발전과제를 Turso Cloud의 SQLite DB에 저장합니다. 모든 Vercel 배포 주소와 기기는 같은 DB를 사용하고, 로그인 세션은 각 브라우저의 HttpOnly 쿠키로 관리합니다. 로컬 PC를 서버로 켜둘 필요가 없습니다. Sites는 기존 Cloudflare D1 DB를 사용합니다. 두 DB는 별개이며, 이전 시점 이후의 변경 사항이 자동으로 양방향 동기화되지는 않습니다. ChatGPT 계정 연결은 Sites에서만 지원합니다.
 
-Vercel 모드는 `VERCEL=1 npm run build`와 `node scripts/validate-local-api.mjs --manifest`로 빌드 결과와 저장 로직을 검증할 수 있습니다.
+Vercel의 서버 환경 변수에 `TURSO_DATABASE_URL`, `TURSO_AUTH_TOKEN`을 설정합니다. 이 값은 클라이언트 코드나 Git에 넣지 않습니다. [Turso의 Vercel 연동 안내](https://docs.turso.tech/integrations/vercel)를 참고하세요.
+
+기존 Sites 데이터를 이전하려면 배포 직전에 DB 뷰어에서 `users`, `leaderboard`, `classified_species`, `plant_progress`의 모든 행을 같은 이름의 배열로 내보내어 `.sites-runtime/sites-export.json`에 보관합니다. 비밀번호 검증 정보가 포함된 비공개 파일이므로 로그나 GitHub에 올리지 않습니다. 내보낸 각 페이지의 다음 오프셋과 잘림 여부를 확인하고, 일부 행이나 값이 빠졌으면 이전을 중단합니다. 대상 DB 연결 값을 서버 환경에 설정한 뒤 `node scripts/import-sites-database.mjs .sites-runtime/sites-export.json`을 실행합니다. 원래 사용자 ID·비밀번호 검증 정보·기록을 보존하고 기존 로그인 세션은 복사하지 않습니다. 대상 DB에 기존 계정이나 기록이 있으면 덮어쓰지 않고 중단하며, 가져오기 실패 시 전체 데이터를 롤백합니다. 원본 Sites DB는 수정하지 않습니다.
+
+DB 생성·이전·환경 변수 설정 후에만 운영 브랜치에 반영하고 Vercel을 재배포합니다. 연결 전에는 운영 버전을 전환하지 않습니다. `VERCEL=1 npm run build`와 `node scripts/validate-cloud-accounts.mjs --manifest`로 빌드와 기존 비밀번호 유지·기기별 세션·이전 롤백을 검증할 수 있습니다.
 
 사진과 설명은 각 원본의 라이선스를 따릅니다. 소스 코드를 공개할 때에도 출처와 라이선스 정보를 함께 유지해 주세요.
 

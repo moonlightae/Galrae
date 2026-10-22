@@ -155,7 +155,7 @@ const db = drizzle(client, { schema });
 let user = { id: "test", displayName: "Tester" };
 const route = loadTS("../app/api/leaderboard/route.ts", {
   "../../game-auth": { getGameUser: async () => user }, "../../../db": { getDb: () => db },
-  "../../../db/schema": schema, "../../../public/data/animals.json": dataset,
+  "../../../db/schema": schema, "../../../public/data/animals.json": { default: dataset },
   "../../../public/game-logic.js": {},
 });
 const post = async (body) => route.POST(new Request("https://local/api/leaderboard", { method: "POST", body: JSON.stringify(body) }));
