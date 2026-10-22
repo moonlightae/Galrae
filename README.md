@@ -55,7 +55,11 @@ npm run dev
 
 ## GitHub 공개와 서비스 배포
 
-이 저장소는 Vinext·Cloudflare Workers·D1을 사용하며, 현재 서비스 배포는 Sites를 통해 진행합니다. GitHub에 소스를 올리는 것과 실행 중인 서비스를 배포하는 것은 별도 과정입니다. 계정·수집 기록·리더보드에 서버와 DB가 필요하므로 GitHub Pages에 정적 파일만 올리는 방식으로는 전체 기능을 제공할 수 없습니다.
+Sites에서는 Vinext·Cloudflare Workers·D1을 사용합니다. Vercel에서는 기본 `VERCEL=1` 환경 변수를 감지하여 `npm run build`가 Next.js 빌드를 실행하고 `.next/routes-manifest.json`을 생성합니다. Vercel 프로젝트의 Framework Preset은 Next.js, Build Command는 `npm run build`, Output Directory는 기본값을 사용합니다.
+
+Vercel의 계정·수집 기록·리더보드·발전과제는 기존처럼 해당 브라우저의 localStorage에 저장됩니다. 기존 브라우저 계정과 점수 저장 키를 유지합니다. 다른 기기·브라우저·도메인과 공유되지 않으며 ChatGPT 계정 연결은 지원하지 않습니다. Cloudflare 전용 API는 Vercel 빌드에서 제외하고, Sites에서는 기존 서버 API를 그대로 사용합니다.
+
+Vercel 모드는 `VERCEL=1 npm run build`와 `node scripts/validate-local-api.mjs --manifest`로 빌드 결과와 저장 로직을 검증할 수 있습니다.
 
 사진과 설명은 각 원본의 라이선스를 따릅니다. 소스 코드를 공개할 때에도 출처와 라이선스 정보를 함께 유지해 주세요.
 

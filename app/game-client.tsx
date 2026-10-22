@@ -23,8 +23,10 @@ export default function GameClient() {
   useEffect(() => {
     if (window.__galraeBooted) return;
     window.__galraeBooted = true;
-    const version = "?v=20261022-plant-achievements-coming-soon";
-    loadScript(`/game-logic.js${version}`).then(() => loadScript(`/app.js${version}`, true)).catch(console.error);
+    const version = "?v=20261022-vercel-browser-storage";
+    loadScript(`/game-logic.js${version}`)
+      .then(() => process.env.NEXT_PUBLIC_BROWSER_STORAGE === "1" ? loadScript(`/local-api.js${version}`, true) : undefined)
+      .then(() => loadScript(`/app.js${version}`, true)).catch(console.error);
   }, []);
   return <div dangerouslySetInnerHTML={{ __html: gameMarkup }} />;
 }
