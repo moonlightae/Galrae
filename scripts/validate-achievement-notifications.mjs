@@ -61,6 +61,17 @@ for (const category of ["기본", "연습모드", "일반모드", "특별"]) ass
 assert.equal((html.match(/<details /g) || []).length, 26);
 assert.equal((html.match(/<progress /g) || []).length, 25);
 assert.ok(!html.includes("미달성") && !html.includes("achievement-meta"));
+context.renderAchievements({}, "plants");
+assert.equal($("#achievements-title").textContent, "식물계 발전과제");
+assert.equal($("#achievements-count").textContent, "");
+assert.equal($("#achievements-grid").innerHTML, "");
+assert.equal($("#achievements-status").textContent, "준비 중입니다.");
+context.renderAchievements({}, "animals");
+assert.equal(($("#achievements-grid").innerHTML.match(/<details /g) || []).length, 26);
+context.currentUser = { id: "player" }; context.selectedKingdom = "plants"; context.plantAchievementStats = null;
+runInNewContext(clientSource.slice(clientSource.indexOf("async function loadAchievements("), clientSource.indexOf("function recordAchievementEvent(")), context);
+await context.loadAchievements();
+assert.equal($("#achievements-status").textContent, "준비 중입니다.", "No account loading message or request may replace the coming-soon state");
 const groups = getAchievements().reduce((counts, task) => ({ ...counts, [task.category]: (counts[task.category] || 0) + 1 }), {});
 assert.deepEqual(groups, { "기본": 9, "연습모드": 3, "일반모드": 13, "특별": 1 });
 const specialHtml = html.slice(html.indexOf("<h2>특별</h2>"));

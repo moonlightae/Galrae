@@ -711,6 +711,13 @@ function achievementMedal(task) {
 }
 
 function renderAchievements(stats = {}, kingdom = selectedKingdom) {
+  if (kingdom === "plants") {
+    $("#achievements-title").textContent = "식물계 발전과제";
+    $("#achievements-count").textContent = "";
+    $("#achievements-grid").innerHTML = "";
+    $("#achievements-status").textContent = "준비 중입니다.";
+    return;
+  }
   const total = kingdom === "plants" ? (plants.length > 1 ? plants.length - 1 : 45) : animals.filter((animal) => animal.id !== HUMAN_ID).length || 206;
   const tasks = getAchievements(stats, total, kingdom);
   $("#achievements-title").textContent = `${kingdom === "plants" ? "식물계" : "동물계"} 발전과제`;
@@ -732,7 +739,6 @@ async function refreshAchievementStats(notify = true, kingdom = selectedKingdom)
   if (currentUser?.id !== userId) return;
   if (kingdom === "plants") {
     plantAchievementStats = data.stats;
-    plantAchievementNotifications.update(getAchievements(plantAchievementStats, plants.length > 1 ? plants.length - 1 : 45, kingdom), notify);
   } else {
     achievementStats = data.stats;
     achievementNotifications.update(getAchievements(achievementStats, animals.length > 1 ? animals.length - 1 : 206), notify);
@@ -753,7 +759,7 @@ function checkAchievementProgress() {
     const metric = state.practice ? "bestPracticeScore" : "bestScore";
     stats[metric] = Math.max(stats[metric] || 0, state.score);
   }
-  (plant ? plantAchievementNotifications : achievementNotifications).update(getAchievements(stats, plant ? plants.length - 1 : animals.length > 1 ? animals.length - 1 : 206, plant ? "plants" : "animals"));
+  if (!plant) achievementNotifications.update(getAchievements(stats, animals.length > 1 ? animals.length - 1 : 206));
 }
 
 async function loadAchievements() {
@@ -761,6 +767,7 @@ async function loadAchievements() {
   const kingdom = selectedKingdom;
   const status = $("#achievements-status");
   renderAchievements((kingdom === "plants" ? plantAchievementStats : achievementStats) || {}, kingdom);
+  if (kingdom === "plants") return;
   if (!userId) { status.textContent = "로그인하면 발전과제 진행도와 메달이 계정에 저장됩니다."; return; }
   status.textContent = "발전과제 기록을 불러오는 중…";
   try {
