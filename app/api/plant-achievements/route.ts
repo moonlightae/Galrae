@@ -88,10 +88,10 @@ export async function POST(request: Request) {
       bestPracticeScore: result && practice ? score : 0,
     }).onConflictDoUpdate({
       target: plantProgress.userId,
-      set: { ...flags, updatedAt: sql`CURRENT_TIMESTAMP`,
+      set: { ...flags, updatedAt: sql`CAST(CURRENT_TIMESTAMP AS TEXT)`,
         ...(payload.event === "normal-start" ? { normalAttempts: sql`${plantProgress.normalAttempts} + 1` } : {}),
-        ...(result && !practice ? { bestScore: sql`MAX(${plantProgress.bestScore}, ${score})` } : {}),
-        ...(result && practice ? { bestPracticeScore: sql`MAX(${plantProgress.bestPracticeScore}, ${score})` } : {}),
+        ...(result && !practice ? { bestScore: sql`CASE WHEN ${plantProgress.bestScore} > ${score} THEN ${plantProgress.bestScore} ELSE ${score} END` } : {}),
+        ...(result && practice ? { bestPracticeScore: sql`CASE WHEN ${plantProgress.bestPracticeScore} > ${score} THEN ${plantProgress.bestPracticeScore} ELSE ${score} END` } : {}),
       },
     });
     return Response.json({ ok: true });

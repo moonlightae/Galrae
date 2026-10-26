@@ -79,8 +79,8 @@ export async function POST(request: Request) {
       ...(event === "normal-start" ? { normalAttempts: 1 } : {}),
     }).onConflictDoUpdate({
       target: leaderboard.userId,
-      set: { ...flags, updatedAt: sql`CURRENT_TIMESTAMP`,
-        hasFailed: sql`MAX(${leaderboard.hasFailed}, ${event === "failure" || event === "fish-sibling-mistake" ? 1 : 0}, CASE WHEN ${leaderboard.normalAttempts} IS NULL AND ${leaderboard.gamesPlayed} > 0 AND ${leaderboard.bestScore} < ${playableIds.size} THEN 1 ELSE 0 END)`,
+      set: { ...flags, updatedAt: sql`CAST(CURRENT_TIMESTAMP AS TEXT)`,
+        hasFailed: sql`${leaderboard.hasFailed} OR ${event === "failure" || event === "fish-sibling-mistake" ? sql`true` : sql`false`} OR (${leaderboard.normalAttempts} IS NULL AND ${leaderboard.gamesPlayed} > 0 AND ${leaderboard.bestScore} < ${playableIds.size})`,
         ...(event === "normal-start" ? { normalAttempts: sql`COALESCE(${leaderboard.normalAttempts}, ${leaderboard.gamesPlayed}) + 1` } : {}),
       },
     });

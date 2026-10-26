@@ -56,7 +56,7 @@ export async function GET() {
     }).from(classifiedSpecies)
       .where(inArray(classifiedSpecies.userId, rows.map((row) => row.userId)))
       .groupBy(classifiedSpecies.userId) : [];
-    const collectionCounts = new Map(collectionRows.map((row) => [row.userId, row.uniqueSpeciesCount]));
+    const collectionCounts = new Map(collectionRows.map((row) => [row.userId, Number(row.uniqueSpeciesCount)]));
     return Response.json({
       entries: rows.map(({ userId, ...row }, index) => ({
         ...row,
@@ -118,14 +118,14 @@ export async function POST(request: Request) {
         displayName,
         ...completion,
         ...(practice ? {
-          bestPracticeScore: sql`MAX(${leaderboard.bestPracticeScore}, ${score})`,
+          bestPracticeScore: sql`CASE WHEN ${leaderboard.bestPracticeScore} > ${score} THEN ${leaderboard.bestPracticeScore} ELSE ${score} END`,
           practiceGamesPlayed: sql`${leaderboard.practiceGamesPlayed} + 1`,
         } : {
-          bestScore: sql`MAX(${leaderboard.bestScore}, ${score})`,
+          bestScore: sql`CASE WHEN ${leaderboard.bestScore} > ${score} THEN ${leaderboard.bestScore} ELSE ${score} END`,
           gamesPlayed: sql`${leaderboard.gamesPlayed} + 1`,
-          achievedAt: sql`CASE WHEN ${score} > ${leaderboard.bestScore} THEN CURRENT_TIMESTAMP ELSE ${leaderboard.achievedAt} END`,
+          achievedAt: sql`CASE WHEN ${score} > ${leaderboard.bestScore} THEN CAST(CURRENT_TIMESTAMP AS TEXT) ELSE ${leaderboard.achievedAt} END`,
         }),
-        updatedAt: sql`CURRENT_TIMESTAMP`,
+        updatedAt: sql`CAST(CURRENT_TIMESTAMP AS TEXT)`,
       },
     });
 

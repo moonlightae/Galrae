@@ -78,8 +78,8 @@ export async function POST(request: Request) {
         .onConflictDoUpdate({
           target: [classifiedSpecies.userId, classifiedSpecies.speciesId],
           set: {
-            successCount: sql`MAX(${classifiedSpecies.successCount}, excluded.success_count)`,
-            minimum: sql`CASE WHEN excluded.success_count >= ${classifiedSpecies.successCount} AND excluded.minimum = 0 THEN 0 ELSE ${classifiedSpecies.minimum} END`,
+            successCount: sql`CASE WHEN ${classifiedSpecies.successCount} > excluded.success_count THEN ${classifiedSpecies.successCount} ELSE excluded.success_count END`,
+            minimum: sql`CASE WHEN excluded.success_count >= ${classifiedSpecies.successCount} AND NOT excluded.minimum THEN false ELSE ${classifiedSpecies.minimum} END`,
           },
         });
     }
