@@ -78,6 +78,13 @@
       "when": 1792395828481,
       "tag": "0010_salty_anthem",
       "breakpoints": true
+    },
+    {
+      "idx": 11,
+      "version": "6",
+      "when": 1792983020837,
+      "tag": "0011_friends_and_battles",
+      "breakpoints": true
     }
   ]
 }

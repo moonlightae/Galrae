@@ -47,7 +47,28 @@ export async function importSitesDatabase(client, exported, folder = migrationsF
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const input = process.argv[2];
-  if (!input || !process.env.TURSO_DATABASE_URL || !process.env.TURSO_AUTH_TOKEN) {
+  if (input === "--stdin") {
+    console.log("Ready for private database import JSON on stdin (input is hidden).");
+    if (process.stdin.isTTY) process.stdin.setRawMode(true);
+    process.stdin.setEncoding("utf8");
+    let raw = "";
+    for await (const chunk of process.stdin) {
+      raw += chunk;
+      if (raw.includes("\n")) break;
+    }
+    process.stdin.pause();
+    if (process.stdin.isTTY) process.stdin.setRawMode(false);
+    let client;
+    try {
+      const { url, authToken, exported } = JSON.parse(raw);
+      if (typeof url !== "string" || !/^(libsql|https):\/\//.test(url) || typeof authToken !== "string" || !authToken) throw new Error("Invalid destination");
+      client = createClient({ url, authToken });
+      console.log(JSON.stringify(await importSitesDatabase(client, exported)));
+    } catch {
+      console.error("Import failed. Existing account data was not overwritten. Check the destination and private export.");
+      process.exitCode = 1;
+    } finally { client?.close(); }
+  } else if (!input || !process.env.TURSO_DATABASE_URL || !process.env.TURSO_AUTH_TOKEN) {
     console.error("Usage: set TURSO_DATABASE_URL and TURSO_AUTH_TOKEN, then node scripts/import-sites-database.mjs <private-export.json>");
     process.exitCode = 1;
   } else {

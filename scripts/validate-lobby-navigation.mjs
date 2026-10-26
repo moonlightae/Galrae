@@ -13,7 +13,7 @@ function element() {
     classList: { toggle() {} },
   };
 }
-const lobbyPages = Object.fromEntries(["lobby", "leaderboard", "collection", "tasks", "taxonomy-notes", "account"].map((name) => [name, element()]));
+const lobbyPages = Object.fromEntries(["lobby", "leaderboard", "friends", "collection", "tasks", "taxonomy-notes", "account"].map((name) => [name, element()]));
 const markup = readFileSync(new URL("../app/game-markup.ts", import.meta.url), "utf8");
 assert.match(markup, /id="taxonomy-notes-page" class="screen library-screen" data-lobby-page hidden/);
 assert.match(markup, /data-page="taxonomy-notes">분류 기준 안내/);
@@ -45,6 +45,7 @@ const context = {
   window: { scrollTo() {} },
   openAccountModal() { lobbyPages.account.focus(); },
   loadAchievements() {},
+  loadLeaderboard() {}, social: { load() {} },
 };
 const { showLobbyPage, restoreLobbyPage, setToolbarOpen } = runInNewContext(`${functions}\n({ showLobbyPage, restoreLobbyPage, setToolbarOpen })`, context);
 restoreLobbyPage();

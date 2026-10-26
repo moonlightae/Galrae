@@ -6,6 +6,8 @@ import ts from "typescript";
 import { createClient } from "@libsql/client";
 import { drizzle } from "drizzle-orm/libsql";
 import { importSitesDatabase } from "./import-sites-database.mjs";
+import { spawnSync } from "node:child_process";
+import { fileURLToPath } from "node:url";
 
 const require = createRequire(import.meta.url);
 function loadTS(path, overrides) {
@@ -60,10 +62,15 @@ try {
 } finally { fresh.close(); client.close(); }
 if (process.argv.includes("--manifest")) {
   const routes = JSON.parse(readFileSync(new URL("../.next/server/app-paths-manifest.json", import.meta.url), "utf8"));
-  for (const route of ["auth/login", "auth/register", "auth/logout", "collection", "leaderboard", "achievements", "plant-achievements", "me"]) {
+  for (const route of ["auth/login", "auth/register", "auth/logout", "collection", "leaderboard", "achievements", "plant-achievements", "me", "friends", "battles"]) {
     assert.ok(routes[`/api/${route}/route`], `Missing server API: ${route}`);
   }
   const files = JSON.parse(readFileSync(new URL("../.next/server/app/api/auth/login/route.js.nft.json", import.meta.url), "utf8")).files;
   assert.ok(!files.some((file) => /wrangler|miniflare/.test(file)), "Vercel login must not require the Cloudflare runtime");
 }
+const invalidImport = spawnSync(process.execPath, [fileURLToPath(new URL("./import-sites-database.mjs", import.meta.url)), "--stdin"], {
+  input: JSON.stringify({ url: "file::memory:", authToken: "private-fixture-marker" }) + "\n", encoding: "utf8",
+});
+assert.equal(invalidImport.status, 1);
+assert.ok(!(invalidImport.stdout + invalidImport.stderr).includes("private-fixture-marker"), "Import errors must not print credentials");
 console.log("Cloud accounts: original password hashes and IDs, game records, cross-device login, independent logout, overwrite refusal and transactional import rollback passed.");

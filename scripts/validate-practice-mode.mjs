@@ -142,6 +142,8 @@ const migrations = fs.readdirSync(migrationDir).filter((p) => p.endsWith(".sql")
 for (const migration of migrations.slice(0, -1)) sqlite.exec(fs.readFileSync(new URL(migration, migrationDir), "utf8"));
 sqlite.exec("INSERT INTO leaderboard(user_id,display_name,best_score,games_played,achieved_at) VALUES ('test','Tester',17,7,'2020-01-01'),('other','Other',18,2,'2020-01-02')");
 sqlite.exec(fs.readFileSync(new URL(migrations.at(-1), migrationDir), "utf8"));
+for (const id of ["other", "test"]) sqlite.prepare("INSERT INTO users(id,username,username_normalized,password_hash,password_salt,password_iterations) VALUES (?,?,?,?,?,1)").run(id, id, id, "fixture", "fixture");
+sqlite.exec("INSERT INTO friendships(user_a,user_b,requested_by,accepted) VALUES ('other','test','other',1)");
 const client = { prepare(query) {
   const statement = sqlite.prepare(query);
   return { bind(...params) { return {

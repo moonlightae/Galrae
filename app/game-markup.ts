@@ -48,10 +48,22 @@ export const gameMarkup = `
   <main id="leaderboard-page" class="screen library-screen" data-lobby-page hidden>
     <button class="text-button page-back" type="button" data-page="lobby">← 로비</button>
       <section class="leaderboard" aria-labelledby="leaderboard-title">
-        <div class="section-heading leaderboard-heading"><div><h2 id="leaderboard-title">리더보드</h2></div><p id="leaderboard-status">기록을 불러오는 중…</p></div>
+        <div class="section-heading leaderboard-heading"><div><h2 id="leaderboard-title">친구 리더보드</h2></div><p id="leaderboard-status">기록을 불러오는 중…</p></div>
+        <p>나와 서로 수락한 친구의 동물계 기록만 표시합니다.</p><button class="text-button" type="button" data-page="friends">친구 · 배틀 →</button>
         <ol id="leaderboard-list" class="leaderboard-list" aria-live="polite"></ol>
         <p id="leaderboard-note" class="leaderboard-note">게임 아이디로 로그인하면 최고 기록이 자동으로 등록됩니다.</p>
       </section>
+  </main>
+  <main id="friends-page" class="screen library-screen" data-lobby-page hidden>
+    <button class="text-button page-back" type="button" data-page="lobby">← 로비</button>
+    <section class="leaderboard social-panel" aria-labelledby="friends-title">
+      <div class="section-heading"><h1 id="friends-title">친구 · 배틀</h1><button id="social-refresh" class="text-button" type="button">새로고침</button></div>
+      <p id="social-account"></p>
+      <form id="friend-form" class="friend-form" hidden><label for="friend-username">친구 아이디</label><input id="friend-username" name="username" maxlength="20" autocomplete="off" required placeholder="게임 아이디" /><button id="friend-submit" class="secondary-button" data-social="request" type="submit">요청 보내기</button></form>
+      <p id="social-status" role="status"></p><ul id="friend-list" class="social-list"></ul>
+      <h2>배틀</h2><p>로비에서 선택한 계로 대결을 신청합니다. 같은 계통수에 번갈아 배치하며, 먼저 틀리거나 기권하면 패배합니다. 일반 기록과 도감에는 반영되지 않습니다.</p>
+      <ul id="battle-list" class="social-list"></ul>
+    </section>
   </main>
   <main id="collection-page" class="screen library-screen" data-lobby-page hidden>
     <section class="collection" aria-labelledby="collection-title">
@@ -101,6 +113,7 @@ export const gameMarkup = `
         <div class="toolbar-pages">
           <button type="button" data-page="lobby" aria-current="page">로비</button>
           <button type="button" data-page="leaderboard">리더보드</button>
+          <button type="button" data-page="friends">친구 · 배틀</button>
           <button type="button" data-page="collection">도감</button>
           <button type="button" data-page="tasks">발전과제</button>
           <button type="button" data-page="taxonomy-notes">분류 기준 안내</button>
@@ -135,6 +148,7 @@ export const gameMarkup = `
   </main>
   <main id="game" class="screen game-screen" hidden>
     <header class="game-header"><button id="quit-game" class="text-button" type="button">← 로비</button><div class="game-progress" aria-live="polite"><span id="round-label">동물계 · 1번째 분류</span><span id="score-label">정답 0</span></div></header>
+    <p id="battle-connection" class="battle-connection" role="status"></p>
     <div class="game-layout">
       <section class="tree-panel" aria-labelledby="tree-title">
         <div class="tree-heading"><div><p class="eyebrow">CURRENT TREE</p><h1 id="tree-title">현재 계통수</h1></div>

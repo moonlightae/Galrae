@@ -1,8 +1,9 @@
 const assetVersion = new URL(import.meta.url).search;
-const [{ bindTreeNavigation, createTreeView }, { createCollectionView }, { getAchievements, isGrassSiblingMistake, isClassificationPolytomyMistake }, { createAchievementNotifications }, { createPhotoPrivacy }] = await Promise.all([
+const [{ bindTreeNavigation, createTreeView }, { createCollectionView }, { getAchievements, isGrassSiblingMistake, isClassificationPolytomyMistake }, { createAchievementNotifications }, { createPhotoPrivacy }, { createSocial }] = await Promise.all([
   import(`./tree-view.js${assetVersion}`), import(`./collection-view.js${assetVersion}`),
   import(`./achievements.js${assetVersion}`), import(`./achievement-notifications.js${assetVersion}`),
   import(`./photo-privacy.js${assetVersion}`),
+  import(`./social.js${assetVersion}`),
 ]);
 
 const { ANIMALIA_ID, addSuccessCount, buildTree, createDifficultyQueue, difficultyNames, getExpectedPlacement, isEquivalentPlacement, seedSuccessCounts, successCountText } = globalThis.GalraeLogic;
@@ -46,7 +47,7 @@ const treeCanvas = $("#tree-canvas");
 const navigationShell = $("#navigation-shell");
 const toolbar = $("#side-toolbar");
 const toolbarHandle = $("#toolbar-handle");
-const lobbyPages = { lobby, leaderboard: $("#leaderboard-page"), collection: $("#collection-page"), tasks: $("#tasks-page"), "taxonomy-notes": $("#taxonomy-notes-page"), account: $("#account-modal") };
+const lobbyPages = { lobby, leaderboard: $("#leaderboard-page"), friends: $("#friends-page"), collection: $("#collection-page"), tasks: $("#tasks-page"), "taxonomy-notes": $("#taxonomy-notes-page"), account: $("#account-modal") };
 
 function setToolbarOpen(open, restoreFocus = false) {
   navigationShell.classList.toggle("is-open", open);
@@ -74,6 +75,8 @@ function showLobbyPage(page, updateHistory = true) {
   const heading = lobbyPages[page].querySelector("h1, h2");
   if (heading) { heading.tabIndex = -1; heading.focus({ preventScroll: true }); }
   if (page === "tasks") loadAchievements();
+  if (page === "friends") social.load();
+  if (page === "leaderboard") loadLeaderboard();
   if (page === "collection") collectionView.showGuide();
 }
 
@@ -134,7 +137,50 @@ const state = {
   cardLanguage: localStorage.getItem("galrae.card-language.v1") === "ko" ? "ko" : "en",
   panX: 0, panY: 0, panning: false, panStartX: 0, panStartY: 0,
   panOriginX: 0, panOriginY: 0, detailReturnFocus: null,
+  battle: null,
 };
+
+const social = createSocial({ getUser: () => currentUser, getKingdom: () => selectedKingdom,
+  onRoom: showBattle, onLeave: () => { state.battle = null; showLobbyPage("friends"); }, onFriendsChanged: loadLeaderboard });
+
+function showBattle(room) {
+  if (!dataset || !currentUser) return;
+  const first = state.battle?.id !== room.id;
+  selectKingdom(room.kingdom);
+  Object.assign(state, { battle: room, kingdom: room.kingdom, tutorial: false, practice: false,
+    classified: room.classified, currentId: room.currentId, round: room.classified.length - 1,
+    score: room.classified.length - 1, failed: room.status === "finished", selected: false,
+    newest: room.classified.at(-1), mistakes: new Set(), previewTarget: null, previewPlacement: null });
+  state.tree = buildTree(state.classified, speciesById);
+  state.expected = room.currentId ? getExpectedPlacement(state.classified, room.currentId, speciesById) : null;
+  scoreSubmitted = true;
+  Object.values(lobbyPages).forEach((screen) => { screen.hidden = true; });
+  setToolbarOpen(false); navigationShell.hidden = true; game.hidden = false;
+  ["#failure-panel", "#tutorial-complete-panel", "#tutorial-intro-modal", "#tutorial-banner", "#species-modal"].forEach((selector) => { $(selector).hidden = true; });
+  $("#quit-game").textContent = state.failed ? "← 친구 · 배틀" : "기권하고 나가기";
+  $("#round-label").textContent = `배틀 · ${room.classified.length - 1}종 배치`;
+  const player = room.players.find((item) => item.id === room.turnId);
+  const mine = room.turnId === currentUser.id;
+  $("#score-label").textContent = state.failed ? "대결 종료" : mine ? "내 차례" : `${player?.displayName || player?.username || "상대"}님 차례`;
+  $("#card-dock-title").textContent = "함께 분류할 생물";
+  card.classList.remove("is-selected", "is-dragging");
+  card.classList.toggle("is-locked", !mine || state.failed);
+  card.setAttribute("draggable", String(mine && !state.failed));
+  $("#battle-connection").textContent = "";
+  if (room.currentId) setCard(room.currentId);
+  renderTree(room.status === "finished" && room.reason === "mistake"
+    ? buildTree([...room.classified, room.currentId], speciesById, room.currentId) : state.tree, room.reason === "mistake");
+  if (first) resetTreeView();
+  $("#result-modal").hidden = !state.failed;
+  if (state.failed) {
+    $("#result-title").textContent = room.reason === "cancelled" ? "대결이 취소되었습니다." : !room.winnerId ? "함께 완주했습니다." : room.winnerId === currentUser.id ? "승리했습니다!" : "패배했습니다.";
+    $("#result-count").textContent = state.score;
+    $("#result-unit").textContent = "함께 배치한 생물";
+    $("#result-copy").textContent = room.reason === "mistake" ? "오답을 놓은 쪽이 패배했습니다. 뒤쪽 계통수에 정답 위치가 표시됩니다." : room.reason === "forfeit" ? "상대 또는 본인의 기권으로 대결이 끝났습니다." : "";
+    $("#score-submit-status").textContent = "대결 결과가 저장되었습니다.";
+    $("#return-lobby").textContent = "친구 · 배틀 →";
+  }
+}
 
 function escapeHtml(value) {
   return String(value ?? "").replace(/[&<>'"]/g, (character) => ({
@@ -668,11 +714,15 @@ function recordServerSuccess(speciesId) {
 async function loadLeaderboard() {
   const list = $("#leaderboard-list");
   const status = $("#leaderboard-status");
+  const userId = currentUser?.id;
+  list.innerHTML = "";
+  if (!userId) { status.textContent = "로그인 후 친구 기록을 확인해 주세요."; return; }
   status.textContent = "기록을 불러오는 중…";
   try {
     const response = await fetch("/api/leaderboard", { cache: "no-store" });
     if (!response.ok) throw new Error(`Leaderboard request failed: ${response.status}`);
     const data = await responseJson(response);
+    if (currentUser?.id !== userId) return;
     const entries = Array.isArray(data.entries) ? data.entries : [];
     if (!entries.length) {
       list.innerHTML = '<li class="leaderboard-empty">아직 등록된 기록이 없어요. 첫 번째 기록을 남겨보세요.</li>';
@@ -918,6 +968,7 @@ function closeSpeciesCard() {
 
 function placeCard(targetId, placement = "wrap") {
   if (!state.currentId || state.failed) return;
+  if (state.battle) { clearPreview(); social.move(targetId, placement); return; }
   clearPreview();
   if (!isEquivalentPlacement(state.tree, state.expected, targetId, placement)) {
     failRound(targetId, placement);
@@ -1030,6 +1081,7 @@ function updateRound() {
 
 async function startGame(options = {}) {
   if (!dataset || gameStarting) return;
+  if (state.battle) return;
   if ($("#difficulty-dialog").open) return;
   if (!options.practice && !options.tutorial && !options.difficulty) {
     if ($("#guest-start-dialog").open || $("#difficulty-dialog").open) return;
@@ -1067,6 +1119,7 @@ async function startGame(options = {}) {
       : createDifficultyQueue(selectedKingdom === "plants" ? plants : animals, difficulty, Math.random, initialSpeciesId);
     await preloadImage(speciesById.get(queue[0])?.image.thumbnailUrl);
     state.queue = queue;
+    $("#quit-game").textContent = "← 로비";
     state.tutorial = tutorial;
     state.practice = practice;
     state.difficulty = difficulty;
@@ -1120,6 +1173,7 @@ async function startGame(options = {}) {
 }
 
 async function returnToLobby() {
+  if (state.battle) { await social.leave(); return; }
   if (!state.tutorial && !game.hidden) await submitScore();
   closeSpeciesCard();
   $("#tutorial-intro-modal").hidden = true;
@@ -1184,7 +1238,7 @@ async function initialize() {
 }
 
 card.addEventListener("dragstart", (event) => {
-  if (state.failed || !state.currentId) { event.preventDefault(); return; }
+  if (state.failed || !state.currentId || (state.battle && state.battle.turnId !== currentUser?.id)) { event.preventDefault(); return; }
   event.dataTransfer.setData("text/plain", "species-card");
   card.classList.add("is-dragging");
 });
@@ -1193,7 +1247,7 @@ card.addEventListener("dragend", () => {
   if (!state.failed) clearPreview();
 });
 card.addEventListener("click", () => {
-  if (state.failed || !state.currentId) return;
+  if (state.failed || !state.currentId || (state.battle && state.battle.turnId !== currentUser?.id)) return;
   state.selected = !state.selected;
   card.classList.toggle("is-selected", state.selected);
 });
@@ -1256,7 +1310,7 @@ $("#tree-reset-view").addEventListener("click", resetTreeView);
 $("#tree-zoom-in").addEventListener("click", () => zoomTreeAtCenter(1.25));
 $("#tree-zoom-out").addEventListener("click", () => zoomTreeAtCenter(.8));
 $("#quit-game").addEventListener("click", returnToLobby);
-$("#return-lobby").addEventListener("click", async () => { await returnToLobby(); showLobbyPage("collection"); });
+$("#return-lobby").addEventListener("click", async () => { const battle = state.battle; await returnToLobby(); if (!battle) showLobbyPage("collection"); });
 $("#retry-game").addEventListener("click", () => {
   if (!state.practice) { startGame({ tutorial: state.tutorial, difficulty: state.difficulty, skipTutorial: true }); return; }
   state.failed = false;

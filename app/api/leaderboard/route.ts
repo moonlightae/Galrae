@@ -1,7 +1,7 @@
-import { asc, desc, inArray, sql } from "drizzle-orm";
+import { and, asc, desc, eq, inArray, or, sql } from "drizzle-orm";
 import { getGameUser } from "../../game-auth";
 import { getDb } from "../../../db";
-import { classifiedSpecies, leaderboard } from "../../../db/schema";
+import { classifiedSpecies, friendships, leaderboard } from "../../../db/schema";
 import dataset from "../../../public/data/animals.json";
 import "../../../public/game-logic.js";
 
@@ -21,7 +21,11 @@ function storageError(error: unknown) {
 export async function GET() {
   try {
     const user = await getGameUser();
+    if (!user) return Response.json({ error: "로그인 후 친구 기록을 확인해 주세요." }, { status: 401 });
     const db = getDb();
+    const friends = await db.select().from(friendships).where(and(eq(friendships.accepted, true),
+      or(eq(friendships.userA, user.id), eq(friendships.userB, user.id))));
+    const visibleIds = [user.id, ...friends.map((friend) => friend.userA === user.id ? friend.userB : friend.userA)];
     const topRows = await db
       .select({
         userId: leaderboard.userId,
@@ -32,6 +36,7 @@ export async function GET() {
         achievedAt: leaderboard.achievedAt,
       })
       .from(leaderboard)
+      .where(inArray(leaderboard.userId, visibleIds))
       .orderBy(desc(leaderboard.bestScore), asc(leaderboard.achievedAt))
       .limit(20);
     const [ownRow] = user && !topRows.some((row) => row.userId === user.id)

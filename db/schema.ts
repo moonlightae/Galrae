@@ -1,5 +1,5 @@
 import { sql } from "drizzle-orm";
-import { index, integer, primaryKey, sqliteTable, text, uniqueIndex } from "drizzle-orm/sqlite-core";
+import { check, index, integer, primaryKey, sqliteTable, text, uniqueIndex } from "drizzle-orm/sqlite-core";
 
 export const users = sqliteTable("users", {
   id: text("id").primaryKey(),
@@ -71,3 +71,31 @@ export const plantProgress = sqliteTable("plant_progress", {
   easyCompleted: integer("easy_completed", { mode: "boolean" }).notNull().default(false),
   updatedAt: text("updated_at").notNull().default(sql`CURRENT_TIMESTAMP`),
 });
+
+export const friendships = sqliteTable("friendships", {
+  userA: text("user_a").notNull().references(() => users.id, { onDelete: "cascade" }),
+  userB: text("user_b").notNull().references(() => users.id, { onDelete: "cascade" }),
+  requestedBy: text("requested_by").notNull(),
+  accepted: integer("accepted", { mode: "boolean" }).notNull().default(false),
+}, (table) => [primaryKey({ columns: [table.userA, table.userB] }), index("idx_friendships_user_b").on(table.userB),
+  check("friend_pair_order", sql`${table.userA} < ${table.userB}`),
+  check("friend_request_participant", sql`${table.requestedBy} IN (${table.userA}, ${table.userB})`),
+]);
+
+export const battles = sqliteTable("battles", {
+  id: text("id").primaryKey(),
+  hostId: text("host_id").notNull().references(() => users.id, { onDelete: "cascade" }),
+  guestId: text("guest_id").notNull().references(() => users.id, { onDelete: "cascade" }),
+  kingdom: text("kingdom").notNull(),
+  queue: text("queue").notNull(),
+  classified: text("classified").notNull(),
+  status: text("status").notNull().default("waiting"),
+  revision: integer("revision").notNull().default(0),
+  winnerId: text("winner_id"),
+  reason: text("reason"),
+  createdAt: text("created_at").notNull().default(sql`CURRENT_TIMESTAMP`),
+}, (table) => [index("idx_battles_host").on(table.hostId), index("idx_battles_guest").on(table.guestId),
+  check("battle_distinct_players", sql`${table.hostId} <> ${table.guestId}`),
+  uniqueIndex("idx_battles_open_pair").on(sql`min(${table.hostId}, ${table.guestId})`, sql`max(${table.hostId}, ${table.guestId})`)
+    .where(sql`${table.status} IN ('waiting', 'active')`),
+]);
