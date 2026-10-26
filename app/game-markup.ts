@@ -102,7 +102,7 @@ export const gameMarkup = `
   </main>
   <main id="tasks-page" class="screen library-screen" data-lobby-page hidden>
     <button class="text-button page-back" type="button" data-page="lobby">← 로비</button>
-    <section class="tasks-panel"><div class="section-heading"><h1 id="achievements-title" tabindex="-1">동물계 발전과제</h1><p id="achievements-count">0 / 26</p></div><div class="tree-layout-controls" role="group" aria-label="발전과제의 계 선택"><button type="button" data-kingdom="animals" aria-pressed="true">동물계</button><button type="button" data-kingdom="plants" aria-pressed="false">식물계</button></div><p id="achievements-status" role="status">메달을 가리키거나 눌러 설명을 확인해 보세요.</p><div id="achievements-grid"></div></section>
+    <section class="tasks-panel"><div class="section-heading"><h1 id="achievements-title" tabindex="-1">발전과제</h1><p id="achievements-count">0 / 36</p></div><p id="achievements-status" role="status">메달을 가리키거나 눌러 설명을 확인해 보세요.</p><div id="achievements-grid"></div></section>
   </main>
   <div id="navigation-shell" class="navigation-shell">
     <button id="toolbar-shade" class="toolbar-shade" type="button" tabindex="-1" aria-label="메뉴 닫기"></button>

@@ -5,26 +5,15 @@ import { createRequire } from "node:module";
 import { DatabaseSync } from "node:sqlite";
 import ts from "typescript";
 import { drizzle } from "drizzle-orm/d1";
-import { getAchievements, isGrassSiblingMistake } from "../public/achievements.js";
+import { getUnifiedAchievements, isGrassSiblingMistake } from "../public/achievements.js";
 
 const read = (path) => fs.readFileSync(new URL(path, import.meta.url), "utf8");
 const dataset = JSON.parse(read("../public/data/plants.json"));
 const total = dataset.plants.length - 1;
 const speciesById = new Map(dataset.plants.map((plant) => [plant.id, plant]));
-const tasks = getAchievements({}, total, "plants");
-assert.equal(tasks.length, 24);
-assert.equal(new Set(tasks.map((task) => task.id)).size, 24);
-assert.ok(tasks.every((task) => task.id.startsWith("plant-") && !task.earned));
-assert.ok(!tasks.some((task) => /medium|hard/.test(task.id)), "Unimplemented modes must have no unreachable medals");
-for (const [metric, prefix, goals] of [
-  ["bestScore", "best", [5, 10, 20, 30, 40]], ["normalAttempts", "attempts", [10, 50, 100, 500, 1000]],
-  ["repeatSuccesses", "repeat", [10, 100, 1000]], ["totalSuccesses", "successes", [100, 1000]],
-  ["collected", "collection", [10, 25]],
-]) for (const goal of goals) {
-  const id = `plant-${prefix}-${goal}`;
-  assert.equal(getAchievements({ [metric]: goal - 1 }, total, "plants").find((task) => task.id === id).earned, false);
-  assert.equal(getAchievements({ [metric]: goal }, total, "plants").find((task) => task.id === id).earned, true);
-}
+const tasks = getUnifiedAchievements({}, {}, 313, total);
+assert.equal(tasks.length, 36);
+assert.ok(tasks.filter((task) => task.id.startsWith("plant-collection-")).every((task) => task.title === "미정"));
 
 const algae = ["cyanophora-paradoxa", "chondrus-crispus", "chlorella-vulgaris"];
 const special = { event: "grass-sibling-mistake", classified: [dataset.initialSpeciesId, "pteridium-aquilinum"], currentId: "oryza-sativa", targetId: "pteridium-aquilinum", placement: "wrap" };
@@ -89,17 +78,17 @@ const practice = { ...result, mode: "practice", difficulty: "hard", score: total
 assert.equal((await post(practice)).status, 200);
 data = await stats();
 assert.equal(data.practiceCompleted, true); assert.equal(data.easyCompleted, false);
-assert.equal(getAchievements(data, total, "plants").find((task) => task.id === "plant-practice-perfect").earned, false);
+assert.equal(getUnifiedAchievements({}, data, 313, total).find((task) => task.id === "practice-perfect").earned, false);
 await post({ ...practice, score: total });
 assert.equal((await stats()).bestPracticeScore, total);
-assert.equal(getAchievements(await stats(), total, "plants").find((task) => task.id === "plant-practice-perfect").earned, true);
+assert.equal(getUnifiedAchievements({}, await stats(), 313, total).find((task) => task.id === "practice-perfect").earned, true);
 await post({ ...result, score: total, completedIds: allIds });
 data = await stats(); assert.equal(data.easyCompleted, true); assert.equal(data.normalAttempts, 2);
 const insert = sqlite.prepare("INSERT INTO classified_species(user_id,species_id,success_count) VALUES ('one',?,?)");
 for (const id of algae) insert.run(id, 10);
 insert.run(dataset.initialSpeciesId, 999); insert.run("homo-sapiens", 999); insert.run("unknown", 999);
 data = await stats(); assert.equal(data.collected, 3); assert.equal(data.totalSuccesses, 30); assert.equal(data.grassSiblingMistake, false);
-assert.equal(getAchievements(data, total, "plants").find((task) => task.id === "plant-grass-sibling").earned, false);
+assert.equal(data.grassSiblingMistake, false);
 for (const invalid of [
   { ...special, classified: null }, { ...special, classified: ["pteridium-aquilinum"] },
   { ...special, classified: [...special.classified, special.classified[0]] },
@@ -110,7 +99,7 @@ for (const invalid of [
 ]) assert.equal((await post(invalid)).status, 400, "Invalid special event must not award a medal");
 assert.equal((await stats()).grassSiblingMistake, false);
 assert.equal((await post(special)).status, 200);
-assert.equal(getAchievements(await stats(), total, "plants").find((task) => task.id === "plant-grass-sibling").earned, true);
+assert.equal((await stats()).grassSiblingMistake, true);
 await post({ event: "normal-start" });
 assert.equal((await stats()).grassSiblingMistake, true, "Special progress must survive later events");
 assert.equal(sqlite.prepare("SELECT best_score FROM leaderboard WHERE user_id='one'").get().best_score, 200);
@@ -132,7 +121,7 @@ const context = {
   state: { kingdom: "plants", tutorial: false, practice: false, failed: false, score: total, difficulty: "easy", round: total, queue: allIds.slice(1), classified: allIds },
   $, currentUser: { id: "one" }, scoreSubmitted: false, pendingAchievementWrites: new Set(), pendingCollectionWrites: new Set(),
   fetch: async (url, options) => { requests.push({ url, body: JSON.parse(options.body) }); return Response.json({ ok: true }); },
-  refreshAchievementStats: async (_, kingdom) => assert.equal(kingdom, "plants"), console,
+  refreshAchievementStats: async () => {}, console,
 };
 vm.runInNewContext(source.slice(source.indexOf("async function submitScore("), source.indexOf("function openSpeciesCard(")), context);
 await context.submitScore(); await context.submitScore();
@@ -147,21 +136,22 @@ Object.assign(context, {
   state: { kingdom: "plants", tutorial: false, practice: false, score: 5 }, game: { hidden: false },
   plantAchievementStats: { bestScore: 0, bestPracticeScore: 0 }, achievementStats: { bestScore: 200 },
   plants: dataset.plants, animals: [{ id: "homo-sapiens" }, { id: "animal" }],
-  PLANT_INITIAL_ID: dataset.initialSpeciesId, HUMAN_ID: "homo-sapiens", speciesById, getAchievements, isGrassSiblingMistake,
+  PLANT_INITIAL_ID: dataset.initialSpeciesId, HUMAN_ID: "homo-sapiens", speciesById, getUnifiedAchievements, isGrassSiblingMistake,
   getSuccessCounts: () => ({ "cyanophora-paradoxa": { count: 10 }, "homo-sapiens": { count: 999 }, "hibiscus-syriacus": { count: 999 } }),
   getCollection: () => [dataset.initialSpeciesId, "cyanophora-paradoxa", "homo-sapiens"], normalizeSuccessRecord: (record) => record,
-  plantAchievementNotifications: { update(tasks) { notices.push(tasks); } },
-  achievementNotifications: { update() { assert.fail("Plant progress reached the animal notifier"); } },
+  achievementNotifications: { update(tasks) { notices.push(tasks); } },
 });
+vm.runInNewContext(source.slice(source.indexOf("function currentAchievements("), source.indexOf("function renderAchievements(")), context);
 vm.runInNewContext(source.slice(source.indexOf("function checkAchievementProgress("), source.indexOf("async function loadAchievements(")), context);
 context.checkAchievementProgress();
 assert.equal(context.plantAchievementStats.collected, 1);
 assert.equal(context.plantAchievementStats.totalSuccesses, 10);
 assert.equal(context.achievementStats.bestScore, 200);
-assert.equal(notices.length, 0, "Plant medals must remain silent while coming soon");
+assert.equal(notices.length, 1, "Plant play must update shared achievement notices");
 context.state.practice = true; context.state.score = total; context.plantAchievementStats.bestScore = 0;
 context.checkAchievementProgress();
-assert.equal(notices.length, 0, "Practice must also keep plant medals silent");
+assert.equal(notices.length, 2);
+assert.equal(notices.at(-1).find((task) => task.id === "practice-perfect").earned, true);
 context.state.tutorial = true;
 const beforeTutorial = notices.length;
 context.checkAchievementProgress(); assert.equal(notices.length, beforeTutorial);
@@ -191,4 +181,4 @@ context.showToast = () => assert.fail("Saving a validated special event must not
 await context.recordAchievementEvent(special.event, { classified: special.classified, currentId: special.currentId, targetId: special.targetId, placement: special.placement });
 assert.equal(context.plantAchievementStats.grassSiblingMistake, true);
 assert.equal(requests.at(-1).url, "/api/plant-achievements");
-console.log("Plant achievements: 24 medals, thresholds, validated completion/special placement, both species orders, normal/practice/tutorial routing, account isolation and migration passed.");
+console.log("Plant progress in unified achievements: validated completion/special placement, both species orders, normal/practice/tutorial routing, account isolation and migration passed.");

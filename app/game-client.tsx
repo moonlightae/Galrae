@@ -23,7 +23,7 @@ export default function GameClient() {
   useEffect(() => {
     if (window.__galraeBooted) return;
     window.__galraeBooted = true;
-    const version = "?v=20261026-friends-battles";
+    const version = "?v=20261026-unified-achievements";
     loadScript(`/game-logic.js${version}`)
       .then(() => loadScript(`/app.js${version}`, true)).catch(console.error);
   }, []);

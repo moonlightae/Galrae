@@ -14,12 +14,16 @@ assert.equal(tasks.length, 26);
 assert.equal(new Set(tasks.map((task) => task.id)).size, tasks.length);
 assert.equal(tasks.filter((task) => task.earned).length, 0);
 assert.deepEqual([...new Set(tasks.map((task) => task.grade))].sort(), Object.keys(achievementGrades).sort());
-for (const [metric, values] of [["bestScore", [10, 25, 50, 100, 200]], ["normalAttempts", [100, 500, 1000, 2000, 10000]], ["repeatSuccesses", [10, 100, 1000]], ["totalSuccesses", [1000, 10000]]]) {
+for (const [metric, values] of [["bestScore", [10, 25, 50, 100, 200]], ["normalAttempts", [100, 500, 1000, 2000, 10000]], ["totalSuccesses", [1000, 10000]]]) {
   for (const value of values) {
     const id = `${{ bestScore: "best", normalAttempts: "attempts", repeatSuccesses: "repeat", totalSuccesses: "successes" }[metric]}-${value}`;
     assert.equal(getAchievements({ [metric]: value - 1 }, total).find((task) => task.id === id).earned, false);
     assert.equal(getAchievements({ [metric]: value }, total).find((task) => task.id === id).earned, true);
   }
+}
+for (const goal of [10, 100, 1000]) {
+  assert.equal(getAchievements({ totalSuccesses: goal - 1 }, total).find((task) => task.id === `repeat-${goal}`).earned, false);
+  assert.equal(getAchievements({ totalSuccesses: goal }, total).find((task) => task.id === `repeat-${goal}`).earned, true);
 }
 assert.equal(getAchievements({ practiceCompleted: true, bestPracticeScore: 0 }, total).find((task) => task.id === "practice-complete").earned, true);
 assert.equal(getAchievements({ practiceCompleted: true, bestPracticeScore: 0 }, total).find((task) => task.id === "practice-perfect").earned, false);

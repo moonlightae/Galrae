@@ -1,5 +1,5 @@
 const assetVersion = new URL(import.meta.url).search;
-const [{ bindTreeNavigation, createTreeView }, { createCollectionView }, { getAchievements, isGrassSiblingMistake, isClassificationPolytomyMistake }, { createAchievementNotifications }, { createPhotoPrivacy }, { createSocial }] = await Promise.all([
+const [{ bindTreeNavigation, createTreeView }, { createCollectionView }, { getUnifiedAchievements, isGrassSiblingMistake, isClassificationPolytomyMistake }, { createAchievementNotifications }, { createPhotoPrivacy }, { createSocial }] = await Promise.all([
   import(`./tree-view.js${assetVersion}`), import(`./collection-view.js${assetVersion}`),
   import(`./achievements.js${assetVersion}`), import(`./achievement-notifications.js${assetVersion}`),
   import(`./photo-privacy.js${assetVersion}`),
@@ -124,7 +124,6 @@ let achievementStats = null;
 let plantAchievementStats = null;
 let achievementStatsUser = null;
 const achievementNotifications = createAchievementNotifications($("#achievement-notifications"), (task) => `${achievementMedal(task)}<div><small>발전과제 달성!</small><strong>${escapeHtml(task.title)}</strong></div>`);
-const plantAchievementNotifications = createAchievementNotifications($("#achievement-notifications"), (task) => `${achievementMedal(task)}<div><small>식물계 발전과제 달성!</small><strong>${escapeHtml(task.title)}</strong></div>`);
 let authMode = "login";
 let accountReturnFocus = null;
 
@@ -432,7 +431,7 @@ async function loadAccount() {
     const data = await responseJson(response);
     currentUser = data.user;
     if (achievementStatsUser !== (currentUser?.id || null)) {
-      achievementNotifications.reset(); plantAchievementNotifications.reset(); achievementStats = null; plantAchievementStats = null;
+      achievementNotifications.reset(); achievementStats = null; plantAchievementStats = null;
       achievementStatsUser = currentUser?.id || null;
     }
     currentChatGPT = data.chatgpt;
@@ -760,17 +759,13 @@ function achievementMedal(task) {
   return `<div class="achievement-medal grade-${task.grade}" aria-hidden="true"><div class="medal-face"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="${icons[task.icon]}" /></svg></div></div>`;
 }
 
-function renderAchievements(stats = {}, kingdom = selectedKingdom) {
-  if (kingdom === "plants") {
-    $("#achievements-title").textContent = "식물계 발전과제";
-    $("#achievements-count").textContent = "";
-    $("#achievements-grid").innerHTML = "";
-    $("#achievements-status").textContent = "준비 중입니다.";
-    return;
-  }
-  const total = kingdom === "plants" ? (plants.length > 1 ? plants.length - 1 : 45) : animals.filter((animal) => animal.id !== HUMAN_ID).length || 206;
-  const tasks = getAchievements(stats, total, kingdom);
-  $("#achievements-title").textContent = `${kingdom === "plants" ? "식물계" : "동물계"} 발전과제`;
+function currentAchievements() {
+  return getUnifiedAchievements(achievementStats || {}, plantAchievementStats || {}, animals.length > 1 ? animals.length - 1 : 206, plants.length > 1 ? plants.length - 1 : 45);
+}
+
+function renderAchievements() {
+  const tasks = currentAchievements();
+  $("#achievements-title").textContent = "발전과제";
   $("#achievements-count").textContent = `${tasks.filter((task) => task.earned).length} / ${tasks.length}`;
   $("#achievements-grid").innerHTML = ["기본", "연습모드", "일반모드", "특별"].map((category) => `<section class="achievement-group"><h2>${category}</h2><div class="achievements-grid">${tasks.filter((task) => task.category === category).map((task) => {
     const progress = `${Math.min(task.value, task.goal).toLocaleString("ko-KR")} / ${task.goal.toLocaleString("ko-KR")}${task.unit || ""}`;
@@ -780,55 +775,48 @@ function renderAchievements(stats = {}, kingdom = selectedKingdom) {
   }).join("")}</div></section>`).join("");
 }
 
-async function refreshAchievementStats(notify = true, kingdom = selectedKingdom) {
+async function refreshAchievementStats(notify = true) {
   const userId = currentUser?.id;
   if (!userId) return;
-  const response = await fetch(kingdom === "plants" ? "/api/plant-achievements" : "/api/achievements", { cache: "no-store" });
-  if (!response.ok) throw new Error(`Achievement request failed: ${response.status}`);
-  const data = await responseJson(response);
+  const responses = await Promise.all(["/api/achievements", "/api/plant-achievements"].map((url) => fetch(url, { cache: "no-store" })));
+  if (responses.some((response) => !response.ok)) throw new Error("발전과제 기록을 불러오지 못했습니다.");
+  const [animalData, plantData] = await Promise.all(responses.map(responseJson));
   if (currentUser?.id !== userId) return;
-  if (kingdom === "plants") {
-    plantAchievementStats = data.stats;
-  } else {
-    achievementStats = data.stats;
-    achievementNotifications.update(getAchievements(achievementStats, animals.length > 1 ? animals.length - 1 : 206), notify);
-  }
+  achievementStats = animalData.stats;
+  plantAchievementStats = plantData.stats;
+  achievementNotifications.update(currentAchievements(), notify);
 }
 
 function checkAchievementProgress() {
-  const plant = state.kingdom === "plants";
-  const stats = plant ? plantAchievementStats : achievementStats;
-  if (!currentUser || !stats || state.tutorial) return;
-  const playableIds = new Set((plant ? plants : animals).filter((animal) => animal.id !== (plant ? PLANT_INITIAL_ID : HUMAN_ID)).map((animal) => animal.id));
-  const entries = Object.entries(getSuccessCounts()).filter(([id]) => playableIds.has(id));
-  const counts = entries.map(([, record]) => normalizeSuccessRecord(record)?.count || 0);
-  stats.collected = getCollection().filter((id) => playableIds.has(id)).length;
-  stats.totalSuccesses = counts.reduce((sum, count) => sum + count, 0);
-  stats.repeatSuccesses = counts.reduce((best, count) => Math.max(best, count), 0);
-  if (!game.hidden) {
-    const metric = state.practice ? "bestPracticeScore" : "bestScore";
-    stats[metric] = Math.max(stats[metric] || 0, state.score);
+  if (!currentUser || !achievementStats || !plantAchievementStats || state.tutorial || state.battle) return;
+  for (const [kingdom, species, initialId, stats] of [["animals", animals, HUMAN_ID, achievementStats], ["plants", plants, PLANT_INITIAL_ID, plantAchievementStats]]) {
+    const playableIds = new Set(species.filter((animal) => animal.id !== initialId).map((animal) => animal.id));
+    const entries = Object.entries(getSuccessCounts()).filter(([id]) => playableIds.has(id));
+    stats.collected = getCollection().filter((id) => playableIds.has(id)).length;
+    stats.totalSuccesses = entries.reduce((sum, [, record]) => sum + (normalizeSuccessRecord(record)?.count || 0), 0);
+    if (!game.hidden && (state.kingdom || "animals") === kingdom) {
+      const metric = state.practice ? "bestPracticeScore" : "bestScore";
+      stats[metric] = Math.max(stats[metric] || 0, state.score);
+    }
   }
-  if (!plant) achievementNotifications.update(getAchievements(stats, animals.length > 1 ? animals.length - 1 : 206));
+  achievementNotifications.update(currentAchievements());
 }
 
 async function loadAchievements() {
   const userId = currentUser?.id;
-  const kingdom = selectedKingdom;
   const status = $("#achievements-status");
-  renderAchievements((kingdom === "plants" ? plantAchievementStats : achievementStats) || {}, kingdom);
-  if (kingdom === "plants") return;
+  renderAchievements();
   if (!userId) { status.textContent = "로그인하면 발전과제 진행도와 메달이 계정에 저장됩니다."; return; }
   status.textContent = "발전과제 기록을 불러오는 중…";
   try {
     await Promise.all([...pendingAchievementWrites, ...pendingCollectionWrites]);
-    await refreshAchievementStats(false, kingdom);
-    if (currentUser?.id !== userId || selectedKingdom !== kingdom) return;
-    renderAchievements(kingdom === "plants" ? plantAchievementStats : achievementStats, kingdom);
+    await refreshAchievementStats(false);
+    if (currentUser?.id !== userId) return;
+    renderAchievements();
     status.textContent = "메달을 가리키거나 눌러 조건과 진행도를 확인해 보세요.";
   } catch (error) {
     console.error(error);
-    if (currentUser?.id === userId && selectedKingdom === kingdom) status.textContent = "기록을 불러오지 못했어요. 발전과제 메뉴를 다시 열어 주세요.";
+    if (currentUser?.id === userId) status.textContent = "기록을 불러오지 못했어요. 발전과제 메뉴를 다시 열어 주세요.";
   }
 }
 
@@ -876,8 +864,8 @@ async function submitScore() {
       if (!response.ok) throw new Error(`Plant score request failed: ${response.status}`);
       if (currentUser?.id !== userId) return;
       await Promise.all([...pendingAchievementWrites, ...pendingCollectionWrites]);
-      await refreshAchievementStats(true, "plants");
-      status.textContent = "식물계 발전과제와 수집 기록을 저장했습니다.";
+      await refreshAchievementStats(true);
+      status.textContent = "발전과제와 식물 수집 기록을 저장했습니다.";
     } catch (error) {
       console.error(error); scoreSubmitted = false;
       status.textContent = "식물계 기록을 저장하지 못했어요.";
@@ -911,7 +899,7 @@ async function submitScore() {
     if (!state.practice) currentGamesPlayed = Number.isSafeInteger(data.entry?.gamesPlayed) ? data.entry.gamesPlayed : currentGamesPlayed + 1;
     status.textContent = state.practice ? "연습 기록을 저장했습니다." : "리더보드에 기록했습니다.";
     await Promise.all([...pendingCollectionWrites]);
-    try { await refreshAchievementStats(true, "animals"); }
+    try { await refreshAchievementStats(true); }
     catch (error) { console.error(error); showToast("기록은 저장했지만 발전과제를 불러오지 못했어요."); }
     await loadLeaderboard();
   } catch (error) {
@@ -1139,8 +1127,8 @@ async function startGame(options = {}) {
     $("#failure-score-status").textContent = "";
     card.classList.remove("is-selected", "is-dragging", "is-locked");
     card.setAttribute("draggable", "true");
-    if (currentUser && !(selectedKingdom === "plants" ? plantAchievementStats : achievementStats)) {
-      try { await refreshAchievementStats(false, selectedKingdom); }
+    if (currentUser && (!achievementStats || !plantAchievementStats)) {
+      try { await refreshAchievementStats(false); }
       catch (error) { console.error(error); }
     }
     if (!tutorial) await recordAchievementEvent(practice ? "practice-start" : "normal-start");
